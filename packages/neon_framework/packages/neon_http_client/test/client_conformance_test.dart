@@ -6,11 +6,7 @@ void main() {
   group(
     'Neon Client VM conformance test',
     () {
-      testAll(
-        () => NeonHttpClient(baseURL: Uri()),
-        canReceiveSetCookieHeaders: true,
-        canSendCookieHeaders: true,
-      );
+      testAll(() => NeonHttpClient(baseURL: Uri()), canReceiveSetCookieHeaders: true, canSendCookieHeaders: true);
     },
     onPlatform: const {
       'browser': [Skip()],

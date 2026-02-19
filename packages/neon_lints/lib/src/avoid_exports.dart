@@ -21,11 +21,7 @@ Neon clients should not have any public api other than the 'AppImplementation'.
   static const String _internal = 'internal';
 
   @override
-  void run(
-    CustomLintResolver resolver,
-    ErrorReporter reporter,
-    CustomLintContext context,
-  ) {
+  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addAnnotation((node) {
       if (node.name case Identifier(name: _internal)) {
         reporter.atToken(node.beginToken, _code);

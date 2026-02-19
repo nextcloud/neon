@@ -13,11 +13,7 @@ final class AvoidDartIO extends DartLintRule {
   );
 
   @override
-  void run(
-    CustomLintResolver resolver,
-    ErrorReporter reporter,
-    CustomLintContext context,
-  ) {
+  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addImportDirective((node) {
       if (node.uri.stringValue == 'dart:io') {
         reporter.atToken(node.beginToken, _code);

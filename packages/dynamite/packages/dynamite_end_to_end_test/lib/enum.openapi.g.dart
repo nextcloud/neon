@@ -46,11 +46,7 @@ EnumInt _$valueOfEnumInt(String name) {
   }
 }
 
-final BuiltSet<EnumInt> _$enumIntValues = BuiltSet<EnumInt>(const <EnumInt>[
-  _$enumInt$0,
-  _$enumInt$1,
-  _$enumInt$2,
-]);
+final BuiltSet<EnumInt> _$enumIntValues = BuiltSet<EnumInt>(const <EnumInt>[_$enumInt$0, _$enumInt$1, _$enumInt$2]);
 
 const EnumDynamic _$enumDynamic$0 = const EnumDynamic._('\$0');
 const EnumDynamic _$enumDynamicString = const EnumDynamic._('string');
@@ -111,12 +107,9 @@ WrappedEnum_Integer _$valueOfWrappedEnum_Integer(String name) {
   }
 }
 
-final BuiltSet<WrappedEnum_Integer> _$wrappedEnumIntegerValues =
-    BuiltSet<WrappedEnum_Integer>(const <WrappedEnum_Integer>[
-  _$wrappedEnumInteger$0,
-  _$wrappedEnumInteger$1,
-  _$wrappedEnumInteger$2,
-]);
+final BuiltSet<WrappedEnum_Integer> _$wrappedEnumIntegerValues = BuiltSet<WrappedEnum_Integer>(
+  const <WrappedEnum_Integer>[_$wrappedEnumInteger$0, _$wrappedEnumInteger$1, _$wrappedEnumInteger$2],
+);
 
 Serializer<WrappedEnum> _$wrappedEnumSerializer = _$WrappedEnumSerializer();
 Serializer<EnumReference> _$enumReferenceSerializer = _$EnumReferenceSerializer();
@@ -128,8 +121,11 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   final String wireName = 'WrappedEnum';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WrappedEnum object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WrappedEnum object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'String',
       serializers.serialize(object.string, specifiedType: const FullType(WrappedEnum_String)),
@@ -141,8 +137,11 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
   }
 
   @override
-  WrappedEnum deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WrappedEnum deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WrappedEnumBuilder();
 
     final iterator = serialized.iterator;
@@ -156,8 +155,9 @@ class _$WrappedEnumSerializer implements StructuredSerializer<WrappedEnum> {
               serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_String))! as WrappedEnum_String;
           break;
         case 'integer':
-          result.integer = serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_Integer))!
-              as WrappedEnum_Integer;
+          result.integer =
+              serializers.deserialize(value, specifiedType: const FullType(WrappedEnum_Integer))!
+                  as WrappedEnum_Integer;
           break;
       }
     }
@@ -173,19 +173,22 @@ class _$EnumReferenceSerializer implements StructuredSerializer<EnumReference> {
   final String wireName = 'EnumReference';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, EnumReference object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'string',
-      serializers.serialize(object.string, specifiedType: const FullType(EnumString)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    EnumReference object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['string', serializers.serialize(object.string, specifiedType: const FullType(EnumString))];
 
     return result;
   }
 
   @override
-  EnumReference deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  EnumReference deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = EnumReferenceBuilder();
 
     final iterator = serialized.iterator;
@@ -294,7 +297,8 @@ class WrappedEnumBuilder implements Builder<WrappedEnum, WrappedEnumBuilder>, $W
 
   _$WrappedEnum _build() {
     WrappedEnum._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$WrappedEnum._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'WrappedEnum', 'string'),
           integer: BuiltValueNullFieldError.checkNotNull(integer, r'WrappedEnum', 'integer'),
@@ -380,10 +384,8 @@ class EnumReferenceBuilder implements Builder<EnumReference, EnumReferenceBuilde
 
   _$EnumReference _build() {
     EnumReference._validate(this);
-    final _$result = _$v ??
-        _$EnumReference._(
-          string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'),
-        );
+    final _$result =
+        _$v ?? _$EnumReference._(string: BuiltValueNullFieldError.checkNotNull(string, r'EnumReference', 'string'));
     replace(_$result);
     return _$result;
   }

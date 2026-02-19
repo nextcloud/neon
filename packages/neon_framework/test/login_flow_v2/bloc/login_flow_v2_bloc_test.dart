@@ -32,15 +32,10 @@ void main() {
     });
 
     final serverURL = Uri.https('serverURL');
-    final credentials = createCredentials(
-      serverURL: Uri.https('credentials_serverURL'),
-    );
+    final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
 
     LoginFlowV2Bloc buildBloc() {
-      return LoginFlowV2Bloc(
-        serverURL: serverURL,
-        accountRepository: accountRepository,
-      );
+      return LoginFlowV2Bloc(serverURL: serverURL, accountRepository: accountRepository);
     }
 
     group('constructor', () {
@@ -49,10 +44,7 @@ void main() {
       });
 
       test('has correct initial state', () {
-        expect(
-          buildBloc().state,
-          equals(LoginFlowV2StateInitial(serverURL: serverURL)),
-        );
+        expect(buildBloc().state, equals(LoginFlowV2StateInitial(serverURL: serverURL)));
       });
     });
 
@@ -61,31 +53,19 @@ void main() {
         'emits new state with loginUrl, opens the url and polls endpoint',
         build: buildBloc,
         setUp: () async {
-          when(() => accountRepository.loginFlowInit(any())).thenAnswer(
-            (_) async => (Uri.https('login_uri'), 'token'),
-          );
-          when(() => accountRepository.loginFlowPoll(any(), any())).thenAnswer(
-            (_) async => credentials,
-          );
+          when(() => accountRepository.loginFlowInit(any())).thenAnswer((_) async => (Uri.https('login_uri'), 'token'));
+          when(() => accountRepository.loginFlowPoll(any(), any())).thenAnswer((_) async => credentials);
         },
         act: (bloc) => bloc.add(const LoginFlowV2Init()),
         wait: const Duration(seconds: 2),
-        expect: () => [
-          LoginFlowV2StatePolling(
-            serverURL: serverURL,
-            loginEndpoint: Uri.https('login_uri'),
-            token: 'token',
-          ),
-          LoginFlowV2StateSuccess(
-            serverURL: serverURL,
-            credentials: credentials,
-          ),
-        ],
+        expect:
+            () => [
+              LoginFlowV2StatePolling(serverURL: serverURL, loginEndpoint: Uri.https('login_uri'), token: 'token'),
+              LoginFlowV2StateSuccess(serverURL: serverURL, credentials: credentials),
+            ],
         verify: (bloc) async {
           verify(() => accountRepository.loginFlowInit(serverURL)).called(1);
-          verify(
-            () => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any()),
-          ).called(1);
+          verify(() => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any())).called(1);
           verify(() => accountRepository.loginFlowPoll(serverURL, 'token')).called(1);
         },
       );
@@ -94,23 +74,15 @@ void main() {
         'adds unwrapped InitLoginFailure errors to bloc',
         build: buildBloc,
         setUp: () async {
-          when(() => accountRepository.loginFlowInit(any())).thenThrow(
-            InitLoginFailure(serverURL),
-          );
-          when(() => accountRepository.loginFlowPoll(any(), any())).thenAnswer(
-            (_) async => credentials,
-          );
+          when(() => accountRepository.loginFlowInit(any())).thenThrow(InitLoginFailure(serverURL));
+          when(() => accountRepository.loginFlowPoll(any(), any())).thenAnswer((_) async => credentials);
         },
         act: (bloc) => bloc.add(const LoginFlowV2Init()),
         expect: () => [],
-        errors: () => <Matcher>[
-          equals(serverURL),
-        ],
+        errors: () => <Matcher>[equals(serverURL)],
         verify: (bloc) async {
           verify(() => accountRepository.loginFlowInit(serverURL)).called(1);
-          verifyNever(
-            () => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any()),
-          );
+          verifyNever(() => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any()));
           verifyNever(() => accountRepository.loginFlowPoll(any(), any()));
         },
       );
@@ -119,33 +91,20 @@ void main() {
         'adds unwrapped PollLoginFailure errors to bloc',
         build: buildBloc,
         setUp: () async {
-          when(() => accountRepository.loginFlowInit(any())).thenAnswer(
-            (_) async => (Uri.https('login_uri'), 'token'),
-          );
-          when(() => accountRepository.loginFlowPoll(any(), any())).thenThrow(
-            PollLoginFailure(serverURL),
-          );
+          when(() => accountRepository.loginFlowInit(any())).thenAnswer((_) async => (Uri.https('login_uri'), 'token'));
+          when(() => accountRepository.loginFlowPoll(any(), any())).thenThrow(PollLoginFailure(serverURL));
         },
         act: (bloc) => bloc.add(const LoginFlowV2Init()),
         wait: const Duration(seconds: 2),
-        expect: () => [
-          LoginFlowV2StatePolling(
-            serverURL: serverURL,
-            loginEndpoint: Uri.https('login_uri'),
-            token: 'token',
-          ),
-          LoginFlowV2StateInitial(
-            serverURL: serverURL,
-          ),
-        ],
-        errors: () => <Matcher>[
-          equals(serverURL),
-        ],
+        expect:
+            () => [
+              LoginFlowV2StatePolling(serverURL: serverURL, loginEndpoint: Uri.https('login_uri'), token: 'token'),
+              LoginFlowV2StateInitial(serverURL: serverURL),
+            ],
+        errors: () => <Matcher>[equals(serverURL)],
         verify: (bloc) async {
           verify(() => accountRepository.loginFlowInit(serverURL)).called(1);
-          verify(
-            () => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any()),
-          ).called(1);
+          verify(() => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any())).called(1);
           verify(() => accountRepository.loginFlowPoll(serverURL, 'token')).called(1);
         },
       );
@@ -156,16 +115,11 @@ void main() {
         'launches login uri',
         build: buildBloc,
         act: (bloc) => bloc.add(const LoginFlowV2OpenPage()),
-        seed: () => LoginFlowV2StatePolling(
-          serverURL: serverURL,
-          loginEndpoint: Uri.https('login_uri'),
-          token: 'token',
-        ),
+        seed:
+            () => LoginFlowV2StatePolling(serverURL: serverURL, loginEndpoint: Uri.https('login_uri'), token: 'token'),
         expect: () => [],
         verify: (bloc) async {
-          verify(
-            () => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any()),
-          ).called(1);
+          verify(() => UrlLauncherPlatform.instance.launchUrl('https://login_uri', any())).called(1);
         },
       );
     });

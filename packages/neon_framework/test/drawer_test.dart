@@ -27,23 +27,21 @@ void main() {
       NeonNavigationDestination(
         label: 'label',
         // ignore: avoid_types_on_closure_parameters
-        icon: ({size, Color? color}) => Icon(
-          Icons.add,
-          size: size,
-          color: color,
-        ),
+        icon: ({size, Color? color}) => Icon(Icons.add, size: size, color: color),
       ),
     );
 
-    final appImplementations =
-        BehaviorSubject<Result<BuiltSet<AppImplementation>>>.seeded(Result.success(BuiltSet({appImplementation})));
+    final appImplementations = BehaviorSubject<Result<BuiltSet<AppImplementation>>>.seeded(
+      Result.success(BuiltSet({appImplementation})),
+    );
     final activeApp = BehaviorSubject<AppImplementation>();
     final appsBloc = MockAppsBloc();
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
     when(() => appsBloc.appImplementations).thenAnswer((_) => appImplementations);
 
-    final capabilities =
-        BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>.seeded(Result.error(null));
+    final capabilities = BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>.seeded(
+      Result.error(null),
+    );
     final capabilitiesBloc = MockCapabilitiesBloc();
     when(() => capabilitiesBloc.capabilities).thenAnswer((_) => capabilities);
 

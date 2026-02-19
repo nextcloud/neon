@@ -37,7 +37,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $WeatherStatusClient weatherStatus = $WeatherStatusClient(this);
 }
@@ -133,12 +133,12 @@ class $WeatherStatusClient {
   /// Builds a serializer to parse the response of [$usePersonalAddress_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WeatherStatusUsePersonalAddressResponseApplicationJson, void>
-      $usePersonalAddress_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $usePersonalAddress_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Try to use the address set in user personal settings as weather location.
   ///
@@ -336,19 +336,20 @@ class $WeatherStatusClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              WeatherStatusSetLocationRequestApplicationJson(),
-              specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                WeatherStatusSetLocationRequestApplicationJson(),
+                specifiedType: const FullType(WeatherStatusSetLocationRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -1071,8 +1072,10 @@ sealed class $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterfac
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs
     implements
         $WeatherStatusUsePersonalAddressResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
-            WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs,
+          WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs([
     void Function(WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder)? b,
@@ -1135,8 +1138,10 @@ sealed class $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface {
 abstract class WeatherStatusUsePersonalAddressResponseApplicationJson
     implements
         $WeatherStatusUsePersonalAddressResponseApplicationJsonInterface,
-        Built<WeatherStatusUsePersonalAddressResponseApplicationJson,
-            WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder> {
+        Built<
+          WeatherStatusUsePersonalAddressResponseApplicationJson,
+          WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder
+        > {
   /// Creates a new WeatherStatusUsePersonalAddressResponseApplicationJson object using the builder pattern.
   factory WeatherStatusUsePersonalAddressResponseApplicationJson([
     void Function(WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder)? b,
@@ -1314,8 +1319,10 @@ sealed class $WeatherStatusGetLocationResponseApplicationJson_OcsInterface {
 abstract class WeatherStatusGetLocationResponseApplicationJson_Ocs
     implements
         $WeatherStatusGetLocationResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusGetLocationResponseApplicationJson_Ocs,
-            WeatherStatusGetLocationResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusGetLocationResponseApplicationJson_Ocs,
+          WeatherStatusGetLocationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusGetLocationResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusGetLocationResponseApplicationJson_Ocs([
     void Function(WeatherStatusGetLocationResponseApplicationJson_OcsBuilder)? b,
@@ -1512,8 +1519,10 @@ sealed class $WeatherStatusSetLocationResponseApplicationJson_OcsInterface {
 abstract class WeatherStatusSetLocationResponseApplicationJson_Ocs
     implements
         $WeatherStatusSetLocationResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusSetLocationResponseApplicationJson_Ocs,
-            WeatherStatusSetLocationResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusSetLocationResponseApplicationJson_Ocs,
+          WeatherStatusSetLocationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusSetLocationResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusSetLocationResponseApplicationJson_Ocs([
     void Function(WeatherStatusSetLocationResponseApplicationJson_OcsBuilder)? b,
@@ -2425,8 +2434,10 @@ sealed class $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
     implements
         $WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Interface,
-        Built<WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1,
-            WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder> {
+        Built<
+          WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1,
+          WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder
+        > {
   /// Creates a new WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1 object using the builder pattern.
   factory WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1([
     void Function(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder)? b,
@@ -2466,10 +2477,12 @@ abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1
   }
 }
 
-typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data = ({
-  BuiltList<Forecast>? builtListForecast,
-  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1,
-});
+typedef WeatherStatusGetForecastResponseApplicationJson_Ocs_Data =
+    ({
+      BuiltList<Forecast>? builtListForecast,
+      WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1?
+      weatherStatusGetForecastResponseApplicationJsonOcsData1,
+    });
 
 @BuiltValue(instantiable: false)
 sealed class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
@@ -2497,8 +2510,10 @@ sealed class $WeatherStatusGetForecastResponseApplicationJson_OcsInterface {
 abstract class WeatherStatusGetForecastResponseApplicationJson_Ocs
     implements
         $WeatherStatusGetForecastResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusGetForecastResponseApplicationJson_Ocs,
-            WeatherStatusGetForecastResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusGetForecastResponseApplicationJson_Ocs,
+          WeatherStatusGetForecastResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusGetForecastResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusGetForecastResponseApplicationJson_Ocs([
     void Function(WeatherStatusGetForecastResponseApplicationJson_OcsBuilder)? b,
@@ -2625,8 +2640,10 @@ sealed class $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface {
 abstract class WeatherStatusGetFavoritesResponseApplicationJson_Ocs
     implements
         $WeatherStatusGetFavoritesResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusGetFavoritesResponseApplicationJson_Ocs,
-            WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusGetFavoritesResponseApplicationJson_Ocs,
+          WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusGetFavoritesResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusGetFavoritesResponseApplicationJson_Ocs([
     void Function(WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder)? b,
@@ -2689,8 +2706,10 @@ sealed class $WeatherStatusGetFavoritesResponseApplicationJsonInterface {
 abstract class WeatherStatusGetFavoritesResponseApplicationJson
     implements
         $WeatherStatusGetFavoritesResponseApplicationJsonInterface,
-        Built<WeatherStatusGetFavoritesResponseApplicationJson,
-            WeatherStatusGetFavoritesResponseApplicationJsonBuilder> {
+        Built<
+          WeatherStatusGetFavoritesResponseApplicationJson,
+          WeatherStatusGetFavoritesResponseApplicationJsonBuilder
+        > {
   /// Creates a new WeatherStatusGetFavoritesResponseApplicationJson object using the builder pattern.
   factory WeatherStatusGetFavoritesResponseApplicationJson([
     void Function(WeatherStatusGetFavoritesResponseApplicationJsonBuilder)? b,
@@ -2818,8 +2837,10 @@ sealed class $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface {
 abstract class WeatherStatusSetFavoritesResponseApplicationJson_Ocs
     implements
         $WeatherStatusSetFavoritesResponseApplicationJson_OcsInterface,
-        Built<WeatherStatusSetFavoritesResponseApplicationJson_Ocs,
-            WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder> {
+        Built<
+          WeatherStatusSetFavoritesResponseApplicationJson_Ocs,
+          WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WeatherStatusSetFavoritesResponseApplicationJson_Ocs object using the builder pattern.
   factory WeatherStatusSetFavoritesResponseApplicationJson_Ocs([
     void Function(WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder)? b,
@@ -2882,8 +2903,10 @@ sealed class $WeatherStatusSetFavoritesResponseApplicationJsonInterface {
 abstract class WeatherStatusSetFavoritesResponseApplicationJson
     implements
         $WeatherStatusSetFavoritesResponseApplicationJsonInterface,
-        Built<WeatherStatusSetFavoritesResponseApplicationJson,
-            WeatherStatusSetFavoritesResponseApplicationJsonBuilder> {
+        Built<
+          WeatherStatusSetFavoritesResponseApplicationJson,
+          WeatherStatusSetFavoritesResponseApplicationJsonBuilder
+        > {
   /// Creates a new WeatherStatusSetFavoritesResponseApplicationJson object using the builder pattern.
   factory WeatherStatusSetFavoritesResponseApplicationJson([
     void Function(WeatherStatusSetFavoritesResponseApplicationJsonBuilder)? b,
@@ -3052,10 +3075,12 @@ extension $WeatherStatusGetForecastResponseApplicationJson_Ocs_DataExtension
       $20fe3de793aed6fbf929c9b82b472b1aExtension._fromJson(json);
 }
 
-typedef _$20fe3de793aed6fbf929c9b82b472b1a = ({
-  BuiltList<Forecast>? builtListForecast,
-  WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1,
-});
+typedef _$20fe3de793aed6fbf929c9b82b472b1a =
+    ({
+      BuiltList<Forecast>? builtListForecast,
+      WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1?
+      weatherStatusGetForecastResponseApplicationJsonOcsData1,
+    });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -3118,15 +3143,18 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Forecast>? builtListForecast;
     try {
-      builtListForecast = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!
-          as BuiltList<Forecast>;
+      builtListForecast =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Forecast)]))!
+              as BuiltList<Forecast>;
     } catch (_) {}
     WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1? weatherStatusGetForecastResponseApplicationJsonOcsData1;
     try {
-      weatherStatusGetForecastResponseApplicationJsonOcsData1 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
-      )! as WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1;
+      weatherStatusGetForecastResponseApplicationJsonOcsData1 =
+          serializers.deserialize(
+                data,
+                specifiedType: const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
+              )!
+              as WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1;
     } catch (_) {}
     return (
       builtListForecast: builtListForecast,
@@ -3142,161 +3170,162 @@ class _$20fe3de793aed6fbf929c9b82b472b1aSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetModeRequestApplicationJson),
-        WeatherStatusSetModeRequestApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetModeRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetModeResponseApplicationJson),
-        WeatherStatusSetModeResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetModeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetModeResponseApplicationJson_Ocs),
-        WeatherStatusSetModeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusSetModeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Success), SuccessBuilder.new)
-      ..add(Success.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
-        WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusUsePersonalAddressResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs),
-        WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(LocationWithSuccess), LocationWithSuccessBuilder.new)
-      ..add(LocationWithSuccess.serializer)
-      ..addBuilderFactory(const FullType(Location), LocationBuilder.new)
-      ..add(Location.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetLocationResponseApplicationJson),
-        WeatherStatusGetLocationResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusGetLocationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs),
-        WeatherStatusGetLocationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(LocationWithMode), LocationWithModeBuilder.new)
-      ..add(LocationWithMode.serializer)
-      ..addBuilderFactory(const FullType(Mode), ModeBuilder.new)
-      ..add(Mode.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetLocationRequestApplicationJson),
-        WeatherStatusSetLocationRequestApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetLocationRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetLocationResponseApplicationJson),
-        WeatherStatusSetLocationResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetLocationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetLocationResponseApplicationJson_Ocs),
-        WeatherStatusSetLocationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetForecastResponseApplicationJson),
-        WeatherStatusGetForecastResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusGetForecastResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs),
-        WeatherStatusGetForecastResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Forecast), ForecastBuilder.new)
-      ..add(Forecast.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data), Forecast_DataBuilder.new)
-      ..add(Forecast_Data.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Instant), Forecast_Data_InstantBuilder.new)
-      ..add(Forecast_Data_Instant.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Instant_Details), Forecast_Data_Instant_DetailsBuilder.new)
-      ..add(Forecast_Data_Instant_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours), Forecast_Data_Next12HoursBuilder.new)
-      ..add(Forecast_Data_Next12Hours.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next12Hours_Summary),
-        Forecast_Data_Next12Hours_SummaryBuilder.new,
-      )
-      ..add(Forecast_Data_Next12Hours_Summary.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next12Hours_Details),
-        Forecast_Data_Next12Hours_DetailsBuilder.new,
-      )
-      ..add(Forecast_Data_Next12Hours_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours), Forecast_Data_Next1HoursBuilder.new)
-      ..add(Forecast_Data_Next1Hours.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next1Hours_Summary),
-        Forecast_Data_Next1Hours_SummaryBuilder.new,
-      )
-      ..add(Forecast_Data_Next1Hours_Summary.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next1Hours_Details),
-        Forecast_Data_Next1Hours_DetailsBuilder.new,
-      )
-      ..add(Forecast_Data_Next1Hours_Details.serializer)
-      ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours), Forecast_Data_Next6HoursBuilder.new)
-      ..add(Forecast_Data_Next6Hours.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next6Hours_Summary),
-        Forecast_Data_Next6Hours_SummaryBuilder.new,
-      )
-      ..add(Forecast_Data_Next6Hours_Summary.serializer)
-      ..addBuilderFactory(
-        const FullType(Forecast_Data_Next6Hours_Details),
-        Forecast_Data_Next6Hours_DetailsBuilder.new,
-      )
-      ..add(Forecast_Data_Next6Hours_Details.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Forecast)]), ListBuilder<Forecast>.new)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
-        WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder.new,
-      )
-      ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.serializer)
-      ..add($20fe3de793aed6fbf929c9b82b472b1aExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
-        WeatherStatusGetFavoritesResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusGetFavoritesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusGetFavoritesResponseApplicationJson_Ocs),
-        WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusGetFavoritesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetFavoritesRequestApplicationJson),
-        WeatherStatusSetFavoritesRequestApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetFavoritesRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
-        WeatherStatusSetFavoritesResponseApplicationJsonBuilder.new,
-      )
-      ..add(WeatherStatusSetFavoritesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusSetFavoritesResponseApplicationJson_Ocs),
-        WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_WeatherStatus), Capabilities_WeatherStatusBuilder.new)
-      ..add(Capabilities_WeatherStatus.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetModeRequestApplicationJson),
+            WeatherStatusSetModeRequestApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetModeRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetModeResponseApplicationJson),
+            WeatherStatusSetModeResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetModeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetModeResponseApplicationJson_Ocs),
+            WeatherStatusSetModeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusSetModeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(Success), SuccessBuilder.new)
+          ..add(Success.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson),
+            WeatherStatusUsePersonalAddressResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusUsePersonalAddressResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs),
+            WeatherStatusUsePersonalAddressResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusUsePersonalAddressResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(LocationWithSuccess), LocationWithSuccessBuilder.new)
+          ..add(LocationWithSuccess.serializer)
+          ..addBuilderFactory(const FullType(Location), LocationBuilder.new)
+          ..add(Location.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetLocationResponseApplicationJson),
+            WeatherStatusGetLocationResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusGetLocationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetLocationResponseApplicationJson_Ocs),
+            WeatherStatusGetLocationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusGetLocationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(LocationWithMode), LocationWithModeBuilder.new)
+          ..add(LocationWithMode.serializer)
+          ..addBuilderFactory(const FullType(Mode), ModeBuilder.new)
+          ..add(Mode.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetLocationRequestApplicationJson),
+            WeatherStatusSetLocationRequestApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetLocationRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetLocationResponseApplicationJson),
+            WeatherStatusSetLocationResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetLocationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetLocationResponseApplicationJson_Ocs),
+            WeatherStatusSetLocationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusSetLocationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetForecastResponseApplicationJson),
+            WeatherStatusGetForecastResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusGetForecastResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs),
+            WeatherStatusGetForecastResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Forecast), ForecastBuilder.new)
+          ..add(Forecast.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data), Forecast_DataBuilder.new)
+          ..add(Forecast_Data.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data_Instant), Forecast_Data_InstantBuilder.new)
+          ..add(Forecast_Data_Instant.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data_Instant_Details), Forecast_Data_Instant_DetailsBuilder.new)
+          ..add(Forecast_Data_Instant_Details.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data_Next12Hours), Forecast_Data_Next12HoursBuilder.new)
+          ..add(Forecast_Data_Next12Hours.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next12Hours_Summary),
+            Forecast_Data_Next12Hours_SummaryBuilder.new,
+          )
+          ..add(Forecast_Data_Next12Hours_Summary.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next12Hours_Details),
+            Forecast_Data_Next12Hours_DetailsBuilder.new,
+          )
+          ..add(Forecast_Data_Next12Hours_Details.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data_Next1Hours), Forecast_Data_Next1HoursBuilder.new)
+          ..add(Forecast_Data_Next1Hours.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next1Hours_Summary),
+            Forecast_Data_Next1Hours_SummaryBuilder.new,
+          )
+          ..add(Forecast_Data_Next1Hours_Summary.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next1Hours_Details),
+            Forecast_Data_Next1Hours_DetailsBuilder.new,
+          )
+          ..add(Forecast_Data_Next1Hours_Details.serializer)
+          ..addBuilderFactory(const FullType(Forecast_Data_Next6Hours), Forecast_Data_Next6HoursBuilder.new)
+          ..add(Forecast_Data_Next6Hours.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next6Hours_Summary),
+            Forecast_Data_Next6Hours_SummaryBuilder.new,
+          )
+          ..add(Forecast_Data_Next6Hours_Summary.serializer)
+          ..addBuilderFactory(
+            const FullType(Forecast_Data_Next6Hours_Details),
+            Forecast_Data_Next6Hours_DetailsBuilder.new,
+          )
+          ..add(Forecast_Data_Next6Hours_Details.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Forecast)]), ListBuilder<Forecast>.new)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1),
+            WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1Builder.new,
+          )
+          ..add(WeatherStatusGetForecastResponseApplicationJson_Ocs_Data1.serializer)
+          ..add($20fe3de793aed6fbf929c9b82b472b1aExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetFavoritesResponseApplicationJson),
+            WeatherStatusGetFavoritesResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusGetFavoritesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusGetFavoritesResponseApplicationJson_Ocs),
+            WeatherStatusGetFavoritesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusGetFavoritesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetFavoritesRequestApplicationJson),
+            WeatherStatusSetFavoritesRequestApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetFavoritesRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetFavoritesResponseApplicationJson),
+            WeatherStatusSetFavoritesResponseApplicationJsonBuilder.new,
+          )
+          ..add(WeatherStatusSetFavoritesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusSetFavoritesResponseApplicationJson_Ocs),
+            WeatherStatusSetFavoritesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WeatherStatusSetFavoritesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_WeatherStatus), Capabilities_WeatherStatusBuilder.new)
+          ..add(Capabilities_WeatherStatus.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -3304,10 +3333,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$20fe3de793aed6fbf929c9b82b472b1a}))
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$20fe3de793aed6fbf929c9b82b472b1a}))
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

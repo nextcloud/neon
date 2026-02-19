@@ -22,9 +22,9 @@ PreviewGetPreviewMimeFallback _$valueOfPreviewGetPreviewMimeFallback(String name
 
 final BuiltSet<PreviewGetPreviewMimeFallback> _$previewGetPreviewMimeFallbackValues =
     BuiltSet<PreviewGetPreviewMimeFallback>(const <PreviewGetPreviewMimeFallback>[
-  _$previewGetPreviewMimeFallback$0,
-  _$previewGetPreviewMimeFallback$1,
-]);
+      _$previewGetPreviewMimeFallback$0,
+      _$previewGetPreviewMimeFallback$1,
+    ]);
 
 Serializer<Capabilities_Files> _$capabilitiesFilesSerializer = _$Capabilities_FilesSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
@@ -36,8 +36,11 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'versioning',
       serializers.serialize(object.versioning, specifiedType: const FullType(bool)),
@@ -51,8 +54,11 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   }
 
   @override
-  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
@@ -84,8 +90,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'files',
       serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
@@ -95,8 +104,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -107,7 +119,8 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       switch (key) {
         case 'files':
           result.files.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files,
+          );
           break;
       }
     }
@@ -141,7 +154,7 @@ class _$Capabilities_Files extends Capabilities_Files {
       (Capabilities_FilesBuilder()..update(updates))._build();
 
   _$Capabilities_Files._({required this.versioning, required this.versionLabeling, required this.versionDeletion})
-      : super._();
+    : super._();
   @override
   Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -224,13 +237,20 @@ class Capabilities_FilesBuilder
 
   _$Capabilities_Files _build() {
     Capabilities_Files._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Files._(
           versioning: BuiltValueNullFieldError.checkNotNull(versioning, r'Capabilities_Files', 'versioning'),
-          versionLabeling:
-              BuiltValueNullFieldError.checkNotNull(versionLabeling, r'Capabilities_Files', 'versionLabeling'),
-          versionDeletion:
-              BuiltValueNullFieldError.checkNotNull(versionDeletion, r'Capabilities_Files', 'versionDeletion'),
+          versionLabeling: BuiltValueNullFieldError.checkNotNull(
+            versionLabeling,
+            r'Capabilities_Files',
+            'versionLabeling',
+          ),
+          versionDeletion: BuiltValueNullFieldError.checkNotNull(
+            versionDeletion,
+            r'Capabilities_Files',
+            'versionDeletion',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -315,10 +335,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            files: files.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {

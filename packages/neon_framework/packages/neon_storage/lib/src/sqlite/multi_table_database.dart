@@ -10,9 +10,7 @@ abstract class MultiTableDatabase {
   /// Creates a new database for the given [tables].
   ///
   /// The provided tables must have distinct names or an `ArgumentError` is thrown.
-  MultiTableDatabase({
-    required Iterable<Table> tables,
-  }) : _tables = BuiltList.from(tables) {
+  MultiTableDatabase({required Iterable<Table> tables}) : _tables = BuiltList.from(tables) {
     final names = _tables.map((t) => t.name).toSet();
 
     if (names.length != _tables.length || names.contains(_metaTable)) {
@@ -102,9 +100,7 @@ abstract class MultiTableDatabase {
     for (final table in _tables) {
       table.controller = this;
     }
-    await Future.wait(
-      _tables.map((t) => t.onOpen()),
-    );
+    await Future.wait(_tables.map((t) => t.onOpen()));
 
     _database = database;
   }
@@ -138,13 +134,7 @@ CREATE TABLE IF NOT EXISTS "$_metaTable" (
 
       if (oldVersion == null) {
         table.onCreate(batch, newVersion);
-        batch.insert(
-          _metaTable,
-          {
-            'name': table.name,
-            'version': newVersion,
-          },
-        );
+        batch.insert(_metaTable, {'name': table.name, 'version': newVersion});
         continue;
       } else if (oldVersion == newVersion) {
         continue;
@@ -154,15 +144,7 @@ CREATE TABLE IF NOT EXISTS "$_metaTable" (
         table.onUpgrade(batch, oldVersion, newVersion);
       }
 
-      batch.update(
-        _metaTable,
-        {
-          'name': table.name,
-          'version': newVersion,
-        },
-        where: 'name = ?',
-        whereArgs: [table.name],
-      );
+      batch.update(_metaTable, {'name': table.name, 'version': newVersion}, where: 'name = ?', whereArgs: [table.name]);
     }
 
     await batch.commit(noResult: true);

@@ -20,11 +20,9 @@ PublicPreviewGetPreviewA _$valueOfPublicPreviewGetPreviewA(String name) {
   }
 }
 
-final BuiltSet<PublicPreviewGetPreviewA> _$publicPreviewGetPreviewAValues =
-    BuiltSet<PublicPreviewGetPreviewA>(const <PublicPreviewGetPreviewA>[
-  _$publicPreviewGetPreviewA$0,
-  _$publicPreviewGetPreviewA$1,
-]);
+final BuiltSet<PublicPreviewGetPreviewA> _$publicPreviewGetPreviewAValues = BuiltSet<PublicPreviewGetPreviewA>(
+  const <PublicPreviewGetPreviewA>[_$publicPreviewGetPreviewA$0, _$publicPreviewGetPreviewA$1],
+);
 
 const PublicPreviewGetPreviewMimeFallback _$publicPreviewGetPreviewMimeFallback$0 =
     const PublicPreviewGetPreviewMimeFallback._('\$0');
@@ -44,9 +42,9 @@ PublicPreviewGetPreviewMimeFallback _$valueOfPublicPreviewGetPreviewMimeFallback
 
 final BuiltSet<PublicPreviewGetPreviewMimeFallback> _$publicPreviewGetPreviewMimeFallbackValues =
     BuiltSet<PublicPreviewGetPreviewMimeFallback>(const <PublicPreviewGetPreviewMimeFallback>[
-  _$publicPreviewGetPreviewMimeFallback$0,
-  _$publicPreviewGetPreviewMimeFallback$1,
-]);
+      _$publicPreviewGetPreviewMimeFallback$0,
+      _$publicPreviewGetPreviewMimeFallback$1,
+    ]);
 
 const Share_HideDownload _$shareHideDownload$0 = const Share_HideDownload._('\$0');
 const Share_HideDownload _$shareHideDownload$1 = const Share_HideDownload._('\$1');
@@ -106,14 +104,15 @@ final BuiltSet<Share_MailSend> _$shareMailSendValues = BuiltSet<Share_MailSend>(
 ]);
 
 const ShareapiCreateShareRequestApplicationJson_PublicUpload
-    _$shareapiCreateShareRequestApplicationJsonPublicUpload$true =
+_$shareapiCreateShareRequestApplicationJsonPublicUpload$true =
     const ShareapiCreateShareRequestApplicationJson_PublicUpload._('\$true');
 const ShareapiCreateShareRequestApplicationJson_PublicUpload
-    _$shareapiCreateShareRequestApplicationJsonPublicUpload$false =
+_$shareapiCreateShareRequestApplicationJsonPublicUpload$false =
     const ShareapiCreateShareRequestApplicationJson_PublicUpload._('\$false');
 
 ShareapiCreateShareRequestApplicationJson_PublicUpload _$valueOfShareapiCreateShareRequestApplicationJson_PublicUpload(
-    String name) {
+  String name,
+) {
   switch (name) {
     case '\$true':
       return _$shareapiCreateShareRequestApplicationJsonPublicUpload$true;
@@ -125,8 +124,9 @@ ShareapiCreateShareRequestApplicationJson_PublicUpload _$valueOfShareapiCreateSh
 }
 
 final BuiltSet<ShareapiCreateShareRequestApplicationJson_PublicUpload>
-    _$shareapiCreateShareRequestApplicationJsonPublicUploadValues = BuiltSet<
-        ShareapiCreateShareRequestApplicationJson_PublicUpload>(const <ShareapiCreateShareRequestApplicationJson_PublicUpload>[
+_$shareapiCreateShareRequestApplicationJsonPublicUploadValues = BuiltSet<
+  ShareapiCreateShareRequestApplicationJson_PublicUpload
+>(const <ShareapiCreateShareRequestApplicationJson_PublicUpload>[
   _$shareapiCreateShareRequestApplicationJsonPublicUpload$true,
   _$shareapiCreateShareRequestApplicationJsonPublicUpload$false,
 ]);
@@ -137,7 +137,8 @@ const ShareapiCreateShareRequestApplicationJson_SendMail _$shareapiCreateShareRe
     const ShareapiCreateShareRequestApplicationJson_SendMail._('\$true');
 
 ShareapiCreateShareRequestApplicationJson_SendMail _$valueOfShareapiCreateShareRequestApplicationJson_SendMail(
-    String name) {
+  String name,
+) {
   switch (name) {
     case '\$false':
       return _$shareapiCreateShareRequestApplicationJsonSendMail$false;
@@ -149,11 +150,13 @@ ShareapiCreateShareRequestApplicationJson_SendMail _$valueOfShareapiCreateShareR
 }
 
 final BuiltSet<ShareapiCreateShareRequestApplicationJson_SendMail>
-    _$shareapiCreateShareRequestApplicationJsonSendMailValues = BuiltSet<
-        ShareapiCreateShareRequestApplicationJson_SendMail>(const <ShareapiCreateShareRequestApplicationJson_SendMail>[
-  _$shareapiCreateShareRequestApplicationJsonSendMail$false,
-  _$shareapiCreateShareRequestApplicationJsonSendMail$true,
-]);
+_$shareapiCreateShareRequestApplicationJsonSendMailValues =
+    BuiltSet<ShareapiCreateShareRequestApplicationJson_SendMail>(
+      const <ShareapiCreateShareRequestApplicationJson_SendMail>[
+        _$shareapiCreateShareRequestApplicationJsonSendMail$false,
+        _$shareapiCreateShareRequestApplicationJsonSendMail$true,
+      ],
+    );
 
 const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$0 = const ShareapiGetShareIncludeTags._('\$0');
 const ShareapiGetShareIncludeTags _$shareapiGetShareIncludeTags$1 = const ShareapiGetShareIncludeTags._('\$1');
@@ -169,11 +172,9 @@ ShareapiGetShareIncludeTags _$valueOfShareapiGetShareIncludeTags(String name) {
   }
 }
 
-final BuiltSet<ShareapiGetShareIncludeTags> _$shareapiGetShareIncludeTagsValues =
-    BuiltSet<ShareapiGetShareIncludeTags>(const <ShareapiGetShareIncludeTags>[
-  _$shareapiGetShareIncludeTags$0,
-  _$shareapiGetShareIncludeTags$1,
-]);
+final BuiltSet<ShareapiGetShareIncludeTags> _$shareapiGetShareIncludeTagsValues = BuiltSet<ShareapiGetShareIncludeTags>(
+  const <ShareapiGetShareIncludeTags>[_$shareapiGetShareIncludeTags$0, _$shareapiGetShareIncludeTags$1],
+);
 
 const ShareesapiSearchLookup _$shareesapiSearchLookup$0 = const ShareesapiSearchLookup._('\$0');
 const ShareesapiSearchLookup _$shareesapiSearchLookup$1 = const ShareesapiSearchLookup._('\$1');
@@ -189,11 +190,9 @@ ShareesapiSearchLookup _$valueOfShareesapiSearchLookup(String name) {
   }
 }
 
-final BuiltSet<ShareesapiSearchLookup> _$shareesapiSearchLookupValues =
-    BuiltSet<ShareesapiSearchLookup>(const <ShareesapiSearchLookup>[
-  _$shareesapiSearchLookup$0,
-  _$shareesapiSearchLookup$1,
-]);
+final BuiltSet<ShareesapiSearchLookup> _$shareesapiSearchLookupValues = BuiltSet<ShareesapiSearchLookup>(
+  const <ShareesapiSearchLookup>[_$shareesapiSearchLookup$0, _$shareesapiSearchLookup$1],
+);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<DeletedShare> _$deletedShareSerializer = _$DeletedShareSerializer();
@@ -202,7 +201,7 @@ Serializer<DeletedShareapiIndexResponseApplicationJson_Ocs> _$deletedShareapiInd
 Serializer<DeletedShareapiIndexResponseApplicationJson> _$deletedShareapiIndexResponseApplicationJsonSerializer =
     _$DeletedShareapiIndexResponseApplicationJsonSerializer();
 Serializer<DeletedShareapiUndeleteResponseApplicationJson_Ocs>
-    _$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer =
+_$deletedShareapiUndeleteResponseApplicationJsonOcsSerializer =
     _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer();
 Serializer<DeletedShareapiUndeleteResponseApplicationJson> _$deletedShareapiUndeleteResponseApplicationJsonSerializer =
     _$DeletedShareapiUndeleteResponseApplicationJsonSerializer();
@@ -247,13 +246,13 @@ Serializer<ShareapiCreateShareResponseApplicationJson_Ocs> _$shareapiCreateShare
 Serializer<ShareapiCreateShareResponseApplicationJson> _$shareapiCreateShareResponseApplicationJsonSerializer =
     _$ShareapiCreateShareResponseApplicationJsonSerializer();
 Serializer<ShareapiGetInheritedSharesResponseApplicationJson_Ocs>
-    _$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer =
+_$shareapiGetInheritedSharesResponseApplicationJsonOcsSerializer =
     _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiGetInheritedSharesResponseApplicationJson>
-    _$shareapiGetInheritedSharesResponseApplicationJsonSerializer =
+_$shareapiGetInheritedSharesResponseApplicationJsonSerializer =
     _$ShareapiGetInheritedSharesResponseApplicationJsonSerializer();
 Serializer<ShareapiPendingSharesResponseApplicationJson_Ocs>
-    _$shareapiPendingSharesResponseApplicationJsonOcsSerializer =
+_$shareapiPendingSharesResponseApplicationJsonOcsSerializer =
     _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiPendingSharesResponseApplicationJson> _$shareapiPendingSharesResponseApplicationJsonSerializer =
     _$ShareapiPendingSharesResponseApplicationJsonSerializer();
@@ -274,7 +273,7 @@ Serializer<ShareapiDeleteShareResponseApplicationJson> _$shareapiDeleteShareResp
 Serializer<ShareapiSendShareEmailRequestApplicationJson> _$shareapiSendShareEmailRequestApplicationJsonSerializer =
     _$ShareapiSendShareEmailRequestApplicationJsonSerializer();
 Serializer<ShareapiSendShareEmailResponseApplicationJson_Ocs>
-    _$shareapiSendShareEmailResponseApplicationJsonOcsSerializer =
+_$shareapiSendShareEmailResponseApplicationJsonOcsSerializer =
     _$ShareapiSendShareEmailResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiSendShareEmailResponseApplicationJson> _$shareapiSendShareEmailResponseApplicationJsonSerializer =
     _$ShareapiSendShareEmailResponseApplicationJsonSerializer();
@@ -283,10 +282,10 @@ Serializer<ShareapiAcceptShareResponseApplicationJson_Ocs> _$shareapiAcceptShare
 Serializer<ShareapiAcceptShareResponseApplicationJson> _$shareapiAcceptShareResponseApplicationJsonSerializer =
     _$ShareapiAcceptShareResponseApplicationJsonSerializer();
 Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data>
-    _$shareapiGenerateTokenResponseApplicationJsonOcsDataSerializer =
+_$shareapiGenerateTokenResponseApplicationJsonOcsDataSerializer =
     _$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ShareapiGenerateTokenResponseApplicationJson_Ocs>
-    _$shareapiGenerateTokenResponseApplicationJsonOcsSerializer =
+_$shareapiGenerateTokenResponseApplicationJsonOcsSerializer =
     _$ShareapiGenerateTokenResponseApplicationJson_OcsSerializer();
 Serializer<ShareapiGenerateTokenResponseApplicationJson> _$shareapiGenerateTokenResponseApplicationJsonSerializer =
     _$ShareapiGenerateTokenResponseApplicationJsonSerializer();
@@ -319,20 +318,20 @@ Serializer<ShareesRecommendedResult_Exact> _$shareesRecommendedResultExactSerial
     _$ShareesRecommendedResult_ExactSerializer();
 Serializer<ShareesRecommendedResult> _$shareesRecommendedResultSerializer = _$ShareesRecommendedResultSerializer();
 Serializer<ShareesapiFindRecommendedResponseApplicationJson_Ocs>
-    _$shareesapiFindRecommendedResponseApplicationJsonOcsSerializer =
+_$shareesapiFindRecommendedResponseApplicationJsonOcsSerializer =
     _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer();
 Serializer<ShareesapiFindRecommendedResponseApplicationJson>
-    _$shareesapiFindRecommendedResponseApplicationJsonSerializer =
+_$shareesapiFindRecommendedResponseApplicationJsonSerializer =
     _$ShareesapiFindRecommendedResponseApplicationJsonSerializer();
 Serializer<Capabilities_FilesSharing_Public_Password> _$capabilitiesFilesSharingPublicPasswordSerializer =
     _$Capabilities_FilesSharing_Public_PasswordSerializer();
 Serializer<Capabilities_FilesSharing_Public_ExpireDate> _$capabilitiesFilesSharingPublicExpireDateSerializer =
     _$Capabilities_FilesSharing_Public_ExpireDateSerializer();
 Serializer<Capabilities_FilesSharing_Public_ExpireDateInternal>
-    _$capabilitiesFilesSharingPublicExpireDateInternalSerializer =
+_$capabilitiesFilesSharingPublicExpireDateInternalSerializer =
     _$Capabilities_FilesSharing_Public_ExpireDateInternalSerializer();
 Serializer<Capabilities_FilesSharing_Public_ExpireDateRemote>
-    _$capabilitiesFilesSharingPublicExpireDateRemoteSerializer =
+_$capabilitiesFilesSharingPublicExpireDateRemoteSerializer =
     _$Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer();
 Serializer<Capabilities_FilesSharing_Public> _$capabilitiesFilesSharingPublicSerializer =
     _$Capabilities_FilesSharing_PublicSerializer();
@@ -347,7 +346,7 @@ Serializer<Capabilities_FilesSharing_Group> _$capabilitiesFilesSharingGroupSeria
 Serializer<Capabilities_FilesSharing_Federation_ExpireDate> _$capabilitiesFilesSharingFederationExpireDateSerializer =
     _$Capabilities_FilesSharing_Federation_ExpireDateSerializer();
 Serializer<Capabilities_FilesSharing_Federation_ExpireDateSupported>
-    _$capabilitiesFilesSharingFederationExpireDateSupportedSerializer =
+_$capabilitiesFilesSharingFederationExpireDateSupportedSerializer =
     _$Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer();
 Serializer<Capabilities_FilesSharing_Federation> _$capabilitiesFilesSharingFederationSerializer =
     _$Capabilities_FilesSharing_FederationSerializer();
@@ -363,8 +362,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -394,8 +396,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -433,8 +438,11 @@ class _$DeletedShareSerializer implements StructuredSerializer<DeletedShare> {
   final String wireName = 'DeletedShare';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShare object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeletedShare object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -498,8 +506,11 @@ class _$DeletedShareSerializer implements StructuredSerializer<DeletedShare> {
   }
 
   @override
-  DeletedShare deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeletedShare deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeletedShareBuilder();
 
     final iterator = serialized.iterator;
@@ -582,28 +593,36 @@ class _$DeletedShareapiIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DeletedShareapiIndexResponseApplicationJson_Ocs,
-    _$DeletedShareapiIndexResponseApplicationJson_Ocs
+    _$DeletedShareapiIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DeletedShareapiIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeletedShareapiIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, const [const FullType(DeletedShare)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltList, const [const FullType(DeletedShare)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DeletedShareapiIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeletedShareapiIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeletedShareapiIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -616,8 +635,13 @@ class _$DeletedShareapiIndexResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(DeletedShare)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(DeletedShare)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -631,14 +655,17 @@ class _$DeletedShareapiIndexResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DeletedShareapiIndexResponseApplicationJson,
-    _$DeletedShareapiIndexResponseApplicationJson
+    _$DeletedShareapiIndexResponseApplicationJson,
   ];
   @override
   final String wireName = 'DeletedShareapiIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeletedShareapiIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs)),
@@ -648,8 +675,11 @@ class _$DeletedShareapiIndexResponseApplicationJsonSerializer
   }
 
   @override
-  DeletedShareapiIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeletedShareapiIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeletedShareapiIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -659,9 +689,13 @@ class _$DeletedShareapiIndexResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs))!
-              as DeletedShareapiIndexResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs),
+                )!
+                as DeletedShareapiIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -675,14 +709,17 @@ class _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DeletedShareapiUndeleteResponseApplicationJson_Ocs,
-    _$DeletedShareapiUndeleteResponseApplicationJson_Ocs
+    _$DeletedShareapiUndeleteResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DeletedShareapiUndeleteResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiUndeleteResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeletedShareapiUndeleteResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -694,8 +731,11 @@ class _$DeletedShareapiUndeleteResponseApplicationJson_OcsSerializer
   }
 
   @override
-  DeletedShareapiUndeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeletedShareapiUndeleteResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -722,26 +762,34 @@ class _$DeletedShareapiUndeleteResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DeletedShareapiUndeleteResponseApplicationJson,
-    _$DeletedShareapiUndeleteResponseApplicationJson
+    _$DeletedShareapiUndeleteResponseApplicationJson,
   ];
   @override
   final String wireName = 'DeletedShareapiUndeleteResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeletedShareapiUndeleteResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeletedShareapiUndeleteResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DeletedShareapiUndeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeletedShareapiUndeleteResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeletedShareapiUndeleteResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -751,9 +799,13 @@ class _$DeletedShareapiUndeleteResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs))!
-              as DeletedShareapiUndeleteResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs),
+                )!
+                as DeletedShareapiUndeleteResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -769,8 +821,11 @@ class _$RemoteShareSerializer implements StructuredSerializer<RemoteShare> {
   final String wireName = 'RemoteShare';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteShare object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteShare object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'accepted',
       serializers.serialize(object.accepted, specifiedType: const FullType(bool)),
@@ -834,8 +889,11 @@ class _$RemoteShareSerializer implements StructuredSerializer<RemoteShare> {
   }
 
   @override
-  RemoteShare deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteShare deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteShareBuilder();
 
     final iterator = serialized.iterator;
@@ -904,14 +962,17 @@ class _$RemoteGetSharesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteGetSharesResponseApplicationJson_Ocs,
-    _$RemoteGetSharesResponseApplicationJson_Ocs
+    _$RemoteGetSharesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteGetSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetSharesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -923,8 +984,11 @@ class _$RemoteGetSharesResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteGetSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetSharesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -937,8 +1001,13 @@ class _$RemoteGetSharesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(RemoteShare)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(RemoteShare)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -955,8 +1024,11 @@ class _$RemoteGetSharesResponseApplicationJsonSerializer
   final String wireName = 'RemoteGetSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetSharesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetSharesResponseApplicationJson_Ocs)),
@@ -966,8 +1038,11 @@ class _$RemoteGetSharesResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetSharesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -978,8 +1053,9 @@ class _$RemoteGetSharesResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(RemoteGetSharesResponseApplicationJson_Ocs))!
-                  as RemoteGetSharesResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(RemoteGetSharesResponseApplicationJson_Ocs))!
+                as RemoteGetSharesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -993,14 +1069,17 @@ class _$RemoteGetOpenSharesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteGetOpenSharesResponseApplicationJson_Ocs,
-    _$RemoteGetOpenSharesResponseApplicationJson_Ocs
+    _$RemoteGetOpenSharesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteGetOpenSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetOpenSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetOpenSharesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1012,8 +1091,11 @@ class _$RemoteGetOpenSharesResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteGetOpenSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetOpenSharesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetOpenSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1026,8 +1108,13 @@ class _$RemoteGetOpenSharesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(RemoteShare)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(RemoteShare)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1041,14 +1128,17 @@ class _$RemoteGetOpenSharesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     RemoteGetOpenSharesResponseApplicationJson,
-    _$RemoteGetOpenSharesResponseApplicationJson
+    _$RemoteGetOpenSharesResponseApplicationJson,
   ];
   @override
   final String wireName = 'RemoteGetOpenSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetOpenSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetOpenSharesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs)),
@@ -1058,8 +1148,11 @@ class _$RemoteGetOpenSharesResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteGetOpenSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetOpenSharesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetOpenSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1069,9 +1162,13 @@ class _$RemoteGetOpenSharesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs))!
-              as RemoteGetOpenSharesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs),
+                )!
+                as RemoteGetOpenSharesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1085,14 +1182,17 @@ class _$RemoteAcceptShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteAcceptShareResponseApplicationJson_Ocs,
-    _$RemoteAcceptShareResponseApplicationJson_Ocs
+    _$RemoteAcceptShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteAcceptShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteAcceptShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteAcceptShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1104,8 +1204,11 @@ class _$RemoteAcceptShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteAcceptShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteAcceptShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteAcceptShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1132,14 +1235,17 @@ class _$RemoteAcceptShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     RemoteAcceptShareResponseApplicationJson,
-    _$RemoteAcceptShareResponseApplicationJson
+    _$RemoteAcceptShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'RemoteAcceptShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteAcceptShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteAcceptShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteAcceptShareResponseApplicationJson_Ocs)),
@@ -1149,8 +1255,11 @@ class _$RemoteAcceptShareResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteAcceptShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteAcceptShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteAcceptShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1160,9 +1269,10 @@ class _$RemoteAcceptShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RemoteAcceptShareResponseApplicationJson_Ocs))!
-              as RemoteAcceptShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RemoteAcceptShareResponseApplicationJson_Ocs))!
+                as RemoteAcceptShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1176,14 +1286,17 @@ class _$RemoteDeclineShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteDeclineShareResponseApplicationJson_Ocs,
-    _$RemoteDeclineShareResponseApplicationJson_Ocs
+    _$RemoteDeclineShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteDeclineShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteDeclineShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteDeclineShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1195,8 +1308,11 @@ class _$RemoteDeclineShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteDeclineShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteDeclineShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteDeclineShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1223,14 +1339,17 @@ class _$RemoteDeclineShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     RemoteDeclineShareResponseApplicationJson,
-    _$RemoteDeclineShareResponseApplicationJson
+    _$RemoteDeclineShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'RemoteDeclineShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteDeclineShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteDeclineShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteDeclineShareResponseApplicationJson_Ocs)),
@@ -1240,8 +1359,11 @@ class _$RemoteDeclineShareResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteDeclineShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteDeclineShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteDeclineShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1251,9 +1373,13 @@ class _$RemoteDeclineShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RemoteDeclineShareResponseApplicationJson_Ocs))!
-              as RemoteDeclineShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(RemoteDeclineShareResponseApplicationJson_Ocs),
+                )!
+                as RemoteDeclineShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1267,14 +1393,17 @@ class _$RemoteGetShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteGetShareResponseApplicationJson_Ocs,
-    _$RemoteGetShareResponseApplicationJson_Ocs
+    _$RemoteGetShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteGetShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1286,8 +1415,11 @@ class _$RemoteGetShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteGetShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1300,8 +1432,9 @@ class _$RemoteGetShareResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(RemoteShare))! as RemoteShare);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(RemoteShare))! as RemoteShare,
+          );
           break;
       }
     }
@@ -1318,8 +1451,11 @@ class _$RemoteGetShareResponseApplicationJsonSerializer
   final String wireName = 'RemoteGetShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteGetShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteGetShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteGetShareResponseApplicationJson_Ocs)),
@@ -1329,8 +1465,11 @@ class _$RemoteGetShareResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteGetShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteGetShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1341,8 +1480,9 @@ class _$RemoteGetShareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(RemoteGetShareResponseApplicationJson_Ocs))!
-                  as RemoteGetShareResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(RemoteGetShareResponseApplicationJson_Ocs))!
+                as RemoteGetShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1356,14 +1496,17 @@ class _$RemoteUnshareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RemoteUnshareResponseApplicationJson_Ocs,
-    _$RemoteUnshareResponseApplicationJson_Ocs
+    _$RemoteUnshareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RemoteUnshareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteUnshareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteUnshareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1375,8 +1518,11 @@ class _$RemoteUnshareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RemoteUnshareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteUnshareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteUnshareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1406,8 +1552,11 @@ class _$RemoteUnshareResponseApplicationJsonSerializer
   final String wireName = 'RemoteUnshareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RemoteUnshareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RemoteUnshareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RemoteUnshareResponseApplicationJson_Ocs)),
@@ -1417,8 +1566,11 @@ class _$RemoteUnshareResponseApplicationJsonSerializer
   }
 
   @override
-  RemoteUnshareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RemoteUnshareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RemoteUnshareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1429,8 +1581,9 @@ class _$RemoteUnshareResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(RemoteUnshareResponseApplicationJson_Ocs))!
-                  as RemoteUnshareResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(RemoteUnshareResponseApplicationJson_Ocs))!
+                as RemoteUnshareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1447,8 +1600,11 @@ class _$ShareInfoInfoRequestApplicationJsonSerializer
   final String wireName = 'ShareInfoInfoRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareInfoInfoRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareInfoInfoRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       't',
       serializers.serialize(object.t, specifiedType: const FullType(String)),
@@ -1472,8 +1628,11 @@ class _$ShareInfoInfoRequestApplicationJsonSerializer
   }
 
   @override
-  ShareInfoInfoRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareInfoInfoRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareInfoInfoRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1508,8 +1667,11 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
   final String wireName = 'ShareInfo';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareInfo object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareInfo object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -1535,17 +1697,24 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
     if (value != null) {
       result
         ..add('children')
-        ..add(serializers.serialize(value,
+        ..add(
+          serializers.serialize(
+            value,
             specifiedType: const FullType(BuiltList, const [
-              const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
-            ])));
+              const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            ]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  ShareInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareInfo deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareInfoBuilder();
 
     final iterator = serialized.iterator;
@@ -1582,10 +1751,15 @@ class _$ShareInfoSerializer implements StructuredSerializer<ShareInfo> {
           result.etag = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'children':
-          result.children.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])
-              ]))! as BuiltList<Object?>);
+          result.children.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1601,12 +1775,12 @@ class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
   final String wireName = 'Share_Status';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Share_Status object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Share_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['status', serializers.serialize(object.status, specifiedType: const FullType(String))];
     Object? value;
     value = object.clearAt;
     if (value != null) {
@@ -1630,8 +1804,11 @@ class _$Share_StatusSerializer implements StructuredSerializer<Share_Status> {
   }
 
   @override
-  Share_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Share_Status deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Share_StatusBuilder();
 
     final iterator = serialized.iterator;
@@ -1830,8 +2007,11 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
   }
 
   @override
-  Share deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Share deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareBuilder();
 
     final iterator = serialized.iterator;
@@ -1956,8 +2136,9 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
           result.shareWithLink = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'status':
-          result.status
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Share_Status))! as Share_Status);
+          result.status.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Share_Status))! as Share_Status,
+          );
           break;
         case 'stime':
           result.stime = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -1992,14 +2173,17 @@ class _$ShareapiGetSharesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetSharesResponseApplicationJson_Ocs,
-    _$ShareapiGetSharesResponseApplicationJson_Ocs
+    _$ShareapiGetSharesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiGetSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetSharesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2011,8 +2195,11 @@ class _$ShareapiGetSharesResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiGetSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGetSharesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2025,8 +2212,10 @@ class _$ShareapiGetSharesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Share)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Share)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2040,14 +2229,17 @@ class _$ShareapiGetSharesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetSharesResponseApplicationJson,
-    _$ShareapiGetSharesResponseApplicationJson
+    _$ShareapiGetSharesResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiGetSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetSharesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiGetSharesResponseApplicationJson_Ocs)),
@@ -2057,8 +2249,11 @@ class _$ShareapiGetSharesResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiGetSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGetSharesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2068,9 +2263,10 @@ class _$ShareapiGetSharesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiGetSharesResponseApplicationJson_Ocs))!
-              as ShareapiGetSharesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareapiGetSharesResponseApplicationJson_Ocs))!
+                as ShareapiGetSharesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2084,14 +2280,17 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiCreateShareRequestApplicationJson,
-    _$ShareapiCreateShareRequestApplicationJson
+    _$ShareapiCreateShareRequestApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiCreateShareRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiCreateShareRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiCreateShareRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
@@ -2125,8 +2324,12 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('publicUpload')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload),
+          ),
+        );
     }
     value = object.sendPasswordByTalk;
     if (value != null) {
@@ -2150,15 +2353,22 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('sendMail')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  ShareapiCreateShareRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiCreateShareRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiCreateShareRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2180,9 +2390,12 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
           result.shareWith = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'publicUpload':
-          result.publicUpload = serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload))
-              as ShareapiCreateShareRequestApplicationJson_PublicUpload?;
+          result.publicUpload =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_PublicUpload),
+                  )
+                  as ShareapiCreateShareRequestApplicationJson_PublicUpload?;
           break;
         case 'password':
           result.password = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2203,9 +2416,12 @@ class _$ShareapiCreateShareRequestApplicationJsonSerializer
           result.attributes = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'sendMail':
-          result.sendMail = serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail))
-              as ShareapiCreateShareRequestApplicationJson_SendMail?;
+          result.sendMail =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson_SendMail),
+                  )
+                  as ShareapiCreateShareRequestApplicationJson_SendMail?;
           break;
       }
     }
@@ -2219,14 +2435,17 @@ class _$ShareapiCreateShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiCreateShareResponseApplicationJson_Ocs,
-    _$ShareapiCreateShareResponseApplicationJson_Ocs
+    _$ShareapiCreateShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiCreateShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiCreateShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiCreateShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2238,8 +2457,11 @@ class _$ShareapiCreateShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiCreateShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiCreateShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiCreateShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2266,14 +2488,17 @@ class _$ShareapiCreateShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiCreateShareResponseApplicationJson,
-    _$ShareapiCreateShareResponseApplicationJson
+    _$ShareapiCreateShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiCreateShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiCreateShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiCreateShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiCreateShareResponseApplicationJson_Ocs)),
@@ -2283,8 +2508,11 @@ class _$ShareapiCreateShareResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiCreateShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiCreateShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiCreateShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2294,9 +2522,13 @@ class _$ShareapiCreateShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiCreateShareResponseApplicationJson_Ocs))!
-              as ShareapiCreateShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiCreateShareResponseApplicationJson_Ocs),
+                )!
+                as ShareapiCreateShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2310,14 +2542,17 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
-    _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs
+    _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiGetInheritedSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetInheritedSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetInheritedSharesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2330,8 +2565,10 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
 
   @override
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2344,8 +2581,10 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Share)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Share)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2359,26 +2598,34 @@ class _$ShareapiGetInheritedSharesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetInheritedSharesResponseApplicationJson,
-    _$ShareapiGetInheritedSharesResponseApplicationJson
+    _$ShareapiGetInheritedSharesResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiGetInheritedSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetInheritedSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetInheritedSharesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareapiGetInheritedSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGetInheritedSharesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetInheritedSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2388,9 +2635,13 @@ class _$ShareapiGetInheritedSharesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs))!
-              as ShareapiGetInheritedSharesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs),
+                )!
+                as ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2404,14 +2655,17 @@ class _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiPendingSharesResponseApplicationJson_Ocs,
-    _$ShareapiPendingSharesResponseApplicationJson_Ocs
+    _$ShareapiPendingSharesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiPendingSharesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiPendingSharesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiPendingSharesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2423,8 +2677,11 @@ class _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiPendingSharesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiPendingSharesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiPendingSharesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2437,8 +2694,10 @@ class _$ShareapiPendingSharesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Share)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Share)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2452,26 +2711,34 @@ class _$ShareapiPendingSharesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiPendingSharesResponseApplicationJson,
-    _$ShareapiPendingSharesResponseApplicationJson
+    _$ShareapiPendingSharesResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiPendingSharesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiPendingSharesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiPendingSharesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareapiPendingSharesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiPendingSharesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiPendingSharesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2481,9 +2748,13 @@ class _$ShareapiPendingSharesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs))!
-              as ShareapiPendingSharesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs),
+                )!
+                as ShareapiPendingSharesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2497,14 +2768,17 @@ class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetShareResponseApplicationJson_Ocs,
-    _$ShareapiGetShareResponseApplicationJson_Ocs
+    _$ShareapiGetShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiGetShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2516,8 +2790,11 @@ class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiGetShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGetShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2530,8 +2807,10 @@ class _$ShareapiGetShareResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Share)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Share)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2545,14 +2824,17 @@ class _$ShareapiGetShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGetShareResponseApplicationJson,
-    _$ShareapiGetShareResponseApplicationJson
+    _$ShareapiGetShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiGetShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGetShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGetShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiGetShareResponseApplicationJson_Ocs)),
@@ -2562,8 +2844,11 @@ class _$ShareapiGetShareResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiGetShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGetShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGetShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2573,9 +2858,10 @@ class _$ShareapiGetShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiGetShareResponseApplicationJson_Ocs))!
-              as ShareapiGetShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareapiGetShareResponseApplicationJson_Ocs))!
+                as ShareapiGetShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2589,14 +2875,17 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiUpdateShareRequestApplicationJson,
-    _$ShareapiUpdateShareRequestApplicationJson
+    _$ShareapiUpdateShareRequestApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiUpdateShareRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiUpdateShareRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiUpdateShareRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.permissions;
@@ -2669,8 +2958,11 @@ class _$ShareapiUpdateShareRequestApplicationJsonSerializer
   }
 
   @override
-  ShareapiUpdateShareRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiUpdateShareRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiUpdateShareRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2724,14 +3016,17 @@ class _$ShareapiUpdateShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiUpdateShareResponseApplicationJson_Ocs,
-    _$ShareapiUpdateShareResponseApplicationJson_Ocs
+    _$ShareapiUpdateShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiUpdateShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiUpdateShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiUpdateShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2743,8 +3038,11 @@ class _$ShareapiUpdateShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiUpdateShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiUpdateShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiUpdateShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2771,14 +3069,17 @@ class _$ShareapiUpdateShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiUpdateShareResponseApplicationJson,
-    _$ShareapiUpdateShareResponseApplicationJson
+    _$ShareapiUpdateShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiUpdateShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiUpdateShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiUpdateShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs)),
@@ -2788,8 +3089,11 @@ class _$ShareapiUpdateShareResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiUpdateShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiUpdateShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiUpdateShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2799,9 +3103,13 @@ class _$ShareapiUpdateShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs))!
-              as ShareapiUpdateShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs),
+                )!
+                as ShareapiUpdateShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2815,14 +3123,17 @@ class _$ShareapiDeleteShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiDeleteShareResponseApplicationJson_Ocs,
-    _$ShareapiDeleteShareResponseApplicationJson_Ocs
+    _$ShareapiDeleteShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiDeleteShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiDeleteShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiDeleteShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2834,8 +3145,11 @@ class _$ShareapiDeleteShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiDeleteShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiDeleteShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiDeleteShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2862,14 +3176,17 @@ class _$ShareapiDeleteShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiDeleteShareResponseApplicationJson,
-    _$ShareapiDeleteShareResponseApplicationJson
+    _$ShareapiDeleteShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiDeleteShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiDeleteShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiDeleteShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs)),
@@ -2879,8 +3196,11 @@ class _$ShareapiDeleteShareResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiDeleteShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiDeleteShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiDeleteShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2890,9 +3210,13 @@ class _$ShareapiDeleteShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs))!
-              as ShareapiDeleteShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs),
+                )!
+                as ShareapiDeleteShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2906,25 +3230,28 @@ class _$ShareapiSendShareEmailRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiSendShareEmailRequestApplicationJson,
-    _$ShareapiSendShareEmailRequestApplicationJson
+    _$ShareapiSendShareEmailRequestApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiSendShareEmailRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'password',
-      serializers.serialize(object.password, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiSendShareEmailRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['password', serializers.serialize(object.password, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  ShareapiSendShareEmailRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiSendShareEmailRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiSendShareEmailRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2948,14 +3275,17 @@ class _$ShareapiSendShareEmailResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiSendShareEmailResponseApplicationJson_Ocs,
-    _$ShareapiSendShareEmailResponseApplicationJson_Ocs
+    _$ShareapiSendShareEmailResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiSendShareEmailResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiSendShareEmailResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2967,8 +3297,11 @@ class _$ShareapiSendShareEmailResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiSendShareEmailResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiSendShareEmailResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiSendShareEmailResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2995,26 +3328,34 @@ class _$ShareapiSendShareEmailResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiSendShareEmailResponseApplicationJson,
-    _$ShareapiSendShareEmailResponseApplicationJson
+    _$ShareapiSendShareEmailResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiSendShareEmailResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiSendShareEmailResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiSendShareEmailResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareapiSendShareEmailResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiSendShareEmailResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiSendShareEmailResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3024,9 +3365,13 @@ class _$ShareapiSendShareEmailResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs))!
-              as ShareapiSendShareEmailResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs),
+                )!
+                as ShareapiSendShareEmailResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -3040,14 +3385,17 @@ class _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiAcceptShareResponseApplicationJson_Ocs,
-    _$ShareapiAcceptShareResponseApplicationJson_Ocs
+    _$ShareapiAcceptShareResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiAcceptShareResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiAcceptShareResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiAcceptShareResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -3059,8 +3407,11 @@ class _$ShareapiAcceptShareResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareapiAcceptShareResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiAcceptShareResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiAcceptShareResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -3087,14 +3438,17 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiAcceptShareResponseApplicationJson,
-    _$ShareapiAcceptShareResponseApplicationJson
+    _$ShareapiAcceptShareResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiAcceptShareResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiAcceptShareResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiAcceptShareResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs)),
@@ -3104,8 +3458,11 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
   }
 
   @override
-  ShareapiAcceptShareResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiAcceptShareResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiAcceptShareResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3115,9 +3472,13 @@ class _$ShareapiAcceptShareResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs))!
-              as ShareapiAcceptShareResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs),
+                )!
+                as ShareapiAcceptShareResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -3131,26 +3492,28 @@ class _$ShareapiGenerateTokenResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
-    _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
+    _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'token',
-      serializers.serialize(object.token, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['token', serializers.serialize(object.token, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
   ShareapiGenerateTokenResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -3174,28 +3537,36 @@ class _$ShareapiGenerateTokenResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGenerateTokenResponseApplicationJson_Ocs,
-    _$ShareapiGenerateTokenResponseApplicationJson_Ocs
+    _$ShareapiGenerateTokenResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareapiGenerateTokenResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGenerateTokenResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareapiGenerateTokenResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGenerateTokenResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGenerateTokenResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -3208,9 +3579,13 @@ class _$ShareapiGenerateTokenResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data))!
-              as ShareapiGenerateTokenResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
+                )!
+                as ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -3224,26 +3599,34 @@ class _$ShareapiGenerateTokenResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareapiGenerateTokenResponseApplicationJson,
-    _$ShareapiGenerateTokenResponseApplicationJson
+    _$ShareapiGenerateTokenResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareapiGenerateTokenResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareapiGenerateTokenResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareapiGenerateTokenResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareapiGenerateTokenResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareapiGenerateTokenResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareapiGenerateTokenResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3253,9 +3636,13 @@ class _$ShareapiGenerateTokenResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs))!
-              as ShareapiGenerateTokenResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
+                )!
+                as ShareapiGenerateTokenResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -3272,17 +3659,17 @@ class _$ShareeSerializer implements StructuredSerializer<Sharee> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Sharee object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'label',
-      serializers.serialize(object.label, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['label', serializers.serialize(object.label, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Sharee deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeBuilder();
 
     final iterator = serialized.iterator;
@@ -3308,8 +3695,11 @@ class _$ShareeValueSerializer implements StructuredSerializer<ShareeValue> {
   final String wireName = 'ShareeValue';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeValue object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeValue object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'shareType',
       serializers.serialize(object.shareType, specifiedType: const FullType(int)),
@@ -3321,8 +3711,11 @@ class _$ShareeValueSerializer implements StructuredSerializer<ShareeValue> {
   }
 
   @override
-  ShareeValue deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeValue deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeValueBuilder();
 
     final iterator = serialized.iterator;
@@ -3351,8 +3744,11 @@ class _$ShareeCircle_ValueSerializer implements StructuredSerializer<ShareeCircl
   final String wireName = 'ShareeCircle_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeCircle_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeCircle_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'circle',
       serializers.serialize(object.circle, specifiedType: const FullType(String)),
@@ -3366,8 +3762,11 @@ class _$ShareeCircle_ValueSerializer implements StructuredSerializer<ShareeCircl
   }
 
   @override
-  ShareeCircle_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeCircle_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeCircle_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -3399,8 +3798,11 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
   final String wireName = 'ShareeCircle';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeCircle object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeCircle object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'shareWithDescription',
       serializers.serialize(object.shareWithDescription, specifiedType: const FullType(String)),
@@ -3414,8 +3816,11 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
   }
 
   @override
-  ShareeCircle deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeCircle deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeCircleBuilder();
 
     final iterator = serialized.iterator;
@@ -3430,7 +3835,8 @@ class _$ShareeCircleSerializer implements StructuredSerializer<ShareeCircle> {
           break;
         case 'value':
           result.value.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_Value))! as ShareeCircle_Value);
+            serializers.deserialize(value, specifiedType: const FullType(ShareeCircle_Value))! as ShareeCircle_Value,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3449,8 +3855,11 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
   final String wireName = 'ShareeEmail';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeEmail object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeEmail object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'uuid',
       serializers.serialize(object.uuid, specifiedType: const FullType(String)),
@@ -3470,8 +3879,11 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
   }
 
   @override
-  ShareeEmail deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeEmail deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeEmailBuilder();
 
     final iterator = serialized.iterator;
@@ -3494,8 +3906,9 @@ class _$ShareeEmailSerializer implements StructuredSerializer<ShareeEmail> {
               serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3514,8 +3927,11 @@ class _$ShareeGroupSerializer implements StructuredSerializer<ShareeGroup> {
   final String wireName = 'ShareeGroup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeGroup object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeGroup object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'value',
       serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
@@ -3527,8 +3943,11 @@ class _$ShareeGroupSerializer implements StructuredSerializer<ShareeGroup> {
   }
 
   @override
-  ShareeGroup deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeGroup deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeGroupBuilder();
 
     final iterator = serialized.iterator;
@@ -3538,8 +3957,9 @@ class _$ShareeGroupSerializer implements StructuredSerializer<ShareeGroup> {
       final Object? value = iterator.current;
       switch (key) {
         case 'value':
-          result.value
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3558,8 +3978,11 @@ class _$ShareeRemoteGroup_ValueSerializer implements StructuredSerializer<Sharee
   final String wireName = 'ShareeRemoteGroup_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeRemoteGroup_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'server',
       serializers.serialize(object.server, specifiedType: const FullType(String)),
@@ -3573,8 +3996,11 @@ class _$ShareeRemoteGroup_ValueSerializer implements StructuredSerializer<Sharee
   }
 
   @override
-  ShareeRemoteGroup_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeRemoteGroup_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeRemoteGroup_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -3606,8 +4032,11 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
   final String wireName = 'ShareeRemoteGroup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemoteGroup object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeRemoteGroup object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'guid',
       serializers.serialize(object.guid, specifiedType: const FullType(String)),
@@ -3623,8 +4052,11 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
   }
 
   @override
-  ShareeRemoteGroup deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeRemoteGroup deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeRemoteGroupBuilder();
 
     final iterator = serialized.iterator;
@@ -3640,8 +4072,10 @@ class _$ShareeRemoteGroupSerializer implements StructuredSerializer<ShareeRemote
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_Value))!
-              as ShareeRemoteGroup_Value);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareeRemoteGroup_Value))!
+                as ShareeRemoteGroup_Value,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3660,8 +4094,11 @@ class _$ShareeRemote_ValueSerializer implements StructuredSerializer<ShareeRemot
   final String wireName = 'ShareeRemote_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemote_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeRemote_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'server',
       serializers.serialize(object.server, specifiedType: const FullType(String)),
@@ -3675,8 +4112,11 @@ class _$ShareeRemote_ValueSerializer implements StructuredSerializer<ShareeRemot
   }
 
   @override
-  ShareeRemote_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeRemote_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeRemote_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -3708,8 +4148,11 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
   final String wireName = 'ShareeRemote';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRemote object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeRemote object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'uuid',
       serializers.serialize(object.uuid, specifiedType: const FullType(String)),
@@ -3727,8 +4170,11 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
   }
 
   @override
-  ShareeRemote deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeRemote deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeRemoteBuilder();
 
     final iterator = serialized.iterator;
@@ -3748,7 +4194,8 @@ class _$ShareeRemoteSerializer implements StructuredSerializer<ShareeRemote> {
           break;
         case 'value':
           result.value.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_Value))! as ShareeRemote_Value);
+            serializers.deserialize(value, specifiedType: const FullType(ShareeRemote_Value))! as ShareeRemote_Value,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3767,8 +4214,11 @@ class _$ShareeRoomSerializer implements StructuredSerializer<ShareeRoom> {
   final String wireName = 'ShareeRoom';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeRoom object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeRoom object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'value',
       serializers.serialize(object.value, specifiedType: const FullType(ShareeValue)),
@@ -3780,8 +4230,11 @@ class _$ShareeRoomSerializer implements StructuredSerializer<ShareeRoom> {
   }
 
   @override
-  ShareeRoom deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeRoom deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeRoomBuilder();
 
     final iterator = serialized.iterator;
@@ -3791,8 +4244,9 @@ class _$ShareeRoomSerializer implements StructuredSerializer<ShareeRoom> {
       final Object? value = iterator.current;
       switch (key) {
         case 'value':
-          result.value
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3811,8 +4265,11 @@ class _$ShareeUser_StatusSerializer implements StructuredSerializer<ShareeUser_S
   final String wireName = 'ShareeUser_Status';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeUser_Status object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeUser_Status object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -3832,8 +4289,11 @@ class _$ShareeUser_StatusSerializer implements StructuredSerializer<ShareeUser_S
   }
 
   @override
-  ShareeUser_Status deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeUser_Status deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeUser_StatusBuilder();
 
     final iterator = serialized.iterator;
@@ -3868,8 +4328,11 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
   final String wireName = 'ShareeUser';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeUser object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeUser object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'subline',
       serializers.serialize(object.subline, specifiedType: const FullType(String)),
@@ -3889,8 +4352,11 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
   }
 
   @override
-  ShareeUser deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeUser deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeUserBuilder();
 
     final iterator = serialized.iterator;
@@ -3911,11 +4377,13 @@ class _$ShareeUserSerializer implements StructuredSerializer<ShareeUser> {
           break;
         case 'status':
           result.status.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareeUser_Status))! as ShareeUser_Status);
+            serializers.deserialize(value, specifiedType: const FullType(ShareeUser_Status))! as ShareeUser_Status,
+          );
           break;
         case 'value':
-          result.value
-              .replace(serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareeValue))! as ShareeValue,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -3934,24 +4402,37 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
   final String wireName = 'ShareesSearchResult_Exact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesSearchResult_Exact object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesSearchResult_Exact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'circles',
-      serializers.serialize(object.circles,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)])),
+      serializers.serialize(
+        object.circles,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]),
+      ),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
+      serializers.serialize(
+        object.emails,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+      ),
       'groups',
-      serializers.serialize(object.groups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
+      serializers.serialize(
+        object.groups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+      ),
       'remote_groups',
-      serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
+      serializers.serialize(
+        object.remoteGroups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+      ),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
+      serializers.serialize(
+        object.remotes,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+      ),
       'rooms',
       serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)])),
       'users',
@@ -3962,8 +4443,11 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
   }
 
   @override
-  ShareesSearchResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesSearchResult_Exact deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesSearchResult_ExactBuilder();
 
     final iterator = serialized.iterator;
@@ -3973,33 +4457,67 @@ class _$ShareesSearchResult_ExactSerializer implements StructuredSerializer<Shar
       final Object? value = iterator.current;
       switch (key) {
         case 'circles':
-          result.circles.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]))! as BuiltList<Object?>);
+          result.circles.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'emails':
-          result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]))! as BuiltList<Object?>);
+          result.emails.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'groups':
-          result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
+          result.groups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remote_groups':
-          result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+          result.remoteGroups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remotes':
-          result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]))! as BuiltList<Object?>);
+          result.remotes.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'rooms':
-          result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]))! as BuiltList<Object?>);
+          result.rooms.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'users':
-          result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]))! as BuiltList<Object?>);
+          result.users.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -4027,8 +4545,11 @@ class _$LookupSerializer implements StructuredSerializer<Lookup> {
   }
 
   @override
-  Lookup deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Lookup deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = LookupBuilder();
 
     final iterator = serialized.iterator;
@@ -4057,8 +4578,11 @@ class _$ShareeLookup_ExtraSerializer implements StructuredSerializer<ShareeLooku
   final String wireName = 'ShareeLookup_Extra';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_Extra object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeLookup_Extra object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'federationId',
       serializers.serialize(object.federationId, specifiedType: const FullType(String)),
@@ -4122,8 +4646,11 @@ class _$ShareeLookup_ExtraSerializer implements StructuredSerializer<ShareeLooku
   }
 
   @override
-  ShareeLookup_Extra deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeLookup_Extra deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeLookup_ExtraBuilder();
 
     final iterator = serialized.iterator;
@@ -4154,12 +4681,14 @@ class _$ShareeLookup_ExtraSerializer implements StructuredSerializer<ShareeLooku
           result.phone.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
           break;
         case 'twitter_signature':
-          result.twitterSignature
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
+          result.twitterSignature.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup,
+          );
           break;
         case 'website_signature':
-          result.websiteSignature
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
+          result.websiteSignature.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup,
+          );
           break;
         case 'userid':
           result.userid.replace(serializers.deserialize(value, specifiedType: const FullType(Lookup))! as Lookup);
@@ -4178,8 +4707,11 @@ class _$ShareeLookup_ValueSerializer implements StructuredSerializer<ShareeLooku
   final String wireName = 'ShareeLookup_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeLookup_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeLookup_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'globalScale',
       serializers.serialize(object.globalScale, specifiedType: const FullType(bool)),
@@ -4193,8 +4725,11 @@ class _$ShareeLookup_ValueSerializer implements StructuredSerializer<ShareeLooku
   }
 
   @override
-  ShareeLookup_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeLookup_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeLookup_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -4226,8 +4761,11 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
   final String wireName = 'ShareeLookup';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareeLookup object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareeLookup object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'extra',
       serializers.serialize(object.extra, specifiedType: const FullType(ShareeLookup_Extra)),
@@ -4241,8 +4779,11 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
   }
 
   @override
-  ShareeLookup deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareeLookup deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareeLookupBuilder();
 
     final iterator = serialized.iterator;
@@ -4253,11 +4794,13 @@ class _$ShareeLookupSerializer implements StructuredSerializer<ShareeLookup> {
       switch (key) {
         case 'extra':
           result.extra.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Extra))! as ShareeLookup_Extra);
+            serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Extra))! as ShareeLookup_Extra,
+          );
           break;
         case 'value':
           result.value.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Value))! as ShareeLookup_Value);
+            serializers.deserialize(value, specifiedType: const FullType(ShareeLookup_Value))! as ShareeLookup_Value,
+          );
           break;
         case 'label':
           result.label = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -4276,29 +4819,44 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
   final String wireName = 'ShareesSearchResult';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesSearchResult object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesSearchResult object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'exact',
       serializers.serialize(object.exact, specifiedType: const FullType(ShareesSearchResult_Exact)),
       'circles',
-      serializers.serialize(object.circles,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)])),
+      serializers.serialize(
+        object.circles,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]),
+      ),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
+      serializers.serialize(
+        object.emails,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+      ),
       'groups',
-      serializers.serialize(object.groups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
+      serializers.serialize(
+        object.groups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+      ),
       'lookup',
-      serializers.serialize(object.lookup,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeLookup)])),
+      serializers.serialize(
+        object.lookup,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeLookup)]),
+      ),
       'remote_groups',
-      serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
+      serializers.serialize(
+        object.remoteGroups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+      ),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
+      serializers.serialize(
+        object.remotes,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+      ),
       'rooms',
       serializers.serialize(object.rooms, specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)])),
       'users',
@@ -4311,8 +4869,11 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
   }
 
   @override
-  ShareesSearchResult deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesSearchResult deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesSearchResultBuilder();
 
     final iterator = serialized.iterator;
@@ -4322,41 +4883,82 @@ class _$ShareesSearchResultSerializer implements StructuredSerializer<ShareesSea
       final Object? value = iterator.current;
       switch (key) {
         case 'exact':
-          result.exact.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult_Exact))!
-              as ShareesSearchResult_Exact);
+          result.exact.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult_Exact))!
+                as ShareesSearchResult_Exact,
+          );
           break;
         case 'circles':
-          result.circles.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]))! as BuiltList<Object?>);
+          result.circles.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeCircle)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'emails':
-          result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]))! as BuiltList<Object?>);
+          result.emails.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'groups':
-          result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
+          result.groups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'lookup':
-          result.lookup.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeLookup)]))! as BuiltList<Object?>);
+          result.lookup.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeLookup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remote_groups':
-          result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+          result.remoteGroups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remotes':
-          result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]))! as BuiltList<Object?>);
+          result.remotes.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'rooms':
-          result.rooms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]))! as BuiltList<Object?>);
+          result.rooms.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRoom)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'users':
-          result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]))! as BuiltList<Object?>);
+          result.users.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'lookupEnabled':
           result.lookupEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -4373,14 +4975,17 @@ class _$ShareesapiSearchResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareesapiSearchResponseApplicationJson_Ocs,
-    _$ShareesapiSearchResponseApplicationJson_Ocs
+    _$ShareesapiSearchResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareesapiSearchResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiSearchResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesapiSearchResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4392,8 +4997,11 @@ class _$ShareesapiSearchResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ShareesapiSearchResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesapiSearchResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesapiSearchResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4406,8 +5014,9 @@ class _$ShareesapiSearchResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult))!
-              as ShareesSearchResult);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareesSearchResult))! as ShareesSearchResult,
+          );
           break;
       }
     }
@@ -4421,14 +5030,17 @@ class _$ShareesapiSearchResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareesapiSearchResponseApplicationJson,
-    _$ShareesapiSearchResponseApplicationJson
+    _$ShareesapiSearchResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareesapiSearchResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiSearchResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesapiSearchResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs)),
@@ -4438,8 +5050,11 @@ class _$ShareesapiSearchResponseApplicationJsonSerializer
   }
 
   @override
-  ShareesapiSearchResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesapiSearchResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesapiSearchResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4449,9 +5064,10 @@ class _$ShareesapiSearchResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs))!
-              as ShareesapiSearchResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareesapiSearchResponseApplicationJson_Ocs))!
+                as ShareesapiSearchResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4467,8 +5083,11 @@ class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSeriali
   final String wireName = 'ShareesapiShareesapiSearchHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiShareesapiSearchHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesapiShareesapiSearchHeaders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.link;
@@ -4481,8 +5100,11 @@ class _$ShareesapiShareesapiSearchHeadersSerializer implements StructuredSeriali
   }
 
   @override
-  ShareesapiShareesapiSearchHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesapiShareesapiSearchHeaders deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesapiShareesapiSearchHeadersBuilder();
 
     final iterator = serialized.iterator;
@@ -4508,21 +5130,32 @@ class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer
   final String wireName = 'ShareesRecommendedResult_Exact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesRecommendedResult_Exact object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesRecommendedResult_Exact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
+      serializers.serialize(
+        object.emails,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+      ),
       'groups',
-      serializers.serialize(object.groups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
+      serializers.serialize(
+        object.groups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+      ),
       'remote_groups',
-      serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
+      serializers.serialize(
+        object.remoteGroups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+      ),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
+      serializers.serialize(
+        object.remotes,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+      ),
       'users',
       serializers.serialize(object.users, specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)])),
     ];
@@ -4531,8 +5164,11 @@ class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer
   }
 
   @override
-  ShareesRecommendedResult_Exact deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesRecommendedResult_Exact deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesRecommendedResult_ExactBuilder();
 
     final iterator = serialized.iterator;
@@ -4542,25 +5178,49 @@ class _$ShareesRecommendedResult_ExactSerializer implements StructuredSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'emails':
-          result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]))! as BuiltList<Object?>);
+          result.emails.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'groups':
-          result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
+          result.groups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remote_groups':
-          result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+          result.remoteGroups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remotes':
-          result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]))! as BuiltList<Object?>);
+          result.remotes.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'users':
-          result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]))! as BuiltList<Object?>);
+          result.users.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -4576,23 +5236,34 @@ class _$ShareesRecommendedResultSerializer implements StructuredSerializer<Share
   final String wireName = 'ShareesRecommendedResult';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesRecommendedResult object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesRecommendedResult object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'exact',
       serializers.serialize(object.exact, specifiedType: const FullType(ShareesRecommendedResult_Exact)),
       'emails',
-      serializers.serialize(object.emails,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)])),
+      serializers.serialize(
+        object.emails,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+      ),
       'groups',
-      serializers.serialize(object.groups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)])),
+      serializers.serialize(
+        object.groups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+      ),
       'remote_groups',
-      serializers.serialize(object.remoteGroups,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)])),
+      serializers.serialize(
+        object.remoteGroups,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+      ),
       'remotes',
-      serializers.serialize(object.remotes,
-          specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)])),
+      serializers.serialize(
+        object.remotes,
+        specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+      ),
       'users',
       serializers.serialize(object.users, specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)])),
     ];
@@ -4601,8 +5272,11 @@ class _$ShareesRecommendedResultSerializer implements StructuredSerializer<Share
   }
 
   @override
-  ShareesRecommendedResult deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesRecommendedResult deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesRecommendedResultBuilder();
 
     final iterator = serialized.iterator;
@@ -4612,29 +5286,55 @@ class _$ShareesRecommendedResultSerializer implements StructuredSerializer<Share
       final Object? value = iterator.current;
       switch (key) {
         case 'exact':
-          result.exact.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ShareesRecommendedResult_Exact))! as ShareesRecommendedResult_Exact);
+          result.exact.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareesRecommendedResult_Exact))!
+                as ShareesRecommendedResult_Exact,
+          );
           break;
         case 'emails':
-          result.emails.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]))! as BuiltList<Object?>);
+          result.emails.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeEmail)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'groups':
-          result.groups.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]))! as BuiltList<Object?>);
+          result.groups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remote_groups':
-          result.remoteGroups.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]))!
-              as BuiltList<Object?>);
+          result.remoteGroups.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemoteGroup)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'remotes':
-          result.remotes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]))! as BuiltList<Object?>);
+          result.remotes.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeRemote)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'users':
-          result.users.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]))! as BuiltList<Object?>);
+          result.users.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(ShareeUser)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -4648,14 +5348,17 @@ class _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ShareesapiFindRecommendedResponseApplicationJson_Ocs,
-    _$ShareesapiFindRecommendedResponseApplicationJson_Ocs
+    _$ShareesapiFindRecommendedResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ShareesapiFindRecommendedResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiFindRecommendedResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesapiFindRecommendedResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4668,8 +5371,10 @@ class _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer
 
   @override
   ShareesapiFindRecommendedResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4682,8 +5387,10 @@ class _$ShareesapiFindRecommendedResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value, specifiedType: const FullType(ShareesRecommendedResult))!
-              as ShareesRecommendedResult);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ShareesRecommendedResult))!
+                as ShareesRecommendedResult,
+          );
           break;
       }
     }
@@ -4697,26 +5404,34 @@ class _$ShareesapiFindRecommendedResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ShareesapiFindRecommendedResponseApplicationJson,
-    _$ShareesapiFindRecommendedResponseApplicationJson
+    _$ShareesapiFindRecommendedResponseApplicationJson,
   ];
   @override
   final String wireName = 'ShareesapiFindRecommendedResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ShareesapiFindRecommendedResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ShareesapiFindRecommendedResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ShareesapiFindRecommendedResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ShareesapiFindRecommendedResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareesapiFindRecommendedResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4726,9 +5441,13 @@ class _$ShareesapiFindRecommendedResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs))!
-              as ShareesapiFindRecommendedResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs),
+                )!
+                as ShareesapiFindRecommendedResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4742,14 +5461,17 @@ class _$Capabilities_FilesSharing_Public_PasswordSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Public_Password,
-    _$Capabilities_FilesSharing_Public_Password
+    _$Capabilities_FilesSharing_Public_Password,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Public_Password';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_Password object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Public_Password object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enforced',
       serializers.serialize(object.enforced, specifiedType: const FullType(bool)),
@@ -4761,8 +5483,11 @@ class _$Capabilities_FilesSharing_Public_PasswordSerializer
   }
 
   @override
-  Capabilities_FilesSharing_Public_Password deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Public_Password deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Public_PasswordBuilder();
 
     final iterator = serialized.iterator;
@@ -4789,18 +5514,18 @@ class _$Capabilities_FilesSharing_Public_ExpireDateSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Public_ExpireDate,
-    _$Capabilities_FilesSharing_Public_ExpireDate
+    _$Capabilities_FilesSharing_Public_ExpireDate,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Public_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDate object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Public_ExpireDate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
     Object? value;
     value = object.days;
     if (value != null) {
@@ -4818,8 +5543,11 @@ class _$Capabilities_FilesSharing_Public_ExpireDateSerializer
   }
 
   @override
-  Capabilities_FilesSharing_Public_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Public_ExpireDate deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Public_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
@@ -4849,18 +5577,18 @@ class _$Capabilities_FilesSharing_Public_ExpireDateInternalSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Public_ExpireDateInternal,
-    _$Capabilities_FilesSharing_Public_ExpireDateInternal
+    _$Capabilities_FilesSharing_Public_ExpireDateInternal,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Public_ExpireDateInternal';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDateInternal object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Public_ExpireDateInternal object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
     Object? value;
     value = object.days;
     if (value != null) {
@@ -4878,8 +5606,11 @@ class _$Capabilities_FilesSharing_Public_ExpireDateInternalSerializer
   }
 
   @override
-  Capabilities_FilesSharing_Public_ExpireDateInternal deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Public_ExpireDateInternal deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Public_ExpireDateInternalBuilder();
 
     final iterator = serialized.iterator;
@@ -4909,18 +5640,18 @@ class _$Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Public_ExpireDateRemote,
-    _$Capabilities_FilesSharing_Public_ExpireDateRemote
+    _$Capabilities_FilesSharing_Public_ExpireDateRemote,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Public_ExpireDateRemote';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public_ExpireDateRemote object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Public_ExpireDateRemote object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
     Object? value;
     value = object.days;
     if (value != null) {
@@ -4938,8 +5669,11 @@ class _$Capabilities_FilesSharing_Public_ExpireDateRemoteSerializer
   }
 
   @override
-  Capabilities_FilesSharing_Public_ExpireDateRemote deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Public_ExpireDateRemote deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder();
 
     final iterator = serialized.iterator;
@@ -4971,12 +5705,12 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
   final String wireName = 'Capabilities_FilesSharing_Public';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Public object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Public object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
     Object? value;
     value = object.password;
     if (value != null) {
@@ -5000,15 +5734,23 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
     if (value != null) {
       result
         ..add('expire_date_internal')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal),
+          ),
+        );
     }
     value = object.expireDateRemote;
     if (value != null) {
       result
         ..add('expire_date_remote')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote),
+          ),
+        );
     }
     value = object.sendMail;
     if (value != null) {
@@ -5038,8 +5780,11 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
   }
 
   @override
-  Capabilities_FilesSharing_Public deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Public deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_PublicBuilder();
 
     final iterator = serialized.iterator;
@@ -5053,26 +5798,36 @@ class _$Capabilities_FilesSharing_PublicSerializer implements StructuredSerializ
           break;
         case 'password':
           result.password.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_Password))!
-                  as Capabilities_FilesSharing_Public_Password);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_Password))!
+                as Capabilities_FilesSharing_Public_Password,
+          );
           break;
         case 'multiple_links':
           result.multipleLinks = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'expire_date':
-          result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDate))!
-              as Capabilities_FilesSharing_Public_ExpireDate);
+          result.expireDate.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDate))!
+                as Capabilities_FilesSharing_Public_ExpireDate,
+          );
           break;
         case 'expire_date_internal':
-          result.expireDateInternal.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal))!
-              as Capabilities_FilesSharing_Public_ExpireDateInternal);
+          result.expireDateInternal.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal),
+                )!
+                as Capabilities_FilesSharing_Public_ExpireDateInternal,
+          );
           break;
         case 'expire_date_remote':
-          result.expireDateRemote.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote))!
-              as Capabilities_FilesSharing_Public_ExpireDateRemote);
+          result.expireDateRemote.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote),
+                )!
+                as Capabilities_FilesSharing_Public_ExpireDateRemote,
+          );
           break;
         case 'send_mail':
           result.sendMail = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
@@ -5098,25 +5853,28 @@ class _$Capabilities_FilesSharing_User_ExpireDateSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_User_ExpireDate,
-    _$Capabilities_FilesSharing_User_ExpireDate
+    _$Capabilities_FilesSharing_User_ExpireDate,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_User_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_User_ExpireDate object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_User_ExpireDate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  Capabilities_FilesSharing_User_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_User_ExpireDate deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_User_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
@@ -5142,12 +5900,12 @@ class _$Capabilities_FilesSharing_UserSerializer implements StructuredSerializer
   final String wireName = 'Capabilities_FilesSharing_User';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_User object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'send_mail',
-      serializers.serialize(object.sendMail, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_User object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['send_mail', serializers.serialize(object.sendMail, specifiedType: const FullType(bool))];
     Object? value;
     value = object.expireDate;
     if (value != null) {
@@ -5159,8 +5917,11 @@ class _$Capabilities_FilesSharing_UserSerializer implements StructuredSerializer
   }
 
   @override
-  Capabilities_FilesSharing_User deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_User deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_UserBuilder();
 
     final iterator = serialized.iterator;
@@ -5174,8 +5935,9 @@ class _$Capabilities_FilesSharing_UserSerializer implements StructuredSerializer
           break;
         case 'expire_date':
           result.expireDate.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_User_ExpireDate))!
-                  as Capabilities_FilesSharing_User_ExpireDate);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_User_ExpireDate))!
+                as Capabilities_FilesSharing_User_ExpireDate,
+          );
           break;
       }
     }
@@ -5189,25 +5951,28 @@ class _$Capabilities_FilesSharing_Group_ExpireDateSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Group_ExpireDate,
-    _$Capabilities_FilesSharing_Group_ExpireDate
+    _$Capabilities_FilesSharing_Group_ExpireDate,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Group_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Group_ExpireDate object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Group_ExpireDate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  Capabilities_FilesSharing_Group_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Group_ExpireDate deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Group_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
@@ -5233,12 +5998,12 @@ class _$Capabilities_FilesSharing_GroupSerializer implements StructuredSerialize
   final String wireName = 'Capabilities_FilesSharing_Group';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Group object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Group object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
     Object? value;
     value = object.expireDate;
     if (value != null) {
@@ -5250,8 +6015,11 @@ class _$Capabilities_FilesSharing_GroupSerializer implements StructuredSerialize
   }
 
   @override
-  Capabilities_FilesSharing_Group deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Group deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_GroupBuilder();
 
     final iterator = serialized.iterator;
@@ -5265,8 +6033,9 @@ class _$Capabilities_FilesSharing_GroupSerializer implements StructuredSerialize
           break;
         case 'expire_date':
           result.expireDate.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group_ExpireDate))!
-                  as Capabilities_FilesSharing_Group_ExpireDate);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group_ExpireDate))!
+                as Capabilities_FilesSharing_Group_ExpireDate,
+          );
           break;
       }
     }
@@ -5280,25 +6049,28 @@ class _$Capabilities_FilesSharing_Federation_ExpireDateSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Federation_ExpireDate,
-    _$Capabilities_FilesSharing_Federation_ExpireDate
+    _$Capabilities_FilesSharing_Federation_ExpireDate,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Federation_ExpireDate';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation_ExpireDate object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Federation_ExpireDate object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  Capabilities_FilesSharing_Federation_ExpireDate deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Federation_ExpireDate deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Federation_ExpireDateBuilder();
 
     final iterator = serialized.iterator;
@@ -5322,26 +6094,28 @@ class _$Capabilities_FilesSharing_Federation_ExpireDateSupportedSerializer
   @override
   final Iterable<Type> types = const [
     Capabilities_FilesSharing_Federation_ExpireDateSupported,
-    _$Capabilities_FilesSharing_Federation_ExpireDateSupported
+    _$Capabilities_FilesSharing_Federation_ExpireDateSupported,
   ];
   @override
   final String wireName = 'Capabilities_FilesSharing_Federation_ExpireDateSupported';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation_ExpireDateSupported object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'enabled',
-      serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Federation_ExpireDateSupported object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['enabled', serializers.serialize(object.enabled, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
   Capabilities_FilesSharing_Federation_ExpireDateSupported deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
 
     final iterator = serialized.iterator;
@@ -5368,27 +6142,37 @@ class _$Capabilities_FilesSharing_FederationSerializer
   final String wireName = 'Capabilities_FilesSharing_Federation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Federation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Federation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'outgoing',
       serializers.serialize(object.outgoing, specifiedType: const FullType(bool)),
       'incoming',
       serializers.serialize(object.incoming, specifiedType: const FullType(bool)),
       'expire_date',
-      serializers.serialize(object.expireDate,
-          specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate)),
+      serializers.serialize(
+        object.expireDate,
+        specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate),
+      ),
       'expire_date_supported',
-      serializers.serialize(object.expireDateSupported,
-          specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported)),
+      serializers.serialize(
+        object.expireDateSupported,
+        specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Capabilities_FilesSharing_Federation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Federation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_FederationBuilder();
 
     final iterator = serialized.iterator;
@@ -5404,14 +6188,22 @@ class _$Capabilities_FilesSharing_FederationSerializer
           result.incoming = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'expire_date':
-          result.expireDate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate))!
-              as Capabilities_FilesSharing_Federation_ExpireDate);
+          result.expireDate.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDate),
+                )!
+                as Capabilities_FilesSharing_Federation_ExpireDate,
+          );
           break;
         case 'expire_date_supported':
-          result.expireDateSupported.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported))!
-              as Capabilities_FilesSharing_Federation_ExpireDateSupported);
+          result.expireDateSupported.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported),
+                )!
+                as Capabilities_FilesSharing_Federation_ExpireDateSupported,
+          );
           break;
       }
     }
@@ -5427,8 +6219,11 @@ class _$Capabilities_FilesSharing_ShareeSerializer implements StructuredSerializ
   final String wireName = 'Capabilities_FilesSharing_Sharee';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing_Sharee object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing_Sharee object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'query_lookup_default',
       serializers.serialize(object.queryLookupDefault, specifiedType: const FullType(bool)),
@@ -5440,8 +6235,11 @@ class _$Capabilities_FilesSharing_ShareeSerializer implements StructuredSerializ
   }
 
   @override
-  Capabilities_FilesSharing_Sharee deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing_Sharee deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharing_ShareeBuilder();
 
     final iterator = serialized.iterator;
@@ -5470,8 +6268,11 @@ class _$Capabilities_FilesSharingSerializer implements StructuredSerializer<Capa
   final String wireName = 'Capabilities_FilesSharing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_FilesSharing object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_FilesSharing object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'api_enabled',
       serializers.serialize(object.apiEnabled, specifiedType: const FullType(bool)),
@@ -5509,8 +6310,11 @@ class _$Capabilities_FilesSharingSerializer implements StructuredSerializer<Capa
   }
 
   @override
-  Capabilities_FilesSharing deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_FilesSharing deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesSharingBuilder();
 
     final iterator = serialized.iterator;
@@ -5523,12 +6327,16 @@ class _$Capabilities_FilesSharingSerializer implements StructuredSerializer<Capa
           result.apiEnabled = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'public':
-          result.public.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_FilesSharing_Public))! as Capabilities_FilesSharing_Public);
+          result.public.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Public))!
+                as Capabilities_FilesSharing_Public,
+          );
           break;
         case 'user':
-          result.user.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_FilesSharing_User))! as Capabilities_FilesSharing_User);
+          result.user.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_User))!
+                as Capabilities_FilesSharing_User,
+          );
           break;
         case 'resharing':
           result.resharing = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -5537,20 +6345,25 @@ class _$Capabilities_FilesSharingSerializer implements StructuredSerializer<Capa
           result.groupSharing = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'group':
-          result.group.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_FilesSharing_Group))! as Capabilities_FilesSharing_Group);
+          result.group.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Group))!
+                as Capabilities_FilesSharing_Group,
+          );
           break;
         case 'default_permissions':
           result.defaultPermissions = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'federation':
           result.federation.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Federation))!
-                  as Capabilities_FilesSharing_Federation);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Federation))!
+                as Capabilities_FilesSharing_Federation,
+          );
           break;
         case 'sharee':
-          result.sharee.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_FilesSharing_Sharee))! as Capabilities_FilesSharing_Sharee);
+          result.sharee.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing_Sharee))!
+                as Capabilities_FilesSharing_Sharee,
+          );
           break;
       }
     }
@@ -5566,8 +6379,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'files_sharing',
       serializers.serialize(object.filesSharing, specifiedType: const FullType(Capabilities_FilesSharing)),
@@ -5577,8 +6393,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -5588,8 +6407,10 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'files_sharing':
-          result.filesSharing.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_FilesSharing))! as Capabilities_FilesSharing);
+          result.filesSharing.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_FilesSharing))!
+                as Capabilities_FilesSharing,
+          );
           break;
       }
     }
@@ -5632,7 +6453,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -5729,7 +6550,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -5851,28 +6673,28 @@ class _$DeletedShare extends DeletedShare {
   factory _$DeletedShare([void Function(DeletedShareBuilder)? updates]) =>
       (DeletedShareBuilder()..update(updates))._build();
 
-  _$DeletedShare._(
-      {required this.id,
-      required this.shareType,
-      required this.uidOwner,
-      required this.displaynameOwner,
-      required this.permissions,
-      required this.stime,
-      required this.uidFileOwner,
-      required this.displaynameFileOwner,
-      required this.path,
-      required this.itemType,
-      required this.mimetype,
-      required this.storage,
-      required this.itemSource,
-      required this.fileSource,
-      required this.fileParent,
-      required this.fileTarget,
-      this.expiration,
-      this.shareWith,
-      this.shareWithDisplayname,
-      this.shareWithLink})
-      : super._();
+  _$DeletedShare._({
+    required this.id,
+    required this.shareType,
+    required this.uidOwner,
+    required this.displaynameOwner,
+    required this.permissions,
+    required this.stime,
+    required this.uidFileOwner,
+    required this.displaynameFileOwner,
+    required this.path,
+    required this.itemType,
+    required this.mimetype,
+    required this.storage,
+    required this.itemSource,
+    required this.fileSource,
+    required this.fileParent,
+    required this.fileTarget,
+    this.expiration,
+    this.shareWith,
+    this.shareWithDisplayname,
+    this.shareWithLink,
+  }) : super._();
   @override
   DeletedShare rebuild(void Function(DeletedShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -6091,18 +6913,25 @@ class DeletedShareBuilder implements Builder<DeletedShare, DeletedShareBuilder>,
 
   _$DeletedShare _build() {
     DeletedShare._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DeletedShare._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'DeletedShare', 'id'),
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'DeletedShare', 'shareType'),
           uidOwner: BuiltValueNullFieldError.checkNotNull(uidOwner, r'DeletedShare', 'uidOwner'),
-          displaynameOwner:
-              BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'DeletedShare', 'displaynameOwner'),
+          displaynameOwner: BuiltValueNullFieldError.checkNotNull(
+            displaynameOwner,
+            r'DeletedShare',
+            'displaynameOwner',
+          ),
           permissions: BuiltValueNullFieldError.checkNotNull(permissions, r'DeletedShare', 'permissions'),
           stime: BuiltValueNullFieldError.checkNotNull(stime, r'DeletedShare', 'stime'),
           uidFileOwner: BuiltValueNullFieldError.checkNotNull(uidFileOwner, r'DeletedShare', 'uidFileOwner'),
-          displaynameFileOwner:
-              BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'DeletedShare', 'displaynameFileOwner'),
+          displaynameFileOwner: BuiltValueNullFieldError.checkNotNull(
+            displaynameFileOwner,
+            r'DeletedShare',
+            'displaynameFileOwner',
+          ),
           path: BuiltValueNullFieldError.checkNotNull(path, r'DeletedShare', 'path'),
           itemType: BuiltValueNullFieldError.checkNotNull(itemType, r'DeletedShare', 'itemType'),
           mimetype: BuiltValueNullFieldError.checkNotNull(mimetype, r'DeletedShare', 'mimetype'),
@@ -6137,15 +6966,15 @@ class _$DeletedShareapiIndexResponseApplicationJson_Ocs extends DeletedShareapiI
   @override
   final BuiltList<DeletedShare> data;
 
-  factory _$DeletedShareapiIndexResponseApplicationJson_Ocs(
-          [void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DeletedShareapiIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DeletedShareapiIndexResponseApplicationJson_Ocs([
+    void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DeletedShareapiIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DeletedShareapiIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DeletedShareapiIndexResponseApplicationJson_Ocs rebuild(
-          void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DeletedShareapiIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DeletedShareapiIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6177,8 +7006,10 @@ class _$DeletedShareapiIndexResponseApplicationJson_Ocs extends DeletedShareapiI
 
 class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
     implements
-        Builder<DeletedShareapiIndexResponseApplicationJson_Ocs,
-            DeletedShareapiIndexResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DeletedShareapiIndexResponseApplicationJson_Ocs,
+          DeletedShareapiIndexResponseApplicationJson_OcsBuilder
+        >,
         $DeletedShareapiIndexResponseApplicationJson_OcsInterfaceBuilder {
   _$DeletedShareapiIndexResponseApplicationJson_Ocs? _$v;
 
@@ -6221,11 +7052,7 @@ class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
     DeletedShareapiIndexResponseApplicationJson_Ocs._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DeletedShareapiIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6235,7 +7062,10 @@ class DeletedShareapiIndexResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DeletedShareapiIndexResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DeletedShareapiIndexResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -6255,15 +7085,15 @@ class _$DeletedShareapiIndexResponseApplicationJson extends DeletedShareapiIndex
   @override
   final DeletedShareapiIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$DeletedShareapiIndexResponseApplicationJson(
-          [void Function(DeletedShareapiIndexResponseApplicationJsonBuilder)? updates]) =>
-      (DeletedShareapiIndexResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeletedShareapiIndexResponseApplicationJson([
+    void Function(DeletedShareapiIndexResponseApplicationJsonBuilder)? updates,
+  ]) => (DeletedShareapiIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeletedShareapiIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DeletedShareapiIndexResponseApplicationJson rebuild(
-          void Function(DeletedShareapiIndexResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DeletedShareapiIndexResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DeletedShareapiIndexResponseApplicationJsonBuilder toBuilder() =>
@@ -6330,10 +7160,7 @@ class DeletedShareapiIndexResponseApplicationJsonBuilder
     DeletedShareapiIndexResponseApplicationJson._validate(this);
     _$DeletedShareapiIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DeletedShareapiIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DeletedShareapiIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6365,15 +7192,15 @@ class _$DeletedShareapiUndeleteResponseApplicationJson_Ocs extends DeletedSharea
   @override
   final JsonObject data;
 
-  factory _$DeletedShareapiUndeleteResponseApplicationJson_Ocs(
-          [void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DeletedShareapiUndeleteResponseApplicationJson_Ocs([
+    void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DeletedShareapiUndeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DeletedShareapiUndeleteResponseApplicationJson_Ocs rebuild(
-          void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6405,8 +7232,10 @@ class _$DeletedShareapiUndeleteResponseApplicationJson_Ocs extends DeletedSharea
 
 class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
     implements
-        Builder<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
-            DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DeletedShareapiUndeleteResponseApplicationJson_Ocs,
+          DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
+        >,
         $DeletedShareapiUndeleteResponseApplicationJson_OcsInterfaceBuilder {
   _$DeletedShareapiUndeleteResponseApplicationJson_Ocs? _$v;
 
@@ -6449,11 +7278,15 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
     DeletedShareapiUndeleteResponseApplicationJson_Ocs._validate(this);
     _$DeletedShareapiUndeleteResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$DeletedShareapiUndeleteResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'DeletedShareapiUndeleteResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -6462,7 +7295,10 @@ class DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DeletedShareapiUndeleteResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DeletedShareapiUndeleteResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -6482,15 +7318,15 @@ class _$DeletedShareapiUndeleteResponseApplicationJson extends DeletedShareapiUn
   @override
   final DeletedShareapiUndeleteResponseApplicationJson_Ocs ocs;
 
-  factory _$DeletedShareapiUndeleteResponseApplicationJson(
-          [void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates]) =>
-      (DeletedShareapiUndeleteResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DeletedShareapiUndeleteResponseApplicationJson([
+    void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder)? updates,
+  ]) => (DeletedShareapiUndeleteResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DeletedShareapiUndeleteResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DeletedShareapiUndeleteResponseApplicationJson rebuild(
-          void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DeletedShareapiUndeleteResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DeletedShareapiUndeleteResponseApplicationJsonBuilder toBuilder() =>
@@ -6557,10 +7393,7 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
     DeletedShareapiUndeleteResponseApplicationJson._validate(this);
     _$DeletedShareapiUndeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DeletedShareapiUndeleteResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DeletedShareapiUndeleteResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6568,7 +7401,10 @@ class DeletedShareapiUndeleteResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DeletedShareapiUndeleteResponseApplicationJson', _$failedField, e.toString());
+          r'DeletedShareapiUndeleteResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -6666,24 +7502,24 @@ class _$RemoteShare extends RemoteShare {
   factory _$RemoteShare([void Function(RemoteShareBuilder)? updates]) =>
       (RemoteShareBuilder()..update(updates))._build();
 
-  _$RemoteShare._(
-      {required this.accepted,
-      this.fileId,
-      required this.id,
-      this.mimetype,
-      required this.mountpoint,
-      this.mtime,
-      required this.name,
-      required this.owner,
-      this.parent,
-      this.permissions,
-      required this.remote,
-      required this.remoteId,
-      required this.shareToken,
-      required this.shareType,
-      this.type,
-      required this.user})
-      : super._();
+  _$RemoteShare._({
+    required this.accepted,
+    this.fileId,
+    required this.id,
+    this.mimetype,
+    required this.mountpoint,
+    this.mtime,
+    required this.name,
+    required this.owner,
+    this.parent,
+    this.permissions,
+    required this.remote,
+    required this.remoteId,
+    required this.shareToken,
+    required this.shareType,
+    this.type,
+    required this.user,
+  }) : super._();
   @override
   RemoteShare rebuild(void Function(RemoteShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -6868,7 +7704,8 @@ class RemoteShareBuilder implements Builder<RemoteShare, RemoteShareBuilder>, $R
 
   _$RemoteShare _build() {
     RemoteShare._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$RemoteShare._(
           accepted: BuiltValueNullFieldError.checkNotNull(accepted, r'RemoteShare', 'accepted'),
           fileId: fileId,
@@ -6908,15 +7745,15 @@ class _$RemoteGetSharesResponseApplicationJson_Ocs extends RemoteGetSharesRespon
   @override
   final BuiltList<RemoteShare> data;
 
-  factory _$RemoteGetSharesResponseApplicationJson_Ocs(
-          [void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetSharesResponseApplicationJson_Ocs([
+    void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteGetSharesResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteGetSharesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6991,11 +7828,7 @@ class RemoteGetSharesResponseApplicationJson_OcsBuilder
     RemoteGetSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetSharesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7024,15 +7857,15 @@ class _$RemoteGetSharesResponseApplicationJson extends RemoteGetSharesResponseAp
   @override
   final RemoteGetSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteGetSharesResponseApplicationJson(
-          [void Function(RemoteGetSharesResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetSharesResponseApplicationJson([
+    void Function(RemoteGetSharesResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteGetSharesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   RemoteGetSharesResponseApplicationJson rebuild(
-          void Function(RemoteGetSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteGetSharesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteGetSharesResponseApplicationJsonBuilder toBuilder() =>
@@ -7099,10 +7932,7 @@ class RemoteGetSharesResponseApplicationJsonBuilder
     RemoteGetSharesResponseApplicationJson._validate(this);
     _$RemoteGetSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetSharesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteGetSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7134,15 +7964,15 @@ class _$RemoteGetOpenSharesResponseApplicationJson_Ocs extends RemoteGetOpenShar
   @override
   final BuiltList<RemoteShare> data;
 
-  factory _$RemoteGetOpenSharesResponseApplicationJson_Ocs(
-          [void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetOpenSharesResponseApplicationJson_Ocs([
+    void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteGetOpenSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteGetOpenSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteGetOpenSharesResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteGetOpenSharesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteGetOpenSharesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -7217,11 +8047,7 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
     RemoteGetOpenSharesResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7231,7 +8057,10 @@ class RemoteGetOpenSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'RemoteGetOpenSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'RemoteGetOpenSharesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -7251,15 +8080,15 @@ class _$RemoteGetOpenSharesResponseApplicationJson extends RemoteGetOpenSharesRe
   @override
   final RemoteGetOpenSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteGetOpenSharesResponseApplicationJson(
-          [void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteGetOpenSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetOpenSharesResponseApplicationJson([
+    void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteGetOpenSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteGetOpenSharesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   RemoteGetOpenSharesResponseApplicationJson rebuild(
-          void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteGetOpenSharesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteGetOpenSharesResponseApplicationJsonBuilder toBuilder() =>
@@ -7326,10 +8155,7 @@ class RemoteGetOpenSharesResponseApplicationJsonBuilder
     RemoteGetOpenSharesResponseApplicationJson._validate(this);
     _$RemoteGetOpenSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetOpenSharesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteGetOpenSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7361,15 +8187,15 @@ class _$RemoteAcceptShareResponseApplicationJson_Ocs extends RemoteAcceptShareRe
   @override
   final JsonObject data;
 
-  factory _$RemoteAcceptShareResponseApplicationJson_Ocs(
-          [void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteAcceptShareResponseApplicationJson_Ocs([
+    void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteAcceptShareResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteAcceptShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -7444,7 +8270,8 @@ class RemoteAcceptShareResponseApplicationJson_OcsBuilder
     RemoteAcceptShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteAcceptShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$RemoteAcceptShareResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteAcceptShareResponseApplicationJson_Ocs', 'data'),
@@ -7475,15 +8302,15 @@ class _$RemoteAcceptShareResponseApplicationJson extends RemoteAcceptShareRespon
   @override
   final RemoteAcceptShareResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteAcceptShareResponseApplicationJson(
-          [void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteAcceptShareResponseApplicationJson([
+    void Function(RemoteAcceptShareResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteAcceptShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   RemoteAcceptShareResponseApplicationJson rebuild(
-          void Function(RemoteAcceptShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteAcceptShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteAcceptShareResponseApplicationJsonBuilder toBuilder() =>
@@ -7550,10 +8377,7 @@ class RemoteAcceptShareResponseApplicationJsonBuilder
     RemoteAcceptShareResponseApplicationJson._validate(this);
     _$RemoteAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteAcceptShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteAcceptShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7585,15 +8409,15 @@ class _$RemoteDeclineShareResponseApplicationJson_Ocs extends RemoteDeclineShare
   @override
   final JsonObject data;
 
-  factory _$RemoteDeclineShareResponseApplicationJson_Ocs(
-          [void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteDeclineShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteDeclineShareResponseApplicationJson_Ocs([
+    void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteDeclineShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteDeclineShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteDeclineShareResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteDeclineShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteDeclineShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -7668,7 +8492,8 @@ class RemoteDeclineShareResponseApplicationJson_OcsBuilder
     RemoteDeclineShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteDeclineShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$RemoteDeclineShareResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteDeclineShareResponseApplicationJson_Ocs', 'data'),
@@ -7699,15 +8524,15 @@ class _$RemoteDeclineShareResponseApplicationJson extends RemoteDeclineShareResp
   @override
   final RemoteDeclineShareResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteDeclineShareResponseApplicationJson(
-          [void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteDeclineShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteDeclineShareResponseApplicationJson([
+    void Function(RemoteDeclineShareResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteDeclineShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteDeclineShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   RemoteDeclineShareResponseApplicationJson rebuild(
-          void Function(RemoteDeclineShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteDeclineShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteDeclineShareResponseApplicationJsonBuilder toBuilder() =>
@@ -7774,10 +8599,7 @@ class RemoteDeclineShareResponseApplicationJsonBuilder
     RemoteDeclineShareResponseApplicationJson._validate(this);
     _$RemoteDeclineShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteDeclineShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteDeclineShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7809,15 +8631,15 @@ class _$RemoteGetShareResponseApplicationJson_Ocs extends RemoteGetShareResponse
   @override
   final RemoteShare data;
 
-  factory _$RemoteGetShareResponseApplicationJson_Ocs(
-          [void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteGetShareResponseApplicationJson_Ocs([
+    void Function(RemoteGetShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteGetShareResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteGetShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteGetShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -7892,11 +8714,7 @@ class RemoteGetShareResponseApplicationJson_OcsBuilder
     RemoteGetShareResponseApplicationJson_Ocs._validate(this);
     _$RemoteGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetShareResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7925,9 +8743,9 @@ class _$RemoteGetShareResponseApplicationJson extends RemoteGetShareResponseAppl
   @override
   final RemoteGetShareResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteGetShareResponseApplicationJson(
-          [void Function(RemoteGetShareResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteGetShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteGetShareResponseApplicationJson([
+    void Function(RemoteGetShareResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteGetShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteGetShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -7999,10 +8817,7 @@ class RemoteGetShareResponseApplicationJsonBuilder
     RemoteGetShareResponseApplicationJson._validate(this);
     _$RemoteGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteGetShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteGetShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8034,15 +8849,15 @@ class _$RemoteUnshareResponseApplicationJson_Ocs extends RemoteUnshareResponseAp
   @override
   final JsonObject data;
 
-  factory _$RemoteUnshareResponseApplicationJson_Ocs(
-          [void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RemoteUnshareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RemoteUnshareResponseApplicationJson_Ocs([
+    void Function(RemoteUnshareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RemoteUnshareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RemoteUnshareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RemoteUnshareResponseApplicationJson_Ocs rebuild(
-          void Function(RemoteUnshareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RemoteUnshareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RemoteUnshareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -8117,7 +8932,8 @@ class RemoteUnshareResponseApplicationJson_OcsBuilder
     RemoteUnshareResponseApplicationJson_Ocs._validate(this);
     _$RemoteUnshareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$RemoteUnshareResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'RemoteUnshareResponseApplicationJson_Ocs', 'data'),
@@ -8148,9 +8964,9 @@ class _$RemoteUnshareResponseApplicationJson extends RemoteUnshareResponseApplic
   @override
   final RemoteUnshareResponseApplicationJson_Ocs ocs;
 
-  factory _$RemoteUnshareResponseApplicationJson(
-          [void Function(RemoteUnshareResponseApplicationJsonBuilder)? updates]) =>
-      (RemoteUnshareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RemoteUnshareResponseApplicationJson([
+    void Function(RemoteUnshareResponseApplicationJsonBuilder)? updates,
+  ]) => (RemoteUnshareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RemoteUnshareResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -8222,10 +9038,7 @@ class RemoteUnshareResponseApplicationJsonBuilder
     RemoteUnshareResponseApplicationJson._validate(this);
     _$RemoteUnshareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RemoteUnshareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RemoteUnshareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8363,7 +9176,8 @@ class ShareInfoInfoRequestApplicationJsonBuilder
 
   _$ShareInfoInfoRequestApplicationJson _build() {
     ShareInfoInfoRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareInfoInfoRequestApplicationJson._(
           t: BuiltValueNullFieldError.checkNotNull(t, r'ShareInfoInfoRequestApplicationJson', 't'),
           password: password,
@@ -8433,18 +9247,18 @@ class _$ShareInfo extends ShareInfo {
 
   factory _$ShareInfo([void Function(ShareInfoBuilder)? updates]) => (ShareInfoBuilder()..update(updates))._build();
 
-  _$ShareInfo._(
-      {required this.id,
-      required this.parentId,
-      required this.mtime,
-      required this.name,
-      required this.permissions,
-      required this.mimetype,
-      required this.size,
-      required this.type,
-      required this.etag,
-      this.children})
-      : super._();
+  _$ShareInfo._({
+    required this.id,
+    required this.parentId,
+    required this.mtime,
+    required this.name,
+    required this.permissions,
+    required this.mimetype,
+    required this.size,
+    required this.type,
+    required this.etag,
+    this.children,
+  }) : super._();
   @override
   ShareInfo rebuild(void Function(ShareInfoBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -8584,7 +9398,8 @@ class ShareInfoBuilder implements Builder<ShareInfo, ShareInfoBuilder>, $ShareIn
     ShareInfo._validate(this);
     _$ShareInfo _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareInfo._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'ShareInfo', 'id'),
             parentId: BuiltValueNullFieldError.checkNotNull(parentId, r'ShareInfo', 'parentId'),
@@ -8730,7 +9545,8 @@ class Share_StatusBuilder implements Builder<Share_Status, Share_StatusBuilder>,
 
   _$Share_Status _build() {
     Share_Status._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Share_Status._(
           clearAt: clearAt,
           icon: icon,
@@ -8970,52 +9786,52 @@ class _$Share extends Share {
 
   factory _$Share([void Function(ShareBuilder)? updates]) => (ShareBuilder()..update(updates))._build();
 
-  _$Share._(
-      {this.attributes,
-      required this.canDelete,
-      required this.canEdit,
-      required this.displaynameFileOwner,
-      required this.displaynameOwner,
-      this.expiration,
-      required this.fileParent,
-      required this.fileSource,
-      required this.fileTarget,
-      required this.hasPreview,
-      required this.hideDownload,
-      this.isTrustedServer,
-      required this.isMountRoot,
-      required this.id,
-      required this.itemMtime,
-      this.itemPermissions,
-      required this.itemSize,
-      required this.itemSource,
-      required this.itemType,
-      required this.label,
-      required this.mailSend,
-      required this.mimetype,
-      required this.mountType,
-      required this.note,
-      this.parent,
-      this.password,
-      this.passwordExpirationTime,
-      this.path,
-      required this.permissions,
-      this.sendPasswordByTalk,
-      required this.shareType,
-      this.shareWith,
-      this.shareWithAvatar,
-      this.shareWithDisplayname,
-      this.shareWithDisplaynameUnique,
-      this.shareWithLink,
-      this.status,
-      required this.stime,
-      required this.storage,
-      required this.storageId,
-      this.token,
-      required this.uidFileOwner,
-      required this.uidOwner,
-      this.url})
-      : super._();
+  _$Share._({
+    this.attributes,
+    required this.canDelete,
+    required this.canEdit,
+    required this.displaynameFileOwner,
+    required this.displaynameOwner,
+    this.expiration,
+    required this.fileParent,
+    required this.fileSource,
+    required this.fileTarget,
+    required this.hasPreview,
+    required this.hideDownload,
+    this.isTrustedServer,
+    required this.isMountRoot,
+    required this.id,
+    required this.itemMtime,
+    this.itemPermissions,
+    required this.itemSize,
+    required this.itemSource,
+    required this.itemType,
+    required this.label,
+    required this.mailSend,
+    required this.mimetype,
+    required this.mountType,
+    required this.note,
+    this.parent,
+    this.password,
+    this.passwordExpirationTime,
+    this.path,
+    required this.permissions,
+    this.sendPasswordByTalk,
+    required this.shareType,
+    this.shareWith,
+    this.shareWithAvatar,
+    this.shareWithDisplayname,
+    this.shareWithDisplaynameUnique,
+    this.shareWithLink,
+    this.status,
+    required this.stime,
+    required this.storage,
+    required this.storageId,
+    this.token,
+    required this.uidFileOwner,
+    required this.uidOwner,
+    this.url,
+  }) : super._();
   @override
   Share rebuild(void Function(ShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -9430,13 +10246,17 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
     Share._validate(this);
     _$Share _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Share._(
             attributes: attributes,
             canDelete: BuiltValueNullFieldError.checkNotNull(canDelete, r'Share', 'canDelete'),
             canEdit: BuiltValueNullFieldError.checkNotNull(canEdit, r'Share', 'canEdit'),
-            displaynameFileOwner:
-                BuiltValueNullFieldError.checkNotNull(displaynameFileOwner, r'Share', 'displaynameFileOwner'),
+            displaynameFileOwner: BuiltValueNullFieldError.checkNotNull(
+              displaynameFileOwner,
+              r'Share',
+              'displaynameFileOwner',
+            ),
             displaynameOwner: BuiltValueNullFieldError.checkNotNull(displaynameOwner, r'Share', 'displaynameOwner'),
             expiration: expiration,
             fileParent: BuiltValueNullFieldError.checkNotNull(fileParent, r'Share', 'fileParent'),
@@ -9509,15 +10329,15 @@ class _$ShareapiGetSharesResponseApplicationJson_Ocs extends ShareapiGetSharesRe
   @override
   final BuiltList<Share> data;
 
-  factory _$ShareapiGetSharesResponseApplicationJson_Ocs(
-          [void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGetSharesResponseApplicationJson_Ocs([
+    void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiGetSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiGetSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiGetSharesResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetSharesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetSharesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -9592,11 +10412,7 @@ class ShareapiGetSharesResponseApplicationJson_OcsBuilder
     ShareapiGetSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetSharesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9625,15 +10441,15 @@ class _$ShareapiGetSharesResponseApplicationJson extends ShareapiGetSharesRespon
   @override
   final ShareapiGetSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiGetSharesResponseApplicationJson(
-          [void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGetSharesResponseApplicationJson([
+    void Function(ShareapiGetSharesResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiGetSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiGetSharesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiGetSharesResponseApplicationJson rebuild(
-          void Function(ShareapiGetSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetSharesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetSharesResponseApplicationJsonBuilder toBuilder() =>
@@ -9700,10 +10516,7 @@ class ShareapiGetSharesResponseApplicationJsonBuilder
     ShareapiGetSharesResponseApplicationJson._validate(this);
     _$ShareapiGetSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetSharesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiGetSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9785,28 +10598,28 @@ class _$ShareapiCreateShareRequestApplicationJson extends ShareapiCreateShareReq
   @override
   final ShareapiCreateShareRequestApplicationJson_SendMail? sendMail;
 
-  factory _$ShareapiCreateShareRequestApplicationJson(
-          [void Function(ShareapiCreateShareRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiCreateShareRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiCreateShareRequestApplicationJson([
+    void Function(ShareapiCreateShareRequestApplicationJsonBuilder)? updates,
+  ]) => (ShareapiCreateShareRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ShareapiCreateShareRequestApplicationJson._(
-      {this.path,
-      this.permissions,
-      required this.shareType,
-      this.shareWith,
-      this.publicUpload,
-      required this.password,
-      this.sendPasswordByTalk,
-      this.expireDate,
-      required this.note,
-      required this.label,
-      this.attributes,
-      this.sendMail})
-      : super._();
+  _$ShareapiCreateShareRequestApplicationJson._({
+    this.path,
+    this.permissions,
+    required this.shareType,
+    this.shareWith,
+    this.publicUpload,
+    required this.password,
+    this.sendPasswordByTalk,
+    this.expireDate,
+    required this.note,
+    required this.label,
+    this.attributes,
+    this.sendMail,
+  }) : super._();
   @override
   ShareapiCreateShareRequestApplicationJson rebuild(
-          void Function(ShareapiCreateShareRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiCreateShareRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiCreateShareRequestApplicationJsonBuilder toBuilder() =>
@@ -9962,16 +10775,23 @@ class ShareapiCreateShareRequestApplicationJsonBuilder
 
   _$ShareapiCreateShareRequestApplicationJson _build() {
     ShareapiCreateShareRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareapiCreateShareRequestApplicationJson._(
           path: path,
           permissions: permissions,
           shareType: BuiltValueNullFieldError.checkNotNull(
-              shareType, r'ShareapiCreateShareRequestApplicationJson', 'shareType'),
+            shareType,
+            r'ShareapiCreateShareRequestApplicationJson',
+            'shareType',
+          ),
           shareWith: shareWith,
           publicUpload: publicUpload,
-          password:
-              BuiltValueNullFieldError.checkNotNull(password, r'ShareapiCreateShareRequestApplicationJson', 'password'),
+          password: BuiltValueNullFieldError.checkNotNull(
+            password,
+            r'ShareapiCreateShareRequestApplicationJson',
+            'password',
+          ),
           sendPasswordByTalk: sendPasswordByTalk,
           expireDate: expireDate,
           note: BuiltValueNullFieldError.checkNotNull(note, r'ShareapiCreateShareRequestApplicationJson', 'note'),
@@ -10000,15 +10820,15 @@ class _$ShareapiCreateShareResponseApplicationJson_Ocs extends ShareapiCreateSha
   @override
   final Share data;
 
-  factory _$ShareapiCreateShareResponseApplicationJson_Ocs(
-          [void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiCreateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiCreateShareResponseApplicationJson_Ocs([
+    void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiCreateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiCreateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiCreateShareResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiCreateShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiCreateShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -10083,11 +10903,7 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
     ShareapiCreateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiCreateShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiCreateShareResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10097,7 +10913,10 @@ class ShareapiCreateShareResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiCreateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiCreateShareResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10117,15 +10936,15 @@ class _$ShareapiCreateShareResponseApplicationJson extends ShareapiCreateShareRe
   @override
   final ShareapiCreateShareResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiCreateShareResponseApplicationJson(
-          [void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiCreateShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiCreateShareResponseApplicationJson([
+    void Function(ShareapiCreateShareResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiCreateShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiCreateShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiCreateShareResponseApplicationJson rebuild(
-          void Function(ShareapiCreateShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiCreateShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiCreateShareResponseApplicationJsonBuilder toBuilder() =>
@@ -10192,10 +11011,7 @@ class ShareapiCreateShareResponseApplicationJsonBuilder
     ShareapiCreateShareResponseApplicationJson._validate(this);
     _$ShareapiCreateShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiCreateShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiCreateShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10228,15 +11044,15 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs
   @override
   final BuiltList<Share> data;
 
-  factory _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs(
-          [void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs([
+    void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiGetInheritedSharesResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -10268,8 +11084,10 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs
 
 class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
-            ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+          ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
+        >,
         $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs? _$v;
 
@@ -10312,11 +11130,8 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
     ShareapiGetInheritedSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10326,7 +11141,10 @@ class ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiGetInheritedSharesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10346,15 +11164,15 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson extends ShareapiGetInh
   @override
   final ShareapiGetInheritedSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiGetInheritedSharesResponseApplicationJson(
-          [void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetInheritedSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGetInheritedSharesResponseApplicationJson([
+    void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiGetInheritedSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiGetInheritedSharesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiGetInheritedSharesResponseApplicationJson rebuild(
-          void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetInheritedSharesResponseApplicationJsonBuilder toBuilder() =>
@@ -10376,15 +11194,17 @@ class _$ShareapiGetInheritedSharesResponseApplicationJson extends ShareapiGetInh
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiGetInheritedSharesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiGetInheritedSharesResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
     implements
-        Builder<ShareapiGetInheritedSharesResponseApplicationJson,
-            ShareapiGetInheritedSharesResponseApplicationJsonBuilder>,
+        Builder<
+          ShareapiGetInheritedSharesResponseApplicationJson,
+          ShareapiGetInheritedSharesResponseApplicationJsonBuilder
+        >,
         $ShareapiGetInheritedSharesResponseApplicationJsonInterfaceBuilder {
   _$ShareapiGetInheritedSharesResponseApplicationJson? _$v;
 
@@ -10423,10 +11243,7 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
     ShareapiGetInheritedSharesResponseApplicationJson._validate(this);
     _$ShareapiGetInheritedSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetInheritedSharesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiGetInheritedSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10434,7 +11251,10 @@ class ShareapiGetInheritedSharesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiGetInheritedSharesResponseApplicationJson', _$failedField, e.toString());
+          r'ShareapiGetInheritedSharesResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10459,15 +11279,15 @@ class _$ShareapiPendingSharesResponseApplicationJson_Ocs extends ShareapiPending
   @override
   final BuiltList<Share> data;
 
-  factory _$ShareapiPendingSharesResponseApplicationJson_Ocs(
-          [void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiPendingSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiPendingSharesResponseApplicationJson_Ocs([
+    void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiPendingSharesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiPendingSharesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiPendingSharesResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiPendingSharesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -10499,8 +11319,10 @@ class _$ShareapiPendingSharesResponseApplicationJson_Ocs extends ShareapiPending
 
 class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
     implements
-        Builder<ShareapiPendingSharesResponseApplicationJson_Ocs,
-            ShareapiPendingSharesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ShareapiPendingSharesResponseApplicationJson_Ocs,
+          ShareapiPendingSharesResponseApplicationJson_OcsBuilder
+        >,
         $ShareapiPendingSharesResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiPendingSharesResponseApplicationJson_Ocs? _$v;
 
@@ -10543,11 +11365,7 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
     ShareapiPendingSharesResponseApplicationJson_Ocs._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiPendingSharesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10557,7 +11375,10 @@ class ShareapiPendingSharesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiPendingSharesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiPendingSharesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10577,15 +11398,15 @@ class _$ShareapiPendingSharesResponseApplicationJson extends ShareapiPendingShar
   @override
   final ShareapiPendingSharesResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiPendingSharesResponseApplicationJson(
-          [void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiPendingSharesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiPendingSharesResponseApplicationJson([
+    void Function(ShareapiPendingSharesResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiPendingSharesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiPendingSharesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiPendingSharesResponseApplicationJson rebuild(
-          void Function(ShareapiPendingSharesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiPendingSharesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiPendingSharesResponseApplicationJsonBuilder toBuilder() =>
@@ -10652,10 +11473,7 @@ class ShareapiPendingSharesResponseApplicationJsonBuilder
     ShareapiPendingSharesResponseApplicationJson._validate(this);
     _$ShareapiPendingSharesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiPendingSharesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiPendingSharesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10687,15 +11505,15 @@ class _$ShareapiGetShareResponseApplicationJson_Ocs extends ShareapiGetShareResp
   @override
   final BuiltList<Share> data;
 
-  factory _$ShareapiGetShareResponseApplicationJson_Ocs(
-          [void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGetShareResponseApplicationJson_Ocs([
+    void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiGetShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiGetShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiGetShareResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -10770,11 +11588,7 @@ class ShareapiGetShareResponseApplicationJson_OcsBuilder
     ShareapiGetShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGetShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetShareResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10803,15 +11617,15 @@ class _$ShareapiGetShareResponseApplicationJson extends ShareapiGetShareResponse
   @override
   final ShareapiGetShareResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiGetShareResponseApplicationJson(
-          [void Function(ShareapiGetShareResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiGetShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGetShareResponseApplicationJson([
+    void Function(ShareapiGetShareResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiGetShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiGetShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiGetShareResponseApplicationJson rebuild(
-          void Function(ShareapiGetShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGetShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGetShareResponseApplicationJsonBuilder toBuilder() =>
@@ -10878,10 +11692,7 @@ class ShareapiGetShareResponseApplicationJsonBuilder
     ShareapiGetShareResponseApplicationJson._validate(this);
     _$ShareapiGetShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGetShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiGetShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10958,27 +11769,27 @@ class _$ShareapiUpdateShareRequestApplicationJson extends ShareapiUpdateShareReq
   @override
   final String? token;
 
-  factory _$ShareapiUpdateShareRequestApplicationJson(
-          [void Function(ShareapiUpdateShareRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiUpdateShareRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiUpdateShareRequestApplicationJson([
+    void Function(ShareapiUpdateShareRequestApplicationJsonBuilder)? updates,
+  ]) => (ShareapiUpdateShareRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ShareapiUpdateShareRequestApplicationJson._(
-      {this.permissions,
-      this.password,
-      this.sendPasswordByTalk,
-      this.publicUpload,
-      this.expireDate,
-      this.note,
-      this.label,
-      this.hideDownload,
-      this.attributes,
-      this.sendMail,
-      this.token})
-      : super._();
+  _$ShareapiUpdateShareRequestApplicationJson._({
+    this.permissions,
+    this.password,
+    this.sendPasswordByTalk,
+    this.publicUpload,
+    this.expireDate,
+    this.note,
+    this.label,
+    this.hideDownload,
+    this.attributes,
+    this.sendMail,
+    this.token,
+  }) : super._();
   @override
   ShareapiUpdateShareRequestApplicationJson rebuild(
-          void Function(ShareapiUpdateShareRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiUpdateShareRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiUpdateShareRequestApplicationJsonBuilder toBuilder() =>
@@ -11125,7 +11936,8 @@ class ShareapiUpdateShareRequestApplicationJsonBuilder
 
   _$ShareapiUpdateShareRequestApplicationJson _build() {
     ShareapiUpdateShareRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareapiUpdateShareRequestApplicationJson._(
           permissions: permissions,
           password: password,
@@ -11160,15 +11972,15 @@ class _$ShareapiUpdateShareResponseApplicationJson_Ocs extends ShareapiUpdateSha
   @override
   final Share data;
 
-  factory _$ShareapiUpdateShareResponseApplicationJson_Ocs(
-          [void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiUpdateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiUpdateShareResponseApplicationJson_Ocs([
+    void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiUpdateShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiUpdateShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiUpdateShareResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiUpdateShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiUpdateShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -11243,11 +12055,7 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
     ShareapiUpdateShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiUpdateShareResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11257,7 +12065,10 @@ class ShareapiUpdateShareResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiUpdateShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiUpdateShareResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -11277,15 +12088,15 @@ class _$ShareapiUpdateShareResponseApplicationJson extends ShareapiUpdateShareRe
   @override
   final ShareapiUpdateShareResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiUpdateShareResponseApplicationJson(
-          [void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiUpdateShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiUpdateShareResponseApplicationJson([
+    void Function(ShareapiUpdateShareResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiUpdateShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiUpdateShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiUpdateShareResponseApplicationJson rebuild(
-          void Function(ShareapiUpdateShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiUpdateShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiUpdateShareResponseApplicationJsonBuilder toBuilder() =>
@@ -11352,10 +12163,7 @@ class ShareapiUpdateShareResponseApplicationJsonBuilder
     ShareapiUpdateShareResponseApplicationJson._validate(this);
     _$ShareapiUpdateShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiUpdateShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiUpdateShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11387,15 +12195,15 @@ class _$ShareapiDeleteShareResponseApplicationJson_Ocs extends ShareapiDeleteSha
   @override
   final JsonObject data;
 
-  factory _$ShareapiDeleteShareResponseApplicationJson_Ocs(
-          [void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiDeleteShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiDeleteShareResponseApplicationJson_Ocs([
+    void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiDeleteShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiDeleteShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiDeleteShareResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiDeleteShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiDeleteShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -11470,11 +12278,15 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
     ShareapiDeleteShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiDeleteShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareapiDeleteShareResponseApplicationJson_Ocs._(
             meta: meta.build(),
-            data:
-                BuiltValueNullFieldError.checkNotNull(data, r'ShareapiDeleteShareResponseApplicationJson_Ocs', 'data'),
+            data: BuiltValueNullFieldError.checkNotNull(
+              data,
+              r'ShareapiDeleteShareResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -11483,7 +12295,10 @@ class ShareapiDeleteShareResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiDeleteShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiDeleteShareResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -11503,15 +12318,15 @@ class _$ShareapiDeleteShareResponseApplicationJson extends ShareapiDeleteShareRe
   @override
   final ShareapiDeleteShareResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiDeleteShareResponseApplicationJson(
-          [void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiDeleteShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiDeleteShareResponseApplicationJson([
+    void Function(ShareapiDeleteShareResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiDeleteShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiDeleteShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiDeleteShareResponseApplicationJson rebuild(
-          void Function(ShareapiDeleteShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiDeleteShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiDeleteShareResponseApplicationJsonBuilder toBuilder() =>
@@ -11578,10 +12393,7 @@ class ShareapiDeleteShareResponseApplicationJsonBuilder
     ShareapiDeleteShareResponseApplicationJson._validate(this);
     _$ShareapiDeleteShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiDeleteShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiDeleteShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11608,15 +12420,15 @@ class _$ShareapiSendShareEmailRequestApplicationJson extends ShareapiSendShareEm
   @override
   final String password;
 
-  factory _$ShareapiSendShareEmailRequestApplicationJson(
-          [void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder)? updates]) =>
-      (ShareapiSendShareEmailRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiSendShareEmailRequestApplicationJson([
+    void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder)? updates,
+  ]) => (ShareapiSendShareEmailRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiSendShareEmailRequestApplicationJson._({required this.password}) : super._();
   @override
   ShareapiSendShareEmailRequestApplicationJson rebuild(
-          void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiSendShareEmailRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiSendShareEmailRequestApplicationJsonBuilder toBuilder() =>
@@ -11638,8 +12450,8 @@ class _$ShareapiSendShareEmailRequestApplicationJson extends ShareapiSendShareEm
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiSendShareEmailRequestApplicationJson')..add('password', password))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiSendShareEmailRequestApplicationJson')
+      ..add('password', password)).toString();
   }
 }
 
@@ -11681,10 +12493,14 @@ class ShareapiSendShareEmailRequestApplicationJsonBuilder
 
   _$ShareapiSendShareEmailRequestApplicationJson _build() {
     ShareapiSendShareEmailRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareapiSendShareEmailRequestApplicationJson._(
           password: BuiltValueNullFieldError.checkNotNull(
-              password, r'ShareapiSendShareEmailRequestApplicationJson', 'password'),
+            password,
+            r'ShareapiSendShareEmailRequestApplicationJson',
+            'password',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -11707,15 +12523,15 @@ class _$ShareapiSendShareEmailResponseApplicationJson_Ocs extends ShareapiSendSh
   @override
   final JsonObject data;
 
-  factory _$ShareapiSendShareEmailResponseApplicationJson_Ocs(
-          [void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiSendShareEmailResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiSendShareEmailResponseApplicationJson_Ocs([
+    void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiSendShareEmailResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiSendShareEmailResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiSendShareEmailResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiSendShareEmailResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -11747,8 +12563,10 @@ class _$ShareapiSendShareEmailResponseApplicationJson_Ocs extends ShareapiSendSh
 
 class ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
     implements
-        Builder<ShareapiSendShareEmailResponseApplicationJson_Ocs,
-            ShareapiSendShareEmailResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ShareapiSendShareEmailResponseApplicationJson_Ocs,
+          ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
+        >,
         $ShareapiSendShareEmailResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiSendShareEmailResponseApplicationJson_Ocs? _$v;
 
@@ -11791,11 +12609,15 @@ class ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
     ShareapiSendShareEmailResponseApplicationJson_Ocs._validate(this);
     _$ShareapiSendShareEmailResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareapiSendShareEmailResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'ShareapiSendShareEmailResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'ShareapiSendShareEmailResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -11804,7 +12626,10 @@ class ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiSendShareEmailResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiSendShareEmailResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -11824,15 +12649,15 @@ class _$ShareapiSendShareEmailResponseApplicationJson extends ShareapiSendShareE
   @override
   final ShareapiSendShareEmailResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiSendShareEmailResponseApplicationJson(
-          [void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiSendShareEmailResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiSendShareEmailResponseApplicationJson([
+    void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiSendShareEmailResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiSendShareEmailResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiSendShareEmailResponseApplicationJson rebuild(
-          void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiSendShareEmailResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiSendShareEmailResponseApplicationJsonBuilder toBuilder() =>
@@ -11899,10 +12724,7 @@ class ShareapiSendShareEmailResponseApplicationJsonBuilder
     ShareapiSendShareEmailResponseApplicationJson._validate(this);
     _$ShareapiSendShareEmailResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiSendShareEmailResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiSendShareEmailResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -11934,15 +12756,15 @@ class _$ShareapiAcceptShareResponseApplicationJson_Ocs extends ShareapiAcceptSha
   @override
   final JsonObject data;
 
-  factory _$ShareapiAcceptShareResponseApplicationJson_Ocs(
-          [void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiAcceptShareResponseApplicationJson_Ocs([
+    void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiAcceptShareResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiAcceptShareResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiAcceptShareResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiAcceptShareResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiAcceptShareResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -12017,11 +12839,15 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
     ShareapiAcceptShareResponseApplicationJson_Ocs._validate(this);
     _$ShareapiAcceptShareResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareapiAcceptShareResponseApplicationJson_Ocs._(
             meta: meta.build(),
-            data:
-                BuiltValueNullFieldError.checkNotNull(data, r'ShareapiAcceptShareResponseApplicationJson_Ocs', 'data'),
+            data: BuiltValueNullFieldError.checkNotNull(
+              data,
+              r'ShareapiAcceptShareResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -12030,7 +12856,10 @@ class ShareapiAcceptShareResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiAcceptShareResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiAcceptShareResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -12050,15 +12879,15 @@ class _$ShareapiAcceptShareResponseApplicationJson extends ShareapiAcceptShareRe
   @override
   final ShareapiAcceptShareResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiAcceptShareResponseApplicationJson(
-          [void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiAcceptShareResponseApplicationJson([
+    void Function(ShareapiAcceptShareResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiAcceptShareResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiAcceptShareResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiAcceptShareResponseApplicationJson rebuild(
-          void Function(ShareapiAcceptShareResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiAcceptShareResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiAcceptShareResponseApplicationJsonBuilder toBuilder() =>
@@ -12125,10 +12954,7 @@ class ShareapiAcceptShareResponseApplicationJsonBuilder
     ShareapiAcceptShareResponseApplicationJson._validate(this);
     _$ShareapiAcceptShareResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiAcceptShareResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiAcceptShareResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -12156,15 +12982,15 @@ class _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
   @override
   final String token;
 
-  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data(
-          [void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._({required this.token}) : super._();
   @override
   ShareapiGenerateTokenResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -12186,15 +13012,17 @@ class _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data')..add('token', token))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data')
+      ..add('token', token)).toString();
   }
 }
 
 class ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
-            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+          ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder
+        >,
         $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data? _$v;
 
@@ -12230,10 +13058,14 @@ class ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder
 
   _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data _build() {
     ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareapiGenerateTokenResponseApplicationJson_Ocs_Data._(
           token: BuiltValueNullFieldError.checkNotNull(
-              token, r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data', 'token'),
+            token,
+            r'ShareapiGenerateTokenResponseApplicationJson_Ocs_Data',
+            'token',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -12256,15 +13088,15 @@ class _$ShareapiGenerateTokenResponseApplicationJson_Ocs extends ShareapiGenerat
   @override
   final ShareapiGenerateTokenResponseApplicationJson_Ocs_Data data;
 
-  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs(
-          [void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareapiGenerateTokenResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareapiGenerateTokenResponseApplicationJson_Ocs([
+    void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareapiGenerateTokenResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareapiGenerateTokenResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareapiGenerateTokenResponseApplicationJson_Ocs rebuild(
-          void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGenerateTokenResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -12296,8 +13128,10 @@ class _$ShareapiGenerateTokenResponseApplicationJson_Ocs extends ShareapiGenerat
 
 class ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
     implements
-        Builder<ShareapiGenerateTokenResponseApplicationJson_Ocs,
-            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ShareapiGenerateTokenResponseApplicationJson_Ocs,
+          ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
+        >,
         $ShareapiGenerateTokenResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareapiGenerateTokenResponseApplicationJson_Ocs? _$v;
 
@@ -12341,11 +13175,7 @@ class ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
     ShareapiGenerateTokenResponseApplicationJson_Ocs._validate(this);
     _$ShareapiGenerateTokenResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGenerateTokenResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareapiGenerateTokenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -12355,7 +13185,10 @@ class ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareapiGenerateTokenResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareapiGenerateTokenResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -12375,15 +13208,15 @@ class _$ShareapiGenerateTokenResponseApplicationJson extends ShareapiGenerateTok
   @override
   final ShareapiGenerateTokenResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareapiGenerateTokenResponseApplicationJson(
-          [void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? updates]) =>
-      (ShareapiGenerateTokenResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareapiGenerateTokenResponseApplicationJson([
+    void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareapiGenerateTokenResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareapiGenerateTokenResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareapiGenerateTokenResponseApplicationJson rebuild(
-          void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareapiGenerateTokenResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareapiGenerateTokenResponseApplicationJsonBuilder toBuilder() =>
@@ -12450,10 +13283,7 @@ class ShareapiGenerateTokenResponseApplicationJsonBuilder
     ShareapiGenerateTokenResponseApplicationJson._validate(this);
     _$ShareapiGenerateTokenResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareapiGenerateTokenResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareapiGenerateTokenResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -12544,10 +13374,7 @@ class ShareeBuilder implements Builder<Sharee, ShareeBuilder>, $ShareeInterfaceB
 
   _$Sharee _build() {
     Sharee._validate(this);
-    final _$result = _$v ??
-        _$Sharee._(
-          label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'),
-        );
+    final _$result = _$v ?? _$Sharee._(label: BuiltValueNullFieldError.checkNotNull(label, r'Sharee', 'label'));
     replace(_$result);
     return _$result;
   }
@@ -12643,7 +13470,8 @@ class ShareeValueBuilder implements Builder<ShareeValue, ShareeValueBuilder>, $S
 
   _$ShareeValue _build() {
     ShareeValue._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeValue._(
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeValue', 'shareType'),
           shareWith: BuiltValueNullFieldError.checkNotNull(shareWith, r'ShareeValue', 'shareWith'),
@@ -12760,7 +13588,8 @@ class ShareeCircle_ValueBuilder
 
   _$ShareeCircle_Value _build() {
     ShareeCircle_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeCircle_Value._(
           circle: BuiltValueNullFieldError.checkNotNull(circle, r'ShareeCircle_Value', 'circle'),
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeCircle_Value', 'shareType'),
@@ -12879,10 +13708,14 @@ class ShareeCircleBuilder implements Builder<ShareeCircle, ShareeCircleBuilder>,
     ShareeCircle._validate(this);
     _$ShareeCircle _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeCircle._(
-            shareWithDescription:
-                BuiltValueNullFieldError.checkNotNull(shareWithDescription, r'ShareeCircle', 'shareWithDescription'),
+            shareWithDescription: BuiltValueNullFieldError.checkNotNull(
+              shareWithDescription,
+              r'ShareeCircle',
+              'shareWithDescription',
+            ),
             value: value.build(),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeCircle', 'label'),
           );
@@ -12940,14 +13773,14 @@ class _$ShareeEmail extends ShareeEmail {
   factory _$ShareeEmail([void Function(ShareeEmailBuilder)? updates]) =>
       (ShareeEmailBuilder()..update(updates))._build();
 
-  _$ShareeEmail._(
-      {required this.uuid,
-      required this.name,
-      required this.type,
-      required this.shareWithDisplayNameUnique,
-      required this.value,
-      required this.label})
-      : super._();
+  _$ShareeEmail._({
+    required this.uuid,
+    required this.name,
+    required this.type,
+    required this.shareWithDisplayNameUnique,
+    required this.value,
+    required this.label,
+  }) : super._();
   @override
   ShareeEmail rebuild(void Function(ShareeEmailBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -13055,13 +13888,17 @@ class ShareeEmailBuilder implements Builder<ShareeEmail, ShareeEmailBuilder>, $S
     ShareeEmail._validate(this);
     _$ShareeEmail _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeEmail._(
             uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeEmail', 'uuid'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeEmail', 'name'),
             type: BuiltValueNullFieldError.checkNotNull(type, r'ShareeEmail', 'type'),
             shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                shareWithDisplayNameUnique, r'ShareeEmail', 'shareWithDisplayNameUnique'),
+              shareWithDisplayNameUnique,
+              r'ShareeEmail',
+              'shareWithDisplayNameUnique',
+            ),
             value: value.build(),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeEmail', 'label'),
           );
@@ -13172,7 +14009,8 @@ class ShareeGroupBuilder implements Builder<ShareeGroup, ShareeGroupBuilder>, $S
     ShareeGroup._validate(this);
     _$ShareeGroup _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeGroup._(
             value: value.build(),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeGroup', 'label'),
@@ -13301,7 +14139,8 @@ class ShareeRemoteGroup_ValueBuilder
 
   _$ShareeRemoteGroup_Value _build() {
     ShareeRemoteGroup_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeRemoteGroup_Value._(
           server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemoteGroup_Value', 'server'),
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemoteGroup_Value', 'shareType'),
@@ -13433,7 +14272,8 @@ class ShareeRemoteGroupBuilder
     ShareeRemoteGroup._validate(this);
     _$ShareeRemoteGroup _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeRemoteGroup._(
             guid: BuiltValueNullFieldError.checkNotNull(guid, r'ShareeRemoteGroup', 'guid'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemoteGroup', 'name'),
@@ -13562,7 +14402,8 @@ class ShareeRemote_ValueBuilder
 
   _$ShareeRemote_Value _build() {
     ShareeRemote_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeRemote_Value._(
           server: BuiltValueNullFieldError.checkNotNull(server, r'ShareeRemote_Value', 'server'),
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeRemote_Value', 'shareType'),
@@ -13607,9 +14448,13 @@ class _$ShareeRemote extends ShareeRemote {
   factory _$ShareeRemote([void Function(ShareeRemoteBuilder)? updates]) =>
       (ShareeRemoteBuilder()..update(updates))._build();
 
-  _$ShareeRemote._(
-      {required this.uuid, required this.name, required this.type, required this.value, required this.label})
-      : super._();
+  _$ShareeRemote._({
+    required this.uuid,
+    required this.name,
+    required this.type,
+    required this.value,
+    required this.label,
+  }) : super._();
   @override
   ShareeRemote rebuild(void Function(ShareeRemoteBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -13708,7 +14553,8 @@ class ShareeRemoteBuilder implements Builder<ShareeRemote, ShareeRemoteBuilder>,
     ShareeRemote._validate(this);
     _$ShareeRemote _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeRemote._(
             uuid: BuiltValueNullFieldError.checkNotNull(uuid, r'ShareeRemote', 'uuid'),
             name: BuiltValueNullFieldError.checkNotNull(name, r'ShareeRemote', 'name'),
@@ -13822,7 +14668,8 @@ class ShareeRoomBuilder implements Builder<ShareeRoom, ShareeRoomBuilder>, $Shar
     ShareeRoom._validate(this);
     _$ShareeRoom _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeRoom._(
             value: value.build(),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeRoom', 'label'),
@@ -13961,7 +14808,8 @@ class ShareeUser_StatusBuilder
 
   _$ShareeUser_Status _build() {
     ShareeUser_Status._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeUser_Status._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'ShareeUser_Status', 'status'),
           message: BuiltValueNullFieldError.checkNotNull(message, r'ShareeUser_Status', 'message'),
@@ -14011,14 +14859,14 @@ class _$ShareeUser extends ShareeUser {
 
   factory _$ShareeUser([void Function(ShareeUserBuilder)? updates]) => (ShareeUserBuilder()..update(updates))._build();
 
-  _$ShareeUser._(
-      {required this.subline,
-      required this.icon,
-      required this.shareWithDisplayNameUnique,
-      required this.status,
-      required this.value,
-      required this.label})
-      : super._();
+  _$ShareeUser._({
+    required this.subline,
+    required this.icon,
+    required this.shareWithDisplayNameUnique,
+    required this.status,
+    required this.value,
+    required this.label,
+  }) : super._();
   @override
   ShareeUser rebuild(void Function(ShareeUserBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -14126,12 +14974,16 @@ class ShareeUserBuilder implements Builder<ShareeUser, ShareeUserBuilder>, $Shar
     ShareeUser._validate(this);
     _$ShareeUser _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeUser._(
             subline: BuiltValueNullFieldError.checkNotNull(subline, r'ShareeUser', 'subline'),
             icon: BuiltValueNullFieldError.checkNotNull(icon, r'ShareeUser', 'icon'),
             shareWithDisplayNameUnique: BuiltValueNullFieldError.checkNotNull(
-                shareWithDisplayNameUnique, r'ShareeUser', 'shareWithDisplayNameUnique'),
+              shareWithDisplayNameUnique,
+              r'ShareeUser',
+              'shareWithDisplayNameUnique',
+            ),
             status: status.build(),
             value: value.build(),
             label: BuiltValueNullFieldError.checkNotNull(label, r'ShareeUser', 'label'),
@@ -14197,15 +15049,15 @@ class _$ShareesSearchResult_Exact extends ShareesSearchResult_Exact {
   factory _$ShareesSearchResult_Exact([void Function(ShareesSearchResult_ExactBuilder)? updates]) =>
       (ShareesSearchResult_ExactBuilder()..update(updates))._build();
 
-  _$ShareesSearchResult_Exact._(
-      {required this.circles,
-      required this.emails,
-      required this.groups,
-      required this.remoteGroups,
-      required this.remotes,
-      required this.rooms,
-      required this.users})
-      : super._();
+  _$ShareesSearchResult_Exact._({
+    required this.circles,
+    required this.emails,
+    required this.groups,
+    required this.remoteGroups,
+    required this.remotes,
+    required this.rooms,
+    required this.users,
+  }) : super._();
   @override
   ShareesSearchResult_Exact rebuild(void Function(ShareesSearchResult_ExactBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -14324,7 +15176,8 @@ class ShareesSearchResult_ExactBuilder
     ShareesSearchResult_Exact._validate(this);
     _$ShareesSearchResult_Exact _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareesSearchResult_Exact._(
             circles: circles.build(),
             emails: emails.build(),
@@ -14450,7 +15303,8 @@ class LookupBuilder implements Builder<Lookup, LookupBuilder>, $LookupInterfaceB
 
   _$Lookup _build() {
     Lookup._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Lookup._(
           value: BuiltValueNullFieldError.checkNotNull(value, r'Lookup', 'value'),
           verified: BuiltValueNullFieldError.checkNotNull(verified, r'Lookup', 'verified'),
@@ -14519,18 +15373,18 @@ class _$ShareeLookup_Extra extends ShareeLookup_Extra {
   factory _$ShareeLookup_Extra([void Function(ShareeLookup_ExtraBuilder)? updates]) =>
       (ShareeLookup_ExtraBuilder()..update(updates))._build();
 
-  _$ShareeLookup_Extra._(
-      {required this.federationId,
-      this.name,
-      this.email,
-      this.address,
-      this.website,
-      this.twitter,
-      this.phone,
-      this.twitterSignature,
-      this.websiteSignature,
-      this.userid})
-      : super._();
+  _$ShareeLookup_Extra._({
+    required this.federationId,
+    this.name,
+    this.email,
+    this.address,
+    this.website,
+    this.twitter,
+    this.phone,
+    this.twitterSignature,
+    this.websiteSignature,
+    this.userid,
+  }) : super._();
   @override
   ShareeLookup_Extra rebuild(void Function(ShareeLookup_ExtraBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -14671,7 +15525,8 @@ class ShareeLookup_ExtraBuilder
     ShareeLookup_Extra._validate(this);
     _$ShareeLookup_Extra _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeLookup_Extra._(
             federationId: BuiltValueNullFieldError.checkNotNull(federationId, r'ShareeLookup_Extra', 'federationId'),
             name: _name?.build(),
@@ -14822,7 +15677,8 @@ class ShareeLookup_ValueBuilder
 
   _$ShareeLookup_Value _build() {
     ShareeLookup_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ShareeLookup_Value._(
           globalScale: BuiltValueNullFieldError.checkNotNull(globalScale, r'ShareeLookup_Value', 'globalScale'),
           shareType: BuiltValueNullFieldError.checkNotNull(shareType, r'ShareeLookup_Value', 'shareType'),
@@ -14937,7 +15793,8 @@ class ShareeLookupBuilder implements Builder<ShareeLookup, ShareeLookupBuilder>,
     ShareeLookup._validate(this);
     _$ShareeLookup _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareeLookup._(
             extra: extra.build(),
             value: value.build(),
@@ -15019,18 +15876,18 @@ class _$ShareesSearchResult extends ShareesSearchResult {
   factory _$ShareesSearchResult([void Function(ShareesSearchResultBuilder)? updates]) =>
       (ShareesSearchResultBuilder()..update(updates))._build();
 
-  _$ShareesSearchResult._(
-      {required this.exact,
-      required this.circles,
-      required this.emails,
-      required this.groups,
-      required this.lookup,
-      required this.remoteGroups,
-      required this.remotes,
-      required this.rooms,
-      required this.users,
-      required this.lookupEnabled})
-      : super._();
+  _$ShareesSearchResult._({
+    required this.exact,
+    required this.circles,
+    required this.emails,
+    required this.groups,
+    required this.lookup,
+    required this.remoteGroups,
+    required this.remotes,
+    required this.rooms,
+    required this.users,
+    required this.lookupEnabled,
+  }) : super._();
   @override
   ShareesSearchResult rebuild(void Function(ShareesSearchResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -15171,7 +16028,8 @@ class ShareesSearchResultBuilder
     ShareesSearchResult._validate(this);
     _$ShareesSearchResult _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareesSearchResult._(
             exact: exact.build(),
             circles: circles.build(),
@@ -15182,8 +16040,11 @@ class ShareesSearchResultBuilder
             remotes: remotes.build(),
             rooms: rooms.build(),
             users: users.build(),
-            lookupEnabled:
-                BuiltValueNullFieldError.checkNotNull(lookupEnabled, r'ShareesSearchResult', 'lookupEnabled'),
+            lookupEnabled: BuiltValueNullFieldError.checkNotNull(
+              lookupEnabled,
+              r'ShareesSearchResult',
+              'lookupEnabled',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -15232,15 +16093,15 @@ class _$ShareesapiSearchResponseApplicationJson_Ocs extends ShareesapiSearchResp
   @override
   final ShareesSearchResult data;
 
-  factory _$ShareesapiSearchResponseApplicationJson_Ocs(
-          [void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareesapiSearchResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareesapiSearchResponseApplicationJson_Ocs([
+    void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareesapiSearchResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareesapiSearchResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareesapiSearchResponseApplicationJson_Ocs rebuild(
-          void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareesapiSearchResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareesapiSearchResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -15315,11 +16176,7 @@ class ShareesapiSearchResponseApplicationJson_OcsBuilder
     ShareesapiSearchResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiSearchResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareesapiSearchResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15348,15 +16205,15 @@ class _$ShareesapiSearchResponseApplicationJson extends ShareesapiSearchResponse
   @override
   final ShareesapiSearchResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareesapiSearchResponseApplicationJson(
-          [void Function(ShareesapiSearchResponseApplicationJsonBuilder)? updates]) =>
-      (ShareesapiSearchResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareesapiSearchResponseApplicationJson([
+    void Function(ShareesapiSearchResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareesapiSearchResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareesapiSearchResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareesapiSearchResponseApplicationJson rebuild(
-          void Function(ShareesapiSearchResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareesapiSearchResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareesapiSearchResponseApplicationJsonBuilder toBuilder() =>
@@ -15423,10 +16280,7 @@ class ShareesapiSearchResponseApplicationJsonBuilder
     ShareesapiSearchResponseApplicationJson._validate(this);
     _$ShareesapiSearchResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareesapiSearchResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareesapiSearchResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15522,10 +16376,7 @@ class ShareesapiShareesapiSearchHeadersBuilder
 
   _$ShareesapiShareesapiSearchHeaders _build() {
     ShareesapiShareesapiSearchHeaders._validate(this);
-    final _$result = _$v ??
-        _$ShareesapiShareesapiSearchHeaders._(
-          link: link,
-        );
+    final _$result = _$v ?? _$ShareesapiShareesapiSearchHeaders._(link: link);
     replace(_$result);
     return _$result;
   }
@@ -15565,13 +16416,13 @@ class _$ShareesRecommendedResult_Exact extends ShareesRecommendedResult_Exact {
   factory _$ShareesRecommendedResult_Exact([void Function(ShareesRecommendedResult_ExactBuilder)? updates]) =>
       (ShareesRecommendedResult_ExactBuilder()..update(updates))._build();
 
-  _$ShareesRecommendedResult_Exact._(
-      {required this.emails,
-      required this.groups,
-      required this.remoteGroups,
-      required this.remotes,
-      required this.users})
-      : super._();
+  _$ShareesRecommendedResult_Exact._({
+    required this.emails,
+    required this.groups,
+    required this.remoteGroups,
+    required this.remotes,
+    required this.users,
+  }) : super._();
   @override
   ShareesRecommendedResult_Exact rebuild(void Function(ShareesRecommendedResult_ExactBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -15674,7 +16525,8 @@ class ShareesRecommendedResult_ExactBuilder
     ShareesRecommendedResult_Exact._validate(this);
     _$ShareesRecommendedResult_Exact _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareesRecommendedResult_Exact._(
             emails: emails.build(),
             groups: groups.build(),
@@ -15744,14 +16596,14 @@ class _$ShareesRecommendedResult extends ShareesRecommendedResult {
   factory _$ShareesRecommendedResult([void Function(ShareesRecommendedResultBuilder)? updates]) =>
       (ShareesRecommendedResultBuilder()..update(updates))._build();
 
-  _$ShareesRecommendedResult._(
-      {required this.exact,
-      required this.emails,
-      required this.groups,
-      required this.remoteGroups,
-      required this.remotes,
-      required this.users})
-      : super._();
+  _$ShareesRecommendedResult._({
+    required this.exact,
+    required this.emails,
+    required this.groups,
+    required this.remoteGroups,
+    required this.remotes,
+    required this.users,
+  }) : super._();
   @override
   ShareesRecommendedResult rebuild(void Function(ShareesRecommendedResultBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -15862,7 +16714,8 @@ class ShareesRecommendedResultBuilder
     ShareesRecommendedResult._validate(this);
     _$ShareesRecommendedResult _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ShareesRecommendedResult._(
             exact: exact.build(),
             emails: emails.build(),
@@ -15913,15 +16766,15 @@ class _$ShareesapiFindRecommendedResponseApplicationJson_Ocs
   @override
   final ShareesRecommendedResult data;
 
-  factory _$ShareesapiFindRecommendedResponseApplicationJson_Ocs(
-          [void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ShareesapiFindRecommendedResponseApplicationJson_Ocs([
+    void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ShareesapiFindRecommendedResponseApplicationJson_Ocs rebuild(
-          void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -15953,8 +16806,10 @@ class _$ShareesapiFindRecommendedResponseApplicationJson_Ocs
 
 class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
     implements
-        Builder<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
-            ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ShareesapiFindRecommendedResponseApplicationJson_Ocs,
+          ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
+        >,
         $ShareesapiFindRecommendedResponseApplicationJson_OcsInterfaceBuilder {
   _$ShareesapiFindRecommendedResponseApplicationJson_Ocs? _$v;
 
@@ -15997,11 +16852,8 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
     ShareesapiFindRecommendedResponseApplicationJson_Ocs._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16011,7 +16863,10 @@ class ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareesapiFindRecommendedResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ShareesapiFindRecommendedResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16031,15 +16886,15 @@ class _$ShareesapiFindRecommendedResponseApplicationJson extends ShareesapiFindR
   @override
   final ShareesapiFindRecommendedResponseApplicationJson_Ocs ocs;
 
-  factory _$ShareesapiFindRecommendedResponseApplicationJson(
-          [void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates]) =>
-      (ShareesapiFindRecommendedResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ShareesapiFindRecommendedResponseApplicationJson([
+    void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? updates,
+  ]) => (ShareesapiFindRecommendedResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ShareesapiFindRecommendedResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ShareesapiFindRecommendedResponseApplicationJson rebuild(
-          void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ShareesapiFindRecommendedResponseApplicationJsonBuilder toBuilder() =>
@@ -16061,15 +16916,17 @@ class _$ShareesapiFindRecommendedResponseApplicationJson extends ShareesapiFindR
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ShareesapiFindRecommendedResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ShareesapiFindRecommendedResponseApplicationJsonBuilder
     implements
-        Builder<ShareesapiFindRecommendedResponseApplicationJson,
-            ShareesapiFindRecommendedResponseApplicationJsonBuilder>,
+        Builder<
+          ShareesapiFindRecommendedResponseApplicationJson,
+          ShareesapiFindRecommendedResponseApplicationJsonBuilder
+        >,
         $ShareesapiFindRecommendedResponseApplicationJsonInterfaceBuilder {
   _$ShareesapiFindRecommendedResponseApplicationJson? _$v;
 
@@ -16108,10 +16965,7 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
     ShareesapiFindRecommendedResponseApplicationJson._validate(this);
     _$ShareesapiFindRecommendedResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ShareesapiFindRecommendedResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ShareesapiFindRecommendedResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16119,7 +16973,10 @@ class ShareesapiFindRecommendedResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ShareesapiFindRecommendedResponseApplicationJson', _$failedField, e.toString());
+          r'ShareesapiFindRecommendedResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16144,16 +17001,16 @@ class _$Capabilities_FilesSharing_Public_Password extends Capabilities_FilesShar
   @override
   final bool askForOptionalPassword;
 
-  factory _$Capabilities_FilesSharing_Public_Password(
-          [void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Public_PasswordBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_Password([
+    void Function(Capabilities_FilesSharing_Public_PasswordBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Public_PasswordBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Public_Password._({required this.enforced, required this.askForOptionalPassword})
-      : super._();
+    : super._();
   @override
   Capabilities_FilesSharing_Public_Password rebuild(
-          void Function(Capabilities_FilesSharing_Public_PasswordBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Public_PasswordBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Public_PasswordBuilder toBuilder() =>
@@ -16229,12 +17086,19 @@ class Capabilities_FilesSharing_Public_PasswordBuilder
 
   _$Capabilities_FilesSharing_Public_Password _build() {
     Capabilities_FilesSharing_Public_Password._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Public_Password._(
-          enforced:
-              BuiltValueNullFieldError.checkNotNull(enforced, r'Capabilities_FilesSharing_Public_Password', 'enforced'),
+          enforced: BuiltValueNullFieldError.checkNotNull(
+            enforced,
+            r'Capabilities_FilesSharing_Public_Password',
+            'enforced',
+          ),
           askForOptionalPassword: BuiltValueNullFieldError.checkNotNull(
-              askForOptionalPassword, r'Capabilities_FilesSharing_Public_Password', 'askForOptionalPassword'),
+            askForOptionalPassword,
+            r'Capabilities_FilesSharing_Public_Password',
+            'askForOptionalPassword',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -16262,15 +17126,15 @@ class _$Capabilities_FilesSharing_Public_ExpireDate extends Capabilities_FilesSh
   @override
   final bool? enforced;
 
-  factory _$Capabilities_FilesSharing_Public_ExpireDate(
-          [void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Public_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDate([
+    void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Public_ExpireDateBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Public_ExpireDate._({required this.enabled, this.days, this.enforced}) : super._();
   @override
   Capabilities_FilesSharing_Public_ExpireDate rebuild(
-          void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Public_ExpireDateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Public_ExpireDateBuilder toBuilder() =>
@@ -16353,10 +17217,14 @@ class Capabilities_FilesSharing_Public_ExpireDateBuilder
 
   _$Capabilities_FilesSharing_Public_ExpireDate _build() {
     Capabilities_FilesSharing_Public_ExpireDate._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDate._(
-          enabled:
-              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public_ExpireDate', 'enabled'),
+          enabled: BuiltValueNullFieldError.checkNotNull(
+            enabled,
+            r'Capabilities_FilesSharing_Public_ExpireDate',
+            'enabled',
+          ),
           days: days,
           enforced: enforced,
         );
@@ -16387,16 +17255,16 @@ class _$Capabilities_FilesSharing_Public_ExpireDateInternal
   @override
   final bool? enforced;
 
-  factory _$Capabilities_FilesSharing_Public_ExpireDateInternal(
-          [void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDateInternal([
+    void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Public_ExpireDateInternalBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Public_ExpireDateInternal._({required this.enabled, this.days, this.enforced})
-      : super._();
+    : super._();
   @override
   Capabilities_FilesSharing_Public_ExpireDateInternal rebuild(
-          void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Public_ExpireDateInternalBuilder toBuilder() =>
@@ -16433,8 +17301,10 @@ class _$Capabilities_FilesSharing_Public_ExpireDateInternal
 
 class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
     implements
-        Builder<Capabilities_FilesSharing_Public_ExpireDateInternal,
-            Capabilities_FilesSharing_Public_ExpireDateInternalBuilder>,
+        Builder<
+          Capabilities_FilesSharing_Public_ExpireDateInternal,
+          Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+        >,
         $Capabilities_FilesSharing_Public_ExpireDateInternalInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_ExpireDateInternal? _$v;
 
@@ -16480,10 +17350,14 @@ class Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
 
   _$Capabilities_FilesSharing_Public_ExpireDateInternal _build() {
     Capabilities_FilesSharing_Public_ExpireDateInternal._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateInternal._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'Capabilities_FilesSharing_Public_ExpireDateInternal', 'enabled'),
+            enabled,
+            r'Capabilities_FilesSharing_Public_ExpireDateInternal',
+            'enabled',
+          ),
           days: days,
           enforced: enforced,
         );
@@ -16513,15 +17387,15 @@ class _$Capabilities_FilesSharing_Public_ExpireDateRemote extends Capabilities_F
   @override
   final bool? enforced;
 
-  factory _$Capabilities_FilesSharing_Public_ExpireDateRemote(
-          [void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Public_ExpireDateRemote([
+    void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Public_ExpireDateRemote._({required this.enabled, this.days, this.enforced}) : super._();
   @override
   Capabilities_FilesSharing_Public_ExpireDateRemote rebuild(
-          void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder toBuilder() =>
@@ -16558,8 +17432,10 @@ class _$Capabilities_FilesSharing_Public_ExpireDateRemote extends Capabilities_F
 
 class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
     implements
-        Builder<Capabilities_FilesSharing_Public_ExpireDateRemote,
-            Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder>,
+        Builder<
+          Capabilities_FilesSharing_Public_ExpireDateRemote,
+          Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+        >,
         $Capabilities_FilesSharing_Public_ExpireDateRemoteInterfaceBuilder {
   _$Capabilities_FilesSharing_Public_ExpireDateRemote? _$v;
 
@@ -16605,10 +17481,14 @@ class Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
 
   _$Capabilities_FilesSharing_Public_ExpireDateRemote _build() {
     Capabilities_FilesSharing_Public_ExpireDateRemote._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Public_ExpireDateRemote._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'Capabilities_FilesSharing_Public_ExpireDateRemote', 'enabled'),
+            enabled,
+            r'Capabilities_FilesSharing_Public_ExpireDateRemote',
+            'enabled',
+          ),
           days: days,
           enforced: enforced,
         );
@@ -16676,18 +17556,18 @@ class _$Capabilities_FilesSharing_Public extends Capabilities_FilesSharing_Publi
   factory _$Capabilities_FilesSharing_Public([void Function(Capabilities_FilesSharing_PublicBuilder)? updates]) =>
       (Capabilities_FilesSharing_PublicBuilder()..update(updates))._build();
 
-  _$Capabilities_FilesSharing_Public._(
-      {required this.enabled,
-      this.password,
-      this.multipleLinks,
-      this.expireDate,
-      this.expireDateInternal,
-      this.expireDateRemote,
-      this.sendMail,
-      this.upload,
-      this.uploadFilesDrop,
-      this.customTokens})
-      : super._();
+  _$Capabilities_FilesSharing_Public._({
+    required this.enabled,
+    this.password,
+    this.multipleLinks,
+    this.expireDate,
+    this.expireDateInternal,
+    this.expireDateRemote,
+    this.sendMail,
+    this.upload,
+    this.uploadFilesDrop,
+    this.customTokens,
+  }) : super._();
   @override
   Capabilities_FilesSharing_Public rebuild(void Function(Capabilities_FilesSharing_PublicBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -16837,7 +17717,8 @@ class Capabilities_FilesSharing_PublicBuilder
     Capabilities_FilesSharing_Public._validate(this);
     _$Capabilities_FilesSharing_Public _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_FilesSharing_Public._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Public', 'enabled'),
             password: _password?.build(),
@@ -16883,15 +17764,15 @@ class _$Capabilities_FilesSharing_User_ExpireDate extends Capabilities_FilesShar
   @override
   final bool enabled;
 
-  factory _$Capabilities_FilesSharing_User_ExpireDate(
-          [void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? updates]) =>
-      (Capabilities_FilesSharing_User_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_User_ExpireDate([
+    void Function(Capabilities_FilesSharing_User_ExpireDateBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_User_ExpireDateBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_User_ExpireDate._({required this.enabled}) : super._();
   @override
   Capabilities_FilesSharing_User_ExpireDate rebuild(
-          void Function(Capabilities_FilesSharing_User_ExpireDateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_User_ExpireDateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_User_ExpireDateBuilder toBuilder() =>
@@ -16913,8 +17794,8 @@ class _$Capabilities_FilesSharing_User_ExpireDate extends Capabilities_FilesShar
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_User_ExpireDate')..add('enabled', enabled))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_User_ExpireDate')
+      ..add('enabled', enabled)).toString();
   }
 }
 
@@ -16956,10 +17837,14 @@ class Capabilities_FilesSharing_User_ExpireDateBuilder
 
   _$Capabilities_FilesSharing_User_ExpireDate _build() {
     Capabilities_FilesSharing_User_ExpireDate._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_User_ExpireDate._(
-          enabled:
-              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_User_ExpireDate', 'enabled'),
+          enabled: BuiltValueNullFieldError.checkNotNull(
+            enabled,
+            r'Capabilities_FilesSharing_User_ExpireDate',
+            'enabled',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -17064,7 +17949,8 @@ class Capabilities_FilesSharing_UserBuilder
     Capabilities_FilesSharing_User._validate(this);
     _$Capabilities_FilesSharing_User _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_FilesSharing_User._(
             sendMail: BuiltValueNullFieldError.checkNotNull(sendMail, r'Capabilities_FilesSharing_User', 'sendMail'),
             expireDate: _expireDate?.build(),
@@ -17095,15 +17981,15 @@ class _$Capabilities_FilesSharing_Group_ExpireDate extends Capabilities_FilesSha
   @override
   final bool enabled;
 
-  factory _$Capabilities_FilesSharing_Group_ExpireDate(
-          [void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Group_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Group_ExpireDate([
+    void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Group_ExpireDateBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Group_ExpireDate._({required this.enabled}) : super._();
   @override
   Capabilities_FilesSharing_Group_ExpireDate rebuild(
-          void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Group_ExpireDateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Group_ExpireDateBuilder toBuilder() =>
@@ -17125,8 +18011,8 @@ class _$Capabilities_FilesSharing_Group_ExpireDate extends Capabilities_FilesSha
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Group_ExpireDate')..add('enabled', enabled))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Group_ExpireDate')
+      ..add('enabled', enabled)).toString();
   }
 }
 
@@ -17168,10 +18054,14 @@ class Capabilities_FilesSharing_Group_ExpireDateBuilder
 
   _$Capabilities_FilesSharing_Group_ExpireDate _build() {
     Capabilities_FilesSharing_Group_ExpireDate._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Group_ExpireDate._(
-          enabled:
-              BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group_ExpireDate', 'enabled'),
+          enabled: BuiltValueNullFieldError.checkNotNull(
+            enabled,
+            r'Capabilities_FilesSharing_Group_ExpireDate',
+            'enabled',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -17276,7 +18166,8 @@ class Capabilities_FilesSharing_GroupBuilder
     Capabilities_FilesSharing_Group._validate(this);
     _$Capabilities_FilesSharing_Group _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_FilesSharing_Group._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_FilesSharing_Group', 'enabled'),
             expireDate: _expireDate?.build(),
@@ -17307,15 +18198,15 @@ class _$Capabilities_FilesSharing_Federation_ExpireDate extends Capabilities_Fil
   @override
   final bool enabled;
 
-  factory _$Capabilities_FilesSharing_Federation_ExpireDate(
-          [void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Federation_ExpireDateBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation_ExpireDate([
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Federation_ExpireDateBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Federation_ExpireDate._({required this.enabled}) : super._();
   @override
   Capabilities_FilesSharing_Federation_ExpireDate rebuild(
-          void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Federation_ExpireDateBuilder toBuilder() =>
@@ -17337,15 +18228,17 @@ class _$Capabilities_FilesSharing_Federation_ExpireDate extends Capabilities_Fil
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation_ExpireDate')..add('enabled', enabled))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation_ExpireDate')
+      ..add('enabled', enabled)).toString();
   }
 }
 
 class Capabilities_FilesSharing_Federation_ExpireDateBuilder
     implements
-        Builder<Capabilities_FilesSharing_Federation_ExpireDate,
-            Capabilities_FilesSharing_Federation_ExpireDateBuilder>,
+        Builder<
+          Capabilities_FilesSharing_Federation_ExpireDate,
+          Capabilities_FilesSharing_Federation_ExpireDateBuilder
+        >,
         $Capabilities_FilesSharing_Federation_ExpireDateInterfaceBuilder {
   _$Capabilities_FilesSharing_Federation_ExpireDate? _$v;
 
@@ -17381,10 +18274,14 @@ class Capabilities_FilesSharing_Federation_ExpireDateBuilder
 
   _$Capabilities_FilesSharing_Federation_ExpireDate _build() {
     Capabilities_FilesSharing_Federation_ExpireDate._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDate._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'Capabilities_FilesSharing_Federation_ExpireDate', 'enabled'),
+            enabled,
+            r'Capabilities_FilesSharing_Federation_ExpireDate',
+            'enabled',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -17403,15 +18300,15 @@ class _$Capabilities_FilesSharing_Federation_ExpireDateSupported
   @override
   final bool enabled;
 
-  factory _$Capabilities_FilesSharing_Federation_ExpireDateSupported(
-          [void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates]) =>
-      (Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation_ExpireDateSupported([
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder()..update(updates))._build();
 
   _$Capabilities_FilesSharing_Federation_ExpireDateSupported._({required this.enabled}) : super._();
   @override
   Capabilities_FilesSharing_Federation_ExpireDateSupported rebuild(
-          void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder toBuilder() =>
@@ -17434,15 +18331,16 @@ class _$Capabilities_FilesSharing_Federation_ExpireDateSupported
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'Capabilities_FilesSharing_Federation_ExpireDateSupported')
-          ..add('enabled', enabled))
-        .toString();
+      ..add('enabled', enabled)).toString();
   }
 }
 
 class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
     implements
-        Builder<Capabilities_FilesSharing_Federation_ExpireDateSupported,
-            Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder>,
+        Builder<
+          Capabilities_FilesSharing_Federation_ExpireDateSupported,
+          Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+        >,
         $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterfaceBuilder {
   _$Capabilities_FilesSharing_Federation_ExpireDateSupported? _$v;
 
@@ -17478,10 +18376,14 @@ class Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
 
   _$Capabilities_FilesSharing_Federation_ExpireDateSupported _build() {
     Capabilities_FilesSharing_Federation_ExpireDateSupported._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Federation_ExpireDateSupported._(
           enabled: BuiltValueNullFieldError.checkNotNull(
-              enabled, r'Capabilities_FilesSharing_Federation_ExpireDateSupported', 'enabled'),
+            enabled,
+            r'Capabilities_FilesSharing_Federation_ExpireDateSupported',
+            'enabled',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -17514,13 +18416,16 @@ class _$Capabilities_FilesSharing_Federation extends Capabilities_FilesSharing_F
   @override
   final Capabilities_FilesSharing_Federation_ExpireDateSupported expireDateSupported;
 
-  factory _$Capabilities_FilesSharing_Federation(
-          [void Function(Capabilities_FilesSharing_FederationBuilder)? updates]) =>
-      (Capabilities_FilesSharing_FederationBuilder()..update(updates))._build();
+  factory _$Capabilities_FilesSharing_Federation([
+    void Function(Capabilities_FilesSharing_FederationBuilder)? updates,
+  ]) => (Capabilities_FilesSharing_FederationBuilder()..update(updates))._build();
 
-  _$Capabilities_FilesSharing_Federation._(
-      {required this.outgoing, required this.incoming, required this.expireDate, required this.expireDateSupported})
-      : super._();
+  _$Capabilities_FilesSharing_Federation._({
+    required this.outgoing,
+    required this.incoming,
+    required this.expireDate,
+    required this.expireDateSupported,
+  }) : super._();
   @override
   Capabilities_FilesSharing_Federation rebuild(void Function(Capabilities_FilesSharing_FederationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -17585,8 +18490,8 @@ class Capabilities_FilesSharing_FederationBuilder
   Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder get expireDateSupported =>
       _$this._expireDateSupported ??= Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder();
   set expireDateSupported(
-          covariant Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported) =>
-      _$this._expireDateSupported = expireDateSupported;
+    covariant Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder? expireDateSupported,
+  ) => _$this._expireDateSupported = expireDateSupported;
 
   Capabilities_FilesSharing_FederationBuilder() {
     Capabilities_FilesSharing_Federation._defaults(this);
@@ -17621,12 +18526,19 @@ class Capabilities_FilesSharing_FederationBuilder
     Capabilities_FilesSharing_Federation._validate(this);
     _$Capabilities_FilesSharing_Federation _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_FilesSharing_Federation._(
-            outgoing:
-                BuiltValueNullFieldError.checkNotNull(outgoing, r'Capabilities_FilesSharing_Federation', 'outgoing'),
-            incoming:
-                BuiltValueNullFieldError.checkNotNull(incoming, r'Capabilities_FilesSharing_Federation', 'incoming'),
+            outgoing: BuiltValueNullFieldError.checkNotNull(
+              outgoing,
+              r'Capabilities_FilesSharing_Federation',
+              'outgoing',
+            ),
+            incoming: BuiltValueNullFieldError.checkNotNull(
+              incoming,
+              r'Capabilities_FilesSharing_Federation',
+              'incoming',
+            ),
             expireDate: expireDate.build(),
             expireDateSupported: expireDateSupported.build(),
           );
@@ -17743,12 +18655,19 @@ class Capabilities_FilesSharing_ShareeBuilder
 
   _$Capabilities_FilesSharing_Sharee _build() {
     Capabilities_FilesSharing_Sharee._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_FilesSharing_Sharee._(
           queryLookupDefault: BuiltValueNullFieldError.checkNotNull(
-              queryLookupDefault, r'Capabilities_FilesSharing_Sharee', 'queryLookupDefault'),
+            queryLookupDefault,
+            r'Capabilities_FilesSharing_Sharee',
+            'queryLookupDefault',
+          ),
           alwaysShowUnique: BuiltValueNullFieldError.checkNotNull(
-              alwaysShowUnique, r'Capabilities_FilesSharing_Sharee', 'alwaysShowUnique'),
+            alwaysShowUnique,
+            r'Capabilities_FilesSharing_Sharee',
+            'alwaysShowUnique',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -17809,17 +18728,17 @@ class _$Capabilities_FilesSharing extends Capabilities_FilesSharing {
   factory _$Capabilities_FilesSharing([void Function(Capabilities_FilesSharingBuilder)? updates]) =>
       (Capabilities_FilesSharingBuilder()..update(updates))._build();
 
-  _$Capabilities_FilesSharing._(
-      {required this.apiEnabled,
-      required this.public,
-      required this.user,
-      required this.resharing,
-      this.groupSharing,
-      this.group,
-      this.defaultPermissions,
-      required this.federation,
-      required this.sharee})
-      : super._();
+  _$Capabilities_FilesSharing._({
+    required this.apiEnabled,
+    required this.public,
+    required this.user,
+    required this.resharing,
+    this.groupSharing,
+    this.group,
+    this.defaultPermissions,
+    required this.federation,
+    required this.sharee,
+  }) : super._();
   @override
   Capabilities_FilesSharing rebuild(void Function(Capabilities_FilesSharingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -17955,7 +18874,8 @@ class Capabilities_FilesSharingBuilder
     Capabilities_FilesSharing._validate(this);
     _$Capabilities_FilesSharing _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_FilesSharing._(
             apiEnabled: BuiltValueNullFieldError.checkNotNull(apiEnabled, r'Capabilities_FilesSharing', 'apiEnabled'),
             public: public.build(),
@@ -18070,10 +18990,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            filesSharing: filesSharing.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(filesSharing: filesSharing.build());
     } catch (_) {
       late String _$failedField;
       try {

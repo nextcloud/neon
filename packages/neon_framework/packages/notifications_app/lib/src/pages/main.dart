@@ -11,9 +11,7 @@ import 'package:notifications_app/src/blocs/notifications.dart';
 import 'package:notifications_app/src/widgets/notification.dart';
 
 class NotificationsMainPage extends StatefulWidget {
-  const NotificationsMainPage({
-    super.key,
-  });
+  const NotificationsMainPage({super.key});
 
   @override
   State<NotificationsMainPage> createState() => _NotificationsMainPageState();
@@ -60,23 +58,24 @@ class _NotificationsMainPageState extends State<NotificationsMainPage> {
       ),
       body: ResultBuilder.behaviorSubject(
         subject: bloc.notifications,
-        builder: (context, notifications) => NeonListView(
-          scrollKey: 'notifications-notifications',
-          isLoading: notifications.isLoading,
-          error: notifications.error,
-          onRefresh: bloc.refresh,
-          itemCount: notifications.data?.length ?? 0,
-          itemBuilder: (context, index) {
-            final notification = notifications.data![index];
+        builder:
+            (context, notifications) => NeonListView(
+              scrollKey: 'notifications-notifications',
+              isLoading: notifications.isLoading,
+              error: notifications.error,
+              onRefresh: bloc.refresh,
+              itemCount: notifications.data?.length ?? 0,
+              itemBuilder: (context, index) {
+                final notification = notifications.data![index];
 
-            return NotificationsNotification(
-              notification: notification,
-              onDelete: () {
-                bloc.deleteNotification(notification.notificationId);
+                return NotificationsNotification(
+                  notification: notification,
+                  onDelete: () {
+                    bloc.deleteNotification(notification.notificationId);
+                  },
+                );
               },
-            );
-          },
-        ),
+            ),
       ),
     );
   }

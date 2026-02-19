@@ -7,36 +7,21 @@ void main() {
   group('Credentials', () {
     group('constructor', () {
       test('works correctly', () {
-        expect(
-          createCredentials,
-          returnsNormally,
-        );
+        expect(createCredentials, returnsNormally);
       });
     });
 
     test('supports value equality', () {
-      expect(
-        createCredentials(),
-        equalsBuilt(createCredentials()),
-      );
+      expect(createCredentials(), equalsBuilt(createCredentials()));
 
-      expect(
-        createCredentials().hashCode,
-        equals(createCredentials().hashCode),
-      );
+      expect(createCredentials().hashCode, equals(createCredentials().hashCode));
 
-      expect(
-        createCredentials(),
-        isNot(equalsBuilt(createCredentials(appPassword: null))),
-      );
+      expect(createCredentials(), isNot(equalsBuilt(createCredentials(appPassword: null))));
     });
 
     group('rebuild', () {
       test('returns the same object if not attributes are changed', () {
-        expect(
-          createCredentials().rebuild((_) {}),
-          equalsBuilt(createCredentials()),
-        );
+        expect(createCredentials().rebuild((_) {}), equalsBuilt(createCredentials()));
       });
 
       test('replaces every attribute', () {
@@ -59,22 +44,13 @@ void main() {
     });
 
     test('creates id', () {
-      expect(
-        createCredentials().id,
-        equals('b0682d652840ef50a4115cc77109bedd8c577ccc'),
-      );
+      expect(createCredentials().id, equals('b0682d652840ef50a4115cc77109bedd8c577ccc'));
     });
 
     test('creates humanReadableID', () {
-      final credentials = createCredentials(
-        serverURL: Uri.https('example.com'),
-        username: 'JohnDoe',
-      );
+      final credentials = createCredentials(serverURL: Uri.https('example.com'), username: 'JohnDoe');
 
-      expect(
-        credentials.humanReadableID,
-        'JohnDoe@example.com',
-      );
+      expect(credentials.humanReadableID, 'JohnDoe@example.com');
 
       final credentialsWithDefaultPort = createCredentials(
         serverURL: Uri(scheme: 'http', host: 'example.com', port: 80),
@@ -108,11 +84,7 @@ void main() {
       test('toJson works correctly', () {
         expect(
           createCredentials().toJson(),
-          equals({
-            'serverURL': 'https://serverurl',
-            'username': 'username',
-            'appPassword': 'appPassword',
-          }),
+          equals({'serverURL': 'https://serverurl', 'username': 'username', 'appPassword': 'appPassword'}),
         );
       });
     });

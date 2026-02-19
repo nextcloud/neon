@@ -26,17 +26,15 @@ final class SQLiteCookiePersistence implements CookiePersistence {
   /// Creates a new SQLite backed cookie persistence for the given account.
   ///
   /// Optionally [allowedBaseUri] can be used to restrict storage and loading of cookies to a certain domain and path.
-  SQLiteCookiePersistence({
-    required this.accountID,
-    Uri? allowedBaseUri,
-  }) : allowedBaseUri = switch (allowedBaseUri) {
-          null => null,
-          Uri(:final path) when path.endsWith('/') => Uri(
-              host: allowedBaseUri.host,
-              path: path.substring(0, path.length - 1),
-            ),
-          _ => allowedBaseUri,
-        };
+  SQLiteCookiePersistence({required this.accountID, Uri? allowedBaseUri})
+    : allowedBaseUri = switch (allowedBaseUri) {
+        null => null,
+        Uri(:final path) when path.endsWith('/') => Uri(
+          host: allowedBaseUri.host,
+          path: path.substring(0, path.length - 1),
+        ),
+        _ => allowedBaseUri,
+      };
 
   final _log = Logger('SQLiteCookiePersistence');
 
@@ -69,11 +67,7 @@ final class SQLiteCookiePersistence implements CookiePersistence {
       'Tried to initialize SQLiteCookiePersistence on a platform without support for paths',
     );
     final cacheDir = await getApplicationCacheDirectory();
-    database = await openDatabase(
-      p.join(cacheDir.path, 'cookies.db'),
-      version: 1,
-      onCreate: onCreate,
-    );
+    database = await openDatabase(p.join(cacheDir.path, 'cookies.db'), version: 1, onCreate: onCreate);
   }
 
   @visibleForTesting
@@ -150,12 +144,7 @@ ORDER BY
   length("path") DESC,
   "creation-time" ASC
 ''',
-        [
-          accountID,
-          requestHost,
-          if (isSecureRequest) 1 else 0,
-          if (isHttpRequest) 1 else 0,
-        ],
+        [accountID, requestHost, if (isSecureRequest) 1 else 0, if (isHttpRequest) 1 else 0],
       );
 
       final list = <Cookie>[];
@@ -183,12 +172,7 @@ WHERE "account" = ?
   AND "domain" = ?
   AND "path" = ?
 ''',
-          [
-            accountID,
-            name,
-            domain,
-            path,
-          ],
+          [accountID, name, domain, path],
         );
       }
 
@@ -198,11 +182,7 @@ WHERE "account" = ?
 
       return list;
     } on DatabaseException catch (error, stackTrace) {
-      _log.warning(
-        'Error loading cookies.',
-        error,
-        stackTrace,
-      );
+      _log.warning('Error loading cookies.', error, stackTrace);
     }
 
     return [];
@@ -240,13 +220,7 @@ AND "domain" = ?
 AND "path" = ?
 AND ("http-only-flag" = 0 OR ? = 1)
 ''',
-          whereArgs: [
-            accountID,
-            cookie.name,
-            cookie.domain,
-            cookie.path,
-            if (isHttpRequest) 1 else 0,
-          ],
+          whereArgs: [accountID, cookie.name, cookie.domain, cookie.path, if (isHttpRequest) 1 else 0],
         )
         // Ignore already present records.
         // This happens when the cookie was not updated because of the http-only-flag
@@ -276,11 +250,7 @@ WHERE (SELECT changes() = 0)
     try {
       await batch.commit(noResult: true);
     } on DatabaseException catch (error, stackTrace) {
-      _log.warning(
-        'Error persisting cookies.',
-        error,
-        stackTrace,
-      );
+      _log.warning('Error persisting cookies.', error, stackTrace);
 
       return false;
     }
@@ -304,11 +274,7 @@ WHERE
 
       return true;
     } on DatabaseException catch (error, stackTrace) {
-      _log.warning(
-        'Error removing session cookies.',
-        error,
-        stackTrace,
-      );
+      _log.warning('Error removing session cookies.', error, stackTrace);
 
       return false;
     }
@@ -343,19 +309,12 @@ WHERE "account" = ?
       );
 
       for (final result in results) {
-        final cookie = Cookie(
-          result['name']! as String,
-          result['value']! as String,
-        );
+        final cookie = Cookie(result['name']! as String, result['value']! as String);
 
         list.add(cookie);
       }
     } on DatabaseException catch (error, stackTrace) {
-      _log.warning(
-        'Error loading cookies.',
-        error,
-        stackTrace,
-      );
+      _log.warning('Error loading cookies.', error, stackTrace);
     }
 
     return list;

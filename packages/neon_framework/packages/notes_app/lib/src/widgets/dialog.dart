@@ -9,11 +9,7 @@ import 'package:notes_app/src/widgets/category_select.dart';
 /// A dialog for creating a note.
 class NotesCreateNoteDialog extends StatefulWidget {
   /// Creates a new create note dialog.
-  const NotesCreateNoteDialog({
-    required this.bloc,
-    this.initialCategory,
-    super.key,
-  });
+  const NotesCreateNoteDialog({required this.bloc, this.initialCategory, super.key});
 
   /// The active notes bloc.
   final NotesBloc bloc;
@@ -49,9 +45,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
       child: TextFormField(
         autofocus: true,
         controller: controller,
-        decoration: InputDecoration(
-          hintText: NotesLocalizations.of(context).noteTitle,
-        ),
+        decoration: InputDecoration(hintText: NotesLocalizations.of(context).noteTitle),
         validator: (input) => validateNotEmpty(context, input),
         onFieldSubmitted: (_) {
           submit();
@@ -63,19 +57,10 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
       subject: widget.bloc.notes,
       builder: (context, notes) {
         if (notes.hasError) {
-          return Center(
-            child: NeonError(
-              notes.error,
-              onRetry: widget.bloc.refresh,
-            ),
-          );
+          return Center(child: NeonError(notes.error, onRetry: widget.bloc.refresh));
         }
         if (!notes.hasData) {
-          return Center(
-            child: NeonLinearProgressIndicator(
-              visible: notes.isLoading,
-            ),
-          );
+          return Center(child: NeonLinearProgressIndicator(visible: notes.isLoading));
         }
 
         return NotesCategorySelect(
@@ -94,21 +79,14 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            titleField,
-            const SizedBox(height: 8),
-            folderSelector,
-          ],
+          children: [titleField, const SizedBox(height: 8), folderSelector],
         ),
       ),
       actions: [
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: submit,
-          child: Text(
-            NotesLocalizations.of(context).noteCreate,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NotesLocalizations.of(context).noteCreate, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -118,11 +96,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
 /// A dialog for selecting a category for a note.
 class NotesSelectCategoryDialog extends StatefulWidget {
   /// Creates a new category selection dialog.
-  const NotesSelectCategoryDialog({
-    required this.bloc,
-    this.initialCategory,
-    super.key,
-  });
+  const NotesSelectCategoryDialog({required this.bloc, this.initialCategory, super.key});
 
   /// The active notes bloc.
   final NotesBloc bloc;
@@ -151,19 +125,10 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
       subject: widget.bloc.notes,
       builder: (context, notes) {
         if (notes.hasError) {
-          return Center(
-            child: NeonError(
-              notes.error,
-              onRetry: widget.bloc.refresh,
-            ),
-          );
+          return Center(child: NeonError(notes.error, onRetry: widget.bloc.refresh));
         }
         if (!notes.hasData) {
-          return Center(
-            child: NeonLinearProgressIndicator(
-              visible: notes.isLoading,
-            ),
-          );
+          return Center(child: NeonLinearProgressIndicator(visible: notes.isLoading));
         }
 
         return Form(
@@ -182,17 +147,12 @@ class _NotesSelectCategoryDialogState extends State<NotesSelectCategoryDialog> {
 
     return NeonDialog(
       title: Text(NotesLocalizations.of(context).category),
-      content: Material(
-        child: folderSelector,
-      ),
+      content: Material(child: folderSelector),
       actions: [
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: submit,
-          child: Text(
-            NotesLocalizations.of(context).noteSetCategory,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NotesLocalizations.of(context).noteSetCategory, textAlign: TextAlign.end),
         ),
       ],
     );

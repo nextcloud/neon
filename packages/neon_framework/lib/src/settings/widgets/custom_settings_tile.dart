@@ -7,14 +7,7 @@ import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 
 @internal
 class CustomSettingsTile extends SettingsTile {
-  const CustomSettingsTile({
-    required this.title,
-    this.subtitle,
-    this.leading,
-    this.trailing,
-    this.onTap,
-    super.key,
-  });
+  const CustomSettingsTile({required this.title, this.subtitle, this.leading, this.trailing, this.onTap, super.key});
 
   final Widget title;
   final Widget? subtitle;
@@ -24,12 +17,6 @@ class CustomSettingsTile extends SettingsTile {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveListTile(
-      title: title,
-      subtitle: subtitle,
-      leading: leading,
-      trailing: trailing,
-      onTap: onTap,
-    );
+    return AdaptiveListTile(title: title, subtitle: subtitle, leading: leading, trailing: trailing, onTap: onTap);
   }
 }

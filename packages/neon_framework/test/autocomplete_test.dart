@@ -19,24 +19,22 @@ Account mockAutocompleteAccount() {
     RegExp(r'/ocs/v2\.php/core/autocomplete/get'): {
       'get': (match, request) {
         return Response(
-          json.encode(
-            {
-              'ocs': {
-                'meta': {'status': '', 'statuscode': 0},
-                'data': [
-                  {
-                    'id': '',
-                    'label': 'test',
-                    'icon': '',
-                    'source': '',
-                    'status': '',
-                    'subline': '',
-                    'shareWithDisplayNameUnique': '',
-                  },
-                ],
-              },
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': [
+                {
+                  'id': '',
+                  'label': 'test',
+                  'icon': '',
+                  'source': '',
+                  'status': '',
+                  'subline': '',
+                  'shareWithDisplayNameUnique': '',
+                },
+              ],
             },
-          ),
+          }),
           200,
           headers: {'content-type': 'application/json'},
         );
@@ -67,28 +65,24 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
+        providers: [Provider<Account>.value(value: account)],
         child: Builder(
-          builder: (context) => NeonAutocomplete(
-            itemType: 'itemType',
-            itemId: 'itemId',
-            shareTypes: const [
-              core.ShareType.user,
-              core.ShareType.group,
-            ],
-            validator: (input) => validateNotEmpty(context, input),
-            resultBuilder: (context, result, onSelected) {
-              return InkWell(
-                onTap: () {
-                  onSelected(result);
+          builder:
+              (context) => NeonAutocomplete(
+                itemType: 'itemType',
+                itemId: 'itemId',
+                shareTypes: const [core.ShareType.user, core.ShareType.group],
+                validator: (input) => validateNotEmpty(context, input),
+                resultBuilder: (context, result, onSelected) {
+                  return InkWell(
+                    onTap: () {
+                      onSelected(result);
+                    },
+                    child: Text(result.label),
+                  );
                 },
-                child: Text(result.label),
-              );
-            },
-            onSelected: callback.call,
-          ),
+                onSelected: callback.call,
+              ),
         ),
       ),
     );
@@ -109,14 +103,15 @@ void main() {
     verify(
       () => callback(
         core.AutocompleteResult(
-          (b) => b
-            ..id = ''
-            ..label = 'test'
-            ..icon = ''
-            ..source = ''
-            ..status = (autocompleteResultStatus0: null, string: '')
-            ..subline = ''
-            ..shareWithDisplayNameUnique = '',
+          (b) =>
+              b
+                ..id = ''
+                ..label = 'test'
+                ..icon = ''
+                ..source = ''
+                ..status = (autocompleteResultStatus0: null, string: '')
+                ..subline = ''
+                ..shareWithDisplayNameUnique = '',
         ),
       ),
     ).called(1);

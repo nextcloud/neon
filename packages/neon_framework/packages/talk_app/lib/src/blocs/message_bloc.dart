@@ -23,11 +23,7 @@ abstract class TalkMessageBloc implements Bloc {
 }
 
 class _TalkMessageBloc extends Bloc implements TalkMessageBloc {
-  _TalkMessageBloc({
-    required this.chatMessage,
-    required this.referencesBloc,
-    required this.isParent,
-  }) {
+  _TalkMessageBloc({required this.chatMessage, required this.referencesBloc, required this.isParent}) {
     if (!isParent) {
       referenceRegexSubscription = referencesBloc.referenceRegex.listen((result) {
         final referenceRegex = result.data;

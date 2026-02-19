@@ -396,15 +396,9 @@ class _JsonSchemaSerializer extends StructuredSerializer<JsonSchema> {
     }
 
     final value = iterator.current;
-    final type = serializers.deserializeWith(
-      JsonSchemaType.serializer,
-      value,
-    );
+    final type = serializers.deserializeWith(JsonSchemaType.serializer, value);
 
-    return serializers.deserializeWith(
-      _schemaTypeToType[type]!,
-      serialized,
-    )!;
+    return serializers.deserializeWith(_schemaTypeToType[type]!, serialized)!;
   }
 
   @override
@@ -413,9 +407,6 @@ class _JsonSchemaSerializer extends StructuredSerializer<JsonSchema> {
     JsonSchema object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return serializers.serializeWith(
-      _schemaTypeToType[object.type]!,
-      object,
-    )! as Iterable<Object?>;
+    return serializers.serializeWith(_schemaTypeToType[object.type]!, object)! as Iterable<Object?>;
   }
 }

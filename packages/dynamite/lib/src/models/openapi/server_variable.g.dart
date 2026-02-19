@@ -15,12 +15,12 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
   final String wireName = 'ServerVariable';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ServerVariable object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'default',
-      serializers.serialize(object.$default, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ServerVariable object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['default', serializers.serialize(object.$default, specifiedType: const FullType(String))];
     Object? value;
     value = object.$enum;
     if (value != null) {
@@ -38,8 +38,11 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
   }
 
   @override
-  ServerVariable deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ServerVariable deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ServerVariableBuilder();
 
     final iterator = serialized.iterator;
@@ -52,8 +55,10 @@ class _$ServerVariableSerializer implements StructuredSerializer<ServerVariable>
           result.$default = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'enum':
-          result.$enum.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<Object?>);
+          result.$enum.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -156,11 +161,13 @@ class ServerVariableBuilder implements Builder<ServerVariable, ServerVariableBui
   _$ServerVariable _build() {
     _$ServerVariable _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ServerVariable._(
-              $default: BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default'),
-              $enum: _$enum?.build(),
-              description: description);
+            $default: BuiltValueNullFieldError.checkNotNull($default, r'ServerVariable', '\$default'),
+            $enum: _$enum?.build(),
+            description: description,
+          );
     } catch (_) {
       late String _$failedField;
       try {

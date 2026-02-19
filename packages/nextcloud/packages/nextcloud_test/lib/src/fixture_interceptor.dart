@@ -8,9 +8,7 @@ import 'package:interceptor_http_client/interceptor_http_client.dart';
 /// An http interceptor that records every request and adds them to a fixture.
 final class FixtureInterceptor implements HttpInterceptor {
   /// Creates a new fixture interceptor.
-  const FixtureInterceptor({
-    required this.appendFixture,
-  });
+  const FixtureInterceptor({required this.appendFixture});
 
   /// Callback for adding a recorded request to the fixture.
   final void Function(String fixture) appendFixture;
@@ -22,10 +20,7 @@ final class FixtureInterceptor implements HttpInterceptor {
 
   @override
   Future<http.BaseRequest> interceptRequest({required http.BaseRequest request}) async {
-    assert(
-      shouldInterceptRequest(request),
-      'Request should not be intercepted.',
-    );
+    assert(shouldInterceptRequest(request), 'Request should not be intercepted.');
 
     final bodyBytes = switch (request) {
       http.Request() => request.bodyBytes,
@@ -37,12 +32,13 @@ final class FixtureInterceptor implements HttpInterceptor {
 
     return switch (request) {
       http.Request() => request,
-      _ => http.Request(request.method, request.url)
-        ..persistentConnection = request.persistentConnection
-        ..followRedirects = request.followRedirects
-        ..maxRedirects = request.maxRedirects
-        ..headers.addAll(request.headers)
-        ..bodyBytes = bodyBytes,
+      _ =>
+        http.Request(request.method, request.url)
+          ..persistentConnection = request.persistentConnection
+          ..followRedirects = request.followRedirects
+          ..maxRedirects = request.maxRedirects
+          ..headers.addAll(request.headers)
+          ..bodyBytes = bodyBytes,
     };
   }
 

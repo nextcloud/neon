@@ -32,10 +32,7 @@ void main() {
     });
 
     test('toString', () {
-      expect(
-        credentials.toString(),
-        equals(qrCode),
-      );
+      expect(credentials.toString(), equals(qrCode));
     });
   });
 }

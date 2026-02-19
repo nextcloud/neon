@@ -37,19 +37,8 @@ Account mockTalkAccount() {
             'ocs': {
               'meta': {'status': '', 'statuscode': 0},
               'data': [
-                {
-                  'id': 'id1',
-                  'label': 'label1',
-                  'source': 'groups',
-                  'mentionId': 'id1',
-                },
-                {
-                  'id': 'id2',
-                  'label': 'label2',
-                  'source': 'users',
-                  'mentionId': 'id2',
-                  'status': 'online',
-                },
+                {'id': 'id1', 'label': 'label1', 'source': 'groups', 'mentionId': 'id1'},
+                {'id': 'id2', 'label': 'label2', 'source': 'users', 'mentionId': 'id2', 'status': 'online'},
               ],
             },
           }),
@@ -58,9 +47,7 @@ Account mockTalkAccount() {
         );
       },
     },
-    RegExp(r'/index\.php/avatar/.*'): {
-      'get': (match, request) => Response('', 404),
-    },
+    RegExp(r'/index\.php/avatar/.*'): {'get': (match, request) => Response('', 404)},
   });
 }
 
@@ -110,15 +97,9 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
         platform: TargetPlatform.iOS,
-        child: Material(
-          child: TalkMessageInput(
-            room: room,
-          ),
-        ),
+        child: Material(child: TalkMessageInput(room: room)),
       ),
     );
 
@@ -132,12 +113,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkMessageInput(
-          room: room,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkMessageInput(room: room),
       ),
     );
 
@@ -168,16 +145,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-          Provider<Account>.value(value: account),
-        ],
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: TalkMessageInput(
-            room: room,
-          ),
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc), Provider<Account>.value(value: account)],
+        child: Align(alignment: Alignment.bottomCenter, child: TalkMessageInput(room: room)),
       ),
     );
 
@@ -204,16 +173,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-          Provider<Account>.value(value: account),
-        ],
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: TalkMessageInput(
-            room: room,
-          ),
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc), Provider<Account>.value(value: account)],
+        child: Align(alignment: Alignment.bottomCenter, child: TalkMessageInput(room: room)),
       ),
     );
 
@@ -249,9 +210,7 @@ void main() {
           NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           Provider<Account>.value(value: account),
         ],
-        child: TalkMessageInput(
-          room: room,
-        ),
+        child: TalkMessageInput(room: room),
       ),
     );
     await tester.pumpAndSettle();
@@ -286,9 +245,7 @@ void main() {
           NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           Provider<Account>.value(value: account),
         ],
-        child: TalkMessageInput(
-          room: room,
-        ),
+        child: TalkMessageInput(room: room),
       ),
     );
     await tester.pumpAndSettle();

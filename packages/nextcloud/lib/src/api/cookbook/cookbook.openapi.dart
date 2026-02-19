@@ -49,7 +49,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Access to the categories of the recipes.
   late final $CategoriesClient categories = $CategoriesClient(this);
@@ -74,11 +74,11 @@ class $CategoriesClient {
   /// Builds a serializer to parse the response of [$listCategories_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Category>, void> $listCategories_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Category)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Category)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all known categories.
   ///
@@ -142,11 +142,11 @@ class $CategoriesClient {
   /// Builds a serializer to parse the response of [$recipesInCategory_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<RecipeStub>, void> $recipesInCategory_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all recipes of a certain category.
   ///
@@ -222,11 +222,11 @@ class $CategoriesClient {
   /// Builds a serializer to parse the response of [$renameCategory_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $renameCategory_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Rename a category.
   ///
@@ -319,11 +319,11 @@ class $MiscClient {
   /// Builds a serializer to parse the response of [$version_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Version, void> $version_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Version),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Version),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the version of the API endpoint.
   ///
@@ -383,11 +383,11 @@ class $MiscClient {
   /// Builds a serializer to parse the response of [$reindex_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $reindex_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Trigger a rescan of all recipes into the caching database.
   ///
@@ -447,11 +447,11 @@ class $MiscClient {
   /// Builds a serializer to parse the response of [$getConfig_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Config, void> $getConfig_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Config),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Config),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the current configuration of the app.
   ///
@@ -511,11 +511,11 @@ class $MiscClient {
   /// Builds a serializer to parse the response of [$setConfig_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $setConfig_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Set the configuration for the current user.
   ///
@@ -585,11 +585,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$$import_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Recipe, void> $$import_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Recipe),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Recipe),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Import a recipe using schema.org metadata from a website.
   ///
@@ -655,11 +655,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$getImage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the main image of a recipe. If no image is stored a fallback image is delivered.
   ///
@@ -742,11 +742,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$search_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<RecipeStub>, void> $search_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Search for recipes for keywords, tags and categories with the named search string.
   ///
@@ -812,11 +812,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$listRecipes_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<RecipeStub>, void> $listRecipes_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all recipes in the database.
   ///
@@ -876,11 +876,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$newRecipe_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<int, void> $newRecipe_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(int),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(int),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new recipe.
   ///
@@ -956,11 +956,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$recipeDetails_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Recipe, void> $recipeDetails_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Recipe),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Recipe),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a single recipe from the server.
   ///
@@ -1026,11 +1026,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$updateRecipe_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<int, void> $updateRecipe_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(int),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(int),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update a recipe.
   ///
@@ -1098,11 +1098,11 @@ class $RecipesClient {
   /// Builds a serializer to parse the response of [$deleteRecipe_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $deleteRecipe_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete an existing recipe.
   ///
@@ -1176,11 +1176,11 @@ class $TagsClient {
   /// Builds a serializer to parse the response of [$listKeywords_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Keyword>, void> $listKeywords_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Keyword)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Keyword)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all known keywords.
   ///
@@ -1240,11 +1240,11 @@ class $TagsClient {
   /// Builds a serializer to parse the response of [$recipesWithKeyword_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<RecipeStub>, void> $recipesWithKeyword_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(RecipeStub)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all recipes associated with certain keywords.
   ///
@@ -2247,8 +2247,7 @@ class _$GetImageSizeSerializer implements PrimitiveSerializer<GetImageSize> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// An Keyword.
@@ -2382,46 +2381,47 @@ abstract class Error implements $ErrorInterface, Built<Error, ErrorBuilder> {
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Category), CategoryBuilder.new)
-      ..add(Category.serializer)
-      ..addBuilderFactory(const FullType(CategoryInformation), CategoryInformationBuilder.new)
-      ..add(CategoryInformation.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Category)]), ListBuilder<Category>.new)
-      ..addBuilderFactory(const FullType(RecipeStub), RecipeStubBuilder.new)
-      ..add(RecipeStub.serializer)
-      ..addBuilderFactory(const FullType(RecipeStubInformation), RecipeStubInformationBuilder.new)
-      ..add(RecipeStubInformation.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(RecipeStub)]), ListBuilder<RecipeStub>.new)
-      ..addBuilderFactory(
-        const FullType(RenameCategoryRequestApplicationJson),
-        RenameCategoryRequestApplicationJsonBuilder.new,
-      )
-      ..add(RenameCategoryRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(Version), VersionBuilder.new)
-      ..add(Version.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(APIVersion), APIVersionBuilder.new)
-      ..add(APIVersion.serializer)
-      ..addBuilderFactory(const FullType(Config), ConfigBuilder.new)
-      ..add(Config.serializer)
-      ..addBuilderFactory(const FullType(VisibleInfoBlocks), VisibleInfoBlocksBuilder.new)
-      ..add(VisibleInfoBlocks.serializer)
-      ..addBuilderFactory(const FullType(Url), UrlBuilder.new)
-      ..add(Url.serializer)
-      ..addBuilderFactory(const FullType(Recipe), RecipeBuilder.new)
-      ..add(Recipe.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(Nutrition), NutritionBuilder.new)
-      ..add(Nutrition.serializer)
-      ..add(GetImageSize.serializer)
-      ..addBuilderFactory(const FullType(Keyword), KeywordBuilder.new)
-      ..add(Keyword.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Keyword)]), ListBuilder<Keyword>.new)
-      ..addBuilderFactory(const FullType(Error), ErrorBuilder.new)
-      ..add(Error.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Recipe)]), ListBuilder<Recipe>.new))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Category), CategoryBuilder.new)
+          ..add(Category.serializer)
+          ..addBuilderFactory(const FullType(CategoryInformation), CategoryInformationBuilder.new)
+          ..add(CategoryInformation.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Category)]), ListBuilder<Category>.new)
+          ..addBuilderFactory(const FullType(RecipeStub), RecipeStubBuilder.new)
+          ..add(RecipeStub.serializer)
+          ..addBuilderFactory(const FullType(RecipeStubInformation), RecipeStubInformationBuilder.new)
+          ..add(RecipeStubInformation.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(RecipeStub)]), ListBuilder<RecipeStub>.new)
+          ..addBuilderFactory(
+            const FullType(RenameCategoryRequestApplicationJson),
+            RenameCategoryRequestApplicationJsonBuilder.new,
+          )
+          ..add(RenameCategoryRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(Version), VersionBuilder.new)
+          ..add(Version.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..addBuilderFactory(const FullType(APIVersion), APIVersionBuilder.new)
+          ..add(APIVersion.serializer)
+          ..addBuilderFactory(const FullType(Config), ConfigBuilder.new)
+          ..add(Config.serializer)
+          ..addBuilderFactory(const FullType(VisibleInfoBlocks), VisibleInfoBlocksBuilder.new)
+          ..add(VisibleInfoBlocks.serializer)
+          ..addBuilderFactory(const FullType(Url), UrlBuilder.new)
+          ..add(Url.serializer)
+          ..addBuilderFactory(const FullType(Recipe), RecipeBuilder.new)
+          ..add(Recipe.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(Nutrition), NutritionBuilder.new)
+          ..add(Nutrition.serializer)
+          ..add(GetImageSize.serializer)
+          ..addBuilderFactory(const FullType(Keyword), KeywordBuilder.new)
+          ..add(Keyword.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Keyword)]), ListBuilder<Keyword>.new)
+          ..addBuilderFactory(const FullType(Error), ErrorBuilder.new)
+          ..add(Error.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Recipe)]), ListBuilder<Recipe>.new))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -2429,10 +2429,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

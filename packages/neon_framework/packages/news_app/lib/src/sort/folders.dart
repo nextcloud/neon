@@ -8,12 +8,8 @@ final foldersSortBox = SortBox<FoldersSortProperty, FolderFeedsWrapper>(
     FoldersSortProperty.unreadCount: (folderFeedsWrapper) => folderFeedsWrapper.unreadCount,
   },
   boxes: const {
-    FoldersSortProperty.alphabetical: {
-      (property: FoldersSortProperty.unreadCount, order: SortBoxOrder.descending),
-    },
-    FoldersSortProperty.unreadCount: {
-      (property: FoldersSortProperty.alphabetical, order: SortBoxOrder.ascending),
-    },
+    FoldersSortProperty.alphabetical: {(property: FoldersSortProperty.unreadCount, order: SortBoxOrder.descending)},
+    FoldersSortProperty.unreadCount: {(property: FoldersSortProperty.alphabetical, order: SortBoxOrder.ascending)},
   },
 );
 

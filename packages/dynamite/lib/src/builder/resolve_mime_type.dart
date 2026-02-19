@@ -5,11 +5,7 @@ import 'package:dynamite/src/helpers/logger.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
-TypeResult? resolveMimeTypeDecode(
-  openapi.Response response,
-  State state,
-  String identifier,
-) {
+TypeResult? resolveMimeTypeDecode(openapi.Response response, State state, String identifier) {
   if (response.content != null) {
     if (response.content!.length > 1) {
       dynamiteLog.multipleMimeTypes();
@@ -22,10 +18,7 @@ TypeResult? resolveMimeTypeDecode(
       final result = resolveType(
         state,
         mediaType.schema!.rebuild((b) {
-          b.identifier = toDartName(
-            '$identifier-$mimeType',
-            className: true,
-          );
+          b.identifier = toDartName('$identifier-$mimeType', className: true);
         }),
       );
 

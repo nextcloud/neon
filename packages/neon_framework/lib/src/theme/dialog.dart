@@ -11,10 +11,7 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 class NeonDialogTheme {
   /// Creates a dialog theme that can be used for [NeonTheme.dialogTheme].
   const NeonDialogTheme({
-    this.constraints = const BoxConstraints(
-      minWidth: 280,
-      maxWidth: 560,
-    ),
+    this.constraints = const BoxConstraints(minWidth: 280, maxWidth: 560),
     this.padding = const EdgeInsets.all(24),
   });
 
@@ -45,23 +42,14 @@ class NeonDialogTheme {
 
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
-  NeonDialogTheme copyWith({
-    BoxConstraints? constraints,
-    EdgeInsets? padding,
-  }) =>
-      NeonDialogTheme(
-        constraints: constraints ?? this.constraints,
-        padding: padding ?? this.padding,
-      );
+  NeonDialogTheme copyWith({BoxConstraints? constraints, EdgeInsets? padding}) =>
+      NeonDialogTheme(constraints: constraints ?? this.constraints, padding: padding ?? this.padding);
 
   /// The data from the closest [NeonDialogTheme] instance given the build context.
   static NeonDialogTheme of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.dialogTheme;
 
   @override
-  int get hashCode => Object.hashAll([
-        constraints,
-        padding,
-      ]);
+  int get hashCode => Object.hashAll([constraints, padding]);
 
   @override
   bool operator ==(Object other) {

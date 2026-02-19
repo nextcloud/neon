@@ -34,7 +34,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -48,11 +48,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$delete_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiDeleteResponseApplicationJson, void> $delete_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiDeleteResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {201, 401, 400, 500},
-      );
+    bodyType: const FullType(ApiDeleteResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {201, 401, 400, 500},
+  );
 
   /// Trigger the deletion of the current user account.
   ///
@@ -563,31 +563,32 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(ApiDeleteResponseApplicationJson),
-        ApiDeleteResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiDeleteResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiDeleteResponseApplicationJson_Ocs),
-        ApiDeleteResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiDeleteResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiDeleteResponseApplicationJson_Ocs_Data),
-        ApiDeleteResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiDeleteResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_DropAccount), Capabilities_DropAccountBuilder.new)
-      ..add(Capabilities_DropAccount.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_DropAccount_Delay), Capabilities_DropAccount_DelayBuilder.new)
-      ..add(Capabilities_DropAccount_Delay.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(ApiDeleteResponseApplicationJson),
+            ApiDeleteResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiDeleteResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiDeleteResponseApplicationJson_Ocs),
+            ApiDeleteResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiDeleteResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiDeleteResponseApplicationJson_Ocs_Data),
+            ApiDeleteResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiDeleteResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_DropAccount), Capabilities_DropAccountBuilder.new)
+          ..add(Capabilities_DropAccount.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_DropAccount_Delay), Capabilities_DropAccount_DelayBuilder.new)
+          ..add(Capabilities_DropAccount_Delay.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -595,10 +596,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -19,10 +19,7 @@ const unifiedPushNextPushID = 'org.unifiedpush.distributor.nextpush';
 @immutable
 class GlobalOptions extends OptionsCollection {
   /// Creates a new global options collection.
-  GlobalOptions(
-    this._packageInfo,
-    this._distributors,
-  ) : super(NeonStorage().settingsStore(StorageKeys.global)) {
+  GlobalOptions(this._packageInfo, this._distributors) : super(NeonStorage().settingsStore(StorageKeys.global)) {
     rememberLastUsedAccount.addListener(_rememberLastUsedAccountListener);
   }
 
@@ -41,18 +38,18 @@ class GlobalOptions extends OptionsCollection {
   final BuiltList<String> _distributors;
 
   late final _distributorsMap = <String, LabelBuilder>{
-    _packageInfo.packageName: (context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
-    'com.github.gotify.up': (context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
-    'eu.siacs.conversations': (context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
+    _packageInfo.packageName:
+        (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFirebaseEmbedded,
+    'com.github.gotify.up':
+        (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorGotifyUP,
+    'eu.siacs.conversations':
+        (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorConversations,
     'io.heckel.ntfy': (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNtfy,
-    'org.unifiedpush.distributor.fcm': (context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
+    'org.unifiedpush.distributor.fcm':
+        (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorFCMUP,
     unifiedPushNextPushID: (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNextPush,
-    'org.unifiedpush.distributor.noprovider2push': (context) =>
-        NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
+    'org.unifiedpush.distributor.noprovider2push':
+        (context) => NeonLocalizations.of(context).globalOptionsPushNotificationsDistributorNoProvider2Push,
   };
 
   @override
@@ -81,9 +78,7 @@ class GlobalOptions extends OptionsCollection {
   /// If the current `initialAccount` is not supported anymore the option will be reset.
   void updateAccounts(BuiltList<Account> accounts) {
     initialAccount.values = Map.fromEntries(
-      accounts.map(
-        (account) => MapEntry(account.id, (context) => account.humanReadableID),
-      ),
+      accounts.map((account) => MapEntry(account.id, (context) => account.humanReadableID)),
     );
   }
 
@@ -200,8 +195,8 @@ class GlobalOptions extends OptionsCollection {
     values: {
       NavigationMode.drawer: (context) => NeonLocalizations.of(context).globalOptionsNavigationModeDrawer,
       if (!Platform.isAndroid && !Platform.isIOS)
-        NavigationMode.drawerAlwaysVisible: (context) =>
-            NeonLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
+        NavigationMode.drawerAlwaysVisible:
+            (context) => NeonLocalizations.of(context).globalOptionsNavigationModeDrawerAlwaysVisible,
     },
   );
 }

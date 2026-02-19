@@ -13,9 +13,10 @@ void main() {
       await tester.client.notifications.api.generateNotification(
         userId: 'admin',
         $body: notifications.ApiGenerateNotificationRequestApplicationJson(
-          (b) => b
-            ..shortMessage = '123'
-            ..longMessage = '456',
+          (b) =>
+              b
+                ..shortMessage = '123'
+                ..longMessage = '456',
         ),
       );
     }
@@ -120,17 +121,16 @@ void main() {
         const pushToken = '789';
         final keypair = generateKeypair();
 
-        final subscription = (await tester.client.notifications.push.registerDevice(
-          $body: notifications.PushRegisterDeviceRequestApplicationJson(
-            (b) => b
-              ..pushTokenHash = notifications.generatePushTokenHash(pushToken)
-              ..devicePublicKey = keypair.publicKey.toFormattedPEM()
-              ..proxyServer = 'https://example.com/',
-          ),
-        ))
-            .body
-            .ocs
-            .data;
+        final subscription =
+            (await tester.client.notifications.push.registerDevice(
+              $body: notifications.PushRegisterDeviceRequestApplicationJson(
+                (b) =>
+                    b
+                      ..pushTokenHash = notifications.generatePushTokenHash(pushToken)
+                      ..devicePublicKey = keypair.publicKey.toFormattedPEM()
+                      ..proxyServer = 'https://example.com/',
+              ),
+            )).body.ocs.data;
         expect(subscription.publicKey, hasLength(451));
         RSAPublicKey.fromPEM(subscription.publicKey);
         expect(subscription.deviceIdentifier, isNotEmpty);

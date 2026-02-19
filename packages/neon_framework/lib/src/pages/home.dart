@@ -21,9 +21,7 @@ import 'package:provider/provider.dart';
 @internal
 class HomePage extends StatefulWidget {
   /// Creates a new home page.
-  const HomePage({
-    super.key,
-  });
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -70,10 +68,7 @@ class _HomePageState extends State<HomePage> {
 
     maintenanceModeSubscription = maintenanceModeBloc.onMaintenanceMode.listen((_) async {
       if (mounted) {
-        await showErrorDialog(
-          context: context,
-          message: NeonLocalizations.of(context).errorServerInMaintenanceMode,
-        );
+        await showErrorDialog(context: context, message: NeonLocalizations.of(context).errorServerInMaintenanceMode);
       }
     });
 
@@ -99,10 +94,7 @@ class _HomePageState extends State<HomePage> {
           appView = const SizedBox();
         } else if (appImplementations.requireData.isEmpty) {
           appView = Center(
-            child: Text(
-              NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound,
-              textAlign: TextAlign.center,
-            ),
+            child: Text(NeonLocalizations.of(context).errorNoCompatibleNextcloudAppsFound, textAlign: TextAlign.center),
           );
         } else {
           appView = StreamBuilder(
@@ -112,9 +104,7 @@ class _HomePageState extends State<HomePage> {
                 return const SizedBox();
               }
 
-              return SafeArea(
-                child: activeAppSnapshot.requireData.page,
-              );
+              return SafeArea(child: activeAppSnapshot.requireData.page);
             },
           );
         }
@@ -136,15 +126,10 @@ class _HomePageState extends State<HomePage> {
             if (showDrawer && drawerAlwaysVisible) {
               return Row(
                 children: [
-                  ColoredBox(
-                    color: Theme.of(context).colorScheme.surface,
-                    child: const NeonDrawer(),
-                  ),
+                  ColoredBox(color: Theme.of(context).colorScheme.surface, child: const NeonDrawer()),
                   Expanded(
                     // Clip to avoid shadows leaking onto the drawer
-                    child: ClipRRect(
-                      child: body,
-                    ),
+                    child: ClipRRect(child: body),
                   ),
                 ],
               );
@@ -154,10 +139,7 @@ class _HomePageState extends State<HomePage> {
           },
         );
 
-        return MultiProvider(
-          providers: _appsBloc.appBlocProviders,
-          child: body,
-        );
+        return MultiProvider(providers: _appsBloc.appBlocProviders, child: body);
       },
     );
   }

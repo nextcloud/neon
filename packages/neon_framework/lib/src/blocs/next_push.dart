@@ -25,11 +25,7 @@ sealed class NextPushBloc implements Disposable {
 }
 
 class _NextPushBloc extends Bloc implements NextPushBloc {
-  _NextPushBloc({
-    required this.accountsSubject,
-    required this.globalOptions,
-    bool disabled = false,
-  }) {
+  _NextPushBloc({required this.accountsSubject, required this.globalOptions, bool disabled = false}) {
     if (disabled) {
       return;
     }
@@ -52,11 +48,7 @@ class _NextPushBloc extends Bloc implements NextPushBloc {
             final response = await account.client.uppush.check();
             supported[account] = response.body.success;
           } on http.ClientException catch (error, stackTrace) {
-            log.warning(
-              'Error checking NextPush availability.',
-              error,
-              stackTrace,
-            );
+            log.warning('Error checking NextPush availability.', error, stackTrace);
 
             supported[account] = false;
           }

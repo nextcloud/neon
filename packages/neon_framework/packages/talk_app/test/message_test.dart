@@ -26,55 +26,51 @@ import 'package:timezone/timezone.dart' as tz;
 
 import 'testing.dart';
 
-Widget wrapWidget({
-  required Widget child,
-  List<SingleChildWidget> providers = const [],
-}) =>
-    TestApp(
-      localizationsDelegates: TalkLocalizations.localizationsDelegates,
-      supportedLocales: TalkLocalizations.supportedLocales,
-      providers: providers,
-      child: child,
-    );
+Widget wrapWidget({required Widget child, List<SingleChildWidget> providers = const []}) => TestApp(
+  localizationsDelegates: TalkLocalizations.localizationsDelegates,
+  supportedLocales: TalkLocalizations.supportedLocales,
+  providers: providers,
+  child: child,
+);
 
 core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(core.SpreedCapabilities spreedCapabilities) =>
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
-      (b) => b
-        ..version.update(
-          (b) => b
-            ..major = 0
-            ..minor = 0
-            ..micro = 0
-            ..string = ''
-            ..edition = ''
-            ..extendedSupport = false,
-        )
-        ..capabilities = (
-          commentsCapabilities: null,
-          coreCapabilities: null,
-          corePublicCapabilities: null,
-          davCapabilities: null,
-          dropAccountCapabilities: null,
-          filesCapabilities: null,
-          filesSharingCapabilities: null,
-          filesTrashbinCapabilities: null,
-          filesVersionsCapabilities: null,
-          notesCapabilities: null,
-          notificationsCapabilities: null,
-          passwordPolicyCapabilities: null,
-          provisioningApiCapabilities: null,
-          sharebymailCapabilities: null,
-          spreedCapabilities: null,
-          spreedPublicCapabilities: core.SpreedPublicCapabilities(
-            (b) => b.spreed.replace(spreedCapabilities),
-          ),
-          systemtagsCapabilities: null,
-          tablesCapabilities: null,
-          termsOfServicePublicCapabilities: null,
-          themingPublicCapabilities: null,
-          userStatusCapabilities: null,
-          weatherStatusCapabilities: null,
-        ),
+      (b) =>
+          b
+            ..version.update(
+              (b) =>
+                  b
+                    ..major = 0
+                    ..minor = 0
+                    ..micro = 0
+                    ..string = ''
+                    ..edition = ''
+                    ..extendedSupport = false,
+            )
+            ..capabilities = (
+              commentsCapabilities: null,
+              coreCapabilities: null,
+              corePublicCapabilities: null,
+              davCapabilities: null,
+              dropAccountCapabilities: null,
+              filesCapabilities: null,
+              filesSharingCapabilities: null,
+              filesTrashbinCapabilities: null,
+              filesVersionsCapabilities: null,
+              notesCapabilities: null,
+              notificationsCapabilities: null,
+              passwordPolicyCapabilities: null,
+              provisioningApiCapabilities: null,
+              sharebymailCapabilities: null,
+              spreedCapabilities: null,
+              spreedPublicCapabilities: core.SpreedPublicCapabilities((b) => b.spreed.replace(spreedCapabilities)),
+              systemtagsCapabilities: null,
+              tablesCapabilities: null,
+              termsOfServicePublicCapabilities: null,
+              themingPublicCapabilities: null,
+              userStatusCapabilities: null,
+              weatherStatusCapabilities: null,
+            ),
     );
 
 void main() {
@@ -106,60 +102,53 @@ void main() {
     when(() => referencesBloc.references).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
 
     capabilities = core.SpreedCapabilities(
-      (b) => b
-        ..features.replace(['edit-messages'])
-        ..featuresLocal.replace(['edit-messages'])
-        ..config.update(
-          (b) => b
-            ..attachments.update(
-              (b) => b.allowed = false,
+      (b) =>
+          b
+            ..features.replace(['edit-messages'])
+            ..featuresLocal.replace(['edit-messages'])
+            ..config.update(
+              (b) =>
+                  b
+                    ..attachments.update((b) => b.allowed = false)
+                    ..call.update(
+                      (b) =>
+                          b
+                            ..enabled = false
+                            ..breakoutRooms = false
+                            ..recording = false
+                            ..recordingConsent = 0
+                            ..canUploadBackground = false
+                            ..sipEnabled = false
+                            ..sipDialoutEnabled = false
+                            ..canEnableSip = false,
+                    )
+                    ..chat.update(
+                      (b) =>
+                          b
+                            ..maxLength = 0
+                            ..readPrivacy = 0
+                            ..hasTranslationProviders = false
+                            ..typingPrivacy = 0,
+                    )
+                    ..conversations.update((b) => b.canCreate = false)
+                    ..federation.update(
+                      (b) =>
+                          b
+                            ..enabled = false
+                            ..incomingEnabled = false
+                            ..outgoingEnabled = false
+                            ..onlyTrustedServers = false,
+                    )
+                    ..previews.update((b) => b..maxGifSize = 0)
+                    ..signaling.update((b) => b..sessionPingLimit = 0),
             )
-            ..call.update(
-              (b) => b
-                ..enabled = false
-                ..breakoutRooms = false
-                ..recording = false
-                ..recordingConsent = 0
-                ..canUploadBackground = false
-                ..sipEnabled = false
-                ..sipDialoutEnabled = false
-                ..canEnableSip = false,
-            )
-            ..chat.update(
-              (b) => b
-                ..maxLength = 0
-                ..readPrivacy = 0
-                ..hasTranslationProviders = false
-                ..typingPrivacy = 0,
-            )
-            ..conversations.update(
-              (b) => b.canCreate = false,
-            )
-            ..federation.update(
-              (b) => b
-                ..enabled = false
-                ..incomingEnabled = false
-                ..outgoingEnabled = false
-                ..onlyTrustedServers = false,
-            )
-            ..previews.update(
-              (b) => b..maxGifSize = 0,
-            )
-            ..signaling.update(
-              (b) => b..sessionPingLimit = 0,
-            ),
-        )
-        ..version = '',
+            ..version = '',
     );
 
     capabilitiesBloc = MockCapabilitiesBloc();
-    when(() => capabilitiesBloc.capabilities).thenAnswer(
-      (_) => BehaviorSubject.seeded(
-        Result.success(
-          buildCapabilities(capabilities),
-        ),
-      ),
-    );
+    when(
+      () => capabilitiesBloc.capabilities,
+    ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(buildCapabilities(capabilities))));
   });
 
   group('getActorDisplayName', () {
@@ -191,14 +180,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'test',
-            roomType: spreed.RoomType.group,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'test', roomType: spreed.RoomType.group, chatMessage: chatMessage),
         ),
       );
       expect(find.text('You: message', findRichText: true), findsOne);
@@ -214,14 +197,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'abc',
-            roomType: spreed.RoomType.group,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'abc', roomType: spreed.RoomType.group, chatMessage: chatMessage),
         ),
       );
       expect(find.text('Test: message', findRichText: true), findsOne);
@@ -236,14 +213,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'test',
-            roomType: spreed.RoomType.oneToOne,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'test', roomType: spreed.RoomType.oneToOne, chatMessage: chatMessage),
         ),
       );
       expect(find.text('You: message', findRichText: true), findsOne);
@@ -258,14 +229,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'abc',
-            roomType: spreed.RoomType.oneToOne,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'abc', roomType: spreed.RoomType.oneToOne, chatMessage: chatMessage),
         ),
       );
       expect(find.text('message', findRichText: true), findsOne);
@@ -280,14 +245,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'abc',
-            roomType: spreed.RoomType.group,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'abc', roomType: spreed.RoomType.group, chatMessage: chatMessage),
         ),
       );
       expect(find.text('message', findRichText: true), findsOne);
@@ -302,14 +261,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessagePreview(
-            actorId: 'abc',
-            roomType: spreed.RoomType.oneToOne,
-            chatMessage: chatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessagePreview(actorId: 'abc', roomType: spreed.RoomType.oneToOne, chatMessage: chatMessage),
         ),
       );
       expect(find.text('message 123', findRichText: true), findsOne);
@@ -327,14 +280,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkMessage(
-            room: room,
-            chatMessage: chatMessage,
-            lastCommonRead: null,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkMessage(room: room, chatMessage: chatMessage, lastCommonRead: null),
         ),
       );
       expect(find.byType(TalkSystemMessage), findsOne);
@@ -364,11 +311,7 @@ void main() {
             NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
           ],
-          child: TalkMessage(
-            room: room,
-            chatMessage: chatMessage,
-            lastCommonRead: null,
-          ),
+          child: TalkMessage(room: room, chatMessage: chatMessage, lastCommonRead: null),
         ),
       );
       expect(find.byType(TalkCommentMessage), findsOne);
@@ -385,13 +328,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkSystemMessage(
-            chatMessage: chatMessage,
-            previousChatMessage: null,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkSystemMessage(chatMessage: chatMessage, previousChatMessage: null),
         ),
       );
       expect(find.byType(SizedBox), findsNothing);
@@ -411,13 +349,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkSystemMessage(
-            chatMessage: chatMessage,
-            previousChatMessage: previousChatMessage,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkSystemMessage(chatMessage: chatMessage, previousChatMessage: previousChatMessage),
         ),
       );
       expect(find.byType(SizedBox), findsNothing);
@@ -443,15 +376,8 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       wrapWidget(
-        providers: [
-          Provider<Account>.value(value: account),
-          NeonProvider<ReferencesBloc>.value(value: referencesBloc),
-        ],
-        child: TalkParentMessage(
-          room: room,
-          parentChatMessage: chatMessage,
-          lastCommonRead: null,
-        ),
+        providers: [Provider<Account>.value(value: account), NeonProvider<ReferencesBloc>.value(value: referencesBloc)],
+        child: TalkParentMessage(room: room, parentChatMessage: chatMessage, lastCommonRead: null),
       ),
     );
     expect(find.byType(TalkCommentMessage), findsOne);
@@ -506,10 +432,7 @@ void main() {
       expect(find.text('abc', findRichText: true), findsOne);
       expect(find.byType(TalkReactions), findsOne);
       expect(find.byType(TalkReadIndicator), findsOne);
-      await expectLater(
-        find.byType(TalkCommentMessage),
-        matchesGoldenFile('goldens/message_comment_message_self.png'),
-      );
+      await expectLater(find.byType(TalkCommentMessage), matchesGoldenFile('goldens/message_comment_message_self.png'));
     });
 
     testWidgets('Other', (tester) async {
@@ -621,12 +544,7 @@ void main() {
             Provider<Account>.value(value: account),
             NeonProvider<ReferencesBloc>.value(value: referencesBloc),
           ],
-          child: TalkCommentMessage(
-            room: room,
-            chatMessage: chatMessage,
-            lastCommonRead: null,
-            isParent: true,
-          ),
+          child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: null, isParent: true),
         ),
       );
       expect(find.byType(TalkActorAvatar), findsNothing);
@@ -697,9 +615,9 @@ void main() {
     });
 
     testWidgets('With references', (tester) async {
-      when(() => referencesBloc.referenceRegex).thenAnswer(
-        (_) => BehaviorSubject.seeded(Result.success(RegExp('[a-z]+'))),
-      );
+      when(
+        () => referencesBloc.referenceRegex,
+      ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(RegExp('[a-z]+'))));
 
       final openGraphObject = MockOpenGraphObject();
       when(() => openGraphObject.name).thenReturn('name');
@@ -749,11 +667,7 @@ void main() {
             NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
           ],
-          child: TalkCommentMessage(
-            room: room,
-            chatMessage: chatMessage,
-            lastCommonRead: null,
-          ),
+          child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: null),
         ),
       );
 
@@ -812,11 +726,7 @@ def
             NeonProvider<ReferencesBloc>.value(value: referencesBloc),
             NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
           ],
-          child: TalkCommentMessage(
-            room: room,
-            chatMessage: chatMessage,
-            lastCommonRead: null,
-          ),
+          child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: null),
         ),
       );
 
@@ -1067,11 +977,7 @@ def
               NeonProvider<ReferencesBloc>.value(value: referencesBloc),
               NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
             ],
-            child: TalkCommentMessage(
-              room: room,
-              chatMessage: chatMessage,
-              lastCommonRead: 0,
-            ),
+            child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
           ),
         );
 
@@ -1101,11 +1007,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1148,11 +1050,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1183,11 +1081,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1218,11 +1112,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1261,11 +1151,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1296,11 +1182,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1331,11 +1213,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1374,11 +1252,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1409,11 +1283,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1441,11 +1311,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1476,11 +1342,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1519,11 +1381,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 
@@ -1554,11 +1412,7 @@ def
                 NeonProvider<ReferencesBloc>.value(value: referencesBloc),
                 NeonProvider<CapabilitiesBloc>.value(value: capabilitiesBloc),
               ],
-              child: TalkCommentMessage(
-                room: room,
-                chatMessage: chatMessage,
-                lastCommonRead: 0,
-              ),
+              child: TalkCommentMessage(room: room, chatMessage: chatMessage, lastCommonRead: 0),
             ),
           );
 

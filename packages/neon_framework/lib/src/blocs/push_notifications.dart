@@ -17,10 +17,7 @@ sealed class PushNotificationsBloc implements Bloc {
 }
 
 class _PushNotificationsBloc extends Bloc implements PushNotificationsBloc {
-  _PushNotificationsBloc({
-    required this.globalOptions,
-    required this.notificationsPushRepository,
-  }) {
+  _PushNotificationsBloc({required this.globalOptions, required this.notificationsPushRepository}) {
     unawaited(changeDistributor());
     globalOptions.pushNotificationsDistributor.addListener(changeDistributor);
   }

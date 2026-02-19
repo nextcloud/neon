@@ -28,10 +28,7 @@ void main() {
       final response = http.StreamedResponse(const Stream.empty(), 200);
 
       expect(interceptor.shouldInterceptResponse(response), isFalse);
-      expect(
-        () => interceptor.interceptResponse(response: response, url: Uri()),
-        throwsUnsupportedError,
-      );
+      expect(() => interceptor.interceptResponse(response: response, url: Uri()), throwsUnsupportedError);
     });
   });
 }

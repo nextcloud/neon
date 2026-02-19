@@ -16,10 +16,7 @@ class _$TagSerializer implements StructuredSerializer<Tag> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Tag object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.description;
     if (value != null) {
@@ -31,8 +28,11 @@ class _$TagSerializer implements StructuredSerializer<Tag> {
   }
 
   @override
-  Tag deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Tag deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TagBuilder();
 
     final iterator = serialized.iterator;

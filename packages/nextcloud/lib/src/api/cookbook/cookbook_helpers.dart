@@ -17,18 +17,9 @@ extension CookbookVersionCheck on cookbook.$Client {
 
     BuiltList<Version>? versions;
     if (version != null) {
-      versions = BuiltList([
-        Version(
-          version[0].asNum as int,
-          version[1].asNum as int,
-          version[2].asNum as int,
-        ),
-      ]);
+      versions = BuiltList([Version(version[0].asNum as int, version[1].asNum as int, version[2].asNum as int)]);
     }
 
-    return VersionCheck(
-      versions: versions,
-      minimumVersion: minAppVersion,
-    );
+    return VersionCheck(versions: versions, minimumVersion: minAppVersion);
   }
 }

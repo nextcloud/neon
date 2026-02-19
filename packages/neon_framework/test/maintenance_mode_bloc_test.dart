@@ -39,9 +39,7 @@ void main() {
 
   setUp(() {
     account = mockMaintenanceModeAccount();
-    bloc = MaintenanceModeBloc(
-      account: account,
-    );
+    bloc = MaintenanceModeBloc(account: account);
   });
 
   tearDown(() {

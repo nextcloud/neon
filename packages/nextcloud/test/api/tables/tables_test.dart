@@ -23,10 +23,11 @@ void main() {
         test('Create and destroy', () async {
           final createResponse = await tester.client.tables.api1.createTable(
             $body: tables.Api1CreateTableRequestApplicationJson(
-              (b) => b
-                ..title = 'title'
-                ..emoji = '😀'
-                ..template = '',
+              (b) =>
+                  b
+                    ..title = 'title'
+                    ..emoji = '😀'
+                    ..template = '',
             ),
           );
           expect(createResponse.statusCode, 200);
@@ -49,9 +50,7 @@ void main() {
           expect(createResponse.body.views, isEmpty);
           expect(createResponse.body.columnsCount, 0);
 
-          final deleteResponse = await tester.client.tables.api1.deleteTable(
-            tableId: createResponse.body.id,
-          );
+          final deleteResponse = await tester.client.tables.api1.deleteTable(tableId: createResponse.body.id);
           expect(deleteResponse.statusCode, 200);
           expect(() => deleteResponse.headers, isA<void>());
 

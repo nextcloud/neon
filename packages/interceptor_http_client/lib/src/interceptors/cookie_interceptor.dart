@@ -21,10 +21,7 @@ abstract class CookieInterceptor implements HttpInterceptor {
 
   @override
   Future<http.BaseRequest> interceptRequest({required http.BaseRequest request}) async {
-    assert(
-      shouldInterceptRequest(request),
-      'Request already contains a cookie header and should not be intercepted.',
-    );
+    assert(shouldInterceptRequest(request), 'Request already contains a cookie header and should not be intercepted.');
 
     final cookies = await loadForRequest(request.url);
     if (cookies.isNotEmpty) {
@@ -59,10 +56,7 @@ abstract class CookieInterceptor implements HttpInterceptor {
 
   @override
   Future<http.StreamedResponse> interceptResponse({required http.StreamedResponse response, required Uri url}) async {
-    assert(
-      shouldInterceptResponse(response),
-      'Response should not be intercepted.',
-    );
+    assert(shouldInterceptResponse(response), 'Response should not be intercepted.');
 
     final cookieHeader = response.headersSplitValues[HttpHeaders.setCookieHeader]!;
     final cookies = cookieHeader.map(Cookie.fromSetCookieValue).toList();
@@ -81,9 +75,7 @@ abstract class CookieInterceptor implements HttpInterceptor {
 /// A HttpInterceptor persisting cookies in the provided [cookieStore].
 final class CookieStoreInterceptor extends CookieInterceptor {
   /// Creates a new interceptor persisting cookies.
-  const CookieStoreInterceptor({
-    required this.cookieStore,
-  });
+  const CookieStoreInterceptor({required this.cookieStore});
 
   /// The cookie store instance backing this interceptor.
   final CookieStore cookieStore;

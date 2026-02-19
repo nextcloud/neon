@@ -24,14 +24,7 @@ void main() {
     when(() => room.avatarVersion).thenReturn('');
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkRoomAvatar(
-          room: room,
-        ),
-      ),
+      TestApp(providers: [Provider<Account>.value(value: account)], child: TalkRoomAvatar(room: room)),
     );
     expect(find.byType(NeonApiImage), findsOne);
   });
@@ -46,14 +39,7 @@ void main() {
     when(() => room.status).thenReturn('online');
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkRoomAvatar(
-          room: room,
-        ),
-      ),
+      TestApp(providers: [Provider<Account>.value(value: account)], child: TalkRoomAvatar(room: room)),
     );
     expect(find.byType(NeonUserAvatar), findsOne);
     expect(find.byType(NeonUserStatusIcon), findsOne);
@@ -67,14 +53,7 @@ void main() {
     when(() => room.type).thenReturn(spreed.RoomType.group.value);
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkRoomAvatar(
-          room: room,
-        ),
-      ),
+      TestApp(providers: [Provider<Account>.value(value: account)], child: TalkRoomAvatar(room: room)),
     );
     expect(find.byIcon(AdaptiveIcons.group), findsOne);
   });

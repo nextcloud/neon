@@ -16,27 +16,16 @@ const supportedChecksumAlgorithms = ['md5', 'sha1', 'sha256', 'sha3-256', 'adler
 ///
 /// It has to be `<algorithm>:<hash>` with `algorithm` being one of [supportedChecksumAlgorithms].
 /// The checksum is case-insensitive.
-final checksumPattern = RegExp(
-  '^(${supportedChecksumAlgorithms.join('|')}):.+\$',
-  caseSensitive: false,
-);
+final checksumPattern = RegExp('^(${supportedChecksumAlgorithms.join('|')}):.+\$', caseSensitive: false);
 
 /// WebDavClient class.
 class WebDavClient extends DynamiteClient {
   /// Creates a new `WebDavClient`.
-  WebDavClient(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  WebDavClient(super.baseURL, {super.httpClient, super.authentications});
 
   /// Creates a new [WebDavClient] from another [client].
   WebDavClient.fromClient(DynamiteClient client)
-      : this(
-          client.baseURL,
-          httpClient: client.httpClient,
-          authentications: client.authentications,
-        );
+    : this(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   Uri _constructUri([PathUri? path]) => constructUri(baseURL, path);
 
@@ -75,16 +64,11 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL and http://www.webdav.org/specs/rfc5689.html for more information.
   ///   * [mkcol] for a complete operation executing this request.
-  http.Request mkcol_Request(
-    PathUri path, {
-    WebDavProp? set,
-  }) {
+  http.Request mkcol_Request(PathUri path, {WebDavProp? set}) {
     final request = http.Request('MKCOL', _constructUri(path))..headers['OCS-APIRequest'] = 'true';
 
     if (set != null) {
-      request.body = WebDavMkcol(
-        set: WebDavSet(prop: set),
-      ).toXmlElement(namespaces: namespaces).toXmlString();
+      request.body = WebDavMkcol(set: WebDavSet(prop: set)).toXmlElement(namespaces: namespaces).toXmlString();
     }
 
     _addBaseHeaders(request);
@@ -98,14 +82,8 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///  * http://www.webdav.org/specs/rfc2518.html#METHOD_MKCOL and http://www.webdav.org/specs/rfc5689.html for more information.
   ///  * [mkcol_Request] for the request sent by this method.
-  Future<http.StreamedResponse> mkcol(
-    PathUri path, {
-    WebDavProp? set,
-  }) async {
-    final request = mkcol_Request(
-      path,
-      set: set,
-    );
+  Future<http.StreamedResponse> mkcol(PathUri path, {WebDavProp? set}) async {
+    final request = mkcol_Request(path, set: set);
 
     final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201) {
@@ -161,9 +139,10 @@ class WebDavClient extends DynamiteClient {
     DateTime? created,
     String? checksum,
   }) {
-    final request = http.Request('PUT', _constructUri(path))
-      ..headers['OCS-APIRequest'] = 'true'
-      ..bodyBytes = localData;
+    final request =
+        http.Request('PUT', _constructUri(path))
+          ..headers['OCS-APIRequest'] = 'true'
+          ..bodyBytes = localData;
 
     _addUploadHeaders(
       request,
@@ -192,13 +171,7 @@ class WebDavClient extends DynamiteClient {
     DateTime? created,
     String? checksum,
   }) async {
-    final request = put_Request(
-      localData,
-      path,
-      lastModified: lastModified,
-      created: created,
-      checksum: checksum,
-    );
+    final request = put_Request(localData, path, lastModified: lastModified, created: created, checksum: checksum);
 
     final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
@@ -244,16 +217,16 @@ class WebDavClient extends DynamiteClient {
       var uploaded = 0;
 
       unawaited(
-        localData.map((chunk) {
-          uploaded += chunk.length;
-          onProgress.call(uploaded / contentLength);
-          return chunk;
-        }).pipe(request.sink),
+        localData
+            .map((chunk) {
+              uploaded += chunk.length;
+              onProgress.call(uploaded / contentLength);
+              return chunk;
+            })
+            .pipe(request.sink),
       );
     } else {
-      unawaited(
-        localData.pipe(request.sink),
-      );
+      unawaited(localData.pipe(request.sink));
     }
 
     return request;
@@ -398,10 +371,7 @@ class WebDavClient extends DynamiteClient {
   ///
   /// See:
   ///   * [get_Request] for the request sent by this method.
-  Future<Stream<List<int>>> getStream(
-    PathUri path, {
-    void Function(double progress)? onProgress,
-  }) async {
+  Future<Stream<List<int>>> getStream(PathUri path, {void Function(double progress)? onProgress}) async {
     final request = get_Request(path);
     final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 200) {
@@ -438,16 +408,9 @@ class WebDavClient extends DynamiteClient {
   ///
   /// See:
   ///   * [get_Request] for the request sent by this method.
-  Future<void> getFile(
-    PathUri path,
-    File file, {
-    void Function(double progress)? onProgress,
-  }) async {
+  Future<void> getFile(PathUri path, File file, {void Function(double progress)? onProgress}) async {
     final sink = file.openWrite();
-    final stream = await getStream(
-      path,
-      onProgress: onProgress,
-    );
+    final stream = await getStream(path, onProgress: onProgress);
     await stream.pipe(sink);
     await sink.close();
   }
@@ -459,16 +422,14 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   ///   * [propfind] for a complete operation executing this request.
-  http.Request propfind_Request(
-    PathUri path, {
-    WebDavPropWithoutValues? prop,
-    WebDavDepth? depth,
-  }) {
-    final request = http.Request('PROPFIND', _constructUri(path))
-      ..headers['OCS-APIRequest'] = 'true'
-      ..body = WebDavPropfind(prop: prop ?? const WebDavPropWithoutValues())
-          .toXmlElement(namespaces: namespaces)
-          .toXmlString();
+  http.Request propfind_Request(PathUri path, {WebDavPropWithoutValues? prop, WebDavDepth? depth}) {
+    final request =
+        http.Request('PROPFIND', _constructUri(path))
+          ..headers['OCS-APIRequest'] = 'true'
+          ..body =
+              WebDavPropfind(
+                prop: prop ?? const WebDavPropWithoutValues(),
+              ).toXmlElement(namespaces: namespaces).toXmlString();
 
     if (depth != null) {
       request.headers['Depth'] = depth.value;
@@ -485,16 +446,8 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPFIND for more information.
   ///   * [propfind_Request] for the request sent by this method.
-  Future<WebDavMultistatus> propfind(
-    PathUri path, {
-    WebDavPropWithoutValues? prop,
-    WebDavDepth? depth,
-  }) async {
-    final request = propfind_Request(
-      path,
-      prop: prop,
-      depth: depth,
-    );
+  Future<WebDavMultistatus> propfind(PathUri path, {WebDavPropWithoutValues? prop, WebDavDepth? depth}) async {
+    final request = propfind_Request(path, prop: prop, depth: depth);
 
     final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
@@ -512,17 +465,15 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * https://docs.nextcloud.com/server/latest/developer_manual/client_apis/WebDAV/basic.html#listing-favorites for more information.
   ///   * [report] for a complete operation executing this request.
-  http.Request report_Request(
-    PathUri path,
-    WebDavOcFilterRules filterRules, {
-    WebDavPropWithoutValues? prop,
-  }) {
-    final request = http.Request('REPORT', _constructUri(path))
-      ..headers['OCS-APIRequest'] = 'true'
-      ..body = WebDavOcFilterFiles(
-        filterRules: filterRules,
-        prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
-      ).toXmlElement(namespaces: namespaces).toXmlString();
+  http.Request report_Request(PathUri path, WebDavOcFilterRules filterRules, {WebDavPropWithoutValues? prop}) {
+    final request =
+        http.Request('REPORT', _constructUri(path))
+          ..headers['OCS-APIRequest'] = 'true'
+          ..body =
+              WebDavOcFilterFiles(
+                filterRules: filterRules,
+                prop: prop ?? const WebDavPropWithoutValues(), // coverage:ignore-line
+              ).toXmlElement(namespaces: namespaces).toXmlString();
 
     _addBaseHeaders(request);
     return request;
@@ -540,11 +491,7 @@ class WebDavClient extends DynamiteClient {
     WebDavOcFilterRules filterRules, {
     WebDavPropWithoutValues? prop,
   }) async {
-    final request = report_Request(
-      path,
-      filterRules,
-      prop: prop,
-    );
+    final request = report_Request(path, filterRules, prop: prop);
 
     final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
@@ -563,17 +510,15 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   ///   * [proppatch] for a complete operation executing this request.
-  http.Request proppatch_Request(
-    PathUri path, {
-    WebDavProp? set,
-    WebDavPropWithoutValues? remove,
-  }) {
-    final request = http.Request('PROPPATCH', _constructUri(path))
-      ..headers['OCS-APIRequest'] = 'true'
-      ..body = WebDavPropertyupdate(
-        set: set != null ? WebDavSet(prop: set) : null,
-        remove: remove != null ? WebDavRemove(prop: remove) : null,
-      ).toXmlElement(namespaces: namespaces).toXmlString();
+  http.Request proppatch_Request(PathUri path, {WebDavProp? set, WebDavPropWithoutValues? remove}) {
+    final request =
+        http.Request('PROPPATCH', _constructUri(path))
+          ..headers['OCS-APIRequest'] = 'true'
+          ..body =
+              WebDavPropertyupdate(
+                set: set != null ? WebDavSet(prop: set) : null,
+                remove: remove != null ? WebDavRemove(prop: remove) : null,
+              ).toXmlElement(namespaces: namespaces).toXmlString();
 
     _addBaseHeaders(request);
     return request;
@@ -588,16 +533,8 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_PROPPATCH for more information.
   ///   * [proppatch_Request] for the request sent by this method.
-  Future<bool> proppatch(
-    PathUri path, {
-    WebDavProp? set,
-    WebDavPropWithoutValues? remove,
-  }) async {
-    final request = proppatch_Request(
-      path,
-      set: set,
-      remove: remove,
-    );
+  Future<bool> proppatch(PathUri path, {WebDavProp? set, WebDavPropWithoutValues? remove}) async {
+    final request = proppatch_Request(path, set: set, remove: remove);
 
     final streamedResponse = await httpClient.send(request);
     final response = await http.Response.fromStream(streamedResponse);
@@ -623,18 +560,10 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   ///   * [move] for a complete operation executing this request.
-  http.Request move_Request(
-    PathUri sourcePath,
-    PathUri destinationPath, {
-    bool overwrite = false,
-  }) {
+  http.Request move_Request(PathUri sourcePath, PathUri destinationPath, {bool overwrite = false}) {
     final request = http.Request('MOVE', _constructUri(sourcePath))..headers['OCS-APIRequest'] = 'true';
 
-    _addCopyHeaders(
-      request,
-      destinationPath: destinationPath,
-      overwrite: overwrite,
-    );
+    _addCopyHeaders(request, destinationPath: destinationPath, overwrite: overwrite);
     _addBaseHeaders(request);
     return request;
   }
@@ -646,16 +575,8 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_MOVE for more information.
   ///   * [move_Request] for the request sent by this method.
-  Future<http.StreamedResponse> move(
-    PathUri sourcePath,
-    PathUri destinationPath, {
-    bool overwrite = false,
-  }) async {
-    final request = move_Request(
-      sourcePath,
-      destinationPath,
-      overwrite: overwrite,
-    );
+  Future<http.StreamedResponse> move(PathUri sourcePath, PathUri destinationPath, {bool overwrite = false}) async {
+    final request = move_Request(sourcePath, destinationPath, overwrite: overwrite);
 
     final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
@@ -673,18 +594,10 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   ///   * [copy] for a complete operation executing this request.
-  http.Request copy_Request(
-    PathUri sourcePath,
-    PathUri destinationPath, {
-    bool overwrite = false,
-  }) {
+  http.Request copy_Request(PathUri sourcePath, PathUri destinationPath, {bool overwrite = false}) {
     final request = http.Request('COPY', _constructUri(sourcePath))..headers['OCS-APIRequest'] = 'true';
 
-    _addCopyHeaders(
-      request,
-      destinationPath: destinationPath,
-      overwrite: overwrite,
-    );
+    _addCopyHeaders(request, destinationPath: destinationPath, overwrite: overwrite);
     _addBaseHeaders(request);
     return request;
   }
@@ -696,16 +609,8 @@ class WebDavClient extends DynamiteClient {
   /// See:
   ///   * http://www.webdav.org/specs/rfc2518.html#METHOD_COPY for more information.
   ///   * [copy_Request] for the request sent by this method.
-  Future<http.StreamedResponse> copy(
-    PathUri sourcePath,
-    PathUri destinationPath, {
-    bool overwrite = false,
-  }) async {
-    final request = copy_Request(
-      sourcePath,
-      destinationPath,
-      overwrite: overwrite,
-    );
+  Future<http.StreamedResponse> copy(PathUri sourcePath, PathUri destinationPath, {bool overwrite = false}) async {
+    final request = copy_Request(sourcePath, destinationPath, overwrite: overwrite);
 
     final streamedResponse = await httpClient.send(request);
     if (streamedResponse.statusCode != 201 && streamedResponse.statusCode != 204) {
@@ -721,9 +626,7 @@ class WebDavClient extends DynamiteClient {
 
     final authentication = authentications?.firstOrNull;
     if (authentication != null) {
-      request.headers.addAll(
-        authentication.headers,
-      );
+      request.headers.addAll(authentication.headers);
     }
   }
 

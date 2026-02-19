@@ -8,18 +8,8 @@ void main() {
     test('Equality', () {
       const data = 'someData';
 
-      var a = Result(
-        data,
-        null,
-        isLoading: true,
-        isCached: false,
-      );
-      var b = Result(
-        data,
-        null,
-        isLoading: true,
-        isCached: true,
-      );
+      var a = Result(data, null, isLoading: true, isCached: false);
+      var b = Result(data, null, isLoading: true, isCached: true);
 
       expect(a, equals(a), reason: 'identical');
       expect(a, equals(b), reason: 'ignore cached state in equality');
@@ -27,18 +17,8 @@ void main() {
       expect(a.hashCode, equals(a.hashCode), reason: 'identical');
       expect(a.hashCode, isNot(equals(b.hashCode)), reason: 'hashCode should respect the cached state');
 
-      a = Result(
-        data,
-        Exception(),
-        isLoading: true,
-        isCached: false,
-      );
-      b = Result(
-        data,
-        Exception(),
-        isLoading: true,
-        isCached: true,
-      );
+      a = Result(data, Exception(), isLoading: true, isCached: false);
+      b = Result(data, Exception(), isLoading: true, isCached: true);
 
       expect(a, equals(b), reason: 'error should be compared as string');
     });
@@ -47,12 +27,7 @@ void main() {
       const data = 'someData';
 
       final a = Result.success(data);
-      final b = Result(
-        data,
-        null,
-        isLoading: true,
-        isCached: false,
-      );
+      final b = Result(data, null, isLoading: true, isCached: false);
 
       expect(a, isNot(equals(b)));
       expect(a.asLoading(), equals(b));
@@ -64,12 +39,7 @@ void main() {
       final loading = Result<String>.loading();
       final success = Result.success(data);
       final error = Result.error(data);
-      final cached = Result(
-        data,
-        null,
-        isLoading: false,
-        isCached: true,
-      );
+      final cached = Result(data, null, isLoading: false, isCached: true);
 
       expect(success.hasData, isTrue);
       expect(loading.hasData, isFalse);

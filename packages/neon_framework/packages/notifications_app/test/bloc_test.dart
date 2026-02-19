@@ -43,7 +43,8 @@ Account mockNotificationsAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/notifications/api/v2/notifications'): {
-      'get': (match, request) => Response(
+      'get':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -81,9 +82,7 @@ void main() {
 
   setUp(() {
     account = mockNotificationsAccount();
-    bloc = NotificationsBloc(
-      account: account,
-    );
+    bloc = NotificationsBloc(account: account);
   });
 
   tearDown(() {
@@ -100,14 +99,7 @@ void main() {
         Result.success(BuiltList<int>([0, 1, 2])),
       ]),
     );
-    expect(
-      bloc.unreadCounter,
-      emitsInOrder([
-        3,
-        3,
-        3,
-      ]),
-    );
+    expect(bloc.unreadCounter, emitsInOrder([3, 3, 3]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -124,14 +116,7 @@ void main() {
         Result.success(BuiltList<int>([])),
       ]),
     );
-    expect(
-      bloc.unreadCounter,
-      emitsInOrder([
-        3,
-        3,
-        0,
-      ]),
-    );
+    expect(bloc.unreadCounter, emitsInOrder([3, 3, 0]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -148,14 +133,7 @@ void main() {
         Result.success(BuiltList<int>([0, 2])),
       ]),
     );
-    expect(
-      bloc.unreadCounter,
-      emitsInOrder([
-        3,
-        3,
-        2,
-      ]),
-    );
+    expect(bloc.unreadCounter, emitsInOrder([3, 3, 2]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));

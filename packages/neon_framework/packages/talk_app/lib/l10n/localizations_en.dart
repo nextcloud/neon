@@ -28,15 +28,12 @@ class TalkLocalizationsEn extends TalkLocalizations {
 
   @override
   String roomType(String type) {
-    String _temp0 = intl.Intl.selectLogic(
-      type,
-      {
-        'oneToOne': 'Private',
-        'group': 'Group',
-        'public': 'Public',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(type, {
+      'oneToOne': 'Private',
+      'group': 'Group',
+      'public': 'Public',
+      'other': '',
+    });
     return '$_temp0';
   }
 

@@ -7,10 +7,7 @@ void main() {
     test('AuthenticationClientExtension', () {
       final client = NextcloudClient(Uri());
 
-      expect(
-        client.authentication,
-        isA<AuthenticationClient>(),
-      );
+      expect(client.authentication, isA<AuthenticationClient>());
     });
   });
 }

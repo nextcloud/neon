@@ -7,28 +7,17 @@ import 'package:neon_framework/src/login_qr_code/login_qr_code.dart';
 
 void main() {
   group('LoginQrCodeState', () {
-    LoginQrCodeState createSubject({
-      Credentials? credentials,
-      bool invalid = false,
-    }) {
-      return LoginQrCodeState(
-        credentials: credentials,
-        invalid: invalid,
-      );
+    LoginQrCodeState createSubject({Credentials? credentials, bool invalid = false}) {
+      return LoginQrCodeState(credentials: credentials, invalid: invalid);
     }
 
     test('supports value equality', () {
-      expect(
-        createSubject(),
-        equals(createSubject()),
-      );
+      expect(createSubject(), equals(createSubject()));
     });
 
     test('props are correct', () {
       expect(
-        createSubject(
-          credentials: createCredentials(),
-        ).props,
+        createSubject(credentials: createCredentials()).props,
         equals(<Object?>[
           createCredentials(), // credentials
           false, // invalid
@@ -38,20 +27,11 @@ void main() {
 
     group('copyWith', () {
       test('returns the same object if not arguments are provided', () {
-        expect(
-          createSubject().copyWith(),
-          equals(createSubject()),
-        );
+        expect(createSubject().copyWith(), equals(createSubject()));
       });
 
       test('retains the old value for every parameter if null is provided', () {
-        expect(
-          createSubject().copyWith(
-            credentials: null,
-            invalid: null,
-          ),
-          equals(createSubject()),
-        );
+        expect(createSubject().copyWith(credentials: null, invalid: null), equals(createSubject()));
       });
 
       test('replaces every non-null parameter', () {

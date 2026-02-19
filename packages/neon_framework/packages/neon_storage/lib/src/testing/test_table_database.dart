@@ -6,9 +6,7 @@ import 'package:sqflite_common/sqlite_api.dart';
 @visibleForTesting
 final class TestTableDatabase extends MultiTableDatabase {
   /// Creates a test database for the given [table].
-  TestTableDatabase(Table table)
-      : _table = table,
-        super(tables: [table]);
+  TestTableDatabase(Table table) : _table = table, super(tables: [table]);
 
   final Table _table;
 

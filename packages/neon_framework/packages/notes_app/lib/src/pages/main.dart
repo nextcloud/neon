@@ -12,9 +12,7 @@ import 'package:notes_app/src/widgets/notes_floating_action_button.dart';
 import 'package:notes_app/src/widgets/notes_view.dart';
 
 class NotesMainPage extends StatefulWidget {
-  const NotesMainPage({
-    super.key,
-  });
+  const NotesMainPage({super.key});
 
   @override
   State<NotesMainPage> createState() => _NotesMainPageState();
@@ -49,19 +47,9 @@ class _NotesMainPageState extends State<NotesMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    final views = [
-      NotesView(
-        bloc: bloc,
-      ),
-      NotesCategoriesView(
-        bloc: bloc,
-      ),
-    ];
+    final views = [NotesView(bloc: bloc), NotesCategoriesView(bloc: bloc)];
 
-    final floatingActionButtons = [
-      NotesFloatingActionButton(bloc: bloc),
-      null,
-    ];
+    final floatingActionButtons = [NotesFloatingActionButton(bloc: bloc), null];
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -73,14 +61,8 @@ class _NotesMainPageState extends State<NotesMainPage> {
           });
         },
         items: [
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.note),
-            label: NotesLocalizations.of(context).notes,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(AdaptiveIcons.tag),
-            label: NotesLocalizations.of(context).categories,
-          ),
+          BottomNavigationBarItem(icon: const Icon(Icons.note), label: NotesLocalizations.of(context).notes),
+          BottomNavigationBarItem(icon: Icon(AdaptiveIcons.tag), label: NotesLocalizations.of(context).categories),
         ],
       ),
       body: views[index],

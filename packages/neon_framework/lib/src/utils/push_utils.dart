@@ -88,9 +88,7 @@ class PushUtils {
       onDidReceiveNotificationResponse: (notification) async {
         if (onLocalNotificationClicked != null && notification.payload != null) {
           await onLocalNotificationClicked!(
-            PushNotification.fromJson(
-              json.decode(notification.payload!) as Map<String, dynamic>,
-            ),
+            PushNotification.fromJson(json.decode(notification.payload!) as Map<String, dynamic>),
           );
         }
       },
@@ -99,9 +97,7 @@ class PushUtils {
     await NeonStorage().init();
     final storage = NotificationsPushStorage(
       devicePrivateKeyPersistence: NeonStorage().singleValueStore(StorageKeys.notificationsDevicePrivateKey),
-      pushSubscriptionsPersistence: SQLiteCachedPersistence(
-        prefix: 'notifications-push-subscriptions',
-      ),
+      pushSubscriptionsPersistence: SQLiteCachedPersistence(prefix: 'notifications-push-subscriptions'),
     );
 
     // These are used in the loop, but not every push notification needs them, so we only initialize them when needed.
@@ -213,9 +209,10 @@ class PushUtils {
                 color: NcColors.primary,
                 category: pushNotification.type == 'voip' ? AndroidNotificationCategory.call : null,
                 importance: Importance.max,
-                priority: pushNotification.priority == 'high'
-                    ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
-                    : Priority.defaultPriority,
+                priority:
+                    pushNotification.priority == 'high'
+                        ? (pushNotification.type == 'voip' ? Priority.max : Priority.high)
+                        : Priority.defaultPriority,
                 styleInformation: message != null ? BigTextStyleInformation(message) : null,
               ),
             ),
@@ -235,10 +232,7 @@ class PushUtils {
                   appName ?? appID,
                   groupKey: appID,
                   setAsGroupSummary: true,
-                  styleInformation: InboxStyleInformation(
-                    [],
-                    summaryText: appName ?? appID,
-                  ),
+                  styleInformation: InboxStyleInformation([], summaryText: appName ?? appID),
                   color: NcColors.primary,
                 ),
               ),
@@ -251,17 +245,11 @@ class PushUtils {
 
   static Future<notifications.Notification?> _fetchNotification(Account account, int id) async {
     try {
-      final response = await account.client.notifications.endpoint.getNotification(
-        id: id,
-      );
+      final response = await account.client.notifications.endpoint.getNotification(id: id);
 
       return response.body.ocs.data;
     } on http.ClientException catch (error, stackTrace) {
-      _log.warning(
-        'Error loading notification $id.',
-        error,
-        stackTrace,
-      );
+      _log.warning('Error loading notification $id.', error, stackTrace);
 
       return null;
     }
@@ -274,10 +262,7 @@ class PushUtils {
     await RequestManager.instance.wrap(
       account: account,
       getCacheHeaders: () async {
-        final response = await account.client.head(
-          uri,
-          headers: headers,
-        );
+        final response = await account.client.head(uri, headers: headers);
 
         return response.headers;
       },

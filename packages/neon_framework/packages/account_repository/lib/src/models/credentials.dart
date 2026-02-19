@@ -44,10 +44,11 @@ abstract class Credentials implements Built<Credentials, CredentialsBuilder> {
   /// A human readable representation of [username] and [serverURL].
   @memoized
   String get humanReadableID {
-    final buffer = StringBuffer()
-      ..write(username)
-      ..write('@')
-      ..write(serverURL.host);
+    final buffer =
+        StringBuffer()
+          ..write(username)
+          ..write('@')
+          ..write(serverURL.host);
 
     if (serverURL.hasPort) {
       buffer

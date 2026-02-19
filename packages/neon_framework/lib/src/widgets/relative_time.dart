@@ -8,13 +8,7 @@ import 'package:timezone/timezone.dart' as tz;
 /// Shows the time elapsed since a [tz.TZDateTime] and periodically updates itself.
 class RelativeTime extends StatefulWidget {
   /// Creates a new relative DateTime widget.
-  const RelativeTime({
-    required this.date,
-    this.style,
-    this.includeSign = true,
-    this.abbreviation = false,
-    super.key,
-  });
+  const RelativeTime({required this.date, this.style, this.includeSign = true, this.abbreviation = false, super.key});
 
   /// The timestamp to be displayed.
   final tz.TZDateTime date;
@@ -39,10 +33,7 @@ class _RelativeTimeState extends State<RelativeTime> {
 
   @override
   void initState() {
-    timer = Timer.periodic(
-      const Duration(minutes: 1),
-      (_) => setState(() {}),
-    );
+    timer = Timer.periodic(const Duration(minutes: 1), (_) => setState(() {}));
 
     super.initState();
   }

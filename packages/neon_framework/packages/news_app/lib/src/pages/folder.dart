@@ -5,11 +5,7 @@ import 'package:news_app/src/widgets/folder_view.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderPage extends StatelessWidget {
-  const NewsFolderPage({
-    required this.bloc,
-    required this.folder,
-    super.key,
-  });
+  const NewsFolderPage({required this.bloc, required this.folder, super.key});
 
   final NewsBloc bloc;
   final news.Folder folder;
@@ -18,19 +14,9 @@ class NewsFolderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(folder.name),
-      ),
-      body: SafeArea(
-        child: NewsFolderView(
-          bloc: bloc,
-          folder: folder,
-        ),
-      ),
-      floatingActionButton: NewsFeedFloatingActionButton(
-        bloc: bloc,
-        folderID: folder.id,
-      ),
+      appBar: AppBar(title: Text(folder.name)),
+      body: SafeArea(child: NewsFolderView(bloc: bloc, folder: folder)),
+      floatingActionButton: NewsFeedFloatingActionButton(bloc: bloc, folderID: folder.id),
     );
   }
 }

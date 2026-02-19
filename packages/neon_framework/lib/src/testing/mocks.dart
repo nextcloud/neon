@@ -31,11 +31,7 @@ Account MockAccount({
   String appPassword = 'appPassword',
 }) {
   return createAccount(
-    credentials: createCredentials(
-      serverURL: Uri.parse(serverURL),
-      username: username,
-      appPassword: appPassword,
-    ),
+    credentials: createCredentials(serverURL: Uri.parse(serverURL), username: username, appPassword: appPassword),
     httpClient: MockClient((_) async {
       throw ClientException('The fake account client can not be used in tests.');
     }),

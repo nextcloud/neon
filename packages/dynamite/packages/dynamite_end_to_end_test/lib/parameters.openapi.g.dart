@@ -39,11 +39,9 @@ GetDefaultsEnumPattern _$valueOfGetDefaultsEnumPattern(String name) {
   }
 }
 
-final BuiltSet<GetDefaultsEnumPattern> _$getDefaultsEnumPatternValues =
-    BuiltSet<GetDefaultsEnumPattern>(const <GetDefaultsEnumPattern>[
-  _$getDefaultsEnumPatternA,
-  _$getDefaultsEnumPattern$0,
-]);
+final BuiltSet<GetDefaultsEnumPattern> _$getDefaultsEnumPatternValues = BuiltSet<GetDefaultsEnumPattern>(
+  const <GetDefaultsEnumPattern>[_$getDefaultsEnumPatternA, _$getDefaultsEnumPattern$0],
+);
 
 const GetHeadersEnumPattern _$getHeadersEnumPatternA = const GetHeadersEnumPattern._('a');
 const GetHeadersEnumPattern _$getHeadersEnumPattern$0 = const GetHeadersEnumPattern._('\$0');
@@ -59,10 +57,8 @@ GetHeadersEnumPattern _$valueOfGetHeadersEnumPattern(String name) {
   }
 }
 
-final BuiltSet<GetHeadersEnumPattern> _$getHeadersEnumPatternValues =
-    BuiltSet<GetHeadersEnumPattern>(const <GetHeadersEnumPattern>[
-  _$getHeadersEnumPatternA,
-  _$getHeadersEnumPattern$0,
-]);
+final BuiltSet<GetHeadersEnumPattern> _$getHeadersEnumPatternValues = BuiltSet<GetHeadersEnumPattern>(
+  const <GetHeadersEnumPattern>[_$getHeadersEnumPatternA, _$getHeadersEnumPattern$0],
+);
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

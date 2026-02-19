@@ -17,10 +17,7 @@ final class HeaderCodec extends Codec<Object?, String> {
   /// Creates a `HeaderCodec` for the given [specifiedType] and encoding format ([explode]).
   ///
   /// The [specifiedType] is needed to revive the value when in the decoder.
-  const HeaderCodec({
-    required this.specifiedType,
-    this.explode = false,
-  });
+  const HeaderCodec({required this.specifiedType, this.explode = false});
 
   /// Whether exploding is used for the codec.
   final bool explode;
@@ -29,24 +26,16 @@ final class HeaderCodec extends Codec<Object?, String> {
   final FullType specifiedType;
 
   @override
-  HeaderDecoder get decoder => HeaderDecoder(
-        explode: explode,
-        specifiedType: specifiedType,
-      );
+  HeaderDecoder get decoder => HeaderDecoder(explode: explode, specifiedType: specifiedType);
 
   @override
-  HeaderEncoder get encoder => HeaderEncoder(
-        explode: explode,
-      );
+  HeaderEncoder get encoder => HeaderEncoder(explode: explode);
 }
 
 /// This class converts strings to serialized [Header] JSON objects.
 final class HeaderDecoder extends Converter<String, Object?> {
   /// Creates a header decoder.
-  const HeaderDecoder({
-    required this.specifiedType,
-    this.explode = false,
-  });
+  const HeaderDecoder({required this.specifiedType, this.explode = false});
 
   /// Whether exploding is used for the converter.
   final bool explode;
@@ -97,9 +86,7 @@ final class HeaderDecoder extends Converter<String, Object?> {
 /// This class converts serialized [Header] JSON objects to strings.
 final class HeaderEncoder extends Converter<Object?, String> {
   /// Creates a header encoder.
-  const HeaderEncoder({
-    this.explode = false,
-  });
+  const HeaderEncoder({this.explode = false});
 
   /// Whether exploding is used for the converter.
   final bool explode;

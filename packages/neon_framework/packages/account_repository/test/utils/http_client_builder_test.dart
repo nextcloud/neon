@@ -25,10 +25,7 @@ void main() {
     storageMock = _NeonStorageMock();
     NeonStorage.mocked(storageMock);
     when(
-      () => storageMock.cookieStore(
-        accountID: any(named: 'accountID'),
-        serverURL: any(named: 'serverURL'),
-      ),
+      () => storageMock.cookieStore(accountID: any(named: 'accountID'), serverURL: any(named: 'serverURL')),
     ).thenReturn(null);
   });
 
@@ -40,11 +37,7 @@ void main() {
         ..serverURL = Uri.https('serverURL');
     });
 
-    final client = buildClient(
-      httpClient: httpClient,
-      userAgent: userAgent,
-      credentials: credentials,
-    );
+    final client = buildClient(httpClient: httpClient, userAgent: userAgent, credentials: credentials);
 
     expect(
       client,
@@ -85,11 +78,6 @@ void main() {
           ),
     );
 
-    verifyNever(
-      () => storageMock.cookieStore(
-        accountID: any(named: 'accountID'),
-        serverURL: any(named: 'serverURL'),
-      ),
-    );
+    verifyNever(() => storageMock.cookieStore(accountID: any(named: 'accountID'), serverURL: any(named: 'serverURL')));
   });
 }

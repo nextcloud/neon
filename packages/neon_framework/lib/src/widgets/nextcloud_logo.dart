@@ -7,10 +7,7 @@ import 'package:vector_graphics/vector_graphics.dart';
 /// For guidelines on using the Nextcloud logo, visit https://nextcloud.com/trademarks.
 class NextcloudLogo extends StatelessWidget {
   /// Creates a widget that shows the Nextcloud logo.
-  const NextcloudLogo({
-    this.size = 100,
-    super.key,
-  });
+  const NextcloudLogo({this.size = 100, super.key});
 
   /// The size of the logo in logical pixels.
   ///
@@ -22,10 +19,7 @@ class NextcloudLogo extends StatelessWidget {
     return VectorGraphic(
       width: size,
       height: size,
-      loader: const AssetBytesLoader(
-        'assets/logo_nextcloud.svg.vec',
-        packageName: 'neon_framework',
-      ),
+      loader: const AssetBytesLoader('assets/logo_nextcloud.svg.vec', packageName: 'neon_framework'),
       semanticsLabel: NeonLocalizations.of(context).nextcloudLogo,
     );
   }

@@ -8,9 +8,7 @@ import 'package:nextcloud/nextcloud.dart';
 
 @internal
 final class AuthorizationThrottlingInterceptor implements HttpInterceptor {
-  AuthorizationThrottlingInterceptor({
-    required this.baseURL,
-  });
+  AuthorizationThrottlingInterceptor({required this.baseURL});
 
   final Uri baseURL;
   var _blocked = false;
@@ -29,10 +27,7 @@ final class AuthorizationThrottlingInterceptor implements HttpInterceptor {
 
   @override
   Never interceptRequest({required BaseRequest request}) {
-    assert(
-      shouldInterceptRequest(request),
-      'Request should not be intercepted.',
-    );
+    assert(shouldInterceptRequest(request), 'Request should not be intercepted.');
 
     throw DynamiteStatusCodeException(Response('', 401));
   }
@@ -53,10 +48,7 @@ final class AuthorizationThrottlingInterceptor implements HttpInterceptor {
 
   @override
   Future<StreamedResponse> interceptResponse({required StreamedResponse response, required Uri url}) async {
-    assert(
-      shouldInterceptResponse(response),
-      'Response should not be intercepted.',
-    );
+    assert(shouldInterceptResponse(response), 'Response should not be intercepted.');
 
     final authorization = response.request!.headers['authorization'];
     if (authorization != null && authorization.isNotEmpty && response.statusCode == 401) {

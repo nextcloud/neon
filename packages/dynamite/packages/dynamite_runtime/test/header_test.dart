@@ -11,49 +11,49 @@ import 'package:test/test.dart';
 
 part 'header_test.g.dart';
 
-@SerializersFor([
-  Header,
-])
-final Serializers serializers = (_$serializers.toBuilder()
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const HeaderPlugin())
-      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
-      ..addBuilderFactory(const FullType(Header, [FullType(double)]), HeaderBuilder<double>.new)
-      ..addBuilderFactory(
-        const FullType(Header, [
-          FullType(BuiltList, [FullType(int)]),
-        ]),
-        HeaderBuilder<BuiltList<int>>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(
-        const FullType(Header, [
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-        HeaderBuilder<BuiltList<String>>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(Header, [
-          FullType(BuiltMap, [FullType(String), FullType(int)]),
-        ]),
-        HeaderBuilder<BuiltMap<String, int>>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(const FullType(Header, [FullType(int)]), HeaderBuilder<int>.new)
-      ..addBuilderFactory(const FullType(Header, [FullType(String)]), HeaderBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(Header, [
-          FullType(Header, [FullType(String)]),
-        ]),
-        HeaderBuilder<Header<String>>.new,
-      ))
-    .build();
+@SerializersFor([Header])
+final Serializers serializers =
+    (_$serializers.toBuilder()
+          ..addPlugin(StandardJsonPlugin())
+          ..addPlugin(const HeaderPlugin())
+          ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new)
+          ..addBuilderFactory(const FullType(Header, [FullType(double)]), HeaderBuilder<double>.new)
+          ..addBuilderFactory(
+            const FullType(Header, [
+              FullType(BuiltList, [FullType(int)]),
+            ]),
+            HeaderBuilder<BuiltList<int>>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(
+            const FullType(Header, [
+              FullType(BuiltList, [FullType(String)]),
+            ]),
+            HeaderBuilder<BuiltList<String>>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(Header, [
+              FullType(BuiltMap, [FullType(String), FullType(int)]),
+            ]),
+            HeaderBuilder<BuiltMap<String, int>>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+          ..addBuilderFactory(const FullType(Header, [FullType(int)]), HeaderBuilder<int>.new)
+          ..addBuilderFactory(const FullType(Header, [FullType(String)]), HeaderBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(Header, [
+              FullType(Header, [FullType(String)]),
+            ]),
+            HeaderBuilder<Header<String>>.new,
+          ))
+        .build();
 
-final Serializers invalidSerializers = (_$serializers.toBuilder()
-      ..addPlugin(const HeaderPlugin())
-      ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new))
-    .build();
+final Serializers invalidSerializers =
+    (_$serializers.toBuilder()
+          ..addPlugin(const HeaderPlugin())
+          ..addBuilderFactory(const FullType(Header, [FullType(bool)]), HeaderBuilder<bool>.new))
+        .build();
 
 void main() {
   group('Header with known specifiedType holding bool', () {
@@ -72,12 +72,14 @@ void main() {
 
   group('Header with unknown specifiedType holding bool', () {
     final data = Header((b) => b..content = true);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {r'$': 'bool', '': true},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {r'$': 'bool', '': true},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -105,12 +107,14 @@ void main() {
 
   group('Header with unknown specifiedType holding double', () {
     final data = Header((b) => b..content = 42.5);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {r'$': 'double', '': 42.5},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {r'$': 'double', '': 42.5},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -148,19 +152,21 @@ void main() {
 
   group('Header with unknown specifiedType holding list', () {
     final data = Header((b) => b..content = BuiltList<int>([1, 2, 3]));
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {
-          r'$': 'list',
-          '': [
-            {r'$': 'int', '': 1},
-            {r'$': 'int', '': 2},
-            {r'$': 'int', '': 3},
-          ],
-        },
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {
+                  r'$': 'list',
+                  '': [
+                    {r'$': 'int', '': 1},
+                    {r'$': 'int', '': 2},
+                    {r'$': 'int', '': 3},
+                  ],
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -190,17 +196,19 @@ void main() {
 
   group('Header with unknown specifiedType holding map', () {
     final data = Header((b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {
-          r'$': 'encoded_map',
-          r'{"$":"String","":"one"}': {r'$': 'int', '': 1},
-          r'{"$":"String","":"two"}': {r'$': 'int', '': 2},
-          r'{"$":"String","":"three"}': {r'$': 'int', '': 3},
-        },
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {
+                  r'$': 'encoded_map',
+                  r'{"$":"String","":"one"}': {r'$': 'int', '': 1},
+                  r'{"$":"String","":"two"}': {r'$': 'int', '': 2},
+                  r'{"$":"String","":"three"}': {r'$': 'int', '': 3},
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -212,31 +220,30 @@ void main() {
     });
   });
 
-  group(
-    'Header with known specifiedType holding int',
-    () {
-      final data = Header<int>((b) => b..content = 42);
-      final serialized = json.encode(42);
-      const specifiedType = FullType(Header, [FullType(int)]);
+  group('Header with known specifiedType holding int', () {
+    final data = Header<int>((b) => b..content = 42);
+    final serialized = json.encode(42);
+    const specifiedType = FullType(Header, [FullType(int)]);
 
-      test('can be serialized', () {
-        expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
-      });
+    test('can be serialized', () {
+      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+    });
 
-      test('can be deserialized', () {
-        expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
-      });
-    },
-  );
+    test('can be deserialized', () {
+      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+    });
+  });
 
   group('Header with unknown specifiedType holding int', () {
     final data = Header((b) => b..content = 42);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {r'$': 'int', '': 42},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {r'$': 'int', '': 42},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -264,12 +271,14 @@ void main() {
 
   group('Header with unknown specifiedType holding String', () {
     final data = Header((b) => b..content = 'test');
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {r'$': 'String', '': 'test'},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {r'$': 'String', '': 'test'},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -282,12 +291,7 @@ void main() {
   });
 
   group('Header with known specifiedType holding Header', () {
-    final data = Header<Header<String>>(
-      (b) => b
-        ..content = Header<String>(
-          (b) => b..content = 'test',
-        ),
-    );
+    final data = Header<Header<String>>((b) => b..content = Header<String>((b) => b..content = 'test'));
     const serialized = 'test';
     const specifiedType = FullType(Header, [
       FullType(Header, [FullType(String)]),
@@ -303,21 +307,18 @@ void main() {
   });
 
   group('Header with unknown specifiedType holding Header', () {
-    final data = Header<Header<String>>(
-      (b) => b
-        ..content = Header<String>(
-          (b) => b..content = 'test',
-        ),
-    );
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'Header',
-        'content': {
-          r'$': 'Header',
-          'content': {r'$': 'String', '': 'test'},
-        },
-      }),
-    ) as Object;
+    final data = Header<Header<String>>((b) => b..content = Header<String>((b) => b..content = 'test'));
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'Header',
+                'content': {
+                  r'$': 'Header',
+                  'content': {r'$': 'String', '': 'test'},
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {

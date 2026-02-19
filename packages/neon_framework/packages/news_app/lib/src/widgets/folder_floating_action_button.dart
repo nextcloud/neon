@@ -5,10 +5,7 @@ import 'package:news_app/src/blocs/news.dart';
 import 'package:news_app/src/utils/dialog.dart';
 
 class NewsFolderFloatingActionButton extends StatelessWidget {
-  const NewsFolderFloatingActionButton({
-    required this.bloc,
-    super.key,
-  });
+  const NewsFolderFloatingActionButton({required this.bloc, super.key});
 
   final NewsBloc bloc;
 

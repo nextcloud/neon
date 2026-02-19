@@ -104,9 +104,10 @@ void main() {
         final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
         final response = await tester.client.userStatus.userStatus.setPredefinedMessage(
           $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
-            (b) => b
-              ..messageId = 'meeting'
-              ..clearAt = clearAt,
+            (b) =>
+                b
+                  ..messageId = 'meeting'
+                  ..clearAt = clearAt,
           ),
         );
         expect(response.statusCode, 200);
@@ -126,10 +127,11 @@ void main() {
         final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
         final response = await tester.client.userStatus.userStatus.setCustomMessage(
           $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
-            (b) => b
-              ..statusIcon = '😀'
-              ..message = 'bla'
-              ..clearAt = clearAt,
+            (b) =>
+                b
+                  ..statusIcon = '😀'
+                  ..message = 'bla'
+                  ..clearAt = clearAt,
           ),
         );
         expect(response.statusCode, 200);
@@ -149,10 +151,11 @@ void main() {
         final clearAt = DateTime.timestamp().secondsSinceEpoch + 60;
         await tester.client.userStatus.userStatus.setCustomMessage(
           $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
-            (b) => b
-              ..statusIcon = '😀'
-              ..message = 'bla'
-              ..clearAt = clearAt,
+            (b) =>
+                b
+                  ..statusIcon = '😀'
+                  ..message = 'bla'
+                  ..clearAt = clearAt,
           ),
         );
         await tester.client.userStatus.userStatus.clearMessage();
@@ -183,9 +186,10 @@ void main() {
           containsOnce(
             equalsBuilt(
               user_status.Public(
-                (b) => b
-                  ..userId = 'user1'
-                  ..status = user_status.$Type.online,
+                (b) =>
+                    b
+                      ..userId = 'user1'
+                      ..status = user_status.$Type.online,
               ),
             ),
           ),

@@ -24,9 +24,9 @@ WebhooksCreateRequestApplicationJson_AuthMethod _$valueOfWebhooksCreateRequestAp
 
 final BuiltSet<WebhooksCreateRequestApplicationJson_AuthMethod> _$webhooksCreateRequestApplicationJsonAuthMethodValues =
     BuiltSet<WebhooksCreateRequestApplicationJson_AuthMethod>(const <WebhooksCreateRequestApplicationJson_AuthMethod>[
-  _$webhooksCreateRequestApplicationJsonAuthMethodNone,
-  _$webhooksCreateRequestApplicationJsonAuthMethodHeader,
-]);
+      _$webhooksCreateRequestApplicationJsonAuthMethodNone,
+      _$webhooksCreateRequestApplicationJsonAuthMethodHeader,
+    ]);
 
 const WebhooksUpdateRequestApplicationJson_AuthMethod _$webhooksUpdateRequestApplicationJsonAuthMethodNone =
     const WebhooksUpdateRequestApplicationJson_AuthMethod._('none');
@@ -46,9 +46,9 @@ WebhooksUpdateRequestApplicationJson_AuthMethod _$valueOfWebhooksUpdateRequestAp
 
 final BuiltSet<WebhooksUpdateRequestApplicationJson_AuthMethod> _$webhooksUpdateRequestApplicationJsonAuthMethodValues =
     BuiltSet<WebhooksUpdateRequestApplicationJson_AuthMethod>(const <WebhooksUpdateRequestApplicationJson_AuthMethod>[
-  _$webhooksUpdateRequestApplicationJsonAuthMethodNone,
-  _$webhooksUpdateRequestApplicationJsonAuthMethodHeader,
-]);
+      _$webhooksUpdateRequestApplicationJsonAuthMethodNone,
+      _$webhooksUpdateRequestApplicationJsonAuthMethodHeader,
+    ]);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<WebhookInfo> _$webhookInfoSerializer = _$WebhookInfoSerializer();
@@ -77,7 +77,7 @@ Serializer<WebhooksDestroyResponseApplicationJson_Ocs> _$webhooksDestroyResponse
 Serializer<WebhooksDestroyResponseApplicationJson> _$webhooksDestroyResponseApplicationJsonSerializer =
     _$WebhooksDestroyResponseApplicationJsonSerializer();
 Serializer<WebhooksDeleteByAppIdResponseApplicationJson_Ocs>
-    _$webhooksDeleteByAppIdResponseApplicationJsonOcsSerializer =
+_$webhooksDeleteByAppIdResponseApplicationJsonOcsSerializer =
     _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer();
 Serializer<WebhooksDeleteByAppIdResponseApplicationJson> _$webhooksDeleteByAppIdResponseApplicationJsonSerializer =
     _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer();
@@ -89,8 +89,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -120,8 +123,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -159,8 +165,11 @@ class _$WebhookInfoSerializer implements StructuredSerializer<WebhookInfo> {
   final String wireName = 'WebhookInfo';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhookInfo object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhookInfo object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -184,8 +193,12 @@ class _$WebhookInfoSerializer implements StructuredSerializer<WebhookInfo> {
     if (value != null) {
       result
         ..add('eventFilter')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     value = object.userIdFilter;
     if (value != null) {
@@ -197,22 +210,33 @@ class _$WebhookInfoSerializer implements StructuredSerializer<WebhookInfo> {
     if (value != null) {
       result
         ..add('headers')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+          ),
+        );
     }
     value = object.authData;
     if (value != null) {
       result
         ..add('authData')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  WebhookInfo deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhookInfo deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhookInfoBuilder();
 
     final iterator = serialized.iterator;
@@ -237,22 +261,34 @@ class _$WebhookInfoSerializer implements StructuredSerializer<WebhookInfo> {
           result.event = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'eventFilter':
-          result.eventFilter.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.eventFilter.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
         case 'userIdFilter':
           result.userIdFilter = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'headers':
-          result.headers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.headers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'authMethod':
           result.authMethod = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'authData':
-          result.authData.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.authData.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
       }
     }
@@ -266,14 +302,17 @@ class _$WebhooksIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksIndexResponseApplicationJson_Ocs,
-    _$WebhooksIndexResponseApplicationJson_Ocs
+    _$WebhooksIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -285,8 +324,11 @@ class _$WebhooksIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -299,8 +341,13 @@ class _$WebhooksIndexResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(WebhookInfo)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(WebhookInfo)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -317,8 +364,11 @@ class _$WebhooksIndexResponseApplicationJsonSerializer
   final String wireName = 'WebhooksIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(WebhooksIndexResponseApplicationJson_Ocs)),
@@ -328,8 +378,11 @@ class _$WebhooksIndexResponseApplicationJsonSerializer
   }
 
   @override
-  WebhooksIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -340,8 +393,9 @@ class _$WebhooksIndexResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(WebhooksIndexResponseApplicationJson_Ocs))!
-                  as WebhooksIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(WebhooksIndexResponseApplicationJson_Ocs))!
+                as WebhooksIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -358,8 +412,11 @@ class _$WebhooksCreateRequestApplicationJsonSerializer
   final String wireName = 'WebhooksCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'httpMethod',
       serializers.serialize(object.httpMethod, specifiedType: const FullType(String)),
@@ -373,8 +430,12 @@ class _$WebhooksCreateRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('eventFilter')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     value = object.userIdFilter;
     if (value != null) {
@@ -386,29 +447,41 @@ class _$WebhooksCreateRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('headers')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+          ),
+        );
     }
     value = object.authMethod;
     if (value != null) {
       result
         ..add('authMethod')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(WebhooksCreateRequestApplicationJson_AuthMethod)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(WebhooksCreateRequestApplicationJson_AuthMethod)),
+        );
     }
     value = object.authData;
     if (value != null) {
       result
         ..add('authData')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  WebhooksCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -427,24 +500,39 @@ class _$WebhooksCreateRequestApplicationJsonSerializer
           result.event = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'eventFilter':
-          result.eventFilter.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.eventFilter.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
         case 'userIdFilter':
           result.userIdFilter = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'headers':
-          result.headers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.headers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'authMethod':
-          result.authMethod = serializers.deserialize(value,
-                  specifiedType: const FullType(WebhooksCreateRequestApplicationJson_AuthMethod))
-              as WebhooksCreateRequestApplicationJson_AuthMethod?;
+          result.authMethod =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(WebhooksCreateRequestApplicationJson_AuthMethod),
+                  )
+                  as WebhooksCreateRequestApplicationJson_AuthMethod?;
           break;
         case 'authData':
-          result.authData.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.authData.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
       }
     }
@@ -458,14 +546,17 @@ class _$WebhooksCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksCreateResponseApplicationJson_Ocs,
-    _$WebhooksCreateResponseApplicationJson_Ocs
+    _$WebhooksCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -477,8 +568,11 @@ class _$WebhooksCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -491,8 +585,9 @@ class _$WebhooksCreateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo,
+          );
           break;
       }
     }
@@ -509,8 +604,11 @@ class _$WebhooksCreateResponseApplicationJsonSerializer
   final String wireName = 'WebhooksCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(WebhooksCreateResponseApplicationJson_Ocs)),
@@ -520,8 +618,11 @@ class _$WebhooksCreateResponseApplicationJsonSerializer
   }
 
   @override
-  WebhooksCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -532,8 +633,9 @@ class _$WebhooksCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(WebhooksCreateResponseApplicationJson_Ocs))!
-                  as WebhooksCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(WebhooksCreateResponseApplicationJson_Ocs))!
+                as WebhooksCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -547,14 +649,17 @@ class _$WebhooksShowResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksShowResponseApplicationJson_Ocs,
-    _$WebhooksShowResponseApplicationJson_Ocs
+    _$WebhooksShowResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksShowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksShowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksShowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -566,8 +671,11 @@ class _$WebhooksShowResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksShowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -580,8 +688,9 @@ class _$WebhooksShowResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo,
+          );
           break;
       }
     }
@@ -598,8 +707,11 @@ class _$WebhooksShowResponseApplicationJsonSerializer
   final String wireName = 'WebhooksShowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksShowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksShowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(WebhooksShowResponseApplicationJson_Ocs)),
@@ -609,8 +721,11 @@ class _$WebhooksShowResponseApplicationJsonSerializer
   }
 
   @override
-  WebhooksShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksShowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -621,8 +736,9 @@ class _$WebhooksShowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(WebhooksShowResponseApplicationJson_Ocs))!
-                  as WebhooksShowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(WebhooksShowResponseApplicationJson_Ocs))!
+                as WebhooksShowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -639,8 +755,11 @@ class _$WebhooksUpdateRequestApplicationJsonSerializer
   final String wireName = 'WebhooksUpdateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksUpdateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksUpdateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'httpMethod',
       serializers.serialize(object.httpMethod, specifiedType: const FullType(String)),
@@ -654,8 +773,12 @@ class _$WebhooksUpdateRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('eventFilter')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     value = object.userIdFilter;
     if (value != null) {
@@ -667,29 +790,41 @@ class _$WebhooksUpdateRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('headers')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+          ),
+        );
     }
     value = object.authMethod;
     if (value != null) {
       result
         ..add('authMethod')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(WebhooksUpdateRequestApplicationJson_AuthMethod)));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(WebhooksUpdateRequestApplicationJson_AuthMethod)),
+        );
     }
     value = object.authData;
     if (value != null) {
       result
         ..add('authData')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  WebhooksUpdateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksUpdateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksUpdateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -708,24 +843,39 @@ class _$WebhooksUpdateRequestApplicationJsonSerializer
           result.event = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'eventFilter':
-          result.eventFilter.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.eventFilter.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
         case 'userIdFilter':
           result.userIdFilter = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'headers':
-          result.headers.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.headers.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'authMethod':
-          result.authMethod = serializers.deserialize(value,
-                  specifiedType: const FullType(WebhooksUpdateRequestApplicationJson_AuthMethod))
-              as WebhooksUpdateRequestApplicationJson_AuthMethod?;
+          result.authMethod =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(WebhooksUpdateRequestApplicationJson_AuthMethod),
+                  )
+                  as WebhooksUpdateRequestApplicationJson_AuthMethod?;
           break;
         case 'authData':
-          result.authData.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.authData.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
       }
     }
@@ -739,14 +889,17 @@ class _$WebhooksUpdateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksUpdateResponseApplicationJson_Ocs,
-    _$WebhooksUpdateResponseApplicationJson_Ocs
+    _$WebhooksUpdateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksUpdateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksUpdateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksUpdateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -758,8 +911,11 @@ class _$WebhooksUpdateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksUpdateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksUpdateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksUpdateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -772,8 +928,9 @@ class _$WebhooksUpdateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(WebhookInfo))! as WebhookInfo,
+          );
           break;
       }
     }
@@ -790,8 +947,11 @@ class _$WebhooksUpdateResponseApplicationJsonSerializer
   final String wireName = 'WebhooksUpdateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksUpdateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksUpdateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(WebhooksUpdateResponseApplicationJson_Ocs)),
@@ -801,8 +961,11 @@ class _$WebhooksUpdateResponseApplicationJsonSerializer
   }
 
   @override
-  WebhooksUpdateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksUpdateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksUpdateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -813,8 +976,9 @@ class _$WebhooksUpdateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(WebhooksUpdateResponseApplicationJson_Ocs))!
-                  as WebhooksUpdateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(WebhooksUpdateResponseApplicationJson_Ocs))!
+                as WebhooksUpdateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -828,14 +992,17 @@ class _$WebhooksDestroyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksDestroyResponseApplicationJson_Ocs,
-    _$WebhooksDestroyResponseApplicationJson_Ocs
+    _$WebhooksDestroyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksDestroyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksDestroyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksDestroyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -847,8 +1014,11 @@ class _$WebhooksDestroyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksDestroyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -878,8 +1048,11 @@ class _$WebhooksDestroyResponseApplicationJsonSerializer
   final String wireName = 'WebhooksDestroyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksDestroyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksDestroyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(WebhooksDestroyResponseApplicationJson_Ocs)),
@@ -889,8 +1062,11 @@ class _$WebhooksDestroyResponseApplicationJsonSerializer
   }
 
   @override
-  WebhooksDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksDestroyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -901,8 +1077,9 @@ class _$WebhooksDestroyResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(WebhooksDestroyResponseApplicationJson_Ocs))!
-                  as WebhooksDestroyResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(WebhooksDestroyResponseApplicationJson_Ocs))!
+                as WebhooksDestroyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -916,14 +1093,17 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
-    _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs
+    _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'WebhooksDeleteByAppIdResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksDeleteByAppIdResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksDeleteByAppIdResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -935,8 +1115,11 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_OcsSerializer
   }
 
   @override
-  WebhooksDeleteByAppIdResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksDeleteByAppIdResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -963,26 +1146,34 @@ class _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     WebhooksDeleteByAppIdResponseApplicationJson,
-    _$WebhooksDeleteByAppIdResponseApplicationJson
+    _$WebhooksDeleteByAppIdResponseApplicationJson,
   ];
   @override
   final String wireName = 'WebhooksDeleteByAppIdResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WebhooksDeleteByAppIdResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WebhooksDeleteByAppIdResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  WebhooksDeleteByAppIdResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WebhooksDeleteByAppIdResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WebhooksDeleteByAppIdResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -992,9 +1183,13 @@ class _$WebhooksDeleteByAppIdResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs))!
-              as WebhooksDeleteByAppIdResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs),
+                )!
+                as WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1037,7 +1232,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1134,7 +1329,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -1206,18 +1402,18 @@ class _$WebhookInfo extends WebhookInfo {
   factory _$WebhookInfo([void Function(WebhookInfoBuilder)? updates]) =>
       (WebhookInfoBuilder()..update(updates))._build();
 
-  _$WebhookInfo._(
-      {required this.id,
-      required this.userId,
-      required this.httpMethod,
-      required this.uri,
-      this.event,
-      this.eventFilter,
-      this.userIdFilter,
-      this.headers,
-      required this.authMethod,
-      this.authData})
-      : super._();
+  _$WebhookInfo._({
+    required this.id,
+    required this.userId,
+    required this.httpMethod,
+    required this.uri,
+    this.event,
+    this.eventFilter,
+    this.userIdFilter,
+    this.headers,
+    required this.authMethod,
+    this.authData,
+  }) : super._();
   @override
   WebhookInfo rebuild(void Function(WebhookInfoBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1356,7 +1552,8 @@ class WebhookInfoBuilder implements Builder<WebhookInfo, WebhookInfoBuilder>, $W
     WebhookInfo._validate(this);
     _$WebhookInfo _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WebhookInfo._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'WebhookInfo', 'id'),
             userId: BuiltValueNullFieldError.checkNotNull(userId, r'WebhookInfo', 'userId'),
@@ -1406,15 +1603,15 @@ class _$WebhooksIndexResponseApplicationJson_Ocs extends WebhooksIndexResponseAp
   @override
   final BuiltList<WebhookInfo> data;
 
-  factory _$WebhooksIndexResponseApplicationJson_Ocs(
-          [void Function(WebhooksIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksIndexResponseApplicationJson_Ocs([
+    void Function(WebhooksIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksIndexResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1489,11 +1686,7 @@ class WebhooksIndexResponseApplicationJson_OcsBuilder
     WebhooksIndexResponseApplicationJson_Ocs._validate(this);
     _$WebhooksIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$WebhooksIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1522,9 +1715,9 @@ class _$WebhooksIndexResponseApplicationJson extends WebhooksIndexResponseApplic
   @override
   final WebhooksIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$WebhooksIndexResponseApplicationJson(
-          [void Function(WebhooksIndexResponseApplicationJsonBuilder)? updates]) =>
-      (WebhooksIndexResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksIndexResponseApplicationJson([
+    void Function(WebhooksIndexResponseApplicationJsonBuilder)? updates,
+  ]) => (WebhooksIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -1596,10 +1789,7 @@ class WebhooksIndexResponseApplicationJsonBuilder
     WebhooksIndexResponseApplicationJson._validate(this);
     _$WebhooksIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1661,20 +1851,20 @@ class _$WebhooksCreateRequestApplicationJson extends WebhooksCreateRequestApplic
   @override
   final BuiltMap<String, JsonObject>? authData;
 
-  factory _$WebhooksCreateRequestApplicationJson(
-          [void Function(WebhooksCreateRequestApplicationJsonBuilder)? updates]) =>
-      (WebhooksCreateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksCreateRequestApplicationJson([
+    void Function(WebhooksCreateRequestApplicationJsonBuilder)? updates,
+  ]) => (WebhooksCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksCreateRequestApplicationJson._(
-      {required this.httpMethod,
-      required this.uri,
-      required this.event,
-      this.eventFilter,
-      this.userIdFilter,
-      this.headers,
-      this.authMethod,
-      this.authData})
-      : super._();
+  _$WebhooksCreateRequestApplicationJson._({
+    required this.httpMethod,
+    required this.uri,
+    required this.event,
+    this.eventFilter,
+    this.userIdFilter,
+    this.headers,
+    this.authMethod,
+    this.authData,
+  }) : super._();
   @override
   WebhooksCreateRequestApplicationJson rebuild(void Function(WebhooksCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1803,10 +1993,14 @@ class WebhooksCreateRequestApplicationJsonBuilder
     WebhooksCreateRequestApplicationJson._validate(this);
     _$WebhooksCreateRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WebhooksCreateRequestApplicationJson._(
             httpMethod: BuiltValueNullFieldError.checkNotNull(
-                httpMethod, r'WebhooksCreateRequestApplicationJson', 'httpMethod'),
+              httpMethod,
+              r'WebhooksCreateRequestApplicationJson',
+              'httpMethod',
+            ),
             uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksCreateRequestApplicationJson', 'uri'),
             event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksCreateRequestApplicationJson', 'event'),
             eventFilter: _eventFilter?.build(),
@@ -1852,15 +2046,15 @@ class _$WebhooksCreateResponseApplicationJson_Ocs extends WebhooksCreateResponse
   @override
   final WebhookInfo data;
 
-  factory _$WebhooksCreateResponseApplicationJson_Ocs(
-          [void Function(WebhooksCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksCreateResponseApplicationJson_Ocs([
+    void Function(WebhooksCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksCreateResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1935,11 +2129,7 @@ class WebhooksCreateResponseApplicationJson_OcsBuilder
     WebhooksCreateResponseApplicationJson_Ocs._validate(this);
     _$WebhooksCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$WebhooksCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1968,9 +2158,9 @@ class _$WebhooksCreateResponseApplicationJson extends WebhooksCreateResponseAppl
   @override
   final WebhooksCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$WebhooksCreateResponseApplicationJson(
-          [void Function(WebhooksCreateResponseApplicationJsonBuilder)? updates]) =>
-      (WebhooksCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksCreateResponseApplicationJson([
+    void Function(WebhooksCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (WebhooksCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -2042,10 +2232,7 @@ class WebhooksCreateResponseApplicationJsonBuilder
     WebhooksCreateResponseApplicationJson._validate(this);
     _$WebhooksCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2077,15 +2264,15 @@ class _$WebhooksShowResponseApplicationJson_Ocs extends WebhooksShowResponseAppl
   @override
   final WebhookInfo data;
 
-  factory _$WebhooksShowResponseApplicationJson_Ocs(
-          [void Function(WebhooksShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksShowResponseApplicationJson_Ocs([
+    void Function(WebhooksShowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksShowResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksShowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksShowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksShowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2160,11 +2347,7 @@ class WebhooksShowResponseApplicationJson_OcsBuilder
     WebhooksShowResponseApplicationJson_Ocs._validate(this);
     _$WebhooksShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksShowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$WebhooksShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2265,10 +2448,7 @@ class WebhooksShowResponseApplicationJsonBuilder
     WebhooksShowResponseApplicationJson._validate(this);
     _$WebhooksShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksShowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksShowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2330,20 +2510,20 @@ class _$WebhooksUpdateRequestApplicationJson extends WebhooksUpdateRequestApplic
   @override
   final BuiltMap<String, JsonObject>? authData;
 
-  factory _$WebhooksUpdateRequestApplicationJson(
-          [void Function(WebhooksUpdateRequestApplicationJsonBuilder)? updates]) =>
-      (WebhooksUpdateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksUpdateRequestApplicationJson([
+    void Function(WebhooksUpdateRequestApplicationJsonBuilder)? updates,
+  ]) => (WebhooksUpdateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$WebhooksUpdateRequestApplicationJson._(
-      {required this.httpMethod,
-      required this.uri,
-      required this.event,
-      this.eventFilter,
-      this.userIdFilter,
-      this.headers,
-      this.authMethod,
-      this.authData})
-      : super._();
+  _$WebhooksUpdateRequestApplicationJson._({
+    required this.httpMethod,
+    required this.uri,
+    required this.event,
+    this.eventFilter,
+    this.userIdFilter,
+    this.headers,
+    this.authMethod,
+    this.authData,
+  }) : super._();
   @override
   WebhooksUpdateRequestApplicationJson rebuild(void Function(WebhooksUpdateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -2472,10 +2652,14 @@ class WebhooksUpdateRequestApplicationJsonBuilder
     WebhooksUpdateRequestApplicationJson._validate(this);
     _$WebhooksUpdateRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WebhooksUpdateRequestApplicationJson._(
             httpMethod: BuiltValueNullFieldError.checkNotNull(
-                httpMethod, r'WebhooksUpdateRequestApplicationJson', 'httpMethod'),
+              httpMethod,
+              r'WebhooksUpdateRequestApplicationJson',
+              'httpMethod',
+            ),
             uri: BuiltValueNullFieldError.checkNotNull(uri, r'WebhooksUpdateRequestApplicationJson', 'uri'),
             event: BuiltValueNullFieldError.checkNotNull(event, r'WebhooksUpdateRequestApplicationJson', 'event'),
             eventFilter: _eventFilter?.build(),
@@ -2521,15 +2705,15 @@ class _$WebhooksUpdateResponseApplicationJson_Ocs extends WebhooksUpdateResponse
   @override
   final WebhookInfo data;
 
-  factory _$WebhooksUpdateResponseApplicationJson_Ocs(
-          [void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksUpdateResponseApplicationJson_Ocs([
+    void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksUpdateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksUpdateResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksUpdateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksUpdateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2604,11 +2788,7 @@ class WebhooksUpdateResponseApplicationJson_OcsBuilder
     WebhooksUpdateResponseApplicationJson_Ocs._validate(this);
     _$WebhooksUpdateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksUpdateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$WebhooksUpdateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2637,9 +2817,9 @@ class _$WebhooksUpdateResponseApplicationJson extends WebhooksUpdateResponseAppl
   @override
   final WebhooksUpdateResponseApplicationJson_Ocs ocs;
 
-  factory _$WebhooksUpdateResponseApplicationJson(
-          [void Function(WebhooksUpdateResponseApplicationJsonBuilder)? updates]) =>
-      (WebhooksUpdateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksUpdateResponseApplicationJson([
+    void Function(WebhooksUpdateResponseApplicationJsonBuilder)? updates,
+  ]) => (WebhooksUpdateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksUpdateResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -2711,10 +2891,7 @@ class WebhooksUpdateResponseApplicationJsonBuilder
     WebhooksUpdateResponseApplicationJson._validate(this);
     _$WebhooksUpdateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksUpdateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksUpdateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2746,15 +2923,15 @@ class _$WebhooksDestroyResponseApplicationJson_Ocs extends WebhooksDestroyRespon
   @override
   final bool data;
 
-  factory _$WebhooksDestroyResponseApplicationJson_Ocs(
-          [void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksDestroyResponseApplicationJson_Ocs([
+    void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksDestroyResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksDestroyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2829,7 +3006,8 @@ class WebhooksDestroyResponseApplicationJson_OcsBuilder
     WebhooksDestroyResponseApplicationJson_Ocs._validate(this);
     _$WebhooksDestroyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WebhooksDestroyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'WebhooksDestroyResponseApplicationJson_Ocs', 'data'),
@@ -2860,15 +3038,15 @@ class _$WebhooksDestroyResponseApplicationJson extends WebhooksDestroyResponseAp
   @override
   final WebhooksDestroyResponseApplicationJson_Ocs ocs;
 
-  factory _$WebhooksDestroyResponseApplicationJson(
-          [void Function(WebhooksDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (WebhooksDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksDestroyResponseApplicationJson([
+    void Function(WebhooksDestroyResponseApplicationJsonBuilder)? updates,
+  ]) => (WebhooksDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksDestroyResponseApplicationJson rebuild(
-          void Function(WebhooksDestroyResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksDestroyResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksDestroyResponseApplicationJsonBuilder toBuilder() =>
@@ -2935,10 +3113,7 @@ class WebhooksDestroyResponseApplicationJsonBuilder
     WebhooksDestroyResponseApplicationJson._validate(this);
     _$WebhooksDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksDestroyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksDestroyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2970,15 +3145,15 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs extends WebhooksDeleteB
   @override
   final int data;
 
-  factory _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs(
-          [void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder)? updates]) =>
-      (WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs([
+    void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   WebhooksDeleteByAppIdResponseApplicationJson_Ocs rebuild(
-          void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3010,8 +3185,10 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs extends WebhooksDeleteB
 
 class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
     implements
-        Builder<WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
-            WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder>,
+        Builder<
+          WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
+          WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
+        >,
         $WebhooksDeleteByAppIdResponseApplicationJson_OcsInterfaceBuilder {
   _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs? _$v;
 
@@ -3054,11 +3231,15 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
     WebhooksDeleteByAppIdResponseApplicationJson_Ocs._validate(this);
     _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WebhooksDeleteByAppIdResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -3067,7 +3248,10 @@ class WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'WebhooksDeleteByAppIdResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3087,15 +3271,15 @@ class _$WebhooksDeleteByAppIdResponseApplicationJson extends WebhooksDeleteByApp
   @override
   final WebhooksDeleteByAppIdResponseApplicationJson_Ocs ocs;
 
-  factory _$WebhooksDeleteByAppIdResponseApplicationJson(
-          [void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder)? updates]) =>
-      (WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$WebhooksDeleteByAppIdResponseApplicationJson([
+    void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder)? updates,
+  ]) => (WebhooksDeleteByAppIdResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$WebhooksDeleteByAppIdResponseApplicationJson._({required this.ocs}) : super._();
   @override
   WebhooksDeleteByAppIdResponseApplicationJson rebuild(
-          void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(WebhooksDeleteByAppIdResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   WebhooksDeleteByAppIdResponseApplicationJsonBuilder toBuilder() =>
@@ -3162,10 +3346,7 @@ class WebhooksDeleteByAppIdResponseApplicationJsonBuilder
     WebhooksDeleteByAppIdResponseApplicationJson._validate(this);
     _$WebhooksDeleteByAppIdResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$WebhooksDeleteByAppIdResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$WebhooksDeleteByAppIdResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {

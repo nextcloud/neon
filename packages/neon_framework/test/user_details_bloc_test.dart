@@ -7,53 +7,44 @@ import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 
 Account mockUserDetailsAccount() => mockServer({
-      RegExp(r'/ocs/v2\.php/cloud/user'): {
-        'get': (match, request) => Response(
-              json.encode(
-                {
-                  'ocs': {
-                    'meta': {'status': '', 'statuscode': 0},
-                    'data': {
-                      'additional_mail': <dynamic>[],
-                      'address': '',
-                      'backend': '',
-                      'backendCapabilities': {
-                        'setDisplayName': false,
-                        'setPassword': false,
-                      },
-                      'biography': '',
-                      'display-name': '',
-                      'displayname': '',
-                      'fediverse': '',
-                      'groups': <dynamic>[],
-                      'headline': '',
-                      'id': 'test',
-                      'language': '',
-                      'lastLogin': 0,
-                      'locale': '',
-                      'manager': '',
-                      'organisation': '',
-                      'phone': '',
-                      'profile_enabled': '',
-                      'quota': {
-                        'free': 0,
-                        'relative': 0,
-                        'total': 0,
-                        'used': 0,
-                      },
-                      'role': '',
-                      'subadmin': <dynamic>[],
-                      'twitter': '',
-                      'website': '',
-                    },
-                  },
-                },
-              ),
-              200,
-              headers: {'content-type': 'application/json'},
-            ),
-      },
-    });
+  RegExp(r'/ocs/v2\.php/cloud/user'): {
+    'get':
+        (match, request) => Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': {
+                'additional_mail': <dynamic>[],
+                'address': '',
+                'backend': '',
+                'backendCapabilities': {'setDisplayName': false, 'setPassword': false},
+                'biography': '',
+                'display-name': '',
+                'displayname': '',
+                'fediverse': '',
+                'groups': <dynamic>[],
+                'headline': '',
+                'id': 'test',
+                'language': '',
+                'lastLogin': 0,
+                'locale': '',
+                'manager': '',
+                'organisation': '',
+                'phone': '',
+                'profile_enabled': '',
+                'quota': {'free': 0, 'relative': 0, 'total': 0, 'used': 0},
+                'role': '',
+                'subadmin': <dynamic>[],
+                'twitter': '',
+                'website': '',
+              },
+            },
+          }),
+          200,
+          headers: {'content-type': 'application/json'},
+        ),
+  },
+});
 
 void main() {
   late Account account;
@@ -65,9 +56,7 @@ void main() {
 
   setUp(() {
     account = mockUserDetailsAccount();
-    bloc = UserDetailsBloc(
-      account: account,
-    );
+    bloc = UserDetailsBloc(account: account);
   });
 
   tearDown(() {

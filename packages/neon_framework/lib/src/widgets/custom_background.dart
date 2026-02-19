@@ -13,10 +13,7 @@ import 'package:neon_framework/src/widgets/options_collection_builder.dart';
 /// It might be a single color or a full image.
 class NeonCustomBackground extends StatelessWidget {
   /// Creates a new custom background.
-  const NeonCustomBackground({
-    required this.child,
-    super.key,
-  });
+  const NeonCustomBackground({required this.child, super.key});
 
   /// Widget displayed on top of the custom background.
   final Widget child;
@@ -36,17 +33,11 @@ class NeonCustomBackground extends StatelessWidget {
         final theme = Theme.of(context).extension<ServerTheme>()!.nextcloudTheme;
 
         if (theme == null) {
-          return ColoredBox(
-            color: Theme.of(context).colorScheme.surface,
-            child: child,
-          );
+          return ColoredBox(color: Theme.of(context).colorScheme.surface, child: child);
         }
 
         if (theme.backgroundPlain) {
-          return ColoredBox(
-            color: Color.lerp(HexColor(theme.background), Colors.black, 0.5)!,
-            child: child,
-          );
+          return ColoredBox(color: Color.lerp(HexColor(theme.background), Colors.black, 0.5)!, child: child);
         }
 
         return Stack(
@@ -58,11 +49,7 @@ class NeonCustomBackground extends StatelessWidget {
                 account: NeonProvider.of<Account>(context),
               ),
             ),
-            Positioned.fill(
-              child: ColoredBox(
-                color: Colors.black.withValues(alpha: 0.5),
-              ),
-            ),
+            Positioned.fill(child: ColoredBox(color: Colors.black.withValues(alpha: 0.5))),
             child!,
           ],
         );

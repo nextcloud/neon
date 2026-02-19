@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ConfigapiClient configapi = $ConfigapiClient(this);
 }
@@ -53,11 +53,11 @@ class $ConfigapiClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ConfigapiCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ConfigapiCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ConfigapiCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new (empty) configuration and return the resulting prefix.
   ///
@@ -131,11 +131,11 @@ class $ConfigapiClient {
   /// Builds a serializer to parse the response of [$$show_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ConfigapiShowResponseApplicationJson, void> $$show_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ConfigapiShowResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ConfigapiShowResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a configuration.
   ///
@@ -234,11 +234,11 @@ class $ConfigapiClient {
   /// Builds a serializer to parse the response of [$modify_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ConfigapiModifyResponseApplicationJson, void> $modify_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ConfigapiModifyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 400, 404},
-      );
+    bodyType: const FullType(ConfigapiModifyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 400, 404},
+  );
 
   /// Modify a configuration.
   ///
@@ -334,11 +334,11 @@ class $ConfigapiClient {
   /// Builds a serializer to parse the response of [$delete_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ConfigapiDeleteResponseApplicationJson, void> $delete_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ConfigapiDeleteResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404},
-      );
+    bodyType: const FullType(ConfigapiDeleteResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 404},
+  );
 
   /// Delete a LDAP configuration.
   ///
@@ -719,16 +719,14 @@ class _$ConfigapiShowShowPasswordSerializer implements PrimitiveSerializer<Confi
     Serializers serializers,
     ConfigapiShowShowPassword object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ConfigapiShowShowPassword deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1179,65 +1177,66 @@ abstract class ConfigapiDeleteResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(ConfigapiCreateResponseApplicationJson),
-        ConfigapiCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ConfigapiCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiCreateResponseApplicationJson_Ocs),
-        ConfigapiCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ConfigapiCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data),
-        ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ConfigapiCreateResponseApplicationJson_Ocs_Data.serializer)
-      ..add(ConfigapiShowShowPassword.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiShowResponseApplicationJson),
-        ConfigapiShowResponseApplicationJsonBuilder.new,
-      )
-      ..add(ConfigapiShowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiShowResponseApplicationJson_Ocs),
-        ConfigapiShowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ConfigapiShowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ConfigapiModifyRequestApplicationJson),
-        ConfigapiModifyRequestApplicationJsonBuilder.new,
-      )
-      ..add(ConfigapiModifyRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiModifyResponseApplicationJson),
-        ConfigapiModifyResponseApplicationJsonBuilder.new,
-      )
-      ..add(ConfigapiModifyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiModifyResponseApplicationJson_Ocs),
-        ConfigapiModifyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ConfigapiModifyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiDeleteResponseApplicationJson),
-        ConfigapiDeleteResponseApplicationJsonBuilder.new,
-      )
-      ..add(ConfigapiDeleteResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConfigapiDeleteResponseApplicationJson_Ocs),
-        ConfigapiDeleteResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ConfigapiDeleteResponseApplicationJson_Ocs.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(ConfigapiCreateResponseApplicationJson),
+            ConfigapiCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ConfigapiCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiCreateResponseApplicationJson_Ocs),
+            ConfigapiCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ConfigapiCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data),
+            ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ConfigapiCreateResponseApplicationJson_Ocs_Data.serializer)
+          ..add(ConfigapiShowShowPassword.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiShowResponseApplicationJson),
+            ConfigapiShowResponseApplicationJsonBuilder.new,
+          )
+          ..add(ConfigapiShowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiShowResponseApplicationJson_Ocs),
+            ConfigapiShowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ConfigapiShowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ConfigapiModifyRequestApplicationJson),
+            ConfigapiModifyRequestApplicationJsonBuilder.new,
+          )
+          ..add(ConfigapiModifyRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiModifyResponseApplicationJson),
+            ConfigapiModifyResponseApplicationJsonBuilder.new,
+          )
+          ..add(ConfigapiModifyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiModifyResponseApplicationJson_Ocs),
+            ConfigapiModifyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ConfigapiModifyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiDeleteResponseApplicationJson),
+            ConfigapiDeleteResponseApplicationJsonBuilder.new,
+          )
+          ..add(ConfigapiDeleteResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConfigapiDeleteResponseApplicationJson_Ocs),
+            ConfigapiDeleteResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ConfigapiDeleteResponseApplicationJson_Ocs.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1245,10 +1244,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

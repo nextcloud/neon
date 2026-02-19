@@ -31,13 +31,7 @@ void main() {
     when(() => action.label).thenReturn('label');
     when(() => action.primary).thenReturn(true);
 
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: NotificationsAction(
-          action: action,
-        ),
-      ),
-    );
+    await tester.pumpWidgetWithAccessibility(TestApp(child: NotificationsAction(action: action)));
 
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/action_primary.png'));
   });
@@ -47,13 +41,7 @@ void main() {
     when(() => action.label).thenReturn('label');
     when(() => action.primary).thenReturn(false);
 
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: NotificationsAction(
-          action: action,
-        ),
-      ),
-    );
+    await tester.pumpWidgetWithAccessibility(TestApp(child: NotificationsAction(action: action)));
 
     await expectLater(find.byType(TestApp), matchesGoldenFile('goldens/action_secondary.png'));
   });
@@ -65,14 +53,7 @@ void main() {
     when(() => action.link).thenReturn('/link');
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: NotificationsAction(
-          action: action,
-        ),
-      ),
+      TestApp(providers: [Provider<Account>.value(value: account)], child: NotificationsAction(action: action)),
     );
 
     await tester.tap(find.byType(NotificationsAction));

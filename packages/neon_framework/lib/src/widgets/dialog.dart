@@ -112,14 +112,7 @@ class NeonDialog extends StatelessWidget {
   /// Creates a Neon dialog.
   ///
   /// Typically used in conjunction with [showDialog].
-  const NeonDialog({
-    this.icon,
-    this.title,
-    this.content,
-    this.actions,
-    this.automaticallyShowCancel = true,
-    super.key,
-  });
+  const NeonDialog({this.icon, this.title, this.content, this.actions, this.automaticallyShowCancel = true, super.key});
 
   /// {@template NeonDialog.icon}
   /// An optional icon to display at the top of the dialog.
@@ -179,13 +172,11 @@ class NeonDialog extends StatelessWidget {
 
     var content = this.content;
     if (content != null) {
-      content = ConstrainedBox(
-        constraints: dialogTheme.constraints,
-        child: content,
-      );
+      content = ConstrainedBox(constraints: dialogTheme.constraints, child: content);
     }
 
-    final needsCancelAction = automaticallyShowCancel &&
+    final needsCancelAction =
+        automaticallyShowCancel &&
         (actions == null || actions!.length <= 1) &&
         (theme.platform == TargetPlatform.iOS || theme.platform == TargetPlatform.macOS);
 
@@ -202,9 +193,7 @@ class NeonDialog extends StatelessWidget {
             child: Text(
               NeonLocalizations.of(context).actionCancel,
               textAlign: TextAlign.end,
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
           ),
         ...?actions,
@@ -266,38 +255,26 @@ class NeonConfirmationDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final confirm = confirmAction ??
+    final confirm =
+        confirmAction ??
         NeonDialogAction(
           isDestructiveAction: isDestructive,
           onPressed: () {
             Navigator.of(context).pop(true);
           },
-          child: Text(
-            NeonLocalizations.of(context).actionContinue,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).actionContinue, textAlign: TextAlign.end),
         );
 
-    final decline = declineAction ??
+    final decline =
+        declineAction ??
         NeonDialogAction(
           onPressed: () {
             Navigator.of(context).pop(false);
           },
-          child: Text(
-            NeonLocalizations.of(context).actionCancel,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).actionCancel, textAlign: TextAlign.end),
         );
 
-    return NeonDialog(
-      icon: icon,
-      title: Text(title),
-      content: content,
-      actions: [
-        decline,
-        confirm,
-      ],
-    );
+    return NeonDialog(icon: icon, title: Text(title), content: content, actions: [decline, confirm]);
   }
 }
 
@@ -309,11 +286,7 @@ class NeonConfirmationDialog extends StatelessWidget {
 /// If the new value is equal to the provided one `null` will be popped.
 class NeonRenameDialog extends StatefulWidget {
   /// Creates a new Neon rename dialog.
-  const NeonRenameDialog({
-    required this.title,
-    required this.value,
-    super.key,
-  });
+  const NeonRenameDialog({required this.title, required this.value, super.key});
 
   /// The title of the dialog.
   final String title;
@@ -372,14 +345,7 @@ class _NeonRenameDialogState extends State<NeonRenameDialog> {
       title: Text(widget.title),
       content: Form(key: formKey, child: content),
       actions: [
-        NeonDialogAction(
-          isDefaultAction: true,
-          onPressed: submit,
-          child: Text(
-            widget.title,
-            textAlign: TextAlign.end,
-          ),
-        ),
+        NeonDialogAction(isDefaultAction: true, onPressed: submit, child: Text(widget.title, textAlign: TextAlign.end)),
       ],
     );
   }
@@ -390,11 +356,7 @@ class _NeonRenameDialogState extends State<NeonRenameDialog> {
 /// Use `showErrorDialog` to display this dialog.
 class NeonErrorDialog extends StatelessWidget {
   /// Creates a new error dialog.
-  const NeonErrorDialog({
-    required this.content,
-    this.title,
-    super.key,
-  });
+  const NeonErrorDialog({required this.content, this.title, super.key});
 
   /// The (optional) title for the dialog.
   ///
@@ -413,10 +375,7 @@ class NeonErrorDialog extends StatelessWidget {
       onPressed: () {
         Navigator.of(context).pop();
       },
-      child: Text(
-        NeonLocalizations.of(context).actionClose,
-        textAlign: TextAlign.end,
-      ),
+      child: Text(NeonLocalizations.of(context).actionClose, textAlign: TextAlign.end),
     );
 
     return NeonDialog(
@@ -424,9 +383,7 @@ class NeonErrorDialog extends StatelessWidget {
       icon: Icon(AdaptiveIcons.error),
       title: Text(title),
       content: Text(content),
-      actions: [
-        closeAction,
-      ],
+      actions: [closeAction],
     );
   }
 }
@@ -462,24 +419,26 @@ class NeonAccountSelectionDialog extends StatelessWidget {
     final accounts = accountsBloc.accounts.value;
     final activeAccount = accountsBloc.activeAccount.value!;
 
-    final sortedAccounts = List.of(accounts)
-      ..removeWhere((account) => account.id == activeAccount.id)
-      ..insert(0, activeAccount);
+    final sortedAccounts =
+        List.of(accounts)
+          ..removeWhere((account) => account.id == activeAccount.id)
+          ..insert(0, activeAccount);
 
-    final tiles = sortedAccounts
-        .map<Widget>(
-          (account) => NeonAccountTile(
-            account: account,
-            userDetailsBloc: accountsBloc.getUserDetailsBlocFor(account),
-            userStatusBloc: accountsBloc.getUserStatusBlocFor(account),
-            trailing:
-                highlightActiveAccount && account.id == activeAccount.id ? Icon(AdaptiveIcons.check_circle) : null,
-            onTap: () {
-              Navigator.of(context).pop(account);
-            },
-          ),
-        )
-        .toList();
+    final tiles =
+        sortedAccounts
+            .map<Widget>(
+              (account) => NeonAccountTile(
+                account: account,
+                userDetailsBloc: accountsBloc.getUserDetailsBlocFor(account),
+                userStatusBloc: accountsBloc.getUserStatusBlocFor(account),
+                trailing:
+                    highlightActiveAccount && account.id == activeAccount.id ? Icon(AdaptiveIcons.check_circle) : null,
+                onTap: () {
+                  Navigator.of(context).pop(account);
+                },
+              ),
+            )
+            .toList();
     if (highlightActiveAccount && accounts.length > 1) {
       tiles.insert(1, const Divider());
     }
@@ -488,10 +447,7 @@ class NeonAccountSelectionDialog extends StatelessWidget {
         1,
         TextButton.icon(
           onPressed: () async {
-            await showDialog<void>(
-              context: context,
-              builder: (context) => const NeonUserStatusDialog(),
-            );
+            await showDialog<void>(context: context, builder: (context) => const NeonUserStatusDialog());
             if (context.mounted) {
               Navigator.of(context).pop();
             }
@@ -503,22 +459,12 @@ class NeonAccountSelectionDialog extends StatelessWidget {
     }
 
     final body = SingleChildScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ...tiles,
-          ...?children,
-        ],
-      ),
+      child: Column(mainAxisSize: MainAxisSize.min, children: [...tiles, ...?children]),
     );
 
     return Dialog(
       child: IntrinsicHeight(
-        child: Container(
-          padding: dialogTheme.padding,
-          constraints: dialogTheme.constraints,
-          child: body,
-        ),
+        child: Container(padding: dialogTheme.padding, constraints: dialogTheme.constraints, child: body),
       ),
     );
   }
@@ -535,7 +481,6 @@ enum AccountDeletion {
 }
 
 @internal
-
 /// Displays a confirmation dialog for deleting the [account].
 ///
 /// If the `drop_account` app is enabled the user can also choose to delete the account on the server
@@ -543,11 +488,7 @@ enum AccountDeletion {
 ///
 /// Will pop a value of type [AccountDeletion] or null if the user canceled the dialog.
 class NeonAccountDeletionDialog extends StatefulWidget {
-  const NeonAccountDeletionDialog({
-    required this.account,
-    required this.capabilitiesBloc,
-    super.key,
-  });
+  const NeonAccountDeletionDialog({required this.account, required this.capabilitiesBloc, super.key});
 
   final Account account;
 
@@ -561,7 +502,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
   core.DropAccountCapabilities_DropAccount? dropAccountCapabilities;
   AccountDeletion value = AccountDeletion.local;
   late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
-      capabilitiesSubscription;
+  capabilitiesSubscription;
 
   void update(AccountDeletion value) {
     setState(() {
@@ -601,19 +542,13 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
       onPressed: () {
         Navigator.of(context).pop(value);
       },
-      child: Text(
-        localizations.actionContinue,
-        textAlign: TextAlign.end,
-      ),
+      child: Text(localizations.actionContinue, textAlign: TextAlign.end),
     );
     final declineAction = NeonDialogAction(
       onPressed: () {
         Navigator.of(context).pop();
       },
-      child: Text(
-        localizations.actionCancel,
-        textAlign: TextAlign.end,
-      ),
+      child: Text(localizations.actionCancel, textAlign: TextAlign.end),
     );
 
     final capabilities = dropAccountCapabilities;
@@ -634,10 +569,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
     } else if (capabilities.delay.enabled) {
       subtitle = Text(
         localizations.accountOptionsRemoveRemoteDelay(
-          Duration(hours: capabilities.delay.hours).formatRelative(
-            localizations,
-            includeSign: false,
-          ),
+          Duration(hours: capabilities.delay.hours).formatRelative(localizations, includeSign: false),
         ),
       );
     }
@@ -664,10 +596,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
           ],
         ),
       ),
-      actions: [
-        declineAction,
-        confirmAction,
-      ],
+      actions: [declineAction, confirmAction],
     );
   }
 }
@@ -676,9 +605,7 @@ class _NeonAccountDeletionDialogState extends State<NeonAccountDeletionDialog> {
 @internal
 class NeonUnifiedPushDialog extends StatelessWidget {
   /// Creates a new UnifiedPush dialog.
-  const NeonUnifiedPushDialog({
-    super.key,
-  });
+  const NeonUnifiedPushDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -690,10 +617,7 @@ class NeonUnifiedPushDialog extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text(
-            NeonLocalizations.of(context).actionCancel,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).actionCancel, textAlign: TextAlign.end),
         ),
         NeonDialogAction(
           isDefaultAction: true,
@@ -701,10 +625,7 @@ class NeonUnifiedPushDialog extends StatelessWidget {
             Navigator.pop(context);
             await launchUrl(NeonProvider.of<Account>(context), 'https://f-droid.org/packages/$unifiedPushNextPushID');
           },
-          child: Text(
-            NeonLocalizations.of(context).nextPushSupportedInstall,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).nextPushSupportedInstall, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -716,9 +637,7 @@ class NeonUnifiedPushDialog extends StatelessWidget {
 /// When the user selects an emoji the dialog will pop and return the emoji as a `String`.
 class NeonEmojiPickerDialog extends StatelessWidget {
   /// Creates a new emoji picker dialog.
-  const NeonEmojiPickerDialog({
-    super.key,
-  });
+  const NeonEmojiPickerDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -752,14 +671,7 @@ class NeonEmojiPickerDialog extends StatelessWidget {
                 for (final group in groups)
                   Tooltip(
                     message: group.name,
-                    child: Tab(
-                      icon: Text(
-                        group.icon,
-                        style: const TextStyle(
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
+                    child: Tab(icon: Text(group.icon, style: const TextStyle(fontSize: 20))),
                   ),
               ],
             ),
@@ -775,14 +687,7 @@ class NeonEmojiPickerDialog extends StatelessWidget {
                             child: IconButton(
                               padding: EdgeInsets.zero,
                               constraints: const BoxConstraints(),
-                              icon: Center(
-                                child: Text(
-                                  emoji.base,
-                                  style: const TextStyle(
-                                    fontSize: 25,
-                                  ),
-                                ),
-                              ),
+                              icon: Center(child: Text(emoji.base, style: const TextStyle(fontSize: 25))),
                               onPressed: () => Navigator.of(context).pop(emoji.base),
                             ),
                           ),
@@ -801,10 +706,7 @@ class NeonEmojiPickerDialog extends StatelessWidget {
 /// Shows a dialog to set the user status.
 class NeonUserStatusDialog extends StatefulWidget {
   /// Creates a new user status dialog.
-  const NeonUserStatusDialog({
-    @visibleForTesting this.now,
-    super.key,
-  });
+  const NeonUserStatusDialog({@visibleForTesting this.now, super.key});
 
   /// The current time, only used for testing.
   final tz.TZDateTime? now;
@@ -819,53 +721,50 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
   late final StreamSubscription<Result<user_status.$PublicInterface?>> statusSubscription;
 
   late final onlineStatuses = {
-    user_status.$Type.online: (
-      [user_status.$Type.online],
-      NeonLocalizations.of(context).userStatusOnline,
-      null,
-    ),
+    user_status.$Type.online: ([user_status.$Type.online], NeonLocalizations.of(context).userStatusOnline, null),
     user_status.$Type.dnd: (
       [user_status.$Type.dnd],
       NeonLocalizations.of(context).userStatusDoNotDisturb,
-      NeonLocalizations.of(context).userStatusDoNotDisturbDescription
+      NeonLocalizations.of(context).userStatusDoNotDisturbDescription,
     ),
-    user_status.$Type.away: (
-      [user_status.$Type.away],
-      NeonLocalizations.of(context).userStatusAway,
-      null,
-    ),
+    user_status.$Type.away: ([user_status.$Type.away], NeonLocalizations.of(context).userStatusAway, null),
     user_status.$Type.invisible: (
       [user_status.$Type.invisible, user_status.$Type.offline],
       NeonLocalizations.of(context).userStatusInvisible,
-      NeonLocalizations.of(context).userStatusInvisibleDescription
+      NeonLocalizations.of(context).userStatusInvisibleDescription,
     ),
   };
 
   final predefinedClearAts = [
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.period
-        ..time = ($int: 1800, clearAtTimeType: null),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.period
+            ..time = ($int: 1800, clearAtTimeType: null),
     ),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.period
-        ..time = ($int: 3600, clearAtTimeType: null),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.period
+            ..time = ($int: 3600, clearAtTimeType: null),
     ),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.period
-        ..time = ($int: 14400, clearAtTimeType: null),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.period
+            ..time = ($int: 14400, clearAtTimeType: null),
     ),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.endOf
+            ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
     ),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.endOf
+            ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
     ),
   ];
 
@@ -905,91 +804,67 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     final body = SingleChildScrollView(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.predefinedStatuses,
-        builder: (context, predefinedStatusesResult) => ResultBuilder.behaviorSubject(
-          subject: bloc.status,
-          builder: (context, statusResult) => Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                NeonLocalizations.of(context).userStatusOnlineStatus,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              NeonError(
-                statusResult.error,
-                onRetry: bloc.refresh,
-              ),
-              NeonLinearProgressIndicator(
-                visible: statusResult.isLoading,
-              ),
-              buildOnlineStatuses(
-                status: statusResult.data,
-              ),
-              const Divider(),
-              Text(
-                NeonLocalizations.of(context).userStatusStatusMessage,
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              NeonError(
-                predefinedStatusesResult.error,
-                onRetry: bloc.refresh,
-              ),
-              NeonLinearProgressIndicator(
-                visible: predefinedStatusesResult.isLoading,
-              ),
-              if (predefinedStatusesResult.hasData)
-                buildPredefinedStatuses(
-                  predefinedStatuses: predefinedStatusesResult.requireData,
-                  status: statusResult.data,
-                ),
-              const SizedBox(
-                height: 10,
-              ),
-              TextField(
-                controller: messageController,
-                decoration: InputDecoration(
-                  hintText: NeonLocalizations.of(context).userStatusStatusMessage,
-                  icon: SizedBox.square(
-                    dimension: 50,
-                    child: IconButton(
-                      onPressed: () async {
-                        final emoji = await showDialog<String>(
-                          context: context,
-                          builder: (context) => const NeonEmojiPickerDialog(),
-                        );
-                        if (emoji != null) {
-                          final clearAt = bloc.status.valueOrNull?.data?.clearAt;
-                          bloc.setCustomMessage(
-                            message: bloc.status.valueOrNull?.data?.message,
-                            icon: emoji,
-                            clearAt: clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, clearAt) : null,
-                          );
-                        }
-                      },
-                      icon: Text(
-                        statusResult.data?.icon ?? '😀',
-                        style: const TextStyle(
-                          fontSize: 25,
+        builder:
+            (context, predefinedStatusesResult) => ResultBuilder.behaviorSubject(
+              subject: bloc.status,
+              builder:
+                  (context, statusResult) => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        NeonLocalizations.of(context).userStatusOnlineStatus,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                      const SizedBox(height: 10),
+                      NeonError(statusResult.error, onRetry: bloc.refresh),
+                      NeonLinearProgressIndicator(visible: statusResult.isLoading),
+                      buildOnlineStatuses(status: statusResult.data),
+                      const Divider(),
+                      Text(
+                        NeonLocalizations.of(context).userStatusStatusMessage,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                      ),
+                      const SizedBox(height: 10),
+                      NeonError(predefinedStatusesResult.error, onRetry: bloc.refresh),
+                      NeonLinearProgressIndicator(visible: predefinedStatusesResult.isLoading),
+                      if (predefinedStatusesResult.hasData)
+                        buildPredefinedStatuses(
+                          predefinedStatuses: predefinedStatusesResult.requireData,
+                          status: statusResult.data,
+                        ),
+                      const SizedBox(height: 10),
+                      TextField(
+                        controller: messageController,
+                        decoration: InputDecoration(
+                          hintText: NeonLocalizations.of(context).userStatusStatusMessage,
+                          icon: SizedBox.square(
+                            dimension: 50,
+                            child: IconButton(
+                              onPressed: () async {
+                                final emoji = await showDialog<String>(
+                                  context: context,
+                                  builder: (context) => const NeonEmojiPickerDialog(),
+                                );
+                                if (emoji != null) {
+                                  final clearAt = bloc.status.valueOrNull?.data?.clearAt;
+                                  bloc.setCustomMessage(
+                                    message: bloc.status.valueOrNull?.data?.message,
+                                    icon: emoji,
+                                    clearAt:
+                                        clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, clearAt) : null,
+                                  );
+                                }
+                              },
+                              icon: Text(statusResult.data?.icon ?? '😀', style: const TextStyle(fontSize: 25)),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      const SizedBox(height: 10),
+                      buildClearAt(status: statusResult.data),
+                    ],
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              buildClearAt(
-                status: statusResult.data,
-              ),
-            ],
-          ),
-        ),
+            ),
       ),
     );
 
@@ -1015,36 +890,23 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     );
   }
 
-  Widget buildOnlineStatuses({
-    required user_status.$PublicInterface? status,
-  }) =>
-      buildGrid(
-        children: onlineStatuses.entries.map(
-          (onlineStatus) {
-            final (types, title, subtitle) = onlineStatus.value;
-            return buildCard(
-              selected: types.contains(status?.status),
-              child: ListTile(
-                leading: NeonUserStatusIcon(
-                  type: onlineStatus.key,
-                  size: 24,
-                ),
-                title: Text(
-                  title,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: Text(
-                  subtitle ?? '',
-                  overflow: TextOverflow.ellipsis,
-                ),
-                onTap: () {
-                  bloc.setStatusType(onlineStatus.key.value);
-                },
-              ),
-            );
-          },
-        ).toList(),
-      );
+  Widget buildOnlineStatuses({required user_status.$PublicInterface? status}) => buildGrid(
+    children:
+        onlineStatuses.entries.map((onlineStatus) {
+          final (types, title, subtitle) = onlineStatus.value;
+          return buildCard(
+            selected: types.contains(status?.status),
+            child: ListTile(
+              leading: NeonUserStatusIcon(type: onlineStatus.key, size: 24),
+              title: Text(title, overflow: TextOverflow.ellipsis),
+              subtitle: Text(subtitle ?? '', overflow: TextOverflow.ellipsis),
+              onTap: () {
+                bloc.setStatusType(onlineStatus.key.value);
+              },
+            ),
+          );
+        }).toList(),
+  );
 
   Widget buildPredefinedStatuses({
     required BuiltList<user_status.Predefined> predefinedStatuses,
@@ -1055,59 +917,50 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
     final selectedPredefinedStatus = status is user_status.Private ? status.messageId : null;
 
     return buildGrid(
-      children: predefinedStatuses.map(
-        (status) {
-          final clearAt = status.clearAt;
+      children:
+          predefinedStatuses.map((status) {
+            final clearAt = status.clearAt;
 
-          return buildCard(
-            selected: selectedPredefinedStatus == status.id,
-            child: ListTile(
-              leading: Text(
-                status.icon,
-                style: const TextStyle(fontSize: 18),
+            return buildCard(
+              selected: selectedPredefinedStatus == status.id,
+              child: ListTile(
+                leading: Text(status.icon, style: const TextStyle(fontSize: 18)),
+                title: Text(status.message),
+                subtitle: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+                onTap: () {
+                  bloc.setPredefinedMessage(id: status.id, clearAt: clearAt?.toDateTime(widget.now));
+                },
               ),
-              title: Text(status.message),
-              subtitle: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
-              onTap: () {
-                bloc.setPredefinedMessage(
-                  id: status.id,
-                  clearAt: clearAt?.toDateTime(widget.now),
-                );
-              },
-            ),
-          );
-        },
-      ).toList(),
+            );
+          }).toList(),
     );
   }
 
-  Widget buildClearAt({
-    required user_status.$PublicInterface? status,
-  }) {
+  Widget buildClearAt({required user_status.$PublicInterface? status}) {
     final localizations = NeonLocalizations.of(context);
 
-    final selected = status?.clearAt != null
-        ? user_status.ClearAt(
-            (b) => b
-              ..type = user_status.ClearAt_Type.period
-              ..time = (
-                $int: DateTimeUtils.fromSecondsSinceEpoch(
-                  tz.UTC,
-                  status!.clearAt!,
-                ).difference(DateTime.timestamp()).inSeconds,
-                clearAtTimeType: null
-              ),
-          )
-        : null;
+    final selected =
+        status?.clearAt != null
+            ? user_status.ClearAt(
+              (b) =>
+                  b
+                    ..type = user_status.ClearAt_Type.period
+                    ..time = (
+                      $int:
+                          DateTimeUtils.fromSecondsSinceEpoch(
+                            tz.UTC,
+                            status!.clearAt!,
+                          ).difference(DateTime.timestamp()).inSeconds,
+                      clearAtTimeType: null,
+                    ),
+            )
+            : null;
 
     return InputDecorator(
       decoration: InputDecoration(
         icon: Text(NeonLocalizations.of(context).userStatusClearAfter),
         isDense: true,
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 8,
-          horizontal: 12,
-        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<user_status.ClearAt?>(
@@ -1119,57 +972,34 @@ class _NeonUserStatusDialogState extends State<NeonUserStatusDialog> {
             );
           },
           value: selected,
-          items: [
-            if (selected != null) selected,
-            null,
-            ...predefinedClearAts,
-          ]
-              .map(
-                (clearAt) => DropdownMenuItem(
-                  value: clearAt,
-                  enabled: selected == null || clearAt != selected,
-                  child: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
-                ),
-              )
-              .toList(),
+          items:
+              [if (selected != null) selected, null, ...predefinedClearAts]
+                  .map(
+                    (clearAt) => DropdownMenuItem(
+                      value: clearAt,
+                      enabled: selected == null || clearAt != selected,
+                      child: Text(clearAt?.formatRelative(localizations) ?? localizations.userStatusClearAtDoNotClear),
+                    ),
+                  )
+                  .toList(),
         ),
       ),
     );
   }
 
-  Widget buildCard({
-    required bool selected,
-    required Widget child,
-  }) =>
-      Card(
-        clipBehavior: Clip.hardEdge,
-        shape: selected ? selectedBorder : null,
-        child: child,
-      );
+  Widget buildCard({required bool selected, required Widget child}) =>
+      Card(clipBehavior: Clip.hardEdge, shape: selected ? selectedBorder : null, child: child);
 
   ShapeBorder get selectedBorder => RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.primary,
-          width: 1.5,
-        ),
-      );
+    borderRadius: BorderRadius.circular(12),
+    side: BorderSide(color: Theme.of(context).colorScheme.primary, width: 1.5),
+  );
 
-  Widget buildGrid({
-    required List<Widget> children,
-  }) {
+  Widget buildGrid({required List<Widget> children}) {
     final constraints = NeonDialogTheme.of(context).constraints;
     return Flexible(
       child: Wrap(
-        children: children
-            .map(
-              (child) => SizedBox(
-                height: 72,
-                width: constraints.maxWidth / 2,
-                child: child,
-              ),
-            )
-            .toList(),
+        children: children.map((child) => SizedBox(height: 72, width: constraints.maxWidth / 2, child: child)).toList(),
       ),
     );
   }

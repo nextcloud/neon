@@ -66,10 +66,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          Provider<Account>.value(value: account),
-          NeonProvider<TalkBloc>.value(value: bloc),
-        ],
+        providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
         child: const TalkMainPage(),
       ),
     );
@@ -92,10 +89,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          Provider<Account>.value(value: account),
-          NeonProvider<TalkBloc>.value(value: bloc),
-        ],
+        providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
         navigatorObserver: navigatorObserver,
         child: const TalkMainPage(),
       ),
@@ -115,10 +109,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          Provider<Account>.value(value: account),
-          NeonProvider<TalkBloc>.value(value: bloc),
-        ],
+        providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
         child: const TalkMainPage(),
       ),
     );
@@ -143,10 +134,7 @@ void main() {
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
-          providers: [
-            Provider<Account>.value(value: account),
-            NeonProvider<TalkBloc>.value(value: bloc),
-          ],
+          providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
           child: const TalkMainPage(),
         ),
       );
@@ -179,10 +167,7 @@ void main() {
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
-            providers: [
-              Provider<Account>.value(value: account),
-              NeonProvider<TalkBloc>.value(value: bloc),
-            ],
+            providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
             child: const TalkMainPage(),
           ),
         );
@@ -215,10 +200,7 @@ void main() {
           TestApp(
             localizationsDelegates: TalkLocalizations.localizationsDelegates,
             supportedLocales: TalkLocalizations.supportedLocales,
-            providers: [
-              Provider<Account>.value(value: account),
-              NeonProvider<TalkBloc>.value(value: bloc),
-            ],
+            providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
             child: const TalkMainPage(),
           ),
         );
@@ -243,10 +225,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          Provider<Account>.value(value: account),
-          NeonProvider<TalkBloc>.value(value: bloc),
-        ],
+        providers: [Provider<Account>.value(value: account), NeonProvider<TalkBloc>.value(value: bloc)],
         child: const TalkMainPage(),
       ),
     );

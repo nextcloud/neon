@@ -26,11 +26,7 @@ import 'package:timezone/timezone.dart' as tz;
 final _log = Logger('NewsArticlesView');
 
 class NewsArticlesView extends StatefulWidget {
-  const NewsArticlesView({
-    required this.bloc,
-    required this.newsBloc,
-    super.key,
-  });
+  const NewsArticlesView({required this.bloc, required this.newsBloc, super.key});
 
   final NewsArticlesBloc bloc;
   final NewsBloc newsBloc;
@@ -67,223 +63,184 @@ class _NewsArticlesViewState extends State<NewsArticlesView> {
   Widget build(BuildContext context) {
     return ResultBuilder.behaviorSubject(
       subject: widget.newsBloc.feeds,
-      builder: (context, feeds) => ResultBuilder.behaviorSubject(
-        subject: widget.bloc.articles,
-        builder: (context, articles) => SortBoxBuilder(
-          sortBox: articlesSortBox,
-          sortProperty: options.articlesSortPropertyOption,
-          sortBoxOrder: options.articlesSortBoxOrderOption,
-          input: articles.data?.toList(),
-          builder: (context, sorted) => NeonListView(
-            scrollKey: 'news-articles',
-            isLoading: articles.isLoading || feeds.isLoading,
-            error: articles.error ?? feeds.error,
-            onRefresh: () async {
-              await Future.wait([
-                widget.bloc.refresh(),
-                widget.newsBloc.refresh(),
-              ]);
-            },
-            itemCount: sorted.length,
-            itemBuilder: (context, index) {
-              final article = sorted[index];
+      builder:
+          (context, feeds) => ResultBuilder.behaviorSubject(
+            subject: widget.bloc.articles,
+            builder:
+                (context, articles) => SortBoxBuilder(
+                  sortBox: articlesSortBox,
+                  sortProperty: options.articlesSortPropertyOption,
+                  sortBoxOrder: options.articlesSortBoxOrderOption,
+                  input: articles.data?.toList(),
+                  builder:
+                      (context, sorted) => NeonListView(
+                        scrollKey: 'news-articles',
+                        isLoading: articles.isLoading || feeds.isLoading,
+                        error: articles.error ?? feeds.error,
+                        onRefresh: () async {
+                          await Future.wait([widget.bloc.refresh(), widget.newsBloc.refresh()]);
+                        },
+                        itemCount: sorted.length,
+                        itemBuilder: (context, index) {
+                          final article = sorted[index];
 
-              return _buildArticle(
-                context,
-                article,
-                feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
-              );
-            },
-            topFixedChildren: [
-              StreamBuilder(
-                stream: widget.bloc.filterType,
-                builder: (context, selectedFilterTypeSnapshot) => Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 15),
-                  child: DropdownButton(
-                    isExpanded: true,
-                    value: selectedFilterTypeSnapshot.data,
-                    items: [
-                      FilterType.all,
-                      FilterType.unread,
-                      if (widget.bloc.listType == null) FilterType.starred,
-                    ].map(
-                      (a) {
-                        late final String label;
-                        switch (a) {
-                          case FilterType.all:
-                            label = NewsLocalizations.of(context).articlesFilterAll;
-                          case FilterType.unread:
-                            label = NewsLocalizations.of(context).articlesFilterUnread;
-                          case FilterType.starred:
-                            label = NewsLocalizations.of(context).articlesFilterStarred;
-                        }
-                        return DropdownMenuItem(
-                          value: a,
-                          child: Text(label),
-                        );
-                      },
-                    ).toList(),
-                    onChanged: (value) {
-                      widget.bloc.setFilterType(value!);
-                    },
-                  ),
+                          return _buildArticle(
+                            context,
+                            article,
+                            feeds.requireData.singleWhere((feed) => feed.id == article.feedId),
+                          );
+                        },
+                        topFixedChildren: [
+                          StreamBuilder(
+                            stream: widget.bloc.filterType,
+                            builder:
+                                (context, selectedFilterTypeSnapshot) => Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                                  child: DropdownButton(
+                                    isExpanded: true,
+                                    value: selectedFilterTypeSnapshot.data,
+                                    items:
+                                        [
+                                          FilterType.all,
+                                          FilterType.unread,
+                                          if (widget.bloc.listType == null) FilterType.starred,
+                                        ].map((a) {
+                                          late final String label;
+                                          switch (a) {
+                                            case FilterType.all:
+                                              label = NewsLocalizations.of(context).articlesFilterAll;
+                                            case FilterType.unread:
+                                              label = NewsLocalizations.of(context).articlesFilterUnread;
+                                            case FilterType.starred:
+                                              label = NewsLocalizations.of(context).articlesFilterStarred;
+                                          }
+                                          return DropdownMenuItem(value: a, child: Text(label));
+                                        }).toList(),
+                                    onChanged: (value) {
+                                      widget.bloc.setFilterType(value!);
+                                    },
+                                  ),
+                                ),
+                          ),
+                        ],
+                      ),
                 ),
-              ),
-            ],
           ),
-        ),
-      ),
     );
   }
 
-  Widget _buildArticle(
-    BuildContext context,
-    news.Article article,
-    news.Feed feed,
-  ) =>
-      Dismissible(
-        key: Key(article.id.toString()),
-        direction: DismissDirection.startToEnd,
-        behavior: HitTestBehavior.translucent,
-        background: Container(color: Colors.red),
-        onDismissed: (_) {
-          if (article.unread) {
-            widget.bloc.markArticleAsRead(article);
-          } else {
-            widget.bloc.markArticleAsUnread(article);
-          }
-        },
-        child: ListTile(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: Text(
-                  article.title,
-                  style: article.unread
+  Widget _buildArticle(BuildContext context, news.Article article, news.Feed feed) => Dismissible(
+    key: Key(article.id.toString()),
+    direction: DismissDirection.startToEnd,
+    behavior: HitTestBehavior.translucent,
+    background: Container(color: Colors.red),
+    onDismissed: (_) {
+      if (article.unread) {
+        widget.bloc.markArticleAsRead(article);
+      } else {
+        widget.bloc.markArticleAsUnread(article);
+      }
+    },
+    child: ListTile(
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Flexible(
+            child: Text(
+              article.title,
+              style:
+                  article.unread
                       ? null
                       : Theme.of(context).textTheme.titleMedium!.copyWith(color: Theme.of(context).disabledColor),
-                ),
-              ),
-              if (article.mediaThumbnail != null)
-                NeonUriImage(
-                  uri: Uri.parse(article.mediaThumbnail!),
-                  size: const Size(100, 50),
-                  fit: BoxFit.cover,
-                  account: NeonProvider.of<Account>(context),
-                ),
-            ],
-          ),
-          subtitle: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                  top: 8,
-                  bottom: 8,
-                  right: 8,
-                ),
-                child: NewsFeedIcon(
-                  feed: feed,
-                  size: smallIconSize,
-                ),
-              ),
-              RelativeTime(
-                date: DateTimeUtils.fromSecondsSinceEpoch(
-                  tz.UTC,
-                  article.pubDate,
-                ),
-                style: const TextStyle(
-                  fontWeight: FontWeight.w300,
-                  fontSize: 12,
-                ),
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              Flexible(
-                child: Text(
-                  feed.title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          ),
-          trailing: IconButton(
-            onPressed: () {
-              if (article.starred) {
-                widget.bloc.unstarArticle(article);
-              } else {
-                widget.bloc.starArticle(article);
-              }
-            },
-            tooltip: article.starred
-                ? NewsLocalizations.of(context).articleUnstar
-                : NewsLocalizations.of(context).articleStar,
-            icon: Icon(
-              article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
-              color: Theme.of(context).colorScheme.primary,
             ),
           ),
-          onTap: () async {
-            final viewType = options.articleViewTypeOption.value;
-            String? bodyData;
-            try {
-              bodyData = _fixArticleBody(article.body);
-            } on Exception catch (error, stackTrace) {
-              _log.warning(
-                'Could not parse the body of ${article.title}',
-                error,
-                stackTrace,
-              );
-            }
+          if (article.mediaThumbnail != null)
+            NeonUriImage(
+              uri: Uri.parse(article.mediaThumbnail!),
+              size: const Size(100, 50),
+              fit: BoxFit.cover,
+              account: NeonProvider.of<Account>(context),
+            ),
+        ],
+      ),
+      subtitle: Row(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 8, bottom: 8, right: 8),
+            child: NewsFeedIcon(feed: feed, size: smallIconSize),
+          ),
+          RelativeTime(
+            date: DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, article.pubDate),
+            style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+          ),
+          const SizedBox(width: 5),
+          Flexible(child: Text(feed.title, maxLines: 1, overflow: TextOverflow.ellipsis)),
+        ],
+      ),
+      trailing: IconButton(
+        onPressed: () {
+          if (article.starred) {
+            widget.bloc.unstarArticle(article);
+          } else {
+            widget.bloc.starArticle(article);
+          }
+        },
+        tooltip:
+            article.starred ? NewsLocalizations.of(context).articleUnstar : NewsLocalizations.of(context).articleStar,
+        icon: Icon(
+          article.starred ? AdaptiveIcons.star : AdaptiveIcons.star_outline,
+          color: Theme.of(context).colorScheme.primary,
+        ),
+      ),
+      onTap: () async {
+        final viewType = options.articleViewTypeOption.value;
+        String? bodyData;
+        try {
+          bodyData = _fixArticleBody(article.body);
+        } on Exception catch (error, stackTrace) {
+          _log.warning('Could not parse the body of ${article.title}', error, stackTrace);
+        }
 
-            final account = NeonProvider.of<Account>(context);
+        final account = NeonProvider.of<Account>(context);
 
-            if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
-              await Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => NewsArticlePage(
-                    bloc: NewsArticleBloc(
-                      articlesBloc: widget.bloc,
-                      account: account,
-                      article: article,
-                    ),
+        if ((viewType == ArticleViewType.direct || article.url == null) && bodyData != null) {
+          await Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder:
+                  (context) => NewsArticlePage(
+                    bloc: NewsArticleBloc(articlesBloc: widget.bloc, account: account, article: article),
                     articlesBloc: widget.bloc,
                     useWebView: false,
                     bodyData: bodyData,
                     url: article.url,
                   ),
-                ),
-              );
-            } else if (viewType == ArticleViewType.internalBrowser &&
-                article.url != null &&
-                NeonPlatform.instance.canUseWebView) {
-              await Navigator.of(context).push(
-                MaterialPageRoute<void>(
-                  builder: (context) => NewsArticlePage(
-                    bloc: NewsArticleBloc(
-                      articlesBloc: widget.bloc,
-                      account: account,
-                      article: article,
-                    ),
+            ),
+          );
+        } else if (viewType == ArticleViewType.internalBrowser &&
+            article.url != null &&
+            NeonPlatform.instance.canUseWebView) {
+          await Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder:
+                  (context) => NewsArticlePage(
+                    bloc: NewsArticleBloc(articlesBloc: widget.bloc, account: account, article: article),
                     articlesBloc: widget.bloc,
                     useWebView: true,
                     url: article.url,
                   ),
-                ),
-              );
-            } else {
-              if (article.unread) {
-                widget.bloc.markArticleAsRead(article);
-              }
-              if (article.url != null) {
-                await launchUrl(NeonProvider.of<Account>(context), article.url!);
-              }
-            }
-          },
-        ),
-      );
+            ),
+          );
+        } else {
+          if (article.unread) {
+            widget.bloc.markArticleAsRead(article);
+          }
+          if (article.url != null) {
+            await launchUrl(NeonProvider.of<Account>(context), article.url!);
+          }
+        }
+      },
+    ),
+  );
 
   String _fixArticleBody(String b) => _fixArticleBodyElement(html_parser.parse(b).documentElement!).outerHtml;
 

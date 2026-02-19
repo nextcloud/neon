@@ -15,8 +15,11 @@ class _$PushSubscriptionSerializer implements StructuredSerializer<PushSubscript
   final String wireName = 'PushSubscription';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PushSubscription object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PushSubscription object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.endpoint;
@@ -35,8 +38,11 @@ class _$PushSubscriptionSerializer implements StructuredSerializer<PushSubscript
   }
 
   @override
-  PushSubscription deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PushSubscription deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PushSubscriptionBuilder();
 
     final iterator = serialized.iterator;
@@ -49,8 +55,10 @@ class _$PushSubscriptionSerializer implements StructuredSerializer<PushSubscript
           result.endpoint = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'pushDevice':
-          result.pushDevice.replace(serializers.deserialize(value,
-              specifiedType: const FullType(notifications.PushDevice))! as notifications.PushDevice);
+          result.pushDevice.replace(
+            serializers.deserialize(value, specifiedType: const FullType(notifications.PushDevice))!
+                as notifications.PushDevice,
+          );
           break;
       }
     }

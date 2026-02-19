@@ -11,9 +11,7 @@ extension WebDavMultistatusFile on WebDavMultistatus {
 /// WebDavFile class
 class WebDavFile {
   /// Creates a new WebDavFile object with the given path
-  WebDavFile({
-    required WebDavResponse response,
-  }) : _response = response;
+  WebDavFile({required WebDavResponse response}) : _response = response;
 
   final WebDavResponse _response;
 

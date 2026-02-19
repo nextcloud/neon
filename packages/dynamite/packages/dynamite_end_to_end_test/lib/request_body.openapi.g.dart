@@ -22,8 +22,11 @@ class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerialize
   final String wireName = 'GetObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GetObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GetObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
@@ -36,8 +39,11 @@ class _$GetObjectRequestApplicationJsonSerializer implements StructuredSerialize
   }
 
   @override
-  GetObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GetObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GetObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -63,19 +69,22 @@ class _$PutObjectRequestApplicationJsonSerializer implements StructuredSerialize
   final String wireName = 'PutObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PutObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'test',
-      serializers.serialize(object.test, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PutObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['test', serializers.serialize(object.test, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  PutObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PutObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PutObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -101,8 +110,11 @@ class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializ
   final String wireName = 'PostObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PostObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PostObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
@@ -115,8 +127,11 @@ class _$PostObjectRequestApplicationJsonSerializer implements StructuredSerializ
   }
 
   @override
-  PostObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PostObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PostObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -143,8 +158,11 @@ class _$DeleteObjectRequestApplicationJsonSerializer
   final String wireName = 'DeleteObjectRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeleteObjectRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeleteObjectRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
@@ -157,8 +175,11 @@ class _$DeleteObjectRequestApplicationJsonSerializer
   }
 
   @override
-  DeleteObjectRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeleteObjectRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeleteObjectRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -257,10 +278,7 @@ class GetObjectRequestApplicationJsonBuilder
 
   _$GetObjectRequestApplicationJson _build() {
     GetObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$GetObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$GetObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -346,7 +364,8 @@ class PutObjectRequestApplicationJsonBuilder
 
   _$PutObjectRequestApplicationJson _build() {
     PutObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$PutObjectRequestApplicationJson._(
           test: BuiltValueNullFieldError.checkNotNull(test, r'PutObjectRequestApplicationJson', 'test'),
         );
@@ -435,10 +454,7 @@ class PostObjectRequestApplicationJsonBuilder
 
   _$PostObjectRequestApplicationJson _build() {
     PostObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$PostObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$PostObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -524,10 +540,7 @@ class DeleteObjectRequestApplicationJsonBuilder
 
   _$DeleteObjectRequestApplicationJson _build() {
     DeleteObjectRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$DeleteObjectRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$DeleteObjectRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }

@@ -95,7 +95,5 @@ abstract class DynamiteConfig implements Built<DynamiteConfig, DynamiteConfigBui
   }
 }
 
-@SerializersFor([
-  DynamiteConfig,
-])
+@SerializersFor([DynamiteConfig])
 final Serializers _serializers = (_$_serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

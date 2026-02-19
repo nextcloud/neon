@@ -19,19 +19,15 @@ void main() {
   setUp(() async {
     references = BehaviorSubject();
     referencesBloc = MockReferencesBloc();
-    when(() => referencesBloc.referenceRegex).thenAnswer(
-      (_) => BehaviorSubject.seeded(Result.success(RegExp('[a-z]+'))),
-    );
+    when(
+      () => referencesBloc.referenceRegex,
+    ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(RegExp('[a-z]+'))));
     when(() => referencesBloc.references).thenAnswer((_) => references);
 
     final message = MockChatMessage();
     when(() => message.message).thenReturn('a b c');
 
-    bloc = TalkMessageBloc(
-      chatMessage: message,
-      referencesBloc: referencesBloc,
-      isParent: false,
-    );
+    bloc = TalkMessageBloc(chatMessage: message, referencesBloc: referencesBloc, isParent: false);
   });
 
   tearDown(() async {

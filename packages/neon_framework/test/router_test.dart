@@ -11,11 +11,7 @@ class _MockAccountRepository extends Mock implements AccountRepository {}
 void main() {
   group('redirect', () {
     testWidgets('QR-Code login', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: Container(),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(TestApp(child: Container()));
       final context = tester.element(find.byType(Container));
 
       final state = MockGoRouterState();
@@ -35,12 +31,7 @@ void main() {
       when(() => accountRepository.hasAccounts).thenReturn(false);
 
       await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          providers: [
-            RepositoryProvider<AccountRepository>.value(value: accountRepository),
-          ],
-          child: Container(),
-        ),
+        TestApp(providers: [RepositoryProvider<AccountRepository>.value(value: accountRepository)], child: Container()),
       );
       final context = tester.element(find.byType(Container));
 

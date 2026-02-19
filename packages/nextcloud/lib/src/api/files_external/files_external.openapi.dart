@@ -36,7 +36,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -280,8 +280,7 @@ class _$Mount_ScopeSerializer implements PrimitiveSerializer<Mount_Scope> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class StorageConfig_Type extends EnumClass {
@@ -333,16 +332,14 @@ class _$StorageConfig_TypeSerializer implements PrimitiveSerializer<StorageConfi
     Serializers serializers,
     StorageConfig_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   StorageConfig_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -607,33 +604,34 @@ abstract class ApiGetUserMountsResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(ApiGetUserMountsResponseApplicationJson),
-        ApiGetUserMountsResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiGetUserMountsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetUserMountsResponseApplicationJson_Ocs),
-        ApiGetUserMountsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGetUserMountsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Mount), MountBuilder.new)
-      ..add(Mount.serializer)
-      ..add(Mount_Type.serializer)
-      ..add(Mount_Scope.serializer)
-      ..addBuilderFactory(const FullType(StorageConfig), StorageConfigBuilder.new)
-      ..add(StorageConfig.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..add(StorageConfig_Type.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Mount)]), ListBuilder<Mount>.new))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(ApiGetUserMountsResponseApplicationJson),
+            ApiGetUserMountsResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiGetUserMountsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetUserMountsResponseApplicationJson_Ocs),
+            ApiGetUserMountsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGetUserMountsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(Mount), MountBuilder.new)
+          ..add(Mount.serializer)
+          ..add(Mount_Type.serializer)
+          ..add(Mount_Scope.serializer)
+          ..addBuilderFactory(const FullType(StorageConfig), StorageConfigBuilder.new)
+          ..add(StorageConfig.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..add(StorageConfig_Type.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Mount)]), ListBuilder<Mount>.new))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -641,10 +639,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

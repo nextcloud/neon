@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $HeartbeatClient heartbeat = $HeartbeatClient(this);
 
@@ -238,11 +238,11 @@ class $StatusesClient {
   /// Builds a serializer to parse the response of [$findAll_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<StatusesFindAllResponseApplicationJson, void> $findAll_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(StatusesFindAllResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(StatusesFindAllResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Find statuses of users.
   ///
@@ -328,11 +328,11 @@ class $StatusesClient {
   /// Builds a serializer to parse the response of [$find_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<StatusesFindResponseApplicationJson, void> $find_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(StatusesFindResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(StatusesFindResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Find the status of a user.
   ///
@@ -583,12 +583,12 @@ class $UserStatusClient {
   /// Builds a serializer to parse the response of [$setPredefinedMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<UserStatusSetPredefinedMessageResponseApplicationJson, void>
-      $setPredefinedMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $setPredefinedMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Set the message to a predefined message for the current user.
   ///
@@ -727,19 +727,20 @@ class $UserStatusClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              UserStatusSetCustomMessageRequestApplicationJson(),
-              specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                UserStatusSetCustomMessageRequestApplicationJson(),
+                specifiedType: const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -1434,8 +1435,7 @@ class _$ClearAt_TypeSerializer implements PrimitiveSerializer<ClearAt_Type> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ClearAtTimeType extends EnumClass {
@@ -1491,8 +1491,7 @@ class _$ClearAtTimeTypeSerializer implements PrimitiveSerializer<ClearAtTimeType
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 typedef ClearAt_Time = ({ClearAtTimeType? clearAtTimeType, int? $int});
@@ -1635,8 +1634,10 @@ sealed class $PredefinedStatusFindAllResponseApplicationJson_OcsInterface {
 abstract class PredefinedStatusFindAllResponseApplicationJson_Ocs
     implements
         $PredefinedStatusFindAllResponseApplicationJson_OcsInterface,
-        Built<PredefinedStatusFindAllResponseApplicationJson_Ocs,
-            PredefinedStatusFindAllResponseApplicationJson_OcsBuilder> {
+        Built<
+          PredefinedStatusFindAllResponseApplicationJson_Ocs,
+          PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new PredefinedStatusFindAllResponseApplicationJson_Ocs object using the builder pattern.
   factory PredefinedStatusFindAllResponseApplicationJson_Ocs([
     void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? b,
@@ -2335,8 +2336,10 @@ sealed class $UserStatusSetPredefinedMessageRequestApplicationJsonInterface {
 abstract class UserStatusSetPredefinedMessageRequestApplicationJson
     implements
         $UserStatusSetPredefinedMessageRequestApplicationJsonInterface,
-        Built<UserStatusSetPredefinedMessageRequestApplicationJson,
-            UserStatusSetPredefinedMessageRequestApplicationJsonBuilder> {
+        Built<
+          UserStatusSetPredefinedMessageRequestApplicationJson,
+          UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
+        > {
   /// Creates a new UserStatusSetPredefinedMessageRequestApplicationJson object using the builder pattern.
   factory UserStatusSetPredefinedMessageRequestApplicationJson([
     void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? b,
@@ -2400,8 +2403,10 @@ sealed class $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
     implements
         $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterface,
-        Built<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
-            UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
+          UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UserStatusSetPredefinedMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusSetPredefinedMessageResponseApplicationJson_Ocs([
     void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? b,
@@ -2464,8 +2469,10 @@ sealed class $UserStatusSetPredefinedMessageResponseApplicationJsonInterface {
 abstract class UserStatusSetPredefinedMessageResponseApplicationJson
     implements
         $UserStatusSetPredefinedMessageResponseApplicationJsonInterface,
-        Built<UserStatusSetPredefinedMessageResponseApplicationJson,
-            UserStatusSetPredefinedMessageResponseApplicationJsonBuilder> {
+        Built<
+          UserStatusSetPredefinedMessageResponseApplicationJson,
+          UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
+        > {
   /// Creates a new UserStatusSetPredefinedMessageResponseApplicationJson object using the builder pattern.
   factory UserStatusSetPredefinedMessageResponseApplicationJson([
     void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? b,
@@ -2535,8 +2542,10 @@ sealed class $UserStatusSetCustomMessageRequestApplicationJsonInterface {
 abstract class UserStatusSetCustomMessageRequestApplicationJson
     implements
         $UserStatusSetCustomMessageRequestApplicationJsonInterface,
-        Built<UserStatusSetCustomMessageRequestApplicationJson,
-            UserStatusSetCustomMessageRequestApplicationJsonBuilder> {
+        Built<
+          UserStatusSetCustomMessageRequestApplicationJson,
+          UserStatusSetCustomMessageRequestApplicationJsonBuilder
+        > {
   /// Creates a new UserStatusSetCustomMessageRequestApplicationJson object using the builder pattern.
   factory UserStatusSetCustomMessageRequestApplicationJson([
     void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? b,
@@ -2600,8 +2609,10 @@ sealed class $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface {
 abstract class UserStatusSetCustomMessageResponseApplicationJson_Ocs
     implements
         $UserStatusSetCustomMessageResponseApplicationJson_OcsInterface,
-        Built<UserStatusSetCustomMessageResponseApplicationJson_Ocs,
-            UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          UserStatusSetCustomMessageResponseApplicationJson_Ocs,
+          UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UserStatusSetCustomMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusSetCustomMessageResponseApplicationJson_Ocs([
     void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? b,
@@ -2664,8 +2675,10 @@ sealed class $UserStatusSetCustomMessageResponseApplicationJsonInterface {
 abstract class UserStatusSetCustomMessageResponseApplicationJson
     implements
         $UserStatusSetCustomMessageResponseApplicationJsonInterface,
-        Built<UserStatusSetCustomMessageResponseApplicationJson,
-            UserStatusSetCustomMessageResponseApplicationJsonBuilder> {
+        Built<
+          UserStatusSetCustomMessageResponseApplicationJson,
+          UserStatusSetCustomMessageResponseApplicationJsonBuilder
+        > {
   /// Creates a new UserStatusSetCustomMessageResponseApplicationJson object using the builder pattern.
   factory UserStatusSetCustomMessageResponseApplicationJson([
     void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder)? b,
@@ -2729,8 +2742,10 @@ sealed class $UserStatusClearMessageResponseApplicationJson_OcsInterface {
 abstract class UserStatusClearMessageResponseApplicationJson_Ocs
     implements
         $UserStatusClearMessageResponseApplicationJson_OcsInterface,
-        Built<UserStatusClearMessageResponseApplicationJson_Ocs,
-            UserStatusClearMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          UserStatusClearMessageResponseApplicationJson_Ocs,
+          UserStatusClearMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UserStatusClearMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusClearMessageResponseApplicationJson_Ocs([
     void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder)? b,
@@ -2861,8 +2876,10 @@ sealed class $UserStatusRevertStatusResponseApplicationJson_OcsInterface {
 abstract class UserStatusRevertStatusResponseApplicationJson_Ocs
     implements
         $UserStatusRevertStatusResponseApplicationJson_OcsInterface,
-        Built<UserStatusRevertStatusResponseApplicationJson_Ocs,
-            UserStatusRevertStatusResponseApplicationJson_OcsBuilder> {
+        Built<
+          UserStatusRevertStatusResponseApplicationJson_Ocs,
+          UserStatusRevertStatusResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UserStatusRevertStatusResponseApplicationJson_Ocs object using the builder pattern.
   factory UserStatusRevertStatusResponseApplicationJson_Ocs([
     void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder)? b,
@@ -3237,8 +3254,9 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+              as BuiltList<Never>;
     } catch (_) {}
     Private? private;
     try {
@@ -3255,150 +3273,151 @@ class _$d77829de8b7590d2e16cdb714800f5beSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(HeartbeatHeartbeatRequestApplicationJson),
-        HeartbeatHeartbeatRequestApplicationJsonBuilder.new,
-      )
-      ..add(HeartbeatHeartbeatRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(HeartbeatHeartbeatResponseApplicationJson),
-        HeartbeatHeartbeatResponseApplicationJsonBuilder.new,
-      )
-      ..add(HeartbeatHeartbeatResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs),
-        HeartbeatHeartbeatResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(HeartbeatHeartbeatResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Private), PrivateBuilder.new)
-      ..add(Private.serializer)
-      ..addBuilderFactory(const FullType(Public), PublicBuilder.new)
-      ..add(Public.serializer)
-      ..add($Type.serializer)
-      ..addBuilderFactory(
-        const FullType(PredefinedStatusFindAllResponseApplicationJson),
-        PredefinedStatusFindAllResponseApplicationJsonBuilder.new,
-      )
-      ..add(PredefinedStatusFindAllResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs),
-        PredefinedStatusFindAllResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PredefinedStatusFindAllResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Predefined), PredefinedBuilder.new)
-      ..add(Predefined.serializer)
-      ..addBuilderFactory(const FullType(ClearAt), ClearAtBuilder.new)
-      ..add(ClearAt.serializer)
-      ..add(ClearAt_Type.serializer)
-      ..add(ClearAtTimeType.serializer)
-      ..add($557344b3ba734aacc7109e5420fcb6c5Extension._serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
-      ..addBuilderFactory(
-        const FullType(StatusesFindAllResponseApplicationJson),
-        StatusesFindAllResponseApplicationJsonBuilder.new,
-      )
-      ..add(StatusesFindAllResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(StatusesFindAllResponseApplicationJson_Ocs),
-        StatusesFindAllResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(StatusesFindAllResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Public)]), ListBuilder<Public>.new)
-      ..addBuilderFactory(
-        const FullType(StatusesFindResponseApplicationJson),
-        StatusesFindResponseApplicationJsonBuilder.new,
-      )
-      ..add(StatusesFindResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(StatusesFindResponseApplicationJson_Ocs),
-        StatusesFindResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(StatusesFindResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusGetStatusResponseApplicationJson),
-        UserStatusGetStatusResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusGetStatusResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusGetStatusResponseApplicationJson_Ocs),
-        UserStatusGetStatusResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusGetStatusResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetStatusRequestApplicationJson),
-        UserStatusSetStatusRequestApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetStatusRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetStatusResponseApplicationJson),
-        UserStatusSetStatusResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetStatusResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetStatusResponseApplicationJson_Ocs),
-        UserStatusSetStatusResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusSetStatusResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetPredefinedMessageRequestApplicationJson),
-        UserStatusSetPredefinedMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetPredefinedMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
-        UserStatusSetPredefinedMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetPredefinedMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs),
-        UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetCustomMessageRequestApplicationJson),
-        UserStatusSetCustomMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetCustomMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetCustomMessageResponseApplicationJson),
-        UserStatusSetCustomMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusSetCustomMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs),
-        UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusSetCustomMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusClearMessageResponseApplicationJson),
-        UserStatusClearMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusClearMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusClearMessageResponseApplicationJson_Ocs),
-        UserStatusClearMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusClearMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusRevertStatusResponseApplicationJson),
-        UserStatusRevertStatusResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserStatusRevertStatusResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs),
-        UserStatusRevertStatusResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($d77829de8b7590d2e16cdb714800f5beExtension._serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)
-      ..add(Capabilities_UserStatus.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(HeartbeatHeartbeatRequestApplicationJson),
+            HeartbeatHeartbeatRequestApplicationJsonBuilder.new,
+          )
+          ..add(HeartbeatHeartbeatRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(HeartbeatHeartbeatResponseApplicationJson),
+            HeartbeatHeartbeatResponseApplicationJsonBuilder.new,
+          )
+          ..add(HeartbeatHeartbeatResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs),
+            HeartbeatHeartbeatResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(HeartbeatHeartbeatResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(Private), PrivateBuilder.new)
+          ..add(Private.serializer)
+          ..addBuilderFactory(const FullType(Public), PublicBuilder.new)
+          ..add(Public.serializer)
+          ..add($Type.serializer)
+          ..addBuilderFactory(
+            const FullType(PredefinedStatusFindAllResponseApplicationJson),
+            PredefinedStatusFindAllResponseApplicationJsonBuilder.new,
+          )
+          ..add(PredefinedStatusFindAllResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs),
+            PredefinedStatusFindAllResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PredefinedStatusFindAllResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Predefined), PredefinedBuilder.new)
+          ..add(Predefined.serializer)
+          ..addBuilderFactory(const FullType(ClearAt), ClearAtBuilder.new)
+          ..add(ClearAt.serializer)
+          ..add(ClearAt_Type.serializer)
+          ..add(ClearAtTimeType.serializer)
+          ..add($557344b3ba734aacc7109e5420fcb6c5Extension._serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Predefined)]), ListBuilder<Predefined>.new)
+          ..addBuilderFactory(
+            const FullType(StatusesFindAllResponseApplicationJson),
+            StatusesFindAllResponseApplicationJsonBuilder.new,
+          )
+          ..add(StatusesFindAllResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(StatusesFindAllResponseApplicationJson_Ocs),
+            StatusesFindAllResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(StatusesFindAllResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Public)]), ListBuilder<Public>.new)
+          ..addBuilderFactory(
+            const FullType(StatusesFindResponseApplicationJson),
+            StatusesFindResponseApplicationJsonBuilder.new,
+          )
+          ..add(StatusesFindResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(StatusesFindResponseApplicationJson_Ocs),
+            StatusesFindResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(StatusesFindResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusGetStatusResponseApplicationJson),
+            UserStatusGetStatusResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusGetStatusResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusGetStatusResponseApplicationJson_Ocs),
+            UserStatusGetStatusResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusGetStatusResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetStatusRequestApplicationJson),
+            UserStatusSetStatusRequestApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetStatusRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetStatusResponseApplicationJson),
+            UserStatusSetStatusResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetStatusResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetStatusResponseApplicationJson_Ocs),
+            UserStatusSetStatusResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusSetStatusResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetPredefinedMessageRequestApplicationJson),
+            UserStatusSetPredefinedMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetPredefinedMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetPredefinedMessageResponseApplicationJson),
+            UserStatusSetPredefinedMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetPredefinedMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs),
+            UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetCustomMessageRequestApplicationJson),
+            UserStatusSetCustomMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetCustomMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetCustomMessageResponseApplicationJson),
+            UserStatusSetCustomMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusSetCustomMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs),
+            UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusSetCustomMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusClearMessageResponseApplicationJson),
+            UserStatusClearMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusClearMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusClearMessageResponseApplicationJson_Ocs),
+            UserStatusClearMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusClearMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusRevertStatusResponseApplicationJson),
+            UserStatusRevertStatusResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserStatusRevertStatusResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs),
+            UserStatusRevertStatusResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserStatusRevertStatusResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
+          ..add($d77829de8b7590d2e16cdb714800f5beExtension._serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_UserStatus), Capabilities_UserStatusBuilder.new)
+          ..add(Capabilities_UserStatus.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -3406,14 +3425,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i8.StandardJsonPlugin(
-          typesToLeaveAsList: const {_$557344b3ba734aacc7109e5420fcb6c5, _$d77829de8b7590d2e16cdb714800f5be},
-        ),
-      )
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i8.StandardJsonPlugin(
+              typesToLeaveAsList: const {_$557344b3ba734aacc7109e5420fcb6c5, _$d77829de8b7590d2e16cdb714800f5be},
+            ),
+          )
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

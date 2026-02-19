@@ -60,26 +60,17 @@ void main() {
     test('init initializes the database', () async {
       await database.init();
 
-      expect(
-        database.database,
-        isA<Database>(),
-      );
+      expect(database.database, isA<Database>());
     });
 
     test('throws if not initialized', () async {
-      expect(
-        () => database.database,
-        throwsStateError,
-      );
+      expect(() => database.database, throwsStateError);
     });
 
     test('returns the same instance once initialized', () async {
       await database.init();
 
-      expect(
-        identical(database.database, database.database),
-        isTrue,
-      );
+      expect(identical(database.database, database.database), isTrue);
     });
 
     group('conflicting table names', () {
@@ -97,10 +88,7 @@ void main() {
 
         when(() => controller.tables).thenReturn([table, table2]);
 
-        expect(
-          () => _TestDatabase(controller),
-          throwsArgumentError,
-        );
+        expect(() => _TestDatabase(controller), throwsArgumentError);
       });
 
       test('throws a TableNameError for conflicting table names', () {
@@ -109,10 +97,7 @@ void main() {
 
         when(() => controller.tables).thenReturn([table]);
 
-        expect(
-          () => _TestDatabase(controller),
-          throwsArgumentError,
-        );
+        expect(() => _TestDatabase(controller), throwsArgumentError);
       });
     });
 

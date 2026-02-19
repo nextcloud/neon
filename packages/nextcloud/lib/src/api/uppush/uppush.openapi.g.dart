@@ -21,14 +21,14 @@ Serializer<CreateAppResponseApplicationJson> _$createAppResponseApplicationJsonS
 Serializer<DeleteAppResponseApplicationJson> _$deleteAppResponseApplicationJsonSerializer =
     _$DeleteAppResponseApplicationJsonSerializer();
 Serializer<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush>
-    _$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer =
+_$unifiedpushDiscoveryResponseApplicationJsonUnifiedpushSerializer =
     _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer();
 Serializer<UnifiedpushDiscoveryResponseApplicationJson> _$unifiedpushDiscoveryResponseApplicationJsonSerializer =
     _$UnifiedpushDiscoveryResponseApplicationJsonSerializer();
 Serializer<PushResponseApplicationJson> _$pushResponseApplicationJsonSerializer =
     _$PushResponseApplicationJsonSerializer();
 Serializer<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush>
-    _$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer =
+_$gatewayMatrixDiscoveryResponseApplicationJsonUnifiedpushSerializer =
     _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer();
 Serializer<GatewayMatrixDiscoveryResponseApplicationJson> _$gatewayMatrixDiscoveryResponseApplicationJsonSerializer =
     _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer();
@@ -42,19 +42,22 @@ class _$CheckResponseApplicationJsonSerializer implements StructuredSerializer<C
   final String wireName = 'CheckResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CheckResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    CheckResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  CheckResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  CheckResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CheckResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -81,19 +84,22 @@ class _$SetKeepaliveResponseApplicationJsonSerializer
   final String wireName = 'SetKeepaliveResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SetKeepaliveResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SetKeepaliveResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  SetKeepaliveResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SetKeepaliveResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SetKeepaliveResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -120,8 +126,11 @@ class _$CreateDeviceResponseApplicationJsonSerializer
   final String wireName = 'CreateDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CreateDeviceResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    CreateDeviceResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'success',
       serializers.serialize(object.success, specifiedType: const FullType(bool)),
@@ -133,8 +142,11 @@ class _$CreateDeviceResponseApplicationJsonSerializer
   }
 
   @override
-  CreateDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  CreateDeviceResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CreateDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -163,19 +175,22 @@ class _$SyncDeviceResponseApplicationJsonSerializer implements StructuredSeriali
   final String wireName = 'SyncDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SyncDeviceResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SyncDeviceResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  SyncDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SyncDeviceResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SyncDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -202,19 +217,22 @@ class _$DeleteDeviceResponseApplicationJsonSerializer
   final String wireName = 'DeleteDeviceResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeleteDeviceResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeleteDeviceResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  DeleteDeviceResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeleteDeviceResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeleteDeviceResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -240,8 +258,11 @@ class _$CreateAppResponseApplicationJsonSerializer implements StructuredSerializ
   final String wireName = 'CreateAppResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CreateAppResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    CreateAppResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'success',
       serializers.serialize(object.success, specifiedType: const FullType(bool)),
@@ -253,8 +274,11 @@ class _$CreateAppResponseApplicationJsonSerializer implements StructuredSerializ
   }
 
   @override
-  CreateAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  CreateAppResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CreateAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -283,19 +307,22 @@ class _$DeleteAppResponseApplicationJsonSerializer implements StructuredSerializ
   final String wireName = 'DeleteAppResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DeleteAppResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DeleteAppResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  DeleteAppResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DeleteAppResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DeleteAppResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -319,26 +346,28 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushSerializer
   @override
   final Iterable<Type> types = const [
     UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-    _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
+    _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
   ];
   @override
   final String wireName = 'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'version',
-      serializers.serialize(object.version, specifiedType: const FullType(int)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['version', serializers.serialize(object.version, specifiedType: const FullType(int))];
 
     return result;
   }
 
   @override
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
@@ -362,26 +391,34 @@ class _$UnifiedpushDiscoveryResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UnifiedpushDiscoveryResponseApplicationJson,
-    _$UnifiedpushDiscoveryResponseApplicationJson
+    _$UnifiedpushDiscoveryResponseApplicationJson,
   ];
   @override
   final String wireName = 'UnifiedpushDiscoveryResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UnifiedpushDiscoveryResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UnifiedpushDiscoveryResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'unifiedpush',
-      serializers.serialize(object.unifiedpush,
-          specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush)),
+      serializers.serialize(
+        object.unifiedpush,
+        specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
+      ),
     ];
 
     return result;
   }
 
   @override
-  UnifiedpushDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UnifiedpushDiscoveryResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UnifiedpushDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -391,9 +428,13 @@ class _$UnifiedpushDiscoveryResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'unifiedpush':
-          result.unifiedpush.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush))!
-              as UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush);
+          result.unifiedpush.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
+                )!
+                as UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+          );
           break;
       }
     }
@@ -409,19 +450,22 @@ class _$PushResponseApplicationJsonSerializer implements StructuredSerializer<Pu
   final String wireName = 'PushResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PushResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'success',
-      serializers.serialize(object.success, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PushResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['success', serializers.serialize(object.success, specifiedType: const FullType(bool))];
 
     return result;
   }
 
   @override
-  PushResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PushResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PushResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -445,26 +489,28 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushSerializer
   @override
   final Iterable<Type> types = const [
     GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-    _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
+    _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
   ];
   @override
   final String wireName = 'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'gateway',
-      serializers.serialize(object.gateway, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['gateway', serializers.serialize(object.gateway, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder();
 
     final iterator = serialized.iterator;
@@ -488,26 +534,34 @@ class _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     GatewayMatrixDiscoveryResponseApplicationJson,
-    _$GatewayMatrixDiscoveryResponseApplicationJson
+    _$GatewayMatrixDiscoveryResponseApplicationJson,
   ];
   @override
   final String wireName = 'GatewayMatrixDiscoveryResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixDiscoveryResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GatewayMatrixDiscoveryResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'unifiedpush',
-      serializers.serialize(object.unifiedpush,
-          specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush)),
+      serializers.serialize(
+        object.unifiedpush,
+        specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
+      ),
     ];
 
     return result;
   }
 
   @override
-  GatewayMatrixDiscoveryResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GatewayMatrixDiscoveryResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GatewayMatrixDiscoveryResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -517,9 +571,13 @@ class _$GatewayMatrixDiscoveryResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'unifiedpush':
-          result.unifiedpush.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush))!
-              as GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush);
+          result.unifiedpush.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
+                )!
+                as GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+          );
           break;
       }
     }
@@ -536,8 +594,11 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
   final String wireName = 'GatewayMatrixResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GatewayMatrixResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GatewayMatrixResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'rejected',
       serializers.serialize(object.rejected, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -547,8 +608,11 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
   }
 
   @override
-  GatewayMatrixResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GatewayMatrixResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GatewayMatrixResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -558,8 +622,10 @@ class _$GatewayMatrixResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'rejected':
-          result.rejected.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.rejected.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -648,7 +714,8 @@ class CheckResponseApplicationJsonBuilder
 
   _$CheckResponseApplicationJson _build() {
     CheckResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$CheckResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CheckResponseApplicationJson', 'success'),
         );
@@ -737,7 +804,8 @@ class SetKeepaliveResponseApplicationJsonBuilder
 
   _$SetKeepaliveResponseApplicationJson _build() {
     SetKeepaliveResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SetKeepaliveResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'SetKeepaliveResponseApplicationJson', 'success'),
         );
@@ -840,7 +908,8 @@ class CreateDeviceResponseApplicationJsonBuilder
 
   _$CreateDeviceResponseApplicationJson _build() {
     CreateDeviceResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$CreateDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CreateDeviceResponseApplicationJson', 'success'),
           deviceId: BuiltValueNullFieldError.checkNotNull(deviceId, r'CreateDeviceResponseApplicationJson', 'deviceId'),
@@ -930,7 +999,8 @@ class SyncDeviceResponseApplicationJsonBuilder
 
   _$SyncDeviceResponseApplicationJson _build() {
     SyncDeviceResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SyncDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'SyncDeviceResponseApplicationJson', 'success'),
         );
@@ -1019,7 +1089,8 @@ class DeleteDeviceResponseApplicationJsonBuilder
 
   _$DeleteDeviceResponseApplicationJson _build() {
     DeleteDeviceResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DeleteDeviceResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteDeviceResponseApplicationJson', 'success'),
         );
@@ -1122,7 +1193,8 @@ class CreateAppResponseApplicationJsonBuilder
 
   _$CreateAppResponseApplicationJson _build() {
     CreateAppResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$CreateAppResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'CreateAppResponseApplicationJson', 'success'),
           token: BuiltValueNullFieldError.checkNotNull(token, r'CreateAppResponseApplicationJson', 'token'),
@@ -1212,7 +1284,8 @@ class DeleteAppResponseApplicationJsonBuilder
 
   _$DeleteAppResponseApplicationJson _build() {
     DeleteAppResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DeleteAppResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'DeleteAppResponseApplicationJson', 'success'),
         );
@@ -1233,15 +1306,15 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   @override
   final int version;
 
-  factory _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush(
-          [void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+  factory _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush([
+    void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates,
+  ]) => (UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._({required this.version}) : super._();
   @override
   UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush rebuild(
-          void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
@@ -1264,15 +1337,16 @@ class _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush')
-          ..add('version', version))
-        .toString();
+      ..add('version', version)).toString();
   }
 }
 
 class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
-        Builder<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-            UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
+        Builder<
+          UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+          UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
+        >,
         $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
@@ -1308,10 +1382,14 @@ class UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
 
   _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush _build() {
     UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush._(
           version: BuiltValueNullFieldError.checkNotNull(
-              version, r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush', 'version'),
+            version,
+            r'UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush',
+            'version',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1329,15 +1407,15 @@ class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscovery
   @override
   final UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
 
-  factory _$UnifiedpushDiscoveryResponseApplicationJson(
-          [void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (UnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UnifiedpushDiscoveryResponseApplicationJson([
+    void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder)? updates,
+  ]) => (UnifiedpushDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UnifiedpushDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._();
   @override
   UnifiedpushDiscoveryResponseApplicationJson rebuild(
-          void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UnifiedpushDiscoveryResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UnifiedpushDiscoveryResponseApplicationJsonBuilder toBuilder() =>
@@ -1360,8 +1438,7 @@ class _$UnifiedpushDiscoveryResponseApplicationJson extends UnifiedpushDiscovery
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'UnifiedpushDiscoveryResponseApplicationJson')
-          ..add('unifiedpush', unifiedpush))
-        .toString();
+      ..add('unifiedpush', unifiedpush)).toString();
   }
 }
 
@@ -1407,10 +1484,7 @@ class UnifiedpushDiscoveryResponseApplicationJsonBuilder
     UnifiedpushDiscoveryResponseApplicationJson._validate(this);
     _$UnifiedpushDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UnifiedpushDiscoveryResponseApplicationJson._(
-            unifiedpush: unifiedpush.build(),
-          );
+      _$result = _$v ?? _$UnifiedpushDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1506,7 +1580,8 @@ class PushResponseApplicationJsonBuilder
 
   _$PushResponseApplicationJson _build() {
     PushResponseApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$PushResponseApplicationJson._(
           success: BuiltValueNullFieldError.checkNotNull(success, r'PushResponseApplicationJson', 'success'),
         );
@@ -1527,15 +1602,15 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   @override
   final String gateway;
 
-  factory _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush(
-          [void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates]) =>
-      (GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
+  factory _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush([
+    void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? updates,
+  ]) => (GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder()..update(updates))._build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._({required this.gateway}) : super._();
   @override
   GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush rebuild(
-          void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder toBuilder() =>
@@ -1558,15 +1633,16 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush')
-          ..add('gateway', gateway))
-        .toString();
+      ..add('gateway', gateway)).toString();
   }
 }
 
 class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
     implements
-        Builder<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-            GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder>,
+        Builder<
+          GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+          GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
+        >,
         $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterfaceBuilder {
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush? _$v;
 
@@ -1602,10 +1678,14 @@ class GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
 
   _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush _build() {
     GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush._(
           gateway: BuiltValueNullFieldError.checkNotNull(
-              gateway, r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush', 'gateway'),
+            gateway,
+            r'GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush',
+            'gateway',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1623,15 +1703,15 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDisco
   @override
   final GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush unifiedpush;
 
-  factory _$GatewayMatrixDiscoveryResponseApplicationJson(
-          [void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates]) =>
-      (GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$GatewayMatrixDiscoveryResponseApplicationJson([
+    void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder)? updates,
+  ]) => (GatewayMatrixDiscoveryResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$GatewayMatrixDiscoveryResponseApplicationJson._({required this.unifiedpush}) : super._();
   @override
   GatewayMatrixDiscoveryResponseApplicationJson rebuild(
-          void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GatewayMatrixDiscoveryResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GatewayMatrixDiscoveryResponseApplicationJsonBuilder toBuilder() =>
@@ -1654,8 +1734,7 @@ class _$GatewayMatrixDiscoveryResponseApplicationJson extends GatewayMatrixDisco
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'GatewayMatrixDiscoveryResponseApplicationJson')
-          ..add('unifiedpush', unifiedpush))
-        .toString();
+      ..add('unifiedpush', unifiedpush)).toString();
   }
 }
 
@@ -1701,10 +1780,7 @@ class GatewayMatrixDiscoveryResponseApplicationJsonBuilder
     GatewayMatrixDiscoveryResponseApplicationJson._validate(this);
     _$GatewayMatrixDiscoveryResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$GatewayMatrixDiscoveryResponseApplicationJson._(
-            unifiedpush: unifiedpush.build(),
-          );
+      _$result = _$v ?? _$GatewayMatrixDiscoveryResponseApplicationJson._(unifiedpush: unifiedpush.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1731,9 +1807,9 @@ class _$GatewayMatrixResponseApplicationJson extends GatewayMatrixResponseApplic
   @override
   final BuiltList<String> rejected;
 
-  factory _$GatewayMatrixResponseApplicationJson(
-          [void Function(GatewayMatrixResponseApplicationJsonBuilder)? updates]) =>
-      (GatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$GatewayMatrixResponseApplicationJson([
+    void Function(GatewayMatrixResponseApplicationJsonBuilder)? updates,
+  ]) => (GatewayMatrixResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$GatewayMatrixResponseApplicationJson._({required this.rejected}) : super._();
   @override
@@ -1804,10 +1880,7 @@ class GatewayMatrixResponseApplicationJsonBuilder
     GatewayMatrixResponseApplicationJson._validate(this);
     _$GatewayMatrixResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$GatewayMatrixResponseApplicationJson._(
-            rejected: rejected.build(),
-          );
+      _$result = _$v ?? _$GatewayMatrixResponseApplicationJson._(rejected: rejected.build());
     } catch (_) {
       late String _$failedField;
       try {

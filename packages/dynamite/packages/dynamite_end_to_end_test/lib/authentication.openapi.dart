@@ -24,16 +24,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$noAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $noAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [noAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -74,11 +74,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$basicAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $basicAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [basicAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -134,11 +134,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$bearerAuthentication_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $bearerAuthentication_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [bearerAuthentication] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -194,11 +194,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$multipleAuthentications_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $multipleAuthentications_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [multipleAuthentications] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -267,10 +267,11 @@ final Serializers _$serializers = Serializers();
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i5.DynamiteDoubleSerializer())
+          ..addPlugin(_i6.StandardJsonPlugin())
+          ..addPlugin(const _i5.HeaderPlugin())
+          ..addPlugin(const _i5.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

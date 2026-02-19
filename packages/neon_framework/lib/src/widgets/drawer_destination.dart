@@ -4,12 +4,7 @@ import 'package:rxdart/subjects.dart';
 
 @internal
 class NeonNavigationDestination {
-  const NeonNavigationDestination({
-    required this.label,
-    required this.icon,
-    this.selectedIcon,
-    this.notificationCount,
-  });
+  const NeonNavigationDestination({required this.label, required this.icon, this.selectedIcon, this.notificationCount});
 
   final String label;
   final Widget Function({double? size, Color color}) icon;
@@ -20,10 +15,10 @@ class NeonNavigationDestination {
 @internal
 extension NavigationDestinationExtension on NavigationDestination {
   static NavigationDestination fromNeonDestination(NeonNavigationDestination neonDestination) => NavigationDestination(
-        label: neonDestination.label,
-        icon: neonDestination.icon(),
-        selectedIcon: neonDestination.selectedIcon,
-      );
+    label: neonDestination.label,
+    icon: neonDestination.icon(),
+    selectedIcon: neonDestination.selectedIcon,
+  );
 }
 
 @internal
@@ -37,10 +32,7 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
 
         final color = snapshot.requireData > 0 ? colorScheme.primary : colorScheme.onSurface;
 
-        final icon = Container(
-          margin: const EdgeInsets.all(5),
-          child: neonDestination.icon(color: color),
-        );
+        final icon = Container(margin: const EdgeInsets.all(5), child: neonDestination.icon(color: color));
 
         if (snapshot.requireData <= 0) {
           return icon;
@@ -48,25 +40,13 @@ extension NavigationRailDestinationExtension on NavigationRailDestination {
 
         final notificationIndicator = Builder(
           builder: (context) {
-            final style = TextStyle(
-              color: Theme.of(context).colorScheme.primary,
-              fontWeight: FontWeight.bold,
-            );
+            final style = TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold);
 
-            return Text(
-              snapshot.requireData.toString(),
-              style: style,
-            );
+            return Text(snapshot.requireData.toString(), style: style);
           },
         );
 
-        return Stack(
-          alignment: Alignment.bottomRight,
-          children: [
-            icon,
-            notificationIndicator,
-          ],
-        );
+        return Stack(alignment: Alignment.bottomRight, children: [icon, notificationIndicator]);
       },
     );
 
@@ -101,22 +81,13 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
                 fontSize: 14,
               );
 
-              return Text(
-                snapshot.requireData.toString(),
-                style: style,
-              );
+              return Text(snapshot.requireData.toString(), style: style);
             },
           ),
         );
 
         return Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              label,
-              notificationIndicator,
-            ],
-          ),
+          child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [label, notificationIndicator]),
         );
       },
     );
@@ -131,8 +102,6 @@ extension NavigationDrawerDestinationExtension on NavigationDrawerDestination {
 
 @internal
 extension TabExtension on Tab {
-  static Tab fromNeonDestination(NeonNavigationDestination neonDestination) => Tab(
-        text: neonDestination.label,
-        icon: neonDestination.icon(),
-      );
+  static Tab fromNeonDestination(NeonNavigationDestination neonDestination) =>
+      Tab(text: neonDestination.label, icon: neonDestination.icon());
 }

@@ -141,12 +141,13 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
-      ..add(Capabilities_Files.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
+          ..add(Capabilities_Files.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -154,10 +155,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i2.DynamiteDoubleSerializer())
+          ..addPlugin(_i3.StandardJsonPlugin())
+          ..addPlugin(const _i2.HeaderPlugin())
+          ..addPlugin(const _i2.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

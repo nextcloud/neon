@@ -20,11 +20,9 @@ ConfigapiShowShowPassword _$valueOfConfigapiShowShowPassword(String name) {
   }
 }
 
-final BuiltSet<ConfigapiShowShowPassword> _$configapiShowShowPasswordValues =
-    BuiltSet<ConfigapiShowShowPassword>(const <ConfigapiShowShowPassword>[
-  _$configapiShowShowPassword$0,
-  _$configapiShowShowPassword$1,
-]);
+final BuiltSet<ConfigapiShowShowPassword> _$configapiShowShowPasswordValues = BuiltSet<ConfigapiShowShowPassword>(
+  const <ConfigapiShowShowPassword>[_$configapiShowShowPassword$0, _$configapiShowShowPassword$1],
+);
 
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ConfigapiCreateResponseApplicationJson_Ocs_Data> _$configapiCreateResponseApplicationJsonOcsDataSerializer =
@@ -55,8 +53,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -86,8 +87,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -123,25 +127,28 @@ class _$ConfigapiCreateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ConfigapiCreateResponseApplicationJson_Ocs_Data,
-    _$ConfigapiCreateResponseApplicationJson_Ocs_Data
+    _$ConfigapiCreateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ConfigapiCreateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiCreateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'configID',
-      serializers.serialize(object.configID, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiCreateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['configID', serializers.serialize(object.configID, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  ConfigapiCreateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiCreateResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -165,28 +172,36 @@ class _$ConfigapiCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ConfigapiCreateResponseApplicationJson_Ocs,
-    _$ConfigapiCreateResponseApplicationJson_Ocs
+    _$ConfigapiCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ConfigapiCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ConfigapiCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -199,9 +214,13 @@ class _$ConfigapiCreateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data))!
-              as ConfigapiCreateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs_Data),
+                )!
+                as ConfigapiCreateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -218,8 +237,11 @@ class _$ConfigapiCreateResponseApplicationJsonSerializer
   final String wireName = 'ConfigapiCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs)),
@@ -229,8 +251,11 @@ class _$ConfigapiCreateResponseApplicationJsonSerializer
   }
 
   @override
-  ConfigapiCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -241,8 +266,9 @@ class _$ConfigapiCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs))!
-                  as ConfigapiCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ConfigapiCreateResponseApplicationJson_Ocs))!
+                as ConfigapiCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -256,28 +282,36 @@ class _$ConfigapiShowResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ConfigapiShowResponseApplicationJson_Ocs,
-    _$ConfigapiShowResponseApplicationJson_Ocs
+    _$ConfigapiShowResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ConfigapiShowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiShowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiShowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ConfigapiShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiShowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -290,8 +324,12 @@ class _$ConfigapiShowResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
       }
     }
@@ -308,8 +346,11 @@ class _$ConfigapiShowResponseApplicationJsonSerializer
   final String wireName = 'ConfigapiShowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiShowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiShowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ConfigapiShowResponseApplicationJson_Ocs)),
@@ -319,8 +360,11 @@ class _$ConfigapiShowResponseApplicationJsonSerializer
   }
 
   @override
-  ConfigapiShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiShowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -331,8 +375,9 @@ class _$ConfigapiShowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ConfigapiShowResponseApplicationJson_Ocs))!
-                  as ConfigapiShowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ConfigapiShowResponseApplicationJson_Ocs))!
+                as ConfigapiShowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -349,20 +394,28 @@ class _$ConfigapiModifyRequestApplicationJsonSerializer
   final String wireName = 'ConfigapiModifyRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiModifyRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiModifyRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'configData',
-      serializers.serialize(object.configData,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)])),
+      serializers.serialize(
+        object.configData,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ConfigapiModifyRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiModifyRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiModifyRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -372,8 +425,12 @@ class _$ConfigapiModifyRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'configData':
-          result.configData.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]))!);
+          result.configData.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(JsonObject)]),
+            )!,
+          );
           break;
       }
     }
@@ -387,14 +444,17 @@ class _$ConfigapiModifyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ConfigapiModifyResponseApplicationJson_Ocs,
-    _$ConfigapiModifyResponseApplicationJson_Ocs
+    _$ConfigapiModifyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ConfigapiModifyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiModifyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiModifyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -406,8 +466,11 @@ class _$ConfigapiModifyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ConfigapiModifyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiModifyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiModifyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -437,8 +500,11 @@ class _$ConfigapiModifyResponseApplicationJsonSerializer
   final String wireName = 'ConfigapiModifyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiModifyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiModifyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ConfigapiModifyResponseApplicationJson_Ocs)),
@@ -448,8 +514,11 @@ class _$ConfigapiModifyResponseApplicationJsonSerializer
   }
 
   @override
-  ConfigapiModifyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiModifyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiModifyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -460,8 +529,9 @@ class _$ConfigapiModifyResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ConfigapiModifyResponseApplicationJson_Ocs))!
-                  as ConfigapiModifyResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ConfigapiModifyResponseApplicationJson_Ocs))!
+                as ConfigapiModifyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -475,14 +545,17 @@ class _$ConfigapiDeleteResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ConfigapiDeleteResponseApplicationJson_Ocs,
-    _$ConfigapiDeleteResponseApplicationJson_Ocs
+    _$ConfigapiDeleteResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ConfigapiDeleteResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiDeleteResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiDeleteResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -494,8 +567,11 @@ class _$ConfigapiDeleteResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ConfigapiDeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiDeleteResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiDeleteResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -525,8 +601,11 @@ class _$ConfigapiDeleteResponseApplicationJsonSerializer
   final String wireName = 'ConfigapiDeleteResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConfigapiDeleteResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConfigapiDeleteResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ConfigapiDeleteResponseApplicationJson_Ocs)),
@@ -536,8 +615,11 @@ class _$ConfigapiDeleteResponseApplicationJsonSerializer
   }
 
   @override
-  ConfigapiDeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConfigapiDeleteResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigapiDeleteResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -548,8 +630,9 @@ class _$ConfigapiDeleteResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ConfigapiDeleteResponseApplicationJson_Ocs))!
-                  as ConfigapiDeleteResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ConfigapiDeleteResponseApplicationJson_Ocs))!
+                as ConfigapiDeleteResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -592,7 +675,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -689,7 +772,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -713,15 +797,15 @@ class _$ConfigapiCreateResponseApplicationJson_Ocs_Data extends ConfigapiCreateR
   @override
   final String configID;
 
-  factory _$ConfigapiCreateResponseApplicationJson_Ocs_Data(
-          [void Function(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ConfigapiCreateResponseApplicationJson_Ocs_Data([
+    void Function(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ConfigapiCreateResponseApplicationJson_Ocs_Data._({required this.configID}) : super._();
   @override
   ConfigapiCreateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -743,15 +827,17 @@ class _$ConfigapiCreateResponseApplicationJson_Ocs_Data extends ConfigapiCreateR
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ConfigapiCreateResponseApplicationJson_Ocs_Data')..add('configID', configID))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ConfigapiCreateResponseApplicationJson_Ocs_Data')
+      ..add('configID', configID)).toString();
   }
 }
 
 class ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<ConfigapiCreateResponseApplicationJson_Ocs_Data,
-            ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          ConfigapiCreateResponseApplicationJson_Ocs_Data,
+          ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
+        >,
         $ConfigapiCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ConfigapiCreateResponseApplicationJson_Ocs_Data? _$v;
 
@@ -787,10 +873,14 @@ class ConfigapiCreateResponseApplicationJson_Ocs_DataBuilder
 
   _$ConfigapiCreateResponseApplicationJson_Ocs_Data _build() {
     ConfigapiCreateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ConfigapiCreateResponseApplicationJson_Ocs_Data._(
           configID: BuiltValueNullFieldError.checkNotNull(
-              configID, r'ConfigapiCreateResponseApplicationJson_Ocs_Data', 'configID'),
+            configID,
+            r'ConfigapiCreateResponseApplicationJson_Ocs_Data',
+            'configID',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -813,15 +903,15 @@ class _$ConfigapiCreateResponseApplicationJson_Ocs extends ConfigapiCreateRespon
   @override
   final ConfigapiCreateResponseApplicationJson_Ocs_Data data;
 
-  factory _$ConfigapiCreateResponseApplicationJson_Ocs(
-          [void Function(ConfigapiCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ConfigapiCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ConfigapiCreateResponseApplicationJson_Ocs([
+    void Function(ConfigapiCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ConfigapiCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ConfigapiCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ConfigapiCreateResponseApplicationJson_Ocs rebuild(
-          void Function(ConfigapiCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -897,11 +987,7 @@ class ConfigapiCreateResponseApplicationJson_OcsBuilder
     ConfigapiCreateResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -930,15 +1016,15 @@ class _$ConfigapiCreateResponseApplicationJson extends ConfigapiCreateResponseAp
   @override
   final ConfigapiCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$ConfigapiCreateResponseApplicationJson(
-          [void Function(ConfigapiCreateResponseApplicationJsonBuilder)? updates]) =>
-      (ConfigapiCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConfigapiCreateResponseApplicationJson([
+    void Function(ConfigapiCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (ConfigapiCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ConfigapiCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ConfigapiCreateResponseApplicationJson rebuild(
-          void Function(ConfigapiCreateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiCreateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiCreateResponseApplicationJsonBuilder toBuilder() =>
@@ -1005,10 +1091,7 @@ class ConfigapiCreateResponseApplicationJsonBuilder
     ConfigapiCreateResponseApplicationJson._validate(this);
     _$ConfigapiCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ConfigapiCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1040,15 +1123,15 @@ class _$ConfigapiShowResponseApplicationJson_Ocs extends ConfigapiShowResponseAp
   @override
   final BuiltMap<String, JsonObject> data;
 
-  factory _$ConfigapiShowResponseApplicationJson_Ocs(
-          [void Function(ConfigapiShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ConfigapiShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ConfigapiShowResponseApplicationJson_Ocs([
+    void Function(ConfigapiShowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ConfigapiShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ConfigapiShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ConfigapiShowResponseApplicationJson_Ocs rebuild(
-          void Function(ConfigapiShowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiShowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiShowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1123,11 +1206,7 @@ class ConfigapiShowResponseApplicationJson_OcsBuilder
     ConfigapiShowResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiShowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ConfigapiShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1156,9 +1235,9 @@ class _$ConfigapiShowResponseApplicationJson extends ConfigapiShowResponseApplic
   @override
   final ConfigapiShowResponseApplicationJson_Ocs ocs;
 
-  factory _$ConfigapiShowResponseApplicationJson(
-          [void Function(ConfigapiShowResponseApplicationJsonBuilder)? updates]) =>
-      (ConfigapiShowResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConfigapiShowResponseApplicationJson([
+    void Function(ConfigapiShowResponseApplicationJsonBuilder)? updates,
+  ]) => (ConfigapiShowResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ConfigapiShowResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -1230,10 +1309,7 @@ class ConfigapiShowResponseApplicationJsonBuilder
     ConfigapiShowResponseApplicationJson._validate(this);
     _$ConfigapiShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiShowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ConfigapiShowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1260,9 +1336,9 @@ class _$ConfigapiModifyRequestApplicationJson extends ConfigapiModifyRequestAppl
   @override
   final BuiltMap<String, JsonObject> configData;
 
-  factory _$ConfigapiModifyRequestApplicationJson(
-          [void Function(ConfigapiModifyRequestApplicationJsonBuilder)? updates]) =>
-      (ConfigapiModifyRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConfigapiModifyRequestApplicationJson([
+    void Function(ConfigapiModifyRequestApplicationJsonBuilder)? updates,
+  ]) => (ConfigapiModifyRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ConfigapiModifyRequestApplicationJson._({required this.configData}) : super._();
   @override
@@ -1289,8 +1365,8 @@ class _$ConfigapiModifyRequestApplicationJson extends ConfigapiModifyRequestAppl
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ConfigapiModifyRequestApplicationJson')..add('configData', configData))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ConfigapiModifyRequestApplicationJson')
+      ..add('configData', configData)).toString();
   }
 }
 
@@ -1334,10 +1410,7 @@ class ConfigapiModifyRequestApplicationJsonBuilder
     ConfigapiModifyRequestApplicationJson._validate(this);
     _$ConfigapiModifyRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiModifyRequestApplicationJson._(
-            configData: configData.build(),
-          );
+      _$result = _$v ?? _$ConfigapiModifyRequestApplicationJson._(configData: configData.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1369,15 +1442,15 @@ class _$ConfigapiModifyResponseApplicationJson_Ocs extends ConfigapiModifyRespon
   @override
   final JsonObject data;
 
-  factory _$ConfigapiModifyResponseApplicationJson_Ocs(
-          [void Function(ConfigapiModifyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ConfigapiModifyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ConfigapiModifyResponseApplicationJson_Ocs([
+    void Function(ConfigapiModifyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ConfigapiModifyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ConfigapiModifyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ConfigapiModifyResponseApplicationJson_Ocs rebuild(
-          void Function(ConfigapiModifyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiModifyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiModifyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1452,7 +1525,8 @@ class ConfigapiModifyResponseApplicationJson_OcsBuilder
     ConfigapiModifyResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiModifyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ConfigapiModifyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiModifyResponseApplicationJson_Ocs', 'data'),
@@ -1483,15 +1557,15 @@ class _$ConfigapiModifyResponseApplicationJson extends ConfigapiModifyResponseAp
   @override
   final ConfigapiModifyResponseApplicationJson_Ocs ocs;
 
-  factory _$ConfigapiModifyResponseApplicationJson(
-          [void Function(ConfigapiModifyResponseApplicationJsonBuilder)? updates]) =>
-      (ConfigapiModifyResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConfigapiModifyResponseApplicationJson([
+    void Function(ConfigapiModifyResponseApplicationJsonBuilder)? updates,
+  ]) => (ConfigapiModifyResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ConfigapiModifyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ConfigapiModifyResponseApplicationJson rebuild(
-          void Function(ConfigapiModifyResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiModifyResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiModifyResponseApplicationJsonBuilder toBuilder() =>
@@ -1558,10 +1632,7 @@ class ConfigapiModifyResponseApplicationJsonBuilder
     ConfigapiModifyResponseApplicationJson._validate(this);
     _$ConfigapiModifyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiModifyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ConfigapiModifyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1593,15 +1664,15 @@ class _$ConfigapiDeleteResponseApplicationJson_Ocs extends ConfigapiDeleteRespon
   @override
   final JsonObject data;
 
-  factory _$ConfigapiDeleteResponseApplicationJson_Ocs(
-          [void Function(ConfigapiDeleteResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ConfigapiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ConfigapiDeleteResponseApplicationJson_Ocs([
+    void Function(ConfigapiDeleteResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ConfigapiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ConfigapiDeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ConfigapiDeleteResponseApplicationJson_Ocs rebuild(
-          void Function(ConfigapiDeleteResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiDeleteResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiDeleteResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1676,7 +1747,8 @@ class ConfigapiDeleteResponseApplicationJson_OcsBuilder
     ConfigapiDeleteResponseApplicationJson_Ocs._validate(this);
     _$ConfigapiDeleteResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ConfigapiDeleteResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'ConfigapiDeleteResponseApplicationJson_Ocs', 'data'),
@@ -1707,15 +1779,15 @@ class _$ConfigapiDeleteResponseApplicationJson extends ConfigapiDeleteResponseAp
   @override
   final ConfigapiDeleteResponseApplicationJson_Ocs ocs;
 
-  factory _$ConfigapiDeleteResponseApplicationJson(
-          [void Function(ConfigapiDeleteResponseApplicationJsonBuilder)? updates]) =>
-      (ConfigapiDeleteResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConfigapiDeleteResponseApplicationJson([
+    void Function(ConfigapiDeleteResponseApplicationJsonBuilder)? updates,
+  ]) => (ConfigapiDeleteResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ConfigapiDeleteResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ConfigapiDeleteResponseApplicationJson rebuild(
-          void Function(ConfigapiDeleteResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConfigapiDeleteResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConfigapiDeleteResponseApplicationJsonBuilder toBuilder() =>
@@ -1782,10 +1854,7 @@ class ConfigapiDeleteResponseApplicationJsonBuilder
     ConfigapiDeleteResponseApplicationJson._validate(this);
     _$ConfigapiDeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConfigapiDeleteResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ConfigapiDeleteResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {

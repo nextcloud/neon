@@ -11,40 +11,40 @@ Serializer<ConversionApiConvertRequestApplicationJson> _$conversionApiConvertReq
     _$ConversionApiConvertRequestApplicationJsonSerializer();
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<ConversionApiConvertResponseApplicationJson_Ocs_Data>
-    _$conversionApiConvertResponseApplicationJsonOcsDataSerializer =
+_$conversionApiConvertResponseApplicationJsonOcsDataSerializer =
     _$ConversionApiConvertResponseApplicationJson_Ocs_DataSerializer();
 Serializer<ConversionApiConvertResponseApplicationJson_Ocs> _$conversionApiConvertResponseApplicationJsonOcsSerializer =
     _$ConversionApiConvertResponseApplicationJson_OcsSerializer();
 Serializer<ConversionApiConvertResponseApplicationJson> _$conversionApiConvertResponseApplicationJsonSerializer =
     _$ConversionApiConvertResponseApplicationJsonSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>
-    _$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
+_$directEditingInfoResponseApplicationJsonOcsDataEditorsSerializer =
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>
-    _$directEditingInfoResponseApplicationJsonOcsDataCreatorsSerializer =
+_$directEditingInfoResponseApplicationJsonOcsDataCreatorsSerializer =
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs_Data>
-    _$directEditingInfoResponseApplicationJsonOcsDataSerializer =
+_$directEditingInfoResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingInfoResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson_Ocs> _$directEditingInfoResponseApplicationJsonOcsSerializer =
     _$DirectEditingInfoResponseApplicationJson_OcsSerializer();
 Serializer<DirectEditingInfoResponseApplicationJson> _$directEditingInfoResponseApplicationJsonSerializer =
     _$DirectEditingInfoResponseApplicationJsonSerializer();
 Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>
-    _$directEditingTemplatesResponseApplicationJsonOcsDataTemplatesSerializer =
+_$directEditingTemplatesResponseApplicationJsonOcsDataTemplatesSerializer =
     _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializer();
 Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs_Data>
-    _$directEditingTemplatesResponseApplicationJsonOcsDataSerializer =
+_$directEditingTemplatesResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DirectEditingTemplatesResponseApplicationJson_Ocs>
-    _$directEditingTemplatesResponseApplicationJsonOcsSerializer =
+_$directEditingTemplatesResponseApplicationJsonOcsSerializer =
     _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer();
 Serializer<DirectEditingTemplatesResponseApplicationJson> _$directEditingTemplatesResponseApplicationJsonSerializer =
     _$DirectEditingTemplatesResponseApplicationJsonSerializer();
 Serializer<DirectEditingOpenRequestApplicationJson> _$directEditingOpenRequestApplicationJsonSerializer =
     _$DirectEditingOpenRequestApplicationJsonSerializer();
 Serializer<DirectEditingOpenResponseApplicationJson_Ocs_Data>
-    _$directEditingOpenResponseApplicationJsonOcsDataSerializer =
+_$directEditingOpenResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DirectEditingOpenResponseApplicationJson_Ocs> _$directEditingOpenResponseApplicationJsonOcsSerializer =
     _$DirectEditingOpenResponseApplicationJson_OcsSerializer();
@@ -53,7 +53,7 @@ Serializer<DirectEditingOpenResponseApplicationJson> _$directEditingOpenResponse
 Serializer<DirectEditingCreateRequestApplicationJson> _$directEditingCreateRequestApplicationJsonSerializer =
     _$DirectEditingCreateRequestApplicationJsonSerializer();
 Serializer<DirectEditingCreateResponseApplicationJson_Ocs_Data>
-    _$directEditingCreateResponseApplicationJsonOcsDataSerializer =
+_$directEditingCreateResponseApplicationJsonOcsDataSerializer =
     _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DirectEditingCreateResponseApplicationJson_Ocs> _$directEditingCreateResponseApplicationJsonOcsSerializer =
     _$DirectEditingCreateResponseApplicationJson_OcsSerializer();
@@ -62,20 +62,20 @@ Serializer<DirectEditingCreateResponseApplicationJson> _$directEditingCreateResp
 Serializer<OpenLocalEditorCreateRequestApplicationJson> _$openLocalEditorCreateRequestApplicationJsonSerializer =
     _$OpenLocalEditorCreateRequestApplicationJsonSerializer();
 Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data>
-    _$openLocalEditorCreateResponseApplicationJsonOcsDataSerializer =
+_$openLocalEditorCreateResponseApplicationJsonOcsDataSerializer =
     _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer();
 Serializer<OpenLocalEditorCreateResponseApplicationJson_Ocs>
-    _$openLocalEditorCreateResponseApplicationJsonOcsSerializer =
+_$openLocalEditorCreateResponseApplicationJsonOcsSerializer =
     _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer();
 Serializer<OpenLocalEditorCreateResponseApplicationJson> _$openLocalEditorCreateResponseApplicationJsonSerializer =
     _$OpenLocalEditorCreateResponseApplicationJsonSerializer();
 Serializer<OpenLocalEditorValidateRequestApplicationJson> _$openLocalEditorValidateRequestApplicationJsonSerializer =
     _$OpenLocalEditorValidateRequestApplicationJsonSerializer();
 Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data>
-    _$openLocalEditorValidateResponseApplicationJsonOcsDataSerializer =
+_$openLocalEditorValidateResponseApplicationJsonOcsDataSerializer =
     _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer();
 Serializer<OpenLocalEditorValidateResponseApplicationJson_Ocs>
-    _$openLocalEditorValidateResponseApplicationJsonOcsSerializer =
+_$openLocalEditorValidateResponseApplicationJsonOcsSerializer =
     _$OpenLocalEditorValidateResponseApplicationJson_OcsSerializer();
 Serializer<OpenLocalEditorValidateResponseApplicationJson> _$openLocalEditorValidateResponseApplicationJsonSerializer =
     _$OpenLocalEditorValidateResponseApplicationJsonSerializer();
@@ -89,10 +89,10 @@ Serializer<TemplateListResponseApplicationJson_Ocs> _$templateListResponseApplic
 Serializer<TemplateListResponseApplicationJson> _$templateListResponseApplicationJsonSerializer =
     _$TemplateListResponseApplicationJsonSerializer();
 Serializer<TemplateListTemplateFieldsResponseApplicationJson_Ocs>
-    _$templateListTemplateFieldsResponseApplicationJsonOcsSerializer =
+_$templateListTemplateFieldsResponseApplicationJsonOcsSerializer =
     _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer();
 Serializer<TemplateListTemplateFieldsResponseApplicationJson>
-    _$templateListTemplateFieldsResponseApplicationJsonSerializer =
+_$templateListTemplateFieldsResponseApplicationJsonSerializer =
     _$TemplateListTemplateFieldsResponseApplicationJsonSerializer();
 Serializer<TemplateCreateRequestApplicationJson> _$templateCreateRequestApplicationJsonSerializer =
     _$TemplateCreateRequestApplicationJsonSerializer();
@@ -110,21 +110,21 @@ Serializer<TemplatePathResponseApplicationJson_Ocs> _$templatePathResponseApplic
 Serializer<TemplatePathResponseApplicationJson> _$templatePathResponseApplicationJsonSerializer =
     _$TemplatePathResponseApplicationJsonSerializer();
 Serializer<TransferOwnershipTransferRequestApplicationJson>
-    _$transferOwnershipTransferRequestApplicationJsonSerializer =
+_$transferOwnershipTransferRequestApplicationJsonSerializer =
     _$TransferOwnershipTransferRequestApplicationJsonSerializer();
 Serializer<TransferOwnershipTransferResponseApplicationJson_Ocs>
-    _$transferOwnershipTransferResponseApplicationJsonOcsSerializer =
+_$transferOwnershipTransferResponseApplicationJsonOcsSerializer =
     _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer();
 Serializer<TransferOwnershipTransferResponseApplicationJson>
-    _$transferOwnershipTransferResponseApplicationJsonSerializer =
+_$transferOwnershipTransferResponseApplicationJsonSerializer =
     _$TransferOwnershipTransferResponseApplicationJsonSerializer();
 Serializer<TransferOwnershipAcceptResponseApplicationJson_Ocs>
-    _$transferOwnershipAcceptResponseApplicationJsonOcsSerializer =
+_$transferOwnershipAcceptResponseApplicationJsonOcsSerializer =
     _$TransferOwnershipAcceptResponseApplicationJson_OcsSerializer();
 Serializer<TransferOwnershipAcceptResponseApplicationJson> _$transferOwnershipAcceptResponseApplicationJsonSerializer =
     _$TransferOwnershipAcceptResponseApplicationJsonSerializer();
 Serializer<TransferOwnershipRejectResponseApplicationJson_Ocs>
-    _$transferOwnershipRejectResponseApplicationJsonOcsSerializer =
+_$transferOwnershipRejectResponseApplicationJsonOcsSerializer =
     _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer();
 Serializer<TransferOwnershipRejectResponseApplicationJson> _$transferOwnershipRejectResponseApplicationJsonSerializer =
     _$TransferOwnershipRejectResponseApplicationJsonSerializer();
@@ -144,16 +144,21 @@ class _$FolderTreeSerializer implements StructuredSerializer<FolderTree> {
   final String wireName = 'FolderTree';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, FolderTree object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    FolderTree object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
       'basename',
       serializers.serialize(object.basename, specifiedType: const FullType(String)),
       'children',
-      serializers.serialize(object.children,
-          specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
+      serializers.serialize(
+        object.children,
+        specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]),
+      ),
     ];
     Object? value;
     value = object.displayName;
@@ -166,8 +171,11 @@ class _$FolderTreeSerializer implements StructuredSerializer<FolderTree> {
   }
 
   @override
-  FolderTree deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  FolderTree deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = FolderTreeBuilder();
 
     final iterator = serialized.iterator;
@@ -186,8 +194,13 @@ class _$FolderTreeSerializer implements StructuredSerializer<FolderTree> {
           result.displayName = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'children':
-          result.children.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
+          result.children.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -201,14 +214,17 @@ class _$ConversionApiConvertRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ConversionApiConvertRequestApplicationJson,
-    _$ConversionApiConvertRequestApplicationJson
+    _$ConversionApiConvertRequestApplicationJson,
   ];
   @override
   final String wireName = 'ConversionApiConvertRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConversionApiConvertRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'fileId',
       serializers.serialize(object.fileId, specifiedType: const FullType(int)),
@@ -226,8 +242,11 @@ class _$ConversionApiConvertRequestApplicationJsonSerializer
   }
 
   @override
-  ConversionApiConvertRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConversionApiConvertRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConversionApiConvertRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -259,8 +278,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -290,8 +312,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -327,14 +352,17 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ConversionApiConvertResponseApplicationJson_Ocs_Data,
-    _$ConversionApiConvertResponseApplicationJson_Ocs_Data
+    _$ConversionApiConvertResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ConversionApiConvertResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConversionApiConvertResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
@@ -347,8 +375,10 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs_DataSerializer
 
   @override
   ConversionApiConvertResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -375,28 +405,36 @@ class _$ConversionApiConvertResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ConversionApiConvertResponseApplicationJson_Ocs,
-    _$ConversionApiConvertResponseApplicationJson_Ocs
+    _$ConversionApiConvertResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ConversionApiConvertResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConversionApiConvertResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ConversionApiConvertResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConversionApiConvertResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConversionApiConvertResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -409,9 +447,13 @@ class _$ConversionApiConvertResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data))!
-              as ConversionApiConvertResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data),
+                )!
+                as ConversionApiConvertResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -425,14 +467,17 @@ class _$ConversionApiConvertResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ConversionApiConvertResponseApplicationJson,
-    _$ConversionApiConvertResponseApplicationJson
+    _$ConversionApiConvertResponseApplicationJson,
   ];
   @override
   final String wireName = 'ConversionApiConvertResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ConversionApiConvertResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ConversionApiConvertResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs)),
@@ -442,8 +487,11 @@ class _$ConversionApiConvertResponseApplicationJsonSerializer
   }
 
   @override
-  ConversionApiConvertResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ConversionApiConvertResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConversionApiConvertResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -453,9 +501,13 @@ class _$ConversionApiConvertResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs))!
-              as ConversionApiConvertResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ConversionApiConvertResponseApplicationJson_Ocs),
+                )!
+                as ConversionApiConvertResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -469,14 +521,17 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
-    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
   ];
   @override
   final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -485,8 +540,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
       'mimetypes',
       serializers.serialize(object.mimetypes, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
       'optionalMimetypes',
-      serializers.serialize(object.optionalMimetypes,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.optionalMimetypes,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'secure',
       serializers.serialize(object.secure, specifiedType: const FullType(bool)),
     ];
@@ -496,8 +553,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
 
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder();
 
     final iterator = serialized.iterator;
@@ -513,12 +572,16 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsSerializer
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mimetypes':
-          result.mimetypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.mimetypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'optionalMimetypes':
-          result.optionalMimetypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.optionalMimetypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'secure':
           result.secure = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -535,15 +598,17 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
-    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
   ];
   @override
   final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -564,8 +629,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer
 
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder();
 
     final iterator = serialized.iterator;
@@ -590,8 +657,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsSerializer
           result.templates = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'mimetypes':
-          result.mimetypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.mimetypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -605,35 +674,45 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingInfoResponseApplicationJson_Ocs_Data,
-    _$DirectEditingInfoResponseApplicationJson_Ocs_Data
+    _$DirectEditingInfoResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingInfoResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'editors',
-      serializers.serialize(object.editors,
-          specifiedType: const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)
-          ])),
+      serializers.serialize(
+        object.editors,
+        specifiedType: const FullType(BuiltMap, const [
+          const FullType(String),
+          const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
+        ]),
+      ),
       'creators',
-      serializers.serialize(object.creators,
-          specifiedType: const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)
-          ])),
+      serializers.serialize(
+        object.creators,
+        specifiedType: const FullType(BuiltMap, const [
+          const FullType(String),
+          const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
+        ]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingInfoResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingInfoResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -643,18 +722,26 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'editors':
-          result.editors.replace(serializers.deserialize(value,
+          result.editors.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors)
-              ]))!);
+                const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
+              ]),
+            )!,
+          );
           break;
         case 'creators':
-          result.creators.replace(serializers.deserialize(value,
+          result.creators.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators)
-              ]))!);
+                const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
+              ]),
+            )!,
+          );
           break;
       }
     }
@@ -668,28 +755,36 @@ class _$DirectEditingInfoResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingInfoResponseApplicationJson_Ocs,
-    _$DirectEditingInfoResponseApplicationJson_Ocs
+    _$DirectEditingInfoResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DirectEditingInfoResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingInfoResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingInfoResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingInfoResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingInfoResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -702,9 +797,13 @@ class _$DirectEditingInfoResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data))!
-              as DirectEditingInfoResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data),
+                )!
+                as DirectEditingInfoResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -718,14 +817,17 @@ class _$DirectEditingInfoResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingInfoResponseApplicationJson,
-    _$DirectEditingInfoResponseApplicationJson
+    _$DirectEditingInfoResponseApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingInfoResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingInfoResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingInfoResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs)),
@@ -735,8 +837,11 @@ class _$DirectEditingInfoResponseApplicationJsonSerializer
   }
 
   @override
-  DirectEditingInfoResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingInfoResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingInfoResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -746,9 +851,10 @@ class _$DirectEditingInfoResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs))!
-              as DirectEditingInfoResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(DirectEditingInfoResponseApplicationJson_Ocs))!
+                as DirectEditingInfoResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -762,15 +868,17 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializ
   @override
   final Iterable<Type> types = const [
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
-    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
   ];
   @override
   final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -793,8 +901,10 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesSerializ
 
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder();
 
     final iterator = serialized.iterator;
@@ -830,21 +940,26 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
-    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingTemplatesResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'templates',
-      serializers.serialize(object.templates,
-          specifiedType: const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)
-          ])),
+      serializers.serialize(
+        object.templates,
+        specifiedType: const FullType(BuiltMap, const [
+          const FullType(String),
+          const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
+        ]),
+      ),
     ];
 
     return result;
@@ -852,8 +967,10 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
 
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -863,11 +980,15 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'templates':
-          result.templates.replace(serializers.deserialize(value,
+          result.templates.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates)
-              ]))!);
+                const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
+              ]),
+            )!,
+          );
           break;
       }
     }
@@ -881,28 +1002,36 @@ class _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingTemplatesResponseApplicationJson_Ocs,
-    _$DirectEditingTemplatesResponseApplicationJson_Ocs
+    _$DirectEditingTemplatesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DirectEditingTemplatesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingTemplatesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingTemplatesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingTemplatesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingTemplatesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -915,9 +1044,13 @@ class _$DirectEditingTemplatesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data))!
-              as DirectEditingTemplatesResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data),
+                )!
+                as DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -931,26 +1064,34 @@ class _$DirectEditingTemplatesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingTemplatesResponseApplicationJson,
-    _$DirectEditingTemplatesResponseApplicationJson
+    _$DirectEditingTemplatesResponseApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingTemplatesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingTemplatesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingTemplatesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingTemplatesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingTemplatesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingTemplatesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -960,9 +1101,13 @@ class _$DirectEditingTemplatesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs))!
-              as DirectEditingTemplatesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs),
+                )!
+                as DirectEditingTemplatesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -976,18 +1121,18 @@ class _$DirectEditingOpenRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingOpenRequestApplicationJson,
-    _$DirectEditingOpenRequestApplicationJson
+    _$DirectEditingOpenRequestApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingOpenRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'path',
-      serializers.serialize(object.path, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingOpenRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['path', serializers.serialize(object.path, specifiedType: const FullType(String))];
     Object? value;
     value = object.editorId;
     if (value != null) {
@@ -1005,8 +1150,11 @@ class _$DirectEditingOpenRequestApplicationJsonSerializer
   }
 
   @override
-  DirectEditingOpenRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingOpenRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingOpenRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1036,25 +1184,28 @@ class _$DirectEditingOpenResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingOpenResponseApplicationJson_Ocs_Data,
-    _$DirectEditingOpenResponseApplicationJson_Ocs_Data
+    _$DirectEditingOpenResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DirectEditingOpenResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingOpenResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['url', serializers.serialize(object.url, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  DirectEditingOpenResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingOpenResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1078,28 +1229,36 @@ class _$DirectEditingOpenResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingOpenResponseApplicationJson_Ocs,
-    _$DirectEditingOpenResponseApplicationJson_Ocs
+    _$DirectEditingOpenResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DirectEditingOpenResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingOpenResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingOpenResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingOpenResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingOpenResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1112,9 +1271,13 @@ class _$DirectEditingOpenResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data))!
-              as DirectEditingOpenResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data),
+                )!
+                as DirectEditingOpenResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1128,14 +1291,17 @@ class _$DirectEditingOpenResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingOpenResponseApplicationJson,
-    _$DirectEditingOpenResponseApplicationJson
+    _$DirectEditingOpenResponseApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingOpenResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingOpenResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingOpenResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs)),
@@ -1145,8 +1311,11 @@ class _$DirectEditingOpenResponseApplicationJsonSerializer
   }
 
   @override
-  DirectEditingOpenResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingOpenResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingOpenResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1156,9 +1325,10 @@ class _$DirectEditingOpenResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs))!
-              as DirectEditingOpenResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(DirectEditingOpenResponseApplicationJson_Ocs))!
+                as DirectEditingOpenResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1172,14 +1342,17 @@ class _$DirectEditingCreateRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingCreateRequestApplicationJson,
-    _$DirectEditingCreateRequestApplicationJson
+    _$DirectEditingCreateRequestApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
@@ -1199,8 +1372,11 @@ class _$DirectEditingCreateRequestApplicationJsonSerializer
   }
 
   @override
-  DirectEditingCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1233,25 +1409,28 @@ class _$DirectEditingCreateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingCreateResponseApplicationJson_Ocs_Data,
-    _$DirectEditingCreateResponseApplicationJson_Ocs_Data
+    _$DirectEditingCreateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DirectEditingCreateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingCreateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['url', serializers.serialize(object.url, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  DirectEditingCreateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingCreateResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1275,28 +1454,36 @@ class _$DirectEditingCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingCreateResponseApplicationJson_Ocs,
-    _$DirectEditingCreateResponseApplicationJson_Ocs
+    _$DirectEditingCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DirectEditingCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DirectEditingCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1309,9 +1496,13 @@ class _$DirectEditingCreateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data))!
-              as DirectEditingCreateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data),
+                )!
+                as DirectEditingCreateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1325,14 +1516,17 @@ class _$DirectEditingCreateResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DirectEditingCreateResponseApplicationJson,
-    _$DirectEditingCreateResponseApplicationJson
+    _$DirectEditingCreateResponseApplicationJson,
   ];
   @override
   final String wireName = 'DirectEditingCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DirectEditingCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DirectEditingCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs)),
@@ -1342,8 +1536,11 @@ class _$DirectEditingCreateResponseApplicationJsonSerializer
   }
 
   @override
-  DirectEditingCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DirectEditingCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DirectEditingCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1353,9 +1550,13 @@ class _$DirectEditingCreateResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs))!
-              as DirectEditingCreateResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DirectEditingCreateResponseApplicationJson_Ocs),
+                )!
+                as DirectEditingCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1369,25 +1570,28 @@ class _$OpenLocalEditorCreateRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorCreateRequestApplicationJson,
-    _$OpenLocalEditorCreateRequestApplicationJson
+    _$OpenLocalEditorCreateRequestApplicationJson,
   ];
   @override
   final String wireName = 'OpenLocalEditorCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'path',
-      serializers.serialize(object.path, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['path', serializers.serialize(object.path, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  OpenLocalEditorCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1411,14 +1615,17 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
-    _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorCreateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'pathHash',
       serializers.serialize(object.pathHash, specifiedType: const FullType(String)),
@@ -1439,8 +1646,10 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_DataSerializer
 
   @override
   OpenLocalEditorCreateResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1473,28 +1682,36 @@ class _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorCreateResponseApplicationJson_Ocs,
-    _$OpenLocalEditorCreateResponseApplicationJson_Ocs
+    _$OpenLocalEditorCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'OpenLocalEditorCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  OpenLocalEditorCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1507,9 +1724,13 @@ class _$OpenLocalEditorCreateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data))!
-              as OpenLocalEditorCreateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data),
+                )!
+                as OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1523,26 +1744,34 @@ class _$OpenLocalEditorCreateResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorCreateResponseApplicationJson,
-    _$OpenLocalEditorCreateResponseApplicationJson
+    _$OpenLocalEditorCreateResponseApplicationJson,
   ];
   @override
   final String wireName = 'OpenLocalEditorCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  OpenLocalEditorCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1552,9 +1781,13 @@ class _$OpenLocalEditorCreateResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs))!
-              as OpenLocalEditorCreateResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs),
+                )!
+                as OpenLocalEditorCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1568,25 +1801,28 @@ class _$OpenLocalEditorValidateRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorValidateRequestApplicationJson,
-    _$OpenLocalEditorValidateRequestApplicationJson
+    _$OpenLocalEditorValidateRequestApplicationJson,
   ];
   @override
   final String wireName = 'OpenLocalEditorValidateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'path',
-      serializers.serialize(object.path, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorValidateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['path', serializers.serialize(object.path, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  OpenLocalEditorValidateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorValidateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorValidateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1610,14 +1846,17 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
-    _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorValidateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'userId',
       serializers.serialize(object.userId, specifiedType: const FullType(String)),
@@ -1634,8 +1873,10 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_DataSerializer
 
   @override
   OpenLocalEditorValidateResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1668,28 +1909,36 @@ class _$OpenLocalEditorValidateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorValidateResponseApplicationJson_Ocs,
-    _$OpenLocalEditorValidateResponseApplicationJson_Ocs
+    _$OpenLocalEditorValidateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'OpenLocalEditorValidateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorValidateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  OpenLocalEditorValidateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorValidateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorValidateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1702,9 +1951,13 @@ class _$OpenLocalEditorValidateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data))!
-              as OpenLocalEditorValidateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data),
+                )!
+                as OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1718,26 +1971,34 @@ class _$OpenLocalEditorValidateResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     OpenLocalEditorValidateResponseApplicationJson,
-    _$OpenLocalEditorValidateResponseApplicationJson
+    _$OpenLocalEditorValidateResponseApplicationJson,
   ];
   @override
   final String wireName = 'OpenLocalEditorValidateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OpenLocalEditorValidateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OpenLocalEditorValidateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  OpenLocalEditorValidateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OpenLocalEditorValidateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OpenLocalEditorValidateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1747,9 +2008,13 @@ class _$OpenLocalEditorValidateResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs))!
-              as OpenLocalEditorValidateResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs),
+                )!
+                as OpenLocalEditorValidateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1765,8 +2030,11 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
   final String wireName = 'TemplateFileCreator';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateFileCreator object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateFileCreator object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'app',
       serializers.serialize(object.app, specifiedType: const FullType(String)),
@@ -1802,8 +2070,11 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
   }
 
   @override
-  TemplateFileCreator deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateFileCreator deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateFileCreatorBuilder();
 
     final iterator = serialized.iterator;
@@ -1828,8 +2099,10 @@ class _$TemplateFileCreatorSerializer implements StructuredSerializer<TemplateFi
           result.iconSvgInline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'mimetypes':
-          result.mimetypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.mimetypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'ratio':
           result.ratio = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
@@ -1851,8 +2124,11 @@ class _$TemplateFieldSerializer implements StructuredSerializer<TemplateField> {
   final String wireName = 'TemplateField';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateField object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateField object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'index',
       serializers.serialize(object.index, specifiedType: const FullType(String)),
@@ -1894,8 +2170,11 @@ class _$TemplateFieldSerializer implements StructuredSerializer<TemplateField> {
   }
 
   @override
-  TemplateField deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateField deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateFieldBuilder();
 
     final iterator = serialized.iterator;
@@ -1939,8 +2218,11 @@ class _$TemplateSerializer implements StructuredSerializer<Template> {
   final String wireName = 'Template';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Template object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Template object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'templateType',
       serializers.serialize(object.templateType, specifiedType: const FullType(String)),
@@ -1965,8 +2247,10 @@ class _$TemplateSerializer implements StructuredSerializer<Template> {
       'hasPreview',
       serializers.serialize(object.hasPreview, specifiedType: const FullType(bool)),
       'fields',
-      serializers.serialize(object.fields,
-          specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)])),
+      serializers.serialize(
+        object.fields,
+        specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]),
+      ),
     ];
     Object? value;
     value = object.previewUrl;
@@ -1979,8 +2263,11 @@ class _$TemplateSerializer implements StructuredSerializer<Template> {
   }
 
   @override
-  Template deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Template deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateBuilder();
 
     final iterator = serialized.iterator;
@@ -2026,8 +2313,13 @@ class _$TemplateSerializer implements StructuredSerializer<Template> {
           result.previewUrl = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'fields':
-          result.fields.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]))! as BuiltList<Object?>);
+          result.fields.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2043,12 +2335,17 @@ class _$TemplateFileCreatorWithTemplatesSerializer implements StructuredSerializ
   final String wireName = 'TemplateFileCreatorWithTemplates';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateFileCreatorWithTemplates object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateFileCreatorWithTemplates object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'templates',
-      serializers.serialize(object.templates,
-          specifiedType: const FullType(BuiltList, const [const FullType(Template)])),
+      serializers.serialize(
+        object.templates,
+        specifiedType: const FullType(BuiltList, const [const FullType(Template)]),
+      ),
       'app',
       serializers.serialize(object.app, specifiedType: const FullType(String)),
       'label',
@@ -2083,8 +2380,11 @@ class _$TemplateFileCreatorWithTemplatesSerializer implements StructuredSerializ
   }
 
   @override
-  TemplateFileCreatorWithTemplates deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateFileCreatorWithTemplates deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateFileCreatorWithTemplatesBuilder();
 
     final iterator = serialized.iterator;
@@ -2094,8 +2394,10 @@ class _$TemplateFileCreatorWithTemplatesSerializer implements StructuredSerializ
       final Object? value = iterator.current;
       switch (key) {
         case 'templates':
-          result.templates.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Template)]))! as BuiltList<Object?>);
+          result.templates.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Template)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'app':
           result.app = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -2113,8 +2415,10 @@ class _$TemplateFileCreatorWithTemplatesSerializer implements StructuredSerializ
           result.iconSvgInline = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'mimetypes':
-          result.mimetypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.mimetypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'ratio':
           result.ratio = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
@@ -2134,28 +2438,36 @@ class _$TemplateListResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TemplateListResponseApplicationJson_Ocs,
-    _$TemplateListResponseApplicationJson_Ocs
+    _$TemplateListResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TemplateListResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateListResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateListResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreatorWithTemplates)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreatorWithTemplates)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TemplateListResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateListResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateListResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2168,9 +2480,13 @@ class _$TemplateListResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreatorWithTemplates)]))!
-              as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreatorWithTemplates)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2187,8 +2503,11 @@ class _$TemplateListResponseApplicationJsonSerializer
   final String wireName = 'TemplateListResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateListResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateListResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs)),
@@ -2198,8 +2517,11 @@ class _$TemplateListResponseApplicationJsonSerializer
   }
 
   @override
-  TemplateListResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateListResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateListResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2210,8 +2532,9 @@ class _$TemplateListResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs))!
-                  as TemplateListResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TemplateListResponseApplicationJson_Ocs))!
+                as TemplateListResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2225,20 +2548,25 @@ class _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TemplateListTemplateFieldsResponseApplicationJson_Ocs,
-    _$TemplateListTemplateFieldsResponseApplicationJson_Ocs
+    _$TemplateListTemplateFieldsResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TemplateListTemplateFieldsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateListTemplateFieldsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateListTemplateFieldsResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)]),
+      ),
     ];
 
     return result;
@@ -2246,8 +2574,10 @@ class _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer
 
   @override
   TemplateListTemplateFieldsResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2260,8 +2590,12 @@ class _$TemplateListTemplateFieldsResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)]))!);
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(TemplateField)]),
+            )!,
+          );
           break;
       }
     }
@@ -2275,26 +2609,34 @@ class _$TemplateListTemplateFieldsResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TemplateListTemplateFieldsResponseApplicationJson,
-    _$TemplateListTemplateFieldsResponseApplicationJson
+    _$TemplateListTemplateFieldsResponseApplicationJson,
   ];
   @override
   final String wireName = 'TemplateListTemplateFieldsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateListTemplateFieldsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateListTemplateFieldsResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TemplateListTemplateFieldsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateListTemplateFieldsResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateListTemplateFieldsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2304,9 +2646,13 @@ class _$TemplateListTemplateFieldsResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs))!
-              as TemplateListTemplateFieldsResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs),
+                )!
+                as TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2323,8 +2669,11 @@ class _$TemplateCreateRequestApplicationJsonSerializer
   final String wireName = 'TemplateCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'filePath',
       serializers.serialize(object.filePath, specifiedType: const FullType(String)),
@@ -2333,16 +2682,21 @@ class _$TemplateCreateRequestApplicationJsonSerializer
       'templateType',
       serializers.serialize(object.templateType, specifiedType: const FullType(String)),
       'templateFields',
-      serializers.serialize(object.templateFields,
-          specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)])),
+      serializers.serialize(
+        object.templateFields,
+        specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TemplateCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2361,8 +2715,13 @@ class _$TemplateCreateRequestApplicationJsonSerializer
           result.templateType = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'templateFields':
-          result.templateFields.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]))! as BuiltList<Object?>);
+          result.templateFields.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateField)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2378,8 +2737,11 @@ class _$TemplateFileSerializer implements StructuredSerializer<TemplateFile> {
   final String wireName = 'TemplateFile';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateFile object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateFile object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'basename',
       serializers.serialize(object.basename, specifiedType: const FullType(String)),
@@ -2409,8 +2771,11 @@ class _$TemplateFileSerializer implements StructuredSerializer<TemplateFile> {
   }
 
   @override
-  TemplateFile deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateFile deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateFileBuilder();
 
     final iterator = serialized.iterator;
@@ -2458,14 +2823,17 @@ class _$TemplateCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TemplateCreateResponseApplicationJson_Ocs,
-    _$TemplateCreateResponseApplicationJson_Ocs
+    _$TemplateCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TemplateCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2477,8 +2845,11 @@ class _$TemplateCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TemplateCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2491,8 +2862,9 @@ class _$TemplateCreateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(TemplateFile))! as TemplateFile);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(TemplateFile))! as TemplateFile,
+          );
           break;
       }
     }
@@ -2509,8 +2881,11 @@ class _$TemplateCreateResponseApplicationJsonSerializer
   final String wireName = 'TemplateCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplateCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplateCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TemplateCreateResponseApplicationJson_Ocs)),
@@ -2520,8 +2895,11 @@ class _$TemplateCreateResponseApplicationJsonSerializer
   }
 
   @override
-  TemplateCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplateCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplateCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2532,8 +2910,9 @@ class _$TemplateCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TemplateCreateResponseApplicationJson_Ocs))!
-                  as TemplateCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TemplateCreateResponseApplicationJson_Ocs))!
+                as TemplateCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2550,8 +2929,11 @@ class _$TemplatePathRequestApplicationJsonSerializer
   final String wireName = 'TemplatePathRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplatePathRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplatePathRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'templatePath',
       serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
@@ -2563,8 +2945,11 @@ class _$TemplatePathRequestApplicationJsonSerializer
   }
 
   @override
-  TemplatePathRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplatePathRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplatePathRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2591,28 +2976,36 @@ class _$TemplatePathResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     TemplatePathResponseApplicationJson_Ocs_Data,
-    _$TemplatePathResponseApplicationJson_Ocs_Data
+    _$TemplatePathResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'TemplatePathResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplatePathResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'template_path',
       serializers.serialize(object.templatePath, specifiedType: const FullType(String)),
       'templates',
-      serializers.serialize(object.templates,
-          specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreator)])),
+      serializers.serialize(
+        object.templates,
+        specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreator)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TemplatePathResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplatePathResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplatePathResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -2625,9 +3018,13 @@ class _$TemplatePathResponseApplicationJson_Ocs_DataSerializer
           result.templatePath = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'templates':
-          result.templates.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreator)]))!
-              as BuiltList<Object?>);
+          result.templates.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(TemplateFileCreator)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2641,14 +3038,17 @@ class _$TemplatePathResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TemplatePathResponseApplicationJson_Ocs,
-    _$TemplatePathResponseApplicationJson_Ocs
+    _$TemplatePathResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TemplatePathResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplatePathResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2660,8 +3060,11 @@ class _$TemplatePathResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TemplatePathResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplatePathResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplatePathResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2674,9 +3077,10 @@ class _$TemplatePathResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs_Data))!
-              as TemplatePathResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs_Data))!
+                as TemplatePathResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -2693,8 +3097,11 @@ class _$TemplatePathResponseApplicationJsonSerializer
   final String wireName = 'TemplatePathResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TemplatePathResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TemplatePathResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs)),
@@ -2704,8 +3111,11 @@ class _$TemplatePathResponseApplicationJsonSerializer
   }
 
   @override
-  TemplatePathResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TemplatePathResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TemplatePathResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2716,8 +3126,9 @@ class _$TemplatePathResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs))!
-                  as TemplatePathResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TemplatePathResponseApplicationJson_Ocs))!
+                as TemplatePathResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2731,14 +3142,17 @@ class _$TransferOwnershipTransferRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipTransferRequestApplicationJson,
-    _$TransferOwnershipTransferRequestApplicationJson
+    _$TransferOwnershipTransferRequestApplicationJson,
   ];
   @override
   final String wireName = 'TransferOwnershipTransferRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipTransferRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'recipient',
       serializers.serialize(object.recipient, specifiedType: const FullType(String)),
@@ -2750,8 +3164,11 @@ class _$TransferOwnershipTransferRequestApplicationJsonSerializer
   }
 
   @override
-  TransferOwnershipTransferRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipTransferRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipTransferRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2778,14 +3195,17 @@ class _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipTransferResponseApplicationJson_Ocs,
-    _$TransferOwnershipTransferResponseApplicationJson_Ocs
+    _$TransferOwnershipTransferResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TransferOwnershipTransferResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipTransferResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2798,8 +3218,10 @@ class _$TransferOwnershipTransferResponseApplicationJson_OcsSerializer
 
   @override
   TransferOwnershipTransferResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipTransferResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2826,26 +3248,34 @@ class _$TransferOwnershipTransferResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipTransferResponseApplicationJson,
-    _$TransferOwnershipTransferResponseApplicationJson
+    _$TransferOwnershipTransferResponseApplicationJson,
   ];
   @override
   final String wireName = 'TransferOwnershipTransferResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipTransferResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipTransferResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TransferOwnershipTransferResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipTransferResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipTransferResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2855,9 +3285,13 @@ class _$TransferOwnershipTransferResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs))!
-              as TransferOwnershipTransferResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs),
+                )!
+                as TransferOwnershipTransferResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2871,14 +3305,17 @@ class _$TransferOwnershipAcceptResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipAcceptResponseApplicationJson_Ocs,
-    _$TransferOwnershipAcceptResponseApplicationJson_Ocs
+    _$TransferOwnershipAcceptResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TransferOwnershipAcceptResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipAcceptResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipAcceptResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2890,8 +3327,11 @@ class _$TransferOwnershipAcceptResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TransferOwnershipAcceptResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipAcceptResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipAcceptResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -2918,26 +3358,34 @@ class _$TransferOwnershipAcceptResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipAcceptResponseApplicationJson,
-    _$TransferOwnershipAcceptResponseApplicationJson
+    _$TransferOwnershipAcceptResponseApplicationJson,
   ];
   @override
   final String wireName = 'TransferOwnershipAcceptResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipAcceptResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipAcceptResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TransferOwnershipAcceptResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipAcceptResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipAcceptResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2947,9 +3395,13 @@ class _$TransferOwnershipAcceptResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs))!
-              as TransferOwnershipAcceptResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs),
+                )!
+                as TransferOwnershipAcceptResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -2963,14 +3415,17 @@ class _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipRejectResponseApplicationJson_Ocs,
-    _$TransferOwnershipRejectResponseApplicationJson_Ocs
+    _$TransferOwnershipRejectResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TransferOwnershipRejectResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipRejectResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipRejectResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -2982,8 +3437,11 @@ class _$TransferOwnershipRejectResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TransferOwnershipRejectResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipRejectResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipRejectResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -3010,26 +3468,34 @@ class _$TransferOwnershipRejectResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TransferOwnershipRejectResponseApplicationJson,
-    _$TransferOwnershipRejectResponseApplicationJson
+    _$TransferOwnershipRejectResponseApplicationJson,
   ];
   @override
   final String wireName = 'TransferOwnershipRejectResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TransferOwnershipRejectResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TransferOwnershipRejectResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TransferOwnershipRejectResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TransferOwnershipRejectResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TransferOwnershipRejectResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3039,9 +3505,13 @@ class _$TransferOwnershipRejectResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs))!
-              as TransferOwnershipRejectResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs),
+                )!
+                as TransferOwnershipRejectResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -3057,8 +3527,11 @@ class _$Capabilities_Files_ChunkedUploadSerializer implements StructuredSerializ
   final String wireName = 'Capabilities_Files_ChunkedUpload';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_ChunkedUpload object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files_ChunkedUpload object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'max_size',
       serializers.serialize(object.maxSize, specifiedType: const FullType(int)),
@@ -3070,8 +3543,11 @@ class _$Capabilities_Files_ChunkedUploadSerializer implements StructuredSerializ
   }
 
   @override
-  Capabilities_Files_ChunkedUpload deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files_ChunkedUpload deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_Files_ChunkedUploadBuilder();
 
     final iterator = serialized.iterator;
@@ -3101,8 +3577,11 @@ class _$Capabilities_Files_FileConversionsSerializer
   final String wireName = 'Capabilities_Files_FileConversions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_FileConversions object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files_FileConversions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'from',
       serializers.serialize(object.from, specifiedType: const FullType(String)),
@@ -3118,8 +3597,11 @@ class _$Capabilities_Files_FileConversionsSerializer
   }
 
   @override
-  Capabilities_Files_FileConversions deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files_FileConversions deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_Files_FileConversionsBuilder();
 
     final iterator = serialized.iterator;
@@ -3154,8 +3636,11 @@ class _$Capabilities_Files_DirectEditingSerializer implements StructuredSerializ
   final String wireName = 'Capabilities_Files_DirectEditing';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files_DirectEditing object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files_DirectEditing object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'url',
       serializers.serialize(object.url, specifiedType: const FullType(String)),
@@ -3169,8 +3654,11 @@ class _$Capabilities_Files_DirectEditingSerializer implements StructuredSerializ
   }
 
   @override
-  Capabilities_Files_DirectEditing deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files_DirectEditing deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_Files_DirectEditingBuilder();
 
     final iterator = serialized.iterator;
@@ -3202,26 +3690,39 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'bigfilechunking',
       serializers.serialize(object.bigfilechunking, specifiedType: const FullType(bool)),
       'blacklisted_files',
-      serializers.serialize(object.blacklistedFiles,
-          specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
+      serializers.serialize(
+        object.blacklistedFiles,
+        specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]),
+      ),
       'forbidden_filenames',
-      serializers.serialize(object.forbiddenFilenames,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.forbiddenFilenames,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'forbidden_filename_basenames',
-      serializers.serialize(object.forbiddenFilenameBasenames,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.forbiddenFilenameBasenames,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'forbidden_filename_characters',
-      serializers.serialize(object.forbiddenFilenameCharacters,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.forbiddenFilenameCharacters,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'forbidden_filename_extensions',
-      serializers.serialize(object.forbiddenFilenameExtensions,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.forbiddenFilenameExtensions,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'directEditing',
       serializers.serialize(object.directEditing, specifiedType: const FullType(Capabilities_Files_DirectEditing)),
     ];
@@ -3242,15 +3743,22 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
     if (value != null) {
       result
         ..add('file_conversions')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [const FullType(Capabilities_Files_FileConversions)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [const FullType(Capabilities_Files_FileConversions)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
@@ -3266,37 +3774,58 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
           result.bigfilechunking = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'blacklisted_files':
-          result.blacklistedFiles.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
+          result.blacklistedFiles.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'forbidden_filenames':
-          result.forbiddenFilenames.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.forbiddenFilenames.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'forbidden_filename_basenames':
-          result.forbiddenFilenameBasenames.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.forbiddenFilenameBasenames.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'forbidden_filename_characters':
-          result.forbiddenFilenameCharacters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.forbiddenFilenameCharacters.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'forbidden_filename_extensions':
-          result.forbiddenFilenameExtensions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.forbiddenFilenameExtensions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'chunked_upload':
-          result.chunkedUpload.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_Files_ChunkedUpload))! as Capabilities_Files_ChunkedUpload);
+          result.chunkedUpload.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files_ChunkedUpload))!
+                as Capabilities_Files_ChunkedUpload,
+          );
           break;
         case 'file_conversions':
-          result.fileConversions.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(Capabilities_Files_FileConversions)]))!
-              as BuiltList<Object?>);
+          result.fileConversions.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(Capabilities_Files_FileConversions)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'directEditing':
-          result.directEditing.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_Files_DirectEditing))! as Capabilities_Files_DirectEditing);
+          result.directEditing.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files_DirectEditing))!
+                as Capabilities_Files_DirectEditing,
+          );
           break;
       }
     }
@@ -3312,8 +3841,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'files',
       serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
@@ -3323,8 +3855,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -3335,7 +3870,8 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       switch (key) {
         case 'files':
           result.files.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files,
+          );
           break;
       }
     }
@@ -3463,7 +3999,8 @@ class FolderTreeBuilder implements Builder<FolderTree, FolderTreeBuilder>, $Fold
     FolderTree._validate(this);
     _$FolderTree _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$FolderTree._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'FolderTree', 'id'),
             basename: BuiltValueNullFieldError.checkNotNull(basename, r'FolderTree', 'basename'),
@@ -3506,16 +4043,16 @@ class _$ConversionApiConvertRequestApplicationJson extends ConversionApiConvertR
   @override
   final String? destination;
 
-  factory _$ConversionApiConvertRequestApplicationJson(
-          [void Function(ConversionApiConvertRequestApplicationJsonBuilder)? updates]) =>
-      (ConversionApiConvertRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConversionApiConvertRequestApplicationJson([
+    void Function(ConversionApiConvertRequestApplicationJsonBuilder)? updates,
+  ]) => (ConversionApiConvertRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ConversionApiConvertRequestApplicationJson._({required this.fileId, required this.targetMimeType, this.destination})
-      : super._();
+    : super._();
   @override
   ConversionApiConvertRequestApplicationJson rebuild(
-          void Function(ConversionApiConvertRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConversionApiConvertRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConversionApiConvertRequestApplicationJsonBuilder toBuilder() =>
@@ -3598,12 +4135,19 @@ class ConversionApiConvertRequestApplicationJsonBuilder
 
   _$ConversionApiConvertRequestApplicationJson _build() {
     ConversionApiConvertRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ConversionApiConvertRequestApplicationJson._(
-          fileId:
-              BuiltValueNullFieldError.checkNotNull(fileId, r'ConversionApiConvertRequestApplicationJson', 'fileId'),
+          fileId: BuiltValueNullFieldError.checkNotNull(
+            fileId,
+            r'ConversionApiConvertRequestApplicationJson',
+            'fileId',
+          ),
           targetMimeType: BuiltValueNullFieldError.checkNotNull(
-              targetMimeType, r'ConversionApiConvertRequestApplicationJson', 'targetMimeType'),
+            targetMimeType,
+            r'ConversionApiConvertRequestApplicationJson',
+            'targetMimeType',
+          ),
           destination: destination,
         );
     replace(_$result);
@@ -3645,7 +4189,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -3742,7 +4286,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -3772,15 +4317,15 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs_Data
   @override
   final int fileId;
 
-  factory _$ConversionApiConvertResponseApplicationJson_Ocs_Data(
-          [void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ConversionApiConvertResponseApplicationJson_Ocs_Data([
+    void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ConversionApiConvertResponseApplicationJson_Ocs_Data._({required this.path, required this.fileId}) : super._();
   @override
   ConversionApiConvertResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -3814,8 +4359,10 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs_Data
 
 class ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<ConversionApiConvertResponseApplicationJson_Ocs_Data,
-            ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          ConversionApiConvertResponseApplicationJson_Ocs_Data,
+          ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder
+        >,
         $ConversionApiConvertResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$ConversionApiConvertResponseApplicationJson_Ocs_Data? _$v;
 
@@ -3856,12 +4403,19 @@ class ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder
 
   _$ConversionApiConvertResponseApplicationJson_Ocs_Data _build() {
     ConversionApiConvertResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ConversionApiConvertResponseApplicationJson_Ocs_Data._(
           path: BuiltValueNullFieldError.checkNotNull(
-              path, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'path'),
+            path,
+            r'ConversionApiConvertResponseApplicationJson_Ocs_Data',
+            'path',
+          ),
           fileId: BuiltValueNullFieldError.checkNotNull(
-              fileId, r'ConversionApiConvertResponseApplicationJson_Ocs_Data', 'fileId'),
+            fileId,
+            r'ConversionApiConvertResponseApplicationJson_Ocs_Data',
+            'fileId',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -3884,15 +4438,15 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs extends ConversionApiCon
   @override
   final ConversionApiConvertResponseApplicationJson_Ocs_Data data;
 
-  factory _$ConversionApiConvertResponseApplicationJson_Ocs(
-          [void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ConversionApiConvertResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ConversionApiConvertResponseApplicationJson_Ocs([
+    void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ConversionApiConvertResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ConversionApiConvertResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ConversionApiConvertResponseApplicationJson_Ocs rebuild(
-          void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConversionApiConvertResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConversionApiConvertResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3924,8 +4478,10 @@ class _$ConversionApiConvertResponseApplicationJson_Ocs extends ConversionApiCon
 
 class ConversionApiConvertResponseApplicationJson_OcsBuilder
     implements
-        Builder<ConversionApiConvertResponseApplicationJson_Ocs,
-            ConversionApiConvertResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ConversionApiConvertResponseApplicationJson_Ocs,
+          ConversionApiConvertResponseApplicationJson_OcsBuilder
+        >,
         $ConversionApiConvertResponseApplicationJson_OcsInterfaceBuilder {
   _$ConversionApiConvertResponseApplicationJson_Ocs? _$v;
 
@@ -3969,11 +4525,7 @@ class ConversionApiConvertResponseApplicationJson_OcsBuilder
     ConversionApiConvertResponseApplicationJson_Ocs._validate(this);
     _$ConversionApiConvertResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ConversionApiConvertResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ConversionApiConvertResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3983,7 +4535,10 @@ class ConversionApiConvertResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ConversionApiConvertResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ConversionApiConvertResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4003,15 +4558,15 @@ class _$ConversionApiConvertResponseApplicationJson extends ConversionApiConvert
   @override
   final ConversionApiConvertResponseApplicationJson_Ocs ocs;
 
-  factory _$ConversionApiConvertResponseApplicationJson(
-          [void Function(ConversionApiConvertResponseApplicationJsonBuilder)? updates]) =>
-      (ConversionApiConvertResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ConversionApiConvertResponseApplicationJson([
+    void Function(ConversionApiConvertResponseApplicationJsonBuilder)? updates,
+  ]) => (ConversionApiConvertResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ConversionApiConvertResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ConversionApiConvertResponseApplicationJson rebuild(
-          void Function(ConversionApiConvertResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ConversionApiConvertResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ConversionApiConvertResponseApplicationJsonBuilder toBuilder() =>
@@ -4078,10 +4633,7 @@ class ConversionApiConvertResponseApplicationJsonBuilder
     ConversionApiConvertResponseApplicationJson._validate(this);
     _$ConversionApiConvertResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ConversionApiConvertResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ConversionApiConvertResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4129,21 +4681,21 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
   @override
   final bool secure;
 
-  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors(
-          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates]) =>
-      (DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors([
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? updates,
+  ]) => (DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder()..update(updates))._build();
 
-  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
-      {required this.id,
-      required this.name,
-      required this.mimetypes,
-      required this.optionalMimetypes,
-      required this.secure})
-      : super._();
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._({
+    required this.id,
+    required this.name,
+    required this.mimetypes,
+    required this.optionalMimetypes,
+    required this.secure,
+  }) : super._();
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors rebuild(
-          void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder toBuilder() =>
@@ -4186,8 +4738,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
 
 class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
     implements
-        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
-            DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder>,
+        Builder<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
+        >,
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors? _$v;
 
@@ -4246,16 +4800,26 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
     DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'id'),
+              id,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors',
+              'id',
+            ),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'name'),
+              name,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors',
+              'name',
+            ),
             mimetypes: mimetypes.build(),
             optionalMimetypes: optionalMimetypes.build(),
             secure: BuiltValueNullFieldError.checkNotNull(
-                secure, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', 'secure'),
+              secure,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors',
+              'secure',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -4266,7 +4830,10 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
         optionalMimetypes.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors', _$failedField, e.toString());
+          r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4312,22 +4879,22 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
   @override
   final BuiltList<String> mimetypes;
 
-  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators(
-          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates]) =>
-      (DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators([
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? updates,
+  ]) => (DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder()..update(updates))._build();
 
-  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
-      {required this.id,
-      required this.editor,
-      required this.name,
-      required this.$extension,
-      required this.templates,
-      required this.mimetypes})
-      : super._();
+  _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._({
+    required this.id,
+    required this.editor,
+    required this.name,
+    required this.$extension,
+    required this.templates,
+    required this.mimetypes,
+  }) : super._();
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators rebuild(
-          void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder toBuilder() =>
@@ -4373,8 +4940,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
 
 class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
     implements
-        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
-            DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder>,
+        Builder<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
+        >,
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators? _$v;
 
@@ -4437,18 +5006,34 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
     DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators._(
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'id'),
+              id,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+              'id',
+            ),
             editor: BuiltValueNullFieldError.checkNotNull(
-                editor, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'editor'),
+              editor,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+              'editor',
+            ),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'name'),
+              name,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+              'name',
+            ),
             $extension: BuiltValueNullFieldError.checkNotNull(
-                $extension, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', '\$extension'),
+              $extension,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+              '\$extension',
+            ),
             templates: BuiltValueNullFieldError.checkNotNull(
-                templates, r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', 'templates'),
+              templates,
+              r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+              'templates',
+            ),
             mimetypes: mimetypes.build(),
           );
     } catch (_) {
@@ -4458,7 +5043,10 @@ class DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
         mimetypes.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators', _$failedField, e.toString());
+          r'DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4483,15 +5071,15 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data extends DirectEditingI
   @override
   final BuiltMap<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators> creators;
 
-  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data(
-          [void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs_Data([
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data._({required this.editors, required this.creators}) : super._();
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -4525,8 +5113,10 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs_Data extends DirectEditingI
 
 class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DirectEditingInfoResponseApplicationJson_Ocs_Data,
-            DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data,
+          DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DirectEditingInfoResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingInfoResponseApplicationJson_Ocs_Data? _$v;
 
@@ -4573,11 +5163,9 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
     DirectEditingInfoResponseApplicationJson_Ocs_Data._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingInfoResponseApplicationJson_Ocs_Data._(
-            editors: editors.build(),
-            creators: creators.build(),
-          );
+      _$result =
+          _$v ??
+          _$DirectEditingInfoResponseApplicationJson_Ocs_Data._(editors: editors.build(), creators: creators.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4587,7 +5175,10 @@ class DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
         creators.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingInfoResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DirectEditingInfoResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4612,15 +5203,15 @@ class _$DirectEditingInfoResponseApplicationJson_Ocs extends DirectEditingInfoRe
   @override
   final DirectEditingInfoResponseApplicationJson_Ocs_Data data;
 
-  factory _$DirectEditingInfoResponseApplicationJson_Ocs(
-          [void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DirectEditingInfoResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson_Ocs([
+    void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DirectEditingInfoResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DirectEditingInfoResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DirectEditingInfoResponseApplicationJson_Ocs rebuild(
-          void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingInfoResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingInfoResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4696,11 +5287,7 @@ class DirectEditingInfoResponseApplicationJson_OcsBuilder
     DirectEditingInfoResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingInfoResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingInfoResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4729,15 +5316,15 @@ class _$DirectEditingInfoResponseApplicationJson extends DirectEditingInfoRespon
   @override
   final DirectEditingInfoResponseApplicationJson_Ocs ocs;
 
-  factory _$DirectEditingInfoResponseApplicationJson(
-          [void Function(DirectEditingInfoResponseApplicationJsonBuilder)? updates]) =>
-      (DirectEditingInfoResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingInfoResponseApplicationJson([
+    void Function(DirectEditingInfoResponseApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingInfoResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectEditingInfoResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DirectEditingInfoResponseApplicationJson rebuild(
-          void Function(DirectEditingInfoResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingInfoResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingInfoResponseApplicationJsonBuilder toBuilder() =>
@@ -4804,10 +5391,7 @@ class DirectEditingInfoResponseApplicationJsonBuilder
     DirectEditingInfoResponseApplicationJson._validate(this);
     _$DirectEditingInfoResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingInfoResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DirectEditingInfoResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4855,17 +5439,21 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
   @override
   final String mimetype;
 
-  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates(
-          [void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates]) =>
-      (DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates([
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? updates,
+  ]) => (DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder()..update(updates))._build();
 
-  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
-      {required this.id, required this.title, this.preview, required this.$extension, required this.mimetype})
-      : super._();
+  _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._({
+    required this.id,
+    required this.title,
+    this.preview,
+    required this.$extension,
+    required this.mimetype,
+  }) : super._();
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates rebuild(
-          void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder toBuilder() =>
@@ -4908,8 +5496,10 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
 
 class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
     implements
-        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
-            DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder>,
+        Builder<
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
+        >,
         $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates? _$v;
 
@@ -4965,17 +5555,30 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates _build() {
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates._(
           id: BuiltValueNullFieldError.checkNotNull(
-              id, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'id'),
+            id,
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates',
+            'id',
+          ),
           title: BuiltValueNullFieldError.checkNotNull(
-              title, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'title'),
+            title,
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates',
+            'title',
+          ),
           preview: preview,
           $extension: BuiltValueNullFieldError.checkNotNull(
-              $extension, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', '\$extension'),
+            $extension,
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates',
+            '\$extension',
+          ),
           mimetype: BuiltValueNullFieldError.checkNotNull(
-              mimetype, r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates', 'mimetype'),
+            mimetype,
+            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates',
+            'mimetype',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -4994,15 +5597,15 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data
   @override
   final BuiltMap<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> templates;
 
-  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data(
-          [void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data([
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._({required this.templates}) : super._();
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -5025,15 +5628,16 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data')
-          ..add('templates', templates))
-        .toString();
+      ..add('templates', templates)).toString();
   }
 }
 
 class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
-            DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
+          DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data? _$v;
 
@@ -5041,8 +5645,8 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
   MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates> get templates =>
       _$this._templates ??= MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>();
   set templates(
-          covariant MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates) =>
-      _$this._templates = templates;
+    covariant MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>? templates,
+  ) => _$this._templates = templates;
 
   DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder() {
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data._defaults(this);
@@ -5074,10 +5678,7 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
     DirectEditingTemplatesResponseApplicationJson_Ocs_Data._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(
-            templates: templates.build(),
-          );
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs_Data._(templates: templates.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5085,7 +5686,10 @@ class DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
         templates.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DirectEditingTemplatesResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -5110,15 +5714,15 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs extends DirectEditingT
   @override
   final DirectEditingTemplatesResponseApplicationJson_Ocs_Data data;
 
-  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs(
-          [void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DirectEditingTemplatesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson_Ocs([
+    void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DirectEditingTemplatesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DirectEditingTemplatesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DirectEditingTemplatesResponseApplicationJson_Ocs rebuild(
-          void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingTemplatesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -5150,8 +5754,10 @@ class _$DirectEditingTemplatesResponseApplicationJson_Ocs extends DirectEditingT
 
 class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
     implements
-        Builder<DirectEditingTemplatesResponseApplicationJson_Ocs,
-            DirectEditingTemplatesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DirectEditingTemplatesResponseApplicationJson_Ocs,
+          DirectEditingTemplatesResponseApplicationJson_OcsBuilder
+        >,
         $DirectEditingTemplatesResponseApplicationJson_OcsInterfaceBuilder {
   _$DirectEditingTemplatesResponseApplicationJson_Ocs? _$v;
 
@@ -5195,11 +5801,7 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
     DirectEditingTemplatesResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingTemplatesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5209,7 +5811,10 @@ class DirectEditingTemplatesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingTemplatesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DirectEditingTemplatesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -5229,15 +5834,15 @@ class _$DirectEditingTemplatesResponseApplicationJson extends DirectEditingTempl
   @override
   final DirectEditingTemplatesResponseApplicationJson_Ocs ocs;
 
-  factory _$DirectEditingTemplatesResponseApplicationJson(
-          [void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? updates]) =>
-      (DirectEditingTemplatesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingTemplatesResponseApplicationJson([
+    void Function(DirectEditingTemplatesResponseApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingTemplatesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectEditingTemplatesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DirectEditingTemplatesResponseApplicationJson rebuild(
-          void Function(DirectEditingTemplatesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingTemplatesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingTemplatesResponseApplicationJsonBuilder toBuilder() =>
@@ -5304,10 +5909,7 @@ class DirectEditingTemplatesResponseApplicationJsonBuilder
     DirectEditingTemplatesResponseApplicationJson._validate(this);
     _$DirectEditingTemplatesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingTemplatesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DirectEditingTemplatesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5344,15 +5946,15 @@ class _$DirectEditingOpenRequestApplicationJson extends DirectEditingOpenRequest
   @override
   final int? fileId;
 
-  factory _$DirectEditingOpenRequestApplicationJson(
-          [void Function(DirectEditingOpenRequestApplicationJsonBuilder)? updates]) =>
-      (DirectEditingOpenRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenRequestApplicationJson([
+    void Function(DirectEditingOpenRequestApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingOpenRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectEditingOpenRequestApplicationJson._({required this.path, this.editorId, this.fileId}) : super._();
   @override
   DirectEditingOpenRequestApplicationJson rebuild(
-          void Function(DirectEditingOpenRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingOpenRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingOpenRequestApplicationJsonBuilder toBuilder() =>
@@ -5435,7 +6037,8 @@ class DirectEditingOpenRequestApplicationJsonBuilder
 
   _$DirectEditingOpenRequestApplicationJson _build() {
     DirectEditingOpenRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DirectEditingOpenRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingOpenRequestApplicationJson', 'path'),
           editorId: editorId,
@@ -5457,15 +6060,15 @@ class _$DirectEditingOpenResponseApplicationJson_Ocs_Data extends DirectEditingO
   @override
   final String url;
 
-  factory _$DirectEditingOpenResponseApplicationJson_Ocs_Data(
-          [void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson_Ocs_Data([
+    void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DirectEditingOpenResponseApplicationJson_Ocs_Data._({required this.url}) : super._();
   @override
   DirectEditingOpenResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -5487,15 +6090,17 @@ class _$DirectEditingOpenResponseApplicationJson_Ocs_Data extends DirectEditingO
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DirectEditingOpenResponseApplicationJson_Ocs_Data')..add('url', url))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingOpenResponseApplicationJson_Ocs_Data')
+      ..add('url', url)).toString();
   }
 }
 
 class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DirectEditingOpenResponseApplicationJson_Ocs_Data,
-            DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DirectEditingOpenResponseApplicationJson_Ocs_Data,
+          DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DirectEditingOpenResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingOpenResponseApplicationJson_Ocs_Data? _$v;
 
@@ -5531,7 +6136,8 @@ class DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
 
   _$DirectEditingOpenResponseApplicationJson_Ocs_Data _build() {
     DirectEditingOpenResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DirectEditingOpenResponseApplicationJson_Ocs_Data._(
           url: BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingOpenResponseApplicationJson_Ocs_Data', 'url'),
         );
@@ -5556,15 +6162,15 @@ class _$DirectEditingOpenResponseApplicationJson_Ocs extends DirectEditingOpenRe
   @override
   final DirectEditingOpenResponseApplicationJson_Ocs_Data data;
 
-  factory _$DirectEditingOpenResponseApplicationJson_Ocs(
-          [void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DirectEditingOpenResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson_Ocs([
+    void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DirectEditingOpenResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DirectEditingOpenResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DirectEditingOpenResponseApplicationJson_Ocs rebuild(
-          void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingOpenResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingOpenResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -5640,11 +6246,7 @@ class DirectEditingOpenResponseApplicationJson_OcsBuilder
     DirectEditingOpenResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingOpenResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingOpenResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5673,15 +6275,15 @@ class _$DirectEditingOpenResponseApplicationJson extends DirectEditingOpenRespon
   @override
   final DirectEditingOpenResponseApplicationJson_Ocs ocs;
 
-  factory _$DirectEditingOpenResponseApplicationJson(
-          [void Function(DirectEditingOpenResponseApplicationJsonBuilder)? updates]) =>
-      (DirectEditingOpenResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingOpenResponseApplicationJson([
+    void Function(DirectEditingOpenResponseApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingOpenResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectEditingOpenResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DirectEditingOpenResponseApplicationJson rebuild(
-          void Function(DirectEditingOpenResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingOpenResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingOpenResponseApplicationJsonBuilder toBuilder() =>
@@ -5748,10 +6350,7 @@ class DirectEditingOpenResponseApplicationJsonBuilder
     DirectEditingOpenResponseApplicationJson._validate(this);
     _$DirectEditingOpenResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingOpenResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DirectEditingOpenResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5793,17 +6392,20 @@ class _$DirectEditingCreateRequestApplicationJson extends DirectEditingCreateReq
   @override
   final String? templateId;
 
-  factory _$DirectEditingCreateRequestApplicationJson(
-          [void Function(DirectEditingCreateRequestApplicationJsonBuilder)? updates]) =>
-      (DirectEditingCreateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateRequestApplicationJson([
+    void Function(DirectEditingCreateRequestApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$DirectEditingCreateRequestApplicationJson._(
-      {required this.path, required this.editorId, required this.creatorId, this.templateId})
-      : super._();
+  _$DirectEditingCreateRequestApplicationJson._({
+    required this.path,
+    required this.editorId,
+    required this.creatorId,
+    this.templateId,
+  }) : super._();
   @override
   DirectEditingCreateRequestApplicationJson rebuild(
-          void Function(DirectEditingCreateRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingCreateRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingCreateRequestApplicationJsonBuilder toBuilder() =>
@@ -5894,13 +6496,20 @@ class DirectEditingCreateRequestApplicationJsonBuilder
 
   _$DirectEditingCreateRequestApplicationJson _build() {
     DirectEditingCreateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DirectEditingCreateRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'DirectEditingCreateRequestApplicationJson', 'path'),
-          editorId:
-              BuiltValueNullFieldError.checkNotNull(editorId, r'DirectEditingCreateRequestApplicationJson', 'editorId'),
+          editorId: BuiltValueNullFieldError.checkNotNull(
+            editorId,
+            r'DirectEditingCreateRequestApplicationJson',
+            'editorId',
+          ),
           creatorId: BuiltValueNullFieldError.checkNotNull(
-              creatorId, r'DirectEditingCreateRequestApplicationJson', 'creatorId'),
+            creatorId,
+            r'DirectEditingCreateRequestApplicationJson',
+            'creatorId',
+          ),
           templateId: templateId,
         );
     replace(_$result);
@@ -5920,15 +6529,15 @@ class _$DirectEditingCreateResponseApplicationJson_Ocs_Data
   @override
   final String url;
 
-  factory _$DirectEditingCreateResponseApplicationJson_Ocs_Data(
-          [void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson_Ocs_Data([
+    void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DirectEditingCreateResponseApplicationJson_Ocs_Data._({required this.url}) : super._();
   @override
   DirectEditingCreateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -5950,15 +6559,17 @@ class _$DirectEditingCreateResponseApplicationJson_Ocs_Data
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DirectEditingCreateResponseApplicationJson_Ocs_Data')..add('url', url))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DirectEditingCreateResponseApplicationJson_Ocs_Data')
+      ..add('url', url)).toString();
   }
 }
 
 class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DirectEditingCreateResponseApplicationJson_Ocs_Data,
-            DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DirectEditingCreateResponseApplicationJson_Ocs_Data,
+          DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DirectEditingCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DirectEditingCreateResponseApplicationJson_Ocs_Data? _$v;
 
@@ -5994,10 +6605,14 @@ class DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
 
   _$DirectEditingCreateResponseApplicationJson_Ocs_Data _build() {
     DirectEditingCreateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$DirectEditingCreateResponseApplicationJson_Ocs_Data._(
-          url:
-              BuiltValueNullFieldError.checkNotNull(url, r'DirectEditingCreateResponseApplicationJson_Ocs_Data', 'url'),
+          url: BuiltValueNullFieldError.checkNotNull(
+            url,
+            r'DirectEditingCreateResponseApplicationJson_Ocs_Data',
+            'url',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -6020,15 +6635,15 @@ class _$DirectEditingCreateResponseApplicationJson_Ocs extends DirectEditingCrea
   @override
   final DirectEditingCreateResponseApplicationJson_Ocs_Data data;
 
-  factory _$DirectEditingCreateResponseApplicationJson_Ocs(
-          [void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DirectEditingCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson_Ocs([
+    void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DirectEditingCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DirectEditingCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DirectEditingCreateResponseApplicationJson_Ocs rebuild(
-          void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6104,11 +6719,7 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
     DirectEditingCreateResponseApplicationJson_Ocs._validate(this);
     _$DirectEditingCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6118,7 +6729,10 @@ class DirectEditingCreateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DirectEditingCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DirectEditingCreateResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -6138,15 +6752,15 @@ class _$DirectEditingCreateResponseApplicationJson extends DirectEditingCreateRe
   @override
   final DirectEditingCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$DirectEditingCreateResponseApplicationJson(
-          [void Function(DirectEditingCreateResponseApplicationJsonBuilder)? updates]) =>
-      (DirectEditingCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DirectEditingCreateResponseApplicationJson([
+    void Function(DirectEditingCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (DirectEditingCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DirectEditingCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DirectEditingCreateResponseApplicationJson rebuild(
-          void Function(DirectEditingCreateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DirectEditingCreateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DirectEditingCreateResponseApplicationJsonBuilder toBuilder() =>
@@ -6213,10 +6827,7 @@ class DirectEditingCreateResponseApplicationJsonBuilder
     DirectEditingCreateResponseApplicationJson._validate(this);
     _$DirectEditingCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DirectEditingCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DirectEditingCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6243,15 +6854,15 @@ class _$OpenLocalEditorCreateRequestApplicationJson extends OpenLocalEditorCreat
   @override
   final String path;
 
-  factory _$OpenLocalEditorCreateRequestApplicationJson(
-          [void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder)? updates]) =>
-      (OpenLocalEditorCreateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateRequestApplicationJson([
+    void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder)? updates,
+  ]) => (OpenLocalEditorCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$OpenLocalEditorCreateRequestApplicationJson._({required this.path}) : super._();
   @override
   OpenLocalEditorCreateRequestApplicationJson rebuild(
-          void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorCreateRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorCreateRequestApplicationJsonBuilder toBuilder() =>
@@ -6315,7 +6926,8 @@ class OpenLocalEditorCreateRequestApplicationJsonBuilder
 
   _$OpenLocalEditorCreateRequestApplicationJson _build() {
     OpenLocalEditorCreateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OpenLocalEditorCreateRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorCreateRequestApplicationJson', 'path'),
         );
@@ -6351,17 +6963,20 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
   @override
   final String token;
 
-  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data(
-          [void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data([
+    void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
-      {this.userId, required this.pathHash, required this.expirationTime, required this.token})
-      : super._();
+  _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._({
+    this.userId,
+    required this.pathHash,
+    required this.expirationTime,
+    required this.token,
+  }) : super._();
   @override
   OpenLocalEditorCreateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -6401,8 +7016,10 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
 
 class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
-            OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
+          OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
+        >,
         $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data? _$v;
 
@@ -6453,15 +7070,25 @@ class OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
 
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data _build() {
     OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OpenLocalEditorCreateResponseApplicationJson_Ocs_Data._(
           userId: userId,
           pathHash: BuiltValueNullFieldError.checkNotNull(
-              pathHash, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'pathHash'),
+            pathHash,
+            r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data',
+            'pathHash',
+          ),
           expirationTime: BuiltValueNullFieldError.checkNotNull(
-              expirationTime, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+            expirationTime,
+            r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data',
+            'expirationTime',
+          ),
           token: BuiltValueNullFieldError.checkNotNull(
-              token, r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data', 'token'),
+            token,
+            r'OpenLocalEditorCreateResponseApplicationJson_Ocs_Data',
+            'token',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -6484,15 +7111,15 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs extends OpenLocalEditor
   @override
   final OpenLocalEditorCreateResponseApplicationJson_Ocs_Data data;
 
-  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs(
-          [void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson_Ocs([
+    void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (OpenLocalEditorCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   OpenLocalEditorCreateResponseApplicationJson_Ocs rebuild(
-          void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6524,8 +7151,10 @@ class _$OpenLocalEditorCreateResponseApplicationJson_Ocs extends OpenLocalEditor
 
 class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
     implements
-        Builder<OpenLocalEditorCreateResponseApplicationJson_Ocs,
-            OpenLocalEditorCreateResponseApplicationJson_OcsBuilder>,
+        Builder<
+          OpenLocalEditorCreateResponseApplicationJson_Ocs,
+          OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
+        >,
         $OpenLocalEditorCreateResponseApplicationJson_OcsInterfaceBuilder {
   _$OpenLocalEditorCreateResponseApplicationJson_Ocs? _$v;
 
@@ -6569,11 +7198,7 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
     OpenLocalEditorCreateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6583,7 +7208,10 @@ class OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OpenLocalEditorCreateResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'OpenLocalEditorCreateResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -6603,15 +7231,15 @@ class _$OpenLocalEditorCreateResponseApplicationJson extends OpenLocalEditorCrea
   @override
   final OpenLocalEditorCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$OpenLocalEditorCreateResponseApplicationJson(
-          [void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? updates]) =>
-      (OpenLocalEditorCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorCreateResponseApplicationJson([
+    void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (OpenLocalEditorCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$OpenLocalEditorCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OpenLocalEditorCreateResponseApplicationJson rebuild(
-          void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorCreateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorCreateResponseApplicationJsonBuilder toBuilder() =>
@@ -6678,10 +7306,7 @@ class OpenLocalEditorCreateResponseApplicationJsonBuilder
     OpenLocalEditorCreateResponseApplicationJson._validate(this);
     _$OpenLocalEditorCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$OpenLocalEditorCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$OpenLocalEditorCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -6708,15 +7333,15 @@ class _$OpenLocalEditorValidateRequestApplicationJson extends OpenLocalEditorVal
   @override
   final String path;
 
-  factory _$OpenLocalEditorValidateRequestApplicationJson(
-          [void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder)? updates]) =>
-      (OpenLocalEditorValidateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateRequestApplicationJson([
+    void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder)? updates,
+  ]) => (OpenLocalEditorValidateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$OpenLocalEditorValidateRequestApplicationJson._({required this.path}) : super._();
   @override
   OpenLocalEditorValidateRequestApplicationJson rebuild(
-          void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorValidateRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorValidateRequestApplicationJsonBuilder toBuilder() =>
@@ -6738,8 +7363,8 @@ class _$OpenLocalEditorValidateRequestApplicationJson extends OpenLocalEditorVal
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateRequestApplicationJson')..add('path', path))
-        .toString();
+    return (newBuiltValueToStringHelper(r'OpenLocalEditorValidateRequestApplicationJson')
+      ..add('path', path)).toString();
   }
 }
 
@@ -6781,7 +7406,8 @@ class OpenLocalEditorValidateRequestApplicationJsonBuilder
 
   _$OpenLocalEditorValidateRequestApplicationJson _build() {
     OpenLocalEditorValidateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OpenLocalEditorValidateRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'OpenLocalEditorValidateRequestApplicationJson', 'path'),
         );
@@ -6817,17 +7443,20 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
   @override
   final String token;
 
-  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data(
-          [void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data([
+    void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
-      {required this.userId, required this.pathHash, required this.expirationTime, required this.token})
-      : super._();
+  _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._({
+    required this.userId,
+    required this.pathHash,
+    required this.expirationTime,
+    required this.token,
+  }) : super._();
   @override
   OpenLocalEditorValidateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -6867,8 +7496,10 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
 
 class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
-            OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
+          OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
+        >,
         $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data? _$v;
 
@@ -6919,16 +7550,29 @@ class OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
 
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data _build() {
     OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OpenLocalEditorValidateResponseApplicationJson_Ocs_Data._(
           userId: BuiltValueNullFieldError.checkNotNull(
-              userId, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'userId'),
+            userId,
+            r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data',
+            'userId',
+          ),
           pathHash: BuiltValueNullFieldError.checkNotNull(
-              pathHash, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'pathHash'),
+            pathHash,
+            r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data',
+            'pathHash',
+          ),
           expirationTime: BuiltValueNullFieldError.checkNotNull(
-              expirationTime, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'expirationTime'),
+            expirationTime,
+            r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data',
+            'expirationTime',
+          ),
           token: BuiltValueNullFieldError.checkNotNull(
-              token, r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data', 'token'),
+            token,
+            r'OpenLocalEditorValidateResponseApplicationJson_Ocs_Data',
+            'token',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -6951,15 +7595,15 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs extends OpenLocalEdit
   @override
   final OpenLocalEditorValidateResponseApplicationJson_Ocs_Data data;
 
-  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs(
-          [void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (OpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson_Ocs([
+    void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (OpenLocalEditorValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   OpenLocalEditorValidateResponseApplicationJson_Ocs rebuild(
-          void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorValidateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -6991,8 +7635,10 @@ class _$OpenLocalEditorValidateResponseApplicationJson_Ocs extends OpenLocalEdit
 
 class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
     implements
-        Builder<OpenLocalEditorValidateResponseApplicationJson_Ocs,
-            OpenLocalEditorValidateResponseApplicationJson_OcsBuilder>,
+        Builder<
+          OpenLocalEditorValidateResponseApplicationJson_Ocs,
+          OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
+        >,
         $OpenLocalEditorValidateResponseApplicationJson_OcsInterfaceBuilder {
   _$OpenLocalEditorValidateResponseApplicationJson_Ocs? _$v;
 
@@ -7036,11 +7682,7 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
     OpenLocalEditorValidateResponseApplicationJson_Ocs._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7050,7 +7692,10 @@ class OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OpenLocalEditorValidateResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'OpenLocalEditorValidateResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -7070,15 +7715,15 @@ class _$OpenLocalEditorValidateResponseApplicationJson extends OpenLocalEditorVa
   @override
   final OpenLocalEditorValidateResponseApplicationJson_Ocs ocs;
 
-  factory _$OpenLocalEditorValidateResponseApplicationJson(
-          [void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? updates]) =>
-      (OpenLocalEditorValidateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$OpenLocalEditorValidateResponseApplicationJson([
+    void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder)? updates,
+  ]) => (OpenLocalEditorValidateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$OpenLocalEditorValidateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   OpenLocalEditorValidateResponseApplicationJson rebuild(
-          void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(OpenLocalEditorValidateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   OpenLocalEditorValidateResponseApplicationJsonBuilder toBuilder() =>
@@ -7145,10 +7790,7 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
     OpenLocalEditorValidateResponseApplicationJson._validate(this);
     _$OpenLocalEditorValidateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$OpenLocalEditorValidateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$OpenLocalEditorValidateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -7156,7 +7798,10 @@ class OpenLocalEditorValidateResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'OpenLocalEditorValidateResponseApplicationJson', _$failedField, e.toString());
+          r'OpenLocalEditorValidateResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -7214,16 +7859,16 @@ class _$TemplateFileCreator extends TemplateFileCreator {
   factory _$TemplateFileCreator([void Function(TemplateFileCreatorBuilder)? updates]) =>
       (TemplateFileCreatorBuilder()..update(updates))._build();
 
-  _$TemplateFileCreator._(
-      {required this.app,
-      required this.label,
-      required this.$extension,
-      this.iconClass,
-      this.iconSvgInline,
-      required this.mimetypes,
-      this.ratio,
-      required this.actionLabel})
-      : super._();
+  _$TemplateFileCreator._({
+    required this.app,
+    required this.label,
+    required this.$extension,
+    this.iconClass,
+    this.iconSvgInline,
+    required this.mimetypes,
+    this.ratio,
+    required this.actionLabel,
+  }) : super._();
   @override
   TemplateFileCreator rebuild(void Function(TemplateFileCreatorBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -7348,7 +7993,8 @@ class TemplateFileCreatorBuilder
     TemplateFileCreator._validate(this);
     _$TemplateFileCreator _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TemplateFileCreator._(
             app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreator', 'app'),
             label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreator', 'label'),
@@ -7418,9 +8064,15 @@ class _$TemplateField extends TemplateField {
   factory _$TemplateField([void Function(TemplateFieldBuilder)? updates]) =>
       (TemplateFieldBuilder()..update(updates))._build();
 
-  _$TemplateField._(
-      {required this.index, required this.type, this.alias, this.tag, this.id, this.content, this.checked})
-      : super._();
+  _$TemplateField._({
+    required this.index,
+    required this.type,
+    this.alias,
+    this.tag,
+    this.id,
+    this.content,
+    this.checked,
+  }) : super._();
   @override
   TemplateField rebuild(void Function(TemplateFieldBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -7533,7 +8185,8 @@ class TemplateFieldBuilder implements Builder<TemplateField, TemplateFieldBuilde
 
   _$TemplateField _build() {
     TemplateField._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$TemplateField._(
           index: BuiltValueNullFieldError.checkNotNull(index, r'TemplateField', 'index'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'TemplateField', 'type'),
@@ -7621,21 +8274,21 @@ class _$Template extends Template {
 
   factory _$Template([void Function(TemplateBuilder)? updates]) => (TemplateBuilder()..update(updates))._build();
 
-  _$Template._(
-      {required this.templateType,
-      required this.templateId,
-      required this.basename,
-      required this.etag,
-      required this.fileid,
-      required this.filename,
-      required this.lastmod,
-      required this.mime,
-      required this.size,
-      required this.type,
-      required this.hasPreview,
-      this.previewUrl,
-      required this.fields})
-      : super._();
+  _$Template._({
+    required this.templateType,
+    required this.templateId,
+    required this.basename,
+    required this.etag,
+    required this.fileid,
+    required this.filename,
+    required this.lastmod,
+    required this.mime,
+    required this.size,
+    required this.type,
+    required this.hasPreview,
+    this.previewUrl,
+    required this.fields,
+  }) : super._();
   @override
   Template rebuild(void Function(TemplateBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -7798,7 +8451,8 @@ class TemplateBuilder implements Builder<Template, TemplateBuilder>, $TemplateIn
     Template._validate(this);
     _$Template _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Template._(
             templateType: BuiltValueNullFieldError.checkNotNull(templateType, r'Template', 'templateType'),
             templateId: BuiltValueNullFieldError.checkNotNull(templateId, r'Template', 'templateId'),
@@ -7883,17 +8537,17 @@ class _$TemplateFileCreatorWithTemplates extends TemplateFileCreatorWithTemplate
   factory _$TemplateFileCreatorWithTemplates([void Function(TemplateFileCreatorWithTemplatesBuilder)? updates]) =>
       (TemplateFileCreatorWithTemplatesBuilder()..update(updates))._build();
 
-  _$TemplateFileCreatorWithTemplates._(
-      {required this.templates,
-      required this.app,
-      required this.label,
-      required this.$extension,
-      this.iconClass,
-      this.iconSvgInline,
-      required this.mimetypes,
-      this.ratio,
-      required this.actionLabel})
-      : super._();
+  _$TemplateFileCreatorWithTemplates._({
+    required this.templates,
+    required this.app,
+    required this.label,
+    required this.$extension,
+    this.iconClass,
+    this.iconSvgInline,
+    required this.mimetypes,
+    this.ratio,
+    required this.actionLabel,
+  }) : super._();
   @override
   TemplateFileCreatorWithTemplates rebuild(void Function(TemplateFileCreatorWithTemplatesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -8028,19 +8682,26 @@ class TemplateFileCreatorWithTemplatesBuilder
     TemplateFileCreatorWithTemplates._validate(this);
     _$TemplateFileCreatorWithTemplates _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TemplateFileCreatorWithTemplates._(
             templates: templates.build(),
             app: BuiltValueNullFieldError.checkNotNull(app, r'TemplateFileCreatorWithTemplates', 'app'),
             label: BuiltValueNullFieldError.checkNotNull(label, r'TemplateFileCreatorWithTemplates', 'label'),
-            $extension:
-                BuiltValueNullFieldError.checkNotNull($extension, r'TemplateFileCreatorWithTemplates', '\$extension'),
+            $extension: BuiltValueNullFieldError.checkNotNull(
+              $extension,
+              r'TemplateFileCreatorWithTemplates',
+              '\$extension',
+            ),
             iconClass: iconClass,
             iconSvgInline: iconSvgInline,
             mimetypes: mimetypes.build(),
             ratio: ratio,
-            actionLabel:
-                BuiltValueNullFieldError.checkNotNull(actionLabel, r'TemplateFileCreatorWithTemplates', 'actionLabel'),
+            actionLabel: BuiltValueNullFieldError.checkNotNull(
+              actionLabel,
+              r'TemplateFileCreatorWithTemplates',
+              'actionLabel',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -8076,15 +8737,15 @@ class _$TemplateListResponseApplicationJson_Ocs extends TemplateListResponseAppl
   @override
   final BuiltList<TemplateFileCreatorWithTemplates> data;
 
-  factory _$TemplateListResponseApplicationJson_Ocs(
-          [void Function(TemplateListResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TemplateListResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplateListResponseApplicationJson_Ocs([
+    void Function(TemplateListResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TemplateListResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TemplateListResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TemplateListResponseApplicationJson_Ocs rebuild(
-          void Function(TemplateListResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplateListResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplateListResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -8160,11 +8821,7 @@ class TemplateListResponseApplicationJson_OcsBuilder
     TemplateListResponseApplicationJson_Ocs._validate(this);
     _$TemplateListResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TemplateListResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TemplateListResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8265,10 +8922,7 @@ class TemplateListResponseApplicationJsonBuilder
     TemplateListResponseApplicationJson._validate(this);
     _$TemplateListResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TemplateListResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TemplateListResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8301,15 +8955,15 @@ class _$TemplateListTemplateFieldsResponseApplicationJson_Ocs
   @override
   final BuiltMap<String, TemplateField> data;
 
-  factory _$TemplateListTemplateFieldsResponseApplicationJson_Ocs(
-          [void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplateListTemplateFieldsResponseApplicationJson_Ocs([
+    void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TemplateListTemplateFieldsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TemplateListTemplateFieldsResponseApplicationJson_Ocs rebuild(
-          void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -8341,8 +8995,10 @@ class _$TemplateListTemplateFieldsResponseApplicationJson_Ocs
 
 class TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
     implements
-        Builder<TemplateListTemplateFieldsResponseApplicationJson_Ocs,
-            TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder>,
+        Builder<
+          TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+          TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
+        >,
         $TemplateListTemplateFieldsResponseApplicationJson_OcsInterfaceBuilder {
   _$TemplateListTemplateFieldsResponseApplicationJson_Ocs? _$v;
 
@@ -8385,11 +9041,8 @@ class TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
     TemplateListTemplateFieldsResponseApplicationJson_Ocs._validate(this);
     _$TemplateListTemplateFieldsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TemplateListTemplateFieldsResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$TemplateListTemplateFieldsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8399,7 +9052,10 @@ class TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TemplateListTemplateFieldsResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'TemplateListTemplateFieldsResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -8419,15 +9075,15 @@ class _$TemplateListTemplateFieldsResponseApplicationJson extends TemplateListTe
   @override
   final TemplateListTemplateFieldsResponseApplicationJson_Ocs ocs;
 
-  factory _$TemplateListTemplateFieldsResponseApplicationJson(
-          [void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? updates]) =>
-      (TemplateListTemplateFieldsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplateListTemplateFieldsResponseApplicationJson([
+    void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? updates,
+  ]) => (TemplateListTemplateFieldsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TemplateListTemplateFieldsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TemplateListTemplateFieldsResponseApplicationJson rebuild(
-          void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplateListTemplateFieldsResponseApplicationJsonBuilder toBuilder() =>
@@ -8449,15 +9105,17 @@ class _$TemplateListTemplateFieldsResponseApplicationJson extends TemplateListTe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TemplateListTemplateFieldsResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'TemplateListTemplateFieldsResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class TemplateListTemplateFieldsResponseApplicationJsonBuilder
     implements
-        Builder<TemplateListTemplateFieldsResponseApplicationJson,
-            TemplateListTemplateFieldsResponseApplicationJsonBuilder>,
+        Builder<
+          TemplateListTemplateFieldsResponseApplicationJson,
+          TemplateListTemplateFieldsResponseApplicationJsonBuilder
+        >,
         $TemplateListTemplateFieldsResponseApplicationJsonInterfaceBuilder {
   _$TemplateListTemplateFieldsResponseApplicationJson? _$v;
 
@@ -8496,10 +9154,7 @@ class TemplateListTemplateFieldsResponseApplicationJsonBuilder
     TemplateListTemplateFieldsResponseApplicationJson._validate(this);
     _$TemplateListTemplateFieldsResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TemplateListTemplateFieldsResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TemplateListTemplateFieldsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -8507,7 +9162,10 @@ class TemplateListTemplateFieldsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TemplateListTemplateFieldsResponseApplicationJson', _$failedField, e.toString());
+          r'TemplateListTemplateFieldsResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -8542,13 +9200,16 @@ class _$TemplateCreateRequestApplicationJson extends TemplateCreateRequestApplic
   @override
   final BuiltList<TemplateField> templateFields;
 
-  factory _$TemplateCreateRequestApplicationJson(
-          [void Function(TemplateCreateRequestApplicationJsonBuilder)? updates]) =>
-      (TemplateCreateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplateCreateRequestApplicationJson([
+    void Function(TemplateCreateRequestApplicationJsonBuilder)? updates,
+  ]) => (TemplateCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$TemplateCreateRequestApplicationJson._(
-      {required this.filePath, required this.templatePath, required this.templateType, required this.templateFields})
-      : super._();
+  _$TemplateCreateRequestApplicationJson._({
+    required this.filePath,
+    required this.templatePath,
+    required this.templateType,
+    required this.templateFields,
+  }) : super._();
   @override
   TemplateCreateRequestApplicationJson rebuild(void Function(TemplateCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -8644,14 +9305,24 @@ class TemplateCreateRequestApplicationJsonBuilder
     TemplateCreateRequestApplicationJson._validate(this);
     _$TemplateCreateRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TemplateCreateRequestApplicationJson._(
-            filePath:
-                BuiltValueNullFieldError.checkNotNull(filePath, r'TemplateCreateRequestApplicationJson', 'filePath'),
+            filePath: BuiltValueNullFieldError.checkNotNull(
+              filePath,
+              r'TemplateCreateRequestApplicationJson',
+              'filePath',
+            ),
             templatePath: BuiltValueNullFieldError.checkNotNull(
-                templatePath, r'TemplateCreateRequestApplicationJson', 'templatePath'),
+              templatePath,
+              r'TemplateCreateRequestApplicationJson',
+              'templatePath',
+            ),
             templateType: BuiltValueNullFieldError.checkNotNull(
-                templateType, r'TemplateCreateRequestApplicationJson', 'templateType'),
+              templateType,
+              r'TemplateCreateRequestApplicationJson',
+              'templateType',
+            ),
             templateFields: templateFields.build(),
           );
     } catch (_) {
@@ -8723,17 +9394,17 @@ class _$TemplateFile extends TemplateFile {
   factory _$TemplateFile([void Function(TemplateFileBuilder)? updates]) =>
       (TemplateFileBuilder()..update(updates))._build();
 
-  _$TemplateFile._(
-      {required this.basename,
-      required this.etag,
-      required this.fileid,
-      this.filename,
-      required this.lastmod,
-      required this.mime,
-      required this.size,
-      required this.type,
-      required this.hasPreview})
-      : super._();
+  _$TemplateFile._({
+    required this.basename,
+    required this.etag,
+    required this.fileid,
+    this.filename,
+    required this.lastmod,
+    required this.mime,
+    required this.size,
+    required this.type,
+    required this.hasPreview,
+  }) : super._();
   @override
   TemplateFile rebuild(void Function(TemplateFileBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -8862,7 +9533,8 @@ class TemplateFileBuilder implements Builder<TemplateFile, TemplateFileBuilder>,
 
   _$TemplateFile _build() {
     TemplateFile._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$TemplateFile._(
           basename: BuiltValueNullFieldError.checkNotNull(basename, r'TemplateFile', 'basename'),
           etag: BuiltValueNullFieldError.checkNotNull(etag, r'TemplateFile', 'etag'),
@@ -8895,15 +9567,15 @@ class _$TemplateCreateResponseApplicationJson_Ocs extends TemplateCreateResponse
   @override
   final TemplateFile data;
 
-  factory _$TemplateCreateResponseApplicationJson_Ocs(
-          [void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TemplateCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplateCreateResponseApplicationJson_Ocs([
+    void Function(TemplateCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TemplateCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TemplateCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TemplateCreateResponseApplicationJson_Ocs rebuild(
-          void Function(TemplateCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplateCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplateCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -8978,11 +9650,7 @@ class TemplateCreateResponseApplicationJson_OcsBuilder
     TemplateCreateResponseApplicationJson_Ocs._validate(this);
     _$TemplateCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TemplateCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TemplateCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9011,9 +9679,9 @@ class _$TemplateCreateResponseApplicationJson extends TemplateCreateResponseAppl
   @override
   final TemplateCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$TemplateCreateResponseApplicationJson(
-          [void Function(TemplateCreateResponseApplicationJsonBuilder)? updates]) =>
-      (TemplateCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TemplateCreateResponseApplicationJson([
+    void Function(TemplateCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (TemplateCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TemplateCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -9085,10 +9753,7 @@ class TemplateCreateResponseApplicationJsonBuilder
     TemplateCreateResponseApplicationJson._validate(this);
     _$TemplateCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TemplateCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TemplateCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9200,12 +9865,19 @@ class TemplatePathRequestApplicationJsonBuilder
 
   _$TemplatePathRequestApplicationJson _build() {
     TemplatePathRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$TemplatePathRequestApplicationJson._(
           templatePath: BuiltValueNullFieldError.checkNotNull(
-              templatePath, r'TemplatePathRequestApplicationJson', 'templatePath'),
+            templatePath,
+            r'TemplatePathRequestApplicationJson',
+            'templatePath',
+          ),
           copySystemTemplates: BuiltValueNullFieldError.checkNotNull(
-              copySystemTemplates, r'TemplatePathRequestApplicationJson', 'copySystemTemplates'),
+            copySystemTemplates,
+            r'TemplatePathRequestApplicationJson',
+            'copySystemTemplates',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -9228,15 +9900,15 @@ class _$TemplatePathResponseApplicationJson_Ocs_Data extends TemplatePathRespons
   @override
   final BuiltList<TemplateFileCreator> templates;
 
-  factory _$TemplatePathResponseApplicationJson_Ocs_Data(
-          [void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (TemplatePathResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$TemplatePathResponseApplicationJson_Ocs_Data([
+    void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (TemplatePathResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$TemplatePathResponseApplicationJson_Ocs_Data._({required this.templatePath, required this.templates}) : super._();
   @override
   TemplatePathResponseApplicationJson_Ocs_Data rebuild(
-          void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplatePathResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplatePathResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -9313,10 +9985,14 @@ class TemplatePathResponseApplicationJson_Ocs_DataBuilder
     TemplatePathResponseApplicationJson_Ocs_Data._validate(this);
     _$TemplatePathResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TemplatePathResponseApplicationJson_Ocs_Data._(
             templatePath: BuiltValueNullFieldError.checkNotNull(
-                templatePath, r'TemplatePathResponseApplicationJson_Ocs_Data', 'templatePath'),
+              templatePath,
+              r'TemplatePathResponseApplicationJson_Ocs_Data',
+              'templatePath',
+            ),
             templates: templates.build(),
           );
     } catch (_) {
@@ -9350,15 +10026,15 @@ class _$TemplatePathResponseApplicationJson_Ocs extends TemplatePathResponseAppl
   @override
   final TemplatePathResponseApplicationJson_Ocs_Data data;
 
-  factory _$TemplatePathResponseApplicationJson_Ocs(
-          [void Function(TemplatePathResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TemplatePathResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TemplatePathResponseApplicationJson_Ocs([
+    void Function(TemplatePathResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TemplatePathResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TemplatePathResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TemplatePathResponseApplicationJson_Ocs rebuild(
-          void Function(TemplatePathResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TemplatePathResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TemplatePathResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -9434,11 +10110,7 @@ class TemplatePathResponseApplicationJson_OcsBuilder
     TemplatePathResponseApplicationJson_Ocs._validate(this);
     _$TemplatePathResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TemplatePathResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TemplatePathResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9539,10 +10211,7 @@ class TemplatePathResponseApplicationJsonBuilder
     TemplatePathResponseApplicationJson._validate(this);
     _$TemplatePathResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TemplatePathResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TemplatePathResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9574,15 +10243,15 @@ class _$TransferOwnershipTransferRequestApplicationJson extends TransferOwnershi
   @override
   final String path;
 
-  factory _$TransferOwnershipTransferRequestApplicationJson(
-          [void Function(TransferOwnershipTransferRequestApplicationJsonBuilder)? updates]) =>
-      (TransferOwnershipTransferRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipTransferRequestApplicationJson([
+    void Function(TransferOwnershipTransferRequestApplicationJsonBuilder)? updates,
+  ]) => (TransferOwnershipTransferRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$TransferOwnershipTransferRequestApplicationJson._({required this.recipient, required this.path}) : super._();
   @override
   TransferOwnershipTransferRequestApplicationJson rebuild(
-          void Function(TransferOwnershipTransferRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipTransferRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipTransferRequestApplicationJsonBuilder toBuilder() =>
@@ -9616,8 +10285,10 @@ class _$TransferOwnershipTransferRequestApplicationJson extends TransferOwnershi
 
 class TransferOwnershipTransferRequestApplicationJsonBuilder
     implements
-        Builder<TransferOwnershipTransferRequestApplicationJson,
-            TransferOwnershipTransferRequestApplicationJsonBuilder>,
+        Builder<
+          TransferOwnershipTransferRequestApplicationJson,
+          TransferOwnershipTransferRequestApplicationJsonBuilder
+        >,
         $TransferOwnershipTransferRequestApplicationJsonInterfaceBuilder {
   _$TransferOwnershipTransferRequestApplicationJson? _$v;
 
@@ -9658,10 +10329,14 @@ class TransferOwnershipTransferRequestApplicationJsonBuilder
 
   _$TransferOwnershipTransferRequestApplicationJson _build() {
     TransferOwnershipTransferRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$TransferOwnershipTransferRequestApplicationJson._(
           recipient: BuiltValueNullFieldError.checkNotNull(
-              recipient, r'TransferOwnershipTransferRequestApplicationJson', 'recipient'),
+            recipient,
+            r'TransferOwnershipTransferRequestApplicationJson',
+            'recipient',
+          ),
           path: BuiltValueNullFieldError.checkNotNull(path, r'TransferOwnershipTransferRequestApplicationJson', 'path'),
         );
     replace(_$result);
@@ -9686,15 +10361,15 @@ class _$TransferOwnershipTransferResponseApplicationJson_Ocs
   @override
   final JsonObject data;
 
-  factory _$TransferOwnershipTransferResponseApplicationJson_Ocs(
-          [void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TransferOwnershipTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipTransferResponseApplicationJson_Ocs([
+    void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TransferOwnershipTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TransferOwnershipTransferResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TransferOwnershipTransferResponseApplicationJson_Ocs rebuild(
-          void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipTransferResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -9726,8 +10401,10 @@ class _$TransferOwnershipTransferResponseApplicationJson_Ocs
 
 class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
     implements
-        Builder<TransferOwnershipTransferResponseApplicationJson_Ocs,
-            TransferOwnershipTransferResponseApplicationJson_OcsBuilder>,
+        Builder<
+          TransferOwnershipTransferResponseApplicationJson_Ocs,
+          TransferOwnershipTransferResponseApplicationJson_OcsBuilder
+        >,
         $TransferOwnershipTransferResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipTransferResponseApplicationJson_Ocs? _$v;
 
@@ -9770,11 +10447,15 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
     TransferOwnershipTransferResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipTransferResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TransferOwnershipTransferResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'TransferOwnershipTransferResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'TransferOwnershipTransferResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -9783,7 +10464,10 @@ class TransferOwnershipTransferResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipTransferResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'TransferOwnershipTransferResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -9803,15 +10487,15 @@ class _$TransferOwnershipTransferResponseApplicationJson extends TransferOwnersh
   @override
   final TransferOwnershipTransferResponseApplicationJson_Ocs ocs;
 
-  factory _$TransferOwnershipTransferResponseApplicationJson(
-          [void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? updates]) =>
-      (TransferOwnershipTransferResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipTransferResponseApplicationJson([
+    void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? updates,
+  ]) => (TransferOwnershipTransferResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TransferOwnershipTransferResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TransferOwnershipTransferResponseApplicationJson rebuild(
-          void Function(TransferOwnershipTransferResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipTransferResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipTransferResponseApplicationJsonBuilder toBuilder() =>
@@ -9833,15 +10517,17 @@ class _$TransferOwnershipTransferResponseApplicationJson extends TransferOwnersh
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'TransferOwnershipTransferResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'TransferOwnershipTransferResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class TransferOwnershipTransferResponseApplicationJsonBuilder
     implements
-        Builder<TransferOwnershipTransferResponseApplicationJson,
-            TransferOwnershipTransferResponseApplicationJsonBuilder>,
+        Builder<
+          TransferOwnershipTransferResponseApplicationJson,
+          TransferOwnershipTransferResponseApplicationJsonBuilder
+        >,
         $TransferOwnershipTransferResponseApplicationJsonInterfaceBuilder {
   _$TransferOwnershipTransferResponseApplicationJson? _$v;
 
@@ -9880,10 +10566,7 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
     TransferOwnershipTransferResponseApplicationJson._validate(this);
     _$TransferOwnershipTransferResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TransferOwnershipTransferResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TransferOwnershipTransferResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -9891,7 +10574,10 @@ class TransferOwnershipTransferResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipTransferResponseApplicationJson', _$failedField, e.toString());
+          r'TransferOwnershipTransferResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -9916,15 +10602,15 @@ class _$TransferOwnershipAcceptResponseApplicationJson_Ocs extends TransferOwner
   @override
   final JsonObject data;
 
-  factory _$TransferOwnershipAcceptResponseApplicationJson_Ocs(
-          [void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipAcceptResponseApplicationJson_Ocs([
+    void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TransferOwnershipAcceptResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TransferOwnershipAcceptResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TransferOwnershipAcceptResponseApplicationJson_Ocs rebuild(
-          void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipAcceptResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -9956,8 +10642,10 @@ class _$TransferOwnershipAcceptResponseApplicationJson_Ocs extends TransferOwner
 
 class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
     implements
-        Builder<TransferOwnershipAcceptResponseApplicationJson_Ocs,
-            TransferOwnershipAcceptResponseApplicationJson_OcsBuilder>,
+        Builder<
+          TransferOwnershipAcceptResponseApplicationJson_Ocs,
+          TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
+        >,
         $TransferOwnershipAcceptResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipAcceptResponseApplicationJson_Ocs? _$v;
 
@@ -10000,11 +10688,15 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
     TransferOwnershipAcceptResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipAcceptResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TransferOwnershipAcceptResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'TransferOwnershipAcceptResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'TransferOwnershipAcceptResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -10013,7 +10705,10 @@ class TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipAcceptResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'TransferOwnershipAcceptResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10033,15 +10728,15 @@ class _$TransferOwnershipAcceptResponseApplicationJson extends TransferOwnership
   @override
   final TransferOwnershipAcceptResponseApplicationJson_Ocs ocs;
 
-  factory _$TransferOwnershipAcceptResponseApplicationJson(
-          [void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? updates]) =>
-      (TransferOwnershipAcceptResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipAcceptResponseApplicationJson([
+    void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder)? updates,
+  ]) => (TransferOwnershipAcceptResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TransferOwnershipAcceptResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TransferOwnershipAcceptResponseApplicationJson rebuild(
-          void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipAcceptResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipAcceptResponseApplicationJsonBuilder toBuilder() =>
@@ -10108,10 +10803,7 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
     TransferOwnershipAcceptResponseApplicationJson._validate(this);
     _$TransferOwnershipAcceptResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TransferOwnershipAcceptResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TransferOwnershipAcceptResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10119,7 +10811,10 @@ class TransferOwnershipAcceptResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipAcceptResponseApplicationJson', _$failedField, e.toString());
+          r'TransferOwnershipAcceptResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10144,15 +10839,15 @@ class _$TransferOwnershipRejectResponseApplicationJson_Ocs extends TransferOwner
   @override
   final JsonObject data;
 
-  factory _$TransferOwnershipRejectResponseApplicationJson_Ocs(
-          [void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TransferOwnershipRejectResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TransferOwnershipRejectResponseApplicationJson_Ocs([
+    void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TransferOwnershipRejectResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TransferOwnershipRejectResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TransferOwnershipRejectResponseApplicationJson_Ocs rebuild(
-          void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipRejectResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -10184,8 +10879,10 @@ class _$TransferOwnershipRejectResponseApplicationJson_Ocs extends TransferOwner
 
 class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
     implements
-        Builder<TransferOwnershipRejectResponseApplicationJson_Ocs,
-            TransferOwnershipRejectResponseApplicationJson_OcsBuilder>,
+        Builder<
+          TransferOwnershipRejectResponseApplicationJson_Ocs,
+          TransferOwnershipRejectResponseApplicationJson_OcsBuilder
+        >,
         $TransferOwnershipRejectResponseApplicationJson_OcsInterfaceBuilder {
   _$TransferOwnershipRejectResponseApplicationJson_Ocs? _$v;
 
@@ -10228,11 +10925,15 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
     TransferOwnershipRejectResponseApplicationJson_Ocs._validate(this);
     _$TransferOwnershipRejectResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TransferOwnershipRejectResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'TransferOwnershipRejectResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'TransferOwnershipRejectResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -10241,7 +10942,10 @@ class TransferOwnershipRejectResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipRejectResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'TransferOwnershipRejectResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10261,15 +10965,15 @@ class _$TransferOwnershipRejectResponseApplicationJson extends TransferOwnership
   @override
   final TransferOwnershipRejectResponseApplicationJson_Ocs ocs;
 
-  factory _$TransferOwnershipRejectResponseApplicationJson(
-          [void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? updates]) =>
-      (TransferOwnershipRejectResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TransferOwnershipRejectResponseApplicationJson([
+    void Function(TransferOwnershipRejectResponseApplicationJsonBuilder)? updates,
+  ]) => (TransferOwnershipRejectResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TransferOwnershipRejectResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TransferOwnershipRejectResponseApplicationJson rebuild(
-          void Function(TransferOwnershipRejectResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TransferOwnershipRejectResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TransferOwnershipRejectResponseApplicationJsonBuilder toBuilder() =>
@@ -10336,10 +11040,7 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
     TransferOwnershipRejectResponseApplicationJson._validate(this);
     _$TransferOwnershipRejectResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TransferOwnershipRejectResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TransferOwnershipRejectResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -10347,7 +11048,10 @@ class TransferOwnershipRejectResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TransferOwnershipRejectResponseApplicationJson', _$failedField, e.toString());
+          r'TransferOwnershipRejectResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -10452,11 +11156,15 @@ class Capabilities_Files_ChunkedUploadBuilder
 
   _$Capabilities_Files_ChunkedUpload _build() {
     Capabilities_Files_ChunkedUpload._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Files_ChunkedUpload._(
           maxSize: BuiltValueNullFieldError.checkNotNull(maxSize, r'Capabilities_Files_ChunkedUpload', 'maxSize'),
           maxParallelCount: BuiltValueNullFieldError.checkNotNull(
-              maxParallelCount, r'Capabilities_Files_ChunkedUpload', 'maxParallelCount'),
+            maxParallelCount,
+            r'Capabilities_Files_ChunkedUpload',
+            'maxParallelCount',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10492,9 +11200,12 @@ class _$Capabilities_Files_FileConversions extends Capabilities_Files_FileConver
   factory _$Capabilities_Files_FileConversions([void Function(Capabilities_Files_FileConversionsBuilder)? updates]) =>
       (Capabilities_Files_FileConversionsBuilder()..update(updates))._build();
 
-  _$Capabilities_Files_FileConversions._(
-      {required this.from, required this.to, required this.$extension, required this.displayName})
-      : super._();
+  _$Capabilities_Files_FileConversions._({
+    required this.from,
+    required this.to,
+    required this.$extension,
+    required this.displayName,
+  }) : super._();
   @override
   Capabilities_Files_FileConversions rebuild(void Function(Capabilities_Files_FileConversionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -10587,14 +11298,21 @@ class Capabilities_Files_FileConversionsBuilder
 
   _$Capabilities_Files_FileConversions _build() {
     Capabilities_Files_FileConversions._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Files_FileConversions._(
           from: BuiltValueNullFieldError.checkNotNull(from, r'Capabilities_Files_FileConversions', 'from'),
           to: BuiltValueNullFieldError.checkNotNull(to, r'Capabilities_Files_FileConversions', 'to'),
-          $extension:
-              BuiltValueNullFieldError.checkNotNull($extension, r'Capabilities_Files_FileConversions', '\$extension'),
-          displayName:
-              BuiltValueNullFieldError.checkNotNull(displayName, r'Capabilities_Files_FileConversions', 'displayName'),
+          $extension: BuiltValueNullFieldError.checkNotNull(
+            $extension,
+            r'Capabilities_Files_FileConversions',
+            '\$extension',
+          ),
+          displayName: BuiltValueNullFieldError.checkNotNull(
+            displayName,
+            r'Capabilities_Files_FileConversions',
+            'displayName',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10626,7 +11344,7 @@ class _$Capabilities_Files_DirectEditing extends Capabilities_Files_DirectEditin
       (Capabilities_Files_DirectEditingBuilder()..update(updates))._build();
 
   _$Capabilities_Files_DirectEditing._({required this.url, required this.etag, required this.supportsFileId})
-      : super._();
+    : super._();
   @override
   Capabilities_Files_DirectEditing rebuild(void Function(Capabilities_Files_DirectEditingBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -10711,12 +11429,16 @@ class Capabilities_Files_DirectEditingBuilder
 
   _$Capabilities_Files_DirectEditing _build() {
     Capabilities_Files_DirectEditing._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Files_DirectEditing._(
           url: BuiltValueNullFieldError.checkNotNull(url, r'Capabilities_Files_DirectEditing', 'url'),
           etag: BuiltValueNullFieldError.checkNotNull(etag, r'Capabilities_Files_DirectEditing', 'etag'),
           supportsFileId: BuiltValueNullFieldError.checkNotNull(
-              supportsFileId, r'Capabilities_Files_DirectEditing', 'supportsFileId'),
+            supportsFileId,
+            r'Capabilities_Files_DirectEditing',
+            'supportsFileId',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10782,18 +11504,18 @@ class _$Capabilities_Files extends Capabilities_Files {
   factory _$Capabilities_Files([void Function(Capabilities_FilesBuilder)? updates]) =>
       (Capabilities_FilesBuilder()..update(updates))._build();
 
-  _$Capabilities_Files._(
-      {this.comment,
-      required this.bigfilechunking,
-      required this.blacklistedFiles,
-      required this.forbiddenFilenames,
-      required this.forbiddenFilenameBasenames,
-      required this.forbiddenFilenameCharacters,
-      required this.forbiddenFilenameExtensions,
-      this.chunkedUpload,
-      this.fileConversions,
-      required this.directEditing})
-      : super._();
+  _$Capabilities_Files._({
+    this.comment,
+    required this.bigfilechunking,
+    required this.blacklistedFiles,
+    required this.forbiddenFilenames,
+    required this.forbiddenFilenameBasenames,
+    required this.forbiddenFilenameCharacters,
+    required this.forbiddenFilenameExtensions,
+    this.chunkedUpload,
+    this.fileConversions,
+    required this.directEditing,
+  }) : super._();
   @override
   Capabilities_Files rebuild(void Function(Capabilities_FilesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -10945,11 +11667,15 @@ class Capabilities_FilesBuilder
     Capabilities_Files._validate(this);
     _$Capabilities_Files _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_Files._(
             comment: comment,
-            bigfilechunking:
-                BuiltValueNullFieldError.checkNotNull(bigfilechunking, r'Capabilities_Files', 'bigfilechunking'),
+            bigfilechunking: BuiltValueNullFieldError.checkNotNull(
+              bigfilechunking,
+              r'Capabilities_Files',
+              'bigfilechunking',
+            ),
             blacklistedFiles: blacklistedFiles.build(),
             forbiddenFilenames: forbiddenFilenames.build(),
             forbiddenFilenameBasenames: forbiddenFilenameBasenames.build(),
@@ -11066,10 +11792,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            files: files.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {

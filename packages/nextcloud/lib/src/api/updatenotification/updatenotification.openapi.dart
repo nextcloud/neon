@@ -36,7 +36,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -50,11 +50,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$getAppList_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGetAppListResponseApplicationJson, void> $getAppList_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiGetAppListResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiGetAppListResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List available updates for apps.
   ///
@@ -314,16 +314,14 @@ class _$ApiGetAppListApiVersionSerializer implements PrimitiveSerializer<ApiGetA
     Serializers serializers,
     ApiGetAppListApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiGetAppListApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -674,16 +672,14 @@ class _$ApiGetAppChangelogEntryApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     ApiGetAppChangelogEntryApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiGetAppChangelogEntryApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -711,8 +707,10 @@ sealed class $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface {
 abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data
     implements
         $ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataInterface,
-        Built<ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data,
-            ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data,
+          ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data([
     void Function(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -776,8 +774,10 @@ sealed class $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface {
 abstract class ApiGetAppChangelogEntryResponseApplicationJson_Ocs
     implements
         $ApiGetAppChangelogEntryResponseApplicationJson_OcsInterface,
-        Built<ApiGetAppChangelogEntryResponseApplicationJson_Ocs,
-            ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiGetAppChangelogEntryResponseApplicationJson_Ocs,
+          ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiGetAppChangelogEntryResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiGetAppChangelogEntryResponseApplicationJson_Ocs([
     void Function(ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder)? b,
@@ -887,45 +887,46 @@ abstract class ApiGetAppChangelogEntryResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..add(ApiGetAppListApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppListResponseApplicationJson),
-        ApiGetAppListResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiGetAppListResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppListResponseApplicationJson_Ocs),
-        ApiGetAppListResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGetAppListResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppListResponseApplicationJson_Ocs_Data),
-        ApiGetAppListResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(App), AppBuilder.new)
-      ..add(App.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new)
-      ..add(ApiGetAppChangelogEntryApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppChangelogEntryResponseApplicationJson),
-        ApiGetAppChangelogEntryResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiGetAppChangelogEntryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs),
-        ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data),
-        ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..add(ApiGetAppListApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppListResponseApplicationJson),
+            ApiGetAppListResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiGetAppListResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppListResponseApplicationJson_Ocs),
+            ApiGetAppListResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGetAppListResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppListResponseApplicationJson_Ocs_Data),
+            ApiGetAppListResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiGetAppListResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(App), AppBuilder.new)
+          ..add(App.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(App)]), ListBuilder<App>.new)
+          ..add(ApiGetAppChangelogEntryApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppChangelogEntryResponseApplicationJson),
+            ApiGetAppChangelogEntryResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiGetAppChangelogEntryResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs),
+            ApiGetAppChangelogEntryResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data),
+            ApiGetAppChangelogEntryResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiGetAppChangelogEntryResponseApplicationJson_Ocs_Data.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -933,10 +934,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

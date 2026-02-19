@@ -59,8 +59,9 @@ part 'openapi.g.dart';
   ServerVariable,
   Tag,
 ])
-final Serializers serializers = (_$serializers.toBuilder()
-      ..merge(json_schema.serializers)
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const SchemaPlugin()))
-    .build();
+final Serializers serializers =
+    (_$serializers.toBuilder()
+          ..merge(json_schema.serializers)
+          ..addPlugin(StandardJsonPlugin())
+          ..addPlugin(const SchemaPlugin()))
+        .build();

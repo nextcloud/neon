@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DeclarativeSettingsClient declarativeSettings = $DeclarativeSettingsClient(this);
 
@@ -337,8 +337,10 @@ sealed class $DeclarativeSettingsSetValueRequestApplicationJsonInterface {
 abstract class DeclarativeSettingsSetValueRequestApplicationJson
     implements
         $DeclarativeSettingsSetValueRequestApplicationJsonInterface,
-        Built<DeclarativeSettingsSetValueRequestApplicationJson,
-            DeclarativeSettingsSetValueRequestApplicationJsonBuilder> {
+        Built<
+          DeclarativeSettingsSetValueRequestApplicationJson,
+          DeclarativeSettingsSetValueRequestApplicationJsonBuilder
+        > {
   /// Creates a new DeclarativeSettingsSetValueRequestApplicationJson object using the builder pattern.
   factory DeclarativeSettingsSetValueRequestApplicationJson([
     void Function(DeclarativeSettingsSetValueRequestApplicationJsonBuilder)? b,
@@ -460,8 +462,10 @@ sealed class $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface {
 abstract class DeclarativeSettingsSetValueResponseApplicationJson_Ocs
     implements
         $DeclarativeSettingsSetValueResponseApplicationJson_OcsInterface,
-        Built<DeclarativeSettingsSetValueResponseApplicationJson_Ocs,
-            DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder> {
+        Built<
+          DeclarativeSettingsSetValueResponseApplicationJson_Ocs,
+          DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DeclarativeSettingsSetValueResponseApplicationJson_Ocs object using the builder pattern.
   factory DeclarativeSettingsSetValueResponseApplicationJson_Ocs([
     void Function(DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder)? b,
@@ -524,8 +528,10 @@ sealed class $DeclarativeSettingsSetValueResponseApplicationJsonInterface {
 abstract class DeclarativeSettingsSetValueResponseApplicationJson
     implements
         $DeclarativeSettingsSetValueResponseApplicationJsonInterface,
-        Built<DeclarativeSettingsSetValueResponseApplicationJson,
-            DeclarativeSettingsSetValueResponseApplicationJsonBuilder> {
+        Built<
+          DeclarativeSettingsSetValueResponseApplicationJson,
+          DeclarativeSettingsSetValueResponseApplicationJsonBuilder
+        > {
   /// Creates a new DeclarativeSettingsSetValueResponseApplicationJson object using the builder pattern.
   factory DeclarativeSettingsSetValueResponseApplicationJson([
     void Function(DeclarativeSettingsSetValueResponseApplicationJsonBuilder)? b,
@@ -614,16 +620,14 @@ class _$DeclarativeForm_SectionTypeSerializer implements PrimitiveSerializer<Dec
     Serializers serializers,
     DeclarativeForm_SectionType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   DeclarativeForm_SectionType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class DeclarativeForm_StorageType extends EnumClass {
@@ -676,16 +680,14 @@ class _$DeclarativeForm_StorageTypeSerializer implements PrimitiveSerializer<Dec
     Serializers serializers,
     DeclarativeForm_StorageType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   DeclarativeForm_StorageType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class DeclarativeFormField_Type extends EnumClass {
@@ -784,16 +786,14 @@ class _$DeclarativeFormField_TypeSerializer implements PrimitiveSerializer<Decla
     Serializers serializers,
     DeclarativeFormField_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   DeclarativeFormField_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1019,8 +1019,10 @@ sealed class $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface {
 abstract class DeclarativeSettingsGetFormsResponseApplicationJson_Ocs
     implements
         $DeclarativeSettingsGetFormsResponseApplicationJson_OcsInterface,
-        Built<DeclarativeSettingsGetFormsResponseApplicationJson_Ocs,
-            DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder> {
+        Built<
+          DeclarativeSettingsGetFormsResponseApplicationJson_Ocs,
+          DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DeclarativeSettingsGetFormsResponseApplicationJson_Ocs object using the builder pattern.
   factory DeclarativeSettingsGetFormsResponseApplicationJson_Ocs([
     void Function(DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder)? b,
@@ -1083,8 +1085,10 @@ sealed class $DeclarativeSettingsGetFormsResponseApplicationJsonInterface {
 abstract class DeclarativeSettingsGetFormsResponseApplicationJson
     implements
         $DeclarativeSettingsGetFormsResponseApplicationJsonInterface,
-        Built<DeclarativeSettingsGetFormsResponseApplicationJson,
-            DeclarativeSettingsGetFormsResponseApplicationJsonBuilder> {
+        Built<
+          DeclarativeSettingsGetFormsResponseApplicationJson,
+          DeclarativeSettingsGetFormsResponseApplicationJsonBuilder
+        > {
   /// Creates a new DeclarativeSettingsGetFormsResponseApplicationJson object using the builder pattern.
   factory DeclarativeSettingsGetFormsResponseApplicationJson([
     void Function(DeclarativeSettingsGetFormsResponseApplicationJsonBuilder)? b,
@@ -1215,10 +1219,8 @@ extension $DeclarativeFormField_ValueExtension on DeclarativeFormField_Value {
       $bb4e9af94b69347c125c27e03a648d24Extension._fromJson(json);
 }
 
-typedef _$ecd8d9fe35935410da9dc2662cd86d27 = ({
-  DeclarativeFormField_Options1? declarativeFormFieldOptions1,
-  String? string,
-});
+typedef _$ecd8d9fe35935410da9dc2662cd86d27 =
+    ({DeclarativeFormField_Options1? declarativeFormFieldOptions1, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -1278,10 +1280,9 @@ class _$ecd8d9fe35935410da9dc2662cd86d27Serializer implements PrimitiveSerialize
   }) {
     DeclarativeFormField_Options1? declarativeFormFieldOptions1;
     try {
-      declarativeFormFieldOptions1 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(DeclarativeFormField_Options1),
-      )! as DeclarativeFormField_Options1;
+      declarativeFormFieldOptions1 =
+          serializers.deserialize(data, specifiedType: const FullType(DeclarativeFormField_Options1))!
+              as DeclarativeFormField_Options1;
     } catch (_) {}
     String? string;
     try {
@@ -1291,12 +1292,8 @@ class _$ecd8d9fe35935410da9dc2662cd86d27Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$bb4e9af94b69347c125c27e03a648d24 = ({
-  bool? $bool,
-  BuiltList<String>? builtListString,
-  num? $num,
-  String? string,
-});
+typedef _$bb4e9af94b69347c125c27e03a648d24 =
+    ({bool? $bool, BuiltList<String>? builtListString, num? $num, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -1368,8 +1365,9 @@ class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerialize
     } catch (_) {}
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
-          as BuiltList<String>;
+      builtListString =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<String>;
     } catch (_) {}
     num? $num;
     try {
@@ -1390,61 +1388,62 @@ class _$bb4e9af94b69347c125c27e03a648d24Serializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(DeclarativeSettingsSetValueRequestApplicationJson),
-        DeclarativeSettingsSetValueRequestApplicationJsonBuilder.new,
-      )
-      ..add(DeclarativeSettingsSetValueRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeclarativeSettingsSetValueResponseApplicationJson),
-        DeclarativeSettingsSetValueResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeclarativeSettingsSetValueResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeclarativeSettingsSetValueResponseApplicationJson_Ocs),
-        DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DeclarativeSettingsSetValueResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(DeclarativeSettingsGetFormsResponseApplicationJson),
-        DeclarativeSettingsGetFormsResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeclarativeSettingsGetFormsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs),
-        DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DeclarativeForm), DeclarativeFormBuilder.new)
-      ..add(DeclarativeForm.serializer)
-      ..add(DeclarativeForm_SectionType.serializer)
-      ..add(DeclarativeForm_StorageType.serializer)
-      ..addBuilderFactory(const FullType(DeclarativeFormField), DeclarativeFormFieldBuilder.new)
-      ..add(DeclarativeFormField.serializer)
-      ..add(DeclarativeFormField_Type.serializer)
-      ..addBuilderFactory(const FullType(DeclarativeFormField_Options1), DeclarativeFormField_Options1Builder.new)
-      ..add(DeclarativeFormField_Options1.serializer)
-      ..add($ecd8d9fe35935410da9dc2662cd86d27Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DeclarativeFormField_Options)]),
-        ListBuilder<DeclarativeFormField_Options>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..add($bb4e9af94b69347c125c27e03a648d24Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DeclarativeFormField)]),
-        ListBuilder<DeclarativeFormField>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(DeclarativeForm)]), ListBuilder<DeclarativeForm>.new)
-      ..addBuilderFactory(
-        const FullType(LogSettingsLogSettingsDownloadHeaders),
-        LogSettingsLogSettingsDownloadHeadersBuilder.new,
-      )
-      ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(DeclarativeSettingsSetValueRequestApplicationJson),
+            DeclarativeSettingsSetValueRequestApplicationJsonBuilder.new,
+          )
+          ..add(DeclarativeSettingsSetValueRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeclarativeSettingsSetValueResponseApplicationJson),
+            DeclarativeSettingsSetValueResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeclarativeSettingsSetValueResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeclarativeSettingsSetValueResponseApplicationJson_Ocs),
+            DeclarativeSettingsSetValueResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DeclarativeSettingsSetValueResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(DeclarativeSettingsGetFormsResponseApplicationJson),
+            DeclarativeSettingsGetFormsResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeclarativeSettingsGetFormsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs),
+            DeclarativeSettingsGetFormsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DeclarativeSettingsGetFormsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(DeclarativeForm), DeclarativeFormBuilder.new)
+          ..add(DeclarativeForm.serializer)
+          ..add(DeclarativeForm_SectionType.serializer)
+          ..add(DeclarativeForm_StorageType.serializer)
+          ..addBuilderFactory(const FullType(DeclarativeFormField), DeclarativeFormFieldBuilder.new)
+          ..add(DeclarativeFormField.serializer)
+          ..add(DeclarativeFormField_Type.serializer)
+          ..addBuilderFactory(const FullType(DeclarativeFormField_Options1), DeclarativeFormField_Options1Builder.new)
+          ..add(DeclarativeFormField_Options1.serializer)
+          ..add($ecd8d9fe35935410da9dc2662cd86d27Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(DeclarativeFormField_Options)]),
+            ListBuilder<DeclarativeFormField_Options>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..add($bb4e9af94b69347c125c27e03a648d24Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(DeclarativeFormField)]),
+            ListBuilder<DeclarativeFormField>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(DeclarativeForm)]), ListBuilder<DeclarativeForm>.new)
+          ..addBuilderFactory(
+            const FullType(LogSettingsLogSettingsDownloadHeaders),
+            LogSettingsLogSettingsDownloadHeadersBuilder.new,
+          )
+          ..add(LogSettingsLogSettingsDownloadHeaders.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1452,14 +1451,15 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i7.StandardJsonPlugin(
-          typesToLeaveAsList: const {_$ecd8d9fe35935410da9dc2662cd86d27, _$bb4e9af94b69347c125c27e03a648d24},
-        ),
-      )
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i7.StandardJsonPlugin(
+              typesToLeaveAsList: const {_$ecd8d9fe35935410da9dc2662cd86d27, _$bb4e9af94b69347c125c27e03a648d24},
+            ),
+          )
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -35,16 +35,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$check_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CheckResponseApplicationJson, void> $check_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(CheckResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(CheckResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Check if the UnifiedPush provider is present.
   ///
@@ -260,11 +260,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$syncDevice_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<SyncDeviceResponseApplicationJson, void> $syncDevice_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(SyncDeviceResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {401},
-      );
+    bodyType: const FullType(SyncDeviceResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {401},
+  );
 
   /// Request to get push messages.
   ///
@@ -403,11 +403,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$createApp_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CreateAppResponseApplicationJson, void> $createApp_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(CreateAppResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(CreateAppResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create an authorization token for a new 3rd party service.
   ///
@@ -485,11 +485,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$deleteApp_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DeleteAppResponseApplicationJson, void> $deleteApp_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(DeleteAppResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(DeleteAppResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete an authorization token.
   ///
@@ -624,11 +624,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$push_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<PushResponseApplicationJson, void> $push_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(PushResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {201},
-      );
+    bodyType: const FullType(PushResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Receive notifications from 3rd parties.
   ///
@@ -1273,8 +1273,10 @@ sealed class $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface {
 abstract class UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush
     implements
         $UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushInterface,
-        Built<UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
-            UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
+        Built<
+          UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush,
+          UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder
+        > {
   /// Creates a new UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush object using the builder pattern.
   factory UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush([
     void Function(UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
@@ -1459,8 +1461,10 @@ sealed class $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface
 abstract class GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush
     implements
         $GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushInterface,
-        Built<GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
-            GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder> {
+        Built<
+          GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush,
+          GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder
+        > {
   /// Creates a new GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush object using the builder pattern.
   factory GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush([
     void Function(GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder)? b,
@@ -1632,68 +1636,69 @@ abstract class GatewayMatrixResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
-      ..add(CheckResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SetKeepaliveResponseApplicationJson),
-        SetKeepaliveResponseApplicationJsonBuilder.new,
-      )
-      ..add(SetKeepaliveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CreateDeviceResponseApplicationJson),
-        CreateDeviceResponseApplicationJsonBuilder.new,
-      )
-      ..add(CreateDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SyncDeviceResponseApplicationJson),
-        SyncDeviceResponseApplicationJsonBuilder.new,
-      )
-      ..add(SyncDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeleteDeviceResponseApplicationJson),
-        DeleteDeviceResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeleteDeviceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CreateAppResponseApplicationJson),
-        CreateAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(CreateAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeleteAppResponseApplicationJson),
-        DeleteAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeleteAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedpushDiscoveryResponseApplicationJson),
-        UnifiedpushDiscoveryResponseApplicationJsonBuilder.new,
-      )
-      ..add(UnifiedpushDiscoveryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
-        UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
-      )
-      ..add(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.serializer)
-      ..addBuilderFactory(const FullType(PushResponseApplicationJson), PushResponseApplicationJsonBuilder.new)
-      ..add(PushResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
-        GatewayMatrixDiscoveryResponseApplicationJsonBuilder.new,
-      )
-      ..add(GatewayMatrixDiscoveryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
-        GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
-      )
-      ..add(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.serializer)
-      ..addBuilderFactory(
-        const FullType(GatewayMatrixResponseApplicationJson),
-        GatewayMatrixResponseApplicationJsonBuilder.new,
-      )
-      ..add(GatewayMatrixResponseApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(CheckResponseApplicationJson), CheckResponseApplicationJsonBuilder.new)
+          ..add(CheckResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SetKeepaliveResponseApplicationJson),
+            SetKeepaliveResponseApplicationJsonBuilder.new,
+          )
+          ..add(SetKeepaliveResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CreateDeviceResponseApplicationJson),
+            CreateDeviceResponseApplicationJsonBuilder.new,
+          )
+          ..add(CreateDeviceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SyncDeviceResponseApplicationJson),
+            SyncDeviceResponseApplicationJsonBuilder.new,
+          )
+          ..add(SyncDeviceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeleteDeviceResponseApplicationJson),
+            DeleteDeviceResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeleteDeviceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CreateAppResponseApplicationJson),
+            CreateAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(CreateAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeleteAppResponseApplicationJson),
+            DeleteAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeleteAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedpushDiscoveryResponseApplicationJson),
+            UnifiedpushDiscoveryResponseApplicationJsonBuilder.new,
+          )
+          ..add(UnifiedpushDiscoveryResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush),
+            UnifiedpushDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
+          )
+          ..add(UnifiedpushDiscoveryResponseApplicationJson_Unifiedpush.serializer)
+          ..addBuilderFactory(const FullType(PushResponseApplicationJson), PushResponseApplicationJsonBuilder.new)
+          ..add(PushResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(GatewayMatrixDiscoveryResponseApplicationJson),
+            GatewayMatrixDiscoveryResponseApplicationJsonBuilder.new,
+          )
+          ..add(GatewayMatrixDiscoveryResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush),
+            GatewayMatrixDiscoveryResponseApplicationJson_UnifiedpushBuilder.new,
+          )
+          ..add(GatewayMatrixDiscoveryResponseApplicationJson_Unifiedpush.serializer)
+          ..addBuilderFactory(
+            const FullType(GatewayMatrixResponseApplicationJson),
+            GatewayMatrixResponseApplicationJsonBuilder.new,
+          )
+          ..add(GatewayMatrixResponseApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1701,10 +1706,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

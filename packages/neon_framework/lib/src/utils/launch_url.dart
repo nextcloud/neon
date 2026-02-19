@@ -9,8 +9,5 @@ Future<bool> launchUrl(Account? account, String url) async {
     uri = account.completeUri(uri);
   }
 
-  return url_launcher.launchUrl(
-    uri,
-    mode: url_launcher.LaunchMode.externalApplication,
-  );
+  return url_launcher.launchUrl(uri, mode: url_launcher.LaunchMode.externalApplication);
 }

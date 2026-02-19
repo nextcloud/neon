@@ -30,28 +30,24 @@ void main() {
   testWidgets('Deck card', (tester) async {
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
+        providers: [Provider<Account>.value(value: account)],
         child: NeonRichObjectDeckCard(
           parameter: core.RichObjectParameter(
-            (b) => b
-              ..type = core.RichObjectParameter_Type.deckCard
-              ..id = ''
-              ..name = 'name'
-              ..boardname = 'boardname'
-              ..stackname = 'stackname'
-              ..link = '/link',
+            (b) =>
+                b
+                  ..type = core.RichObjectParameter_Type.deckCard
+                  ..id = ''
+                  ..name = 'name'
+                  ..boardname = 'boardname'
+                  ..stackname = 'stackname'
+                  ..link = '/link',
           ),
         ),
       ),
     );
     expect(find.text('name'), findsOne);
     expect(find.text('boardname: stackname'), findsOne);
-    await expectLater(
-      find.byType(NeonRichObjectDeckCard),
-      matchesGoldenFile('goldens/rich_text_object_deck_card.png'),
-    );
+    await expectLater(find.byType(NeonRichObjectDeckCard), matchesGoldenFile('goldens/rich_text_object_deck_card.png'));
 
     await tester.tap(find.byType(NeonRichObjectDeckCard));
     verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);

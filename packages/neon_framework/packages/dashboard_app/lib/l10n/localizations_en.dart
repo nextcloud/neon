@@ -16,29 +16,26 @@ class DashboardLocalizationsEn extends DashboardLocalizations {
 
   @override
   String weather(String code) {
-    String _temp0 = intl.Intl.selectLogic(
-      code,
-      {
-        'clearsky': 'clear sky',
-        'cloudy': 'cloudy',
-        'snowandthunder': 'snow and thunder',
-        'snowshowersandthunder': 'snow showers and thunder',
-        'snowshowersandthunder_polartwilight': 'snow showers, thunder and polar twilight',
-        'snowshowers': 'snow showers',
-        'snowshowers_polartwilight': 'snow showers and polar twilight',
-        'snow': 'snow',
-        'fair': 'fair weather',
-        'partlycloudy': 'partly cloudy',
-        'fog': 'foggy',
-        'rain': 'rainfall',
-        'lightrain': 'light rainfall',
-        'heavyrain': 'heavy rainfall',
-        'rainshowers': 'rainfall showers',
-        'lightrainshowers': 'light rainfall showers',
-        'heavyrainshowers': 'heavy rainfall showers',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(code, {
+      'clearsky': 'clear sky',
+      'cloudy': 'cloudy',
+      'snowandthunder': 'snow and thunder',
+      'snowshowersandthunder': 'snow showers and thunder',
+      'snowshowersandthunder_polartwilight': 'snow showers, thunder and polar twilight',
+      'snowshowers': 'snow showers',
+      'snowshowers_polartwilight': 'snow showers and polar twilight',
+      'snow': 'snow',
+      'fair': 'fair weather',
+      'partlycloudy': 'partly cloudy',
+      'fog': 'foggy',
+      'rain': 'rainfall',
+      'lightrain': 'light rainfall',
+      'heavyrain': 'heavy rainfall',
+      'rainshowers': 'rainfall showers',
+      'lightrainshowers': 'light rainfall showers',
+      'heavyrainshowers': 'heavy rainfall showers',
+      'other': '',
+    });
     return '$_temp0';
   }
 

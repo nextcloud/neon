@@ -14,9 +14,7 @@ final dependencies = {
 };
 
 // Also update the README.md if you change this.
-final devDependencies = {
-  'built_value_generator': Version.parse('8.9.0'),
-};
+final devDependencies = {'built_value_generator': Version.parse('8.9.0')};
 
 /// Checks whether the correct version of the dependencies are present in the pubspec.yaml file.
 Future<({bool hasFatal, String messages})> helperVersionCheck(BuildStep buildStep) async {

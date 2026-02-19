@@ -10,11 +10,7 @@ import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 ///   * [ValidationState] for the possible states
 class NeonValidationTile extends StatelessWidget {
   /// Creates a new validation list tile.
-  const NeonValidationTile({
-    required this.title,
-    required this.state,
-    super.key,
-  });
+  const NeonValidationTile({required this.title, required this.state, super.key});
 
   /// The title of this tile.
   final String title;
@@ -28,32 +24,27 @@ class NeonValidationTile extends StatelessWidget {
 
     final leading = switch (state) {
       ValidationState.loading => const SizedBox(
-          width: size,
-          height: size,
-          child: CircularProgressIndicator(
-            strokeWidth: 3,
-          ),
-        ),
+        width: size,
+        height: size,
+        child: CircularProgressIndicator(strokeWidth: 3),
+      ),
       ValidationState.failure => Icon(
-          AdaptiveIcons.error_outline,
-          color: Theme.of(context).colorScheme.error,
-          size: size,
-        ),
+        AdaptiveIcons.error_outline,
+        color: Theme.of(context).colorScheme.error,
+        size: size,
+      ),
       ValidationState.canceled => Icon(
-          AdaptiveIcons.cancel_outlined,
-          color: Theme.of(context).colorScheme.primary,
-          size: size,
-        ),
+        AdaptiveIcons.cancel_outlined,
+        color: Theme.of(context).colorScheme.primary,
+        size: size,
+      ),
       ValidationState.success => Icon(
-          AdaptiveIcons.check_circle,
-          color: Theme.of(context).colorScheme.primary,
-          size: size,
-        ),
+        AdaptiveIcons.check_circle,
+        color: Theme.of(context).colorScheme.primary,
+        size: size,
+      ),
     };
-    return AdaptiveListTile(
-      leading: leading,
-      title: Text(title),
-    );
+    return AdaptiveListTile(leading: leading, title: Text(title));
   }
 }
 

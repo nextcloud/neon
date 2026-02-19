@@ -10,15 +10,10 @@ part 'login_check_server_state.dart';
 
 @internal
 class LoginCheckServerBloc extends Bloc<LoginCheckServerEvent, LoginCheckServerState> {
-  LoginCheckServerBloc({
-    required AccountRepository accountRepository,
-    required Uri serverURL,
-  })  : _accountRepository = accountRepository,
-        super(LoginCheckServerState(serverURL: serverURL)) {
-    on<LoginCheckServer>(
-      _onLoginCheckServer,
-      transformer: droppable(),
-    );
+  LoginCheckServerBloc({required AccountRepository accountRepository, required Uri serverURL})
+    : _accountRepository = accountRepository,
+      super(LoginCheckServerState(serverURL: serverURL)) {
+    on<LoginCheckServer>(_onLoginCheckServer, transformer: droppable());
   }
 
   final AccountRepository _accountRepository;
@@ -32,15 +27,14 @@ class LoginCheckServerBloc extends Bloc<LoginCheckServerEvent, LoginCheckServerS
     );
 
     try {
-      final status = await _accountRepository.getServerStatus(
-        state.serverURL,
-      );
+      final status = await _accountRepository.getServerStatus(state.serverURL);
 
       emit(
         state.copyWith(
-          serverVersionState: status.versionCheck.isSupported
-              ? ServerVersionStateSuccess(serverVersion: status.versionstring)
-              : ServerVersionStateFailure(serverVersion: status.versionstring),
+          serverVersionState:
+              status.versionCheck.isSupported
+                  ? ServerVersionStateSuccess(serverVersion: status.versionstring)
+                  : ServerVersionStateFailure(serverVersion: status.versionstring),
           maintenanceModeState:
               status.maintenance ? const MaintenanceModeStateFailure() : const MaintenanceModeStateSuccess(),
         ),

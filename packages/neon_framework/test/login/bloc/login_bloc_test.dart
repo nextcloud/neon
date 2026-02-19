@@ -24,17 +24,11 @@ void main() {
     });
 
     final serverURL = Uri.https('serverURL');
-    final credentials = createCredentials(
-      serverURL: Uri.https('credentials_serverURL'),
-    );
-    final account = createAccount(
-      credentials: credentials,
-    );
+    final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
+    final account = createAccount(credentials: credentials);
 
     LoginBloc buildBloc() {
-      return LoginBloc(
-        accountRepository: accountRepository,
-      );
+      return LoginBloc(accountRepository: accountRepository);
     }
 
     group('constructor', () {
@@ -43,10 +37,7 @@ void main() {
       });
 
       test('has correct initial state', () {
-        expect(
-          buildBloc().state,
-          equals(const LoginStateInitial()),
-        );
+        expect(buildBloc().state, equals(const LoginStateInitial()));
       });
     });
 
@@ -55,9 +46,7 @@ void main() {
         'emits new state with LoginStateScanQrCode',
         build: buildBloc,
         act: (bloc) => bloc.add(const LoginUseQRCode()),
-        expect: () => const [
-          LoginStateScanQrCode(),
-        ],
+        expect: () => const [LoginStateScanQrCode()],
       );
     });
 
@@ -66,18 +55,14 @@ void main() {
         'emits new state with serverURL',
         build: buildBloc,
         act: (bloc) => bloc.add(LoginUrlEntered(serverURL)),
-        expect: () => [
-          LoginStateCheckServer(serverURL: serverURL),
-        ],
+        expect: () => [LoginStateCheckServer(serverURL: serverURL)],
       );
 
       blocTest<LoginBloc, LoginState>(
         'emits new state with serverURL and credentials',
         build: buildBloc,
         act: (bloc) => bloc.add(LoginUrlEntered(credentials.serverURL, credentials)),
-        expect: () => [
-          LoginStateCheckServer(serverURL: credentials.serverURL, credentials: credentials),
-        ],
+        expect: () => [LoginStateCheckServer(serverURL: credentials.serverURL, credentials: credentials)],
       );
     });
 
@@ -94,9 +79,7 @@ void main() {
         build: buildBloc,
         seed: () => LoginStateCheckServer(serverURL: credentials.serverURL, credentials: credentials),
         act: (bloc) => bloc.add(const LoginServerChecked()),
-        expect: () => [
-          LoginStateCheckAccount(credentials: credentials),
-        ],
+        expect: () => [LoginStateCheckAccount(credentials: credentials)],
       );
 
       blocTest<LoginBloc, LoginState>(
@@ -104,9 +87,7 @@ void main() {
         build: buildBloc,
         seed: () => LoginStateCheckServer(serverURL: serverURL),
         act: (bloc) => bloc.add(const LoginServerChecked()),
-        expect: () => [
-          LoginStateFlowV2(serverURL: serverURL),
-        ],
+        expect: () => [LoginStateFlowV2(serverURL: serverURL)],
       );
     });
 
@@ -115,9 +96,7 @@ void main() {
         'emits LoginStateCheckAccount',
         build: buildBloc,
         act: (bloc) => bloc.add(LoginCredentialsEntered(credentials)),
-        expect: () => [
-          LoginStateCheckAccount(credentials: credentials),
-        ],
+        expect: () => [LoginStateCheckAccount(credentials: credentials)],
       );
     });
 
@@ -129,9 +108,7 @@ void main() {
           when(() => accountRepository.logIn(any())).thenAnswer((_) async {});
         },
         act: (bloc) => bloc.add(LoginAccountChecked(account)),
-        expect: () => const [
-          LoginStateDone(),
-        ],
+        expect: () => const [LoginStateDone()],
         verify: (bloc) async {
           verify(() => accountRepository.logIn(any(that: equals(account)))).called(1);
         },

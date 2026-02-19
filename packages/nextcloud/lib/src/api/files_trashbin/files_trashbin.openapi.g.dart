@@ -35,12 +35,12 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   final String wireName = 'Capabilities_Files';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Files object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'undelete',
-      serializers.serialize(object.undelete, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Files object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['undelete', serializers.serialize(object.undelete, specifiedType: const FullType(bool))];
     Object? value;
     value = object.deleteFromTrash;
     if (value != null) {
@@ -52,8 +52,11 @@ class _$Capabilities_FilesSerializer implements StructuredSerializer<Capabilitie
   }
 
   @override
-  Capabilities_Files deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Files deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_FilesBuilder();
 
     final iterator = serialized.iterator;
@@ -82,8 +85,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'files',
       serializers.serialize(object.files, specifiedType: const FullType(Capabilities_Files)),
@@ -93,8 +99,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -105,7 +114,8 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       switch (key) {
         case 'files':
           result.files.replace(
-              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files);
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Files))! as Capabilities_Files,
+          );
           break;
       }
     }
@@ -206,7 +216,8 @@ class Capabilities_FilesBuilder
 
   _$Capabilities_Files _build() {
     Capabilities_Files._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Files._(
           undelete: BuiltValueNullFieldError.checkNotNull(undelete, r'Capabilities_Files', 'undelete'),
           deleteFromTrash: deleteFromTrash,
@@ -294,10 +305,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            files: files.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(files: files.build());
     } catch (_) {
       late String _$failedField;
       try {

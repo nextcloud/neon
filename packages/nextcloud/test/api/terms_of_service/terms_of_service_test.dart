@@ -17,10 +17,11 @@ void main() {
       test('create', () async {
         final createResponse = await tester.client.termsOfService.terms.create(
           $body: TermsCreateRequestApplicationJson(
-            (b) => b
-              ..countryCode = 'DE'
-              ..languageCode = 'de'
-              ..body = 'test',
+            (b) =>
+                b
+                  ..countryCode = 'DE'
+                  ..languageCode = 'de'
+                  ..body = 'test',
           ),
         );
         expect(createResponse.body.ocs.data.id, isPositive);
@@ -39,10 +40,11 @@ void main() {
       test('destroy', () async {
         final createResponse = await tester.client.termsOfService.terms.create(
           $body: TermsCreateRequestApplicationJson(
-            (b) => b
-              ..countryCode = 'DE'
-              ..languageCode = 'de'
-              ..body = 'test',
+            (b) =>
+                b
+                  ..countryCode = 'DE'
+                  ..languageCode = 'de'
+                  ..body = 'test',
           ),
         );
 
@@ -52,9 +54,7 @@ void main() {
           createResponse.body.ocs.data,
         );
 
-        await tester.client.termsOfService.terms.destroy(
-          id: createResponse.body.ocs.data.id,
-        );
+        await tester.client.termsOfService.terms.destroy(id: createResponse.body.ocs.data.id);
 
         formDataResponse = await tester.client.termsOfService.terms.getAdminFormData();
         expect(formDataResponse.body.ocs.data.terms[createResponse.body.ocs.data.id.toString()], isNull);
@@ -72,34 +72,32 @@ void main() {
       test('signTermsPublic', () async {
         final createResponse = await tester.client.termsOfService.terms.create(
           $body: TermsCreateRequestApplicationJson(
-            (b) => b
-              ..countryCode = 'DE'
-              ..languageCode = 'de'
-              ..body = 'test',
+            (b) =>
+                b
+                  ..countryCode = 'DE'
+                  ..languageCode = 'de'
+                  ..body = 'test',
           ),
         );
 
         await tester.client.termsOfService.signing.signTermsPublic(
-          $body: SigningSignTermsPublicRequestApplicationJson(
-            (b) => b..termId = createResponse.body.ocs.data.id,
-          ),
+          $body: SigningSignTermsPublicRequestApplicationJson((b) => b..termId = createResponse.body.ocs.data.id),
         );
       });
 
       test('signTerms', () async {
         final createResponse = await tester.client.termsOfService.terms.create(
           $body: TermsCreateRequestApplicationJson(
-            (b) => b
-              ..countryCode = 'DE'
-              ..languageCode = 'de'
-              ..body = 'test',
+            (b) =>
+                b
+                  ..countryCode = 'DE'
+                  ..languageCode = 'de'
+                  ..body = 'test',
           ),
         );
 
         await tester.client.termsOfService.signing.signTerms(
-          $body: SigningSignTermsRequestApplicationJson(
-            (b) => b..termId = createResponse.body.ocs.data.id,
-          ),
+          $body: SigningSignTermsRequestApplicationJson((b) => b..termId = createResponse.body.ocs.data.id),
         );
       });
 

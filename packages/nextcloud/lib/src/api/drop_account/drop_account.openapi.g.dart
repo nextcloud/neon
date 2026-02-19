@@ -25,8 +25,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -56,8 +59,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -93,25 +99,28 @@ class _$ApiDeleteResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ApiDeleteResponseApplicationJson_Ocs_Data,
-    _$ApiDeleteResponseApplicationJson_Ocs_Data
+    _$ApiDeleteResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ApiDeleteResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'message',
-      serializers.serialize(object.message, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiDeleteResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['message', serializers.serialize(object.message, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  ApiDeleteResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiDeleteResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiDeleteResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -138,8 +147,11 @@ class _$ApiDeleteResponseApplicationJson_OcsSerializer
   final String wireName = 'ApiDeleteResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiDeleteResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -151,8 +163,11 @@ class _$ApiDeleteResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiDeleteResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiDeleteResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiDeleteResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -166,8 +181,9 @@ class _$ApiDeleteResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs_Data))!
-                  as ApiDeleteResponseApplicationJson_Ocs_Data);
+            serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs_Data))!
+                as ApiDeleteResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -183,8 +199,11 @@ class _$ApiDeleteResponseApplicationJsonSerializer implements StructuredSerializ
   final String wireName = 'ApiDeleteResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiDeleteResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiDeleteResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs)),
@@ -194,8 +213,11 @@ class _$ApiDeleteResponseApplicationJsonSerializer implements StructuredSerializ
   }
 
   @override
-  ApiDeleteResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiDeleteResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiDeleteResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -206,8 +228,9 @@ class _$ApiDeleteResponseApplicationJsonSerializer implements StructuredSerializ
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs))!
-                  as ApiDeleteResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiDeleteResponseApplicationJson_Ocs))!
+                as ApiDeleteResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -223,8 +246,11 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
   final String wireName = 'Capabilities_DropAccount_Delay';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_DropAccount_Delay object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_DropAccount_Delay object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
@@ -236,8 +262,11 @@ class _$Capabilities_DropAccount_DelaySerializer implements StructuredSerializer
   }
 
   @override
-  Capabilities_DropAccount_Delay deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_DropAccount_Delay deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_DropAccount_DelayBuilder();
 
     final iterator = serialized.iterator;
@@ -266,8 +295,11 @@ class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capab
   final String wireName = 'Capabilities_DropAccount';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_DropAccount object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_DropAccount object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
@@ -287,8 +319,11 @@ class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capab
   }
 
   @override
-  Capabilities_DropAccount deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_DropAccount deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_DropAccountBuilder();
 
     final iterator = serialized.iterator;
@@ -304,8 +339,10 @@ class _$Capabilities_DropAccountSerializer implements StructuredSerializer<Capab
           result.apiVersion = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'delay':
-          result.delay.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_DropAccount_Delay))! as Capabilities_DropAccount_Delay);
+          result.delay.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_DropAccount_Delay))!
+                as Capabilities_DropAccount_Delay,
+          );
           break;
         case 'details':
           result.details = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -324,8 +361,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'drop-account',
       serializers.serialize(object.dropAccount, specifiedType: const FullType(Capabilities_DropAccount)),
@@ -335,8 +375,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -346,8 +389,10 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'drop-account':
-          result.dropAccount.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_DropAccount))! as Capabilities_DropAccount);
+          result.dropAccount.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_DropAccount))!
+                as Capabilities_DropAccount,
+          );
           break;
       }
     }
@@ -390,7 +435,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -487,7 +532,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -511,15 +557,15 @@ class _$ApiDeleteResponseApplicationJson_Ocs_Data extends ApiDeleteResponseAppli
   @override
   final String message;
 
-  factory _$ApiDeleteResponseApplicationJson_Ocs_Data(
-          [void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ApiDeleteResponseApplicationJson_Ocs_Data([
+    void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ApiDeleteResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ApiDeleteResponseApplicationJson_Ocs_Data._({required this.message}) : super._();
   @override
   ApiDeleteResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiDeleteResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiDeleteResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -541,8 +587,8 @@ class _$ApiDeleteResponseApplicationJson_Ocs_Data extends ApiDeleteResponseAppli
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiDeleteResponseApplicationJson_Ocs_Data')..add('message', message))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiDeleteResponseApplicationJson_Ocs_Data')
+      ..add('message', message)).toString();
   }
 }
 
@@ -584,10 +630,14 @@ class ApiDeleteResponseApplicationJson_Ocs_DataBuilder
 
   _$ApiDeleteResponseApplicationJson_Ocs_Data _build() {
     ApiDeleteResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiDeleteResponseApplicationJson_Ocs_Data._(
-          message:
-              BuiltValueNullFieldError.checkNotNull(message, r'ApiDeleteResponseApplicationJson_Ocs_Data', 'message'),
+          message: BuiltValueNullFieldError.checkNotNull(
+            message,
+            r'ApiDeleteResponseApplicationJson_Ocs_Data',
+            'message',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -610,9 +660,9 @@ class _$ApiDeleteResponseApplicationJson_Ocs extends ApiDeleteResponseApplicatio
   @override
   final ApiDeleteResponseApplicationJson_Ocs_Data data;
 
-  factory _$ApiDeleteResponseApplicationJson_Ocs(
-          [void Function(ApiDeleteResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiDeleteResponseApplicationJson_Ocs([
+    void Function(ApiDeleteResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiDeleteResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiDeleteResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
@@ -693,11 +743,7 @@ class ApiDeleteResponseApplicationJson_OcsBuilder
     ApiDeleteResponseApplicationJson_Ocs._validate(this);
     _$ApiDeleteResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiDeleteResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiDeleteResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -797,10 +843,7 @@ class ApiDeleteResponseApplicationJsonBuilder
     ApiDeleteResponseApplicationJson._validate(this);
     _$ApiDeleteResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiDeleteResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiDeleteResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -910,7 +953,8 @@ class Capabilities_DropAccount_DelayBuilder
 
   _$Capabilities_DropAccount_Delay _build() {
     Capabilities_DropAccount_Delay._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_DropAccount_Delay._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount_Delay', 'enabled'),
           hours: BuiltValueNullFieldError.checkNotNull(hours, r'Capabilities_DropAccount_Delay', 'hours'),
@@ -950,7 +994,7 @@ class _$Capabilities_DropAccount extends Capabilities_DropAccount {
       (Capabilities_DropAccountBuilder()..update(updates))._build();
 
   _$Capabilities_DropAccount._({required this.enabled, required this.apiVersion, required this.delay, this.details})
-      : super._();
+    : super._();
   @override
   Capabilities_DropAccount rebuild(void Function(Capabilities_DropAccountBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1045,7 +1089,8 @@ class Capabilities_DropAccountBuilder
     Capabilities_DropAccount._validate(this);
     _$Capabilities_DropAccount _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_DropAccount._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_DropAccount', 'enabled'),
             apiVersion: BuiltValueNullFieldError.checkNotNull(apiVersion, r'Capabilities_DropAccount', 'apiVersion'),
@@ -1145,10 +1190,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            dropAccount: dropAccount.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(dropAccount: dropAccount.build());
     } catch (_) {
       late String _$failedField;
       try {

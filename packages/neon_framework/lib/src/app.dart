@@ -39,10 +39,7 @@ import 'package:window_manager/window_manager.dart';
 @internal
 class NeonApp extends StatefulWidget {
   /// Creates a new Neon app.
-  const NeonApp({
-    required this.neonTheme,
-    super.key,
-  });
+  const NeonApp({required this.neonTheme, super.key});
 
   /// The base Neon theme.
   ///
@@ -152,15 +149,11 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
           return;
         }
 
-        final localNotificationsPlugin = await PushUtils.initLocalNotifications(
-          localizations: localizations,
-        );
+        final localNotificationsPlugin = await PushUtils.initLocalNotifications(localizations: localizations);
         final details = await localNotificationsPlugin.getNotificationAppLaunchDetails();
         if (details != null && details.didNotificationLaunchApp && details.notificationResponse?.payload != null) {
           await PushUtils.onLocalNotificationClicked!(
-            PushNotification.fromJson(
-              json.decode(details.notificationResponse!.payload!) as Map<String, dynamic>,
-            ),
+            PushNotification.fromJson(json.decode(details.notificationResponse!.payload!) as Map<String, dynamic>),
           );
         }
       }
@@ -205,91 +198,82 @@ class _NeonAppState extends State<NeonApp> with WidgetsBindingObserver, WindowLi
   @override
   Widget build(BuildContext context) {
     return DynamicColorBuilder(
-      builder: (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
-        valueListenable: _globalOptions,
-        builder: (context, options, _) => StreamBuilder(
-          stream: _accountsBloc.activeAccount,
-          builder: (context, activeAccountSnapshot) {
-            FlutterNativeSplash.remove();
-            return ResultBuilder.behaviorSubject(
-              subject: activeAccountSnapshot.hasData
-                  ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
-                  : null,
-              builder: (context, capabilitiesSnapshot) {
-                final appTheme = AppTheme(
-                  serverTheme: ServerTheme(
-                    nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
-                  ),
-                  useNextcloudTheme: options.themeUseNextcloudTheme.value,
-                  deviceThemeLight: deviceThemeLight,
-                  deviceThemeDark: deviceThemeDark,
-                  oledAsDark: options.themeOLEDAsDark.value,
-                  appThemes: _appImplementations.map((a) => a.theme).nonNulls,
-                  neonTheme: widget.neonTheme,
-                );
+      builder:
+          (deviceThemeLight, deviceThemeDark) => OptionsCollectionBuilder(
+            valueListenable: _globalOptions,
+            builder:
+                (context, options, _) => StreamBuilder(
+                  stream: _accountsBloc.activeAccount,
+                  builder: (context, activeAccountSnapshot) {
+                    FlutterNativeSplash.remove();
+                    return ResultBuilder.behaviorSubject(
+                      subject:
+                          activeAccountSnapshot.hasData
+                              ? _accountsBloc.getCapabilitiesBlocFor(activeAccountSnapshot.data!).capabilities
+                              : null,
+                      builder: (context, capabilitiesSnapshot) {
+                        final appTheme = AppTheme(
+                          serverTheme: ServerTheme(
+                            nextcloudTheme: capabilitiesSnapshot.data?.capabilities.themingPublicCapabilities?.theming,
+                          ),
+                          useNextcloudTheme: options.themeUseNextcloudTheme.value,
+                          deviceThemeLight: deviceThemeLight,
+                          deviceThemeDark: deviceThemeDark,
+                          oledAsDark: options.themeOLEDAsDark.value,
+                          appThemes: _appImplementations.map((a) => a.theme).nonNulls,
+                          neonTheme: widget.neonTheme,
+                        );
 
-                final app = MaterialApp.router(
-                  debugShowCheckedModeBanner: false,
-                  localizationsDelegates: [
-                    ..._appImplementations.map((app) => app.localizationsDelegate),
-                    ...NeonLocalizations.localizationsDelegates,
-                  ],
-                  supportedLocales: {
-                    ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
-                    ...NeonLocalizations.supportedLocales,
+                        final app = MaterialApp.router(
+                          debugShowCheckedModeBanner: false,
+                          localizationsDelegates: [
+                            ..._appImplementations.map((app) => app.localizationsDelegate),
+                            ...NeonLocalizations.localizationsDelegates,
+                          ],
+                          supportedLocales: {
+                            ..._appImplementations.map((app) => app.supportedLocales).expand((element) => element),
+                            ...NeonLocalizations.supportedLocales,
+                          },
+                          themeMode: options.themeMode.value,
+                          theme: appTheme.lightTheme,
+                          darkTheme: appTheme.darkTheme,
+                          routerConfig: _routerDelegate,
+                        );
+
+                        if (activeAccountSnapshot.hasData) {
+                          final account = activeAccountSnapshot.requireData!;
+
+                          return MultiProvider(
+                            providers: [
+                              Provider<Account>.value(value: account),
+                              NeonProvider<AccountOptions>.value(value: _accountsBloc.getOptionsFor(account)),
+                              NeonProvider<AppsBloc>.value(value: _accountsBloc.getAppsBlocFor(account)),
+                              NeonProvider<CapabilitiesBloc>.value(
+                                value: _accountsBloc.getCapabilitiesBlocFor(account),
+                              ),
+                              NeonProvider<UserDetailsBloc>.value(value: _accountsBloc.getUserDetailsBlocFor(account)),
+                              NeonProvider<UserStatusBloc>.value(value: _accountsBloc.getUserStatusBlocFor(account)),
+                              NeonProvider<UnifiedSearchBloc>.value(
+                                value: _accountsBloc.getUnifiedSearchBlocFor(account),
+                              ),
+                              NeonProvider<WeatherStatusBloc>.value(
+                                value: _accountsBloc.getWeatherStatusBlocFor(account),
+                              ),
+                              NeonProvider<MaintenanceModeBloc>.value(
+                                value: _accountsBloc.getMaintenanceModeBlocFor(account),
+                              ),
+                              NeonProvider<ReferencesBloc>.value(value: _accountsBloc.getReferencesBlocFor(account)),
+                            ],
+                            child: app,
+                          );
+                        }
+
+                        return app;
+                      },
+                    );
                   },
-                  themeMode: options.themeMode.value,
-                  theme: appTheme.lightTheme,
-                  darkTheme: appTheme.darkTheme,
-                  routerConfig: _routerDelegate,
-                );
-
-                if (activeAccountSnapshot.hasData) {
-                  final account = activeAccountSnapshot.requireData!;
-
-                  return MultiProvider(
-                    providers: [
-                      Provider<Account>.value(
-                        value: account,
-                      ),
-                      NeonProvider<AccountOptions>.value(
-                        value: _accountsBloc.getOptionsFor(account),
-                      ),
-                      NeonProvider<AppsBloc>.value(
-                        value: _accountsBloc.getAppsBlocFor(account),
-                      ),
-                      NeonProvider<CapabilitiesBloc>.value(
-                        value: _accountsBloc.getCapabilitiesBlocFor(account),
-                      ),
-                      NeonProvider<UserDetailsBloc>.value(
-                        value: _accountsBloc.getUserDetailsBlocFor(account),
-                      ),
-                      NeonProvider<UserStatusBloc>.value(
-                        value: _accountsBloc.getUserStatusBlocFor(account),
-                      ),
-                      NeonProvider<UnifiedSearchBloc>.value(
-                        value: _accountsBloc.getUnifiedSearchBlocFor(account),
-                      ),
-                      NeonProvider<WeatherStatusBloc>.value(
-                        value: _accountsBloc.getWeatherStatusBlocFor(account),
-                      ),
-                      NeonProvider<MaintenanceModeBloc>.value(
-                        value: _accountsBloc.getMaintenanceModeBlocFor(account),
-                      ),
-                      NeonProvider<ReferencesBloc>.value(
-                        value: _accountsBloc.getReferencesBlocFor(account),
-                      ),
-                    ],
-                    child: app,
-                  );
-                }
-
-                return app;
-              },
-            );
-          },
-        ),
-      ),
+                ),
+          ),
     );
   }
 }

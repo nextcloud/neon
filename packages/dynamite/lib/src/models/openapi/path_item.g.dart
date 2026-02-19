@@ -15,8 +15,11 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
   final String wireName = 'PathItem';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PathItem object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PathItem object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.description;
@@ -83,8 +86,11 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
   }
 
   @override
-  PathItem deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PathItem deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PathItemBuilder();
 
     final iterator = serialized.iterator;
@@ -97,8 +103,10 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'parameters':
-          result.parameters.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, [FullType(Parameter)]))! as BuiltList<Object?>);
+          result.parameters.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, [FullType(Parameter)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'get':
           result.get.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
@@ -113,8 +121,9 @@ class _$PathItemSerializer implements StructuredSerializer<PathItem> {
           result.delete.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
           break;
         case 'options':
-          result.options
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
+          result.options.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation,
+          );
           break;
         case 'head':
           result.head.replace(serializers.deserialize(value, specifiedType: const FullType(Operation))! as Operation);
@@ -157,18 +166,18 @@ class _$PathItem extends PathItem {
 
   factory _$PathItem([void Function(PathItemBuilder)? updates]) => (PathItemBuilder()..update(updates))._build();
 
-  _$PathItem._(
-      {this.description,
-      this.parameters,
-      this.get,
-      this.put,
-      this.post,
-      this.delete,
-      this.options,
-      this.head,
-      this.patch,
-      this.trace})
-      : super._();
+  _$PathItem._({
+    this.description,
+    this.parameters,
+    this.get,
+    this.put,
+    this.post,
+    this.delete,
+    this.options,
+    this.head,
+    this.patch,
+    this.trace,
+  }) : super._();
 
   @override
   Map<PathItemOperation, Operation> get operations => __operations ??= super.operations;
@@ -307,18 +316,20 @@ class PathItemBuilder implements Builder<PathItem, PathItemBuilder> {
   _$PathItem _build() {
     _$PathItem _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$PathItem._(
-              description: description,
-              parameters: _parameters?.build(),
-              get: _get?.build(),
-              put: _put?.build(),
-              post: _post?.build(),
-              delete: _delete?.build(),
-              options: _options?.build(),
-              head: _head?.build(),
-              patch: _patch?.build(),
-              trace: _trace?.build());
+            description: description,
+            parameters: _parameters?.build(),
+            get: _get?.build(),
+            put: _put?.build(),
+            post: _post?.build(),
+            delete: _delete?.build(),
+            options: _options?.build(),
+            head: _head?.build(),
+            patch: _patch?.build(),
+            trace: _trace?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

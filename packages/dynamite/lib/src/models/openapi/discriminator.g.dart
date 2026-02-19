@@ -15,8 +15,11 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
   final String wireName = 'Discriminator';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Discriminator object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Discriminator object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'propertyName',
       serializers.serialize(object.propertyName, specifiedType: const FullType(String)),
@@ -26,15 +29,19 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
     if (value != null) {
       result
         ..add('mapping')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])));
+        ..add(
+          serializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)])),
+        );
     }
     return result;
   }
 
   @override
-  Discriminator deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Discriminator deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DiscriminatorBuilder();
 
     final iterator = serialized.iterator;
@@ -47,8 +54,12 @@ class _$DiscriminatorSerializer implements StructuredSerializer<Discriminator> {
           result.propertyName = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'mapping':
-          result.mapping.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]))!);
+          result.mapping.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            )!,
+          );
           break;
       }
     }
@@ -140,10 +151,12 @@ class DiscriminatorBuilder implements Builder<Discriminator, DiscriminatorBuilde
   _$Discriminator _build() {
     _$Discriminator _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Discriminator._(
-              propertyName: BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName'),
-              mapping: _mapping?.build());
+            propertyName: BuiltValueNullFieldError.checkNotNull(propertyName, r'Discriminator', 'propertyName'),
+            mapping: _mapping?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

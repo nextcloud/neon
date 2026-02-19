@@ -29,7 +29,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$findValues_Request].
   @_i2.experimental
@@ -269,8 +269,7 @@ class _$HuntingSkillSerializer implements PrimitiveSerializer<HuntingSkill> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Serialization extension for `Object3`.
@@ -362,15 +361,16 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(Object1), Object1Builder.new)
-      ..add(Object1.serializer)
-      ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
-      ..add(Object2.serializer)
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
-      ..add(HuntingSkill.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(Object1), Object1Builder.new)
+          ..add(Object1.serializer)
+          ..addBuilderFactory(const FullType(Object2), Object2Builder.new)
+          ..add(Object2.serializer)
+          ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
+          ..add(HuntingSkill.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -378,10 +378,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin(typesToLeaveAsList: const {_$b2c4857c0136baea42828d89c87c757d}))
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -26,8 +26,10 @@ class ContentStringPlugin implements SerializerPlugin {
     }
 
     if (object is! Map<String, dynamic>) {
-      throw StateError('ContentStringPlugin can only be applied to Map<String, dynamic>. '
-          'Please ensure the StandardJsonPlugin is applied and run before.');
+      throw StateError(
+        'ContentStringPlugin can only be applied to Map<String, dynamic>. '
+        'Please ensure the StandardJsonPlugin is applied and run before.',
+      );
     }
 
     final content = object['content'];
@@ -46,8 +48,10 @@ class ContentStringPlugin implements SerializerPlugin {
     }
 
     if (object is! String) {
-      throw StateError('The serialized ContentString must be of type String. '
-          'Please ensure the StandardJsonPlugin is applied and run before.');
+      throw StateError(
+        'The serialized ContentString must be of type String. '
+        'Please ensure the StandardJsonPlugin is applied and run before.',
+      );
     }
 
     final content = jsonDecode(object);

@@ -15,18 +15,14 @@ import 'package:rxdart/rxdart.dart';
 abstract class UserDetailsBloc implements InteractiveBloc {
   /// Creates a new user details Bloc.
   @internal
-  factory UserDetailsBloc({
-    required Account account,
-  }) = _UserDetailsBloc;
+  factory UserDetailsBloc({required Account account}) = _UserDetailsBloc;
 
   /// Contains the user details.
   BehaviorSubject<Result<provisioning_api.UserDetails>> get userDetails;
 }
 
 class _UserDetailsBloc extends InteractiveBloc implements UserDetailsBloc {
-  _UserDetailsBloc({
-    required this.account,
-  }) {
+  _UserDetailsBloc({required this.account}) {
     unawaited(refresh());
   }
 

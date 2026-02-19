@@ -87,10 +87,7 @@ class _TimerBloc implements TimerBloc {
 
 /// A timer containing a [duration] and a [callback].
 class NeonTimer {
-  NeonTimer._(
-    this.duration,
-    this.callback,
-  );
+  NeonTimer._(this.duration, this.callback);
 
   /// Duration between executions
   final Duration duration;

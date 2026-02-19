@@ -6,10 +6,7 @@ import 'package:dynamite/src/helpers/docs.dart';
 import 'package:dynamite/src/models/openapi.dart' as openapi;
 import 'package:dynamite/src/models/type_result.dart';
 
-Iterable<Spec> generateSchemas(
-  openapi.OpenAPI spec,
-  State state,
-) sync* {
+Iterable<Spec> generateSchemas(openapi.OpenAPI spec, State state) sync* {
   if (spec.components?.schemas != null) {
     for (final schema in spec.components!.schemas!.entries) {
       final identifier = toDartName(schema.key, className: true);

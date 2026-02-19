@@ -5,12 +5,7 @@ import 'package:neon_framework/theme.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 
 class FilesBrowserNavigator extends StatelessWidget {
-  const FilesBrowserNavigator({
-    required this.uri,
-    required this.bloc,
-    required this.setPath,
-    super.key,
-  });
+  const FilesBrowserNavigator({required this.uri, required this.bloc, required this.setPath, super.key});
 
   final webdav.PathUri uri;
   final FilesBloc bloc;
@@ -21,9 +16,7 @@ class FilesBrowserNavigator extends StatelessWidget {
     return SizedBox(
       height: ButtonTheme.of(context).height,
       child: ListView.separated(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 10,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         scrollDirection: Axis.horizontal,
         itemCount: uri.pathSegments.length + 1,
         itemBuilder: (context, index) {
@@ -47,10 +40,7 @@ class FilesBrowserNavigator extends StatelessWidget {
           );
           return TextButton(
             onPressed: () => setPath(partialPath),
-            child: Text(
-              partialPath.name,
-              semanticsLabel: FilesLocalizations.of(context).goToPath(partialPath.name),
-            ),
+            child: Text(partialPath.name, semanticsLabel: FilesLocalizations.of(context).goToPath(partialPath.name)),
           );
         },
         separatorBuilder: (context, index) => Icon(AdaptiveIcons.chevron_right),

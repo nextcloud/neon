@@ -51,14 +51,6 @@ void testAll(
   httpOnly(cookieStoreFactory);
   secure(cookieStoreFactory);
   expiration(cookieStoreFactory);
-  sortTests(
-    cookieStoreFactory,
-    canSortByPath: canSortByPath,
-    canSortByCreationTime: canSortByCreationTime,
-  );
-  deletionTests(
-    cookieStoreFactory,
-    canDeleteAll: canDeleteAll,
-    canDeleteByTest: canDeleteByTest,
-  );
+  sortTests(cookieStoreFactory, canSortByPath: canSortByPath, canSortByCreationTime: canSortByCreationTime);
+  deletionTests(cookieStoreFactory, canDeleteAll: canDeleteAll, canDeleteByTest: canDeleteByTest);
 }

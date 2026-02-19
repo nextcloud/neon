@@ -9,11 +9,7 @@ void main() {
     final disposable1 = MockDisposable();
     final disposable3 = MockDisposable();
 
-    final list = [
-      disposable0,
-      disposable1,
-      disposable3,
-    ];
+    final list = [disposable0, disposable1, disposable3];
 
     // ignore: cascade_invocations
     list.disposeAll();
@@ -22,11 +18,7 @@ void main() {
     verify(disposable1.dispose).called(1);
     verify(disposable3.dispose).called(1);
 
-    final map = {
-      'disposable0': disposable0,
-      'disposable1': disposable1,
-      'disposable3': disposable3,
-    };
+    final map = {'disposable0': disposable0, 'disposable1': disposable1, 'disposable3': disposable3};
 
     // ignore: cascade_invocations
     map.disposeAll();

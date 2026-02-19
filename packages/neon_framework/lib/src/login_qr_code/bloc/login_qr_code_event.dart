@@ -19,7 +19,5 @@ final class LoginQrCodeScanned extends LoginQrCodeEvent {
   final String? code;
 
   @override
-  List<Object?> get props => [
-        code,
-      ];
+  List<Object?> get props => [code];
 }

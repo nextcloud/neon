@@ -16,67 +16,57 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:rxdart/rxdart.dart';
 
 Account mockUnifiedSearchAccount() => mockServer({
-      RegExp(r'/ocs/v2\.php/search/providers/(.*)/search'): {
-        'get': (match, request) {
-          final term = request.url.queryParameters['term']!;
-          if (term == 'error') {
-            return Response('', 400);
-          }
-          final count = int.parse(term);
-          return Response(
-            json.encode(
-              {
-                'ocs': {
-                  'meta': {'status': '', 'statuscode': 0},
-                  'data': {
-                    'name': match.group(1)!,
-                    'isPaginated': false,
-                    'entries': [
-                      for (var i = 0; i < count; i++)
-                        {
-                          'thumbnailUrl': '',
-                          'title': '$i',
-                          'subline': '',
-                          'resourceUrl': '',
-                          'icon': '',
-                          'rounded': false,
-                          'attributes': <dynamic>[],
-                        },
-                    ],
+  RegExp(r'/ocs/v2\.php/search/providers/(.*)/search'): {
+    'get': (match, request) {
+      final term = request.url.queryParameters['term']!;
+      if (term == 'error') {
+        return Response('', 400);
+      }
+      final count = int.parse(term);
+      return Response(
+        json.encode({
+          'ocs': {
+            'meta': {'status': '', 'statuscode': 0},
+            'data': {
+              'name': match.group(1)!,
+              'isPaginated': false,
+              'entries': [
+                for (var i = 0; i < count; i++)
+                  {
+                    'thumbnailUrl': '',
+                    'title': '$i',
+                    'subline': '',
+                    'resourceUrl': '',
+                    'icon': '',
+                    'rounded': false,
+                    'attributes': <dynamic>[],
                   },
-                },
-              },
-            ),
-            200,
-            headers: {'content-type': 'application/json'},
-          );
-        },
-      },
-      RegExp(r'/ocs/v2\.php/search/providers'): {
-        'get': (match, request) => Response(
-              json.encode(
-                {
-                  'ocs': {
-                    'meta': {'status': '', 'statuscode': 0},
-                    'data': [
-                      for (final id in ['a', 'b', 'c'])
-                        {
-                          'id': id,
-                          'appId': '',
-                          'name': '',
-                          'icon': '',
-                          'order': 0,
-                          'inAppSearch': false,
-                        },
-                    ],
-                  },
-                },
-              ),
-              200,
-              headers: {'content-type': 'application/json'},
-            ),
-      },
-    });
+              ],
+            },
+          },
+        }),
+        200,
+        headers: {'content-type': 'application/json'},
+      );
+    },
+  },
+  RegExp(r'/ocs/v2\.php/search/providers'): {
+    'get':
+        (match, request) => Response(
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': [
+                for (final id in ['a', 'b', 'c'])
+                  {'id': id, 'appId': '', 'name': '', 'icon': '', 'order': 0, 'inAppSearch': false},
+              ],
+            },
+          }),
+          200,
+          headers: {'content-type': 'application/json'},
+        ),
+  },
+});
 
 void main() {
   final error = DynamiteStatusCodeException(http.Response('', 400));
@@ -99,10 +89,7 @@ void main() {
     when(() => appsBloc.activeApp).thenAnswer((_) => activeApp);
 
     account = mockUnifiedSearchAccount();
-    bloc = UnifiedSearchBloc(
-      activeAppSubject: appsBloc.activeApp,
-      account: account,
-    );
+    bloc = UnifiedSearchBloc(activeAppSubject: appsBloc.activeApp, account: account);
   });
 
   tearDown(() {
@@ -111,11 +98,12 @@ void main() {
   });
 
   group('search', () {
-    for (final entry in {
-      '0': null,
-      '2': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
-      'error': Result<BuiltList<String>>.error(error),
-    }.entries) {
+    for (final entry
+        in {
+          '0': null,
+          '2': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
+          'error': Result<BuiltList<String>>.error(error),
+        }.entries) {
       test(entry.key, () {
         expect(
           bloc.providers.transformResult((providers) => BuiltList<String>(providers!.map((provider) => provider.id))),
@@ -132,11 +120,7 @@ void main() {
                 results.entries.map(
                   (e) => MapEntry(
                     e.key,
-                    e.value.transform(
-                      (result) => BuiltList<String>(
-                        result.entries.map((entry) => entry.title),
-                      ),
-                    ),
+                    e.value.transform((result) => BuiltList<String>(result.entries.map((entry) => entry.title))),
                   ),
                 ),
               ),
@@ -202,11 +186,7 @@ void main() {
             results.entries.map(
               (e) => MapEntry(
                 e.key,
-                e.value.transform(
-                  (result) => BuiltList<String>(
-                    result.entries.map((entry) => entry.title),
-                  ),
-                ),
+                e.value.transform((result) => BuiltList<String>(result.entries.map((entry) => entry.title))),
               ),
             ),
           ),
@@ -214,9 +194,7 @@ void main() {
       ),
       emitsInOrder([
         BuiltMap<String, Result<BuiltList<String>>>(),
-        BuiltMap<String, Result<BuiltList<String>>>({
-          'a': Result<BuiltList<String>>.loading(),
-        }),
+        BuiltMap<String, Result<BuiltList<String>>>({'a': Result<BuiltList<String>>.loading()}),
         BuiltMap<String, Result<BuiltList<String>>>({
           'a': Result<BuiltList<String>>.success(BuiltList(['0', '1'])),
         }),
@@ -242,14 +220,7 @@ void main() {
         }),
       ]),
     );
-    expect(
-      bloc.isExtendedSearch,
-      emitsInOrder([
-        null,
-        false,
-        true,
-      ]),
-    );
+    expect(bloc.isExtendedSearch, emitsInOrder([null, false, true]));
 
     bloc.search('2');
 
@@ -266,13 +237,7 @@ void main() {
         BuiltMap<String, Result<core.UnifiedSearchResult>>(),
       ]),
     );
-    expect(
-      bloc.isExtendedSearch,
-      emitsInOrder([
-        null,
-        null,
-      ]),
-    );
+    expect(bloc.isExtendedSearch, emitsInOrder([null, null]));
 
     bloc.search('');
   });

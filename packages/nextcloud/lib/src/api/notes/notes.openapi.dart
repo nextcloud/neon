@@ -40,16 +40,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$getNotes_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Note>, void> $getNotes_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Note)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Note)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getNotes] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -168,11 +168,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$createNote_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Note, void> $createNote_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Note),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Note),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [createNote] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -277,11 +277,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getNote_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Note, void> $getNote_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Note),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Note),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getNote] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -358,11 +358,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$updateNote_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Note, void> $updateNote_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Note),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Note),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [updateNote] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -484,11 +484,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$deleteNote_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Never>, void> $deleteNote_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Never)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Never)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [deleteNote] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -548,11 +548,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getSettings_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Settings, void> $getSettings_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Settings),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Settings),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getSettings] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -608,11 +608,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$updateSettings_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Settings, void> $updateSettings_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Settings),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Settings),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [updateSettings] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -785,16 +785,14 @@ class _$Settings_NoteModeSerializer implements PrimitiveSerializer<Settings_Note
     Serializers serializers,
     Settings_NoteMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Settings_NoteMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1139,27 +1137,28 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
-      ..add(Note.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Note)]), ListBuilder<Note>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..addBuilderFactory(const FullType(Settings), SettingsBuilder.new)
-      ..add(Settings.serializer)
-      ..add(Settings_NoteMode.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Notes), Capabilities_NotesBuilder.new)
-      ..add(Capabilities_Notes.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
-      ..add(EmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_OcsBuilder.new)
-      ..add(EmptyOCS_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Note), NoteBuilder.new)
+          ..add(Note.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Note)]), ListBuilder<Note>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
+          ..addBuilderFactory(const FullType(Settings), SettingsBuilder.new)
+          ..add(Settings.serializer)
+          ..add(Settings_NoteMode.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Notes), Capabilities_NotesBuilder.new)
+          ..add(Capabilities_Notes.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
+          ..add(EmptyOCS.serializer)
+          ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_OcsBuilder.new)
+          ..add(EmptyOCS_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1167,10 +1166,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

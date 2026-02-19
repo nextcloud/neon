@@ -9,10 +9,7 @@ void main() {
       final app1 = MockAppImplementation();
       final app2 = MockAppImplementation();
 
-      final apps = {
-        app1,
-        app2,
-      };
+      final apps = {app1, app2};
 
       when(() => app1.id).thenReturn('app1');
       when(() => app2.id).thenReturn('app2');

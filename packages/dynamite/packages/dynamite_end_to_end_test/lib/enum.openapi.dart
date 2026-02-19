@@ -185,8 +185,7 @@ class _$EnumDynamicSerializer implements PrimitiveSerializer<EnumDynamic> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class WrappedEnum_String extends EnumClass {
@@ -237,16 +236,14 @@ class _$WrappedEnum_StringSerializer implements PrimitiveSerializer<WrappedEnum_
     Serializers serializers,
     WrappedEnum_String object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   WrappedEnum_String deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class WrappedEnum_Integer extends EnumClass {
@@ -304,16 +301,14 @@ class _$WrappedEnum_IntegerSerializer implements PrimitiveSerializer<WrappedEnum
     Serializers serializers,
     WrappedEnum_Integer object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   WrappedEnum_Integer deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -421,17 +416,18 @@ abstract class EnumReference implements $EnumReferenceInterface, Built<EnumRefer
 /// See: [$jsonSerializers] for serializing into json.
 @_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..add(EnumString.serializer)
-      ..add(EnumInt.serializer)
-      ..add(EnumDynamic.serializer)
-      ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
-      ..add(WrappedEnum.serializer)
-      ..add(WrappedEnum_String.serializer)
-      ..add(WrappedEnum_Integer.serializer)
-      ..addBuilderFactory(const FullType(EnumReference), EnumReferenceBuilder.new)
-      ..add(EnumReference.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..add(EnumString.serializer)
+          ..add(EnumInt.serializer)
+          ..add(EnumDynamic.serializer)
+          ..addBuilderFactory(const FullType(WrappedEnum), WrappedEnumBuilder.new)
+          ..add(WrappedEnum.serializer)
+          ..add(WrappedEnum_String.serializer)
+          ..add(WrappedEnum_Integer.serializer)
+          ..addBuilderFactory(const FullType(EnumReference), EnumReferenceBuilder.new)
+          ..add(EnumReference.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -439,10 +435,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i2.DynamiteDoubleSerializer())
+          ..addPlugin(_i3.StandardJsonPlugin())
+          ..addPlugin(const _i2.HeaderPlugin())
+          ..addPlugin(const _i2.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -9,10 +9,7 @@ import 'package:test/test.dart';
 import 'package:xml/xml.dart';
 
 class _ContainsAllAvailableProps extends AsyncMatcher {
-  _ContainsAllAvailableProps(
-    this.tester,
-    this.uri,
-  );
+  _ContainsAllAvailableProps(this.tester, this.uri);
 
   final NextcloudTester tester;
   final PathUri uri;

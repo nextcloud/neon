@@ -222,13 +222,14 @@ class _$e1c7ecea8e5fdae7b94cd86c0dc4f1baSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
-      ..add(Base.serializer)
-      ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
-      ..add(NestedRedirect.serializer)
-      ..add($e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
+          ..add(Base.serializer)
+          ..addBuilderFactory(const FullType(NestedRedirect), NestedRedirectBuilder.new)
+          ..add(NestedRedirect.serializer)
+          ..add($e1c7ecea8e5fdae7b94cd86c0dc4f1baExtension._serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -236,10 +237,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba}))
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(_i4.StandardJsonPlugin(typesToLeaveAsList: const {_$e1c7ecea8e5fdae7b94cd86c0dc4f1ba}))
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

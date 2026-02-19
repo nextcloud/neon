@@ -15,8 +15,11 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
   final String wireName = 'Contact';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Contact object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Contact object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.name;
@@ -41,8 +44,11 @@ class _$ContactSerializer implements StructuredSerializer<Contact> {
   }
 
   @override
-  Contact deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Contact deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContactBuilder();
 
     final iterator = serialized.iterator;

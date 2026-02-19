@@ -15,8 +15,11 @@ class _$CredentialsSerializer implements StructuredSerializer<Credentials> {
   final String wireName = 'Credentials';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Credentials object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Credentials object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'serverURL',
       serializers.serialize(object.serverURL, specifiedType: const FullType(Uri)),
@@ -34,8 +37,11 @@ class _$CredentialsSerializer implements StructuredSerializer<Credentials> {
   }
 
   @override
-  Credentials deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Credentials deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CredentialsBuilder();
 
     final iterator = serialized.iterator;
@@ -162,11 +168,13 @@ class CredentialsBuilder implements Builder<Credentials, CredentialsBuilder> {
   Credentials build() => _build();
 
   _$Credentials _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Credentials._(
-            serverURL: BuiltValueNullFieldError.checkNotNull(serverURL, r'Credentials', 'serverURL'),
-            username: BuiltValueNullFieldError.checkNotNull(username, r'Credentials', 'username'),
-            appPassword: appPassword);
+          serverURL: BuiltValueNullFieldError.checkNotNull(serverURL, r'Credentials', 'serverURL'),
+          username: BuiltValueNullFieldError.checkNotNull(username, r'Credentials', 'username'),
+          appPassword: appPassword,
+        );
     replace(_$result);
     return _$result;
   }

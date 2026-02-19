@@ -16,11 +16,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 class NotesNotePage extends StatefulWidget {
-  const NotesNotePage({
-    required this.bloc,
-    required this.notesBloc,
-    super.key,
-  });
+  const NotesNotePage({required this.bloc, required this.notesBloc, super.key});
 
   final NotesNoteBloc bloc;
   final NotesBloc notesBloc;
@@ -102,9 +98,7 @@ class _NotesNotePageState extends State<NotesNotePage> {
           title: TextField(
             controller: _titleController,
             focusNode: _titleFocusNode,
-            style: const TextStyle(
-              fontSize: 22,
-            ),
+            style: const TextStyle(fontSize: 22),
             decoration: const InputDecoration(
               isDense: true,
               contentPadding: EdgeInsets.zero,
@@ -126,12 +120,11 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   _titleFocusNode.unfocus();
                 }
               },
-              tooltip: _showEditor
-                  ? NotesLocalizations.of(context).noteShowPreview
-                  : NotesLocalizations.of(context).noteShowEditor,
-              icon: Icon(
-                _showEditor ? AdaptiveIcons.visibility : AdaptiveIcons.edit,
-              ),
+              tooltip:
+                  _showEditor
+                      ? NotesLocalizations.of(context).noteShowPreview
+                      : NotesLocalizations.of(context).noteShowEditor,
+              icon: Icon(_showEditor ? AdaptiveIcons.visibility : AdaptiveIcons.edit),
             ),
             StreamBuilder(
               stream: widget.bloc.category,
@@ -142,10 +135,8 @@ class _NotesNotePageState extends State<NotesNotePage> {
                   onPressed: () async {
                     final result = await showAdaptiveDialog<String>(
                       context: context,
-                      builder: (context) => NotesSelectCategoryDialog(
-                        bloc: widget.notesBloc,
-                        initialCategory: category,
-                      ),
+                      builder:
+                          (context) => NotesSelectCategoryDialog(bloc: widget.notesBloc, initialCategory: category),
                     );
                     if (result != null) {
                       widget.bloc.updateCategory(result);
@@ -169,32 +160,28 @@ class _NotesNotePageState extends State<NotesNotePage> {
               });
             },
             child: Container(
-              padding: EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: _showEditor ? 20 : 10,
-              ),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: _showEditor ? 20 : 10),
               color: Colors.transparent,
               constraints: const BoxConstraints.expand(),
-              child: _showEditor
-                  ? TextField(
-                      controller: _contentController,
-                      focusNode: _contentFocusNode,
-                      keyboardType: TextInputType.multiline,
-                      maxLines: null,
-                      decoration: const InputDecoration(
-                        border: InputBorder.none,
+              child:
+                  _showEditor
+                      ? TextField(
+                        controller: _contentController,
+                        focusNode: _contentFocusNode,
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        decoration: const InputDecoration(border: InputBorder.none),
+                      )
+                      : SingleChildScrollView(
+                        child: MarkdownBody(
+                          data: _contentController.text,
+                          onTapLink: (text, href, title) async {
+                            if (href != null) {
+                              await launchUrl(NeonProvider.of<Account>(context), href);
+                            }
+                          },
+                        ),
                       ),
-                    )
-                  : SingleChildScrollView(
-                      child: MarkdownBody(
-                        data: _contentController.text,
-                        onTapLink: (text, href, title) async {
-                          if (href != null) {
-                            await launchUrl(NeonProvider.of<Account>(context), href);
-                          }
-                        },
-                      ),
-                    ),
             ),
           ),
         ),

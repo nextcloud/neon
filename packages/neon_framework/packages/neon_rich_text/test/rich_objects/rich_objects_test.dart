@@ -32,8 +32,9 @@ void main() {
               when(() => userDetails.groups).thenReturn(BuiltList());
 
               final userDetailsBloc = MockUserDetailsBloc();
-              when(() => userDetailsBloc.userDetails)
-                  .thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
+              when(
+                () => userDetailsBloc.userDetails,
+              ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(userDetails)));
 
               final account = MockAccount();
 
@@ -46,11 +47,12 @@ void main() {
                   child: RichText(
                     text: buildRichObjectParameter(
                       parameter: core.RichObjectParameter(
-                        (b) => b
-                          ..type = type
-                          ..id = ''
-                          ..name = 'name'
-                          ..iconUrl = '',
+                        (b) =>
+                            b
+                              ..type = type
+                              ..id = ''
+                              ..name = 'name'
+                              ..iconUrl = '',
                       ),
                       textStyle: null,
                       isPreview: isPreview,
@@ -70,16 +72,15 @@ void main() {
 
           await tester.pumpWidgetWithAccessibility(
             TestApp(
-              providers: [
-                Provider<Account>.value(value: account),
-              ],
+              providers: [Provider<Account>.value(value: account)],
               child: RichText(
                 text: buildRichObjectParameter(
                   parameter: core.RichObjectParameter(
-                    (b) => b
-                      ..type = core.RichObjectParameter_Type.file
-                      ..id = '0'
-                      ..name = 'name',
+                    (b) =>
+                        b
+                          ..type = core.RichObjectParameter_Type.file
+                          ..id = '0'
+                          ..name = 'name',
                   ),
                   textStyle: null,
                   isPreview: isPreview,
@@ -98,12 +99,13 @@ void main() {
               child: RichText(
                 text: buildRichObjectParameter(
                   parameter: core.RichObjectParameter(
-                    (b) => b
-                      ..type = core.RichObjectParameter_Type.deckCard
-                      ..id = ''
-                      ..name = 'name'
-                      ..boardname = 'boardname'
-                      ..stackname = 'stackname',
+                    (b) =>
+                        b
+                          ..type = core.RichObjectParameter_Type.deckCard
+                          ..id = ''
+                          ..name = 'name'
+                          ..boardname = 'boardname'
+                          ..stackname = 'stackname',
                   ),
                   textStyle: null,
                   isPreview: isPreview,
@@ -122,10 +124,11 @@ void main() {
               child: RichText(
                 text: buildRichObjectParameter(
                   parameter: core.RichObjectParameter(
-                    (b) => b
-                      ..type = core.RichObjectParameter_Type.addressbook
-                      ..id = ''
-                      ..name = 'name',
+                    (b) =>
+                        b
+                          ..type = core.RichObjectParameter_Type.addressbook
+                          ..id = ''
+                          ..name = 'name',
                   ),
                   textStyle: null,
                   isPreview: isPreview,

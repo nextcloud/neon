@@ -13,11 +13,7 @@ class LoginQrCodeBloc extends Bloc<LoginQrCodeEvent, LoginQrCodeState> {
   }
 
   Future<void> _onLoginQrCodeScanned(LoginQrCodeScanned event, Emitter<LoginQrCodeState> emit) async {
-    emit(
-      state.copyWith(
-        invalid: false,
-      ),
-    );
+    emit(state.copyWith(invalid: false));
 
     final url = event.code;
     if (url == null) {
@@ -26,17 +22,9 @@ class LoginQrCodeBloc extends Bloc<LoginQrCodeEvent, LoginQrCodeState> {
 
     final credentials = LoginQRcode.tryParse(url)?.credentials;
     if (credentials == null) {
-      emit(
-        state.copyWith(
-          invalid: true,
-        ),
-      );
+      emit(state.copyWith(invalid: true));
     }
 
-    emit(
-      state.copyWith(
-        credentials: credentials,
-      ),
-    );
+    emit(state.copyWith(credentials: credentials));
   }
 }

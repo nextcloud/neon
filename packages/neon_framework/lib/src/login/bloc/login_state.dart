@@ -5,18 +5,12 @@ sealed class LoginState extends Equatable {
   /// Creates a new state for managing the Nextcloud login.
   const LoginState();
 
-  factory LoginState.initial({
-    Uri? serverURL,
-    Credentials? credentials,
-  }) {
+  factory LoginState.initial({Uri? serverURL, Credentials? credentials}) {
     if (serverURL == null && credentials == null) {
       return const LoginStateInitial();
     }
 
-    return LoginStateCheckServer(
-      serverURL: credentials?.serverURL ?? serverURL!,
-      credentials: credentials,
-    );
+    return LoginStateCheckServer(serverURL: credentials?.serverURL ?? serverURL!, credentials: credentials);
   }
 
   @override
@@ -44,10 +38,7 @@ final class LoginStateScanQrCode extends LoginState {
 /// {@endtemplate}
 final class LoginStateCheckServer extends LoginState {
   /// {@macro login_state_check_server}
-  const LoginStateCheckServer({
-    required this.serverURL,
-    this.credentials,
-  });
+  const LoginStateCheckServer({required this.serverURL, this.credentials});
 
   /// Url of the server.
   final Uri serverURL;
@@ -56,10 +47,7 @@ final class LoginStateCheckServer extends LoginState {
   final Credentials? credentials;
 
   @override
-  List<Object?> get props => [
-        serverURL,
-        credentials,
-      ];
+  List<Object?> get props => [serverURL, credentials];
 }
 
 /// {@template login_state_flow_v2}
@@ -67,17 +55,13 @@ final class LoginStateCheckServer extends LoginState {
 /// {@endtemplate}
 final class LoginStateFlowV2 extends LoginState {
   /// {@macro login_state_flow_v2}
-  const LoginStateFlowV2({
-    required this.serverURL,
-  });
+  const LoginStateFlowV2({required this.serverURL});
 
   /// Url of the server.
   final Uri serverURL;
 
   @override
-  List<Object?> get props => [
-        serverURL,
-      ];
+  List<Object?> get props => [serverURL];
 }
 
 /// {@template login_state_check_account}
@@ -85,17 +69,13 @@ final class LoginStateFlowV2 extends LoginState {
 /// {@endtemplate}
 final class LoginStateCheckAccount extends LoginState {
   /// {@macro login_state_check_account}
-  const LoginStateCheckAccount({
-    required this.credentials,
-  });
+  const LoginStateCheckAccount({required this.credentials});
 
   /// The credentials of the account to check.
   final Credentials credentials;
 
   @override
-  List<Object?> get props => [
-        credentials,
-      ];
+  List<Object?> get props => [credentials];
 }
 
 /// {@template login_state_done}

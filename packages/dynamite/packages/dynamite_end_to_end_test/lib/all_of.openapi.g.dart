@@ -21,8 +21,11 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   final String wireName = 'ObjectAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ObjectAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ObjectAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute1-allOf',
       serializers.serialize(object.attribute1AllOf, specifiedType: const FullType(String)),
@@ -34,8 +37,11 @@ class _$ObjectAllOfSerializer implements StructuredSerializer<ObjectAllOf> {
   }
 
   @override
-  ObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ObjectAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ObjectAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -64,8 +70,11 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
   final String wireName = 'OneObjectAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneObjectAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneObjectAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-allOf',
       serializers.serialize(object.attributeAllOf, specifiedType: const FullType(String)),
@@ -75,8 +84,11 @@ class _$OneObjectAllOfSerializer implements StructuredSerializer<OneObjectAllOf>
   }
 
   @override
-  OneObjectAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneObjectAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneObjectAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -102,8 +114,11 @@ class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf>
   final String wireName = 'PrimitiveAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PrimitiveAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PrimitiveAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'int',
       serializers.serialize(object.$int, specifiedType: const FullType(int)),
@@ -115,8 +130,11 @@ class _$PrimitiveAllOfSerializer implements StructuredSerializer<PrimitiveAllOf>
   }
 
   @override
-  PrimitiveAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PrimitiveAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PrimitiveAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -145,8 +163,11 @@ class _$MixedAllOfSerializer implements StructuredSerializer<MixedAllOf> {
   final String wireName = 'MixedAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, MixedAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    MixedAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'String',
       serializers.serialize(object.string, specifiedType: const FullType(String)),
@@ -158,8 +179,11 @@ class _$MixedAllOfSerializer implements StructuredSerializer<MixedAllOf> {
   }
 
   @override
-  MixedAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  MixedAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = MixedAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -188,19 +212,22 @@ class _$OneValueAllOfSerializer implements StructuredSerializer<OneValueAllOf> {
   final String wireName = 'OneValueAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneValueAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'String',
-      serializers.serialize(object.string, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneValueAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['String', serializers.serialize(object.string, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  OneValueAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneValueAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneValueAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -226,19 +253,22 @@ class _$SuperObjectSerializer implements StructuredSerializer<SuperObject> {
   final String wireName = 'SuperObject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SuperObject object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'value',
-      serializers.serialize(object.value, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SuperObject object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['value', serializers.serialize(object.value, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  SuperObject deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SuperObject deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SuperObjectBuilder();
 
     final iterator = serialized.iterator;
@@ -264,19 +294,22 @@ class _$SubObjectSerializer implements StructuredSerializer<SubObject> {
   final String wireName = 'SubObject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SubObject object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'value',
-      serializers.serialize(object.value, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SubObject object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['value', serializers.serialize(object.value, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  SubObject deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SubObject deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SubObjectBuilder();
 
     final iterator = serialized.iterator;
@@ -385,7 +418,8 @@ class ObjectAllOfBuilder implements Builder<ObjectAllOf, ObjectAllOfBuilder>, $O
 
   _$ObjectAllOf _build() {
     ObjectAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ObjectAllOf._(
           attribute1AllOf: BuiltValueNullFieldError.checkNotNull(attribute1AllOf, r'ObjectAllOf', 'attribute1AllOf'),
           attribute2AllOf: BuiltValueNullFieldError.checkNotNull(attribute2AllOf, r'ObjectAllOf', 'attribute2AllOf'),
@@ -471,7 +505,8 @@ class OneObjectAllOfBuilder implements Builder<OneObjectAllOf, OneObjectAllOfBui
 
   _$OneObjectAllOf _build() {
     OneObjectAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneObjectAllOf._(
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'OneObjectAllOf', 'attributeAllOf'),
         );
@@ -570,7 +605,8 @@ class PrimitiveAllOfBuilder implements Builder<PrimitiveAllOf, PrimitiveAllOfBui
 
   _$PrimitiveAllOf _build() {
     PrimitiveAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$PrimitiveAllOf._(
           $int: BuiltValueNullFieldError.checkNotNull($int, r'PrimitiveAllOf', '\$int'),
           string: BuiltValueNullFieldError.checkNotNull(string, r'PrimitiveAllOf', 'string'),
@@ -669,7 +705,8 @@ class MixedAllOfBuilder implements Builder<MixedAllOf, MixedAllOfBuilder>, $Mixe
 
   _$MixedAllOf _build() {
     MixedAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$MixedAllOf._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'MixedAllOf', 'string'),
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'MixedAllOf', 'attributeAllOf'),
@@ -755,10 +792,8 @@ class OneValueAllOfBuilder implements Builder<OneValueAllOf, OneValueAllOfBuilde
 
   _$OneValueAllOf _build() {
     OneValueAllOf._validate(this);
-    final _$result = _$v ??
-        _$OneValueAllOf._(
-          string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'),
-        );
+    final _$result =
+        _$v ?? _$OneValueAllOf._(string: BuiltValueNullFieldError.checkNotNull(string, r'OneValueAllOf', 'string'));
     replace(_$result);
     return _$result;
   }
@@ -840,10 +875,8 @@ class SuperObjectBuilder implements Builder<SuperObject, SuperObjectBuilder>, $S
 
   _$SuperObject _build() {
     SuperObject._validate(this);
-    final _$result = _$v ??
-        _$SuperObject._(
-          value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'),
-        );
+    final _$result =
+        _$v ?? _$SuperObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SuperObject', 'value'));
     replace(_$result);
     return _$result;
   }
@@ -924,10 +957,7 @@ class SubObjectBuilder implements Builder<SubObject, SubObjectBuilder>, $SubObje
 
   _$SubObject _build() {
     SubObject._validate(this);
-    final _$result = _$v ??
-        _$SubObject._(
-          value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'),
-        );
+    final _$result = _$v ?? _$SubObject._(value: BuiltValueNullFieldError.checkNotNull(value, r'SubObject', 'value'));
     replace(_$result);
     return _$result;
   }

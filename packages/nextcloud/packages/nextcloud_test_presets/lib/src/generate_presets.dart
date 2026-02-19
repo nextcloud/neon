@@ -8,16 +8,7 @@ import 'package:nextcloud_test_presets/src/models/models.dart';
 
 /// Generates the test presets.
 Future<void> generatePresets() async {
-  const appIDs = [
-    'cookbook',
-    'drop_account',
-    'news',
-    'notes',
-    'spreed',
-    'tables',
-    'terms_of_service',
-    'uppush',
-  ];
+  const appIDs = ['cookbook', 'drop_account', 'news', 'notes', 'spreed', 'tables', 'terms_of_service', 'uppush'];
   final releaseFallbacks = <String, Map<Version, String>>{};
 
   final httpClient = http.Client();
@@ -46,7 +37,8 @@ Future<void> generatePresets() async {
         if (a == app) {
           url = release.url;
         } else {
-          url = a.findLatestCompatibleRelease(serverRelease)?.url ??
+          url =
+              a.findLatestCompatibleRelease(serverRelease)?.url ??
               a.findLatestCompatibleRelease(serverRelease, allowUnstable: true)?.url ??
               releaseFallbacks[a.id]?[serverRelease.version];
           if (url == null) {
@@ -75,7 +67,8 @@ Future<void> generatePresets() async {
     final buffer = StringBuffer()..writeln('SERVER_VERSION=${serverRelease.dockerImageTag}');
 
     for (final app in apps) {
-      final url = app.findLatestCompatibleRelease(serverRelease)?.url ??
+      final url =
+          app.findLatestCompatibleRelease(serverRelease)?.url ??
           app.findLatestCompatibleRelease(serverRelease, allowUnstable: true)?.url ??
           releaseFallbacks[app.id]?[serverRelease.version];
       if (url == null) {
@@ -154,10 +147,7 @@ Future<List<ServerRelease>> _getServerReleases(http.Client httpClient) async {
           continue;
         }
 
-        final release = ServerRelease(
-          version: version,
-          dockerImageDigest: tag['digest'] as String,
-        );
+        final release = ServerRelease(version: version, dockerImageDigest: tag['digest'] as String);
 
         if (!versions.containsKey(normalizedVersion)) {
           versions[normalizedVersion] = release;
@@ -202,10 +192,12 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
       final normalizedVersion = Version(version.major, version.minor, 0);
 
       final rawPlatformVersionSpec = release['rawPlatformVersionSpec'] as String;
-      final minimumServerVersionRequirement =
-          Version.parse(rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''));
-      final maximumServerVersionRequirement =
-          Version.parse(rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''));
+      final minimumServerVersionRequirement = Version.parse(
+        rawPlatformVersionSpec.split(' ')[0].replaceFirst('>=', ''),
+      );
+      final maximumServerVersionRequirement = Version.parse(
+        rawPlatformVersionSpec.split(' ')[1].replaceFirst('<=', ''),
+      );
 
       if (maximumServerVersionRequirement < core.minVersion) {
         continue;
@@ -224,22 +216,17 @@ Future<List<App>> _getApps(List<String> appIDs, http.Client httpClient) async {
       if (!releases.containsKey(normalizedVersion)) {
         releases[normalizedVersion] = appRelease;
       } else if (
-          // Always prefer a stable release if the current one is unstable, regardless of the version numbers.
-          (releases[normalizedVersion]!.version.isPreRelease && !appRelease.version.isPreRelease) ||
-              // If both are stable or unstable, just take the higher version.
-              // The first condition is necessary to prevent that an unstable release with a higher version will override a stable release with a lower version.
-              (releases[normalizedVersion]!.version.isPreRelease == appRelease.version.isPreRelease &&
-                  appRelease.version > releases[normalizedVersion]!.version)) {
+      // Always prefer a stable release if the current one is unstable, regardless of the version numbers.
+      (releases[normalizedVersion]!.version.isPreRelease && !appRelease.version.isPreRelease) ||
+          // If both are stable or unstable, just take the higher version.
+          // The first condition is necessary to prevent that an unstable release with a higher version will override a stable release with a lower version.
+          (releases[normalizedVersion]!.version.isPreRelease == appRelease.version.isPreRelease &&
+              appRelease.version > releases[normalizedVersion]!.version)) {
         releases[normalizedVersion] = appRelease;
       }
     }
 
-    apps.add(
-      App(
-        id: id,
-        releases: releases.values.toList(),
-      ),
-    );
+    apps.add(App(id: id, releases: releases.values.toList()));
   }
 
   apps.sort((a, b) => a.id.compareTo(b.id));

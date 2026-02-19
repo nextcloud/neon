@@ -7,11 +7,7 @@ import 'package:nextcloud/core.dart' as core;
 /// Widget for displaying a preview of a link reference.
 class TalkReferencePreview extends StatelessWidget {
   /// Creates a new Talk reference preview.
-  const TalkReferencePreview({
-    required this.url,
-    required this.openGraphObject,
-    super.key,
-  });
+  const TalkReferencePreview({required this.url, required this.openGraphObject, super.key});
 
   /// URL of the reference.
   final String url;
@@ -44,11 +40,7 @@ class TalkReferencePreview extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-            Text(
-              url,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
+            Text(url, overflow: TextOverflow.ellipsis, style: Theme.of(context).textTheme.labelMedium),
           ],
         ),
       );
@@ -59,15 +51,9 @@ class TalkReferencePreview extends StatelessWidget {
           children: [
             ConstrainedBox(
               constraints: BoxConstraints.tight(const Size.square(100)),
-              child: NeonUriImage(
-                uri: Uri.parse(thumb),
-                fit: BoxFit.cover,
-                account: NeonProvider.of<Account>(context),
-              ),
+              child: NeonUriImage(uri: Uri.parse(thumb), fit: BoxFit.cover, account: NeonProvider.of<Account>(context)),
             ),
-            Flexible(
-              child: child,
-            ),
+            Flexible(child: child),
           ],
         );
       }
@@ -75,29 +61,16 @@ class TalkReferencePreview extends StatelessWidget {
       return Card(
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(
-          borderRadius: const BorderRadius.all(
-            Radius.circular(10),
-          ),
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.secondaryContainer,
-            width: 2,
-          ),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          side: BorderSide(color: Theme.of(context).colorScheme.secondaryContainer, width: 2),
         ),
         child: InkWell(
           onTap: () async => launchUrl(NeonProvider.of<Account>(context), url),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxHeight: 100,
-            ),
-            child: child,
-          ),
+          child: ConstrainedBox(constraints: const BoxConstraints(maxHeight: 100), child: child),
         ),
       );
     } else {
-      return const Padding(
-        padding: EdgeInsets.all(8),
-        child: CircularProgressIndicator(),
-      );
+      return const Padding(padding: EdgeInsets.all(8), child: CircularProgressIndicator());
     }
   }
 }

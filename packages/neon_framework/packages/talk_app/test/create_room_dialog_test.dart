@@ -26,36 +26,28 @@ Account mockAutocompleteAccount() {
       'get': (match, request) {
         final source = request.url.queryParametersAll['shareTypes[]']!.single == '0' ? 'users' : 'groups';
         return Response(
-          json.encode(
-            {
-              'ocs': {
-                'meta': {'status': '', 'statuscode': 0},
-                'data': [
-                  {
-                    'id': 'test',
-                    'label': 'Test',
-                    'icon': '',
-                    'source': source,
-                    'status': source == 'users'
-                        ? {
-                            'status': 'online',
-                          }
-                        : '',
-                    'subline': '',
-                    'shareWithDisplayNameUnique': '',
-                  },
-                ],
-              },
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': [
+                {
+                  'id': 'test',
+                  'label': 'Test',
+                  'icon': '',
+                  'source': source,
+                  'status': source == 'users' ? {'status': 'online'} : '',
+                  'subline': '',
+                  'shareWithDisplayNameUnique': '',
+                },
+              ],
             },
-          ),
+          }),
           200,
           headers: {'content-type': 'application/json'},
         );
       },
     },
-    RegExp(r'/index\.php/avatar/.*'): {
-      'get': (match, request) => Response('', 404),
-    },
+    RegExp(r'/index\.php/avatar/.*'): {'get': (match, request) => Response('', 404)},
   });
 }
 
@@ -78,19 +70,14 @@ void main() {
       'One-to-one',
       spreed.RoomType.oneToOne,
       localizations.roomType(spreed.RoomType.oneToOne.name),
-      {
-        find.byType(NeonUserAvatar): findsOne,
-        find.byType(NeonUserStatusIcon): findsOne,
-      },
+      {find.byType(NeonUserAvatar): findsOne, find.byType(NeonUserStatusIcon): findsOne},
       'users',
     ),
     (
       'Group',
       spreed.RoomType.group,
       localizations.roomType(spreed.RoomType.group.name),
-      {
-        find.byIcon(AdaptiveIcons.group): findsExactly(2),
-      },
+      {find.byIcon(AdaptiveIcons.group): findsExactly(2)},
       'groups',
     ),
   ]) {
@@ -101,9 +88,10 @@ void main() {
           BuiltMap({
             'test': Result.success(
               user_status.Public(
-                (b) => b
-                  ..userId = 'test'
-                  ..status = user_status.$Type.online,
+                (b) =>
+                    b
+                      ..userId = 'test'
+                      ..status = user_status.$Type.online,
               ),
             ),
           }),
@@ -151,24 +139,21 @@ void main() {
       expect(
         value.invite,
         core.AutocompleteResult(
-          (b) => b
-            ..id = 'test'
-            ..label = 'Test'
-            ..icon = ''
-            ..source = source
-            ..status = source == 'users'
-                ? (
-                    autocompleteResultStatus0: core.AutocompleteResult_Status0(
-                      (b) => b.status = 'online',
-                    ),
-                    string: null,
-                  )
-                : (
-                    autocompleteResultStatus0: null,
-                    string: '',
-                  )
-            ..subline = ''
-            ..shareWithDisplayNameUnique = '',
+          (b) =>
+              b
+                ..id = 'test'
+                ..label = 'Test'
+                ..icon = ''
+                ..source = source
+                ..status =
+                    source == 'users'
+                        ? (
+                          autocompleteResultStatus0: core.AutocompleteResult_Status0((b) => b.status = 'online'),
+                          string: null,
+                        )
+                        : (autocompleteResultStatus0: null, string: '')
+                ..subline = ''
+                ..shareWithDisplayNameUnique = '',
         ),
       );
     });

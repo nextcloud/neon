@@ -28,12 +28,7 @@ void main() {
     });
 
     test('Create note favorite', () async {
-      final response = await tester.client.notes.createNote(
-        title: 'a',
-        content: 'b',
-        category: 'c',
-        favorite: 1,
-      );
+      final response = await tester.client.notes.createNote(title: 'a', content: 'b', category: 'c', favorite: 1);
       expect(response.statusCode, 200);
       expect(() => response.headers, isA<void>());
 
@@ -48,11 +43,7 @@ void main() {
     });
 
     test('Create note not favorite', () async {
-      final response = await tester.client.notes.createNote(
-        title: 'a',
-        content: 'b',
-        category: 'c',
-      );
+      final response = await tester.client.notes.createNote(title: 'a', content: 'b', category: 'c');
       expect(response.statusCode, 200);
       expect(() => response.headers, isA<void>());
 
@@ -91,10 +82,7 @@ void main() {
 
     test('Update note', () async {
       final id = (await tester.client.notes.createNote(title: 'a')).body.id;
-      await tester.client.notes.updateNote(
-        id: id,
-        title: 'b',
-      );
+      await tester.client.notes.updateNote(id: id, title: 'b');
 
       final response = await tester.client.notes.getNote(id: id);
       expect(response.statusCode, 200);
@@ -108,17 +96,9 @@ void main() {
       expect(response.statusCode, 200);
       expect(() => response.headers, isA<void>());
 
-      await tester.client.notes.updateNote(
-        id: response.body.id,
-        title: 'b',
-        ifMatch: '"${response.body.etag}"',
-      );
+      await tester.client.notes.updateNote(id: response.body.id, title: 'b', ifMatch: '"${response.body.etag}"');
       await expectLater(
-        () => tester.client.notes.updateNote(
-          id: response.body.id,
-          title: 'c',
-          ifMatch: '"${response.body.etag}"',
-        ),
+        () => tester.client.notes.updateNote(id: response.body.id, title: 'c', ifMatch: '"${response.body.etag}"'),
         throwsA(predicate((e) => (e! as DynamiteStatusCodeException).statusCode == 412)),
       );
     });
@@ -143,10 +123,11 @@ void main() {
 
     test('Get and update settings', () async {
       final expectedSettings = notes.Settings(
-        (b) => b
-          ..notesPath = 'Notes'
-          ..fileSuffix = '.md'
-          ..noteMode = notes.Settings_NoteMode.rich,
+        (b) =>
+            b
+              ..notesPath = 'Notes'
+              ..fileSuffix = '.md'
+              ..noteMode = notes.Settings_NoteMode.rich,
       );
 
       var response = await tester.client.notes.getSettings();
@@ -157,10 +138,11 @@ void main() {
 
       response = await tester.client.notes.updateSettings(
         $body: notes.Settings(
-          (b) => b
-            ..notesPath = 'Test Notes'
-            ..fileSuffix = '.txt'
-            ..noteMode = notes.Settings_NoteMode.preview,
+          (b) =>
+              b
+                ..notesPath = 'Test Notes'
+                ..fileSuffix = '.txt'
+                ..noteMode = notes.Settings_NoteMode.preview,
         ),
       );
       addTearDown(() async {

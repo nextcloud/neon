@@ -18,11 +18,8 @@ import 'package:talk_app/src/utils/helpers.dart';
 @sealed
 abstract class TalkRoomBloc implements InteractiveBloc {
   /// Creates a new Talk room bloc.
-  factory TalkRoomBloc({
-    required TalkBloc talkBloc,
-    required Account account,
-    required spreed.Room room,
-  }) = _TalkRoomBloc;
+  factory TalkRoomBloc({required TalkBloc talkBloc, required Account account, required spreed.Room room}) =
+      _TalkRoomBloc;
 
   /// Sends a new text message to the room.
   void sendMessage(String message);
@@ -73,17 +70,11 @@ abstract class TalkRoomBloc implements InteractiveBloc {
 }
 
 class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
-  _TalkRoomBloc({
-    required this.talkBloc,
-    required this.account,
-    required spreed.Room room,
-  })  : room = BehaviorSubject.seeded(Result.success(room)),
-        token = room.token {
+  _TalkRoomBloc({required this.talkBloc, required this.account, required spreed.Room room})
+    : room = BehaviorSubject.seeded(Result.success(room)),
+      token = room.token {
     messages.listen((result) {
-      assert(
-        result.data?.where((message) => message.isHidden).isEmpty ?? true,
-        'No hidden messages should be emitted',
-      );
+      assert(result.data?.where((message) => message.isHidden).isEmpty ?? true, 'No hidden messages should be emitted');
 
       if (!result.hasSuccessfulData) {
         return;
@@ -96,9 +87,10 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
       final value = this.room.value;
       this.room.add(
-            value.copyWith(
-              data: value.requireData.rebuild(
-                (b) => b
+        value.copyWith(
+          data: value.requireData.rebuild(
+            (b) =>
+                b
                   ..lastActivity = lastMessage.timestamp
                   ..lastMessage = (
                     baseMessage: null,
@@ -112,9 +104,9 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
                   ..unreadMention = false
                   ..unreadMentionDirect = false
                   ..unreadMessages = 0,
-              ),
-            ),
-          );
+          ),
+        ),
+      );
     });
 
     this.room.listen((result) {
@@ -149,11 +141,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
           if (error case DynamiteStatusCodeException(statusCode: 304)) {
             log.info('Polling returned no new messages');
           } else if (error is! TimeoutException) {
-            log.info(
-              'Error while waiting for new chat messages',
-              error,
-              stackTrace,
-            );
+            log.info('Error while waiting for new chat messages', error, stackTrace);
 
             // Don't spam the server if the error persists
             await Future<void>.delayed(const Duration(seconds: 10));
@@ -214,21 +202,20 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       RequestManager.instance.wrap(
         account: account,
         subject: room,
-        getRequest: () => account.client.spreed.room.$joinRoom_Request(
-          token: token,
-        ),
+        getRequest: () => account.client.spreed.room.$joinRoom_Request(token: token),
         converter: ResponseConverter(account.client.spreed.room.$joinRoom_Serializer()),
         unwrap: (response) => response.body.ocs.data,
       ),
       RequestManager.instance.wrap(
         account: account,
         subject: messages,
-        getRequest: () => account.client.spreed.chat.$receiveMessages_Request(
-          token: token,
-          lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
-          includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
-          limit: 100,
-        ),
+        getRequest:
+            () => account.client.spreed.chat.$receiveMessages_Request(
+              token: token,
+              lookIntoFuture: spreed.ChatReceiveMessagesLookIntoFuture.$0,
+              includeLastKnown: spreed.ChatReceiveMessagesIncludeLastKnown.$0,
+              limit: 100,
+            ),
         converter: ResponseConverter(account.client.spreed.chat.$receiveMessages_Serializer()),
         unwrap: (response) {
           updateLastCommonRead(response.headers.xChatLastCommonRead);
@@ -244,93 +231,72 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   Future<void> sendMessage(String message) async {
-    await wrapAction(
-      () async {
-        late spreed.ChatMessageWithParent? m;
-        late String? lastCommonRead;
+    await wrapAction(() async {
+      late spreed.ChatMessageWithParent? m;
+      late String? lastCommonRead;
 
-        final editingId = editing.value?.id;
-        if (editingId != null) {
-          editing.add(null);
+      final editingId = editing.value?.id;
+      if (editingId != null) {
+        editing.add(null);
 
-          final response = await account.client.spreed.chat.editMessage(
-            token: token,
-            messageId: editingId,
-            $body: spreed.ChatEditMessageRequestApplicationJson(
-              (b) => b.message = message,
-            ),
-          );
+        final response = await account.client.spreed.chat.editMessage(
+          token: token,
+          messageId: editingId,
+          $body: spreed.ChatEditMessageRequestApplicationJson((b) => b.message = message),
+        );
 
-          m = response.body.ocs.data;
-          lastCommonRead = response.headers.xChatLastCommonRead;
-        } else {
-          final replyToId = replyTo.value?.id;
-          replyTo.add(null);
+        m = response.body.ocs.data;
+        lastCommonRead = response.headers.xChatLastCommonRead;
+      } else {
+        final replyToId = replyTo.value?.id;
+        replyTo.add(null);
 
-          final response = await account.client.spreed.chat.sendMessage(
-            token: token,
-            $body: spreed.ChatSendMessageRequestApplicationJson(
-              (b) {
-                b.message = message;
-                if (replyToId != null) {
-                  b.replyTo = replyToId;
-                }
-              },
-            ),
-          );
+        final response = await account.client.spreed.chat.sendMessage(
+          token: token,
+          $body: spreed.ChatSendMessageRequestApplicationJson((b) {
+            b.message = message;
+            if (replyToId != null) {
+              b.replyTo = replyToId;
+            }
+          }),
+        );
 
-          m = response.body.ocs.data;
-          lastCommonRead = response.headers.xChatLastCommonRead;
-        }
+        m = response.body.ocs.data;
+        lastCommonRead = response.headers.xChatLastCommonRead;
+      }
 
-        updateLastCommonRead(lastCommonRead);
-        if (m != null) {
-          updateLastKnownMessageId(m.id);
-          prependMessages([m]);
-        }
-      },
-      refresh: () async {},
-    );
+      updateLastCommonRead(lastCommonRead);
+      if (m != null) {
+        updateLastKnownMessageId(m.id);
+        prependMessages([m]);
+      }
+    }, refresh: () async {});
   }
 
   @override
   Future<void> addReaction(spreed.$ChatMessageInterface message, String reaction) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.spreed.reaction.react(
-          token: token,
-          messageId: message.id,
-          $body: spreed.ReactionReactRequestApplicationJson(
-            (b) => b..reaction = reaction,
-          ),
-        );
+    await wrapAction(() async {
+      final response = await account.client.spreed.reaction.react(
+        token: token,
+        messageId: message.id,
+        $body: spreed.ReactionReactRequestApplicationJson((b) => b..reaction = reaction),
+      );
 
-        updateReactions(
-          message.id,
-          response.body.ocs.data,
-        );
-      },
-      refresh: () async {},
-    );
+      updateReactions(message.id, response.body.ocs.data);
+    }, refresh: () async {});
   }
 
   @override
   Future<void> removeReaction(spreed.$ChatMessageInterface message, String reaction) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.spreed.reaction.delete(
-          token: token,
-          messageId: message.id,
-          reaction: reaction,
-        );
+    await wrapAction(() async {
+      final response = await account.client.spreed.reaction.delete(
+        token: token,
+        messageId: message.id,
+        reaction: reaction,
+      );
 
-        updateReactions(
-          message.id,
-          response.body.ocs.data,
-        );
-      },
-      refresh: () async {},
-    );
+      updateReactions(message.id, response.body.ocs.data);
+    }, refresh: () async {});
   }
 
   @override
@@ -339,20 +305,11 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
       return;
     }
 
-    await wrapAction(
-      () async {
-        final response = await account.client.spreed.reaction.getReactions(
-          token: token,
-          messageId: message.id,
-        );
+    await wrapAction(() async {
+      final response = await account.client.spreed.reaction.getReactions(token: token, messageId: message.id);
 
-        updateReactions(
-          message.id,
-          response.body.ocs.data,
-        );
-      },
-      refresh: () async {},
-    );
+      updateReactions(message.id, response.body.ocs.data);
+    }, refresh: () async {});
   }
 
   @override
@@ -379,22 +336,16 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   @override
   Future<void> deleteMessage(spreed.$ChatMessageInterface chatMessage) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.spreed.chat.deleteMessage(
-          token: token,
-          messageId: chatMessage.id,
-        );
+    await wrapAction(() async {
+      final response = await account.client.spreed.chat.deleteMessage(token: token, messageId: chatMessage.id);
 
-        updateLastCommonRead(response.headers.xChatLastCommonRead);
+      updateLastCommonRead(response.headers.xChatLastCommonRead);
 
-        final m = response.body.ocs.data;
-        updateLastKnownMessageId(m.id);
+      final m = response.body.ocs.data;
+      updateLastKnownMessageId(m.id);
 
-        prependMessages([m]);
-      },
-      refresh: () async {},
-    );
+      prependMessages([m]);
+    }, refresh: () async {});
   }
 
   void updateLastCommonRead(String? header) {
@@ -451,11 +402,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
       builder.removeWhere((message) => message.isHidden);
 
-      messages.add(
-        result.copyWith(
-          data: builder.build(),
-        ),
-      );
+      messages.add(result.copyWith(data: builder.build()));
     } else {
       builder.removeWhere((message) => message.isHidden);
 
@@ -465,30 +412,31 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
 
   void updateReactions(int messageId, BuiltMap<String, BuiltList<spreed.Reaction>> reactions) {
     this.reactions.add(
-          this.reactions.value.rebuild((b) {
-            b[messageId] = reactions;
-          }),
-        );
+      this.reactions.value.rebuild((b) {
+        b[messageId] = reactions;
+      }),
+    );
 
     updateMessage(
       messageId,
-      (b) => b
-        ..reactions.update((b) {
-          b.clear();
+      (b) =>
+          b
+            ..reactions.update((b) {
+              b.clear();
 
-          for (final entry in reactions.entries) {
-            b[entry.key] = entry.value.length;
-          }
-        })
-        ..reactionsSelf.update((b) {
-          b.clear();
+              for (final entry in reactions.entries) {
+                b[entry.key] = entry.value.length;
+              }
+            })
+            ..reactionsSelf.update((b) {
+              b.clear();
 
-          for (final entry in reactions.entries) {
-            if (entry.value.where((r) => r.actorId == account.username).isNotEmpty) {
-              b.add(entry.key);
-            }
-          }
-        }),
+              for (final entry in reactions.entries) {
+                if (entry.value.where((r) => r.actorId == account.username).isNotEmpty) {
+                  b.add(entry.key);
+                }
+              }
+            }),
     );
   }
 

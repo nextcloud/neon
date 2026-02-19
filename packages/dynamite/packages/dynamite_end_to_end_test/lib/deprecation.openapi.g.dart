@@ -43,12 +43,12 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
   final String wireName = 'Object2';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Object2 object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Object2 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.tag;
     if (value != null) {
@@ -60,8 +60,11 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
   }
 
   @override
-  Object2 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Object2 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Object2Builder();
 
     final iterator = serialized.iterator;
@@ -90,8 +93,11 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
   final String wireName = 'Object1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Object1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Object1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -109,8 +115,11 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
   }
 
   @override
-  Object1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Object1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Object1Builder();
 
     final iterator = serialized.iterator;
@@ -224,11 +233,8 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
 
   _$Object2 _build() {
     Object2._validate(this);
-    final _$result = _$v ??
-        _$Object2._(
-          name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
-          tag: tag,
-        );
+    final _$result =
+        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
     replace(_$result);
     return _$result;
   }
@@ -335,7 +341,8 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
 
   _$Object1 _build() {
     Object1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Object1._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),

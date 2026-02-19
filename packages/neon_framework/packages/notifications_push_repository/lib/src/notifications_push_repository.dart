@@ -26,9 +26,9 @@ class NotificationsPushRepository {
     required AccountRepository accountRepository,
     required NotificationsPushStorage storage,
     required OnMessageCallback onMessage,
-  })  : _accountRepository = accountRepository,
-        _storage = storage,
-        _onMessage = onMessage;
+  }) : _accountRepository = accountRepository,
+       _storage = storage,
+       _onMessage = onMessage;
 
   final AccountRepository _accountRepository;
   final NotificationsPushStorage _storage;
@@ -200,10 +200,11 @@ class NotificationsPushRepository {
     try {
       final response = await account.client.notifications.push.registerDevice(
         $body: notifications.PushRegisterDeviceRequestApplicationJson(
-          (b) => b
-            ..pushTokenHash = notifications.generatePushTokenHash(endpoint)
-            ..devicePublicKey = _privateKey.publicKey.toFormattedPEM()
-            ..proxyServer = '$endpoint#',
+          (b) =>
+              b
+                ..pushTokenHash = notifications.generatePushTokenHash(endpoint)
+                ..devicePublicKey = _privateKey.publicKey.toFormattedPEM()
+                ..proxyServer = '$endpoint#',
         ),
       );
 
@@ -215,11 +216,7 @@ class NotificationsPushRepository {
     return null;
   }
 
-  Future<void> _unregisterNextcloud(
-    String accountID,
-    Account? account,
-    notifications.PushDevice pushDevice,
-  ) async {
+  Future<void> _unregisterNextcloud(String accountID, Account? account, notifications.PushDevice pushDevice) async {
     _log.finer('Unregistering $accountID from Nextcloud');
 
     try {

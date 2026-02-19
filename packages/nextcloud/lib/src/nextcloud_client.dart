@@ -24,29 +24,15 @@ class NextcloudClient extends DynamiteClient with http.BaseClient {
     http.Client? httpClient,
   }) {
     final authentications = [
-      if (appPassword != null)
-        DynamiteHttpBearerAuthentication(
-          token: appPassword,
-        ),
+      if (appPassword != null) DynamiteHttpBearerAuthentication(token: appPassword),
       if (loginName != null && (password ?? appPassword) != null)
-        DynamiteHttpBasicAuthentication(
-          username: loginName,
-          password: (password ?? appPassword)!,
-        ),
+        DynamiteHttpBasicAuthentication(username: loginName, password: (password ?? appPassword)!),
     ];
 
-    return NextcloudClient._(
-      baseURL,
-      httpClient: httpClient,
-      authentications: authentications,
-    );
+    return NextcloudClient._(baseURL, httpClient: httpClient, authentications: authentications);
   }
 
-  NextcloudClient._(
-    super.baseURL, {
-    super.httpClient,
-    super.authentications,
-  });
+  NextcloudClient._(super.baseURL, {super.httpClient, super.authentications});
 
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) => httpClient.send(request);

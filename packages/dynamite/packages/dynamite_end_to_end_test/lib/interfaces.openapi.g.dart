@@ -29,8 +29,11 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   }
 
   @override
-  Base deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Base deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseBuilder();
 
     final iterator = serialized.iterator;
@@ -56,8 +59,11 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
   final String wireName = 'BaseInterface';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseInterface object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseInterface object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.attribute;
@@ -76,8 +82,11 @@ class _$BaseInterfaceSerializer implements StructuredSerializer<BaseInterface> {
   }
 
   @override
-  BaseInterface deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseInterface deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseInterfaceBuilder();
 
     final iterator = serialized.iterator;
@@ -174,10 +183,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   _$Base _build() {
     Base._validate(this);
-    final _$result = _$v ??
-        _$Base._(
-          attribute: attribute,
-        );
+    final _$result = _$v ?? _$Base._(attribute: attribute);
     replace(_$result);
     return _$result;
   }
@@ -273,11 +279,7 @@ class BaseInterfaceBuilder implements Builder<BaseInterface, BaseInterfaceBuilde
 
   _$BaseInterface _build() {
     BaseInterface._validate(this);
-    final _$result = _$v ??
-        _$BaseInterface._(
-          attribute: attribute,
-          property: property,
-        );
+    final _$result = _$v ?? _$BaseInterface._(attribute: attribute, property: property);
     replace(_$result);
     return _$result;
   }

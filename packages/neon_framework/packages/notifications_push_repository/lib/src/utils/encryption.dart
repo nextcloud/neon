@@ -33,13 +33,7 @@ Future<BuiltList<PushNotification>> parseEncryptedPushNotifications(
 
   for (final notification in Uri(query: utf8.decode(notifications)).queryParameters.values) {
     final data = json.decode(notification) as Map<String, dynamic>;
-    builder.add(
-      PushNotification.fromEncrypted(
-        data,
-        accountID,
-        privateKey,
-      ),
-    );
+    builder.add(PushNotification.fromEncrypted(data, accountID, privateKey));
   }
 
   return builder.build();

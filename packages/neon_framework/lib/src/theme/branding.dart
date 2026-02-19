@@ -40,26 +40,14 @@ class Branding {
 
   /// Creates a copy of this object but with the given fields replaced with the
   /// new values.
-  Branding copyWith({
-    String? name,
-    Widget? logo,
-    String? legalese,
-  }) =>
-      Branding(
-        name: name ?? this.name,
-        logo: logo ?? this.logo,
-        legalese: legalese ?? this.legalese,
-      );
+  Branding copyWith({String? name, Widget? logo, String? legalese}) =>
+      Branding(name: name ?? this.name, logo: logo ?? this.logo, legalese: legalese ?? this.legalese);
 
   /// The data from the closest [Branding] instance given the build context.
   static Branding of(BuildContext context) => Theme.of(context).extension<NeonTheme>()!.branding;
 
   @override
-  int get hashCode => Object.hashAll([
-        name,
-        logo,
-        legalese,
-      ]);
+  int get hashCode => Object.hashAll([name, logo, legalese]);
 
   @override
   bool operator ==(Object other) {

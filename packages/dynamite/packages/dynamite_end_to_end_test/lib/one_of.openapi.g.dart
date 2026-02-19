@@ -20,8 +20,11 @@ class _$ObjectOneOf0Serializer implements StructuredSerializer<ObjectOneOf0> {
   final String wireName = 'ObjectOneOf0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ObjectOneOf0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ObjectOneOf0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute1-oneOf',
       serializers.serialize(object.attribute1OneOf, specifiedType: const FullType(String)),
@@ -31,8 +34,11 @@ class _$ObjectOneOf0Serializer implements StructuredSerializer<ObjectOneOf0> {
   }
 
   @override
-  ObjectOneOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ObjectOneOf0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ObjectOneOf0Builder();
 
     final iterator = serialized.iterator;
@@ -58,8 +64,11 @@ class _$ObjectOneOf1Serializer implements StructuredSerializer<ObjectOneOf1> {
   final String wireName = 'ObjectOneOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ObjectOneOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ObjectOneOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute2-oneOf',
       serializers.serialize(object.attribute2OneOf, specifiedType: const FullType(String)),
@@ -69,8 +78,11 @@ class _$ObjectOneOf1Serializer implements StructuredSerializer<ObjectOneOf1> {
   }
 
   @override
-  ObjectOneOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ObjectOneOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ObjectOneOf1Builder();
 
     final iterator = serialized.iterator;
@@ -96,8 +108,11 @@ class _$MixedOneOf1Serializer implements StructuredSerializer<MixedOneOf1> {
   final String wireName = 'MixedOneOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, MixedOneOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    MixedOneOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-oneOf',
       serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
@@ -107,8 +122,11 @@ class _$MixedOneOf1Serializer implements StructuredSerializer<MixedOneOf1> {
   }
 
   @override
-  MixedOneOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  MixedOneOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = MixedOneOf1Builder();
 
     final iterator = serialized.iterator;
@@ -134,8 +152,11 @@ class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf
   final String wireName = 'OneObjectOneOf0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneObjectOneOf0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneObjectOneOf0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-oneOf',
       serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
@@ -145,8 +166,11 @@ class _$OneObjectOneOf0Serializer implements StructuredSerializer<OneObjectOneOf
   }
 
   @override
-  OneObjectOneOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneObjectOneOf0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneObjectOneOf0Builder();
 
     final iterator = serialized.iterator;
@@ -172,8 +196,11 @@ class _$OneOfUnspecifiedArray0Serializer implements StructuredSerializer<OneOfUn
   final String wireName = 'OneOfUnspecifiedArray0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneOfUnspecifiedArray0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneOfUnspecifiedArray0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-oneOf',
       serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
@@ -183,8 +210,11 @@ class _$OneOfUnspecifiedArray0Serializer implements StructuredSerializer<OneOfUn
   }
 
   @override
-  OneOfUnspecifiedArray0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneOfUnspecifiedArray0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneOfUnspecifiedArray0Builder();
 
     final iterator = serialized.iterator;
@@ -210,8 +240,11 @@ class _$OneOfStringArray0Serializer implements StructuredSerializer<OneOfStringA
   final String wireName = 'OneOfStringArray0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneOfStringArray0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneOfStringArray0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-oneOf',
       serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
@@ -221,8 +254,11 @@ class _$OneOfStringArray0Serializer implements StructuredSerializer<OneOfStringA
   }
 
   @override
-  OneOfStringArray0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneOfStringArray0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneOfStringArray0Builder();
 
     final iterator = serialized.iterator;
@@ -317,7 +353,8 @@ class ObjectOneOf0Builder implements Builder<ObjectOneOf0, ObjectOneOf0Builder>,
 
   _$ObjectOneOf0 _build() {
     ObjectOneOf0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ObjectOneOf0._(
           attribute1OneOf: BuiltValueNullFieldError.checkNotNull(attribute1OneOf, r'ObjectOneOf0', 'attribute1OneOf'),
         );
@@ -402,7 +439,8 @@ class ObjectOneOf1Builder implements Builder<ObjectOneOf1, ObjectOneOf1Builder>,
 
   _$ObjectOneOf1 _build() {
     ObjectOneOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ObjectOneOf1._(
           attribute2OneOf: BuiltValueNullFieldError.checkNotNull(attribute2OneOf, r'ObjectOneOf1', 'attribute2OneOf'),
         );
@@ -487,7 +525,8 @@ class MixedOneOf1Builder implements Builder<MixedOneOf1, MixedOneOf1Builder>, $M
 
   _$MixedOneOf1 _build() {
     MixedOneOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$MixedOneOf1._(
           attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'MixedOneOf1', 'attributeOneOf'),
         );
@@ -573,7 +612,8 @@ class OneObjectOneOf0Builder
 
   _$OneObjectOneOf0 _build() {
     OneObjectOneOf0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneObjectOneOf0._(
           attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneObjectOneOf0', 'attributeOneOf'),
         );
@@ -660,10 +700,14 @@ class OneOfUnspecifiedArray0Builder
 
   _$OneOfUnspecifiedArray0 _build() {
     OneOfUnspecifiedArray0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneOfUnspecifiedArray0._(
-          attributeOneOf:
-              BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfUnspecifiedArray0', 'attributeOneOf'),
+          attributeOneOf: BuiltValueNullFieldError.checkNotNull(
+            attributeOneOf,
+            r'OneOfUnspecifiedArray0',
+            'attributeOneOf',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -747,7 +791,8 @@ class OneOfStringArray0Builder
 
   _$OneOfStringArray0 _build() {
     OneOfStringArray0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneOfStringArray0._(
           attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'OneOfStringArray0', 'attributeOneOf'),
         );

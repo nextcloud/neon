@@ -6,10 +6,7 @@ import 'package:neon_framework/src/login_flow_v2/login_flow_v2.dart';
 
 @internal
 class LoginFLowV2Page extends StatelessWidget {
-  const LoginFLowV2Page({
-    required this.serverURL,
-    super.key,
-  });
+  const LoginFLowV2Page({required this.serverURL, super.key});
 
   /// The url of the server to log into.
   final Uri serverURL;
@@ -19,10 +16,10 @@ class LoginFLowV2Page extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         BlocProvider(
-          create: (context) => LoginFlowV2Bloc(
-            accountRepository: context.read<AccountRepository>(),
-            serverURL: serverURL,
-          )..add(const LoginFlowV2Init()),
+          create:
+              (context) =>
+                  LoginFlowV2Bloc(accountRepository: context.read<AccountRepository>(), serverURL: serverURL)
+                    ..add(const LoginFlowV2Init()),
         ),
       ],
       child: const LoginFLowV2View(),

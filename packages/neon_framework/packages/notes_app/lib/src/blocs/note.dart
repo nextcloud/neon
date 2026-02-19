@@ -11,11 +11,8 @@ import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesNoteBloc implements InteractiveBloc {
-  factory NotesNoteBloc({
-    required NotesBloc notesBloc,
-    required Account account,
-    required notes.Note note,
-  }) = _NotesNoteBloc;
+  factory NotesNoteBloc({required NotesBloc notesBloc, required Account account, required notes.Note note}) =
+      _NotesNoteBloc;
 
   void updateContent(String content);
 
@@ -31,11 +28,7 @@ sealed class NotesNoteBloc implements InteractiveBloc {
 }
 
 class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
-  _NotesNoteBloc({
-    required this.notesBloc,
-    required this.account,
-    required notes.Note note,
-  }) {
+  _NotesNoteBloc({required this.notesBloc, required this.account, required notes.Note note}) {
     emitNote(note);
     id = note.id;
     initialContent = note.content;
@@ -57,11 +50,7 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
         emitNote(response.body);
         await notesBloc.refresh();
       } on http.ClientException catch (error, stackTrace) {
-        log.warning(
-          'Error executing note action.',
-          error,
-          stackTrace,
-        );
+        log.warning('Error executing note action.', error, stackTrace);
 
         addError(error);
       }
@@ -94,33 +83,17 @@ class _NotesNoteBloc extends InteractiveBloc implements NotesNoteBloc {
   @override
   Future<void> updateCategory(String category) async {
     await wrapNoteAction(
-      (etag) async => account.client.notes.updateNote(
-        id: id,
-        category: category,
-        ifMatch: '"$etag"',
-      ),
+      (etag) async => account.client.notes.updateNote(id: id, category: category, ifMatch: '"$etag"'),
     );
   }
 
   @override
   Future<void> updateContent(String content) async {
-    await wrapNoteAction(
-      (etag) async => account.client.notes.updateNote(
-        id: id,
-        content: content,
-        ifMatch: '"$etag"',
-      ),
-    );
+    await wrapNoteAction((etag) async => account.client.notes.updateNote(id: id, content: content, ifMatch: '"$etag"'));
   }
 
   @override
   Future<void> updateTitle(String title) async {
-    await wrapNoteAction(
-      (etag) async => account.client.notes.updateNote(
-        id: id,
-        title: title,
-        ifMatch: '"$etag"',
-      ),
-    );
+    await wrapNoteAction((etag) async => account.client.notes.updateNote(id: id, title: title, ifMatch: '"$etag"'));
   }
 }

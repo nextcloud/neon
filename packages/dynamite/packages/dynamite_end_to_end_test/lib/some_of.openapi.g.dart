@@ -15,8 +15,11 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
   final String wireName = 'OneValueSomeOfInObject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneValueSomeOfInObject object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneValueSomeOfInObject object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'OneValue',
       serializers.serialize(object.oneValue, specifiedType: const FullType(int)),
@@ -34,8 +37,11 @@ class _$OneValueSomeOfInObjectSerializer implements StructuredSerializer<OneValu
   }
 
   @override
-  OneValueSomeOfInObject deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneValueSomeOfInObject deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneValueSomeOfInObjectBuilder();
 
     final iterator = serialized.iterator;
@@ -171,7 +177,8 @@ class OneValueSomeOfInObjectBuilder
 
   _$OneValueSomeOfInObject _build() {
     OneValueSomeOfInObject._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneValueSomeOfInObject._(
           oneValue: BuiltValueNullFieldError.checkNotNull(oneValue, r'OneValueSomeOfInObject', 'oneValue'),
           intDouble: BuiltValueNullFieldError.checkNotNull(intDouble, r'OneValueSomeOfInObject', 'intDouble'),

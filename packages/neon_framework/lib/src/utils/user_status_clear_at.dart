@@ -6,7 +6,7 @@ import 'package:timezone/timezone.dart' as tz;
 
 @internal
 extension ClearAt on user_status.ClearAt {
-// Replication of https://github.com/nextcloud/server/blob/master/apps/user_status/src/filters/clearAtFilter.js
+  // Replication of https://github.com/nextcloud/server/blob/master/apps/user_status/src/filters/clearAtFilter.js
   String formatRelative(NeonLocalizations localizations) {
     switch (type) {
       case user_status.ClearAt_Type.endOf:
@@ -17,10 +17,7 @@ extension ClearAt on user_status.ClearAt {
             return localizations.userStatusClearAtThisWeek;
         }
       case user_status.ClearAt_Type.period:
-        return Duration(seconds: time.$int!).formatRelative(
-          localizations,
-          includeSign: false,
-        );
+        return Duration(seconds: time.$int!).formatRelative(localizations, includeSign: false);
     }
 
     throw ArgumentError('Unknown ClearAt $this');

@@ -39,11 +39,7 @@ abstract class OpenAPI implements Built<OpenAPI, OpenAPIBuilder> {
   @BuiltValueHook(finalizeBuilder: true)
   static void _defaults(OpenAPIBuilder b) {
     if (b.servers.isEmpty) {
-      b.servers.add(
-        Server(
-          (b) => b.url = '/',
-        ),
-      );
+      b.servers.add(Server((b) => b.url = '/'));
     }
 
     for (final path in b.paths.build().keys) {

@@ -23,17 +23,8 @@ void main() {
   group('LoginPage', () {
     Widget buildSubject() {
       return TestApp(
-        appThemes: const [
-          NeonTheme(
-            branding: Branding(
-              name: 'neon',
-              logo: Placeholder(),
-            ),
-          ),
-        ],
-        providers: [
-          RepositoryProvider<AccountRepository>.value(value: _MockAccountRepository()),
-        ],
+        appThemes: const [NeonTheme(branding: Branding(name: 'neon', logo: Placeholder()))],
+        providers: [RepositoryProvider<AccountRepository>.value(value: _MockAccountRepository())],
         child: LoginPage(),
       );
     }
@@ -51,51 +42,31 @@ void main() {
     late Branding branding;
 
     setUp(() {
-      branding = const Branding(
-        name: 'neon-branding',
-        logo: Placeholder(key: Key('branding')),
-      );
+      branding = const Branding(name: 'neon-branding', logo: Placeholder(key: Key('branding')));
 
       router = MockGoRouter();
       // ignore: discarded_futures
       when(() => router.pushReplacement(any())).thenAnswer((_) async => null);
 
       loginBloc = _MockLoginBloc();
-      when(() => loginBloc.state).thenReturn(
-        const LoginStateInitial(),
-      );
+      when(() => loginBloc.state).thenReturn(const LoginStateInitial());
     });
 
     Widget buildSubject() {
       return TestApp(
         router: router,
-        appThemes: [
-          NeonTheme(branding: branding),
-        ],
-        providers: [
-          RepositoryProvider<LoginBloc>.value(
-            value: loginBloc,
-          ),
-        ],
+        appThemes: [NeonTheme(branding: branding)],
+        providers: [RepositoryProvider<LoginBloc>.value(value: loginBloc)],
         child: const LoginView(),
       );
     }
 
-    testWidgets(
-      'pops when LoginStateDone is emitted',
-      (tester) async {
-        whenListen<LoginState>(
-          loginBloc,
-          Stream.fromIterable(const [
-            LoginStateInitial(),
-            LoginStateDone(),
-          ]),
-        );
-        await tester.pumpWidgetWithAccessibility(buildSubject());
+    testWidgets('pops when LoginStateDone is emitted', (tester) async {
+      whenListen<LoginState>(loginBloc, Stream.fromIterable(const [LoginStateInitial(), LoginStateDone()]));
+      await tester.pumpWidgetWithAccessibility(buildSubject());
 
-        verify(() => router.pushReplacement('/')).called(1);
-      },
-    );
+      verify(() => router.pushReplacement('/')).called(1);
+    });
 
     group('login Qr button', () {
       testWidgets('is not shown when un supported', (tester) async {
@@ -111,56 +82,44 @@ void main() {
     });
 
     group('Nextcloud logo', () {
-      testWidgets(
-        'is rendered',
-        (tester) async {
-          await tester.pumpWidgetWithAccessibility(buildSubject());
+      testWidgets('is rendered', (tester) async {
+        await tester.pumpWidgetWithAccessibility(buildSubject());
 
-          expect(find.byType(NextcloudLogo), findsOneWidget);
-        },
-      );
+        expect(find.byType(NextcloudLogo), findsOneWidget);
+      });
 
-      testWidgets(
-        'is not rendered when disabled in branding',
-        (tester) async {
-          branding = const Branding(
-            name: 'neon-branding',
-            showLoginWithNextcloud: false,
-            logo: Placeholder(key: Key('branding')),
-          );
+      testWidgets('is not rendered when disabled in branding', (tester) async {
+        branding = const Branding(
+          name: 'neon-branding',
+          showLoginWithNextcloud: false,
+          logo: Placeholder(key: Key('branding')),
+        );
 
-          await tester.pumpWidgetWithAccessibility(buildSubject());
+        await tester.pumpWidgetWithAccessibility(buildSubject());
 
-          expect(find.byType(NextcloudLogo), findsNothing);
-        },
-      );
+        expect(find.byType(NextcloudLogo), findsNothing);
+      });
     });
 
     group('Branding', () {
-      testWidgets(
-        'is rendered',
-        (tester) async {
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-
-          expect(find.byKey(const Key('branding')), findsOneWidget);
-          expect(find.text('neon-branding'), findsOneWidget);
-        },
-      );
-    });
-
-    testWidgets(
-      'adds LoginUrlEntered to LoginBloc when valid url entered',
-      (tester) async {
+      testWidgets('is rendered', (tester) async {
         await tester.pumpWidgetWithAccessibility(buildSubject());
 
-        await tester.enterText(find.byType(TextFormField), 'invalid');
-        await tester.testTextInput.receiveAction(TextInputAction.done);
-        verifyNever(() => loginBloc.add(LoginUrlEntered(Uri())));
+        expect(find.byKey(const Key('branding')), findsOneWidget);
+        expect(find.text('neon-branding'), findsOneWidget);
+      });
+    });
 
-        await tester.enterText(find.byType(TextFormField), 'https://serverURL');
-        await tester.testTextInput.receiveAction(TextInputAction.done);
-        verify(() => loginBloc.add(LoginUrlEntered(Uri.https('serverURL')))).called(1);
-      },
-    );
+    testWidgets('adds LoginUrlEntered to LoginBloc when valid url entered', (tester) async {
+      await tester.pumpWidgetWithAccessibility(buildSubject());
+
+      await tester.enterText(find.byType(TextFormField), 'invalid');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      verifyNever(() => loginBloc.add(LoginUrlEntered(Uri())));
+
+      await tester.enterText(find.byType(TextFormField), 'https://serverURL');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      verify(() => loginBloc.add(LoginUrlEntered(Uri.https('serverURL')))).called(1);
+    });
   });
 }

@@ -110,46 +110,44 @@ sealed class $DefaultsInterface {
 
   static final _$string = _$jsonSerializers.deserialize('default', specifiedType: const FullType(String))! as String;
 
-  static final _$contentString = _$jsonSerializers.deserialize(
-    '1',
-    specifiedType: const FullType(ContentString, [FullType(int)]),
-  )! as ContentString<int>;
+  static final _$contentString =
+      _$jsonSerializers.deserialize('1', specifiedType: const FullType(ContentString, [FullType(int)]))!
+          as ContentString<int>;
 
   static final _$stringBinary =
       _$jsonSerializers.deserialize('', specifiedType: const FullType(Uint8List))! as Uint8List;
 
-  static final _$list = _$jsonSerializers.deserialize(
-    const [
-      'default-item',
-      true,
-      1.0,
-    ],
-    specifiedType: const FullType(BuiltList, [FullType(JsonObject)]),
-  )! as BuiltList<JsonObject>;
+  static final _$list =
+      _$jsonSerializers.deserialize(const [
+            'default-item',
+            true,
+            1.0,
+          ], specifiedType: const FullType(BuiltList, [FullType(JsonObject)]))!
+          as BuiltList<JsonObject>;
 
-  static final _$listNever = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(Never)]))! as BuiltList<Never>;
+  static final _$listNever =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+          as BuiltList<Never>;
 
-  static final _$listString = _$jsonSerializers.deserialize(
-    const [
-      'default-item',
-      'item',
-    ],
-    specifiedType: const FullType(BuiltList, [FullType(String)]),
-  )! as BuiltList<String>;
+  static final _$listString =
+      _$jsonSerializers.deserialize(const [
+            'default-item',
+            'item',
+          ], specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
 
-  static final _$objectMap = _$jsonSerializers.deserialize(
-    const {
-      'list': ['list'],
-      'string': 'default-item',
-      'bool': true,
-      'num': 1.0,
-    },
-    specifiedType: const FullType(JsonObject),
-  )! as JsonObject;
+  static final _$objectMap =
+      _$jsonSerializers.deserialize(const {
+            'list': ['list'],
+            'string': 'default-item',
+            'bool': true,
+            'num': 1.0,
+          }, specifiedType: const FullType(JsonObject))!
+          as JsonObject;
 
-  static final _$objectArray = _$jsonSerializers
-      .deserialize(const ['default-item', true, 1.0], specifiedType: const FullType(JsonObject))! as JsonObject;
+  static final _$objectArray =
+      _$jsonSerializers.deserialize(const ['default-item', true, 1.0], specifiedType: const FullType(JsonObject))!
+          as JsonObject;
 
   static final _$objectBool =
       _$jsonSerializers.deserialize(true, specifiedType: const FullType(JsonObject))! as JsonObject;
@@ -321,80 +319,81 @@ abstract class AdditionalProperties
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
-      ..add(Base.serializer)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
-      ..add(ContentString.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(Defaults), DefaultsBuilder.new)
-      ..add(Defaults.serializer)
-      ..addBuilderFactory(const FullType(AdditionalProperties), AdditionalPropertiesBuilder.new)
-      ..add(AdditionalProperties.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        ]),
-        MapBuilder<String, BuiltMap<String, JsonObject>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-        MapBuilder<String, JsonObject?>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(bool)]),
-        MapBuilder<String, bool>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(double)]),
-        MapBuilder<String, double>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(num)]), MapBuilder<String, num>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(String)]),
-        MapBuilder<String, String>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType.nullable(ContentString, [FullType(int)]),
-        ]),
-        MapBuilder<String, ContentString<int>?>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Uint8List)]),
-        MapBuilder<String, Uint8List>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(JsonObject)]),
-        ]),
-        MapBuilder<String, BuiltList<JsonObject>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(Never)]),
-        ]),
-        MapBuilder<String, BuiltList<Never>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-        MapBuilder<String, BuiltList<String>>.new,
-      ))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
+          ..add(Base.serializer)
+          ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
+          ..add(ContentString.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(Defaults), DefaultsBuilder.new)
+          ..add(Defaults.serializer)
+          ..addBuilderFactory(const FullType(AdditionalProperties), AdditionalPropertiesBuilder.new)
+          ..add(AdditionalProperties.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ]),
+            MapBuilder<String, BuiltMap<String, JsonObject>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+            MapBuilder<String, JsonObject?>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(bool)]),
+            MapBuilder<String, bool>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(double)]),
+            MapBuilder<String, double>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(num)]), MapBuilder<String, num>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            MapBuilder<String, String>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType.nullable(ContentString, [FullType(int)]),
+            ]),
+            MapBuilder<String, ContentString<int>?>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(Uint8List)]),
+            MapBuilder<String, Uint8List>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(JsonObject)]),
+            ]),
+            MapBuilder<String, BuiltList<JsonObject>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(Never)]),
+            ]),
+            MapBuilder<String, BuiltList<Never>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(String)]),
+            ]),
+            MapBuilder<String, BuiltList<String>>.new,
+          ))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -402,10 +401,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(_i4.StandardJsonPlugin())
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

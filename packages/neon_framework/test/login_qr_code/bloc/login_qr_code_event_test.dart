@@ -7,10 +7,7 @@ void main() {
   group('LoginQrCodeEvent', () {
     group('LoginQrCodeScanned', () {
       test('supports value equality', () {
-        expect(
-          LoginQrCodeScanned('code'),
-          equals(LoginQrCodeScanned('code')),
-        );
+        expect(LoginQrCodeScanned('code'), equals(LoginQrCodeScanned('code')));
       });
 
       test('props are correct', () {

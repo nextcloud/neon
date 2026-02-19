@@ -24,9 +24,10 @@ abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBui
 
   @memoized
   String get fullName {
-    final buffer = StringBuffer('Dynamite-')
-      ..write(type)
-      ..write('-');
+    final buffer =
+        StringBuffer('Dynamite-')
+          ..write(type)
+          ..write('-');
 
     if (scheme != null) {
       buffer
@@ -45,9 +46,6 @@ abstract class SecurityScheme implements Built<SecurityScheme, SecuritySchemeBui
     }
     buffer.write('-Authentication');
 
-    return toDartName(
-      buffer.toString(),
-      className: true,
-    );
+    return toDartName(buffer.toString(), className: true);
   }
 }

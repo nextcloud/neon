@@ -26,13 +26,7 @@ void main() {
   group('OptionsCollection', () {
     final option1 = MockOption();
     final option2 = MockOption();
-    final collection = Collection(
-      [
-        option1,
-        option2,
-      ],
-      MockSettingsStore(),
-    );
+    final collection = Collection([option1, option2], MockSettingsStore());
 
     test('reset', () {
       collection.reset();
@@ -71,10 +65,7 @@ void main() {
       when(() => option2.key).thenReturn(Keys.key2);
 
       const json = {
-        'app': {
-          'key1': false,
-          'key2': null,
-        },
+        'app': {'key1': false, 'key2': null},
       };
 
       collection.import(json);

@@ -38,7 +38,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -52,11 +52,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiGetResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiGetResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a reminder.
   ///
@@ -144,11 +144,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$$set_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiSetResponseApplicationJson, void> $$set_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiSetResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201, 400, 401, 404},
-      );
+    bodyType: const FullType(ApiSetResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201, 400, 401, 404},
+  );
 
   /// Set a reminder.
   ///
@@ -252,11 +252,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$remove_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiRemoveResponseApplicationJson, void> $remove_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiRemoveResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 401, 404},
-      );
+    bodyType: const FullType(ApiRemoveResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 401, 404},
+  );
 
   /// Remove a reminder.
   ///
@@ -901,41 +901,42 @@ abstract class ApiRemoveResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
-      ..add(ApiGetResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetResponseApplicationJson_Ocs),
-        ApiGetResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGetResponseApplicationJson_Ocs_Data),
-        ApiGetResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiGetResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(ApiSetRequestApplicationJson), ApiSetRequestApplicationJsonBuilder.new)
-      ..add(ApiSetRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJsonBuilder.new)
-      ..add(ApiSetResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiSetResponseApplicationJson_Ocs),
-        ApiSetResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiSetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiRemoveResponseApplicationJson),
-        ApiRemoveResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiRemoveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiRemoveResponseApplicationJson_Ocs),
-        ApiRemoveResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiRemoveResponseApplicationJson_Ocs.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(ApiGetResponseApplicationJson), ApiGetResponseApplicationJsonBuilder.new)
+          ..add(ApiGetResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetResponseApplicationJson_Ocs),
+            ApiGetResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGetResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGetResponseApplicationJson_Ocs_Data),
+            ApiGetResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiGetResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(ApiSetRequestApplicationJson), ApiSetRequestApplicationJsonBuilder.new)
+          ..add(ApiSetRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(ApiSetResponseApplicationJson), ApiSetResponseApplicationJsonBuilder.new)
+          ..add(ApiSetResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiSetResponseApplicationJson_Ocs),
+            ApiSetResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiSetResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiRemoveResponseApplicationJson),
+            ApiRemoveResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiRemoveResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiRemoveResponseApplicationJson_Ocs),
+            ApiRemoveResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiRemoveResponseApplicationJson_Ocs.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -943,10 +944,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

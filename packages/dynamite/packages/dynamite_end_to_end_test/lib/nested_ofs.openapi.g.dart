@@ -20,8 +20,11 @@ class _$BaseAllOfSerializer implements StructuredSerializer<BaseAllOf> {
   final String wireName = 'BaseAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'String',
       serializers.serialize(object.string, specifiedType: const FullType(String)),
@@ -33,8 +36,11 @@ class _$BaseAllOfSerializer implements StructuredSerializer<BaseAllOf> {
   }
 
   @override
-  BaseAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -63,8 +69,11 @@ class _$BaseOneOf1Serializer implements StructuredSerializer<BaseOneOf1> {
   final String wireName = 'BaseOneOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseOneOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseOneOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-oneOf',
       serializers.serialize(object.attributeOneOf, specifiedType: const FullType(String)),
@@ -74,8 +83,11 @@ class _$BaseOneOf1Serializer implements StructuredSerializer<BaseOneOf1> {
   }
 
   @override
-  BaseOneOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseOneOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseOneOf1Builder();
 
     final iterator = serialized.iterator;
@@ -101,8 +113,11 @@ class _$BaseAnyOf1Serializer implements StructuredSerializer<BaseAnyOf1> {
   final String wireName = 'BaseAnyOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseAnyOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseAnyOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-anyOf',
       serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
@@ -112,8 +127,11 @@ class _$BaseAnyOf1Serializer implements StructuredSerializer<BaseAnyOf1> {
   }
 
   @override
-  BaseAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseAnyOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseAnyOf1Builder();
 
     final iterator = serialized.iterator;
@@ -139,8 +157,11 @@ class _$BaseNestedAllOfSerializer implements StructuredSerializer<BaseNestedAllO
   final String wireName = 'BaseNestedAllOf';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseNestedAllOf object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseNestedAllOf object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'BaseOneOf',
       serializers.serialize(object.baseOneOf, specifiedType: const FullType(BaseOneOf)),
@@ -158,8 +179,11 @@ class _$BaseNestedAllOfSerializer implements StructuredSerializer<BaseNestedAllO
   }
 
   @override
-  BaseNestedAllOf deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseNestedAllOf deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseNestedAllOfBuilder();
 
     final iterator = serialized.iterator;
@@ -198,8 +222,11 @@ class _$BaseNestedOneOf3Serializer implements StructuredSerializer<BaseNestedOne
   final String wireName = 'BaseNestedOneOf3';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseNestedOneOf3 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseNestedOneOf3 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-nested-oneOf',
       serializers.serialize(object.attributeNestedOneOf, specifiedType: const FullType(String)),
@@ -209,8 +236,11 @@ class _$BaseNestedOneOf3Serializer implements StructuredSerializer<BaseNestedOne
   }
 
   @override
-  BaseNestedOneOf3 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseNestedOneOf3 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseNestedOneOf3Builder();
 
     final iterator = serialized.iterator;
@@ -237,8 +267,11 @@ class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAny
   final String wireName = 'BaseNestedAnyOf3';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, BaseNestedAnyOf3 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    BaseNestedAnyOf3 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-nested-anyOf',
       serializers.serialize(object.attributeNestedAnyOf, specifiedType: const FullType(String)),
@@ -248,8 +281,11 @@ class _$BaseNestedAnyOf3Serializer implements StructuredSerializer<BaseNestedAny
   }
 
   @override
-  BaseNestedAnyOf3 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  BaseNestedAnyOf3 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseNestedAnyOf3Builder();
 
     final iterator = serialized.iterator;
@@ -358,7 +394,8 @@ class BaseAllOfBuilder implements Builder<BaseAllOf, BaseAllOfBuilder>, $BaseAll
 
   _$BaseAllOf _build() {
     BaseAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseAllOf._(
           string: BuiltValueNullFieldError.checkNotNull(string, r'BaseAllOf', 'string'),
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseAllOf', 'attributeAllOf'),
@@ -443,7 +480,8 @@ class BaseOneOf1Builder implements Builder<BaseOneOf1, BaseOneOf1Builder>, $Base
 
   _$BaseOneOf1 _build() {
     BaseOneOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseOneOf1._(
           attributeOneOf: BuiltValueNullFieldError.checkNotNull(attributeOneOf, r'BaseOneOf1', 'attributeOneOf'),
         );
@@ -527,7 +565,8 @@ class BaseAnyOf1Builder implements Builder<BaseAnyOf1, BaseAnyOf1Builder>, $Base
 
   _$BaseAnyOf1 _build() {
     BaseAnyOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseAnyOf1._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'BaseAnyOf1', 'attributeAnyOf'),
         );
@@ -570,13 +609,13 @@ class _$BaseNestedAllOf extends BaseNestedAllOf {
   factory _$BaseNestedAllOf([void Function(BaseNestedAllOfBuilder)? updates]) =>
       (BaseNestedAllOfBuilder()..update(updates))._build();
 
-  _$BaseNestedAllOf._(
-      {required this.baseOneOf,
-      required this.baseAnyOf,
-      required this.attributeNestedAllOf,
-      required this.string,
-      required this.attributeAllOf})
-      : super._();
+  _$BaseNestedAllOf._({
+    required this.baseOneOf,
+    required this.baseAnyOf,
+    required this.attributeNestedAllOf,
+    required this.string,
+    required this.attributeAllOf,
+  }) : super._();
   @override
   BaseNestedAllOf rebuild(void Function(BaseNestedAllOfBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -676,12 +715,16 @@ class BaseNestedAllOfBuilder
 
   _$BaseNestedAllOf _build() {
     BaseNestedAllOf._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseNestedAllOf._(
           baseOneOf: BuiltValueNullFieldError.checkNotNull(baseOneOf, r'BaseNestedAllOf', 'baseOneOf'),
           baseAnyOf: BuiltValueNullFieldError.checkNotNull(baseAnyOf, r'BaseNestedAllOf', 'baseAnyOf'),
-          attributeNestedAllOf:
-              BuiltValueNullFieldError.checkNotNull(attributeNestedAllOf, r'BaseNestedAllOf', 'attributeNestedAllOf'),
+          attributeNestedAllOf: BuiltValueNullFieldError.checkNotNull(
+            attributeNestedAllOf,
+            r'BaseNestedAllOf',
+            'attributeNestedAllOf',
+          ),
           string: BuiltValueNullFieldError.checkNotNull(string, r'BaseNestedAllOf', 'string'),
           attributeAllOf: BuiltValueNullFieldError.checkNotNull(attributeAllOf, r'BaseNestedAllOf', 'attributeAllOf'),
         );
@@ -727,8 +770,8 @@ class _$BaseNestedOneOf3 extends BaseNestedOneOf3 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'BaseNestedOneOf3')..add('attributeNestedOneOf', attributeNestedOneOf))
-        .toString();
+    return (newBuiltValueToStringHelper(r'BaseNestedOneOf3')
+      ..add('attributeNestedOneOf', attributeNestedOneOf)).toString();
   }
 }
 
@@ -769,10 +812,14 @@ class BaseNestedOneOf3Builder
 
   _$BaseNestedOneOf3 _build() {
     BaseNestedOneOf3._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseNestedOneOf3._(
-          attributeNestedOneOf:
-              BuiltValueNullFieldError.checkNotNull(attributeNestedOneOf, r'BaseNestedOneOf3', 'attributeNestedOneOf'),
+          attributeNestedOneOf: BuiltValueNullFieldError.checkNotNull(
+            attributeNestedOneOf,
+            r'BaseNestedOneOf3',
+            'attributeNestedOneOf',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -816,8 +863,8 @@ class _$BaseNestedAnyOf3 extends BaseNestedAnyOf3 {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'BaseNestedAnyOf3')..add('attributeNestedAnyOf', attributeNestedAnyOf))
-        .toString();
+    return (newBuiltValueToStringHelper(r'BaseNestedAnyOf3')
+      ..add('attributeNestedAnyOf', attributeNestedAnyOf)).toString();
   }
 }
 
@@ -858,10 +905,14 @@ class BaseNestedAnyOf3Builder
 
   _$BaseNestedAnyOf3 _build() {
     BaseNestedAnyOf3._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$BaseNestedAnyOf3._(
-          attributeNestedAnyOf:
-              BuiltValueNullFieldError.checkNotNull(attributeNestedAnyOf, r'BaseNestedAnyOf3', 'attributeNestedAnyOf'),
+          attributeNestedAnyOf: BuiltValueNullFieldError.checkNotNull(
+            attributeNestedAnyOf,
+            r'BaseNestedAnyOf3',
+            'attributeNestedAnyOf',
+          ),
         );
     replace(_$result);
     return _$result;

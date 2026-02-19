@@ -43,46 +43,30 @@ class NeonAccountTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final widget = AdaptiveListTile(
       onTap: onTap,
-      leading: NeonUserAvatar(
-        account: account,
-        userStatusBloc: userStatusBloc,
-      ),
+      leading: NeonUserAvatar(account: account, userStatusBloc: userStatusBloc),
       trailing: trailing,
       title: ResultBuilder.behaviorSubject(
         subject: userDetailsBloc.userDetails,
-        builder: (context, userDetails) => Row(
-          spacing: 5,
-          children: [
-            if (userDetails.hasData)
-              Flexible(
-                child: Text(
-                  userDetails.requireData.displayname,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            if (userDetails.isLoading)
-              const Expanded(
-                child: NeonLinearProgressIndicator(),
-              ),
-            if (userDetails.hasError)
-              NeonError(
-                userDetails.error,
-                type: NeonErrorType.iconOnly,
-                iconSize: 24,
-                onRetry: userDetailsBloc.refresh,
-              ),
-          ],
-        ),
+        builder:
+            (context, userDetails) => Row(
+              spacing: 5,
+              children: [
+                if (userDetails.hasData)
+                  Flexible(child: Text(userDetails.requireData.displayname, overflow: TextOverflow.ellipsis)),
+                if (userDetails.isLoading) const Expanded(child: NeonLinearProgressIndicator()),
+                if (userDetails.hasError)
+                  NeonError(
+                    userDetails.error,
+                    type: NeonErrorType.iconOnly,
+                    iconSize: 24,
+                    onRetry: userDetailsBloc.refresh,
+                  ),
+              ],
+            ),
       ),
-      subtitle: Text(
-        account.humanReadableID,
-        overflow: TextOverflow.ellipsis,
-      ),
+      subtitle: Text(account.humanReadableID, overflow: TextOverflow.ellipsis),
     );
 
-    return Provider<Account>.value(
-      value: account,
-      child: widget,
-    );
+    return Provider<Account>.value(value: account, child: widget);
   }
 }

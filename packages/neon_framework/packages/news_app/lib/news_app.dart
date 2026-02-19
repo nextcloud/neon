@@ -34,10 +34,7 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   late final NewsOptions options = NewsOptions(storage);
 
   @override
-  NewsBloc buildBloc(Account account) => NewsBloc(
-        options: options,
-        account: account,
-      );
+  NewsBloc buildBloc(Account account) => NewsBloc(options: options, account: account);
 
   @override
   final Widget page = const NewsMainPage();
@@ -52,6 +49,5 @@ class NewsApp extends AppImplementation<NewsBloc, NewsOptions> {
   Future<VersionCheck> getVersionCheck(
     Account account,
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
-      account.client.news.getVersionCheck();
+  ) => account.client.news.getVersionCheck();
 }

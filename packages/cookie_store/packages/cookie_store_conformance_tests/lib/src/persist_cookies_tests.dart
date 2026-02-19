@@ -27,15 +27,7 @@ void persistCookies(FutureOr<CookieStore> Function() cookieStoreFactory) {
 
       await cookieStore.saveFromResponse(uri, cookies);
       final stored = await cookieStore.loadAll();
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'name0=value',
-          'name1=other-value',
-          'name2=value',
-          'name3=',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['name0=value', 'name1=other-value', 'name2=value', 'name3=']));
     });
 
     test('update cookie', () async {
@@ -50,31 +42,13 @@ void persistCookies(FutureOr<CookieStore> Function() cookieStoreFactory) {
 
       await cookieStore.saveFromResponse(uri, cookies);
       var stored = await cookieStore.loadAll();
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'name0=value',
-          'name1=value',
-          'name2=value',
-          'name3=value',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['name0=value', 'name1=value', 'name2=value', 'name3=value']));
 
-      cookies = [
-        TestCookie('name0', 'value2'),
-      ];
+      cookies = [TestCookie('name0', 'value2')];
 
       await cookieStore.saveFromResponse(uri, cookies);
       stored = await cookieStore.loadAll();
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'name0=value2',
-          'name1=value',
-          'name2=value',
-          'name3=value',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['name0=value2', 'name1=value', 'name2=value', 'name3=value']));
     });
   });
 }

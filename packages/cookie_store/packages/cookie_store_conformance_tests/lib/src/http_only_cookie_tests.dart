@@ -38,24 +38,13 @@ void httpOnly(FutureOr<CookieStore> Function() cookieStoreFactory) {
       await cookieStore.saveFromResponse(uri, cookies);
       var stored = await cookieStore.loadAll();
 
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'not-httpOnly0=value',
-          'not-httpOnly1=value',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['not-httpOnly0=value', 'not-httpOnly1=value']));
 
       await cookieStore.saveFromResponse(httpUri, cookies);
       stored = await cookieStore.loadAll();
       expect(
         toSortedStringList(stored),
-        equals([
-          'httpOnly0=value',
-          'httpOnly1=value',
-          'not-httpOnly0=value',
-          'not-httpOnly1=value',
-        ]),
+        equals(['httpOnly0=value', 'httpOnly1=value', 'not-httpOnly0=value', 'not-httpOnly1=value']),
       );
     });
 
@@ -74,32 +63,16 @@ void httpOnly(FutureOr<CookieStore> Function() cookieStoreFactory) {
       var stored = await cookieStore.loadAll();
       expect(
         toSortedStringList(stored),
-        equals([
-          'httpOnly0=value',
-          'httpOnly1=value',
-          'not-httpOnly0=value',
-          'not-httpOnly1=value',
-        ]),
+        equals(['httpOnly0=value', 'httpOnly1=value', 'not-httpOnly0=value', 'not-httpOnly1=value']),
       );
 
       stored = await cookieStore.loadForRequest(uri);
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'not-httpOnly0=value',
-          'not-httpOnly1=value',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['not-httpOnly0=value', 'not-httpOnly1=value']));
 
       stored = await cookieStore.loadForRequest(httpUri);
       expect(
         toSortedStringList(stored),
-        equals([
-          'httpOnly0=value',
-          'httpOnly1=value',
-          'not-httpOnly0=value',
-          'not-httpOnly1=value',
-        ]),
+        equals(['httpOnly0=value', 'httpOnly1=value', 'not-httpOnly0=value', 'not-httpOnly1=value']),
       );
     });
   });

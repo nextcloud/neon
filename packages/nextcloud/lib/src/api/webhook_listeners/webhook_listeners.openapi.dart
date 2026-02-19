@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $WebhooksClient webhooks = $WebhooksClient(this);
 }
@@ -53,11 +53,11 @@ class $WebhooksClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WebhooksIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WebhooksIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WebhooksIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List registered webhooks.
   ///
@@ -140,11 +140,11 @@ class $WebhooksClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WebhooksCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WebhooksCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WebhooksCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Register a new webhook.
   ///
@@ -229,11 +229,11 @@ class $WebhooksClient {
   /// Builds a serializer to parse the response of [$$show_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WebhooksShowResponseApplicationJson, void> $$show_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WebhooksShowResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WebhooksShowResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get details on a registered webhook.
   ///
@@ -318,11 +318,11 @@ class $WebhooksClient {
   /// Builds a serializer to parse the response of [$$update_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WebhooksUpdateResponseApplicationJson, void> $$update_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WebhooksUpdateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WebhooksUpdateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update an existing webhook registration.
   ///
@@ -418,11 +418,11 @@ class $WebhooksClient {
   /// Builds a serializer to parse the response of [$destroy_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WebhooksDestroyResponseApplicationJson, void> $destroy_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WebhooksDestroyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WebhooksDestroyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Remove an existing webhook registration.
   ///
@@ -885,15 +885,15 @@ class _$WebhooksCreateRequestApplicationJson_AuthMethodSerializer
 
   static const Map<WebhooksCreateRequestApplicationJson_AuthMethod, Object> _toWire =
       <WebhooksCreateRequestApplicationJson_AuthMethod, Object>{
-    WebhooksCreateRequestApplicationJson_AuthMethod.none: 'none',
-    WebhooksCreateRequestApplicationJson_AuthMethod.header: 'header',
-  };
+        WebhooksCreateRequestApplicationJson_AuthMethod.none: 'none',
+        WebhooksCreateRequestApplicationJson_AuthMethod.header: 'header',
+      };
 
   static const Map<Object, WebhooksCreateRequestApplicationJson_AuthMethod> _fromWire =
       <Object, WebhooksCreateRequestApplicationJson_AuthMethod>{
-    'none': WebhooksCreateRequestApplicationJson_AuthMethod.none,
-    'header': WebhooksCreateRequestApplicationJson_AuthMethod.header,
-  };
+        'none': WebhooksCreateRequestApplicationJson_AuthMethod.none,
+        'header': WebhooksCreateRequestApplicationJson_AuthMethod.header,
+      };
 
   @override
   Iterable<Type> get types => const [WebhooksCreateRequestApplicationJson_AuthMethod];
@@ -906,16 +906,14 @@ class _$WebhooksCreateRequestApplicationJson_AuthMethodSerializer
     Serializers serializers,
     WebhooksCreateRequestApplicationJson_AuthMethod object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   WebhooksCreateRequestApplicationJson_AuthMethod deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1290,15 +1288,15 @@ class _$WebhooksUpdateRequestApplicationJson_AuthMethodSerializer
 
   static const Map<WebhooksUpdateRequestApplicationJson_AuthMethod, Object> _toWire =
       <WebhooksUpdateRequestApplicationJson_AuthMethod, Object>{
-    WebhooksUpdateRequestApplicationJson_AuthMethod.none: 'none',
-    WebhooksUpdateRequestApplicationJson_AuthMethod.header: 'header',
-  };
+        WebhooksUpdateRequestApplicationJson_AuthMethod.none: 'none',
+        WebhooksUpdateRequestApplicationJson_AuthMethod.header: 'header',
+      };
 
   static const Map<Object, WebhooksUpdateRequestApplicationJson_AuthMethod> _fromWire =
       <Object, WebhooksUpdateRequestApplicationJson_AuthMethod>{
-    'none': WebhooksUpdateRequestApplicationJson_AuthMethod.none,
-    'header': WebhooksUpdateRequestApplicationJson_AuthMethod.header,
-  };
+        'none': WebhooksUpdateRequestApplicationJson_AuthMethod.none,
+        'header': WebhooksUpdateRequestApplicationJson_AuthMethod.header,
+      };
 
   @override
   Iterable<Type> get types => const [WebhooksUpdateRequestApplicationJson_AuthMethod];
@@ -1311,16 +1309,14 @@ class _$WebhooksUpdateRequestApplicationJson_AuthMethodSerializer
     Serializers serializers,
     WebhooksUpdateRequestApplicationJson_AuthMethod object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   WebhooksUpdateRequestApplicationJson_AuthMethod deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1683,8 +1679,10 @@ sealed class $WebhooksDeleteByAppIdResponseApplicationJson_OcsInterface {
 abstract class WebhooksDeleteByAppIdResponseApplicationJson_Ocs
     implements
         $WebhooksDeleteByAppIdResponseApplicationJson_OcsInterface,
-        Built<WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
-            WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder> {
+        Built<
+          WebhooksDeleteByAppIdResponseApplicationJson_Ocs,
+          WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new WebhooksDeleteByAppIdResponseApplicationJson_Ocs object using the builder pattern.
   factory WebhooksDeleteByAppIdResponseApplicationJson_Ocs([
     void Function(WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder)? b,
@@ -1794,93 +1792,94 @@ abstract class WebhooksDeleteByAppIdResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(WebhooksIndexResponseApplicationJson),
-        WebhooksIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksIndexResponseApplicationJson_Ocs),
-        WebhooksIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(WebhookInfo), WebhookInfoBuilder.new)
-      ..add(WebhookInfo.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(String)]),
-        MapBuilder<String, String>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(WebhookInfo)]), ListBuilder<WebhookInfo>.new)
-      ..addBuilderFactory(
-        const FullType(WebhooksCreateRequestApplicationJson),
-        WebhooksCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksCreateRequestApplicationJson.serializer)
-      ..add(WebhooksCreateRequestApplicationJson_AuthMethod.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksCreateResponseApplicationJson),
-        WebhooksCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksCreateResponseApplicationJson_Ocs),
-        WebhooksCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksShowResponseApplicationJson),
-        WebhooksShowResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksShowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksShowResponseApplicationJson_Ocs),
-        WebhooksShowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksShowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksUpdateRequestApplicationJson),
-        WebhooksUpdateRequestApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksUpdateRequestApplicationJson.serializer)
-      ..add(WebhooksUpdateRequestApplicationJson_AuthMethod.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksUpdateResponseApplicationJson),
-        WebhooksUpdateResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksUpdateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksUpdateResponseApplicationJson_Ocs),
-        WebhooksUpdateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksUpdateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksDestroyResponseApplicationJson),
-        WebhooksDestroyResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksDestroyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksDestroyResponseApplicationJson_Ocs),
-        WebhooksDestroyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksDestroyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksDeleteByAppIdResponseApplicationJson),
-        WebhooksDeleteByAppIdResponseApplicationJsonBuilder.new,
-      )
-      ..add(WebhooksDeleteByAppIdResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs),
-        WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WebhooksDeleteByAppIdResponseApplicationJson_Ocs.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(WebhooksIndexResponseApplicationJson),
+            WebhooksIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksIndexResponseApplicationJson_Ocs),
+            WebhooksIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(WebhookInfo), WebhookInfoBuilder.new)
+          ..add(WebhookInfo.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            MapBuilder<String, String>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(WebhookInfo)]), ListBuilder<WebhookInfo>.new)
+          ..addBuilderFactory(
+            const FullType(WebhooksCreateRequestApplicationJson),
+            WebhooksCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksCreateRequestApplicationJson.serializer)
+          ..add(WebhooksCreateRequestApplicationJson_AuthMethod.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksCreateResponseApplicationJson),
+            WebhooksCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksCreateResponseApplicationJson_Ocs),
+            WebhooksCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksShowResponseApplicationJson),
+            WebhooksShowResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksShowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksShowResponseApplicationJson_Ocs),
+            WebhooksShowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksShowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksUpdateRequestApplicationJson),
+            WebhooksUpdateRequestApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksUpdateRequestApplicationJson.serializer)
+          ..add(WebhooksUpdateRequestApplicationJson_AuthMethod.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksUpdateResponseApplicationJson),
+            WebhooksUpdateResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksUpdateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksUpdateResponseApplicationJson_Ocs),
+            WebhooksUpdateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksUpdateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksDestroyResponseApplicationJson),
+            WebhooksDestroyResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksDestroyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksDestroyResponseApplicationJson_Ocs),
+            WebhooksDestroyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksDestroyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksDeleteByAppIdResponseApplicationJson),
+            WebhooksDeleteByAppIdResponseApplicationJsonBuilder.new,
+          )
+          ..add(WebhooksDeleteByAppIdResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WebhooksDeleteByAppIdResponseApplicationJson_Ocs),
+            WebhooksDeleteByAppIdResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WebhooksDeleteByAppIdResponseApplicationJson_Ocs.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1888,10 +1887,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

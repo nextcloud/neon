@@ -15,12 +15,12 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
   final String wireName = 'SecurityScheme';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SecurityScheme object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SecurityScheme object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['type', serializers.serialize(object.type, specifiedType: const FullType(String))];
     Object? value;
     value = object.description;
     if (value != null) {
@@ -50,8 +50,11 @@ class _$SecuritySchemeSerializer implements StructuredSerializer<SecurityScheme>
   }
 
   @override
-  SecurityScheme deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SecurityScheme deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SecuritySchemeBuilder();
 
     final iterator = serialized.iterator;
@@ -197,13 +200,15 @@ class SecuritySchemeBuilder implements Builder<SecurityScheme, SecuritySchemeBui
   SecurityScheme build() => _build();
 
   _$SecurityScheme _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SecurityScheme._(
-            type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
-            description: description,
-            scheme: scheme,
-            $in: $in,
-            name: name);
+          type: BuiltValueNullFieldError.checkNotNull(type, r'SecurityScheme', 'type'),
+          description: description,
+          scheme: scheme,
+          $in: $in,
+          name: name,
+        );
     replace(_$result);
     return _$result;
   }

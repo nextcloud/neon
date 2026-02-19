@@ -91,7 +91,7 @@ Serializer<HeartbeatHeartbeatResponseApplicationJson> _$heartbeatHeartbeatRespon
 Serializer<ClearAt> _$clearAtSerializer = _$ClearAtSerializer();
 Serializer<Predefined> _$predefinedSerializer = _$PredefinedSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson_Ocs>
-    _$predefinedStatusFindAllResponseApplicationJsonOcsSerializer =
+_$predefinedStatusFindAllResponseApplicationJsonOcsSerializer =
     _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer();
 Serializer<PredefinedStatusFindAllResponseApplicationJson> _$predefinedStatusFindAllResponseApplicationJsonSerializer =
     _$PredefinedStatusFindAllResponseApplicationJsonSerializer();
@@ -114,30 +114,30 @@ Serializer<UserStatusSetStatusResponseApplicationJson_Ocs> _$userStatusSetStatus
 Serializer<UserStatusSetStatusResponseApplicationJson> _$userStatusSetStatusResponseApplicationJsonSerializer =
     _$UserStatusSetStatusResponseApplicationJsonSerializer();
 Serializer<UserStatusSetPredefinedMessageRequestApplicationJson>
-    _$userStatusSetPredefinedMessageRequestApplicationJsonSerializer =
+_$userStatusSetPredefinedMessageRequestApplicationJsonSerializer =
     _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs>
-    _$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer =
+_$userStatusSetPredefinedMessageResponseApplicationJsonOcsSerializer =
     _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetPredefinedMessageResponseApplicationJson>
-    _$userStatusSetPredefinedMessageResponseApplicationJsonSerializer =
+_$userStatusSetPredefinedMessageResponseApplicationJsonSerializer =
     _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusSetCustomMessageRequestApplicationJson>
-    _$userStatusSetCustomMessageRequestApplicationJsonSerializer =
+_$userStatusSetCustomMessageRequestApplicationJsonSerializer =
     _$UserStatusSetCustomMessageRequestApplicationJsonSerializer();
 Serializer<UserStatusSetCustomMessageResponseApplicationJson_Ocs>
-    _$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer =
+_$userStatusSetCustomMessageResponseApplicationJsonOcsSerializer =
     _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusSetCustomMessageResponseApplicationJson>
-    _$userStatusSetCustomMessageResponseApplicationJsonSerializer =
+_$userStatusSetCustomMessageResponseApplicationJsonSerializer =
     _$UserStatusSetCustomMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusClearMessageResponseApplicationJson_Ocs>
-    _$userStatusClearMessageResponseApplicationJsonOcsSerializer =
+_$userStatusClearMessageResponseApplicationJsonOcsSerializer =
     _$UserStatusClearMessageResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusClearMessageResponseApplicationJson> _$userStatusClearMessageResponseApplicationJsonSerializer =
     _$UserStatusClearMessageResponseApplicationJsonSerializer();
 Serializer<UserStatusRevertStatusResponseApplicationJson_Ocs>
-    _$userStatusRevertStatusResponseApplicationJsonOcsSerializer =
+_$userStatusRevertStatusResponseApplicationJsonOcsSerializer =
     _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer();
 Serializer<UserStatusRevertStatusResponseApplicationJson> _$userStatusRevertStatusResponseApplicationJsonSerializer =
     _$UserStatusRevertStatusResponseApplicationJsonSerializer();
@@ -149,25 +149,28 @@ class _$HeartbeatHeartbeatRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     HeartbeatHeartbeatRequestApplicationJson,
-    _$HeartbeatHeartbeatRequestApplicationJson
+    _$HeartbeatHeartbeatRequestApplicationJson,
   ];
   @override
   final String wireName = 'HeartbeatHeartbeatRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'status',
-      serializers.serialize(object.status, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    HeartbeatHeartbeatRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['status', serializers.serialize(object.status, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  HeartbeatHeartbeatRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  HeartbeatHeartbeatRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = HeartbeatHeartbeatRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -193,8 +196,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -224,8 +230,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -293,8 +302,11 @@ class _$PublicSerializer implements StructuredSerializer<Public> {
   }
 
   @override
-  Public deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Public deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PublicBuilder();
 
     final iterator = serialized.iterator;
@@ -332,8 +344,11 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
   final String wireName = 'Private';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Private object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Private object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'messageIsPredefined',
       serializers.serialize(object.messageIsPredefined, specifiedType: const FullType(bool)),
@@ -373,8 +388,11 @@ class _$PrivateSerializer implements StructuredSerializer<Private> {
   }
 
   @override
-  Private deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Private deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PrivateBuilder();
 
     final iterator = serialized.iterator;
@@ -419,14 +437,17 @@ class _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     HeartbeatHeartbeatResponseApplicationJson_Ocs,
-    _$HeartbeatHeartbeatResponseApplicationJson_Ocs
+    _$HeartbeatHeartbeatResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'HeartbeatHeartbeatResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    HeartbeatHeartbeatResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -438,8 +459,11 @@ class _$HeartbeatHeartbeatResponseApplicationJson_OcsSerializer
   }
 
   @override
-  HeartbeatHeartbeatResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  HeartbeatHeartbeatResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = HeartbeatHeartbeatResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -466,14 +490,17 @@ class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     HeartbeatHeartbeatResponseApplicationJson,
-    _$HeartbeatHeartbeatResponseApplicationJson
+    _$HeartbeatHeartbeatResponseApplicationJson,
   ];
   @override
   final String wireName = 'HeartbeatHeartbeatResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, HeartbeatHeartbeatResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    HeartbeatHeartbeatResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs)),
@@ -483,8 +510,11 @@ class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
   }
 
   @override
-  HeartbeatHeartbeatResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  HeartbeatHeartbeatResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = HeartbeatHeartbeatResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -494,9 +524,13 @@ class _$HeartbeatHeartbeatResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs))!
-              as HeartbeatHeartbeatResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(HeartbeatHeartbeatResponseApplicationJson_Ocs),
+                )!
+                as HeartbeatHeartbeatResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -512,8 +546,11 @@ class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {
   final String wireName = 'ClearAt';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ClearAt object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ClearAt object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(ClearAt_Type)),
@@ -525,8 +562,11 @@ class _$ClearAtSerializer implements StructuredSerializer<ClearAt> {
   }
 
   @override
-  ClearAt deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ClearAt deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ClearAtBuilder();
 
     final iterator = serialized.iterator;
@@ -555,8 +595,11 @@ class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
   final String wireName = 'Predefined';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Predefined object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Predefined object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
@@ -576,8 +619,11 @@ class _$PredefinedSerializer implements StructuredSerializer<Predefined> {
   }
 
   @override
-  Predefined deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Predefined deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PredefinedBuilder();
 
     final iterator = serialized.iterator;
@@ -610,14 +656,17 @@ class _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     PredefinedStatusFindAllResponseApplicationJson_Ocs,
-    _$PredefinedStatusFindAllResponseApplicationJson_Ocs
+    _$PredefinedStatusFindAllResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'PredefinedStatusFindAllResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PredefinedStatusFindAllResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PredefinedStatusFindAllResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -629,8 +678,11 @@ class _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer
   }
 
   @override
-  PredefinedStatusFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PredefinedStatusFindAllResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PredefinedStatusFindAllResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -643,8 +695,13 @@ class _$PredefinedStatusFindAllResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Predefined)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(Predefined)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -658,26 +715,34 @@ class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     PredefinedStatusFindAllResponseApplicationJson,
-    _$PredefinedStatusFindAllResponseApplicationJson
+    _$PredefinedStatusFindAllResponseApplicationJson,
   ];
   @override
   final String wireName = 'PredefinedStatusFindAllResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PredefinedStatusFindAllResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PredefinedStatusFindAllResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  PredefinedStatusFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PredefinedStatusFindAllResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PredefinedStatusFindAllResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -687,9 +752,13 @@ class _$PredefinedStatusFindAllResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs))!
-              as PredefinedStatusFindAllResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(PredefinedStatusFindAllResponseApplicationJson_Ocs),
+                )!
+                as PredefinedStatusFindAllResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -703,14 +772,17 @@ class _$StatusesFindAllResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     StatusesFindAllResponseApplicationJson_Ocs,
-    _$StatusesFindAllResponseApplicationJson_Ocs
+    _$StatusesFindAllResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'StatusesFindAllResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    StatusesFindAllResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -722,8 +794,11 @@ class _$StatusesFindAllResponseApplicationJson_OcsSerializer
   }
 
   @override
-  StatusesFindAllResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  StatusesFindAllResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = StatusesFindAllResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -736,8 +811,10 @@ class _$StatusesFindAllResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Public)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Public)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -754,8 +831,11 @@ class _$StatusesFindAllResponseApplicationJsonSerializer
   final String wireName = 'StatusesFindAllResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, StatusesFindAllResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    StatusesFindAllResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(StatusesFindAllResponseApplicationJson_Ocs)),
@@ -765,8 +845,11 @@ class _$StatusesFindAllResponseApplicationJsonSerializer
   }
 
   @override
-  StatusesFindAllResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  StatusesFindAllResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = StatusesFindAllResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -777,8 +860,9 @@ class _$StatusesFindAllResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(StatusesFindAllResponseApplicationJson_Ocs))!
-                  as StatusesFindAllResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(StatusesFindAllResponseApplicationJson_Ocs))!
+                as StatusesFindAllResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -792,14 +876,17 @@ class _$StatusesFindResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     StatusesFindResponseApplicationJson_Ocs,
-    _$StatusesFindResponseApplicationJson_Ocs
+    _$StatusesFindResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'StatusesFindResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, StatusesFindResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    StatusesFindResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -811,8 +898,11 @@ class _$StatusesFindResponseApplicationJson_OcsSerializer
   }
 
   @override
-  StatusesFindResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  StatusesFindResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = StatusesFindResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -842,8 +932,11 @@ class _$StatusesFindResponseApplicationJsonSerializer
   final String wireName = 'StatusesFindResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, StatusesFindResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    StatusesFindResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(StatusesFindResponseApplicationJson_Ocs)),
@@ -853,8 +946,11 @@ class _$StatusesFindResponseApplicationJsonSerializer
   }
 
   @override
-  StatusesFindResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  StatusesFindResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = StatusesFindResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -865,8 +961,9 @@ class _$StatusesFindResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(StatusesFindResponseApplicationJson_Ocs))!
-                  as StatusesFindResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(StatusesFindResponseApplicationJson_Ocs))!
+                as StatusesFindResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -880,14 +977,17 @@ class _$UserStatusGetStatusResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusGetStatusResponseApplicationJson_Ocs,
-    _$UserStatusGetStatusResponseApplicationJson_Ocs
+    _$UserStatusGetStatusResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusGetStatusResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatusResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusGetStatusResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -899,8 +999,11 @@ class _$UserStatusGetStatusResponseApplicationJson_OcsSerializer
   }
 
   @override
-  UserStatusGetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusGetStatusResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusGetStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -927,14 +1030,17 @@ class _$UserStatusGetStatusResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusGetStatusResponseApplicationJson,
-    _$UserStatusGetStatusResponseApplicationJson
+    _$UserStatusGetStatusResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusGetStatusResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusGetStatusResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusGetStatusResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusGetStatusResponseApplicationJson_Ocs)),
@@ -944,8 +1050,11 @@ class _$UserStatusGetStatusResponseApplicationJsonSerializer
   }
 
   @override
-  UserStatusGetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusGetStatusResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusGetStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -955,9 +1064,13 @@ class _$UserStatusGetStatusResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusGetStatusResponseApplicationJson_Ocs))!
-              as UserStatusGetStatusResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusGetStatusResponseApplicationJson_Ocs),
+                )!
+                as UserStatusGetStatusResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -971,14 +1084,17 @@ class _$UserStatusSetStatusRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetStatusRequestApplicationJson,
-    _$UserStatusSetStatusRequestApplicationJson
+    _$UserStatusSetStatusRequestApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetStatusRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetStatusRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'statusType',
       serializers.serialize(object.statusType, specifiedType: const FullType(String)),
@@ -988,8 +1104,11 @@ class _$UserStatusSetStatusRequestApplicationJsonSerializer
   }
 
   @override
-  UserStatusSetStatusRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusSetStatusRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetStatusRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1013,14 +1132,17 @@ class _$UserStatusSetStatusResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetStatusResponseApplicationJson_Ocs,
-    _$UserStatusSetStatusResponseApplicationJson_Ocs
+    _$UserStatusSetStatusResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusSetStatusResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetStatusResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1032,8 +1154,11 @@ class _$UserStatusSetStatusResponseApplicationJson_OcsSerializer
   }
 
   @override
-  UserStatusSetStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusSetStatusResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1060,14 +1185,17 @@ class _$UserStatusSetStatusResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetStatusResponseApplicationJson,
-    _$UserStatusSetStatusResponseApplicationJson
+    _$UserStatusSetStatusResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetStatusResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetStatusResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetStatusResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs)),
@@ -1077,8 +1205,11 @@ class _$UserStatusSetStatusResponseApplicationJsonSerializer
   }
 
   @override
-  UserStatusSetStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusSetStatusResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1088,9 +1219,13 @@ class _$UserStatusSetStatusResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs))!
-              as UserStatusSetStatusResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusSetStatusResponseApplicationJson_Ocs),
+                )!
+                as UserStatusSetStatusResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1104,14 +1239,17 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetPredefinedMessageRequestApplicationJson,
-    _$UserStatusSetPredefinedMessageRequestApplicationJson
+    _$UserStatusSetPredefinedMessageRequestApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetPredefinedMessageRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetPredefinedMessageRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'messageId',
       serializers.serialize(object.messageId, specifiedType: const FullType(String)),
@@ -1128,8 +1266,10 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJsonSerializer
 
   @override
   UserStatusSetPredefinedMessageRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetPredefinedMessageRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1156,14 +1296,17 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
-    _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
+    _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetPredefinedMessageResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1176,8 +1319,10 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_OcsSerializer
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1204,18 +1349,23 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetPredefinedMessageResponseApplicationJson,
-    _$UserStatusSetPredefinedMessageResponseApplicationJson
+    _$UserStatusSetPredefinedMessageResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetPredefinedMessageResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetPredefinedMessageResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetPredefinedMessageResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
@@ -1223,8 +1373,10 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetPredefinedMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1234,9 +1386,13 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs))!
-              as UserStatusSetPredefinedMessageResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusSetPredefinedMessageResponseApplicationJson_Ocs),
+                )!
+                as UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1250,14 +1406,17 @@ class _$UserStatusSetCustomMessageRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetCustomMessageRequestApplicationJson,
-    _$UserStatusSetCustomMessageRequestApplicationJson
+    _$UserStatusSetCustomMessageRequestApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetCustomMessageRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetCustomMessageRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.statusIcon;
@@ -1282,8 +1441,11 @@ class _$UserStatusSetCustomMessageRequestApplicationJsonSerializer
   }
 
   @override
-  UserStatusSetCustomMessageRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusSetCustomMessageRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetCustomMessageRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1313,14 +1475,17 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetCustomMessageResponseApplicationJson_Ocs,
-    _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
+    _$UserStatusSetCustomMessageResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusSetCustomMessageResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetCustomMessageResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1333,8 +1498,10 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_OcsSerializer
 
   @override
   UserStatusSetCustomMessageResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1361,26 +1528,34 @@ class _$UserStatusSetCustomMessageResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusSetCustomMessageResponseApplicationJson,
-    _$UserStatusSetCustomMessageResponseApplicationJson
+    _$UserStatusSetCustomMessageResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusSetCustomMessageResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusSetCustomMessageResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusSetCustomMessageResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  UserStatusSetCustomMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusSetCustomMessageResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusSetCustomMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1390,9 +1565,13 @@ class _$UserStatusSetCustomMessageResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs))!
-              as UserStatusSetCustomMessageResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusSetCustomMessageResponseApplicationJson_Ocs),
+                )!
+                as UserStatusSetCustomMessageResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1406,14 +1585,17 @@ class _$UserStatusClearMessageResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusClearMessageResponseApplicationJson_Ocs,
-    _$UserStatusClearMessageResponseApplicationJson_Ocs
+    _$UserStatusClearMessageResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusClearMessageResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusClearMessageResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusClearMessageResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1425,8 +1607,11 @@ class _$UserStatusClearMessageResponseApplicationJson_OcsSerializer
   }
 
   @override
-  UserStatusClearMessageResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusClearMessageResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusClearMessageResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1453,26 +1638,34 @@ class _$UserStatusClearMessageResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusClearMessageResponseApplicationJson,
-    _$UserStatusClearMessageResponseApplicationJson
+    _$UserStatusClearMessageResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusClearMessageResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusClearMessageResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusClearMessageResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  UserStatusClearMessageResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusClearMessageResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusClearMessageResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1482,9 +1675,13 @@ class _$UserStatusClearMessageResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs))!
-              as UserStatusClearMessageResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusClearMessageResponseApplicationJson_Ocs),
+                )!
+                as UserStatusClearMessageResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1498,28 +1695,36 @@ class _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusRevertStatusResponseApplicationJson_Ocs,
-    _$UserStatusRevertStatusResponseApplicationJson_Ocs
+    _$UserStatusRevertStatusResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'UserStatusRevertStatusResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusRevertStatusResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusRevertStatusResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  UserStatusRevertStatusResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusRevertStatusResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusRevertStatusResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1532,9 +1737,12 @@ class _$UserStatusRevertStatusResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data = serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data))!
-              as UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
+          result.data =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs_Data),
+                  )!
+                  as UserStatusRevertStatusResponseApplicationJson_Ocs_Data;
           break;
       }
     }
@@ -1548,26 +1756,34 @@ class _$UserStatusRevertStatusResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     UserStatusRevertStatusResponseApplicationJson,
-    _$UserStatusRevertStatusResponseApplicationJson
+    _$UserStatusRevertStatusResponseApplicationJson,
   ];
   @override
   final String wireName = 'UserStatusRevertStatusResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, UserStatusRevertStatusResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    UserStatusRevertStatusResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  UserStatusRevertStatusResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  UserStatusRevertStatusResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UserStatusRevertStatusResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1577,9 +1793,13 @@ class _$UserStatusRevertStatusResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs))!
-              as UserStatusRevertStatusResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(UserStatusRevertStatusResponseApplicationJson_Ocs),
+                )!
+                as UserStatusRevertStatusResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1595,8 +1815,11 @@ class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabi
   final String wireName = 'Capabilities_UserStatus';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_UserStatus object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_UserStatus object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
@@ -1610,8 +1833,11 @@ class _$Capabilities_UserStatusSerializer implements StructuredSerializer<Capabi
   }
 
   @override
-  Capabilities_UserStatus deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_UserStatus deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_UserStatusBuilder();
 
     final iterator = serialized.iterator;
@@ -1643,8 +1869,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'user_status',
       serializers.serialize(object.userStatus, specifiedType: const FullType(Capabilities_UserStatus)),
@@ -1654,8 +1883,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -1665,8 +1897,10 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'user_status':
-          result.userStatus.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_UserStatus))! as Capabilities_UserStatus);
+          result.userStatus.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_UserStatus))!
+                as Capabilities_UserStatus,
+          );
           break;
       }
     }
@@ -1686,15 +1920,15 @@ class _$HeartbeatHeartbeatRequestApplicationJson extends HeartbeatHeartbeatReque
   @override
   final String status;
 
-  factory _$HeartbeatHeartbeatRequestApplicationJson(
-          [void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? updates]) =>
-      (HeartbeatHeartbeatRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$HeartbeatHeartbeatRequestApplicationJson([
+    void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder)? updates,
+  ]) => (HeartbeatHeartbeatRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$HeartbeatHeartbeatRequestApplicationJson._({required this.status}) : super._();
   @override
   HeartbeatHeartbeatRequestApplicationJson rebuild(
-          void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(HeartbeatHeartbeatRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   HeartbeatHeartbeatRequestApplicationJsonBuilder toBuilder() =>
@@ -1758,7 +1992,8 @@ class HeartbeatHeartbeatRequestApplicationJsonBuilder
 
   _$HeartbeatHeartbeatRequestApplicationJson _build() {
     HeartbeatHeartbeatRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$HeartbeatHeartbeatRequestApplicationJson._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'HeartbeatHeartbeatRequestApplicationJson', 'status'),
         );
@@ -1801,7 +2036,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1898,7 +2133,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -2041,7 +2277,8 @@ class PublicBuilder implements Builder<Public, PublicBuilder>, $PublicInterfaceB
 
   _$Public _build() {
     Public._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Public._(
           userId: BuiltValueNullFieldError.checkNotNull(userId, r'Public', 'userId'),
           message: message,
@@ -2102,16 +2339,16 @@ class _$Private extends Private {
 
   factory _$Private([void Function(PrivateBuilder)? updates]) => (PrivateBuilder()..update(updates))._build();
 
-  _$Private._(
-      {this.messageId,
-      required this.messageIsPredefined,
-      required this.statusIsUserDefined,
-      required this.userId,
-      this.message,
-      this.icon,
-      this.clearAt,
-      required this.status})
-      : super._();
+  _$Private._({
+    this.messageId,
+    required this.messageIsPredefined,
+    required this.statusIsUserDefined,
+    required this.userId,
+    this.message,
+    this.icon,
+    this.clearAt,
+    required this.status,
+  }) : super._();
   @override
   Private rebuild(void Function(PrivateBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2232,13 +2469,20 @@ class PrivateBuilder implements Builder<Private, PrivateBuilder>, $PrivateInterf
 
   _$Private _build() {
     Private._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Private._(
           messageId: messageId,
-          messageIsPredefined:
-              BuiltValueNullFieldError.checkNotNull(messageIsPredefined, r'Private', 'messageIsPredefined'),
-          statusIsUserDefined:
-              BuiltValueNullFieldError.checkNotNull(statusIsUserDefined, r'Private', 'statusIsUserDefined'),
+          messageIsPredefined: BuiltValueNullFieldError.checkNotNull(
+            messageIsPredefined,
+            r'Private',
+            'messageIsPredefined',
+          ),
+          statusIsUserDefined: BuiltValueNullFieldError.checkNotNull(
+            statusIsUserDefined,
+            r'Private',
+            'statusIsUserDefined',
+          ),
           userId: BuiltValueNullFieldError.checkNotNull(userId, r'Private', 'userId'),
           message: message,
           icon: icon,
@@ -2266,15 +2510,15 @@ class _$HeartbeatHeartbeatResponseApplicationJson_Ocs extends HeartbeatHeartbeat
   @override
   final Private data;
 
-  factory _$HeartbeatHeartbeatResponseApplicationJson_Ocs(
-          [void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder)? updates]) =>
-      (HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$HeartbeatHeartbeatResponseApplicationJson_Ocs([
+    void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (HeartbeatHeartbeatResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$HeartbeatHeartbeatResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   HeartbeatHeartbeatResponseApplicationJson_Ocs rebuild(
-          void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(HeartbeatHeartbeatResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   HeartbeatHeartbeatResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2349,11 +2593,7 @@ class HeartbeatHeartbeatResponseApplicationJson_OcsBuilder
     HeartbeatHeartbeatResponseApplicationJson_Ocs._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2382,15 +2622,15 @@ class _$HeartbeatHeartbeatResponseApplicationJson extends HeartbeatHeartbeatResp
   @override
   final HeartbeatHeartbeatResponseApplicationJson_Ocs ocs;
 
-  factory _$HeartbeatHeartbeatResponseApplicationJson(
-          [void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder)? updates]) =>
-      (HeartbeatHeartbeatResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$HeartbeatHeartbeatResponseApplicationJson([
+    void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder)? updates,
+  ]) => (HeartbeatHeartbeatResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$HeartbeatHeartbeatResponseApplicationJson._({required this.ocs}) : super._();
   @override
   HeartbeatHeartbeatResponseApplicationJson rebuild(
-          void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(HeartbeatHeartbeatResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   HeartbeatHeartbeatResponseApplicationJsonBuilder toBuilder() =>
@@ -2457,10 +2697,7 @@ class HeartbeatHeartbeatResponseApplicationJsonBuilder
     HeartbeatHeartbeatResponseApplicationJson._validate(this);
     _$HeartbeatHeartbeatResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$HeartbeatHeartbeatResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$HeartbeatHeartbeatResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2566,7 +2803,8 @@ class ClearAtBuilder implements Builder<ClearAt, ClearAtBuilder>, $ClearAtInterf
 
   _$ClearAt _build() {
     ClearAt._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ClearAt._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'ClearAt', 'type'),
           time: BuiltValueNullFieldError.checkNotNull(time, r'ClearAt', 'time'),
@@ -2695,7 +2933,8 @@ class PredefinedBuilder implements Builder<Predefined, PredefinedBuilder>, $Pred
     Predefined._validate(this);
     _$Predefined _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Predefined._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Predefined', 'id'),
             icon: BuiltValueNullFieldError.checkNotNull(icon, r'Predefined', 'icon'),
@@ -2733,15 +2972,15 @@ class _$PredefinedStatusFindAllResponseApplicationJson_Ocs extends PredefinedSta
   @override
   final BuiltList<Predefined> data;
 
-  factory _$PredefinedStatusFindAllResponseApplicationJson_Ocs(
-          [void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? updates]) =>
-      (PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$PredefinedStatusFindAllResponseApplicationJson_Ocs([
+    void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (PredefinedStatusFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$PredefinedStatusFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   PredefinedStatusFindAllResponseApplicationJson_Ocs rebuild(
-          void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(PredefinedStatusFindAllResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   PredefinedStatusFindAllResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2773,8 +3012,10 @@ class _$PredefinedStatusFindAllResponseApplicationJson_Ocs extends PredefinedSta
 
 class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
     implements
-        Builder<PredefinedStatusFindAllResponseApplicationJson_Ocs,
-            PredefinedStatusFindAllResponseApplicationJson_OcsBuilder>,
+        Builder<
+          PredefinedStatusFindAllResponseApplicationJson_Ocs,
+          PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
+        >,
         $PredefinedStatusFindAllResponseApplicationJson_OcsInterfaceBuilder {
   _$PredefinedStatusFindAllResponseApplicationJson_Ocs? _$v;
 
@@ -2817,11 +3058,7 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
     PredefinedStatusFindAllResponseApplicationJson_Ocs._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2831,7 +3068,10 @@ class PredefinedStatusFindAllResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'PredefinedStatusFindAllResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'PredefinedStatusFindAllResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2851,15 +3091,15 @@ class _$PredefinedStatusFindAllResponseApplicationJson extends PredefinedStatusF
   @override
   final PredefinedStatusFindAllResponseApplicationJson_Ocs ocs;
 
-  factory _$PredefinedStatusFindAllResponseApplicationJson(
-          [void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder)? updates]) =>
-      (PredefinedStatusFindAllResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$PredefinedStatusFindAllResponseApplicationJson([
+    void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder)? updates,
+  ]) => (PredefinedStatusFindAllResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$PredefinedStatusFindAllResponseApplicationJson._({required this.ocs}) : super._();
   @override
   PredefinedStatusFindAllResponseApplicationJson rebuild(
-          void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(PredefinedStatusFindAllResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   PredefinedStatusFindAllResponseApplicationJsonBuilder toBuilder() =>
@@ -2926,10 +3166,7 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
     PredefinedStatusFindAllResponseApplicationJson._validate(this);
     _$PredefinedStatusFindAllResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$PredefinedStatusFindAllResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$PredefinedStatusFindAllResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2937,7 +3174,10 @@ class PredefinedStatusFindAllResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'PredefinedStatusFindAllResponseApplicationJson', _$failedField, e.toString());
+          r'PredefinedStatusFindAllResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2962,15 +3202,15 @@ class _$StatusesFindAllResponseApplicationJson_Ocs extends StatusesFindAllRespon
   @override
   final BuiltList<Public> data;
 
-  factory _$StatusesFindAllResponseApplicationJson_Ocs(
-          [void Function(StatusesFindAllResponseApplicationJson_OcsBuilder)? updates]) =>
-      (StatusesFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$StatusesFindAllResponseApplicationJson_Ocs([
+    void Function(StatusesFindAllResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (StatusesFindAllResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$StatusesFindAllResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   StatusesFindAllResponseApplicationJson_Ocs rebuild(
-          void Function(StatusesFindAllResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(StatusesFindAllResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   StatusesFindAllResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3045,11 +3285,7 @@ class StatusesFindAllResponseApplicationJson_OcsBuilder
     StatusesFindAllResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindAllResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$StatusesFindAllResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$StatusesFindAllResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3078,15 +3314,15 @@ class _$StatusesFindAllResponseApplicationJson extends StatusesFindAllResponseAp
   @override
   final StatusesFindAllResponseApplicationJson_Ocs ocs;
 
-  factory _$StatusesFindAllResponseApplicationJson(
-          [void Function(StatusesFindAllResponseApplicationJsonBuilder)? updates]) =>
-      (StatusesFindAllResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$StatusesFindAllResponseApplicationJson([
+    void Function(StatusesFindAllResponseApplicationJsonBuilder)? updates,
+  ]) => (StatusesFindAllResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$StatusesFindAllResponseApplicationJson._({required this.ocs}) : super._();
   @override
   StatusesFindAllResponseApplicationJson rebuild(
-          void Function(StatusesFindAllResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(StatusesFindAllResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   StatusesFindAllResponseApplicationJsonBuilder toBuilder() =>
@@ -3153,10 +3389,7 @@ class StatusesFindAllResponseApplicationJsonBuilder
     StatusesFindAllResponseApplicationJson._validate(this);
     _$StatusesFindAllResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$StatusesFindAllResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$StatusesFindAllResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3188,15 +3421,15 @@ class _$StatusesFindResponseApplicationJson_Ocs extends StatusesFindResponseAppl
   @override
   final Public data;
 
-  factory _$StatusesFindResponseApplicationJson_Ocs(
-          [void Function(StatusesFindResponseApplicationJson_OcsBuilder)? updates]) =>
-      (StatusesFindResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$StatusesFindResponseApplicationJson_Ocs([
+    void Function(StatusesFindResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (StatusesFindResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$StatusesFindResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   StatusesFindResponseApplicationJson_Ocs rebuild(
-          void Function(StatusesFindResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(StatusesFindResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   StatusesFindResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3271,11 +3504,7 @@ class StatusesFindResponseApplicationJson_OcsBuilder
     StatusesFindResponseApplicationJson_Ocs._validate(this);
     _$StatusesFindResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$StatusesFindResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$StatusesFindResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3376,10 +3605,7 @@ class StatusesFindResponseApplicationJsonBuilder
     StatusesFindResponseApplicationJson._validate(this);
     _$StatusesFindResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$StatusesFindResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$StatusesFindResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3411,15 +3637,15 @@ class _$UserStatusGetStatusResponseApplicationJson_Ocs extends UserStatusGetStat
   @override
   final Private data;
 
-  factory _$UserStatusGetStatusResponseApplicationJson_Ocs(
-          [void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusGetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusGetStatusResponseApplicationJson_Ocs([
+    void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusGetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusGetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusGetStatusResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusGetStatusResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusGetStatusResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3494,11 +3720,7 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
     UserStatusGetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusGetStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusGetStatusResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3508,7 +3730,10 @@ class UserStatusGetStatusResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusGetStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusGetStatusResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3528,15 +3753,15 @@ class _$UserStatusGetStatusResponseApplicationJson extends UserStatusGetStatusRe
   @override
   final UserStatusGetStatusResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusGetStatusResponseApplicationJson(
-          [void Function(UserStatusGetStatusResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusGetStatusResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusGetStatusResponseApplicationJson([
+    void Function(UserStatusGetStatusResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusGetStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusGetStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusGetStatusResponseApplicationJson rebuild(
-          void Function(UserStatusGetStatusResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusGetStatusResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusGetStatusResponseApplicationJsonBuilder toBuilder() =>
@@ -3603,10 +3828,7 @@ class UserStatusGetStatusResponseApplicationJsonBuilder
     UserStatusGetStatusResponseApplicationJson._validate(this);
     _$UserStatusGetStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusGetStatusResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusGetStatusResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3633,15 +3855,15 @@ class _$UserStatusSetStatusRequestApplicationJson extends UserStatusSetStatusReq
   @override
   final String statusType;
 
-  factory _$UserStatusSetStatusRequestApplicationJson(
-          [void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetStatusRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetStatusRequestApplicationJson([
+    void Function(UserStatusSetStatusRequestApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetStatusRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetStatusRequestApplicationJson._({required this.statusType}) : super._();
   @override
   UserStatusSetStatusRequestApplicationJson rebuild(
-          void Function(UserStatusSetStatusRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetStatusRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetStatusRequestApplicationJsonBuilder toBuilder() =>
@@ -3663,8 +3885,8 @@ class _$UserStatusSetStatusRequestApplicationJson extends UserStatusSetStatusReq
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusSetStatusRequestApplicationJson')..add('statusType', statusType))
-        .toString();
+    return (newBuiltValueToStringHelper(r'UserStatusSetStatusRequestApplicationJson')
+      ..add('statusType', statusType)).toString();
   }
 }
 
@@ -3706,10 +3928,14 @@ class UserStatusSetStatusRequestApplicationJsonBuilder
 
   _$UserStatusSetStatusRequestApplicationJson _build() {
     UserStatusSetStatusRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$UserStatusSetStatusRequestApplicationJson._(
           statusType: BuiltValueNullFieldError.checkNotNull(
-              statusType, r'UserStatusSetStatusRequestApplicationJson', 'statusType'),
+            statusType,
+            r'UserStatusSetStatusRequestApplicationJson',
+            'statusType',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -3732,15 +3958,15 @@ class _$UserStatusSetStatusResponseApplicationJson_Ocs extends UserStatusSetStat
   @override
   final Private data;
 
-  factory _$UserStatusSetStatusResponseApplicationJson_Ocs(
-          [void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusSetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusSetStatusResponseApplicationJson_Ocs([
+    void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusSetStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusSetStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetStatusResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetStatusResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetStatusResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3815,11 +4041,7 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
     UserStatusSetStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetStatusResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3829,7 +4051,10 @@ class UserStatusSetStatusResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusSetStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusSetStatusResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3849,15 +4074,15 @@ class _$UserStatusSetStatusResponseApplicationJson extends UserStatusSetStatusRe
   @override
   final UserStatusSetStatusResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusSetStatusResponseApplicationJson(
-          [void Function(UserStatusSetStatusResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetStatusResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetStatusResponseApplicationJson([
+    void Function(UserStatusSetStatusResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetStatusResponseApplicationJson rebuild(
-          void Function(UserStatusSetStatusResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetStatusResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetStatusResponseApplicationJsonBuilder toBuilder() =>
@@ -3924,10 +4149,7 @@ class UserStatusSetStatusResponseApplicationJsonBuilder
     UserStatusSetStatusResponseApplicationJson._validate(this);
     _$UserStatusSetStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetStatusResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusSetStatusResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3960,15 +4182,15 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJson
   @override
   final int? clearAt;
 
-  factory _$UserStatusSetPredefinedMessageRequestApplicationJson(
-          [void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetPredefinedMessageRequestApplicationJson([
+    void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetPredefinedMessageRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetPredefinedMessageRequestApplicationJson._({required this.messageId, this.clearAt}) : super._();
   @override
   UserStatusSetPredefinedMessageRequestApplicationJson rebuild(
-          void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetPredefinedMessageRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetPredefinedMessageRequestApplicationJsonBuilder toBuilder() =>
@@ -4002,8 +4224,10 @@ class _$UserStatusSetPredefinedMessageRequestApplicationJson
 
 class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
     implements
-        Builder<UserStatusSetPredefinedMessageRequestApplicationJson,
-            UserStatusSetPredefinedMessageRequestApplicationJsonBuilder>,
+        Builder<
+          UserStatusSetPredefinedMessageRequestApplicationJson,
+          UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
+        >,
         $UserStatusSetPredefinedMessageRequestApplicationJsonInterfaceBuilder {
   _$UserStatusSetPredefinedMessageRequestApplicationJson? _$v;
 
@@ -4044,10 +4268,14 @@ class UserStatusSetPredefinedMessageRequestApplicationJsonBuilder
 
   _$UserStatusSetPredefinedMessageRequestApplicationJson _build() {
     UserStatusSetPredefinedMessageRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$UserStatusSetPredefinedMessageRequestApplicationJson._(
           messageId: BuiltValueNullFieldError.checkNotNull(
-              messageId, r'UserStatusSetPredefinedMessageRequestApplicationJson', 'messageId'),
+            messageId,
+            r'UserStatusSetPredefinedMessageRequestApplicationJson',
+            'messageId',
+          ),
           clearAt: clearAt,
         );
     replace(_$result);
@@ -4072,15 +4300,15 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
   @override
   final Private data;
 
-  factory _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs(
-          [void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs([
+    void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4114,8 +4342,10 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs
 
 class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
     implements
-        Builder<UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
-            UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder>,
+        Builder<
+          UserStatusSetPredefinedMessageResponseApplicationJson_Ocs,
+          UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
+        >,
         $UserStatusSetPredefinedMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs? _$v;
 
@@ -4158,11 +4388,8 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
     UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$UserStatusSetPredefinedMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4172,7 +4399,10 @@ class UserStatusSetPredefinedMessageResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusSetPredefinedMessageResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4193,15 +4423,15 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson
   @override
   final UserStatusSetPredefinedMessageResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusSetPredefinedMessageResponseApplicationJson(
-          [void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetPredefinedMessageResponseApplicationJson([
+    void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetPredefinedMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetPredefinedMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetPredefinedMessageResponseApplicationJson rebuild(
-          void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetPredefinedMessageResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetPredefinedMessageResponseApplicationJsonBuilder toBuilder() =>
@@ -4223,15 +4453,17 @@ class _$UserStatusSetPredefinedMessageResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusSetPredefinedMessageResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'UserStatusSetPredefinedMessageResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
     implements
-        Builder<UserStatusSetPredefinedMessageResponseApplicationJson,
-            UserStatusSetPredefinedMessageResponseApplicationJsonBuilder>,
+        Builder<
+          UserStatusSetPredefinedMessageResponseApplicationJson,
+          UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
+        >,
         $UserStatusSetPredefinedMessageResponseApplicationJsonInterfaceBuilder {
   _$UserStatusSetPredefinedMessageResponseApplicationJson? _$v;
 
@@ -4270,10 +4502,7 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
     UserStatusSetPredefinedMessageResponseApplicationJson._validate(this);
     _$UserStatusSetPredefinedMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetPredefinedMessageResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusSetPredefinedMessageResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4281,7 +4510,10 @@ class UserStatusSetPredefinedMessageResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusSetPredefinedMessageResponseApplicationJson', _$failedField, e.toString());
+          r'UserStatusSetPredefinedMessageResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4311,15 +4543,15 @@ class _$UserStatusSetCustomMessageRequestApplicationJson extends UserStatusSetCu
   @override
   final int? clearAt;
 
-  factory _$UserStatusSetCustomMessageRequestApplicationJson(
-          [void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetCustomMessageRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetCustomMessageRequestApplicationJson([
+    void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetCustomMessageRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetCustomMessageRequestApplicationJson._({this.statusIcon, this.message, this.clearAt}) : super._();
   @override
   UserStatusSetCustomMessageRequestApplicationJson rebuild(
-          void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetCustomMessageRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetCustomMessageRequestApplicationJsonBuilder toBuilder() =>
@@ -4356,8 +4588,10 @@ class _$UserStatusSetCustomMessageRequestApplicationJson extends UserStatusSetCu
 
 class UserStatusSetCustomMessageRequestApplicationJsonBuilder
     implements
-        Builder<UserStatusSetCustomMessageRequestApplicationJson,
-            UserStatusSetCustomMessageRequestApplicationJsonBuilder>,
+        Builder<
+          UserStatusSetCustomMessageRequestApplicationJson,
+          UserStatusSetCustomMessageRequestApplicationJsonBuilder
+        >,
         $UserStatusSetCustomMessageRequestApplicationJsonInterfaceBuilder {
   _$UserStatusSetCustomMessageRequestApplicationJson? _$v;
 
@@ -4403,7 +4637,8 @@ class UserStatusSetCustomMessageRequestApplicationJsonBuilder
 
   _$UserStatusSetCustomMessageRequestApplicationJson _build() {
     UserStatusSetCustomMessageRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$UserStatusSetCustomMessageRequestApplicationJson._(
           statusIcon: statusIcon,
           message: message,
@@ -4431,15 +4666,15 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
   @override
   final Private data;
 
-  factory _$UserStatusSetCustomMessageResponseApplicationJson_Ocs(
-          [void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusSetCustomMessageResponseApplicationJson_Ocs([
+    void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusSetCustomMessageResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4471,8 +4706,10 @@ class _$UserStatusSetCustomMessageResponseApplicationJson_Ocs
 
 class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
     implements
-        Builder<UserStatusSetCustomMessageResponseApplicationJson_Ocs,
-            UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder>,
+        Builder<
+          UserStatusSetCustomMessageResponseApplicationJson_Ocs,
+          UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
+        >,
         $UserStatusSetCustomMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusSetCustomMessageResponseApplicationJson_Ocs? _$v;
 
@@ -4515,11 +4752,8 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
     UserStatusSetCustomMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$UserStatusSetCustomMessageResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4529,7 +4763,10 @@ class UserStatusSetCustomMessageResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusSetCustomMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusSetCustomMessageResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4549,15 +4786,15 @@ class _$UserStatusSetCustomMessageResponseApplicationJson extends UserStatusSetC
   @override
   final UserStatusSetCustomMessageResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusSetCustomMessageResponseApplicationJson(
-          [void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusSetCustomMessageResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusSetCustomMessageResponseApplicationJson([
+    void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusSetCustomMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusSetCustomMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusSetCustomMessageResponseApplicationJson rebuild(
-          void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusSetCustomMessageResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusSetCustomMessageResponseApplicationJsonBuilder toBuilder() =>
@@ -4579,15 +4816,17 @@ class _$UserStatusSetCustomMessageResponseApplicationJson extends UserStatusSetC
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'UserStatusSetCustomMessageResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'UserStatusSetCustomMessageResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class UserStatusSetCustomMessageResponseApplicationJsonBuilder
     implements
-        Builder<UserStatusSetCustomMessageResponseApplicationJson,
-            UserStatusSetCustomMessageResponseApplicationJsonBuilder>,
+        Builder<
+          UserStatusSetCustomMessageResponseApplicationJson,
+          UserStatusSetCustomMessageResponseApplicationJsonBuilder
+        >,
         $UserStatusSetCustomMessageResponseApplicationJsonInterfaceBuilder {
   _$UserStatusSetCustomMessageResponseApplicationJson? _$v;
 
@@ -4626,10 +4865,7 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
     UserStatusSetCustomMessageResponseApplicationJson._validate(this);
     _$UserStatusSetCustomMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusSetCustomMessageResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusSetCustomMessageResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4637,7 +4873,10 @@ class UserStatusSetCustomMessageResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusSetCustomMessageResponseApplicationJson', _$failedField, e.toString());
+          r'UserStatusSetCustomMessageResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4662,15 +4901,15 @@ class _$UserStatusClearMessageResponseApplicationJson_Ocs extends UserStatusClea
   @override
   final JsonObject data;
 
-  factory _$UserStatusClearMessageResponseApplicationJson_Ocs(
-          [void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusClearMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusClearMessageResponseApplicationJson_Ocs([
+    void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusClearMessageResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusClearMessageResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusClearMessageResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusClearMessageResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusClearMessageResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4702,8 +4941,10 @@ class _$UserStatusClearMessageResponseApplicationJson_Ocs extends UserStatusClea
 
 class UserStatusClearMessageResponseApplicationJson_OcsBuilder
     implements
-        Builder<UserStatusClearMessageResponseApplicationJson_Ocs,
-            UserStatusClearMessageResponseApplicationJson_OcsBuilder>,
+        Builder<
+          UserStatusClearMessageResponseApplicationJson_Ocs,
+          UserStatusClearMessageResponseApplicationJson_OcsBuilder
+        >,
         $UserStatusClearMessageResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusClearMessageResponseApplicationJson_Ocs? _$v;
 
@@ -4746,11 +4987,15 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
     UserStatusClearMessageResponseApplicationJson_Ocs._validate(this);
     _$UserStatusClearMessageResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$UserStatusClearMessageResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'UserStatusClearMessageResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'UserStatusClearMessageResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -4759,7 +5004,10 @@ class UserStatusClearMessageResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusClearMessageResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusClearMessageResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4779,15 +5027,15 @@ class _$UserStatusClearMessageResponseApplicationJson extends UserStatusClearMes
   @override
   final UserStatusClearMessageResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusClearMessageResponseApplicationJson(
-          [void Function(UserStatusClearMessageResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusClearMessageResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusClearMessageResponseApplicationJson([
+    void Function(UserStatusClearMessageResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusClearMessageResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusClearMessageResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusClearMessageResponseApplicationJson rebuild(
-          void Function(UserStatusClearMessageResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusClearMessageResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusClearMessageResponseApplicationJsonBuilder toBuilder() =>
@@ -4854,10 +5102,7 @@ class UserStatusClearMessageResponseApplicationJsonBuilder
     UserStatusClearMessageResponseApplicationJson._validate(this);
     _$UserStatusClearMessageResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusClearMessageResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusClearMessageResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4889,15 +5134,15 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusReve
   @override
   final UserStatusRevertStatusResponseApplicationJson_Ocs_Data data;
 
-  factory _$UserStatusRevertStatusResponseApplicationJson_Ocs(
-          [void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder)? updates]) =>
-      (UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$UserStatusRevertStatusResponseApplicationJson_Ocs([
+    void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (UserStatusRevertStatusResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$UserStatusRevertStatusResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   UserStatusRevertStatusResponseApplicationJson_Ocs rebuild(
-          void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusRevertStatusResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusRevertStatusResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4932,8 +5177,10 @@ class _$UserStatusRevertStatusResponseApplicationJson_Ocs extends UserStatusReve
 
 class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     implements
-        Builder<UserStatusRevertStatusResponseApplicationJson_Ocs,
-            UserStatusRevertStatusResponseApplicationJson_OcsBuilder>,
+        Builder<
+          UserStatusRevertStatusResponseApplicationJson_Ocs,
+          UserStatusRevertStatusResponseApplicationJson_OcsBuilder
+        >,
         $UserStatusRevertStatusResponseApplicationJson_OcsInterfaceBuilder {
   _$UserStatusRevertStatusResponseApplicationJson_Ocs? _$v;
 
@@ -4976,11 +5223,15 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
     UserStatusRevertStatusResponseApplicationJson_Ocs._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$UserStatusRevertStatusResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'UserStatusRevertStatusResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'UserStatusRevertStatusResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -4989,7 +5240,10 @@ class UserStatusRevertStatusResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'UserStatusRevertStatusResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'UserStatusRevertStatusResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -5009,15 +5263,15 @@ class _$UserStatusRevertStatusResponseApplicationJson extends UserStatusRevertSt
   @override
   final UserStatusRevertStatusResponseApplicationJson_Ocs ocs;
 
-  factory _$UserStatusRevertStatusResponseApplicationJson(
-          [void Function(UserStatusRevertStatusResponseApplicationJsonBuilder)? updates]) =>
-      (UserStatusRevertStatusResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$UserStatusRevertStatusResponseApplicationJson([
+    void Function(UserStatusRevertStatusResponseApplicationJsonBuilder)? updates,
+  ]) => (UserStatusRevertStatusResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$UserStatusRevertStatusResponseApplicationJson._({required this.ocs}) : super._();
   @override
   UserStatusRevertStatusResponseApplicationJson rebuild(
-          void Function(UserStatusRevertStatusResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(UserStatusRevertStatusResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   UserStatusRevertStatusResponseApplicationJsonBuilder toBuilder() =>
@@ -5084,10 +5338,7 @@ class UserStatusRevertStatusResponseApplicationJsonBuilder
     UserStatusRevertStatusResponseApplicationJson._validate(this);
     _$UserStatusRevertStatusResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$UserStatusRevertStatusResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$UserStatusRevertStatusResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -5212,12 +5463,16 @@ class Capabilities_UserStatusBuilder
 
   _$Capabilities_UserStatus _build() {
     Capabilities_UserStatus._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_UserStatus._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_UserStatus', 'enabled'),
           restore: BuiltValueNullFieldError.checkNotNull(restore, r'Capabilities_UserStatus', 'restore'),
-          supportsEmoji:
-              BuiltValueNullFieldError.checkNotNull(supportsEmoji, r'Capabilities_UserStatus', 'supportsEmoji'),
+          supportsEmoji: BuiltValueNullFieldError.checkNotNull(
+            supportsEmoji,
+            r'Capabilities_UserStatus',
+            'supportsEmoji',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -5302,10 +5557,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            userStatus: userStatus.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(userStatus: userStatus.build());
     } catch (_) {
       late String _$failedField;
       try {

@@ -6,17 +6,12 @@ import 'package:neon_framework/src/login/login.dart';
 
 void main() {
   final url = Uri.https('serverURL');
-  final credentials = createCredentials(
-    serverURL: Uri.https('credentials_serverURL'),
-  );
+  final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
 
   group('LoginState', () {
     group('initial constructor', () {
       test('with url', () {
-        expect(
-          LoginState.initial(serverURL: url),
-          LoginStateCheckServer(serverURL: url),
-        );
+        expect(LoginState.initial(serverURL: url), LoginStateCheckServer(serverURL: url));
       });
 
       test('with credentials', () {
@@ -34,27 +29,18 @@ void main() {
       });
 
       test('without credentials or url', () {
-        expect(
-          LoginState.initial(),
-          LoginStateInitial(),
-        );
+        expect(LoginState.initial(), LoginStateInitial());
       });
     });
 
     group('LoginStateInitial', () {
       test('supports value comparison', () {
-        expect(
-          LoginStateInitial(),
-          LoginStateInitial(),
-        );
+        expect(LoginStateInitial(), LoginStateInitial());
       });
     });
     group('LoginStateScanQrCode', () {
       test('supports value comparison', () {
-        expect(
-          LoginStateScanQrCode(),
-          LoginStateScanQrCode(),
-        );
+        expect(LoginStateScanQrCode(), LoginStateScanQrCode());
       });
     });
     group('LoginStateCheckServer', () {
@@ -67,26 +53,17 @@ void main() {
     });
     group('LoginStateFlowV2', () {
       test('supports value comparison', () {
-        expect(
-          LoginStateFlowV2(serverURL: url),
-          LoginStateFlowV2(serverURL: url),
-        );
+        expect(LoginStateFlowV2(serverURL: url), LoginStateFlowV2(serverURL: url));
       });
     });
     group('LoginStateCheckAccount', () {
       test('supports value comparison', () {
-        expect(
-          LoginStateCheckAccount(credentials: credentials),
-          LoginStateCheckAccount(credentials: credentials),
-        );
+        expect(LoginStateCheckAccount(credentials: credentials), LoginStateCheckAccount(credentials: credentials));
       });
     });
     group('LoginStateDone', () {
       test('supports value comparison', () {
-        expect(
-          LoginStateDone(),
-          LoginStateDone(),
-        );
+        expect(LoginStateDone(), LoginStateDone());
       });
     });
   });

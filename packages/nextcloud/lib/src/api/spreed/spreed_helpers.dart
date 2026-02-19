@@ -52,9 +52,9 @@ enum RoomType {
 
   /// Whether the room is only with one other user.
   bool get isSingleUser => switch (this) {
-        RoomType.oneToOne || RoomType.changelog || RoomType.oneToOneFormer || RoomType.noteToSelf => true,
-        _ => false,
-      };
+    RoomType.oneToOne || RoomType.changelog || RoomType.oneToOneFormer || RoomType.noteToSelf => true,
+    _ => false,
+  };
 }
 
 /// Participant types.
@@ -120,7 +120,7 @@ enum ParticipantPermission {
   canScreenShare,
 
   /// Can post chat message, share items and do reactions.
-  canSendMessageAndShareAndReact;
+  canSendMessageAndShareAndReact,
 }
 
 /// Participant in-call flags.
@@ -144,7 +144,7 @@ enum ParticipantInCallFlag {
   providesVideo,
 
   /// Connected to the call using SIP dial-in.
-  sipDialIn;
+  sipDialIn,
 }
 
 /// An extension to convert the binary representation of an enum into enum values.

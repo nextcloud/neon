@@ -16,10 +16,7 @@ import 'package:talk_app/src/widgets/message.dart';
 /// Widget for displaying the emoji button, text input and send button.
 class TalkMessageInput extends StatefulWidget {
   /// Creates a new Talk message input.
-  const TalkMessageInput({
-    required this.room,
-    super.key,
-  });
+  const TalkMessageInput({required this.room, super.key});
 
   /// The room to which the messages will be sent to.
   final spreed.Room room;
@@ -39,10 +36,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
             final text = controller.text;
             controller
               ..text = '${text.substring(0, selection.start)}\n${text.substring(selection.start)}'
-              ..selection = selection.copyWith(
-                baseOffset: selection.start + 1,
-                extentOffset: selection.end + 1,
-              );
+              ..selection = selection.copyWith(baseOffset: selection.start + 1, extentOffset: selection.end + 1);
           } else {
             sendMessage();
           }
@@ -72,10 +66,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       if (editing != null) {
         controller
           ..text = editing.message
-          ..selection = TextSelection(
-            baseOffset: editing.message.length,
-            extentOffset: editing.message.length,
-          );
+          ..selection = TextSelection(baseOffset: editing.message.length, extentOffset: editing.message.length);
         focusNode.requestFocus();
       }
     });
@@ -107,10 +98,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
       emojiButton = IconButton(
         tooltip: TalkLocalizations.of(context).roomMessageAddEmoji,
         onPressed: () async {
-          final emoji = await showDialog<String>(
-            context: context,
-            builder: (context) => const NeonEmojiPickerDialog(),
-          );
+          final emoji = await showDialog<String>(context: context, builder: (context) => const NeonEmojiPickerDialog());
           if (emoji != null) {
             final text = controller.text;
             final textSelection = controller.selection;
@@ -134,10 +122,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
           return const SizedBox();
         }
 
-        return buildContextMessage(
-          chatMessage: replyToSnapshot.requireData!,
-          onDismiss: bloc.removeReplyChatMessage,
-        );
+        return buildContextMessage(chatMessage: replyToSnapshot.requireData!, onDismiss: bloc.removeReplyChatMessage);
       },
     );
 
@@ -154,10 +139,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
             bloc.removeEditChatMessage();
             controller
               ..text = ''
-              ..selection = const TextSelection(
-                baseOffset: 0,
-                extentOffset: 0,
-              );
+              ..selection = const TextSelection(baseOffset: 0, extentOffset: 0);
           },
         );
       },
@@ -197,13 +179,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
         );
 
         return response.body.ocs.data
-            .map(
-              (mention) => _Suggestion(
-                start: cursor - matchingPart.length,
-                end: cursor,
-                mention: mention,
-              ),
-            )
+            .map((mention) => _Suggestion(start: cursor - matchingPart.length, end: cursor, mention: mention))
             .toList();
       },
       onSelected: (suggestion) {
@@ -212,105 +188,72 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
 
         controller
           ..text = controller.text.replaceRange(suggestion.start, suggestion.end, '$value ')
-          ..selection = controller.selection.copyWith(
-            baseOffset: cursor,
-            extentOffset: cursor,
-          );
+          ..selection = controller.selection.copyWith(baseOffset: cursor, extentOffset: cursor);
       },
       itemBuilder: buildResult,
-      builder: (context, controller, focusNode) => TextFormField(
-        controller: controller,
-        focusNode: focusNode,
-        textInputAction: TextInputAction.newline,
-        keyboardType: TextInputType.multiline,
-        minLines: 1,
-        maxLines: 5,
-        decoration: InputDecoration(
-          prefixIcon: emojiButton,
-          suffixIcon: IconButton(
-            tooltip: TalkLocalizations.of(context).roomMessageSend,
-            icon: Icon(AdaptiveIcons.send),
-            onPressed: sendMessage,
+      builder:
+          (context, controller, focusNode) => TextFormField(
+            controller: controller,
+            focusNode: focusNode,
+            textInputAction: TextInputAction.newline,
+            keyboardType: TextInputType.multiline,
+            minLines: 1,
+            maxLines: 5,
+            decoration: InputDecoration(
+              prefixIcon: emojiButton,
+              suffixIcon: IconButton(
+                tooltip: TalkLocalizations.of(context).roomMessageSend,
+                icon: Icon(AdaptiveIcons.send),
+                onPressed: sendMessage,
+              ),
+              hintText: TalkLocalizations.of(context).roomWriteMessage,
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(28)),
+            ),
+            onFieldSubmitted: (_) {
+              sendMessage();
+            },
           ),
-          hintText: TalkLocalizations.of(context).roomWriteMessage,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-          ),
-        ),
-        onFieldSubmitted: (_) {
-          sendMessage();
-        },
-      ),
-      errorBuilder: (context, error) => IntrinsicHeight(
-        child: NeonError(
-          error,
-          onRetry: null,
-        ),
-      ),
+      errorBuilder: (context, error) => IntrinsicHeight(child: NeonError(error, onRetry: null)),
       loadingBuilder: (context) => const NeonLinearProgressIndicator(),
     );
 
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        replyTo,
-        editing,
-        inputField,
-      ],
-    );
+    return Column(mainAxisSize: MainAxisSize.min, children: [replyTo, editing, inputField]);
   }
 
   Widget buildResult(BuildContext context, _Suggestion suggestion) {
     final icon = switch (suggestion.mention.source) {
       'users' => NeonUserAvatar(
-          account: NeonProvider.of<Account>(context),
-          username: suggestion.mention.id,
-          userStatus: suggestion.mention.status != null
-              ? user_status.Public(
-                  (b) => b
-                    ..userId = suggestion.mention.id
-                    ..message = suggestion.mention.statusMessage
-                    ..icon = suggestion.mention.statusIcon
-                    ..clearAt = suggestion.mention.statusClearAt
-                    ..status = user_status.$Type.valueOf(suggestion.mention.status!),
+        account: NeonProvider.of<Account>(context),
+        username: suggestion.mention.id,
+        userStatus:
+            suggestion.mention.status != null
+                ? user_status.Public(
+                  (b) =>
+                      b
+                        ..userId = suggestion.mention.id
+                        ..message = suggestion.mention.statusMessage
+                        ..icon = suggestion.mention.statusIcon
+                        ..clearAt = suggestion.mention.statusClearAt
+                        ..status = user_status.$Type.valueOf(suggestion.mention.status!),
                 )
-              : null,
-        ),
-      'groups' || 'calls' => CircleAvatar(
-          child: Icon(
-            AdaptiveIcons.group,
-          ),
-        ),
+                : null,
+      ),
+      'groups' || 'calls' => CircleAvatar(child: Icon(AdaptiveIcons.group)),
       // coverage:ignore-start
       _ => throw UnimplementedError('Chat mention suggestion source ${suggestion.mention.source} has no icon'),
       // coverage:ignore-end
     };
 
-    return ListTile(
-      title: Text(suggestion.mention.label),
-      subtitle: Text(suggestion.mention.id),
-      leading: icon,
-    );
+    return ListTile(title: Text(suggestion.mention.label), subtitle: Text(suggestion.mention.id), leading: icon);
   }
 
-  Widget buildContextMessage({
-    required spreed.$ChatMessageInterface chatMessage,
-    required VoidCallback onDismiss,
-  }) {
+  Widget buildContextMessage({required spreed.$ChatMessageInterface chatMessage, required VoidCallback onDismiss}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 5),
       child: Row(
         children: [
-          const SizedBox.square(
-            dimension: 40,
-          ),
-          Expanded(
-            child: TalkParentMessage(
-              room: widget.room,
-              parentChatMessage: chatMessage,
-              lastCommonRead: null,
-            ),
-          ),
+          const SizedBox.square(dimension: 40),
+          Expanded(child: TalkParentMessage(room: widget.room, parentChatMessage: chatMessage, lastCommonRead: null)),
           IconButton(
             onPressed: () {
               onDismiss();
@@ -324,11 +267,7 @@ class _TalkMessageInputState extends State<TalkMessageInput> {
 }
 
 class _Suggestion {
-  _Suggestion({
-    required this.start,
-    required this.end,
-    required this.mention,
-  });
+  _Suggestion({required this.start, required this.end, required this.mention});
 
   final int start;
   final int end;

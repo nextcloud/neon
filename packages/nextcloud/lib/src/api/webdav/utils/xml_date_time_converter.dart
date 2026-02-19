@@ -9,11 +9,7 @@ final class HttpDateXMLConverter implements xml_annotation.XmlConverter<tz.TZDat
   const HttpDateXMLConverter();
 
   @override
-  void buildXmlChildren(
-    tz.TZDateTime? instance,
-    xml.XmlBuilder builder, {
-    Map<String, String> namespaces = const {},
-  }) {
+  void buildXmlChildren(tz.TZDateTime? instance, xml.XmlBuilder builder, {Map<String, String> namespaces = const {}}) {
     if (instance == null) {
       return;
     }
@@ -23,9 +19,7 @@ final class HttpDateXMLConverter implements xml_annotation.XmlConverter<tz.TZDat
   }
 
   @override
-  tz.TZDateTime? fromXmlElement(
-    xml.XmlElement element,
-  ) {
+  tz.TZDateTime? fromXmlElement(xml.XmlElement element) {
     final date = element.getText();
     if (date != null) {
       return parseHttpDate(date);
@@ -35,26 +29,18 @@ final class HttpDateXMLConverter implements xml_annotation.XmlConverter<tz.TZDat
   }
 
   @override
-  List<xml.XmlAttribute> toXmlAttributes(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlAttribute> toXmlAttributes(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     return const <xml.XmlAttribute>[];
   }
 
   @override
-  List<xml.XmlNode> toXmlChildren(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlNode> toXmlChildren(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     if (instance == null) {
       return const <xml.XmlNode>[];
     }
 
     final date = formatHttpDate(instance);
-    return <xml.XmlNode>[
-      xml.XmlText(date),
-    ];
+    return <xml.XmlNode>[xml.XmlText(date)];
   }
 }
 
@@ -63,11 +49,7 @@ final class ISO8601XMLConverter implements xml_annotation.XmlConverter<tz.TZDate
   const ISO8601XMLConverter();
 
   @override
-  void buildXmlChildren(
-    tz.TZDateTime? instance,
-    xml.XmlBuilder builder, {
-    Map<String, String> namespaces = const {},
-  }) {
+  void buildXmlChildren(tz.TZDateTime? instance, xml.XmlBuilder builder, {Map<String, String> namespaces = const {}}) {
     if (instance == null) {
       return;
     }
@@ -77,9 +59,7 @@ final class ISO8601XMLConverter implements xml_annotation.XmlConverter<tz.TZDate
   }
 
   @override
-  tz.TZDateTime? fromXmlElement(
-    xml.XmlElement element,
-  ) {
+  tz.TZDateTime? fromXmlElement(xml.XmlElement element) {
     final date = element.getText();
     if (date != null) {
       return tz.TZDateTime.parse(tz.UTC, date);
@@ -89,26 +69,18 @@ final class ISO8601XMLConverter implements xml_annotation.XmlConverter<tz.TZDate
   }
 
   @override
-  List<xml.XmlAttribute> toXmlAttributes(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlAttribute> toXmlAttributes(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     return const <xml.XmlAttribute>[];
   }
 
   @override
-  List<xml.XmlNode> toXmlChildren(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlNode> toXmlChildren(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     if (instance == null) {
       return const <xml.XmlNode>[];
     }
 
     final date = instance.toIso8601String();
-    return <xml.XmlNode>[
-      xml.XmlText(date),
-    ];
+    return <xml.XmlNode>[xml.XmlText(date)];
   }
 }
 
@@ -117,11 +89,7 @@ final class UnixEpochXMLConverter implements xml_annotation.XmlConverter<tz.TZDa
   const UnixEpochXMLConverter();
 
   @override
-  void buildXmlChildren(
-    tz.TZDateTime? instance,
-    xml.XmlBuilder builder, {
-    Map<String, String> namespaces = const {},
-  }) {
+  void buildXmlChildren(tz.TZDateTime? instance, xml.XmlBuilder builder, {Map<String, String> namespaces = const {}}) {
     if (instance == null) {
       return;
     }
@@ -131,40 +99,27 @@ final class UnixEpochXMLConverter implements xml_annotation.XmlConverter<tz.TZDa
   }
 
   @override
-  tz.TZDateTime? fromXmlElement(
-    xml.XmlElement element,
-  ) {
+  tz.TZDateTime? fromXmlElement(xml.XmlElement element) {
     final date = element.getText();
     if (date != null) {
-      return DateTimeUtils.fromSecondsSinceEpoch(
-        tz.UTC,
-        int.parse(date),
-      );
+      return DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, int.parse(date));
     }
 
     return null;
   }
 
   @override
-  List<xml.XmlAttribute> toXmlAttributes(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlAttribute> toXmlAttributes(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     return const <xml.XmlAttribute>[];
   }
 
   @override
-  List<xml.XmlNode> toXmlChildren(
-    tz.TZDateTime? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlNode> toXmlChildren(tz.TZDateTime? instance, {Map<String, String?> namespaces = const {}}) {
     if (instance == null) {
       return const <xml.XmlNode>[];
     }
 
     final date = instance.secondsSinceEpoch.toString();
-    return <xml.XmlNode>[
-      xml.XmlText(date),
-    ];
+    return <xml.XmlNode>[xml.XmlText(date)];
   }
 }

@@ -115,19 +115,13 @@ class AdaptiveListTile extends StatelessWidget {
         if (!enabled) {
           var data = CupertinoTheme.of(context);
           data = data.copyWith(
-            textTheme: data.resolveFrom(context).textTheme.copyWith(
-                  textStyle: data.textTheme.textStyle.merge(
-                    TextStyle(
-                      color: theme.disabledColor,
-                    ),
-                  ),
-                ),
+            textTheme: data
+                .resolveFrom(context)
+                .textTheme
+                .copyWith(textStyle: data.textTheme.textStyle.merge(TextStyle(color: theme.disabledColor))),
           );
 
-          return CupertinoTheme(
-            data: data,
-            child: tile,
-          );
+          return CupertinoTheme(data: data, child: tile);
         }
 
         return tile;

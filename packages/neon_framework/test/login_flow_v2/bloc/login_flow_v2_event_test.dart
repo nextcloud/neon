@@ -7,33 +7,21 @@ void main() {
   group('LoginFlowV2Event', () {
     group('LoginFlowV2Init', () {
       test('supports value equality', () {
-        expect(
-          LoginFlowV2Init(),
-          equals(LoginFlowV2Init()),
-        );
+        expect(LoginFlowV2Init(), equals(LoginFlowV2Init()));
       });
 
       test('props are correct', () {
-        expect(
-          LoginFlowV2Init().props,
-          equals(<Object?>[]),
-        );
+        expect(LoginFlowV2Init().props, equals(<Object?>[]));
       });
     });
 
     group('LoginFlowV2OpenPage', () {
       test('supports value equality', () {
-        expect(
-          LoginFlowV2OpenPage(),
-          equals(LoginFlowV2OpenPage()),
-        );
+        expect(LoginFlowV2OpenPage(), equals(LoginFlowV2OpenPage()));
       });
 
       test('props are correct', () {
-        expect(
-          LoginFlowV2OpenPage().props,
-          equals(<Object?>[]),
-        );
+        expect(LoginFlowV2OpenPage().props, equals(<Object?>[]));
       });
     });
   });

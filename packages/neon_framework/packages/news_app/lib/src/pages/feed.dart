@@ -8,11 +8,7 @@ import 'package:news_app/src/widgets/articles_view.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFeedPage extends StatelessWidget {
-  const NewsFeedPage({
-    required this.bloc,
-    required this.feed,
-    super.key,
-  });
+  const NewsFeedPage({required this.bloc, required this.feed, super.key});
 
   final NewsBloc bloc;
   final news.Feed feed;
@@ -21,9 +17,7 @@ class NewsFeedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(feed.title),
-      ),
+      appBar: AppBar(title: Text(feed.title)),
       body: SafeArea(
         child: NewsArticlesView(
           bloc: NewsArticlesBloc(

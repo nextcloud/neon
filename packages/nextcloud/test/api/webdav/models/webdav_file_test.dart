@@ -9,14 +9,8 @@ void main() {
         response: const WebDavResponse(
           href: null,
           propstats: [
-            WebDavPropstat(
-              status: 'HTTP/1.1 404 Not Found',
-              prop: WebDavProp(ocSize: 1),
-            ),
-            WebDavPropstat(
-              status: 'HTTP/1.1 200 OK',
-              prop: WebDavProp(ocSize: 2),
-            ),
+            WebDavPropstat(status: 'HTTP/1.1 404 Not Found', prop: WebDavProp(ocSize: 1)),
+            WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp(ocSize: 2)),
           ],
         ),
       ).props.ocSize,
@@ -28,24 +22,14 @@ void main() {
     group('Root', () {
       test('File', () {
         expect(
-          WebDavFile(
-            response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def.txt',
-              propstats: [],
-            ),
-          ).path,
+          WebDavFile(response: const WebDavResponse(href: '/remote.php/webdav/abc/def.txt', propstats: [])).path,
           PathUri.parse('abc/def.txt'),
         );
       });
 
       test('Directory', () {
         expect(
-          WebDavFile(
-            response: const WebDavResponse(
-              href: '/remote.php/webdav/abc/def/',
-              propstats: [],
-            ),
-          ).path,
+          WebDavFile(response: const WebDavResponse(href: '/remote.php/webdav/abc/def/', propstats: [])).path,
           PathUri.parse('abc/def/'),
         );
       });
@@ -55,10 +39,7 @@ void main() {
       test('File', () {
         expect(
           WebDavFile(
-            response: const WebDavResponse(
-              href: '/subpath/remote.php/webdav/abc/def.txt',
-              propstats: [],
-            ),
+            response: const WebDavResponse(href: '/subpath/remote.php/webdav/abc/def.txt', propstats: []),
           ).path,
           PathUri.parse('abc/def.txt'),
         );
@@ -66,12 +47,7 @@ void main() {
 
       test('Directory', () {
         expect(
-          WebDavFile(
-            response: const WebDavResponse(
-              href: '/subpath/remote.php/webdav/abc/def/',
-              propstats: [],
-            ),
-          ).path,
+          WebDavFile(response: const WebDavResponse(href: '/subpath/remote.php/webdav/abc/def/', propstats: [])).path,
           PathUri.parse('abc/def/'),
         );
       });
@@ -81,24 +57,14 @@ void main() {
   group('name', () {
     test('File', () {
       expect(
-        WebDavFile(
-          response: const WebDavResponse(
-            href: '/remote.php/webdav/abc/def.txt',
-            propstats: [],
-          ),
-        ).name,
+        WebDavFile(response: const WebDavResponse(href: '/remote.php/webdav/abc/def.txt', propstats: [])).name,
         'def.txt',
       );
     });
 
     test('Directory', () {
       expect(
-        WebDavFile(
-          response: const WebDavResponse(
-            href: '/remote.php/webdav/abc/def/',
-            propstats: [],
-          ),
-        ).name,
+        WebDavFile(response: const WebDavResponse(href: '/remote.php/webdav/abc/def/', propstats: [])).name,
         'def',
       );
     });
@@ -111,14 +77,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/def.txt',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(
-                    ncHidden: true,
-                  ),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp(ncHidden: true))],
             ),
           ).isHidden,
           true,
@@ -130,14 +89,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/def/',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(
-                    ncHidden: true,
-                  ),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp(ncHidden: true))],
             ),
           ).isHidden,
           true,
@@ -151,12 +103,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/.def.txt',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp())],
             ),
           ).isHidden,
           true,
@@ -168,12 +115,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/.def/',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp())],
             ),
           ).isHidden,
           true,
@@ -192,11 +134,7 @@ void main() {
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(
-                    davResourcetype: WebDavResourcetype(
-                      collection: null,
-                    ),
-                  ),
+                  prop: WebDavProp(davResourcetype: WebDavResourcetype(collection: null)),
                 ),
               ],
             ),
@@ -213,11 +151,7 @@ void main() {
               propstats: [
                 WebDavPropstat(
                   status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(
-                    davResourcetype: WebDavResourcetype(
-                      collection: [],
-                    ),
-                  ),
+                  prop: WebDavProp(davResourcetype: WebDavResourcetype(collection: [])),
                 ),
               ],
             ),
@@ -233,12 +167,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/def.txt',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp())],
             ),
           ).isDirectory,
           false,
@@ -250,12 +179,7 @@ void main() {
           WebDavFile(
             response: const WebDavResponse(
               href: '/remote.php/webdav/abc/def/',
-              propstats: [
-                WebDavPropstat(
-                  status: 'HTTP/1.1 200 OK',
-                  prop: WebDavProp(),
-                ),
-              ],
+              propstats: [WebDavPropstat(status: 'HTTP/1.1 200 OK', prop: WebDavProp())],
             ),
           ).isDirectory,
           true,

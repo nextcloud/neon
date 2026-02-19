@@ -14,21 +14,21 @@ Account mockWeatherStatusAccount() {
   String? address = 'Berlin';
 
   Response locationResponse() => Response(
-        json.encode({
-          'ocs': {
-            'meta': {'status': '', 'statuscode': 0},
-            'data': {
-              'success': true,
-              'mode': 2,
-              if (lat != null) 'lat': lat,
-              if (lon != null) 'lon': lon,
-              if (address != null) 'address': address,
-            },
-          },
-        }),
-        200,
-        headers: {'content-type': 'application/json'},
-      );
+    json.encode({
+      'ocs': {
+        'meta': {'status': '', 'statuscode': 0},
+        'data': {
+          'success': true,
+          'mode': 2,
+          if (lat != null) 'lat': lat,
+          if (lon != null) 'lon': lon,
+          if (address != null) 'address': address,
+        },
+      },
+    }),
+    200,
+    headers: {'content-type': 'application/json'},
+  );
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/location'): {
@@ -43,7 +43,8 @@ Account mockWeatherStatusAccount() {
       },
     },
     RegExp(r'/ocs/v2\.php/apps/weather_status/api/v1/forecast'): {
-      'get': (match, request) => Response(
+      'get':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -62,31 +63,19 @@ Account mockWeatherStatusAccount() {
                         },
                       },
                       'next_12_hours': {
-                        'summary': {
-                          'symbol_code': '',
-                        },
-                        'details': {
-                          'precipitation_amount': 0,
-                        },
+                        'summary': {'symbol_code': ''},
+                        'details': {'precipitation_amount': 0},
                       },
                       'next_1_hours': {
-                        'summary': {
-                          'symbol_code': '',
-                        },
-                        'details': {
-                          'precipitation_amount': 0,
-                        },
+                        'summary': {'symbol_code': ''},
+                        'details': {'precipitation_amount': 0},
                       },
                       'next_6_hours': {
-                        'summary': {
-                          'symbol_code': '',
-                        },
-                        'details': {
-                          'precipitation_amount': 0,
-                        },
+                        'summary': {'symbol_code': ''},
+                        'details': {'precipitation_amount': 0},
                       },
                     },
-                  }
+                  },
                 ],
               },
             }),
@@ -99,45 +88,44 @@ Account mockWeatherStatusAccount() {
 
 core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities({required bool enabled}) =>
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
-      (b) => b
-        ..version.update(
-          (b) => b
-            ..major = 0
-            ..minor = 0
-            ..micro = 0
-            ..string = ''
-            ..edition = ''
-            ..extendedSupport = false,
-        )
-        ..capabilities = (
-          commentsCapabilities: null,
-          coreCapabilities: null,
-          corePublicCapabilities: null,
-          davCapabilities: null,
-          dropAccountCapabilities: null,
-          filesCapabilities: null,
-          filesSharingCapabilities: null,
-          filesTrashbinCapabilities: null,
-          filesVersionsCapabilities: null,
-          notesCapabilities: null,
-          notificationsCapabilities: null,
-          passwordPolicyCapabilities: null,
-          provisioningApiCapabilities: null,
-          sharebymailCapabilities: null,
-          spreedCapabilities: null,
-          spreedPublicCapabilities: null,
-          systemtagsCapabilities: null,
-          tablesCapabilities: null,
-          termsOfServicePublicCapabilities: null,
-          themingPublicCapabilities: null,
-          userStatusCapabilities: null,
-          weatherStatusCapabilities: core.WeatherStatusCapabilities(
-            (b) => b
-              ..weatherStatus.update(
-                (b) => b..enabled = enabled,
+      (b) =>
+          b
+            ..version.update(
+              (b) =>
+                  b
+                    ..major = 0
+                    ..minor = 0
+                    ..micro = 0
+                    ..string = ''
+                    ..edition = ''
+                    ..extendedSupport = false,
+            )
+            ..capabilities = (
+              commentsCapabilities: null,
+              coreCapabilities: null,
+              corePublicCapabilities: null,
+              davCapabilities: null,
+              dropAccountCapabilities: null,
+              filesCapabilities: null,
+              filesSharingCapabilities: null,
+              filesTrashbinCapabilities: null,
+              filesVersionsCapabilities: null,
+              notesCapabilities: null,
+              notificationsCapabilities: null,
+              passwordPolicyCapabilities: null,
+              provisioningApiCapabilities: null,
+              sharebymailCapabilities: null,
+              spreedCapabilities: null,
+              spreedPublicCapabilities: null,
+              systemtagsCapabilities: null,
+              tablesCapabilities: null,
+              termsOfServicePublicCapabilities: null,
+              themingPublicCapabilities: null,
+              userStatusCapabilities: null,
+              weatherStatusCapabilities: core.WeatherStatusCapabilities(
+                (b) => b..weatherStatus.update((b) => b..enabled = enabled),
               ),
-          ),
-        ),
+            ),
     );
 
 void main() {
@@ -152,10 +140,7 @@ void main() {
   setUp(() {
     account = mockWeatherStatusAccount();
     capabilities = BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>();
-    bloc = WeatherStatusBloc(
-      capabilities: capabilities,
-      account: account,
-    );
+    bloc = WeatherStatusBloc(capabilities: capabilities, account: account);
   });
 
   tearDown(() async {
@@ -164,14 +149,7 @@ void main() {
   });
 
   test('isSupported', () async {
-    expect(
-      bloc.isSupported,
-      emitsInOrder([
-        false,
-        true,
-        false,
-      ]),
-    );
+    expect(bloc.isSupported, emitsInOrder([false, true, false]));
     capabilities
       ..add(Result.success(buildCapabilities(enabled: false)))
       ..add(Result.success(buildCapabilities(enabled: true)))
@@ -196,10 +174,7 @@ void main() {
   test('setLocation', () async {
     expect(
       bloc.location.transformResult((e) => e.address),
-      emitsInOrder([
-        Result.success('Hamburg'),
-        Result.success('Berlin'),
-      ]),
+      emitsInOrder([Result.success('Hamburg'), Result.success('Berlin')]),
     );
     bloc
       ..setLocation('Hamburg')
@@ -210,12 +185,7 @@ void main() {
     capabilities.add(Result.success(buildCapabilities(enabled: true)));
     expect(
       bloc.forecasts.transformResult((e) => e != null),
-      emitsInOrder([
-        Result<bool>.loading(),
-        Result.success(true),
-        Result.success(null),
-        Result.success(null),
-      ]),
+      emitsInOrder([Result<bool>.loading(), Result.success(true), Result.success(null), Result.success(null)]),
     );
 
     await Future<void>.delayed(const Duration(milliseconds: 1));

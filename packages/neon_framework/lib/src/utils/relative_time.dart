@@ -15,12 +15,9 @@ extension RelativeTimeFormatDateTime on tz.TZDateTime {
     bool includeSign = true,
     bool abbreviation = false,
     tz.TZDateTime? to,
-  }) =>
-      difference(to ?? tz.TZDateTime.now(tz.UTC)).formatRelative(
-        localizations,
-        includeSign: includeSign,
-        abbreviation: abbreviation,
-      );
+  }) => difference(
+    to ?? tz.TZDateTime.now(tz.UTC),
+  ).formatRelative(localizations, includeSign: includeSign, abbreviation: abbreviation);
 }
 
 /// Extension for formatting difference of a [Duration].
@@ -30,11 +27,7 @@ extension RelativeTimeFormatDuration on Duration {
   ///
   /// Set [includeSign] to skip the parts that tell if the difference is into the future or into the past.
   /// It should only be used if it is already clear from the context if it is about the future or the past.
-  String formatRelative(
-    NeonLocalizations localizations, {
-    bool includeSign = true,
-    bool abbreviation = false,
-  }) {
+  String formatRelative(NeonLocalizations localizations, {bool includeSign = true, bool abbreviation = false}) {
     final normalizedDuration = isNegative ? Duration(microseconds: -inMicroseconds) : this;
     if (normalizedDuration.inMinutes < 1) {
       return localizations.relativeTimeNow;

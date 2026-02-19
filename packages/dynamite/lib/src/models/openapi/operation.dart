@@ -40,11 +40,7 @@ abstract class Operation implements Built<Operation, OperationBuilder> {
     b.deprecated ??= false;
   }
 
-  String formattedDescription(
-    String methodName, {
-    bool isRequest = false,
-    bool requiresAuth = false,
-  }) {
+  String formattedDescription(String methodName, {bool isRequest = false, bool requiresAuth = false}) {
     final buffer = StringBuffer();
 
     final summary = formatDescription(this.summary);

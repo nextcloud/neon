@@ -5,13 +5,7 @@ import 'package:neon_framework/src/utils/adaptive.dart';
 
 @internal
 class SettingsCategory extends StatelessWidget {
-  const SettingsCategory({
-    required this.tiles,
-    this.title,
-    this.footer,
-    this.hasLeading = false,
-    super.key,
-  });
+  const SettingsCategory({required this.tiles, this.title, this.footer, this.hasLeading = false, super.key});
 
   final Widget? title;
   final List<Widget> tiles;
@@ -21,28 +15,16 @@ class SettingsCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isCupertino(context)) {
-      return CupertinoListSection.insetGrouped(
-        hasLeading: hasLeading,
-        header: title,
-        footer: footer,
-        children: tiles,
-      );
+      return CupertinoListSection.insetGrouped(hasLeading: hasLeading, header: title, footer: footer, children: tiles);
     } else {
-      return MaterialSettingsCategory(
-        header: title,
-        children: tiles,
-      );
+      return MaterialSettingsCategory(header: title, children: tiles);
     }
   }
 }
 
 @internal
 class MaterialSettingsCategory extends StatelessWidget {
-  const MaterialSettingsCategory({
-    required this.children,
-    this.header,
-    super.key,
-  });
+  const MaterialSettingsCategory({required this.children, this.header, super.key});
 
   final Widget? header;
   final List<Widget> children;
@@ -59,10 +41,7 @@ class MaterialSettingsCategory extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 25, bottom: 5),
             child: DefaultTextStyle(
-              style: textTheme.titleMedium!.copyWith(
-                color: theme.colorScheme.secondary,
-                fontWeight: FontWeight.bold,
-              ),
+              style: textTheme.titleMedium!.copyWith(color: theme.colorScheme.secondary, fontWeight: FontWeight.bold),
               child: header!,
             ),
           ),

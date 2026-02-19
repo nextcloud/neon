@@ -149,10 +149,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
     final initialApp = getInitialAppFallback();
     if (initialApp != null) {
-      await setActiveApp(
-        initialApp,
-        skipAlreadySet: true,
-      );
+      await setActiveApp(initialApp, skipAlreadySet: true);
     }
 
     await checkCompatibility();
@@ -205,11 +202,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
         checks[app.id] = check;
       } on Exception catch (error, stackTrace) {
-        log.warning(
-          'An Exception occurred while checking the installed version of $app.',
-          error,
-          stackTrace,
-        );
+        log.warning('An Exception occurred while checking the installed version of $app.', error, stackTrace);
       }
     }
 
@@ -218,7 +211,7 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
 
   final BehaviorSubject<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>> capabilitiesSubject;
   late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
-      capabilitiesSubscription;
+  capabilitiesSubscription;
   final Account account;
   final AccountOptions accountOptions;
   final BuiltSet<AppImplementation> allAppImplementations;
@@ -255,9 +248,9 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
       subject: apps,
       getRequest: account.client.core.navigation.$getAppsNavigation_Request,
       converter: ResponseConverter(account.client.core.navigation.$getAppsNavigation_Serializer()),
-      unwrap: (response) => response.body.ocs.data.rebuild(
-        (b) => b..sort((a, b) => (a.order ?? -1).compareTo(b.order ?? -1)),
-      ),
+      unwrap:
+          (response) =>
+              response.body.ocs.data.rebuild((b) => b..sort((a, b) => (a.order ?? -1).compareTo(b.order ?? -1))),
     );
   }
 
@@ -283,5 +276,5 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   @override
   List<Provider<Bloc>> get appBlocProviders =>
       allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
-// coverage:ignore-end
+  // coverage:ignore-end
 }

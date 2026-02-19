@@ -30,9 +30,7 @@ class LoginView extends StatelessWidget {
       builder: (context, state) {
         AppBar? appBar;
         if (state is! LoginStateInitial || Navigator.canPop(context)) {
-          appBar = AppBar(
-            leading: const CloseButton(),
-          );
+          appBar = AppBar(leading: const CloseButton());
         }
 
         return Scaffold(
@@ -73,40 +71,21 @@ class _LoginSelection extends StatelessWidget {
       primary: true,
       child: Column(
         children: [
-          ExcludeSemantics(
-            child: branding.logo,
-          ),
-          Text(
-            branding.name,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          ExcludeSemantics(child: branding.logo),
+          Text(branding.name, style: Theme.of(context).textTheme.titleLarge),
           if (branding.showLoginWithNextcloud) ...[
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             Text(NeonLocalizations.of(context).loginWorksWith),
-            const SizedBox(
-              height: 10,
-            ),
-            Semantics(
-              label: NeonLocalizations.of(context).nextcloud,
-              child: const NextcloudLogo(),
-            ),
+            const SizedBox(height: 10),
+            Semantics(label: NeonLocalizations.of(context).nextcloud, child: const NextcloudLogo()),
           ],
-          const SizedBox(
-            height: 50,
-          ),
+          const SizedBox(height: 50),
           const _ServerUrlField(key: Key('login-server-url-field')),
           if (NeonPlatform.instance.canUseCamera) ...[
-            const SizedBox(
-              height: 50,
-            ),
+            const SizedBox(height: 50),
             IconButton(
               tooltip: NeonLocalizations.of(context).loginUsingQRcode,
-              icon: Icon(
-                AdaptiveIcons.qr_code_scanner,
-                size: 60,
-              ),
+              icon: Icon(AdaptiveIcons.qr_code_scanner, size: 60),
               onPressed: () => context.read<LoginBloc>().add(const LoginUseQRCode()),
             ),
           ],
@@ -164,9 +143,7 @@ class _ServerUrlFieldState extends State<_ServerUrlField> {
         keyboardType: TextInputType.url,
         validator: (input) => validateHttpUrl(context, input),
         onFieldSubmitted: login,
-        autofillHints: const [
-          AutofillHints.url,
-        ],
+        autofillHints: const [AutofillHints.url],
       ),
     );
   }

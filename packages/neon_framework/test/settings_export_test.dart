@@ -69,11 +69,7 @@ void main() {
   group('SettingsExportHelper', () {
     test('SettingsExportHelper.json', () async {
       final exportable = MockExporter();
-      final settingsExporter = SettingsExportHelper(
-        exportables: {
-          exportable,
-        },
-      );
+      final settingsExporter = SettingsExportHelper(exportables: {exportable});
 
       const value = MapEntry('exportableKey', 'value');
       const export = {'exportableKey': 'value'};
@@ -88,11 +84,7 @@ void main() {
 
     test('SettingsExportHelper.file', () async {
       final exportable = MockExporter();
-      final settingsExporter = SettingsExportHelper(
-        exportables: {
-          exportable,
-        },
-      );
+      final settingsExporter = SettingsExportHelper(exportables: {exportable});
 
       const value = MapEntry('exportableKey', 'value');
       const jsonExport = {'exportableKey': 'value'};

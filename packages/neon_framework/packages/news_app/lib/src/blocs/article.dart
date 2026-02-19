@@ -28,11 +28,7 @@ sealed class NewsArticleBloc implements InteractiveBloc {
 }
 
 class _NewsArticleBloc extends InteractiveBloc implements NewsArticleBloc {
-  _NewsArticleBloc({
-    required this.articlesBloc,
-    required this.account,
-    required news.Article article,
-  }) {
+  _NewsArticleBloc({required this.articlesBloc, required this.account, required news.Article article}) {
     id = article.id;
     unread.add(article.unread);
     starred.add(article.starred);

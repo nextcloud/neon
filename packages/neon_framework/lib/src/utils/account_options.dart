@@ -14,15 +14,12 @@ class AccountOptions extends OptionsCollection {
   AccountOptions(super.storage);
 
   void updateAppImplementations(BuiltSet<AppImplementation> appImplementations) {
-    initialApp.values = {
-      null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic,
-    }..addEntries(appImplementations.map((app) => MapEntry(app.id, app.name)));
+    initialApp.values = {null: (context) => NeonLocalizations.of(context).accountOptionsAutomatic}
+      ..addEntries(appImplementations.map((app) => MapEntry(app.id, app.name)));
   }
 
   @override
-  late final List<Option<dynamic>> options = [
-    initialApp,
-  ];
+  late final List<Option<dynamic>> options = [initialApp];
 
   /// The initial app to show on app start.
   ///

@@ -7,11 +7,7 @@ import 'package:nextcloud/dashboard.dart' as dashboard;
 /// Displays a single dashboard widget and its items.
 class DashboardWidget extends StatelessWidget {
   /// Creates a new dashboard widget items.
-  const DashboardWidget({
-    required this.widget,
-    required this.children,
-    super.key,
-  });
+  const DashboardWidget({required this.widget, required this.children, super.key});
 
   /// The dashboard widget to be displayed.
   final dashboard.Widget widget;
@@ -21,12 +17,7 @@ class DashboardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        children: children,
-      ),
-    );
+    Widget child = Padding(padding: const EdgeInsets.all(8), child: Column(children: children));
 
     if (widget.widgetUrl != null && widget.widgetUrl!.isNotEmpty) {
       child = Tooltip(
@@ -39,8 +30,6 @@ class DashboardWidget extends StatelessWidget {
       );
     }
 
-    return Card(
-      child: child,
-    );
+    return Card(child: child);
   }
 }

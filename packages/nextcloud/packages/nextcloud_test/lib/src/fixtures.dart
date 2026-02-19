@@ -61,11 +61,7 @@ void validateFixture(NextcloudTester tester) {
   final fixturesPath = PathUri(
     isAbsolute: false,
     isDirectory: true,
-    pathSegments: BuiltList.from([
-      'test',
-      'fixtures',
-      ...groups.map(_formatName),
-    ]),
+    pathSegments: BuiltList.from(['test', 'fixtures', ...groups.map(_formatName)]),
   );
   final fixturesDir = Directory(fixturesPath.path);
   if (!fixturesDir.existsSync()) {

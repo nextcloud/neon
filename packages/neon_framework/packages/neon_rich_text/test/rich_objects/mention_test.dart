@@ -28,15 +28,14 @@ void main() {
       testWidgets('Self', (tester) async {
         await tester.pumpWidgetWithAccessibility(
           TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
+            providers: [Provider<Account>.value(value: account)],
             child: NeonRichObjectMention(
               parameter: core.RichObjectParameter(
-                (b) => b
-                  ..type = core.RichObjectParameter_Type.user
-                  ..id = 'username'
-                  ..name = 'name',
+                (b) =>
+                    b
+                      ..type = core.RichObjectParameter_Type.user
+                      ..id = 'username'
+                      ..name = 'name',
               ),
             ),
           ),
@@ -52,15 +51,14 @@ void main() {
       testWidgets('Other', (tester) async {
         await tester.pumpWidgetWithAccessibility(
           TestApp(
-            providers: [
-              Provider<Account>.value(value: account),
-            ],
+            providers: [Provider<Account>.value(value: account)],
             child: NeonRichObjectMention(
               parameter: core.RichObjectParameter(
-                (b) => b
-                  ..type = core.RichObjectParameter_Type.user
-                  ..id = 'other'
-                  ..name = 'name',
+                (b) =>
+                    b
+                      ..type = core.RichObjectParameter_Type.user
+                      ..id = 'other'
+                      ..name = 'name',
               ),
             ),
           ),
@@ -77,16 +75,15 @@ void main() {
     testWidgets('call', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.call
-                ..id = ''
-                ..name = 'name'
-                ..iconUrl = '',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.call
+                    ..id = ''
+                    ..name = 'name'
+                    ..iconUrl = '',
             ),
           ),
         ),
@@ -104,10 +101,11 @@ void main() {
         TestApp(
           child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.guest
-                ..id = ''
-                ..name = 'name',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.guest
+                    ..id = ''
+                    ..name = 'name',
             ),
           ),
         ),
@@ -129,15 +127,14 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
-          ],
+          providers: [NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc)],
           child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.userGroup
-                ..id = 'group'
-                ..name = 'name',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.userGroup
+                    ..id = 'group'
+                    ..name = 'name',
             ),
           ),
         ),
@@ -151,15 +148,14 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc),
-          ],
+          providers: [NeonProvider<UserDetailsBloc>.value(value: userDetailsBloc)],
           child: NeonRichObjectMention(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.userGroup
-                ..id = 'other'
-                ..name = 'name',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.userGroup
+                    ..id = 'other'
+                    ..name = 'name',
             ),
           ),
         ),

@@ -10,61 +10,42 @@ void main() {
   group('PushNotification', () {
     group('constructor', () {
       test('works correctly', () {
-        expect(
-          createPushNotification,
-          returnsNormally,
-        );
+        expect(createPushNotification, returnsNormally);
       });
     });
 
     test('supports value equality', () {
-      expect(
-        createPushNotification(),
-        equals(createPushNotification()),
-      );
+      expect(createPushNotification(), equals(createPushNotification()));
 
-      expect(
-        createPushNotification().hashCode,
-        equals(createPushNotification().hashCode),
-      );
+      expect(createPushNotification().hashCode, equals(createPushNotification().hashCode));
 
-      expect(
-        createPushNotification(),
-        isNot(
-          equals(
-            createPushNotification(
-              accountID: '',
-            ),
-          ),
-        ),
-      );
+      expect(createPushNotification(), isNot(equals(createPushNotification(accountID: ''))));
     });
 
     group('rebuild', () {
       test('returns the same object if not attributes are changed', () {
-        expect(
-          createPushNotification().rebuild((_) {}),
-          equals(createPushNotification()),
-        );
+        expect(createPushNotification().rebuild((_) {}), equals(createPushNotification()));
       });
 
       test('replaces every attribute', () {
         expect(
           createPushNotification().rebuild(
-            (b) => b
-              ..accountID = 'new-accountID'
-              ..priority = 'new-priority'
-              ..type = 'new-type'
-              ..subject.update(
-                (b) => b
-                  ..nid = 1
-                  ..app = 'new-app'
-                  ..subject = 'new-subject'
+            (b) =>
+                b
+                  ..accountID = 'new-accountID'
+                  ..priority = 'new-priority'
                   ..type = 'new-type'
-                  ..id = 'new-id'
-                  ..delete = true
-                  ..deleteAll = true,
-              ),
+                  ..subject.update(
+                    (b) =>
+                        b
+                          ..nid = 1
+                          ..app = 'new-app'
+                          ..subject = 'new-subject'
+                          ..type = 'new-type'
+                          ..id = 'new-id'
+                          ..delete = true
+                          ..deleteAll = true,
+                  ),
           ),
           equals(
             createPushNotification(
@@ -117,8 +98,9 @@ PushNotification {
       expect(
         PushNotification.fromJson(
           json.decode(
-            '{"accountID":"accountID","priority":"priority","type":"type","subject":{"nid":0,"app":"app","subject":"subject","type":"type","id":"id","delete":false,"delete-all":false}}',
-          ) as Map<String, dynamic>,
+                '{"accountID":"accountID","priority":"priority","type":"type","subject":{"nid":0,"app":"app","subject":"subject","type":"type","id":"id","delete":false,"delete-all":false}}',
+              )
+              as Map<String, dynamic>,
         ),
         equalsBuilt(createPushNotification()),
       );
@@ -147,9 +129,7 @@ UJYvEQEss8/UoYhOACOm5PEqNg==
 
       expect(
         PushNotification.fromEncrypted(
-          json.decode(
-            '{"priority":"priority","type":"type","subject":"$subject"}',
-          ) as Map<String, dynamic>,
+          json.decode('{"priority":"priority","type":"type","subject":"$subject"}') as Map<String, dynamic>,
           'accountID',
           privateKey,
         ),

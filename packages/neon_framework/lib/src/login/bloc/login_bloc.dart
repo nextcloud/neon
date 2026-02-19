@@ -8,17 +8,9 @@ part 'login_state.dart';
 
 @internal
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc({
-    required AccountRepository accountRepository,
-    Uri? serverURL,
-    Credentials? credentials,
-  })  : _accountRepository = accountRepository,
-        super(
-          LoginState.initial(
-            serverURL: credentials?.serverURL ?? serverURL,
-            credentials: credentials,
-          ),
-        ) {
+  LoginBloc({required AccountRepository accountRepository, Uri? serverURL, Credentials? credentials})
+    : _accountRepository = accountRepository,
+      super(LoginState.initial(serverURL: credentials?.serverURL ?? serverURL, credentials: credentials)) {
     on<LoginUseQRCode>(_onLoginUseQRCode);
     on<LoginUrlEntered>(_onLoginUrlEntered);
     on<LoginServerChecked>(_onLoginServerChecked);
@@ -33,12 +25,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   void _onLoginUrlEntered(LoginUrlEntered event, Emitter<LoginState> emit) {
-    emit(
-      LoginStateCheckServer(
-        serverURL: event.serverURL,
-        credentials: event.credentials,
-      ),
-    );
+    emit(LoginStateCheckServer(serverURL: event.serverURL, credentials: event.credentials));
   }
 
   void _onLoginServerChecked(LoginServerChecked event, Emitter<LoginState> emit) {

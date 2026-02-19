@@ -10,22 +10,18 @@ void main() {
 
       expect(type.name, 'BuiltList<String>');
       expect(type.fullType, 'const FullType(BuiltList, [FullType(String)])');
-      expect(
-        type.serializers.toList(),
-        const ['..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)'],
-      );
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
+      ]);
       expect(
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(String)]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(BuiltList, [FullType(String)]),
-)! as BuiltList<String>''',
-      );
+)! as BuiltList<String>''');
     });
 
     test('Nested list', () {
@@ -35,25 +31,19 @@ specifiedType: const FullType(BuiltList, [FullType(String)]),
 
       expect(type.name, 'BuiltList<BuiltList<String>>');
       expect(type.fullType, 'const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])])');
-      expect(
-        type.serializers.toList(),
-        const [
-          '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
-          '..addBuilderFactory(const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]), ListBuilder<BuiltList<String>>.new)',
-        ],
-      );
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)',
+        '..addBuilderFactory(const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]), ListBuilder<BuiltList<String>>.new)',
+      ]);
       expect(
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)])]),
-)! as BuiltList<BuiltList<String>>''',
-      );
+)! as BuiltList<BuiltList<String>>''');
     });
 
     test('equality', () {
@@ -75,24 +65,18 @@ specifiedType: const FullType(BuiltList, [FullType(BuiltList, [FullType(String)]
 
       expect(type.name, 'BuiltMap<String, int>');
       expect(type.fullType, 'const FullType(BuiltMap, [FullType(String), FullType(int)])');
-      expect(
-        type.serializers.toList(),
-        const [
-          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
-        ],
-      );
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
+      ]);
       expect(
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]),
-)! as BuiltMap<String, int>''',
-      );
+)! as BuiltMap<String, int>''');
     });
 
     test('Nested map', () {
@@ -105,25 +89,19 @@ specifiedType: const FullType(BuiltMap, [FullType(String), FullType(int)]),
         type.fullType,
         'const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])])',
       );
-      expect(
-        type.serializers.toList(),
-        const [
-          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
-          '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]), MapBuilder<String, BuiltMap<String, int>>.new)',
-        ],
-      );
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)',
+        '..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]), MapBuilder<String, BuiltMap<String, int>>.new)',
+      ]);
       expect(
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [FullType(String), FullType(int)])]),
-)! as BuiltMap<String, BuiltMap<String, int>>''',
-      );
+)! as BuiltMap<String, BuiltMap<String, int>>''');
     });
 
     test('equality', () {
@@ -145,25 +123,19 @@ specifiedType: const FullType(BuiltMap, [FullType(String), FullType(BuiltMap, [F
 
       expect(type.name, 'CustomType<String>');
       expect(type.fullType, 'const FullType(CustomType, [FullType(String)])');
-      expect(
-        type.serializers.toList(),
-        const [
-          '..addBuilderFactory(const FullType(CustomType, [FullType(String)]), CustomTypeBuilder<String>.new)',
-          '..add(CustomType.serializer)',
-        ],
-      );
+      expect(type.serializers.toList(), const [
+        '..addBuilderFactory(const FullType(CustomType, [FullType(String)]), CustomTypeBuilder<String>.new)',
+        '..add(CustomType.serializer)',
+      ]);
       expect(
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(CustomType, [FullType(String)]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(CustomType, [FullType(String)]),
-)! as CustomType<String>''',
-      );
+)! as CustomType<String>''');
     });
 
     test('ContentString', () {
@@ -180,14 +152,11 @@ specifiedType: const FullType(CustomType, [FullType(String)]),
         type.serialize('value'),
         r'_$jsonSerializers.serialize(value, specifiedType: const FullType(ContentString, [FullType(int)]))',
       );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(ContentString, [FullType(int)]),
-)! as ContentString<int>''',
-      );
+)! as ContentString<int>''');
     });
 
     test('equality', () {
@@ -209,18 +178,12 @@ specifiedType: const FullType(ContentString, [FullType(int)]),
       expect(type.name, 'String');
       expect(type.fullType, 'const FullType(String)');
       expect(type.serializers.toList(), const <String>[]);
-      expect(
-        type.serialize('value'),
-        r'_$jsonSerializers.serialize(value, specifiedType: const FullType(String))',
-      );
-      expect(
-        type.deserialize('value'),
-        r'''
+      expect(type.serialize('value'), r'_$jsonSerializers.serialize(value, specifiedType: const FullType(String))');
+      expect(type.deserialize('value'), r'''
 _$jsonSerializers.deserialize(
 value,
 specifiedType: const FullType(String),
-)! as String''',
-      );
+)! as String''');
     });
 
     test('equality', () {
@@ -235,50 +198,29 @@ specifiedType: const FullType(String),
 
   test('dartType', () {
     final jsonObjectType = TypeResultBase('JsonObject');
-    expect(
-      jsonObjectType.dartType,
-      TypeResultBase('dynamic'),
-    );
+    expect(jsonObjectType.dartType, TypeResultBase('dynamic'));
 
     TypeResult type = TypeResultBase('String');
-    expect(
-      type.dartType,
-      TypeResultBase('String'),
-    );
+    expect(type.dartType, TypeResultBase('String'));
 
     type = TypeResultEnum('EnumClass', jsonObjectType);
-    expect(
-      type.dartType,
-      TypeResultEnum('EnumClass', TypeResultBase('dynamic')),
-    );
+    expect(type.dartType, TypeResultEnum('EnumClass', TypeResultBase('dynamic')));
 
     type = TypeResultList('BuiltList', jsonObjectType);
-    expect(
-      type.dartType,
-      TypeResultList('List', TypeResultBase('dynamic')),
-    );
+    expect(type.dartType, TypeResultList('List', TypeResultBase('dynamic')));
 
     type = TypeResultMap('BuiltMap', jsonObjectType);
-    expect(
-      type.dartType,
-      TypeResultMap('Map', TypeResultBase('dynamic')),
-    );
+    expect(type.dartType, TypeResultMap('Map', TypeResultBase('dynamic')));
 
     type = TypeResultObject(
       'BuiltClass',
-      generics: BuiltList([
-        jsonObjectType,
-        TypeResultMap('BuiltList', jsonObjectType),
-      ]),
+      generics: BuiltList([jsonObjectType, TypeResultMap('BuiltList', jsonObjectType)]),
     );
     expect(
       type.dartType,
       TypeResultObject(
         'BuiltClass',
-        generics: BuiltList([
-          TypeResultBase('dynamic'),
-          TypeResultMap('Map', TypeResultBase('dynamic')),
-        ]),
+        generics: BuiltList([TypeResultBase('dynamic'), TypeResultMap('Map', TypeResultBase('dynamic'))]),
       ),
     );
   });

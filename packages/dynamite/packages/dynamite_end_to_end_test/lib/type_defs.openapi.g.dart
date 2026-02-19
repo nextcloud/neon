@@ -29,8 +29,11 @@ class _$BaseSerializer implements StructuredSerializer<Base> {
   }
 
   @override
-  Base deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Base deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = BaseBuilder();
 
     final iterator = serialized.iterator;
@@ -56,8 +59,11 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
   final String wireName = 'NestedRedirect';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NestedRedirect object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    NestedRedirect object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.redirect;
@@ -82,8 +88,11 @@ class _$NestedRedirectSerializer implements StructuredSerializer<NestedRedirect>
   }
 
   @override
-  NestedRedirect deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  NestedRedirect deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = NestedRedirectBuilder();
 
     final iterator = serialized.iterator;
@@ -184,10 +193,7 @@ class BaseBuilder implements Builder<Base, BaseBuilder>, $BaseInterfaceBuilder {
 
   _$Base _build() {
     Base._validate(this);
-    final _$result = _$v ??
-        _$Base._(
-          attribute: attribute,
-        );
+    final _$result = _$v ?? _$Base._(attribute: attribute);
     replace(_$result);
     return _$result;
   }
@@ -300,7 +306,8 @@ class NestedRedirectBuilder implements Builder<NestedRedirect, NestedRedirectBui
     NestedRedirect._validate(this);
     _$NestedRedirect _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$NestedRedirect._(
             redirect: _redirect?.build(),
             redirectBaseType: redirectBaseType,

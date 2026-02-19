@@ -9,10 +9,7 @@ void main() {
     'Interceptor Client VM conformance test',
     () {
       testAll(
-        () => InterceptorHttpClient(
-          baseClient: http.Client(),
-          interceptors: BuiltList(),
-        ),
+        () => InterceptorHttpClient(baseClient: http.Client(), interceptors: BuiltList()),
         canReceiveSetCookieHeaders: true,
         canSendCookieHeaders: true,
       );
@@ -26,10 +23,7 @@ void main() {
     'Interceptor Client browser conformance test',
     () {
       testAll(
-        () => InterceptorHttpClient(
-          baseClient: http.Client(),
-          interceptors: BuiltList(),
-        ),
+        () => InterceptorHttpClient(baseClient: http.Client(), interceptors: BuiltList()),
         redirectAlwaysAllowed: true,
         canStreamRequestBody: false,
         canStreamResponseBody: false,

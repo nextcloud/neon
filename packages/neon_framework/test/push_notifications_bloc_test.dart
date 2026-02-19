@@ -100,8 +100,9 @@ void main() {
       verify(() => distributorOption.addListener(any())).called(1);
       verify(() => globalOptions.pushNotificationsDistributor).called(2);
       verify(() => distributorOption.value).called(1);
-      verify(() => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))))
-          .called(1);
+      verify(
+        () => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))),
+      ).called(1);
       verify(() => notificationsPushRepository.changeDistributor('distributor')).called(1);
 
       listener!();
@@ -109,8 +110,9 @@ void main() {
 
       verify(() => globalOptions.pushNotificationsDistributor).called(1);
       verify(() => distributorOption.value).called(1);
-      verify(() => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))))
-          .called(1);
+      verify(
+        () => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))),
+      ).called(1);
       verify(() => notificationsPushRepository.changeDistributor('distributor')).called(1);
     });
 
@@ -133,8 +135,9 @@ void main() {
       verify(() => distributorOption.addListener(any())).called(1);
       verify(() => globalOptions.pushNotificationsDistributor).called(3);
       verify(() => distributorOption.value).called(1);
-      verify(() => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))))
-          .called(1);
+      verify(
+        () => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))),
+      ).called(1);
       verify(() => distributorOption.reset()).called(1);
 
       listener!();
@@ -142,8 +145,9 @@ void main() {
 
       verify(() => globalOptions.pushNotificationsDistributor).called(2);
       verify(() => distributorOption.value).called(1);
-      verify(() => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))))
-          .called(1);
+      verify(
+        () => permissionHandlerPlatform.requestPermissions(any(that: containsAll([Permission.notification]))),
+      ).called(1);
       verify(() => distributorOption.reset()).called(1);
     });
   });

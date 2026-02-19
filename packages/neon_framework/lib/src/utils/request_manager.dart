@@ -104,13 +104,7 @@ class RequestManager {
 
       // Emit the cached data it in a loading state.
       // DO NOT return as new cache parameters or a new value MUST be fetched from the server.
-      subject.add(
-        subject.value.copyWith(
-          data: unwrapped,
-          isLoading: true,
-          isCached: true,
-        ),
-      );
+      subject.add(subject.value.copyWith(data: unwrapped, isLoading: true, isCached: true));
 
       // If the cached data expired and has an etag, try to refresh the cache parameters.
       // If the etag did not change, emit the cached data in a done state.
@@ -124,33 +118,17 @@ class RequestManager {
 
           final newParameters = CacheParameters.parseHeaders(newHeaders);
           if (newParameters.etag == etag) {
-            unawaited(
-              _cache?.updateHeaders(
-                account,
-                request,
-                newHeaders,
-              ),
-            );
+            unawaited(_cache?.updateHeaders(account, request, newHeaders));
 
             subject.add(Result(unwrapped, null, isLoading: false, isCached: true));
             return;
           }
         } on HttpTimeoutException catch (error) {
-          _log.info(
-            'Fetching cache parameters timed out. Assuming expired.',
-            error,
-          );
+          _log.info('Fetching cache parameters timed out. Assuming expired.', error);
         } on FormatException catch (error) {
-          _log.info(
-            'Invalid format when parsing cache parameters. Assuming expired.',
-            error,
-          );
+          _log.info('Invalid format when parsing cache parameters. Assuming expired.', error);
         } on http.ClientException catch (error, stackTrace) {
-          _log.warning(
-            'Error fetching cache parameters. Assuming expired.',
-            error,
-            stackTrace,
-          );
+          _log.warning('Error fetching cache parameters. Assuming expired.', error, stackTrace);
         }
       }
 
@@ -172,11 +150,7 @@ class RequestManager {
         }
         subject.add(Result.success(unwrap(converter.convert(response))));
 
-        await _cache?.set(
-          account,
-          request,
-          response,
-        );
+        await _cache?.set(account, request, response);
         break;
       } on HttpTimeoutException catch (error) {
         _log.info('Request timeout', error);
@@ -184,40 +158,22 @@ class RequestManager {
         if (subject.isClosed) {
           return;
         }
-        subject.add(
-          subject.value.copyWith(
-            error: error,
-            isLoading: false,
-          ),
-        );
+        subject.add(subject.value.copyWith(error: error, isLoading: false));
         break;
       } on http.ClientException catch (error, stackTrace) {
         if (error is! DynamiteStatusCodeException || error.statusCode < 500) {
-          _log.warning(
-            'Unexpected status code. The request will not be retried.',
-            error,
-            stackTrace,
-          );
+          _log.warning('Unexpected status code. The request will not be retried.', error, stackTrace);
 
           if (subject.isClosed) {
             return;
           }
-          subject.add(
-            subject.value.copyWith(
-              error: error,
-              isLoading: false,
-            ),
-          );
+          subject.add(subject.value.copyWith(error: error, isLoading: false));
           break;
         }
 
         request = getRequest();
 
-        _log.info(
-          'Error while executing the request. Retrying ...',
-          error,
-          stackTrace,
-        );
+        _log.info('Error while executing the request. Retrying ...', error, stackTrace);
       }
     }
   }
@@ -245,10 +201,7 @@ class RequestManager {
 @immutable
 class CacheParameters {
   /// Creates new cache parameters.
-  const CacheParameters({
-    required this.etag,
-    required this.expires,
-  });
+  const CacheParameters({required this.etag, required this.expires});
 
   /// Parse the cache parameters from HTTP response headers.
   ///
@@ -259,18 +212,11 @@ class CacheParameters {
       try {
         expiry = parseHttpDate(headers['expires']! as String);
       } on FormatException catch (error, stackTrace) {
-        _log.finer(
-          'Failed to parse "Expires" header: "${headers['expires']}"',
-          error,
-          stackTrace,
-        );
+        _log.finer('Failed to parse "Expires" header: "${headers['expires']}"', error, stackTrace);
       }
     }
 
-    return CacheParameters(
-      etag: headers['etag'] as String?,
-      expires: _isExpired(expiry) ? null : expiry,
-    );
+    return CacheParameters(etag: headers['etag'] as String?, expires: _isExpired(expiry) ? null : expiry);
   }
 
   /// `ETag` of the resource.

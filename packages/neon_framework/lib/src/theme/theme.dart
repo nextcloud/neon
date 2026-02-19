@@ -27,12 +27,7 @@ class AppTheme {
     this.serverTheme = const ServerTheme(nextcloudTheme: null),
     this.deviceThemeLight,
     this.deviceThemeDark,
-    this.neonTheme = const NeonTheme(
-      branding: Branding(
-        name: 'Test App',
-        logo: Placeholder(),
-      ),
-    ),
+    this.neonTheme = const NeonTheme(branding: Branding(name: 'Test App', logo: Placeholder())),
     this.useNextcloudTheme = false,
     this.oledAsDark = false,
     this.platform,
@@ -71,10 +66,7 @@ class AppTheme {
       final primaryColor = HexColor(serverTheme.nextcloudTheme!.color);
       final onPrimaryColor = HexColor(serverTheme.nextcloudTheme!.colorText);
 
-      colorScheme = ColorScheme.fromSeed(
-        seedColor: primaryColor,
-        brightness: brightness,
-      ).copyWith(
+      colorScheme = ColorScheme.fromSeed(seedColor: primaryColor, brightness: brightness).copyWith(
         primary: primaryColor,
         onPrimary: onPrimaryColor,
         secondary: primaryColor,
@@ -86,15 +78,10 @@ class AppTheme {
       colorScheme = brightness == Brightness.dark ? deviceThemeDark : deviceThemeLight;
     }
 
-    colorScheme ??= ColorScheme.fromSeed(
-      seedColor: NcColors.primary,
-      brightness: brightness,
-    );
+    colorScheme ??= ColorScheme.fromSeed(seedColor: NcColors.primary, brightness: brightness);
 
     if (oledAsDark && brightness == Brightness.dark) {
-      colorScheme = colorScheme.copyWith(
-        surface: NcColors.oledBackground,
-      );
+      colorScheme = colorScheme.copyWith(surface: NcColors.oledBackground);
     }
 
     return colorScheme;
@@ -119,15 +106,8 @@ class AppTheme {
         backgroundColor: WidgetStatePropertyAll(colorScheme.secondaryContainer),
         textStyle: WidgetStatePropertyAll(TextStyle(color: colorScheme.onSecondaryContainer)),
       ),
-      cupertinoOverrideTheme: CupertinoThemeData(
-        brightness: brightness,
-        textTheme: const CupertinoTextThemeData(),
-      ),
-      extensions: [
-        serverTheme,
-        neonTheme,
-        ...?appThemes,
-      ],
+      cupertinoOverrideTheme: CupertinoThemeData(brightness: brightness, textTheme: const CupertinoTextThemeData()),
+      extensions: [serverTheme, neonTheme, ...?appThemes],
     );
   }
 
@@ -141,18 +121,11 @@ class AppTheme {
   /// Used in [MaterialApp.darkTheme].
   ThemeData get darkTheme => _getTheme(Brightness.dark);
 
-  static const _snackBarTheme = SnackBarThemeData(
-    behavior: SnackBarBehavior.floating,
-  );
+  static const _snackBarTheme = SnackBarThemeData(behavior: SnackBarBehavior.floating);
 
-  static const _dividerTheme = DividerThemeData(
-    thickness: 1.5,
-    space: 30,
-  );
+  static const _dividerTheme = DividerThemeData(thickness: 1.5, space: 30);
 
-  static const _scrollbarTheme = ScrollbarThemeData(
-    interactive: true,
-  );
+  static const _scrollbarTheme = ScrollbarThemeData(interactive: true);
 
   static const _inputDecorationTheme = InputDecorationTheme(
     border: OutlineInputBorder(),

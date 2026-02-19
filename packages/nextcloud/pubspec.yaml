@@ -10,7 +10,7 @@ topics:
 resolution: workspace
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
 
 dependencies:
   built_collection: ^5.0.0

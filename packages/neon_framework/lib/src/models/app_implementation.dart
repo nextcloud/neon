@@ -63,9 +63,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   R get options;
 
   /// The [Provider] of the [options].
-  Provider<R> get optionsProvider => Provider<R>.value(
-        value: options,
-      );
+  Provider<R> get optionsProvider => Provider<R>.value(value: options);
 
   /// Checks if the app is supported on the server of the [account].
   ///
@@ -75,8 +73,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   FutureOr<VersionCheck?> getVersionCheck(
     Account account,
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
-      null;
+  ) => null;
 
   /// Cache for all blocs.
   ///
@@ -97,9 +94,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   ///
   /// Blocs will not be disposed on disposal of the provider. You must handle
   /// the [blocsCache] manually.
-  Provider<T> get blocProvider => Provider<T>(
-        create: (context) => getBloc(NeonProvider.of<Account>(context)),
-      );
+  Provider<T> get blocProvider => Provider<T>(create: (context) => getBloc(NeonProvider.of<Account>(context)));
 
   /// The count of unread notifications.
   ///
@@ -115,21 +110,13 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   NeonNavigationDestination destination(BuildContext context) {
     final bloc = getBloc(NeonProvider.of<Account>(context));
 
-    return NeonNavigationDestination(
-      label: name(context),
-      icon: buildIcon,
-      notificationCount: getUnreadCounter(bloc),
-    );
+    return NeonNavigationDestination(label: name(context), icon: buildIcon, notificationCount: getUnreadCounter(bloc));
   }
 
   /// Main branch displayed in the home page.
   ///
   /// There's usually no need to override this.
-  StatefulShellBranch get mainBranch => StatefulShellBranch(
-        routes: [
-          route,
-        ],
-      );
+  StatefulShellBranch get mainBranch => StatefulShellBranch(routes: [route]);
 
   /// Route for the app.
   ///
@@ -154,28 +141,19 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   ///
   /// It is mandatory to provide a precompiled SVG under `assets/app.svg.vec`.
   /// SVGs can be precompiled with `https://pub.dev/packages/vector_graphics_compiler`
-  Widget buildIcon({
-    double? size,
-    Color? color,
-  }) =>
-      Builder(
-        builder: (context) {
-          final realSize = size ?? IconTheme.of(context).size;
-          final child = VectorGraphic(
-            width: realSize,
-            height: realSize,
-            colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-            loader: AssetBytesLoader(
-              'assets/app.svg.vec',
-              packageName: '${id}_app',
-            ),
-          );
-
-          return ExcludeSemantics(
-            child: child,
-          );
-        },
+  Widget buildIcon({double? size, Color? color}) => Builder(
+    builder: (context) {
+      final realSize = size ?? IconTheme.of(context).size;
+      final child = VectorGraphic(
+        width: realSize,
+        height: realSize,
+        colorFilter: ColorFilter.mode(color ?? Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+        loader: AssetBytesLoader('assets/app.svg.vec', packageName: '${id}_app'),
       );
+
+      return ExcludeSemantics(child: child);
+    },
+  );
 
   @override
   @mustCallSuper

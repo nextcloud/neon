@@ -21,10 +21,7 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
 sealed class FilesBloc implements InteractiveBloc {
-  factory FilesBloc({
-    required FilesOptions options,
-    required Account account,
-  }) = _FilesBloc;
+  factory FilesBloc({required FilesOptions options, required Account account}) = _FilesBloc;
 
   void uploadFile(webdav.PathUri uri, String localPath);
 
@@ -54,10 +51,7 @@ sealed class FilesBloc implements InteractiveBloc {
 }
 
 class _FilesBloc extends InteractiveBloc implements FilesBloc {
-  _FilesBloc({
-    required this.options,
-    required this.account,
-  }) {
+  _FilesBloc({required this.options, required this.account}) {
     options.uploadQueueParallelism.addListener(uploadParallelismListener);
     options.downloadQueueParallelism.addListener(downloadParallelismListener);
   }
@@ -98,70 +92,50 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   Future<void> uploadFile(webdav.PathUri uri, String localPath) async {
-    await wrapAction(
-      () async {
-        final task = FilesUploadTaskIO(
-          uri: uri,
-          file: File(localPath),
-        );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
-      },
-      disableTimeout: true,
-    );
+    await wrapAction(() async {
+      final task = FilesUploadTaskIO(uri: uri, file: File(localPath));
+      tasks.add(tasks.value.rebuild((b) => b.add(task)));
+      await uploadQueue.add(() => task.execute(account.client));
+      tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+    }, disableTimeout: true);
   }
 
   @override
   Future<void> uploadMemory(webdav.PathUri uri, Uint8List bytes, {tz.TZDateTime? lastModified}) async {
-    await wrapAction(
-      () async {
-        final task = FilesUploadTaskMemory(
-          uri: uri,
-          size: bytes.length,
-          lastModified: lastModified,
-          bytes: bytes,
-        );
-        tasks.add(tasks.value.rebuild((b) => b.add(task)));
-        await uploadQueue.add(() => task.execute(account.client));
-        tasks.add(tasks.value.rebuild((b) => b.remove(task)));
-      },
-      disableTimeout: true,
-    );
+    await wrapAction(() async {
+      final task = FilesUploadTaskMemory(uri: uri, size: bytes.length, lastModified: lastModified, bytes: bytes);
+      tasks.add(tasks.value.rebuild((b) => b.add(task)));
+      await uploadQueue.add(() => task.execute(account.client));
+      tasks.add(tasks.value.rebuild((b) => b.remove(task)));
+    }, disableTimeout: true);
   }
 
   @override
   Future<void> openFile(webdav.PathUri uri, String etag, String? mimeType) async {
-    await wrapAction(
-      () async {
-        if (NeonPlatform.instance.canUsePaths) {
-          final file = await cacheFile(uri, etag);
-          final result = await OpenFilex.open(file.path, type: mimeType);
-          if (result.type != ResultType.done) {
-            throw const UnableToOpenFileException();
-          }
-        } else {
-          final bytes = await downloadMemory(uri);
-          await NeonPlatform.instance.saveFileWithPickDialog(uri.name, mimeType ?? 'application/octet-stream', bytes);
+    await wrapAction(() async {
+      if (NeonPlatform.instance.canUsePaths) {
+        final file = await cacheFile(uri, etag);
+        final result = await OpenFilex.open(file.path, type: mimeType);
+        if (result.type != ResultType.done) {
+          throw const UnableToOpenFileException();
         }
-      },
-      disableTimeout: true,
-    );
+      } else {
+        final bytes = await downloadMemory(uri);
+        await NeonPlatform.instance.saveFileWithPickDialog(uri.name, mimeType ?? 'application/octet-stream', bytes);
+      }
+    }, disableTimeout: true);
   }
 
   @override
   Future<void> shareFileNative(webdav.PathUri uri, String etag, String? mimeType) async {
-    await wrapAction(
-      () async {
-        if (NeonPlatform.instance.canUsePaths) {
-          final file = await cacheFile(uri, etag);
-          await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
-        } else {
-          throw UnimplementedError('Sharing is not supported on web');
-        }
-      },
-      disableTimeout: true,
-    );
+    await wrapAction(() async {
+      if (NeonPlatform.instance.canUsePaths) {
+        final file = await cacheFile(uri, etag);
+        await SharePlus.instance.share(ShareParams(files: [XFile(file.path)]));
+      } else {
+        throw UnimplementedError('Sharing is not supported on web');
+      }
+    }, disableTimeout: true);
   }
 
   @override
@@ -171,12 +145,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   Future<void> rename(webdav.PathUri uri, String name) async {
-    await wrapAction(
-      () async => account.client.webdav.move(
-        uri,
-        uri.rename(name),
-      ),
-    );
+    await wrapAction(() async => account.client.webdav.move(uri, uri.rename(name)));
   }
 
   @override
@@ -191,22 +160,12 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
 
   @override
   Future<void> addFavorite(webdav.PathUri uri) async {
-    await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const webdav.WebDavProp(ocFavorite: true),
-      ),
-    );
+    await wrapAction(() async => account.client.webdav.proppatch(uri, set: const webdav.WebDavProp(ocFavorite: true)));
   }
 
   @override
   Future<void> removeFavorite(webdav.PathUri uri) async {
-    await wrapAction(
-      () async => account.client.webdav.proppatch(
-        uri,
-        set: const webdav.WebDavProp(ocFavorite: false),
-      ),
-    );
+    await wrapAction(() async => account.client.webdav.proppatch(uri, set: const webdav.WebDavProp(ocFavorite: false)));
   }
 
   @override
@@ -230,10 +189,7 @@ class _FilesBloc extends InteractiveBloc implements FilesBloc {
   }
 
   Future<void> downloadIO(webdav.PathUri uri, File file) async {
-    final task = FilesDownloadTaskIO(
-      uri: uri,
-      file: file,
-    );
+    final task = FilesDownloadTaskIO(uri: uri, file: file);
 
     tasks.add(tasks.value.rebuild((b) => b.add(task)));
     await downloadQueue.add(() => task.execute(account.client));
@@ -269,7 +225,6 @@ class UnableToOpenFileException extends NeonException {
   const UnableToOpenFileException();
 
   @override
-  NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (context) => FilesLocalizations.of(context).errorUnableToOpenFile,
-      );
+  NeonExceptionDetails get details =>
+      NeonExceptionDetails(getText: (context) => FilesLocalizations.of(context).errorUnableToOpenFile);
 }

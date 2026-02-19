@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DirectClient direct = $DirectClient(this);
 
@@ -57,11 +57,11 @@ class $DirectClient {
   /// Builds a serializer to parse the response of [$getUrl_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DirectGetUrlResponseApplicationJson, void> $getUrl_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(DirectGetUrlResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(DirectGetUrlResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a direct link to a file.
   ///
@@ -151,12 +151,12 @@ class $OutOfOfficeClient {
   /// Builds a serializer to parse the response of [$getCurrentOutOfOfficeData_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>
-      $getCurrentOutOfOfficeData_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getCurrentOutOfOfficeData_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the currently configured out-of-office data of a user.
   ///
@@ -223,7 +223,7 @@ class $OutOfOfficeClient {
   ///  * [$getCurrentOutOfOfficeData_Request] for the request send by this method.
   ///  * [$getCurrentOutOfOfficeData_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson, void>>
-      getCurrentOutOfOfficeData({required String userId, bool? oCSAPIRequest}) async {
+  getCurrentOutOfOfficeData({required String userId, bool? oCSAPIRequest}) async {
     final _request = $getCurrentOutOfOfficeData_Request(userId: userId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -1069,8 +1069,10 @@ sealed class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInt
 abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs
     implements
         $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsInterface,
-        Built<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
-            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder> {
+        Built<
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs,
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs([
     void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder)? b,
@@ -1133,8 +1135,10 @@ sealed class $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterfa
 abstract class OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson
     implements
         $OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonInterface,
-        Built<OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
-            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder> {
+        Built<
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson,
+          OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder
+        > {
   /// Creates a new OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson([
     void Function(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder)? b,
@@ -1262,8 +1266,10 @@ sealed class $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface {
 abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs
     implements
         $OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsInterface,
-        Built<OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
-            OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder> {
+        Built<
+          OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs,
+          OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
@@ -1326,8 +1332,10 @@ sealed class $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface {
 abstract class OutOfOfficeGetOutOfOfficeResponseApplicationJson
     implements
         $OutOfOfficeGetOutOfOfficeResponseApplicationJsonInterface,
-        Built<OutOfOfficeGetOutOfOfficeResponseApplicationJson,
-            OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder> {
+        Built<
+          OutOfOfficeGetOutOfOfficeResponseApplicationJson,
+          OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder
+        > {
   /// Creates a new OutOfOfficeGetOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeGetOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder)? b,
@@ -1467,8 +1475,10 @@ sealed class $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface {
 abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs
     implements
         $OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsInterface,
-        Built<OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
-            OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder> {
+        Built<
+          OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs,
+          OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
@@ -1531,8 +1541,10 @@ sealed class $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface {
 abstract class OutOfOfficeSetOutOfOfficeResponseApplicationJson
     implements
         $OutOfOfficeSetOutOfOfficeResponseApplicationJsonInterface,
-        Built<OutOfOfficeSetOutOfOfficeResponseApplicationJson,
-            OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder> {
+        Built<
+          OutOfOfficeSetOutOfOfficeResponseApplicationJson,
+          OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder
+        > {
   /// Creates a new OutOfOfficeSetOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeSetOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder)? b,
@@ -1596,8 +1608,10 @@ sealed class $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface {
 abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs
     implements
         $OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsInterface,
-        Built<OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
-            OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder> {
+        Built<
+          OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs,
+          OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs object using the builder pattern.
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs([
     void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder)? b,
@@ -1660,8 +1674,10 @@ sealed class $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface {
 abstract class OutOfOfficeClearOutOfOfficeResponseApplicationJson
     implements
         $OutOfOfficeClearOutOfOfficeResponseApplicationJsonInterface,
-        Built<OutOfOfficeClearOutOfOfficeResponseApplicationJson,
-            OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder> {
+        Built<
+          OutOfOfficeClearOutOfOfficeResponseApplicationJson,
+          OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder
+        > {
   /// Creates a new OutOfOfficeClearOutOfOfficeResponseApplicationJson object using the builder pattern.
   factory OutOfOfficeClearOutOfOfficeResponseApplicationJson([
     void Function(OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder)? b,
@@ -1782,8 +1798,10 @@ sealed class $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface {
 abstract class UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data
     implements
         $UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataInterface,
-        Built<UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data,
-            UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data,
+          UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data([
     void Function(UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -1847,8 +1865,10 @@ sealed class $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface {
 abstract class UpcomingEventsGetEventsResponseApplicationJson_Ocs
     implements
         $UpcomingEventsGetEventsResponseApplicationJson_OcsInterface,
-        Built<UpcomingEventsGetEventsResponseApplicationJson_Ocs,
-            UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder> {
+        Built<
+          UpcomingEventsGetEventsResponseApplicationJson_Ocs,
+          UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UpcomingEventsGetEventsResponseApplicationJson_Ocs object using the builder pattern.
   factory UpcomingEventsGetEventsResponseApplicationJson_Ocs([
     void Function(UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder)? b,
@@ -2072,103 +2092,104 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(DirectGetUrlRequestApplicationJson),
-        DirectGetUrlRequestApplicationJsonBuilder.new,
-      )
-      ..add(DirectGetUrlRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectGetUrlResponseApplicationJson),
-        DirectGetUrlResponseApplicationJsonBuilder.new,
-      )
-      ..add(DirectGetUrlResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectGetUrlResponseApplicationJson_Ocs),
-        DirectGetUrlResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DirectGetUrlResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data),
-        DirectGetUrlResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
-        OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder.new,
-      )
-      ..add(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs),
-        OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CurrentOutOfOfficeData), CurrentOutOfOfficeDataBuilder.new)
-      ..add(CurrentOutOfOfficeData.serializer)
-      ..addBuilderFactory(const FullType(OutOfOfficeDataCommon), OutOfOfficeDataCommonBuilder.new)
-      ..add(OutOfOfficeDataCommon.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
-        OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder.new,
-      )
-      ..add(OutOfOfficeGetOutOfOfficeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs),
-        OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OutOfOfficeData), OutOfOfficeDataBuilder.new)
-      ..add(OutOfOfficeData.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeSetOutOfOfficeRequestApplicationJson),
-        OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder.new,
-      )
-      ..add(OutOfOfficeSetOutOfOfficeRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
-        OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder.new,
-      )
-      ..add(OutOfOfficeSetOutOfOfficeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs),
-        OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
-        OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder.new,
-      )
-      ..add(OutOfOfficeClearOutOfOfficeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs),
-        OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UpcomingEventsGetEventsResponseApplicationJson),
-        UpcomingEventsGetEventsResponseApplicationJsonBuilder.new,
-      )
-      ..add(UpcomingEventsGetEventsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs),
-        UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data),
-        UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(UpcomingEvent), UpcomingEventBuilder.new)
-      ..add(UpcomingEvent.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(UpcomingEvent)]), ListBuilder<UpcomingEvent>.new)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_DavBuilder.new)
-      ..add(Capabilities_Dav.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(DirectGetUrlRequestApplicationJson),
+            DirectGetUrlRequestApplicationJsonBuilder.new,
+          )
+          ..add(DirectGetUrlRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectGetUrlResponseApplicationJson),
+            DirectGetUrlResponseApplicationJsonBuilder.new,
+          )
+          ..add(DirectGetUrlResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectGetUrlResponseApplicationJson_Ocs),
+            DirectGetUrlResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DirectGetUrlResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectGetUrlResponseApplicationJson_Ocs_Data),
+            DirectGetUrlResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DirectGetUrlResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson),
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJsonBuilder.new,
+          )
+          ..add(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs),
+            OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OutOfOfficeGetCurrentOutOfOfficeDataResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(CurrentOutOfOfficeData), CurrentOutOfOfficeDataBuilder.new)
+          ..add(CurrentOutOfOfficeData.serializer)
+          ..addBuilderFactory(const FullType(OutOfOfficeDataCommon), OutOfOfficeDataCommonBuilder.new)
+          ..add(OutOfOfficeDataCommon.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson),
+            OutOfOfficeGetOutOfOfficeResponseApplicationJsonBuilder.new,
+          )
+          ..add(OutOfOfficeGetOutOfOfficeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs),
+            OutOfOfficeGetOutOfOfficeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OutOfOfficeGetOutOfOfficeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OutOfOfficeData), OutOfOfficeDataBuilder.new)
+          ..add(OutOfOfficeData.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeSetOutOfOfficeRequestApplicationJson),
+            OutOfOfficeSetOutOfOfficeRequestApplicationJsonBuilder.new,
+          )
+          ..add(OutOfOfficeSetOutOfOfficeRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson),
+            OutOfOfficeSetOutOfOfficeResponseApplicationJsonBuilder.new,
+          )
+          ..add(OutOfOfficeSetOutOfOfficeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs),
+            OutOfOfficeSetOutOfOfficeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OutOfOfficeSetOutOfOfficeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson),
+            OutOfOfficeClearOutOfOfficeResponseApplicationJsonBuilder.new,
+          )
+          ..add(OutOfOfficeClearOutOfOfficeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs),
+            OutOfOfficeClearOutOfOfficeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OutOfOfficeClearOutOfOfficeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UpcomingEventsGetEventsResponseApplicationJson),
+            UpcomingEventsGetEventsResponseApplicationJsonBuilder.new,
+          )
+          ..add(UpcomingEventsGetEventsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs),
+            UpcomingEventsGetEventsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data),
+            UpcomingEventsGetEventsResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(UpcomingEventsGetEventsResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(UpcomingEvent), UpcomingEventBuilder.new)
+          ..add(UpcomingEvent.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(UpcomingEvent)]), ListBuilder<UpcomingEvent>.new)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Dav), Capabilities_DavBuilder.new)
+          ..add(Capabilities_Dav.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -2176,10 +2197,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

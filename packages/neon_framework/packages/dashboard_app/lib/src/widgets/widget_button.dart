@@ -7,10 +7,7 @@ import 'package:nextcloud/dashboard.dart' as dashboard;
 /// Button inside a dashboard widget that is used to trigger an action.
 class DashboardWidgetButton extends StatelessWidget {
   /// Creates a new dashboard widget button.
-  const DashboardWidgetButton({
-    required this.button,
-    super.key,
-  });
+  const DashboardWidgetButton({required this.button, super.key});
 
   /// The dashboard widget button to be displayed.
   final dashboard.Widget_Buttons button;
@@ -26,20 +23,9 @@ class DashboardWidgetButton extends StatelessWidget {
       _ => null,
     };
     if (icon != null) {
-      return Align(
-        child: FilledButton.icon(
-          onPressed: onPressed,
-          icon: Icon(icon),
-          label: label,
-        ),
-      );
+      return Align(child: FilledButton.icon(onPressed: onPressed, icon: Icon(icon), label: label));
     }
 
-    return Align(
-      child: FilledButton(
-        onPressed: onPressed,
-        child: label,
-      ),
-    );
+    return Align(child: FilledButton(onPressed: onPressed, child: label));
   }
 }

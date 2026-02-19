@@ -53,12 +53,7 @@ class _HttpClientMock extends Mock implements http.Client {
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     final body = await request.finalize().toBytes();
-    return _callback(
-      request.method.toUpperCase(),
-      request.url,
-      BuiltMap(request.headers),
-      body,
-    );
+    return _callback(request.method.toUpperCase(), request.url, BuiltMap(request.headers), body);
   }
 }
 
@@ -80,15 +75,17 @@ Uint8List _encryptPushNotifications(RSAKeypair keypair, List<Map<String, dynamic
 void main() {
   group('onMessage', () {
     final credentials = Credentials(
-      (b) => b
-        ..serverURL = Uri.parse('https://example.com')
-        ..username = 'username'
-        ..appPassword = 'appPassword',
+      (b) =>
+          b
+            ..serverURL = Uri.parse('https://example.com')
+            ..username = 'username'
+            ..appPassword = 'appPassword',
     );
     final account = Account(
-      (b) => b
-        ..credentials.replace(credentials)
-        ..client = _NextcloudClientMock(),
+      (b) =>
+          b
+            ..credentials.replace(credentials)
+            ..client = _NextcloudClientMock(),
     );
 
     late _OnPushNotificationReceivedCallbackMock onPushNotificationReceivedCallback;
@@ -150,8 +147,9 @@ void main() {
 
       storage = _NeonStorageMock();
       when(() => storage.init()).thenAnswer((_) async {});
-      when(() => storage.singleValueStore(StorageKeys.notificationsDevicePrivateKey))
-          .thenReturn(devicePrivateKeyPersistence);
+      when(
+        () => storage.singleValueStore(StorageKeys.notificationsDevicePrivateKey),
+      ).thenReturn(devicePrivateKeyPersistence);
       NeonStorage.mocked(storage);
 
       packageInfoPlatform = _PackageInfoPlatformMock();
@@ -196,10 +194,7 @@ void main() {
       final payload = {
         'priority': '',
         'type': 'background',
-        'subject': {
-          'nid': 1,
-          'delete': true,
-        },
+        'subject': {'nid': 1, 'delete': true},
       };
 
       await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
@@ -229,9 +224,7 @@ void main() {
       final payload = {
         'priority': '',
         'type': 'background',
-        'subject': {
-          'delete-all': true,
-        },
+        'subject': {'delete-all': true},
       };
 
       await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
@@ -241,11 +234,7 @@ void main() {
     });
 
     test('Background', () async {
-      final payload = {
-        'priority': '',
-        'type': 'background',
-        'subject': <String, dynamic>{},
-      };
+      final payload = {'priority': '', 'type': 'background', 'subject': <String, dynamic>{}};
 
       await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
       verify(() => localNotificationsPlatform.getActiveNotifications()).called(1);
@@ -254,28 +243,16 @@ void main() {
     test('Cancel summary notification', () async {
       when(() => localNotificationsPlatform.getActiveNotifications()).thenAnswer(
         (_) async => [
-          const ActiveNotification(
-            id: 123,
-            groupKey: 'app1',
-          ),
-          const ActiveNotification(
-            id: 456,
-            groupKey: 'app2',
-          ),
-          const ActiveNotification(
-            id: 789,
-            groupKey: 'app2',
-          ),
+          const ActiveNotification(id: 123, groupKey: 'app1'),
+          const ActiveNotification(id: 456, groupKey: 'app2'),
+          const ActiveNotification(id: 789, groupKey: 'app2'),
         ],
       );
 
       final payload = {
         'priority': '',
         'type': 'background',
-        'subject': {
-          'nid': 1,
-          'delete': true,
-        },
+        'subject': {'nid': 1, 'delete': true},
       };
 
       await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [payload]), true), account.id);
@@ -316,18 +293,9 @@ void main() {
         final notification = {
           'priority': '',
           'type': '',
-          'subject': {
-            'nid': 1,
-            'app': 'app',
-            'subject': 'subject',
-            'type': 'type',
-            'id': 'id',
-          },
+          'subject': {'nid': 1, 'app': 'app', 'subject': 'subject', 'type': 'type', 'id': 'id'},
         };
-        final payload = json.encode({
-          'accountID': account.id,
-          ...notification,
-        });
+        final payload = json.encode({'accountID': account.id, ...notification});
 
         await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [notification]), true), account.id);
 
@@ -402,18 +370,9 @@ void main() {
         final notification = {
           'priority': '',
           'type': '',
-          'subject': {
-            'nid': 1,
-            'app': 'app',
-            'subject': 'subject',
-            'type': 'type',
-            'id': 'id',
-          },
+          'subject': {'nid': 1, 'app': 'app', 'subject': 'subject', 'type': 'type', 'id': 'id'},
         };
-        final payload = json.encode({
-          'accountID': account.id,
-          ...notification,
-        });
+        final payload = json.encode({'accountID': account.id, ...notification});
 
         registerFallbackValue(Uri());
         registerFallbackValue(BuiltMap<String, String>());
@@ -457,19 +416,14 @@ void main() {
               ),
             ),
             200,
-            headers: {
-              'content-type': 'application/json',
-            },
+            headers: {'content-type': 'application/json'},
           ),
         );
         when(
           () => httpRequest(
             'GET',
             Uri.parse('https://example.com/image.svg'),
-            BuiltMap({
-              'Authorization': 'Bearer appPassword',
-              'user-agent': 'Neon 1.0.0+1',
-            }),
+            BuiltMap({'Authorization': 'Bearer appPassword', 'user-agent': 'Neon 1.0.0+1'}),
             Uint8List(0),
           ),
         ).thenAnswer(
@@ -480,9 +434,7 @@ void main() {
               ),
             ),
             200,
-            headers: {
-              'content-type': 'image/svg+xml',
-            },
+            headers: {'content-type': 'image/svg+xml'},
           ),
         );
 
@@ -551,18 +503,9 @@ void main() {
         final notification = {
           'priority': 'high',
           'type': 'voip',
-          'subject': {
-            'nid': 1,
-            'app': 'app',
-            'subject': 'subject',
-            'type': 'type',
-            'id': 'id',
-          },
+          'subject': {'nid': 1, 'app': 'app', 'subject': 'subject', 'type': 'type', 'id': 'id'},
         };
-        final payload = json.encode({
-          'accountID': account.id,
-          ...notification,
-        });
+        final payload = json.encode({'accountID': account.id, ...notification});
 
         await PushUtils.onMessage(PushMessage(_encryptPushNotifications(keypair, [notification]), true), account.id);
 

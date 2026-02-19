@@ -57,7 +57,7 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
 
   final Account account;
   late final StreamSubscription<Result<core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data>>
-      capabilitiesSubscription;
+  capabilitiesSubscription;
   late final NeonTimer timer;
 
   @override
@@ -126,9 +126,7 @@ class _WeatherStatusBloc extends InteractiveBloc implements WeatherStatusBloc {
     await wrapAction(
       () async {
         final response = await account.client.weatherStatus.weatherStatus.setLocation(
-          $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-            (b) => b..address = address,
-          ),
+          $body: weather_status.WeatherStatusSetLocationRequestApplicationJson((b) => b..address = address),
         );
         location.add(Result.success(response.body.ocs.data));
       },

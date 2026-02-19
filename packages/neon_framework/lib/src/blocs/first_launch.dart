@@ -11,9 +11,7 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc that manages tasks that only need to run at the first launch of the app.
 sealed class FirstLaunchBloc implements Disposable {
   @internal
-  factory FirstLaunchBloc({
-    bool disabled,
-  }) = _FirstLaunchBloc;
+  factory FirstLaunchBloc({bool disabled}) = _FirstLaunchBloc;
 
   /// Emits an event if the first launch tasks should be run.
   BehaviorSubject<void> get onFirstLaunch;
@@ -21,9 +19,7 @@ sealed class FirstLaunchBloc implements Disposable {
 
 @immutable
 class _FirstLaunchBloc extends Bloc implements FirstLaunchBloc {
-  _FirstLaunchBloc({
-    bool disabled = false,
-  }) {
+  _FirstLaunchBloc({bool disabled = false}) {
     final storage = NeonStorage().singleValueStore(StorageKeys.firstLaunch);
 
     if (!disabled && !storage.hasValue()) {

@@ -12,9 +12,7 @@ import 'package:rxdart/rxdart.dart';
 
 @sealed
 abstract class NotificationsBloc implements NotificationsBlocInterface, InteractiveBloc {
-  factory NotificationsBloc({
-    required Account account,
-  }) = _NotificationsBloc;
+  factory NotificationsBloc({required Account account}) = _NotificationsBloc;
 
   @override
   void deleteNotification(int id);
@@ -27,9 +25,7 @@ abstract class NotificationsBloc implements NotificationsBlocInterface, Interact
 }
 
 class _NotificationsBloc extends InteractiveBloc implements NotificationsBlocInterface, NotificationsBloc {
-  _NotificationsBloc({
-    required this.account,
-  }) {
+  _NotificationsBloc({required this.account}) {
     notifications.listen((result) {
       if (result.hasData) {
         unreadCounter.add(result.requireData.length);

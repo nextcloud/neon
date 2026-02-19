@@ -22,18 +22,12 @@ import 'package:window_manager/window_manager.dart';
 @sealed
 abstract class UserStatusBloc implements InteractiveBloc {
   /// Create a new user status bloc.
-  factory UserStatusBloc({
-    required Account account,
-  }) = _UserStatusBloc;
+  factory UserStatusBloc({required Account account}) = _UserStatusBloc;
 
   /// Load the user status of the user with the [username] on the same server.
   ///
   /// Set [force] to true to load the status even if one has already been loaded.
-  void load(
-    String username, {
-    Result<user_status.$PublicInterface>? status,
-    bool force = false,
-  });
+  void load(String username, {Result<user_status.$PublicInterface>? status, bool force = false});
 
   /// Set the status type.
   void setStatusType(String statusType);
@@ -41,17 +35,10 @@ abstract class UserStatusBloc implements InteractiveBloc {
   /// Set a predefined status message using the [id] and [clearAt].
   ///
   /// Predefined status messages received from [predefinedStatuses].
-  void setPredefinedMessage({
-    required String id,
-    required tz.TZDateTime? clearAt,
-  });
+  void setPredefinedMessage({required String id, required tz.TZDateTime? clearAt});
 
   /// Set a custom status [message] with the [icon] and [clearAt].
-  void setCustomMessage({
-    required String? message,
-    required String? icon,
-    required tz.TZDateTime? clearAt,
-  });
+  void setCustomMessage({required String? message, required String? icon, required tz.TZDateTime? clearAt});
 
   /// Clear the current status message.
   void clearMessage();
@@ -67,9 +54,7 @@ abstract class UserStatusBloc implements InteractiveBloc {
 }
 
 class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
-  _UserStatusBloc({
-    required this.account,
-  }) {
+  _UserStatusBloc({required this.account}) {
     unawaited(refresh());
     timer = TimerBloc().registerTimer(const Duration(minutes: 5), refresh);
   }
@@ -134,9 +119,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
 
         try {
           final response = await account.client.userStatus.heartbeat.heartbeat(
-            $body: user_status.HeartbeatHeartbeatRequestApplicationJson(
-              (b) => b..status = isAway ? 'away' : 'online',
-            ),
+            $body: user_status.HeartbeatHeartbeatRequestApplicationJson((b) => b..status = isAway ? 'away' : 'online'),
           );
           data = response.body.ocs.data;
         } on DynamiteStatusCodeException catch (e) {
@@ -160,11 +143,7 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
 
       updateStatus(username, Result.success(correctStatus(data)));
     } on http.ClientException catch (error, stackTrace) {
-      log.warning(
-        'Error loading the user status.',
-        error,
-        stackTrace,
-      );
+      log.warning('Error loading the user status.', error, stackTrace);
 
       updateStatus(username, Result.error(error));
     }
@@ -174,13 +153,15 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
   user_status.$PublicInterface? correctStatus(user_status.$PublicInterface? status) {
     if (status is user_status.Private && status.messageIsPredefined) {
       final id = status.messageId;
-      final predefinedStatus =
-          predefinedStatuses.valueOrNull?.data?.firstWhereOrNull((predefined) => predefined.id == id);
+      final predefinedStatus = predefinedStatuses.valueOrNull?.data?.firstWhereOrNull(
+        (predefined) => predefined.id == id,
+      );
       if (predefinedStatus != null) {
         return status.rebuild(
-          (b) => b
-            ..message = predefinedStatus.message
-            ..icon = predefinedStatus.icon,
+          (b) =>
+              b
+                ..message = predefinedStatus.message
+                ..icon = predefinedStatus.icon,
         );
       }
     }
@@ -200,39 +181,29 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
 
   @override
   Future<void> setStatusType(String statusType) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.userStatus.userStatus.setStatus(
-          $body: user_status.UserStatusSetStatusRequestApplicationJson(
-            (b) => b..statusType = statusType,
-          ),
-        );
+    await wrapAction(() async {
+      final response = await account.client.userStatus.userStatus.setStatus(
+        $body: user_status.UserStatusSetStatusRequestApplicationJson((b) => b..statusType = statusType),
+      );
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
-      },
-      refresh: () async {},
-    );
+      updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+    }, refresh: () async {});
   }
 
   @override
-  Future<void> setPredefinedMessage({
-    required String id,
-    required tz.TZDateTime? clearAt,
-  }) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.userStatus.userStatus.setPredefinedMessage(
-          $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
-            (b) => b
-              ..messageId = id
-              ..clearAt = clearAt?.secondsSinceEpoch,
-          ),
-        );
+  Future<void> setPredefinedMessage({required String id, required tz.TZDateTime? clearAt}) async {
+    await wrapAction(() async {
+      final response = await account.client.userStatus.userStatus.setPredefinedMessage(
+        $body: user_status.UserStatusSetPredefinedMessageRequestApplicationJson(
+          (b) =>
+              b
+                ..messageId = id
+                ..clearAt = clearAt?.secondsSinceEpoch,
+        ),
+      );
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
-      },
-      refresh: () async {},
-    );
+      updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+    }, refresh: () async {});
   }
 
   @override
@@ -241,21 +212,19 @@ class _UserStatusBloc extends InteractiveBloc implements UserStatusBloc {
     required String? icon,
     required tz.TZDateTime? clearAt,
   }) async {
-    await wrapAction(
-      () async {
-        final response = await account.client.userStatus.userStatus.setCustomMessage(
-          $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
-            (b) => b
-              ..statusIcon = icon
-              ..message = message
-              ..clearAt = clearAt?.secondsSinceEpoch,
-          ),
-        );
+    await wrapAction(() async {
+      final response = await account.client.userStatus.userStatus.setCustomMessage(
+        $body: user_status.UserStatusSetCustomMessageRequestApplicationJson(
+          (b) =>
+              b
+                ..statusIcon = icon
+                ..message = message
+                ..clearAt = clearAt?.secondsSinceEpoch,
+        ),
+      );
 
-        updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
-      },
-      refresh: () async {},
-    );
+      updateStatus(account.username, Result.success(correctStatus(response.body.ocs.data)));
+    }, refresh: () async {});
   }
 
   @override

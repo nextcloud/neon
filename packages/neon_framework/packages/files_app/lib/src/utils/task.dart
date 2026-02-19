@@ -8,9 +8,7 @@ import 'package:timezone/timezone.dart' as tz;
 import 'package:universal_io/io.dart';
 
 sealed class FilesTask {
-  FilesTask({
-    required this.uri,
-  });
+  FilesTask({required this.uri});
 
   final webdav.PathUri uri;
 
@@ -22,17 +20,11 @@ sealed class FilesTask {
 }
 
 sealed class FilesDownloadTask extends FilesTask {
-  FilesDownloadTask({
-    required super.uri,
-  });
+  FilesDownloadTask({required super.uri});
 }
 
 sealed class FilesUploadTask extends FilesTask {
-  FilesUploadTask({
-    required super.uri,
-    required this.size,
-    required this.lastModified,
-  });
+  FilesUploadTask({required super.uri, required this.size, required this.lastModified});
 
   final int? size;
 
@@ -40,18 +32,13 @@ sealed class FilesUploadTask extends FilesTask {
 }
 
 sealed class FilesTaskIO extends FilesTask {
-  FilesTaskIO({
-    required this.file,
-    required super.uri,
-  });
+  FilesTaskIO({required this.file, required super.uri});
 
   final File file;
 }
 
 sealed class FilesTaskMemory extends FilesTask {
-  FilesTaskMemory({
-    required super.uri,
-  });
+  FilesTaskMemory({required super.uri});
 
   final _stream = StreamController<List<int>>();
 
@@ -61,26 +48,16 @@ sealed class FilesTaskMemory extends FilesTask {
 }
 
 class FilesDownloadTaskIO extends FilesTaskIO implements FilesDownloadTask {
-  FilesDownloadTaskIO({
-    required super.uri,
-    required super.file,
-  });
+  FilesDownloadTaskIO({required super.uri, required super.file});
 
   Future<void> execute(NextcloudClient client) async {
-    await client.webdav.getFile(
-      uri,
-      file,
-      onProgress: progressController.add,
-    );
+    await client.webdav.getFile(uri, file, onProgress: progressController.add);
     await progressController.close();
   }
 }
 
 class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
-  FilesUploadTaskIO({
-    required super.uri,
-    required super.file,
-  });
+  FilesUploadTaskIO({required super.uri, required super.file});
 
   late final FileStat _stat = file.statSync();
 
@@ -91,27 +68,16 @@ class FilesUploadTaskIO extends FilesTaskIO implements FilesUploadTask {
   late tz.TZDateTime lastModified = tz.TZDateTime.from(_stat.modified, tz.UTC);
 
   Future<void> execute(NextcloudClient client) async {
-    await client.webdav.putFile(
-      file,
-      _stat,
-      uri,
-      lastModified: _stat.modified,
-      onProgress: progressController.add,
-    );
+    await client.webdav.putFile(file, _stat, uri, lastModified: _stat.modified, onProgress: progressController.add);
     await progressController.close();
   }
 }
 
 class FilesDownloadTaskMemory extends FilesTaskMemory implements FilesDownloadTask {
-  FilesDownloadTaskMemory({
-    required super.uri,
-  });
+  FilesDownloadTaskMemory({required super.uri});
 
   Future<void> execute(NextcloudClient client) async {
-    final stream = await client.webdav.getStream(
-      uri,
-      onProgress: progressController.add,
-    );
+    final stream = await client.webdav.getStream(uri, onProgress: progressController.add);
     await stream.pipe(_stream);
     await progressController.close();
   }

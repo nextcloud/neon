@@ -76,60 +76,52 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   Widget build(BuildContext context) {
     return ResultBuilder.behaviorSubject(
       subject: bloc.files,
-      builder: (context, filesSnapshot) => StreamBuilder(
-        stream: widget.filesBloc.tasks,
-        builder: (context, tasksSnapshot) => SortBoxBuilder(
-          sortBox: filesSortBox,
-          sortProperty: options.filesSortPropertyOption,
-          sortBoxOrder: options.filesSortBoxOrderOption,
-          presort: const {
-            (property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending),
-          },
-          input: filesSnapshot.data?.toList(),
-          builder: (context, sorted) {
-            final uploadingTaskTiles =
-                tasksSnapshot.hasData ? buildUploadTasks(tasksSnapshot.requireData, sorted) : null;
+      builder:
+          (context, filesSnapshot) => StreamBuilder(
+            stream: widget.filesBloc.tasks,
+            builder:
+                (context, tasksSnapshot) => SortBoxBuilder(
+                  sortBox: filesSortBox,
+                  sortProperty: options.filesSortPropertyOption,
+                  sortBoxOrder: options.filesSortBoxOrderOption,
+                  presort: const {(property: FilesSortProperty.isFolder, order: SortBoxOrder.ascending)},
+                  input: filesSnapshot.data?.toList(),
+                  builder: (context, sorted) {
+                    final uploadingTaskTiles =
+                        tasksSnapshot.hasData ? buildUploadTasks(tasksSnapshot.requireData, sorted) : null;
 
-            return NeonListView(
-              scrollKey: 'files-${widget.uri.path}',
-              itemCount: sorted.length,
-              itemBuilder: (context, index) {
-                final file = sorted[index];
-                final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
-                  (task) => file.name == task.uri.name && widget.uri == task.uri.parent,
-                );
+                    return NeonListView(
+                      scrollKey: 'files-${widget.uri.path}',
+                      itemCount: sorted.length,
+                      itemBuilder: (context, index) {
+                        final file = sorted[index];
+                        final matchingTask = tasksSnapshot.requireData.firstWhereOrNull(
+                          (task) => file.name == task.uri.name && widget.uri == task.uri.parent,
+                        );
 
-                final details = matchingTask != null
-                    ? FileDetails.fromTask(
-                        task: matchingTask,
-                        file: file,
-                      )
-                    : FileDetails.fromWebDav(
-                        file: file,
-                      );
+                        final details =
+                            matchingTask != null
+                                ? FileDetails.fromTask(task: matchingTask, file: file)
+                                : FileDetails.fromWebDav(file: file);
 
-                return FileListTile(
-                  bloc: widget.filesBloc,
-                  browserBloc: bloc,
-                  details: details,
-                  setPath: widget.setPath,
-                );
-              },
-              isLoading: filesSnapshot.isLoading,
-              error: filesSnapshot.error,
-              onRefresh: bloc.refresh,
-              topScrollingChildren: [
-                FilesBrowserNavigator(
-                  uri: widget.uri,
-                  bloc: widget.filesBloc,
-                  setPath: widget.setPath,
+                        return FileListTile(
+                          bloc: widget.filesBloc,
+                          browserBloc: bloc,
+                          details: details,
+                          setPath: widget.setPath,
+                        );
+                      },
+                      isLoading: filesSnapshot.isLoading,
+                      error: filesSnapshot.error,
+                      onRefresh: bloc.refresh,
+                      topScrollingChildren: [
+                        FilesBrowserNavigator(uri: widget.uri, bloc: widget.filesBloc, setPath: widget.setPath),
+                        ...?uploadingTaskTiles,
+                      ],
+                    );
+                  },
                 ),
-                ...?uploadingTaskTiles,
-              ],
-            );
-          },
-        ),
-      ),
+          ),
     );
   }
 
@@ -142,9 +134,7 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
       yield FileListTile(
         bloc: widget.filesBloc,
         browserBloc: bloc,
-        details: FileDetails.fromUploadTask(
-          task: task,
-        ),
+        details: FileDetails.fromUploadTask(task: task),
         setPath: widget.setPath,
       );
     }

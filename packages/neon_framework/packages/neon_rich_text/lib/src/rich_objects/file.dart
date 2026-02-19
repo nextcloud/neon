@@ -7,10 +7,7 @@ import 'package:nextcloud/core.dart' as core;
 /// Displays a file from a rich object.
 class NeonRichObjectFile extends StatelessWidget {
   /// Creates a new Neon rich object file.
-  const NeonRichObjectFile({
-    required this.parameter,
-    super.key,
-  });
+  const NeonRichObjectFile({required this.parameter, super.key});
 
   /// The parameter to display.
   final core.RichObjectParameter parameter;
@@ -27,10 +24,7 @@ class NeonRichObjectFile extends StatelessWidget {
         var deviceSize = Size(-1, maxSize.height / devicePixelRatio);
 
         if (parameter.width != null && parameter.height != null) {
-          deviceSize = Size(
-            double.parse(parameter.width!),
-            double.parse(parameter.height!),
-          );
+          deviceSize = Size(double.parse(parameter.width!), double.parse(parameter.height!));
 
           // Convert to logical pixels
           logicalSize = deviceSize / devicePixelRatio;
@@ -64,42 +58,30 @@ class NeonRichObjectFile extends StatelessWidget {
             blurHash: parameter.blurhash,
             etag: parameter.etag,
             expires: null,
-            getRequest: (client) => client.core.preview.$getPreviewByFileId_Request(
-              fileId: int.parse(parameter.id),
-              x: deviceSize.width.toInt(),
-              y: deviceSize.height.toInt(),
-              a: core.PreviewGetPreviewByFileIdA.$1,
-              mimeFallback: core.PreviewGetPreviewByFileIdMimeFallback.$1,
-            ),
+            getRequest:
+                (client) => client.core.preview.$getPreviewByFileId_Request(
+                  fileId: int.parse(parameter.id),
+                  x: deviceSize.width.toInt(),
+                  y: deviceSize.height.toInt(),
+                  a: core.PreviewGetPreviewByFileIdA.$1,
+                  mimeFallback: core.PreviewGetPreviewByFileIdMimeFallback.$1,
+                ),
           );
         }
 
         image = ConstrainedBox(
-          constraints: logicalSize != null
-              ? BoxConstraints.tight(logicalSize)
-              : BoxConstraints(
-                  minHeight: 100,
-                  maxHeight: maxSize.height,
-                  minWidth: 100,
-                  maxWidth: maxSize.width,
-                ),
+          constraints:
+              logicalSize != null
+                  ? BoxConstraints.tight(logicalSize)
+                  : BoxConstraints(minHeight: 100, maxHeight: maxSize.height, minWidth: 100, maxWidth: maxSize.width),
           child: image,
         );
 
         if (parameter.previewAvailable == 'yes') {
-          return Tooltip(
-            message: parameter.name,
-            child: image,
-          );
+          return Tooltip(message: parameter.name, child: image);
         }
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            image,
-            Text(parameter.name),
-          ],
-        );
+        return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [image, Text(parameter.name)]);
       },
     );
 

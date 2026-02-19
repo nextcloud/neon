@@ -27,16 +27,16 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, GetHeaders> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: const FullType(GetHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: const FullType(GetHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [$get] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -121,11 +121,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getWithContent_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, GetWithContentHeaders> $getWithContent_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: const FullType(GetWithContentHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: const FullType(GetWithContentHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getWithContent] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -327,14 +327,15 @@ abstract class GetWithContentHeaders
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
-      ..add(GetHeaders.serializer)
-      ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
-      ..add(WithContentOperationIdHeaders.serializer)
-      ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeadersBuilder.new)
-      ..add(GetWithContentHeaders.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(GetHeaders), GetHeadersBuilder.new)
+          ..add(GetHeaders.serializer)
+          ..addBuilderFactory(const FullType(WithContentOperationIdHeaders), WithContentOperationIdHeadersBuilder.new)
+          ..add(WithContentOperationIdHeaders.serializer)
+          ..addBuilderFactory(const FullType(GetWithContentHeaders), GetWithContentHeadersBuilder.new)
+          ..add(GetWithContentHeaders.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -342,10 +343,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i4.DynamiteDoubleSerializer())
-      ..addPlugin(_i5.StandardJsonPlugin())
-      ..addPlugin(const _i4.HeaderPlugin())
-      ..addPlugin(const _i4.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i4.DynamiteDoubleSerializer())
+          ..addPlugin(_i5.StandardJsonPlugin())
+          ..addPlugin(const _i4.HeaderPlugin())
+          ..addPlugin(const _i4.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -28,19 +28,11 @@ TypeResult resolveSomeOf(State state, json_schema.JsonSchema schema) {
     case json_schema.JsonSchema(:final oneOf) when oneOf != null:
       final subResults = resolveSubTypes(oneOf);
 
-      result = TypeResultOneOf(
-        identifier,
-        nullable: schema.nullable,
-        subTypes: subResults,
-      );
+      result = TypeResultOneOf(identifier, nullable: schema.nullable, subTypes: subResults);
     case json_schema.JsonSchema(:final anyOf) when anyOf != null:
       final subResults = resolveSubTypes(anyOf);
 
-      result = TypeResultAnyOf(
-        identifier,
-        nullable: schema.nullable,
-        subTypes: subResults,
-      );
+      result = TypeResultAnyOf(identifier, nullable: schema.nullable, subTypes: subResults);
     default:
       throw StateError('allOf should be handled with inheritance');
   }

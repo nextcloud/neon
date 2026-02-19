@@ -18,11 +18,7 @@ extension CoreVersionCheck on core.$Client {
   ///
   /// Also returns the minimum supported version
   VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
-    final version = Version(
-      capabilities.version.major,
-      capabilities.version.minor,
-      capabilities.version.micro,
-    );
+    final version = Version(capabilities.version.major, capabilities.version.minor, capabilities.version.micro);
     return VersionCheck(
       versions: BuiltList([version]),
       minimumVersion: minVersion,
@@ -34,10 +30,10 @@ extension CoreVersionCheck on core.$Client {
 extension CoreStatusVersionCheck on core.Status {
   /// Check if the core/Server version is supported
   VersionCheck get versionCheck => VersionCheck(
-        versions: BuiltList([Version.parse(version)]),
-        minimumVersion: minVersion,
-        isSupportedOverride: _isDevelopmentServerVersion(versionstring) ? true : null,
-      );
+    versions: BuiltList([Version.parse(version)]),
+    minimumVersion: minVersion,
+    isSupportedOverride: _isDevelopmentServerVersion(versionstring) ? true : null,
+  );
 }
 
 // https://github.com/nextcloud/server/blob/master/lib/public/Share/IShare.php

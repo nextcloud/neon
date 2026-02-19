@@ -46,12 +46,12 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
   final String wireName = 'Object2';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Object2 object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Object2 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.tag;
     if (value != null) {
@@ -63,8 +63,11 @@ class _$Object2Serializer implements StructuredSerializer<Object2> {
   }
 
   @override
-  Object2 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Object2 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Object2Builder();
 
     final iterator = serialized.iterator;
@@ -93,8 +96,11 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
   final String wireName = 'Object1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Object1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Object1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -112,8 +118,11 @@ class _$Object1Serializer implements StructuredSerializer<Object1> {
   }
 
   @override
-  Object1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Object1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Object1Builder();
 
     final iterator = serialized.iterator;
@@ -143,14 +152,17 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     NonRootClientSetModeRequestApplicationJson,
-    _$NonRootClientSetModeRequestApplicationJson
+    _$NonRootClientSetModeRequestApplicationJson,
   ];
   @override
   final String wireName = 'NonRootClientSetModeRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, NonRootClientSetModeRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    NonRootClientSetModeRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.test;
@@ -163,8 +175,11 @@ class _$NonRootClientSetModeRequestApplicationJsonSerializer
   }
 
   @override
-  NonRootClientSetModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  NonRootClientSetModeRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = NonRootClientSetModeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -190,8 +205,11 @@ class _$Object4Serializer implements StructuredSerializer<Object4> {
   final String wireName = 'Object4';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Object4 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Object4 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.html;
@@ -222,8 +240,11 @@ class _$Object4Serializer implements StructuredSerializer<Object4> {
   }
 
   @override
-  Object4 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Object4 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Object4Builder();
 
     final iterator = serialized.iterator;
@@ -341,11 +362,8 @@ class Object2Builder implements Builder<Object2, Object2Builder>, $Object2Interf
 
   _$Object2 _build() {
     Object2._validate(this);
-    final _$result = _$v ??
-        _$Object2._(
-          name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'),
-          tag: tag,
-        );
+    final _$result =
+        _$v ?? _$Object2._(name: BuiltValueNullFieldError.checkNotNull(name, r'Object2', 'name'), tag: tag);
     replace(_$result);
     return _$result;
   }
@@ -452,7 +470,8 @@ class Object1Builder implements Builder<Object1, Object1Builder>, $Object1Interf
 
   _$Object1 _build() {
     Object1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Object1._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Object1', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Object1', 'name'),
@@ -474,15 +493,15 @@ class _$NonRootClientSetModeRequestApplicationJson extends NonRootClientSetModeR
   @override
   final String? test;
 
-  factory _$NonRootClientSetModeRequestApplicationJson(
-          [void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates]) =>
-      (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$NonRootClientSetModeRequestApplicationJson([
+    void Function(NonRootClientSetModeRequestApplicationJsonBuilder)? updates,
+  ]) => (NonRootClientSetModeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$NonRootClientSetModeRequestApplicationJson._({this.test}) : super._();
   @override
   NonRootClientSetModeRequestApplicationJson rebuild(
-          void Function(NonRootClientSetModeRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(NonRootClientSetModeRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   NonRootClientSetModeRequestApplicationJsonBuilder toBuilder() =>
@@ -546,10 +565,7 @@ class NonRootClientSetModeRequestApplicationJsonBuilder
 
   _$NonRootClientSetModeRequestApplicationJson _build() {
     NonRootClientSetModeRequestApplicationJson._validate(this);
-    final _$result = _$v ??
-        _$NonRootClientSetModeRequestApplicationJson._(
-          test: test,
-        );
+    final _$result = _$v ?? _$NonRootClientSetModeRequestApplicationJson._(test: test);
     replace(_$result);
     return _$result;
   }
@@ -584,7 +600,7 @@ class _$Object4 extends Object4 {
   factory _$Object4([void Function(Object4Builder)? updates]) => (Object4Builder()..update(updates))._build();
 
   _$Object4._({this.html, this.htmlInCodeblock, this.htmlAfterCodeBlock, this.htmlInCodeBlockAfterCodeBlock})
-      : super._();
+    : super._();
   @override
   Object4 rebuild(void Function(Object4Builder) updates) => (toBuilder()..update(updates)).build();
 
@@ -674,7 +690,8 @@ class Object4Builder implements Builder<Object4, Object4Builder>, $Object4Interf
 
   _$Object4 _build() {
     Object4._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Object4._(
           html: html,
           htmlInCodeblock: htmlInCodeblock,

@@ -6,10 +6,12 @@ part of 'terms_of_service.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const AdminFormData_TosOnPublicShares _$adminFormDataTosOnPublicShares$0 =
-    const AdminFormData_TosOnPublicShares._('\$0');
-const AdminFormData_TosOnPublicShares _$adminFormDataTosOnPublicShares$1 =
-    const AdminFormData_TosOnPublicShares._('\$1');
+const AdminFormData_TosOnPublicShares _$adminFormDataTosOnPublicShares$0 = const AdminFormData_TosOnPublicShares._(
+  '\$0',
+);
+const AdminFormData_TosOnPublicShares _$adminFormDataTosOnPublicShares$1 = const AdminFormData_TosOnPublicShares._(
+  '\$1',
+);
 
 AdminFormData_TosOnPublicShares _$valueOfAdminFormData_TosOnPublicShares(String name) {
   switch (name) {
@@ -24,9 +26,9 @@ AdminFormData_TosOnPublicShares _$valueOfAdminFormData_TosOnPublicShares(String 
 
 final BuiltSet<AdminFormData_TosOnPublicShares> _$adminFormDataTosOnPublicSharesValues =
     BuiltSet<AdminFormData_TosOnPublicShares>(const <AdminFormData_TosOnPublicShares>[
-  _$adminFormDataTosOnPublicShares$0,
-  _$adminFormDataTosOnPublicShares$1,
-]);
+      _$adminFormDataTosOnPublicShares$0,
+      _$adminFormDataTosOnPublicShares$1,
+    ]);
 
 const AdminFormData_TosForUsers _$adminFormDataTosForUsers$0 = const AdminFormData_TosForUsers._('\$0');
 const AdminFormData_TosForUsers _$adminFormDataTosForUsers$1 = const AdminFormData_TosForUsers._('\$1');
@@ -42,11 +44,9 @@ AdminFormData_TosForUsers _$valueOfAdminFormData_TosForUsers(String name) {
   }
 }
 
-final BuiltSet<AdminFormData_TosForUsers> _$adminFormDataTosForUsersValues =
-    BuiltSet<AdminFormData_TosForUsers>(const <AdminFormData_TosForUsers>[
-  _$adminFormDataTosForUsers$0,
-  _$adminFormDataTosForUsers$1,
-]);
+final BuiltSet<AdminFormData_TosForUsers> _$adminFormDataTosForUsersValues = BuiltSet<AdminFormData_TosForUsers>(
+  const <AdminFormData_TosForUsers>[_$adminFormDataTosForUsers$0, _$adminFormDataTosForUsers$1],
+);
 
 const PublicCapabilities_TermsOfService_Enabled _$publicCapabilitiesTermsOfServiceEnabled$true =
     const PublicCapabilities_TermsOfService_Enabled._('\$true');
@@ -62,8 +62,8 @@ PublicCapabilities_TermsOfService_Enabled _$valueOfPublicCapabilities_TermsOfSer
 
 final BuiltSet<PublicCapabilities_TermsOfService_Enabled> _$publicCapabilitiesTermsOfServiceEnabledValues =
     BuiltSet<PublicCapabilities_TermsOfService_Enabled>(const <PublicCapabilities_TermsOfService_Enabled>[
-  _$publicCapabilitiesTermsOfServiceEnabled$true,
-]);
+      _$publicCapabilitiesTermsOfServiceEnabled$true,
+    ]);
 
 Serializer<SigningSignTermsRequestApplicationJson> _$signingSignTermsRequestApplicationJsonSerializer =
     _$SigningSignTermsRequestApplicationJsonSerializer();
@@ -73,15 +73,15 @@ Serializer<SigningSignTermsResponseApplicationJson_Ocs> _$signingSignTermsRespon
 Serializer<SigningSignTermsResponseApplicationJson> _$signingSignTermsResponseApplicationJsonSerializer =
     _$SigningSignTermsResponseApplicationJsonSerializer();
 Serializer<SigningResetAllSignatoriesResponseApplicationJson_Ocs>
-    _$signingResetAllSignatoriesResponseApplicationJsonOcsSerializer =
+_$signingResetAllSignatoriesResponseApplicationJsonOcsSerializer =
     _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer();
 Serializer<SigningResetAllSignatoriesResponseApplicationJson>
-    _$signingResetAllSignatoriesResponseApplicationJsonSerializer =
+_$signingResetAllSignatoriesResponseApplicationJsonSerializer =
     _$SigningResetAllSignatoriesResponseApplicationJsonSerializer();
 Serializer<SigningSignTermsPublicRequestApplicationJson> _$signingSignTermsPublicRequestApplicationJsonSerializer =
     _$SigningSignTermsPublicRequestApplicationJsonSerializer();
 Serializer<SigningSignTermsPublicResponseApplicationJson_Ocs>
-    _$signingSignTermsPublicResponseApplicationJsonOcsSerializer =
+_$signingSignTermsPublicResponseApplicationJsonOcsSerializer =
     _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer();
 Serializer<SigningSignTermsPublicResponseApplicationJson> _$signingSignTermsPublicResponseApplicationJsonSerializer =
     _$SigningSignTermsPublicResponseApplicationJsonSerializer();
@@ -104,7 +104,7 @@ Serializer<TermsDestroyResponseApplicationJson> _$termsDestroyResponseApplicatio
     _$TermsDestroyResponseApplicationJsonSerializer();
 Serializer<AdminFormData> _$adminFormDataSerializer = _$AdminFormDataSerializer();
 Serializer<TermsGetAdminFormDataResponseApplicationJson_Ocs>
-    _$termsGetAdminFormDataResponseApplicationJsonOcsSerializer =
+_$termsGetAdminFormDataResponseApplicationJsonOcsSerializer =
     _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer();
 Serializer<TermsGetAdminFormDataResponseApplicationJson> _$termsGetAdminFormDataResponseApplicationJsonSerializer =
     _$TermsGetAdminFormDataResponseApplicationJsonSerializer();
@@ -120,19 +120,22 @@ class _$SigningSignTermsRequestApplicationJsonSerializer
   final String wireName = 'SigningSignTermsRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'termId',
-      serializers.serialize(object.termId, specifiedType: const FullType(int)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['termId', serializers.serialize(object.termId, specifiedType: const FullType(int))];
 
     return result;
   }
 
   @override
-  SigningSignTermsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -158,8 +161,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -189,8 +195,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -226,14 +235,17 @@ class _$SigningSignTermsResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     SigningSignTermsResponseApplicationJson_Ocs,
-    _$SigningSignTermsResponseApplicationJson_Ocs
+    _$SigningSignTermsResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'SigningSignTermsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -245,8 +257,11 @@ class _$SigningSignTermsResponseApplicationJson_OcsSerializer
   }
 
   @override
-  SigningSignTermsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -273,14 +288,17 @@ class _$SigningSignTermsResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     SigningSignTermsResponseApplicationJson,
-    _$SigningSignTermsResponseApplicationJson
+    _$SigningSignTermsResponseApplicationJson,
   ];
   @override
   final String wireName = 'SigningSignTermsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(SigningSignTermsResponseApplicationJson_Ocs)),
@@ -290,8 +308,11 @@ class _$SigningSignTermsResponseApplicationJsonSerializer
   }
 
   @override
-  SigningSignTermsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -301,9 +322,10 @@ class _$SigningSignTermsResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SigningSignTermsResponseApplicationJson_Ocs))!
-              as SigningSignTermsResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(SigningSignTermsResponseApplicationJson_Ocs))!
+                as SigningSignTermsResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -317,14 +339,17 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     SigningResetAllSignatoriesResponseApplicationJson_Ocs,
-    _$SigningResetAllSignatoriesResponseApplicationJson_Ocs
+    _$SigningResetAllSignatoriesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'SigningResetAllSignatoriesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningResetAllSignatoriesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningResetAllSignatoriesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -337,8 +362,10 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_OcsSerializer
 
   @override
   SigningResetAllSignatoriesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -365,26 +392,34 @@ class _$SigningResetAllSignatoriesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     SigningResetAllSignatoriesResponseApplicationJson,
-    _$SigningResetAllSignatoriesResponseApplicationJson
+    _$SigningResetAllSignatoriesResponseApplicationJson,
   ];
   @override
   final String wireName = 'SigningResetAllSignatoriesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningResetAllSignatoriesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningResetAllSignatoriesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  SigningResetAllSignatoriesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningResetAllSignatoriesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningResetAllSignatoriesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -394,9 +429,13 @@ class _$SigningResetAllSignatoriesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs))!
-              as SigningResetAllSignatoriesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs),
+                )!
+                as SigningResetAllSignatoriesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -410,25 +449,28 @@ class _$SigningSignTermsPublicRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     SigningSignTermsPublicRequestApplicationJson,
-    _$SigningSignTermsPublicRequestApplicationJson
+    _$SigningSignTermsPublicRequestApplicationJson,
   ];
   @override
   final String wireName = 'SigningSignTermsPublicRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsPublicRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'termId',
-      serializers.serialize(object.termId, specifiedType: const FullType(int)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsPublicRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['termId', serializers.serialize(object.termId, specifiedType: const FullType(int))];
 
     return result;
   }
 
   @override
-  SigningSignTermsPublicRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsPublicRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsPublicRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -452,14 +494,17 @@ class _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     SigningSignTermsPublicResponseApplicationJson_Ocs,
-    _$SigningSignTermsPublicResponseApplicationJson_Ocs
+    _$SigningSignTermsPublicResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'SigningSignTermsPublicResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsPublicResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsPublicResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -471,8 +516,11 @@ class _$SigningSignTermsPublicResponseApplicationJson_OcsSerializer
   }
 
   @override
-  SigningSignTermsPublicResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsPublicResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsPublicResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -499,26 +547,34 @@ class _$SigningSignTermsPublicResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     SigningSignTermsPublicResponseApplicationJson,
-    _$SigningSignTermsPublicResponseApplicationJson
+    _$SigningSignTermsPublicResponseApplicationJson,
   ];
   @override
   final String wireName = 'SigningSignTermsPublicResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, SigningSignTermsPublicResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    SigningSignTermsPublicResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  SigningSignTermsPublicResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  SigningSignTermsPublicResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = SigningSignTermsPublicResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -528,9 +584,13 @@ class _$SigningSignTermsPublicResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs))!
-              as SigningSignTermsPublicResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs),
+                )!
+                as SigningSignTermsPublicResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -564,8 +624,11 @@ class _$TermsSerializer implements StructuredSerializer<Terms> {
   }
 
   @override
-  Terms deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Terms deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsBuilder();
 
     final iterator = serialized.iterator;
@@ -601,20 +664,25 @@ class _$TermsIndexResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     TermsIndexResponseApplicationJson_Ocs_Data,
-    _$TermsIndexResponseApplicationJson_Ocs_Data
+    _$TermsIndexResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'TermsIndexResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsIndexResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsIndexResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'terms',
       serializers.serialize(object.terms, specifiedType: const FullType(BuiltList, const [const FullType(Terms)])),
       'languages',
-      serializers.serialize(object.languages,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])),
+      serializers.serialize(
+        object.languages,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+      ),
       'hasSigned',
       serializers.serialize(object.hasSigned, specifiedType: const FullType(bool)),
     ];
@@ -623,8 +691,11 @@ class _$TermsIndexResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  TermsIndexResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsIndexResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsIndexResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -634,12 +705,18 @@ class _$TermsIndexResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'terms':
-          result.terms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Terms)]))! as BuiltList<Object?>);
+          result.terms.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Terms)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'languages':
-          result.languages.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.languages.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'hasSigned':
           result.hasSigned = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -659,8 +736,11 @@ class _$TermsIndexResponseApplicationJson_OcsSerializer
   final String wireName = 'TermsIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -672,8 +752,11 @@ class _$TermsIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TermsIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -687,8 +770,9 @@ class _$TermsIndexResponseApplicationJson_OcsSerializer
           break;
         case 'data':
           result.data.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TermsIndexResponseApplicationJson_Ocs_Data))!
-                  as TermsIndexResponseApplicationJson_Ocs_Data);
+            serializers.deserialize(value, specifiedType: const FullType(TermsIndexResponseApplicationJson_Ocs_Data))!
+                as TermsIndexResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -704,8 +788,11 @@ class _$TermsIndexResponseApplicationJsonSerializer implements StructuredSeriali
   final String wireName = 'TermsIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TermsIndexResponseApplicationJson_Ocs)),
@@ -715,8 +802,11 @@ class _$TermsIndexResponseApplicationJsonSerializer implements StructuredSeriali
   }
 
   @override
-  TermsIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -727,8 +817,9 @@ class _$TermsIndexResponseApplicationJsonSerializer implements StructuredSeriali
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TermsIndexResponseApplicationJson_Ocs))!
-                  as TermsIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TermsIndexResponseApplicationJson_Ocs))!
+                as TermsIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -744,8 +835,11 @@ class _$TermsCreateRequestApplicationJsonSerializer implements StructuredSeriali
   final String wireName = 'TermsCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'countryCode',
       serializers.serialize(object.countryCode, specifiedType: const FullType(String)),
@@ -759,8 +853,11 @@ class _$TermsCreateRequestApplicationJsonSerializer implements StructuredSeriali
   }
 
   @override
-  TermsCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -793,8 +890,11 @@ class _$TermsCreateResponseApplicationJson_OcsSerializer
   final String wireName = 'TermsCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -806,8 +906,11 @@ class _$TermsCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TermsCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -837,8 +940,11 @@ class _$TermsCreateResponseApplicationJsonSerializer
   final String wireName = 'TermsCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TermsCreateResponseApplicationJson_Ocs)),
@@ -848,8 +954,11 @@ class _$TermsCreateResponseApplicationJsonSerializer
   }
 
   @override
-  TermsCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -860,8 +969,9 @@ class _$TermsCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TermsCreateResponseApplicationJson_Ocs))!
-                  as TermsCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TermsCreateResponseApplicationJson_Ocs))!
+                as TermsCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -875,14 +985,17 @@ class _$TermsDestroyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TermsDestroyResponseApplicationJson_Ocs,
-    _$TermsDestroyResponseApplicationJson_Ocs
+    _$TermsDestroyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TermsDestroyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsDestroyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsDestroyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -894,8 +1007,11 @@ class _$TermsDestroyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TermsDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsDestroyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -925,8 +1041,11 @@ class _$TermsDestroyResponseApplicationJsonSerializer
   final String wireName = 'TermsDestroyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsDestroyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsDestroyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(TermsDestroyResponseApplicationJson_Ocs)),
@@ -936,8 +1055,11 @@ class _$TermsDestroyResponseApplicationJsonSerializer
   }
 
   @override
-  TermsDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsDestroyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -948,8 +1070,9 @@ class _$TermsDestroyResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(TermsDestroyResponseApplicationJson_Ocs))!
-                  as TermsDestroyResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(TermsDestroyResponseApplicationJson_Ocs))!
+                as TermsDestroyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -965,18 +1088,27 @@ class _$AdminFormDataSerializer implements StructuredSerializer<AdminFormData> {
   final String wireName = 'AdminFormData';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, AdminFormData object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    AdminFormData object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'terms',
-      serializers.serialize(object.terms,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Terms)])),
+      serializers.serialize(
+        object.terms,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Terms)]),
+      ),
       'countries',
-      serializers.serialize(object.countries,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])),
+      serializers.serialize(
+        object.countries,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+      ),
       'languages',
-      serializers.serialize(object.languages,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)])),
+      serializers.serialize(
+        object.languages,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+      ),
       'tos_on_public_shares',
       serializers.serialize(object.tosOnPublicShares, specifiedType: const FullType(AdminFormData_TosOnPublicShares)),
       'tos_for_users',
@@ -987,8 +1119,11 @@ class _$AdminFormDataSerializer implements StructuredSerializer<AdminFormData> {
   }
 
   @override
-  AdminFormData deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  AdminFormData deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = AdminFormDataBuilder();
 
     final iterator = serialized.iterator;
@@ -998,24 +1133,38 @@ class _$AdminFormDataSerializer implements StructuredSerializer<AdminFormData> {
       final Object? value = iterator.current;
       switch (key) {
         case 'terms':
-          result.terms.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Terms)]))!);
+          result.terms.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Terms)]),
+            )!,
+          );
           break;
         case 'countries':
-          result.countries.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.countries.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'languages':
-          result.languages.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]))!);
+          result.languages.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(String)]),
+            )!,
+          );
           break;
         case 'tos_on_public_shares':
-          result.tosOnPublicShares = serializers.deserialize(value,
-              specifiedType: const FullType(AdminFormData_TosOnPublicShares))! as AdminFormData_TosOnPublicShares;
+          result.tosOnPublicShares =
+              serializers.deserialize(value, specifiedType: const FullType(AdminFormData_TosOnPublicShares))!
+                  as AdminFormData_TosOnPublicShares;
           break;
         case 'tos_for_users':
-          result.tosForUsers = serializers.deserialize(value, specifiedType: const FullType(AdminFormData_TosForUsers))!
-              as AdminFormData_TosForUsers;
+          result.tosForUsers =
+              serializers.deserialize(value, specifiedType: const FullType(AdminFormData_TosForUsers))!
+                  as AdminFormData_TosForUsers;
           break;
       }
     }
@@ -1029,14 +1178,17 @@ class _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     TermsGetAdminFormDataResponseApplicationJson_Ocs,
-    _$TermsGetAdminFormDataResponseApplicationJson_Ocs
+    _$TermsGetAdminFormDataResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'TermsGetAdminFormDataResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsGetAdminFormDataResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsGetAdminFormDataResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -1048,8 +1200,11 @@ class _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer
   }
 
   @override
-  TermsGetAdminFormDataResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsGetAdminFormDataResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsGetAdminFormDataResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1062,8 +1217,9 @@ class _$TermsGetAdminFormDataResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data
-              .replace(serializers.deserialize(value, specifiedType: const FullType(AdminFormData))! as AdminFormData);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(AdminFormData))! as AdminFormData,
+          );
           break;
       }
     }
@@ -1077,26 +1233,34 @@ class _$TermsGetAdminFormDataResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     TermsGetAdminFormDataResponseApplicationJson,
-    _$TermsGetAdminFormDataResponseApplicationJson
+    _$TermsGetAdminFormDataResponseApplicationJson,
   ];
   @override
   final String wireName = 'TermsGetAdminFormDataResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TermsGetAdminFormDataResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TermsGetAdminFormDataResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  TermsGetAdminFormDataResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TermsGetAdminFormDataResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TermsGetAdminFormDataResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1106,9 +1270,13 @@ class _$TermsGetAdminFormDataResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs))!
-              as TermsGetAdminFormDataResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs),
+                )!
+                as TermsGetAdminFormDataResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1124,8 +1292,11 @@ class _$PublicCapabilities_TermsOfServiceSerializer implements StructuredSeriali
   final String wireName = 'PublicCapabilities_TermsOfService';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PublicCapabilities_TermsOfService object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PublicCapabilities_TermsOfService object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(PublicCapabilities_TermsOfService_Enabled)),
@@ -1137,8 +1308,11 @@ class _$PublicCapabilities_TermsOfServiceSerializer implements StructuredSeriali
   }
 
   @override
-  PublicCapabilities_TermsOfService deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PublicCapabilities_TermsOfService deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PublicCapabilities_TermsOfServiceBuilder();
 
     final iterator = serialized.iterator;
@@ -1169,8 +1343,11 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   final String wireName = 'PublicCapabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PublicCapabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PublicCapabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'terms_of_service',
       serializers.serialize(object.termsOfService, specifiedType: const FullType(PublicCapabilities_TermsOfService)),
@@ -1180,8 +1357,11 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
   }
 
   @override
-  PublicCapabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PublicCapabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PublicCapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -1191,8 +1371,10 @@ class _$PublicCapabilitiesSerializer implements StructuredSerializer<PublicCapab
       final Object? value = iterator.current;
       switch (key) {
         case 'terms_of_service':
-          result.termsOfService.replace(serializers.deserialize(value,
-              specifiedType: const FullType(PublicCapabilities_TermsOfService))! as PublicCapabilities_TermsOfService);
+          result.termsOfService.replace(
+            serializers.deserialize(value, specifiedType: const FullType(PublicCapabilities_TermsOfService))!
+                as PublicCapabilities_TermsOfService,
+          );
           break;
       }
     }
@@ -1212,15 +1394,15 @@ class _$SigningSignTermsRequestApplicationJson extends SigningSignTermsRequestAp
   @override
   final int termId;
 
-  factory _$SigningSignTermsRequestApplicationJson(
-          [void Function(SigningSignTermsRequestApplicationJsonBuilder)? updates]) =>
-      (SigningSignTermsRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$SigningSignTermsRequestApplicationJson([
+    void Function(SigningSignTermsRequestApplicationJsonBuilder)? updates,
+  ]) => (SigningSignTermsRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$SigningSignTermsRequestApplicationJson._({required this.termId}) : super._();
   @override
   SigningSignTermsRequestApplicationJson rebuild(
-          void Function(SigningSignTermsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsRequestApplicationJsonBuilder toBuilder() =>
@@ -1284,7 +1466,8 @@ class SigningSignTermsRequestApplicationJsonBuilder
 
   _$SigningSignTermsRequestApplicationJson _build() {
     SigningSignTermsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SigningSignTermsRequestApplicationJson._(
           termId: BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsRequestApplicationJson', 'termId'),
         );
@@ -1327,7 +1510,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1424,7 +1607,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -1453,15 +1637,15 @@ class _$SigningSignTermsResponseApplicationJson_Ocs extends SigningSignTermsResp
   @override
   final JsonObject data;
 
-  factory _$SigningSignTermsResponseApplicationJson_Ocs(
-          [void Function(SigningSignTermsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SigningSignTermsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$SigningSignTermsResponseApplicationJson_Ocs([
+    void Function(SigningSignTermsResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (SigningSignTermsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$SigningSignTermsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningSignTermsResponseApplicationJson_Ocs rebuild(
-          void Function(SigningSignTermsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1536,7 +1720,8 @@ class SigningSignTermsResponseApplicationJson_OcsBuilder
     SigningSignTermsResponseApplicationJson_Ocs._validate(this);
     _$SigningSignTermsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$SigningSignTermsResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'SigningSignTermsResponseApplicationJson_Ocs', 'data'),
@@ -1567,15 +1752,15 @@ class _$SigningSignTermsResponseApplicationJson extends SigningSignTermsResponse
   @override
   final SigningSignTermsResponseApplicationJson_Ocs ocs;
 
-  factory _$SigningSignTermsResponseApplicationJson(
-          [void Function(SigningSignTermsResponseApplicationJsonBuilder)? updates]) =>
-      (SigningSignTermsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SigningSignTermsResponseApplicationJson([
+    void Function(SigningSignTermsResponseApplicationJsonBuilder)? updates,
+  ]) => (SigningSignTermsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SigningSignTermsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningSignTermsResponseApplicationJson rebuild(
-          void Function(SigningSignTermsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsResponseApplicationJsonBuilder toBuilder() =>
@@ -1642,10 +1827,7 @@ class SigningSignTermsResponseApplicationJsonBuilder
     SigningSignTermsResponseApplicationJson._validate(this);
     _$SigningSignTermsResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$SigningSignTermsResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$SigningSignTermsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1678,15 +1860,15 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_Ocs
   @override
   final JsonObject data;
 
-  factory _$SigningResetAllSignatoriesResponseApplicationJson_Ocs(
-          [void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$SigningResetAllSignatoriesResponseApplicationJson_Ocs([
+    void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningResetAllSignatoriesResponseApplicationJson_Ocs rebuild(
-          void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1718,8 +1900,10 @@ class _$SigningResetAllSignatoriesResponseApplicationJson_Ocs
 
 class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
     implements
-        Builder<SigningResetAllSignatoriesResponseApplicationJson_Ocs,
-            SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          SigningResetAllSignatoriesResponseApplicationJson_Ocs,
+          SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
+        >,
         $SigningResetAllSignatoriesResponseApplicationJson_OcsInterfaceBuilder {
   _$SigningResetAllSignatoriesResponseApplicationJson_Ocs? _$v;
 
@@ -1762,11 +1946,15 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
     SigningResetAllSignatoriesResponseApplicationJson_Ocs._validate(this);
     _$SigningResetAllSignatoriesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$SigningResetAllSignatoriesResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'SigningResetAllSignatoriesResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -1775,7 +1963,10 @@ class SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'SigningResetAllSignatoriesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'SigningResetAllSignatoriesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -1795,15 +1986,15 @@ class _$SigningResetAllSignatoriesResponseApplicationJson extends SigningResetAl
   @override
   final SigningResetAllSignatoriesResponseApplicationJson_Ocs ocs;
 
-  factory _$SigningResetAllSignatoriesResponseApplicationJson(
-          [void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder)? updates]) =>
-      (SigningResetAllSignatoriesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SigningResetAllSignatoriesResponseApplicationJson([
+    void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder)? updates,
+  ]) => (SigningResetAllSignatoriesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SigningResetAllSignatoriesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningResetAllSignatoriesResponseApplicationJson rebuild(
-          void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningResetAllSignatoriesResponseApplicationJsonBuilder toBuilder() =>
@@ -1825,15 +2016,17 @@ class _$SigningResetAllSignatoriesResponseApplicationJson extends SigningResetAl
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SigningResetAllSignatoriesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SigningResetAllSignatoriesResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class SigningResetAllSignatoriesResponseApplicationJsonBuilder
     implements
-        Builder<SigningResetAllSignatoriesResponseApplicationJson,
-            SigningResetAllSignatoriesResponseApplicationJsonBuilder>,
+        Builder<
+          SigningResetAllSignatoriesResponseApplicationJson,
+          SigningResetAllSignatoriesResponseApplicationJsonBuilder
+        >,
         $SigningResetAllSignatoriesResponseApplicationJsonInterfaceBuilder {
   _$SigningResetAllSignatoriesResponseApplicationJson? _$v;
 
@@ -1872,10 +2065,7 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
     SigningResetAllSignatoriesResponseApplicationJson._validate(this);
     _$SigningResetAllSignatoriesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$SigningResetAllSignatoriesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$SigningResetAllSignatoriesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1883,7 +2073,10 @@ class SigningResetAllSignatoriesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'SigningResetAllSignatoriesResponseApplicationJson', _$failedField, e.toString());
+          r'SigningResetAllSignatoriesResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -1903,15 +2096,15 @@ class _$SigningSignTermsPublicRequestApplicationJson extends SigningSignTermsPub
   @override
   final int termId;
 
-  factory _$SigningSignTermsPublicRequestApplicationJson(
-          [void Function(SigningSignTermsPublicRequestApplicationJsonBuilder)? updates]) =>
-      (SigningSignTermsPublicRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$SigningSignTermsPublicRequestApplicationJson([
+    void Function(SigningSignTermsPublicRequestApplicationJsonBuilder)? updates,
+  ]) => (SigningSignTermsPublicRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$SigningSignTermsPublicRequestApplicationJson._({required this.termId}) : super._();
   @override
   SigningSignTermsPublicRequestApplicationJson rebuild(
-          void Function(SigningSignTermsPublicRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsPublicRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsPublicRequestApplicationJsonBuilder toBuilder() =>
@@ -1933,8 +2126,8 @@ class _$SigningSignTermsPublicRequestApplicationJson extends SigningSignTermsPub
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SigningSignTermsPublicRequestApplicationJson')..add('termId', termId))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SigningSignTermsPublicRequestApplicationJson')
+      ..add('termId', termId)).toString();
   }
 }
 
@@ -1976,10 +2169,14 @@ class SigningSignTermsPublicRequestApplicationJsonBuilder
 
   _$SigningSignTermsPublicRequestApplicationJson _build() {
     SigningSignTermsPublicRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$SigningSignTermsPublicRequestApplicationJson._(
-          termId:
-              BuiltValueNullFieldError.checkNotNull(termId, r'SigningSignTermsPublicRequestApplicationJson', 'termId'),
+          termId: BuiltValueNullFieldError.checkNotNull(
+            termId,
+            r'SigningSignTermsPublicRequestApplicationJson',
+            'termId',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -2002,15 +2199,15 @@ class _$SigningSignTermsPublicResponseApplicationJson_Ocs extends SigningSignTer
   @override
   final JsonObject data;
 
-  factory _$SigningSignTermsPublicResponseApplicationJson_Ocs(
-          [void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder)? updates]) =>
-      (SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$SigningSignTermsPublicResponseApplicationJson_Ocs([
+    void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (SigningSignTermsPublicResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$SigningSignTermsPublicResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   SigningSignTermsPublicResponseApplicationJson_Ocs rebuild(
-          void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsPublicResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2042,8 +2239,10 @@ class _$SigningSignTermsPublicResponseApplicationJson_Ocs extends SigningSignTer
 
 class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
     implements
-        Builder<SigningSignTermsPublicResponseApplicationJson_Ocs,
-            SigningSignTermsPublicResponseApplicationJson_OcsBuilder>,
+        Builder<
+          SigningSignTermsPublicResponseApplicationJson_Ocs,
+          SigningSignTermsPublicResponseApplicationJson_OcsBuilder
+        >,
         $SigningSignTermsPublicResponseApplicationJson_OcsInterfaceBuilder {
   _$SigningSignTermsPublicResponseApplicationJson_Ocs? _$v;
 
@@ -2086,11 +2285,15 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
     SigningSignTermsPublicResponseApplicationJson_Ocs._validate(this);
     _$SigningSignTermsPublicResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$SigningSignTermsPublicResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(
-                data, r'SigningSignTermsPublicResponseApplicationJson_Ocs', 'data'),
+              data,
+              r'SigningSignTermsPublicResponseApplicationJson_Ocs',
+              'data',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -2099,7 +2302,10 @@ class SigningSignTermsPublicResponseApplicationJson_OcsBuilder
         meta.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'SigningSignTermsPublicResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'SigningSignTermsPublicResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2119,15 +2325,15 @@ class _$SigningSignTermsPublicResponseApplicationJson extends SigningSignTermsPu
   @override
   final SigningSignTermsPublicResponseApplicationJson_Ocs ocs;
 
-  factory _$SigningSignTermsPublicResponseApplicationJson(
-          [void Function(SigningSignTermsPublicResponseApplicationJsonBuilder)? updates]) =>
-      (SigningSignTermsPublicResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$SigningSignTermsPublicResponseApplicationJson([
+    void Function(SigningSignTermsPublicResponseApplicationJsonBuilder)? updates,
+  ]) => (SigningSignTermsPublicResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$SigningSignTermsPublicResponseApplicationJson._({required this.ocs}) : super._();
   @override
   SigningSignTermsPublicResponseApplicationJson rebuild(
-          void Function(SigningSignTermsPublicResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SigningSignTermsPublicResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SigningSignTermsPublicResponseApplicationJsonBuilder toBuilder() =>
@@ -2194,10 +2400,7 @@ class SigningSignTermsPublicResponseApplicationJsonBuilder
     SigningSignTermsPublicResponseApplicationJson._validate(this);
     _$SigningSignTermsPublicResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$SigningSignTermsPublicResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$SigningSignTermsPublicResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2246,13 +2449,13 @@ class _$Terms extends Terms {
 
   factory _$Terms([void Function(TermsBuilder)? updates]) => (TermsBuilder()..update(updates))._build();
 
-  _$Terms._(
-      {required this.id,
-      required this.countryCode,
-      required this.languageCode,
-      required this.body,
-      required this.renderedBody})
-      : super._();
+  _$Terms._({
+    required this.id,
+    required this.countryCode,
+    required this.languageCode,
+    required this.body,
+    required this.renderedBody,
+  }) : super._();
   @override
   Terms rebuild(void Function(TermsBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2349,7 +2552,8 @@ class TermsBuilder implements Builder<Terms, TermsBuilder>, $TermsInterfaceBuild
 
   _$Terms _build() {
     Terms._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Terms._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Terms', 'id'),
           countryCode: BuiltValueNullFieldError.checkNotNull(countryCode, r'Terms', 'countryCode'),
@@ -2383,17 +2587,19 @@ class _$TermsIndexResponseApplicationJson_Ocs_Data extends TermsIndexResponseApp
   @override
   final bool hasSigned;
 
-  factory _$TermsIndexResponseApplicationJson_Ocs_Data(
-          [void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (TermsIndexResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$TermsIndexResponseApplicationJson_Ocs_Data([
+    void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (TermsIndexResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
-  _$TermsIndexResponseApplicationJson_Ocs_Data._(
-      {required this.terms, required this.languages, required this.hasSigned})
-      : super._();
+  _$TermsIndexResponseApplicationJson_Ocs_Data._({
+    required this.terms,
+    required this.languages,
+    required this.hasSigned,
+  }) : super._();
   @override
   TermsIndexResponseApplicationJson_Ocs_Data rebuild(
-          void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TermsIndexResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TermsIndexResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -2478,12 +2684,16 @@ class TermsIndexResponseApplicationJson_Ocs_DataBuilder
     TermsIndexResponseApplicationJson_Ocs_Data._validate(this);
     _$TermsIndexResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TermsIndexResponseApplicationJson_Ocs_Data._(
             terms: terms.build(),
             languages: languages.build(),
             hasSigned: BuiltValueNullFieldError.checkNotNull(
-                hasSigned, r'TermsIndexResponseApplicationJson_Ocs_Data', 'hasSigned'),
+              hasSigned,
+              r'TermsIndexResponseApplicationJson_Ocs_Data',
+              'hasSigned',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -2518,9 +2728,9 @@ class _$TermsIndexResponseApplicationJson_Ocs extends TermsIndexResponseApplicat
   @override
   final TermsIndexResponseApplicationJson_Ocs_Data data;
 
-  factory _$TermsIndexResponseApplicationJson_Ocs(
-          [void Function(TermsIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TermsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TermsIndexResponseApplicationJson_Ocs([
+    void Function(TermsIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TermsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TermsIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
@@ -2601,11 +2811,7 @@ class TermsIndexResponseApplicationJson_OcsBuilder
     TermsIndexResponseApplicationJson_Ocs._validate(this);
     _$TermsIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TermsIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TermsIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2706,10 +2912,7 @@ class TermsIndexResponseApplicationJsonBuilder
     TermsIndexResponseApplicationJson._validate(this);
     _$TermsIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TermsIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TermsIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2750,7 +2953,7 @@ class _$TermsCreateRequestApplicationJson extends TermsCreateRequestApplicationJ
       (TermsCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$TermsCreateRequestApplicationJson._({required this.countryCode, required this.languageCode, required this.body})
-      : super._();
+    : super._();
   @override
   TermsCreateRequestApplicationJson rebuild(void Function(TermsCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -2835,12 +3038,19 @@ class TermsCreateRequestApplicationJsonBuilder
 
   _$TermsCreateRequestApplicationJson _build() {
     TermsCreateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$TermsCreateRequestApplicationJson._(
-          countryCode:
-              BuiltValueNullFieldError.checkNotNull(countryCode, r'TermsCreateRequestApplicationJson', 'countryCode'),
-          languageCode:
-              BuiltValueNullFieldError.checkNotNull(languageCode, r'TermsCreateRequestApplicationJson', 'languageCode'),
+          countryCode: BuiltValueNullFieldError.checkNotNull(
+            countryCode,
+            r'TermsCreateRequestApplicationJson',
+            'countryCode',
+          ),
+          languageCode: BuiltValueNullFieldError.checkNotNull(
+            languageCode,
+            r'TermsCreateRequestApplicationJson',
+            'languageCode',
+          ),
           body: BuiltValueNullFieldError.checkNotNull(body, r'TermsCreateRequestApplicationJson', 'body'),
         );
     replace(_$result);
@@ -2864,15 +3074,15 @@ class _$TermsCreateResponseApplicationJson_Ocs extends TermsCreateResponseApplic
   @override
   final Terms data;
 
-  factory _$TermsCreateResponseApplicationJson_Ocs(
-          [void Function(TermsCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TermsCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TermsCreateResponseApplicationJson_Ocs([
+    void Function(TermsCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TermsCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TermsCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsCreateResponseApplicationJson_Ocs rebuild(
-          void Function(TermsCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TermsCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TermsCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2947,11 +3157,7 @@ class TermsCreateResponseApplicationJson_OcsBuilder
     TermsCreateResponseApplicationJson_Ocs._validate(this);
     _$TermsCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TermsCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TermsCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3052,10 +3258,7 @@ class TermsCreateResponseApplicationJsonBuilder
     TermsCreateResponseApplicationJson._validate(this);
     _$TermsCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TermsCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TermsCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3087,15 +3290,15 @@ class _$TermsDestroyResponseApplicationJson_Ocs extends TermsDestroyResponseAppl
   @override
   final JsonObject data;
 
-  factory _$TermsDestroyResponseApplicationJson_Ocs(
-          [void Function(TermsDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TermsDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TermsDestroyResponseApplicationJson_Ocs([
+    void Function(TermsDestroyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TermsDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TermsDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsDestroyResponseApplicationJson_Ocs rebuild(
-          void Function(TermsDestroyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TermsDestroyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TermsDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3170,7 +3373,8 @@ class TermsDestroyResponseApplicationJson_OcsBuilder
     TermsDestroyResponseApplicationJson_Ocs._validate(this);
     _$TermsDestroyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TermsDestroyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'TermsDestroyResponseApplicationJson_Ocs', 'data'),
@@ -3273,10 +3477,7 @@ class TermsDestroyResponseApplicationJsonBuilder
     TermsDestroyResponseApplicationJson._validate(this);
     _$TermsDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TermsDestroyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TermsDestroyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3326,13 +3527,13 @@ class _$AdminFormData extends AdminFormData {
   factory _$AdminFormData([void Function(AdminFormDataBuilder)? updates]) =>
       (AdminFormDataBuilder()..update(updates))._build();
 
-  _$AdminFormData._(
-      {required this.terms,
-      required this.countries,
-      required this.languages,
-      required this.tosOnPublicShares,
-      required this.tosForUsers})
-      : super._();
+  _$AdminFormData._({
+    required this.terms,
+    required this.countries,
+    required this.languages,
+    required this.tosOnPublicShares,
+    required this.tosForUsers,
+  }) : super._();
   @override
   AdminFormData rebuild(void Function(AdminFormDataBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -3432,13 +3633,17 @@ class AdminFormDataBuilder implements Builder<AdminFormData, AdminFormDataBuilde
     AdminFormData._validate(this);
     _$AdminFormData _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$AdminFormData._(
             terms: terms.build(),
             countries: countries.build(),
             languages: languages.build(),
-            tosOnPublicShares:
-                BuiltValueNullFieldError.checkNotNull(tosOnPublicShares, r'AdminFormData', 'tosOnPublicShares'),
+            tosOnPublicShares: BuiltValueNullFieldError.checkNotNull(
+              tosOnPublicShares,
+              r'AdminFormData',
+              'tosOnPublicShares',
+            ),
             tosForUsers: BuiltValueNullFieldError.checkNotNull(tosForUsers, r'AdminFormData', 'tosForUsers'),
           );
     } catch (_) {
@@ -3476,15 +3681,15 @@ class _$TermsGetAdminFormDataResponseApplicationJson_Ocs extends TermsGetAdminFo
   @override
   final AdminFormData data;
 
-  factory _$TermsGetAdminFormDataResponseApplicationJson_Ocs(
-          [void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder)? updates]) =>
-      (TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$TermsGetAdminFormDataResponseApplicationJson_Ocs([
+    void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (TermsGetAdminFormDataResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$TermsGetAdminFormDataResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   TermsGetAdminFormDataResponseApplicationJson_Ocs rebuild(
-          void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TermsGetAdminFormDataResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3516,8 +3721,10 @@ class _$TermsGetAdminFormDataResponseApplicationJson_Ocs extends TermsGetAdminFo
 
 class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
     implements
-        Builder<TermsGetAdminFormDataResponseApplicationJson_Ocs,
-            TermsGetAdminFormDataResponseApplicationJson_OcsBuilder>,
+        Builder<
+          TermsGetAdminFormDataResponseApplicationJson_Ocs,
+          TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
+        >,
         $TermsGetAdminFormDataResponseApplicationJson_OcsInterfaceBuilder {
   _$TermsGetAdminFormDataResponseApplicationJson_Ocs? _$v;
 
@@ -3560,11 +3767,7 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
     TermsGetAdminFormDataResponseApplicationJson_Ocs._validate(this);
     _$TermsGetAdminFormDataResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$TermsGetAdminFormDataResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$TermsGetAdminFormDataResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3574,7 +3777,10 @@ class TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'TermsGetAdminFormDataResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'TermsGetAdminFormDataResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3594,15 +3800,15 @@ class _$TermsGetAdminFormDataResponseApplicationJson extends TermsGetAdminFormDa
   @override
   final TermsGetAdminFormDataResponseApplicationJson_Ocs ocs;
 
-  factory _$TermsGetAdminFormDataResponseApplicationJson(
-          [void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder)? updates]) =>
-      (TermsGetAdminFormDataResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$TermsGetAdminFormDataResponseApplicationJson([
+    void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder)? updates,
+  ]) => (TermsGetAdminFormDataResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$TermsGetAdminFormDataResponseApplicationJson._({required this.ocs}) : super._();
   @override
   TermsGetAdminFormDataResponseApplicationJson rebuild(
-          void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(TermsGetAdminFormDataResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   TermsGetAdminFormDataResponseApplicationJsonBuilder toBuilder() =>
@@ -3669,10 +3875,7 @@ class TermsGetAdminFormDataResponseApplicationJsonBuilder
     TermsGetAdminFormDataResponseApplicationJson._validate(this);
     _$TermsGetAdminFormDataResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$TermsGetAdminFormDataResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$TermsGetAdminFormDataResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3782,7 +3985,8 @@ class PublicCapabilities_TermsOfServiceBuilder
 
   _$PublicCapabilities_TermsOfService _build() {
     PublicCapabilities_TermsOfService._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$PublicCapabilities_TermsOfService._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'PublicCapabilities_TermsOfService', 'enabled'),
           termUuid: BuiltValueNullFieldError.checkNotNull(termUuid, r'PublicCapabilities_TermsOfService', 'termUuid'),
@@ -3874,10 +4078,7 @@ class PublicCapabilitiesBuilder
     PublicCapabilities._validate(this);
     _$PublicCapabilities _$result;
     try {
-      _$result = _$v ??
-          _$PublicCapabilities._(
-            termsOfService: termsOfService.build(),
-          );
+      _$result = _$v ?? _$PublicCapabilities._(termsOfService: termsOfService.build());
     } catch (_) {
       late String _$failedField;
       try {

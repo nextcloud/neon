@@ -19,10 +19,7 @@ class NeonUserAvatar extends StatefulWidget {
     this.username,
     this.size,
     super.key,
-  }) : assert(
-          userStatusBloc == null || userStatus == null,
-          'One of userStatusBloc and userStatus must be null',
-        );
+  }) : assert(userStatusBloc == null || userStatus == null, 'One of userStatusBloc and userStatus must be null');
 
   /// The account used to fetch the image.
   final Account account;
@@ -79,16 +76,17 @@ class _UserAvatarState extends State<NeonUserAvatar> {
               account: widget.account,
               etag: null,
               expires: null,
-              getRequest: (client) => switch (brightness) {
-                Brightness.dark => client.core.avatar.$getAvatarDark_Request(
-                    userId: username,
-                    size: pixelSize <= 64 ? core.AvatarGetAvatarDarkSize.$64 : core.AvatarGetAvatarDarkSize.$512,
-                  ),
-                Brightness.light => client.core.avatar.$getAvatar_Request(
-                    userId: username,
-                    size: pixelSize <= 64 ? core.AvatarGetAvatarSize.$64 : core.AvatarGetAvatarSize.$512,
-                  ),
-              },
+              getRequest:
+                  (client) => switch (brightness) {
+                    Brightness.dark => client.core.avatar.$getAvatarDark_Request(
+                      userId: username,
+                      size: pixelSize <= 64 ? core.AvatarGetAvatarDarkSize.$64 : core.AvatarGetAvatarDarkSize.$512,
+                    ),
+                    Brightness.light => client.core.avatar.$getAvatar_Request(
+                      userId: username,
+                      size: pixelSize <= 64 ? core.AvatarGetAvatarSize.$64 : core.AvatarGetAvatarSize.$512,
+                    ),
+                  },
             ),
           ),
         );
@@ -103,10 +101,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
                 stream: userStatusBloc.statuses.map(
                   (statuses) => statuses[username] ?? Result<user_status.$PublicInterface>.loading(),
                 ),
-                builder: (context, result) => NeonUserStatusIndicator(
-                  result: result,
-                  size: size,
-                ),
+                builder: (context, result) => NeonUserStatusIndicator(result: result, size: size),
               ),
             ],
           );
@@ -116,13 +111,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
         if (userStatus != null) {
           return Stack(
             alignment: Alignment.center,
-            children: [
-              avatar,
-              NeonUserStatusIndicator(
-                result: Result.success(userStatus),
-                size: size,
-              ),
-            ],
+            children: [avatar, NeonUserStatusIndicator(result: Result.success(userStatus), size: size)],
           );
         }
 
@@ -134,11 +123,7 @@ class _UserAvatarState extends State<NeonUserAvatar> {
 
 @internal
 class NeonUserStatusIndicator extends StatelessWidget {
-  const NeonUserStatusIndicator({
-    required this.result,
-    required this.size,
-    super.key,
-  });
+  const NeonUserStatusIndicator({required this.result, required this.size, super.key});
 
   final Result<user_status.$PublicInterface> result;
 
@@ -150,41 +135,20 @@ class NeonUserStatusIndicator extends StatelessWidget {
     if (result.isLoading) {
       child = SizedBox.square(
         dimension: size / 2.5,
-        child: CircularProgressIndicator(
-          strokeWidth: 1.5,
-          color: Theme.of(context).colorScheme.onPrimary,
-        ),
+        child: CircularProgressIndicator(strokeWidth: 1.5, color: Theme.of(context).colorScheme.onPrimary),
       );
     } else if (result.hasError) {
-      child = Icon(
-        AdaptiveIcons.error_outline,
-        size: size / 2.5,
-        color: Theme.of(context).colorScheme.error,
-      );
+      child = Icon(AdaptiveIcons.error_outline, size: size / 2.5, color: Theme.of(context).colorScheme.error);
     } else if (result.hasData) {
       final type = result.requireData.status;
       final hasEmoji = result.data?.icon != null;
       if (type == user_status.$Type.dnd || !hasEmoji) {
-        child = NeonUserStatusIcon(
-          type: type,
-          size: size / 2.5,
-        );
+        child = NeonUserStatusIcon(type: type, size: size / 2.5);
       } else if (hasEmoji) {
-        child = Text(
-          result.data!.icon!,
-          style: TextStyle(
-            fontSize: size / 3,
-          ),
-        );
+        child = Text(result.data!.icon!, style: TextStyle(fontSize: size / 3));
       }
     }
 
-    return SizedBox.square(
-      dimension: size,
-      child: Align(
-        alignment: Alignment.bottomRight,
-        child: child,
-      ),
-    );
+    return SizedBox.square(dimension: size, child: Align(alignment: Alignment.bottomRight, child: child));
   }
 }

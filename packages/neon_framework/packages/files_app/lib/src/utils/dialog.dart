@@ -12,34 +12,23 @@ import 'package:nextcloud/webdav.dart' as webdav;
 /// Displays a [FilesCreateFolderDialog] for creating a new folder.
 ///
 /// Returns a future with the folder name split by `/`.
-Future<String?> showFolderCreateDialog({
-  required BuildContext context,
-}) =>
-    showAdaptiveDialog<String>(
-      context: context,
-      builder: (context) => const FilesCreateFolderDialog(),
-    );
+Future<String?> showFolderCreateDialog({required BuildContext context}) =>
+    showAdaptiveDialog<String>(context: context, builder: (context) => const FilesCreateFolderDialog());
 
 /// Displays a [NeonConfirmationDialog] to confirm downloading a file larger
 /// than the configured limit.
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showDownloadConfirmationDialog(
-  BuildContext context,
-  int warningSize,
-  int actualSize,
-) async =>
+Future<bool> showDownloadConfirmationDialog(BuildContext context, int warningSize, int actualSize) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (context) => NeonConfirmationDialog(
-        title: FilesLocalizations.of(context).optionsDownloadSizeWarning,
-        content: Text(
-          FilesLocalizations.of(context).downloadConfirmSizeWarning(
-            filesize(warningSize),
-            filesize(actualSize),
+      builder:
+          (context) => NeonConfirmationDialog(
+            title: FilesLocalizations.of(context).optionsDownloadSizeWarning,
+            content: Text(
+              FilesLocalizations.of(context).downloadConfirmSizeWarning(filesize(warningSize), filesize(actualSize)),
+            ),
           ),
-        ),
-      ),
     ) ??
     false;
 
@@ -47,22 +36,16 @@ Future<bool> showDownloadConfirmationDialog(
 /// the configured limit.
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showUploadConfirmationDialog(
-  BuildContext context,
-  int warningSize,
-  int actualSize,
-) async =>
+Future<bool> showUploadConfirmationDialog(BuildContext context, int warningSize, int actualSize) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (context) => NeonConfirmationDialog(
-        title: FilesLocalizations.of(context).optionsUploadSizeWarning,
-        content: Text(
-          FilesLocalizations.of(context).uploadConfirmSizeWarning(
-            filesize(warningSize),
-            filesize(actualSize),
+      builder:
+          (context) => NeonConfirmationDialog(
+            title: FilesLocalizations.of(context).optionsUploadSizeWarning,
+            content: Text(
+              FilesLocalizations.of(context).uploadConfirmSizeWarning(filesize(warningSize), filesize(actualSize)),
+            ),
           ),
-        ),
-      ),
     ) ??
     false;
 
@@ -74,11 +57,7 @@ Future<webdav.PathUri?> showChooseFolderDialog(BuildContext context, FileDetails
 
   final result = await showDialog<webdav.PathUri>(
     context: context,
-    builder: (context) => FilesChooseFolderDialog(
-      bloc: filesBloc,
-      uri: details.uri.parent!,
-      hideUri: details.uri,
-    ),
+    builder: (context) => FilesChooseFolderDialog(bloc: filesBloc, uri: details.uri.parent!, hideUri: details.uri),
   );
 
   return result;
@@ -90,15 +69,16 @@ Future<webdav.PathUri?> showChooseFolderDialog(BuildContext context, FileDetails
 Future<bool> showDeleteConfirmationDialog(BuildContext context, FileDetails details) async =>
     await showAdaptiveDialog<bool>(
       context: context,
-      builder: (context) => NeonConfirmationDialog(
-        title: FilesLocalizations.of(context).actionDeleteTitle,
-        icon: const Icon(Icons.delete_outlined),
-        content: Text(
-          details.isDirectory
-              ? FilesLocalizations.of(context).folderDeleteConfirm(details.name)
-              : FilesLocalizations.of(context).fileDeleteConfirm(details.name),
-        ),
-      ),
+      builder:
+          (context) => NeonConfirmationDialog(
+            title: FilesLocalizations.of(context).actionDeleteTitle,
+            icon: const Icon(Icons.delete_outlined),
+            content: Text(
+              details.isDirectory
+                  ? FilesLocalizations.of(context).folderDeleteConfirm(details.name)
+                  : FilesLocalizations.of(context).fileDeleteConfirm(details.name),
+            ),
+          ),
     ) ??
     false;
 
@@ -112,22 +92,10 @@ Future<void> showFilesCreateModal(BuildContext context, webdav.PathUri uri) {
     case TargetPlatform.fuchsia:
     case TargetPlatform.linux:
     case TargetPlatform.windows:
-      return showModalBottomSheet(
-        context: context,
-        builder: (_) => FilesChooseCreateModal(
-          bloc: bloc,
-          uri: uri,
-        ),
-      );
+      return showModalBottomSheet(context: context, builder: (_) => FilesChooseCreateModal(bloc: bloc, uri: uri));
 
     case TargetPlatform.iOS:
     case TargetPlatform.macOS:
-      return showCupertinoModalPopup(
-        context: context,
-        builder: (_) => FilesChooseCreateModal(
-          bloc: bloc,
-          uri: uri,
-        ),
-      );
+      return showCupertinoModalPopup(context: context, builder: (_) => FilesChooseCreateModal(bloc: bloc, uri: uri));
   }
 }

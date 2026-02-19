@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $SigningClient signing = $SigningClient(this);
 
@@ -310,11 +310,11 @@ class $TermsClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TermsIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TermsIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TermsIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all available terms for the current country.
   ///
@@ -382,11 +382,11 @@ class $TermsClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TermsCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TermsCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TermsCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create new terms.
   ///
@@ -469,11 +469,11 @@ class $TermsClient {
   /// Builds a serializer to parse the response of [$destroy_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TermsDestroyResponseApplicationJson, void> $destroy_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TermsDestroyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TermsDestroyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a given Term by id.
   ///
@@ -907,8 +907,10 @@ sealed class $SigningResetAllSignatoriesResponseApplicationJson_OcsInterface {
 abstract class SigningResetAllSignatoriesResponseApplicationJson_Ocs
     implements
         $SigningResetAllSignatoriesResponseApplicationJson_OcsInterface,
-        Built<SigningResetAllSignatoriesResponseApplicationJson_Ocs,
-            SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder> {
+        Built<
+          SigningResetAllSignatoriesResponseApplicationJson_Ocs,
+          SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SigningResetAllSignatoriesResponseApplicationJson_Ocs object using the builder pattern.
   factory SigningResetAllSignatoriesResponseApplicationJson_Ocs([
     void Function(SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder)? b,
@@ -971,8 +973,10 @@ sealed class $SigningResetAllSignatoriesResponseApplicationJsonInterface {
 abstract class SigningResetAllSignatoriesResponseApplicationJson
     implements
         $SigningResetAllSignatoriesResponseApplicationJsonInterface,
-        Built<SigningResetAllSignatoriesResponseApplicationJson,
-            SigningResetAllSignatoriesResponseApplicationJsonBuilder> {
+        Built<
+          SigningResetAllSignatoriesResponseApplicationJson,
+          SigningResetAllSignatoriesResponseApplicationJsonBuilder
+        > {
   /// Creates a new SigningResetAllSignatoriesResponseApplicationJson object using the builder pattern.
   factory SigningResetAllSignatoriesResponseApplicationJson([
     void Function(SigningResetAllSignatoriesResponseApplicationJsonBuilder)? b,
@@ -1100,8 +1104,10 @@ sealed class $SigningSignTermsPublicResponseApplicationJson_OcsInterface {
 abstract class SigningSignTermsPublicResponseApplicationJson_Ocs
     implements
         $SigningSignTermsPublicResponseApplicationJson_OcsInterface,
-        Built<SigningSignTermsPublicResponseApplicationJson_Ocs,
-            SigningSignTermsPublicResponseApplicationJson_OcsBuilder> {
+        Built<
+          SigningSignTermsPublicResponseApplicationJson_Ocs,
+          SigningSignTermsPublicResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SigningSignTermsPublicResponseApplicationJson_Ocs object using the builder pattern.
   factory SigningSignTermsPublicResponseApplicationJson_Ocs([
     void Function(SigningSignTermsPublicResponseApplicationJson_OcsBuilder)? b,
@@ -1825,16 +1831,14 @@ class _$AdminFormData_TosOnPublicSharesSerializer implements PrimitiveSerializer
     Serializers serializers,
     AdminFormData_TosOnPublicShares object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AdminFormData_TosOnPublicShares deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AdminFormData_TosForUsers extends EnumClass {
@@ -1888,16 +1892,14 @@ class _$AdminFormData_TosForUsersSerializer implements PrimitiveSerializer<Admin
     Serializers serializers,
     AdminFormData_TosForUsers object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AdminFormData_TosForUsers deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1984,8 +1986,10 @@ sealed class $TermsGetAdminFormDataResponseApplicationJson_OcsInterface {
 abstract class TermsGetAdminFormDataResponseApplicationJson_Ocs
     implements
         $TermsGetAdminFormDataResponseApplicationJson_OcsInterface,
-        Built<TermsGetAdminFormDataResponseApplicationJson_Ocs,
-            TermsGetAdminFormDataResponseApplicationJson_OcsBuilder> {
+        Built<
+          TermsGetAdminFormDataResponseApplicationJson_Ocs,
+          TermsGetAdminFormDataResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TermsGetAdminFormDataResponseApplicationJson_Ocs object using the builder pattern.
   factory TermsGetAdminFormDataResponseApplicationJson_Ocs([
     void Function(TermsGetAdminFormDataResponseApplicationJson_OcsBuilder)? b,
@@ -2135,16 +2139,14 @@ class _$PublicCapabilities_TermsOfService_EnabledSerializer
     Serializers serializers,
     PublicCapabilities_TermsOfService_Enabled object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PublicCapabilities_TermsOfService_Enabled deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -2274,123 +2276,124 @@ abstract class PublicCapabilities
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsRequestApplicationJson),
-        SigningSignTermsRequestApplicationJsonBuilder.new,
-      )
-      ..add(SigningSignTermsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsResponseApplicationJson),
-        SigningSignTermsResponseApplicationJsonBuilder.new,
-      )
-      ..add(SigningSignTermsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsResponseApplicationJson_Ocs),
-        SigningSignTermsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SigningSignTermsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningResetAllSignatoriesResponseApplicationJson),
-        SigningResetAllSignatoriesResponseApplicationJsonBuilder.new,
-      )
-      ..add(SigningResetAllSignatoriesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs),
-        SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SigningResetAllSignatoriesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsPublicRequestApplicationJson),
-        SigningSignTermsPublicRequestApplicationJsonBuilder.new,
-      )
-      ..add(SigningSignTermsPublicRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsPublicResponseApplicationJson),
-        SigningSignTermsPublicResponseApplicationJsonBuilder.new,
-      )
-      ..add(SigningSignTermsPublicResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs),
-        SigningSignTermsPublicResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SigningSignTermsPublicResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsIndexResponseApplicationJson),
-        TermsIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(TermsIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsIndexResponseApplicationJson_Ocs),
-        TermsIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TermsIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsIndexResponseApplicationJson_Ocs_Data),
-        TermsIndexResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TermsIndexResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Terms), TermsBuilder.new)
-      ..add(Terms.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Terms)]), ListBuilder<Terms>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(String)]),
-        MapBuilder<String, String>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TermsCreateRequestApplicationJson),
-        TermsCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(TermsCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsCreateResponseApplicationJson),
-        TermsCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(TermsCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsCreateResponseApplicationJson_Ocs),
-        TermsCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TermsCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsDestroyResponseApplicationJson),
-        TermsDestroyResponseApplicationJsonBuilder.new,
-      )
-      ..add(TermsDestroyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsDestroyResponseApplicationJson_Ocs),
-        TermsDestroyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TermsDestroyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsGetAdminFormDataResponseApplicationJson),
-        TermsGetAdminFormDataResponseApplicationJsonBuilder.new,
-      )
-      ..add(TermsGetAdminFormDataResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs),
-        TermsGetAdminFormDataResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TermsGetAdminFormDataResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AdminFormData), AdminFormDataBuilder.new)
-      ..add(AdminFormData.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Terms)]),
-        MapBuilder<String, Terms>.new,
-      )
-      ..add(AdminFormData_TosOnPublicShares.serializer)
-      ..add(AdminFormData_TosForUsers.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
-      ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicCapabilities_TermsOfService),
-        PublicCapabilities_TermsOfServiceBuilder.new,
-      )
-      ..add(PublicCapabilities_TermsOfService.serializer)
-      ..add(PublicCapabilities_TermsOfService_Enabled.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsRequestApplicationJson),
+            SigningSignTermsRequestApplicationJsonBuilder.new,
+          )
+          ..add(SigningSignTermsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsResponseApplicationJson),
+            SigningSignTermsResponseApplicationJsonBuilder.new,
+          )
+          ..add(SigningSignTermsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsResponseApplicationJson_Ocs),
+            SigningSignTermsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SigningSignTermsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningResetAllSignatoriesResponseApplicationJson),
+            SigningResetAllSignatoriesResponseApplicationJsonBuilder.new,
+          )
+          ..add(SigningResetAllSignatoriesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningResetAllSignatoriesResponseApplicationJson_Ocs),
+            SigningResetAllSignatoriesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SigningResetAllSignatoriesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsPublicRequestApplicationJson),
+            SigningSignTermsPublicRequestApplicationJsonBuilder.new,
+          )
+          ..add(SigningSignTermsPublicRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsPublicResponseApplicationJson),
+            SigningSignTermsPublicResponseApplicationJsonBuilder.new,
+          )
+          ..add(SigningSignTermsPublicResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SigningSignTermsPublicResponseApplicationJson_Ocs),
+            SigningSignTermsPublicResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SigningSignTermsPublicResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsIndexResponseApplicationJson),
+            TermsIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(TermsIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsIndexResponseApplicationJson_Ocs),
+            TermsIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TermsIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsIndexResponseApplicationJson_Ocs_Data),
+            TermsIndexResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TermsIndexResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(Terms), TermsBuilder.new)
+          ..add(Terms.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Terms)]), ListBuilder<Terms>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            MapBuilder<String, String>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TermsCreateRequestApplicationJson),
+            TermsCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(TermsCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsCreateResponseApplicationJson),
+            TermsCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(TermsCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsCreateResponseApplicationJson_Ocs),
+            TermsCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TermsCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsDestroyResponseApplicationJson),
+            TermsDestroyResponseApplicationJsonBuilder.new,
+          )
+          ..add(TermsDestroyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsDestroyResponseApplicationJson_Ocs),
+            TermsDestroyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TermsDestroyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsGetAdminFormDataResponseApplicationJson),
+            TermsGetAdminFormDataResponseApplicationJsonBuilder.new,
+          )
+          ..add(TermsGetAdminFormDataResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsGetAdminFormDataResponseApplicationJson_Ocs),
+            TermsGetAdminFormDataResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TermsGetAdminFormDataResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(AdminFormData), AdminFormDataBuilder.new)
+          ..add(AdminFormData.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(Terms)]),
+            MapBuilder<String, Terms>.new,
+          )
+          ..add(AdminFormData_TosOnPublicShares.serializer)
+          ..add(AdminFormData_TosForUsers.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+          ..add(PublicCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(PublicCapabilities_TermsOfService),
+            PublicCapabilities_TermsOfServiceBuilder.new,
+          )
+          ..add(PublicCapabilities_TermsOfService.serializer)
+          ..add(PublicCapabilities_TermsOfService_Enabled.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -2398,10 +2401,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

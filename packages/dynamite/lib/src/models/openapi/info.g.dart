@@ -57,8 +57,11 @@ class _$InfoSerializer implements StructuredSerializer<Info> {
   }
 
   @override
-  Info deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Info deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = InfoBuilder();
 
     final iterator = serialized.iterator;
@@ -113,15 +116,15 @@ class _$Info extends Info {
 
   factory _$Info([void Function(InfoBuilder)? updates]) => (InfoBuilder()..update(updates))._build();
 
-  _$Info._(
-      {required this.title,
-      required this.version,
-      this.license,
-      this.contact,
-      this.description,
-      this.termsOfService,
-      this.summary})
-      : super._() {
+  _$Info._({
+    required this.title,
+    required this.version,
+    this.license,
+    this.contact,
+    this.description,
+    this.termsOfService,
+    this.summary,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title');
     BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version');
   }
@@ -234,15 +237,17 @@ class InfoBuilder implements Builder<Info, InfoBuilder> {
   _$Info _build() {
     _$Info _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Info._(
-              title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
-              version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
-              license: _license?.build(),
-              contact: _contact?.build(),
-              description: description,
-              termsOfService: termsOfService,
-              summary: summary);
+            title: BuiltValueNullFieldError.checkNotNull(title, r'Info', 'title'),
+            version: BuiltValueNullFieldError.checkNotNull(version, r'Info', 'version'),
+            license: _license?.build(),
+            contact: _contact?.build(),
+            description: description,
+            termsOfService: termsOfService,
+            summary: summary,
+          );
     } catch (_) {
       late String _$failedField;
       try {

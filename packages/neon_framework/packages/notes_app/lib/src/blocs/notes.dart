@@ -10,23 +10,11 @@ import 'package:nextcloud/notes.dart' as $notes;
 import 'package:rxdart/rxdart.dart';
 
 sealed class NotesBloc implements InteractiveBloc {
-  factory NotesBloc({
-    required Account account,
-  }) = _NotesBloc;
+  factory NotesBloc({required Account account}) = _NotesBloc;
 
-  void createNote({
-    String title = '',
-    String category = '',
-  });
+  void createNote({String title = '', String category = ''});
 
-  void updateNote(
-    int id,
-    String etag, {
-    String? title,
-    String? category,
-    String? content,
-    bool? favorite,
-  });
+  void updateNote(int id, String etag, {String? title, String? category, String? content, bool? favorite});
 
   void deleteNote(int id);
 
@@ -34,9 +22,7 @@ sealed class NotesBloc implements InteractiveBloc {
 }
 
 class _NotesBloc extends InteractiveBloc implements NotesBloc {
-  _NotesBloc({
-    required this.account,
-  }) {
+  _NotesBloc({required this.account}) {
     unawaited(refresh());
   }
 
@@ -67,12 +53,7 @@ class _NotesBloc extends InteractiveBloc implements NotesBloc {
 
   @override
   Future<void> createNote({String title = '', String category = ''}) async {
-    await wrapAction(
-      () async => account.client.notes.createNote(
-        title: title,
-        category: category,
-      ),
-    );
+    await wrapAction(() async => account.client.notes.createNote(title: title, category: category));
   }
 
   @override

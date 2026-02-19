@@ -10,11 +10,7 @@ class LoginQrCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => LoginQrCodeBloc(),
-        ),
-      ],
+      providers: [BlocProvider(create: (context) => LoginQrCodeBloc())],
       child: const LoginQrCodeView(),
     );
   }

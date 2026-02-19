@@ -180,14 +180,15 @@ abstract class TestObjectUnspecified
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
-      ..add(TestObject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(BuiltSet, [FullType(int)]), SetBuilder<int>.new)
-      ..addBuilderFactory(const FullType(TestObjectUnspecified), TestObjectUnspecifiedBuilder.new)
-      ..add(TestObjectUnspecified.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(TestObject), TestObjectBuilder.new)
+          ..add(TestObject.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(const FullType(BuiltSet, [FullType(int)]), SetBuilder<int>.new)
+          ..addBuilderFactory(const FullType(TestObjectUnspecified), TestObjectUnspecifiedBuilder.new)
+          ..add(TestObjectUnspecified.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -195,10 +196,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(_i4.StandardJsonPlugin())
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(_i4.StandardJsonPlugin())
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

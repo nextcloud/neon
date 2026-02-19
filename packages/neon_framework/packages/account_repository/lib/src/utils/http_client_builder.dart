@@ -10,10 +10,7 @@ NextcloudClient buildClient({
   required String userAgent,
   required Credentials credentials,
 }) {
-  final cookieStore = NeonStorage().cookieStore(
-    accountID: credentials.id,
-    serverURL: credentials.serverURL,
-  );
+  final cookieStore = NeonStorage().cookieStore(accountID: credentials.id, serverURL: credentials.serverURL);
 
   final neonHttpClient = NeonHttpClient(
     cookieStore: cookieStore,
@@ -45,8 +42,5 @@ NextcloudClient buildUnauthenticatedClient({
     baseURL: serverURL,
   );
 
-  return NextcloudClient(
-    serverURL,
-    httpClient: neonHttpClient,
-  );
+  return NextcloudClient(serverURL, httpClient: neonHttpClient);
 }

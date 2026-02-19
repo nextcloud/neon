@@ -5,11 +5,7 @@ import 'package:news_app/src/blocs/news.dart';
 import 'package:news_app/src/widgets/dialog.dart';
 
 class NewsFeedFloatingActionButton extends StatelessWidget {
-  const NewsFeedFloatingActionButton({
-    required this.bloc,
-    this.folderID,
-    super.key,
-  });
+  const NewsFeedFloatingActionButton({required this.bloc, this.folderID, super.key});
 
   final NewsBloc bloc;
   final int? folderID;
@@ -20,10 +16,7 @@ class NewsFeedFloatingActionButton extends StatelessWidget {
       onPressed: () async {
         final result = await showAdaptiveDialog<(String, int?)>(
           context: context,
-          builder: (context) => NewsAddFeedDialog(
-            bloc: bloc,
-            folderID: folderID,
-          ),
+          builder: (context) => NewsAddFeedDialog(bloc: bloc, folderID: folderID),
         );
         if (result != null) {
           final (url, folderId) = result;

@@ -30,11 +30,12 @@ void main() {
         request.listen(
           (_) {},
           onDone: () async {
-            final response = request.response
-              ..headers.chunkedTransferEncoding = true
-              ..write('1')
-              ..write('2')
-              ..write('3');
+            final response =
+                request.response
+                  ..headers.chunkedTransferEncoding = true
+                  ..write('1')
+                  ..write('2')
+                  ..write('3');
 
             await response.close();
 
@@ -43,21 +44,12 @@ void main() {
         );
       });
 
-      final client = NextcloudClient(
-        Uri(
-          scheme: 'http',
-          host: server.address.host,
-          port: server.port,
-        ),
-      );
+      final client = NextcloudClient(Uri(scheme: 'http', host: server.address.host, port: server.port));
 
       final progress = <double>[];
 
       final buffer = BytesBuilder(copy: false);
-      final stream = await client.webdav.getStream(
-        PathUri.cwd(),
-        onProgress: progress.add,
-      );
+      final stream = await client.webdav.getStream(PathUri.cwd(), onProgress: progress.add);
       await stream.forEach(buffer.add);
 
       expect(buffer.toBytes(), utf8.encode('123'));
@@ -77,10 +69,7 @@ void main() {
         return http.Response('', 400);
       });
 
-      client = WebDavClient(
-        Uri(),
-        httpClient: mockClient,
-      );
+      client = WebDavClient(Uri(), httpClient: mockClient);
 
       file = _FileMock();
       when(() => file.openWrite()).thenReturn(IOSink(StreamController()));
@@ -89,22 +78,23 @@ void main() {
       when(() => fileStat.size).thenReturn(0);
     });
 
-    for (final entry in <String, Future<void> Function(WebDavClient client)>{
-      'options': (client) async => client.options(),
-      'mkcol': (client) async => client.mkcol(PathUri.cwd()),
-      'delete': (client) async => client.delete(PathUri.cwd()),
-      'put': (client) async => client.put(Uint8List(0), PathUri.cwd()),
-      'putStream': (client) async => client.putStream(Stream.value(Uint8List(0)), PathUri.cwd(), contentLength: 0),
-      'putFile': (client) async => client.putFile(file, fileStat, PathUri.cwd()),
-      'get': (client) async => client.get(PathUri.cwd()),
-      'getStream': (client) async => client.getStream(PathUri.cwd()),
-      'getFile': (client) async => client.getFile(PathUri.cwd(), file),
-      'propfind': (client) async => client.propfind(PathUri.cwd()),
-      'report': (client) async => client.report(PathUri.cwd(), const WebDavOcFilterRules()),
-      'proppatch': (client) async => client.proppatch(PathUri.cwd()),
-      'move': (client) async => client.move(PathUri.cwd(), PathUri.cwd()),
-      'copy': (client) async => client.copy(PathUri.cwd(), PathUri.cwd()),
-    }.entries) {
+    for (final entry
+        in <String, Future<void> Function(WebDavClient client)>{
+          'options': (client) async => client.options(),
+          'mkcol': (client) async => client.mkcol(PathUri.cwd()),
+          'delete': (client) async => client.delete(PathUri.cwd()),
+          'put': (client) async => client.put(Uint8List(0), PathUri.cwd()),
+          'putStream': (client) async => client.putStream(Stream.value(Uint8List(0)), PathUri.cwd(), contentLength: 0),
+          'putFile': (client) async => client.putFile(file, fileStat, PathUri.cwd()),
+          'get': (client) async => client.get(PathUri.cwd()),
+          'getStream': (client) async => client.getStream(PathUri.cwd()),
+          'getFile': (client) async => client.getFile(PathUri.cwd(), file),
+          'propfind': (client) async => client.propfind(PathUri.cwd()),
+          'report': (client) async => client.report(PathUri.cwd(), const WebDavOcFilterRules()),
+          'proppatch': (client) async => client.proppatch(PathUri.cwd()),
+          'move': (client) async => client.move(PathUri.cwd(), PathUri.cwd()),
+          'copy': (client) async => client.copy(PathUri.cwd(), PathUri.cwd()),
+        }.entries) {
       test(entry.key, () async {
         await expectLater(
           () async => entry.value(client),
@@ -125,25 +115,22 @@ void main() {
     });
 
     test('List directory', () async {
-      final responses = (await tester.client.webdav.propfind(
-        PathUri.parse('test'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ncHasPreview: true,
-          davGetcontenttype: true,
-          davGetlastmodified: true,
-          ocSize: true,
-        ),
-      ))
-          .responses;
+      final responses =
+          (await tester.client.webdav.propfind(
+            PathUri.parse('test'),
+            prop: const WebDavPropWithoutValues.fromBools(
+              ncHasPreview: true,
+              davGetcontenttype: true,
+              davGetlastmodified: true,
+              ocSize: true,
+            ),
+          )).responses;
       expect(responses, isNotEmpty);
     });
 
     test('List directory recursively', () async {
-      final responses = (await tester.client.webdav.propfind(
-        PathUri.parse('test'),
-        depth: WebDavDepth.infinity,
-      ))
-          .responses;
+      final responses =
+          (await tester.client.webdav.propfind(PathUri.parse('test'), depth: WebDavDepth.infinity)).responses;
       expect(responses, isNotEmpty);
     });
 
@@ -545,20 +532,17 @@ void main() {
 
       await tester.client.filesSharing.shareapi.createShare(
         $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
-          (b) => b
-            ..path = '/test/share.png'
-            ..shareType = core.ShareType.user.index
-            ..shareWith = 'user2',
+          (b) =>
+              b
+                ..path = '/test/share.png'
+                ..shareType = core.ShareType.user.index
+                ..shareWith = 'user2',
         ),
       );
 
       final response = await tester.client.webdav.propfind(
         PathUri.parse('test/share.png'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ncShareAttributes: true,
-          ncSharees: true,
-          ocShareTypes: true,
-        ),
+        prop: const WebDavPropWithoutValues.fromBools(ncShareAttributes: true, ncSharees: true, ocShareTypes: true),
       );
       final props = response.responses.single.propstats.first.prop;
       expect(json.decode(props.ncShareAttributes!), <String>[]);
@@ -571,24 +555,14 @@ void main() {
     test('Filter files', () async {
       final response = await tester.client.webdav.put(utf8.encode('test'), PathUri.parse('test/filter.txt'));
       final id = response.headers['oc-fileid'];
-      await tester.client.webdav.proppatch(
-        PathUri.parse('test/filter.txt'),
-        set: const WebDavProp(
-          ocFavorite: true,
-        ),
-      );
+      await tester.client.webdav.proppatch(PathUri.parse('test/filter.txt'), set: const WebDavProp(ocFavorite: true));
 
-      final responses = (await tester.client.webdav.report(
-        PathUri.parse('test'),
-        const WebDavOcFilterRules(
-          ocFavorite: true,
-        ),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocId: true,
-          ocFavorite: true,
-        ),
-      ))
-          .responses;
+      final responses =
+          (await tester.client.webdav.report(
+            PathUri.parse('test'),
+            const WebDavOcFilterRules(ocFavorite: true),
+            prop: const WebDavPropWithoutValues.fromBools(ocId: true, ocFavorite: true),
+          )).responses;
       expect(responses, isNotEmpty);
       final props = responses.singleWhere((response) => response.href!.endsWith('/filter.txt')).propstats.first.prop;
       expect(props.ocId, id);
@@ -609,26 +583,20 @@ void main() {
 
       final updated = await tester.client.webdav.proppatch(
         PathUri.parse('test/set-props.txt'),
-        set: const WebDavProp(
-          ocFavorite: true,
-        ),
+        set: const WebDavProp(ocFavorite: true),
       );
       expect(updated, isTrue);
 
-      final props = (await tester.client.webdav.propfind(
-        PathUri.parse('test/set-props.txt'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocFavorite: true,
-          davGetlastmodified: true,
-          ncCreationTime: true,
-          ncUploadTime: true,
-        ),
-      ))
-          .responses
-          .single
-          .propstats
-          .first
-          .prop;
+      final props =
+          (await tester.client.webdav.propfind(
+            PathUri.parse('test/set-props.txt'),
+            prop: const WebDavPropWithoutValues.fromBools(
+              ocFavorite: true,
+              davGetlastmodified: true,
+              ncCreationTime: true,
+              ncUploadTime: true,
+            ),
+          )).responses.single.propstats.first.prop;
       expect(props.ocFavorite, true);
       expect(props.davGetlastmodified, lastModifiedDate);
       expect(props.ncCreationTime, createdDate);
@@ -640,68 +608,43 @@ void main() {
 
       var updated = await tester.client.webdav.proppatch(
         PathUri.parse('test/remove-props.txt'),
-        set: const WebDavProp(
-          ocFavorite: true,
-        ),
+        set: const WebDavProp(ocFavorite: true),
       );
       expect(updated, isTrue);
 
-      var props = (await tester.client.webdav.propfind(
-        PathUri.parse('test/remove-props.txt'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocFavorite: true,
-          ncCreationTime: true,
-          ncUploadTime: true,
-        ),
-      ))
-          .responses
-          .single
-          .propstats
-          .first
-          .prop;
+      var props =
+          (await tester.client.webdav.propfind(
+            PathUri.parse('test/remove-props.txt'),
+            prop: const WebDavPropWithoutValues.fromBools(ocFavorite: true, ncCreationTime: true, ncUploadTime: true),
+          )).responses.single.propstats.first.prop;
       expect(props.ocFavorite, true);
 
       updated = await tester.client.webdav.proppatch(
         PathUri.parse('test/remove-props.txt'),
-        remove: const WebDavPropWithoutValues.fromBools(
-          ocFavorite: true,
-        ),
+        remove: const WebDavPropWithoutValues.fromBools(ocFavorite: true),
       );
       expect(updated, isFalse);
 
-      props = (await tester.client.webdav.propfind(
-        PathUri.parse('test/remove-props.txt'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocFavorite: true,
-        ),
-      ))
-          .responses
-          .single
-          .propstats
-          .first
-          .prop;
+      props =
+          (await tester.client.webdav.propfind(
+            PathUri.parse('test/remove-props.txt'),
+            prop: const WebDavPropWithoutValues.fromBools(ocFavorite: true),
+          )).responses.single.propstats.first.prop;
       expect(props.ocFavorite, false);
     });
 
     test('Set and get tags', () async {
-      await tester.client.webdav.put(
-        utf8.encode('test'),
-        PathUri.parse('test/tags.txt'),
-      );
+      await tester.client.webdav.put(utf8.encode('test'), PathUri.parse('test/tags.txt'));
 
       final updated = await tester.client.webdav.proppatch(
         PathUri.parse('test/tags.txt'),
-        set: const WebDavProp(
-          ocTags: WebDavOcTags(tags: ['example']),
-        ),
+        set: const WebDavProp(ocTags: WebDavOcTags(tags: ['example'])),
       );
       expect(updated, isTrue);
 
       final response = await tester.client.webdav.propfind(
         PathUri.parse('test/tags.txt'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocTags: true,
-        ),
+        prop: const WebDavPropWithoutValues.fromBools(ocTags: true),
       );
       final props = response.responses.single.propstats.first.prop;
       expect(props.ocTags!.tags!.single, 'example');
@@ -718,9 +661,7 @@ void main() {
 
       final response = await tester.client.webdav.propfind(
         PathUri.parse('test/checksum.png'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocChecksums: true,
-        ),
+        prop: const WebDavPropWithoutValues.fromBools(ocChecksums: true),
       );
       final props = response.responses.single.propstats.first.prop;
       expect(props.ocChecksums!.checksums!.single, 'md5:abc');
@@ -775,18 +716,12 @@ void main() {
     group('Upload overwrite', () {
       test('Data', () async {
         final data1 = Uint8List.fromList(utf8.encode('123'));
-        await tester.client.webdav.put(
-          data1,
-          PathUri.parse('test/upload_overwrite.png'),
-        );
+        await tester.client.webdav.put(data1, PathUri.parse('test/upload_overwrite.png'));
         var response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
         expect(response, data1);
 
         final data2 = Uint8List.fromList(utf8.encode('456'));
-        await tester.client.webdav.put(
-          data2,
-          PathUri.parse('test/upload_overwrite.png'),
-        );
+        await tester.client.webdav.put(data2, PathUri.parse('test/upload_overwrite.png'));
         response = await tester.client.webdav.get(PathUri.parse('test/upload_overwrite.png'));
         expect(response, data2);
       });
@@ -830,9 +765,7 @@ void main() {
 
       final propfindResponse = await tester.client.webdav.propfind(
         PathUri.parse('test/extended-mkcol'),
-        prop: const WebDavPropWithoutValues.fromBools(
-          ocTags: true,
-        ),
+        prop: const WebDavPropWithoutValues.fromBools(ocTags: true),
       );
       final props = propfindResponse.responses.single.propstats.first.prop;
       expect(props.ocTags!.tags!.single, 'extended');
@@ -849,10 +782,7 @@ void main() {
           expect(options.capabilities, isNot(contains('2')));
         });
 
-        for (final (name, path) in [
-          ('put_get', 'res'),
-          ('put_get_utf8_segment', 'res-%e2%82%ac'),
-        ]) {
+        for (final (name, path) in [('put_get', 'res'), ('put_get_utf8_segment', 'res-%e2%82%ac')]) {
           test(name, () async {
             final content = utf8.encode('This is a test file');
 
@@ -927,8 +857,10 @@ void main() {
           await tester.client.webdav.mkcol(PathUri.parse('test/copy-overwrite-dst'));
 
           await expectLater(
-            () => tester.client.webdav
-                .copy(PathUri.parse('test/copy-overwrite-src'), PathUri.parse('test/copy-overwrite-dst')),
+            () => tester.client.webdav.copy(
+              PathUri.parse('test/copy-overwrite-src'),
+              PathUri.parse('test/copy-overwrite-dst'),
+            ),
             throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
           );
 
@@ -943,8 +875,10 @@ void main() {
           await tester.client.webdav.mkcol(PathUri.parse('test/copy-nodestcoll-src'));
 
           await expectLater(
-            () => tester.client.webdav
-                .copy(PathUri.parse('test/copy-nodestcoll-src'), PathUri.parse('test/nonesuch/dst')),
+            () => tester.client.webdav.copy(
+              PathUri.parse('test/copy-nodestcoll-src'),
+              PathUri.parse('test/nonesuch/dst'),
+            ),
             throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 409)),
           );
         });
@@ -1014,8 +948,11 @@ void main() {
             throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
           );
 
-          await tester.client.webdav
-              .move(PathUri.parse('test/move-coll-dst2'), PathUri.parse('test/move-coll-dst1'), overwrite: true);
+          await tester.client.webdav.move(
+            PathUri.parse('test/move-coll-dst2'),
+            PathUri.parse('test/move-coll-dst1'),
+            overwrite: true,
+          );
           await tester.client.webdav.copy(PathUri.parse('test/move-coll-dst1'), PathUri.parse('test/move-coll-dst2'));
 
           for (var i = 0; i < 10; i++) {
@@ -1025,8 +962,10 @@ void main() {
           await tester.client.webdav.delete(PathUri.parse('test/move-coll-dst1/sub'));
 
           await expectLater(
-            () => tester.client.webdav
-                .move(PathUri.parse('test/move-coll-dst2'), PathUri.parse('test/move-coll-noncoll')),
+            () => tester.client.webdav.move(
+              PathUri.parse('test/move-coll-dst2'),
+              PathUri.parse('test/move-coll-noncoll'),
+            ),
             throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 412)),
           );
         });
@@ -1055,11 +994,7 @@ void main() {
       final destination = File('${destinationDir.path}/empty-file');
       final source = File('${destinationDir.path}/empty-file-source')..createSync();
 
-      await tester.client.webdav.putFile(
-        source,
-        source.statSync(),
-        PathUri.parse('test/empty-file'),
-      );
+      await tester.client.webdav.putFile(source, source.statSync(), PathUri.parse('test/empty-file'));
       await tester.client.webdav.getFile(
         PathUri.parse('test/empty-file'),
         destination,

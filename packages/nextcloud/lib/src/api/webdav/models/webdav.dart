@@ -26,9 +26,7 @@ const Map<String, String> namespaces = {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'multistatus', namespace: namespaceDav)
 class WebDavMultistatus with _$WebDavMultistatusXmlSerializableMixin {
-  const WebDavMultistatus({
-    required this.responses,
-  });
+  const WebDavMultistatus({required this.responses});
 
   factory WebDavMultistatus.fromXmlElement(XmlElement element) => _$WebDavMultistatusFromXmlElement(element);
 
@@ -40,10 +38,7 @@ class WebDavMultistatus with _$WebDavMultistatusXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'response', namespace: namespaceDav)
 class WebDavResponse with _$WebDavResponseXmlSerializableMixin {
-  const WebDavResponse({
-    required this.href,
-    required this.propstats,
-  });
+  const WebDavResponse({required this.href, required this.propstats});
 
   factory WebDavResponse.fromXmlElement(XmlElement element) => _$WebDavResponseFromXmlElement(element);
 
@@ -58,10 +53,7 @@ class WebDavResponse with _$WebDavResponseXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propstat', namespace: namespaceDav)
 class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
-  const WebDavPropstat({
-    required this.status,
-    required this.prop,
-  });
+  const WebDavPropstat({required this.status, required this.prop});
 
   factory WebDavPropstat.fromXmlElement(XmlElement element) => _$WebDavPropstatFromXmlElement(element);
 
@@ -76,10 +68,7 @@ class WebDavPropstat with _$WebDavPropstatXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propertyupdate', namespace: namespaceDav)
 class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
-  const WebDavPropertyupdate({
-    this.set,
-    this.remove,
-  });
+  const WebDavPropertyupdate({this.set, this.remove});
 
   @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
   final WebDavSet? set;
@@ -92,9 +81,7 @@ class WebDavPropertyupdate with _$WebDavPropertyupdateXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'mkcol', namespace: namespaceDav)
 class WebDavMkcol with _$WebDavMkcolXmlSerializableMixin {
-  const WebDavMkcol({
-    this.set,
-  });
+  const WebDavMkcol({this.set});
 
   @annotation.XmlElement(name: 'set', namespace: namespaceDav, includeIfNull: false)
   final WebDavSet? set;
@@ -104,9 +91,7 @@ class WebDavMkcol with _$WebDavMkcolXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'set', namespace: namespaceDav)
 class WebDavSet with _$WebDavSetXmlSerializableMixin {
-  const WebDavSet({
-    required this.prop,
-  });
+  const WebDavSet({required this.prop});
 
   factory WebDavSet.fromXmlElement(XmlElement element) => _$WebDavSetFromXmlElement(element);
 
@@ -118,9 +103,7 @@ class WebDavSet with _$WebDavSetXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'remove', namespace: namespaceDav)
 class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
-  const WebDavRemove({
-    required this.prop,
-  });
+  const WebDavRemove({required this.prop});
 
   factory WebDavRemove.fromXmlElement(XmlElement element) => _$WebDavRemoveFromXmlElement(element);
 
@@ -132,9 +115,7 @@ class WebDavRemove with _$WebDavRemoveXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'propfind', namespace: namespaceDav)
 class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
-  const WebDavPropfind({
-    required this.prop,
-  });
+  const WebDavPropfind({required this.prop});
 
   @annotation.XmlElement(name: 'prop', namespace: namespaceDav)
   final WebDavPropWithoutValues prop;
@@ -144,10 +125,7 @@ class WebDavPropfind with _$WebDavPropfindXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'filter-files', namespace: namespaceOwncloud)
 class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
-  const WebDavOcFilterFiles({
-    required this.filterRules,
-    required this.prop,
-  });
+  const WebDavOcFilterFiles({required this.filterRules, required this.prop});
 
   @annotation.XmlElement(name: 'filter-rules', namespace: namespaceOwncloud)
   final WebDavOcFilterRules filterRules;
@@ -160,9 +138,7 @@ class WebDavOcFilterFiles with _$WebDavOcFilterFilesXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'resourcetype', namespace: namespaceDav)
 class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
-  const WebDavResourcetype({
-    required this.collection,
-  });
+  const WebDavResourcetype({required this.collection});
 
   factory WebDavResourcetype.fromXmlElement(XmlElement element) => _$WebDavResourcetypeFromXmlElement(element);
 
@@ -174,9 +150,7 @@ class WebDavResourcetype with _$WebDavResourcetypeXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'acl-list', namespace: namespaceNextcloud)
 class WebDavNcAclList with _$WebDavNcAclListXmlSerializableMixin {
-  const WebDavNcAclList({
-    required this.acls,
-  });
+  const WebDavNcAclList({required this.acls});
 
   factory WebDavNcAclList.fromXmlElement(XmlElement element) => _$WebDavNcAclListFromXmlElement(element);
 
@@ -218,9 +192,7 @@ class WebDavNcAcl with _$WebDavNcAclXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'sharees', namespace: namespaceNextcloud)
 class WebDavNcShareeList with _$WebDavNcShareeListXmlSerializableMixin {
-  const WebDavNcShareeList({
-    required this.sharees,
-  });
+  const WebDavNcShareeList({required this.sharees});
 
   factory WebDavNcShareeList.fromXmlElement(XmlElement element) => _$WebDavNcShareeListFromXmlElement(element);
 
@@ -232,11 +204,7 @@ class WebDavNcShareeList with _$WebDavNcShareeListXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'sharee', namespace: namespaceNextcloud)
 class WebDavNcSharee with _$WebDavNcShareeXmlSerializableMixin {
-  const WebDavNcSharee({
-    required this.id,
-    required this.displayName,
-    required this.type,
-  });
+  const WebDavNcSharee({required this.id, required this.displayName, required this.type});
 
   factory WebDavNcSharee.fromXmlElement(XmlElement element) => _$WebDavNcShareeFromXmlElement(element);
 
@@ -254,9 +222,7 @@ class WebDavNcSharee with _$WebDavNcShareeXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'checksums', namespace: namespaceOwncloud)
 class WebDavOcChecksums with _$WebDavOcChecksumsXmlSerializableMixin {
-  const WebDavOcChecksums({
-    required this.checksums,
-  });
+  const WebDavOcChecksums({required this.checksums});
 
   factory WebDavOcChecksums.fromXmlElement(XmlElement element) => _$WebDavOcChecksumsFromXmlElement(element);
 
@@ -268,9 +234,7 @@ class WebDavOcChecksums with _$WebDavOcChecksumsXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'share-types', namespace: namespaceOwncloud)
 class WebDavOcShareTypes with _$WebDavOcShareTypesXmlSerializableMixin {
-  const WebDavOcShareTypes({
-    required this.shareTypes,
-  });
+  const WebDavOcShareTypes({required this.shareTypes});
 
   factory WebDavOcShareTypes.fromXmlElement(XmlElement element) => _$WebDavOcShareTypesFromXmlElement(element);
 
@@ -282,9 +246,7 @@ class WebDavOcShareTypes with _$WebDavOcShareTypesXmlSerializableMixin {
 @annotation.XmlSerializable(createMixin: true)
 @annotation.XmlRootElement(name: 'tags', namespace: namespaceOwncloud)
 class WebDavOcTags with _$WebDavOcTagsXmlSerializableMixin {
-  const WebDavOcTags({
-    required this.tags,
-  });
+  const WebDavOcTags({required this.tags});
 
   factory WebDavOcTags.fromXmlElement(XmlElement element) => _$WebDavOcTagsFromXmlElement(element);
 

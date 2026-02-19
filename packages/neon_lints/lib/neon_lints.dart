@@ -15,10 +15,10 @@ PluginBase createPlugin() => _NeonLintsPlugin();
 class _NeonLintsPlugin extends PluginBase {
   @override
   List<LintRule> getLintRules(CustomLintConfigs _) => const [
-        AvoidDebugPrint(),
-        AvoidDartIO(),
-        AvoidExports(),
-        PreferPrefixedNextcloudImport(),
-        PreferPumpWidgetWithAccessibility(),
-      ];
+    AvoidDebugPrint(),
+    AvoidDartIO(),
+    AvoidExports(),
+    PreferPrefixedNextcloudImport(),
+    PreferPumpWidgetWithAccessibility(),
+  ];
 }

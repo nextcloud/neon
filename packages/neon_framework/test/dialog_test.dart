@@ -28,10 +28,7 @@ void main() {
         expect(find.byType(OutlinedButton), findsOneWidget);
         expect(find.byType(ElevatedButton), findsOneWidget);
 
-        dialog = const NeonConfirmationDialog(
-          title: title,
-          isDestructive: false,
-        );
+        dialog = const NeonConfirmationDialog(title: title, isDestructive: false);
 
         await tester.pumpWidgetWithAccessibility(TestApp(child: dialog));
 
@@ -169,9 +166,7 @@ void main() {
     });
 
     testWidgets('NeonDialog', (tester) async {
-      var dialog = const NeonDialog(
-        actions: [],
-      );
+      var dialog = const NeonDialog(actions: []);
       await tester.pumpWidgetWithAccessibility(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(
         find.byType(NeonDialogAction),
@@ -179,10 +174,7 @@ void main() {
         reason: 'Dialogs can not be dismissed on cupertino platforms. Expecting a fallback action.',
       );
 
-      dialog = const NeonDialog(
-        automaticallyShowCancel: false,
-        actions: [],
-      );
+      dialog = const NeonDialog(automaticallyShowCancel: false, actions: []);
       await tester.pumpWidgetWithAccessibility(TestApp(platform: TargetPlatform.macOS, child: dialog));
       expect(find.byType(NeonDialogAction), findsNothing);
     });
@@ -191,10 +183,7 @@ void main() {
       await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
-      final future = showDialog<String>(
-        context: context,
-        builder: (context) => const NeonEmojiPickerDialog(),
-      );
+      final future = showDialog<String>(context: context, builder: (context) => const NeonEmojiPickerDialog());
       await tester.pumpAndSettle();
 
       // Switch a different category
@@ -211,15 +200,16 @@ void main() {
       final status = BehaviorSubject.seeded(
         Result.success(
           user_status.Private(
-            (b) => b
-              ..userId = 'test'
-              ..message = 'predefined message'
-              ..icon = '😅'
-              ..clearAt = now.add(const Duration(hours: 3)).secondsSinceEpoch
-              ..status = user_status.$Type.online
-              ..messageId = 'id1'
-              ..messageIsPredefined = true
-              ..statusIsUserDefined = true,
+            (b) =>
+                b
+                  ..userId = 'test'
+                  ..message = 'predefined message'
+                  ..icon = '😅'
+                  ..clearAt = now.add(const Duration(hours: 3)).secondsSinceEpoch
+                  ..status = user_status.$Type.online
+                  ..messageId = 'id1'
+                  ..messageIsPredefined = true
+                  ..statusIsUserDefined = true,
           ),
         ),
       );
@@ -227,32 +217,30 @@ void main() {
         Result.success(
           BuiltList.from([
             user_status.Predefined(
-              (b) => b
-                ..id = 'id1'
-                ..icon = '😁'
-                ..message = 'message1'
-                ..clearAt.update(
-                  (b) => b
-                    ..type = user_status.ClearAt_Type.period
-                    ..time = (
-                      $int: 60 * 60 * 7,
-                      clearAtTimeType: null,
+              (b) =>
+                  b
+                    ..id = 'id1'
+                    ..icon = '😁'
+                    ..message = 'message1'
+                    ..clearAt.update(
+                      (b) =>
+                          b
+                            ..type = user_status.ClearAt_Type.period
+                            ..time = ($int: 60 * 60 * 7, clearAtTimeType: null),
                     ),
-                ),
             ),
             user_status.Predefined(
-              (b) => b
-                ..id = 'id2'
-                ..icon = '😆'
-                ..message = 'message2'
-                ..clearAt.update(
-                  (b) => b
-                    ..type = user_status.ClearAt_Type.endOf
-                    ..time = (
-                      $int: null,
-                      clearAtTimeType: user_status.ClearAtTimeType.week,
+              (b) =>
+                  b
+                    ..id = 'id2'
+                    ..icon = '😆'
+                    ..message = 'message2'
+                    ..clearAt.update(
+                      (b) =>
+                          b
+                            ..type = user_status.ClearAt_Type.endOf
+                            ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
                     ),
-                ),
             ),
           ]),
         ),
@@ -265,12 +253,8 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
           wrapMaterial: false,
-          providers: [
-            NeonProvider<UserStatusBloc>.value(value: userStatusBloc),
-          ],
-          child: NeonUserStatusDialog(
-            now: now,
-          ),
+          providers: [NeonProvider<UserStatusBloc>.value(value: userStatusBloc)],
+          child: NeonUserStatusDialog(now: now),
         ),
       );
 
@@ -287,20 +271,12 @@ void main() {
       // Predefined with period clearAt
       await tester.tap(find.text('message1'));
       verify(
-        () => userStatusBloc.setPredefinedMessage(
-          id: 'id1',
-          clearAt: now.add(const Duration(hours: 7)),
-        ),
+        () => userStatusBloc.setPredefinedMessage(id: 'id1', clearAt: now.add(const Duration(hours: 7))),
       ).called(1);
 
       // Predefined with end-of clearAt
       await tester.tap(find.text('message2'));
-      verify(
-        () => userStatusBloc.setPredefinedMessage(
-          id: 'id2',
-          clearAt: now.add(const Duration(days: 2)),
-        ),
-      ).called(1);
+      verify(() => userStatusBloc.setPredefinedMessage(id: 'id2', clearAt: now.add(const Duration(days: 2)))).called(1);
 
       // Set emoji
       await tester.tap(find.byType(IconButton));
@@ -361,17 +337,18 @@ void main() {
   group('NeonAccountDeletionDialog', () {
     core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(
       core.DropAccountCapabilities? capabilities,
-    ) =>
-        core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
-          (b) => b
+    ) => core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
+      (b) =>
+          b
             ..version.update(
-              (b) => b
-                ..major = 0
-                ..minor = 0
-                ..micro = 0
-                ..string = ''
-                ..edition = ''
-                ..extendedSupport = false,
+              (b) =>
+                  b
+                    ..major = 0
+                    ..minor = 0
+                    ..micro = 0
+                    ..string = ''
+                    ..edition = ''
+                    ..extendedSupport = false,
             )
             ..capabilities = (
               // We need to provide at least one capability because anyOf expects at least one schema to match
@@ -398,25 +375,22 @@ void main() {
               userStatusCapabilities: null,
               weatherStatusCapabilities: null,
             ),
-        );
+    );
 
     testWidgets('Without drop_account', (tester) async {
       final account = MockAccount();
 
       final capabilitiesBloc = MockCapabilitiesBloc();
-      when(() => capabilitiesBloc.capabilities).thenAnswer(
-        (_) => BehaviorSubject.seeded(Result.success(buildCapabilities(null))),
-      );
+      when(
+        () => capabilitiesBloc.capabilities,
+      ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(buildCapabilities(null))));
 
       await tester.pumpWidgetWithAccessibility(const TestApp(child: Placeholder()));
       final BuildContext context = tester.element(find.byType(Placeholder));
 
       final future = showDialog<AccountDeletion>(
         context: context,
-        builder: (context) => NeonAccountDeletionDialog(
-          account: account,
-          capabilitiesBloc: capabilitiesBloc,
-        ),
+        builder: (context) => NeonAccountDeletionDialog(account: account, capabilitiesBloc: capabilitiesBloc),
       );
       await tester.pumpAndSettle();
       expect(find.byType(NeonConfirmationDialog), findsOne);
@@ -435,18 +409,21 @@ void main() {
             Result.success(
               buildCapabilities(
                 core.DropAccountCapabilities(
-                  (b) => b
-                    ..dropAccount.update(
-                      (b) => b
-                        ..apiVersion = ''
-                        ..enabled = false
-                        ..details = 'disabled'
-                        ..delay.update(
-                          (b) => b
-                            ..enabled = false
-                            ..hours = 0,
+                  (b) =>
+                      b
+                        ..dropAccount.update(
+                          (b) =>
+                              b
+                                ..apiVersion = ''
+                                ..enabled = false
+                                ..details = 'disabled'
+                                ..delay.update(
+                                  (b) =>
+                                      b
+                                        ..enabled = false
+                                        ..hours = 0,
+                                ),
                         ),
-                    ),
                 ),
               ),
             ),
@@ -458,10 +435,7 @@ void main() {
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonAccountDeletionDialog(
-            account: account,
-            capabilitiesBloc: capabilitiesBloc,
-          ),
+          builder: (context) => NeonAccountDeletionDialog(account: account, capabilitiesBloc: capabilitiesBloc),
         );
         await tester.pumpAndSettle();
         expect(find.byType(NeonConfirmationDialog), findsNothing);
@@ -483,17 +457,20 @@ void main() {
             Result.success(
               buildCapabilities(
                 core.DropAccountCapabilities(
-                  (b) => b
-                    ..dropAccount.update(
-                      (b) => b
-                        ..apiVersion = ''
-                        ..enabled = true
-                        ..delay.update(
-                          (b) => b
-                            ..enabled = true
-                            ..hours = 12,
+                  (b) =>
+                      b
+                        ..dropAccount.update(
+                          (b) =>
+                              b
+                                ..apiVersion = ''
+                                ..enabled = true
+                                ..delay.update(
+                                  (b) =>
+                                      b
+                                        ..enabled = true
+                                        ..hours = 12,
+                                ),
                         ),
-                    ),
                 ),
               ),
             ),
@@ -505,10 +482,7 @@ void main() {
 
         final future = showDialog<AccountDeletion>(
           context: context,
-          builder: (context) => NeonAccountDeletionDialog(
-            account: account,
-            capabilitiesBloc: capabilitiesBloc,
-          ),
+          builder: (context) => NeonAccountDeletionDialog(account: account, capabilitiesBloc: capabilitiesBloc),
         );
         await tester.pumpAndSettle();
         expect(find.byType(NeonConfirmationDialog), findsNothing);

@@ -10,10 +10,7 @@ import 'package:neon_framework/utils.dart';
 
 @internal
 class OptionSettingsTile extends InputSettingsTile {
-  const OptionSettingsTile({
-    required super.option,
-    super.key,
-  });
+  const OptionSettingsTile({required super.option, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +23,18 @@ class OptionSettingsTile extends InputSettingsTile {
 
 @internal
 class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
-  const ToggleSettingsTile({
-    required super.option,
-    super.key,
-  });
+  const ToggleSettingsTile({required super.option, super.key});
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: option,
-      builder: (context, value, child) => SwitchListTile.adaptive(
-        title: child,
-        value: value,
-        onChanged: option.enabled ? (value) => option.value = value : null,
-      ),
+      builder:
+          (context, value, child) => SwitchListTile.adaptive(
+            title: child,
+            value: value,
+            onChanged: option.enabled ? (value) => option.value = value : null,
+          ),
       child: Text(option.label(context)),
     );
   }
@@ -47,11 +42,7 @@ class ToggleSettingsTile extends InputSettingsTile<ToggleOption> {
 
 @internal
 class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
-  const SelectSettingsTile({
-    required super.option,
-    this.immediateSelection = true,
-    super.key,
-  });
+  const SelectSettingsTile({required super.option, this.immediateSelection = true, super.key});
 
   final bool immediateSelection;
 
@@ -72,17 +63,12 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
             if (showCupertino) {
               await Navigator.push(
                 context,
-                CupertinoPageRoute<void>(
-                  builder: (_) => SelectSettingsTileScreen(option: option),
-                ),
+                CupertinoPageRoute<void>(builder: (_) => SelectSettingsTileScreen(option: option)),
               );
             } else {
               final result = await showAdaptiveDialog<({T value})>(
                 context: context,
-                builder: (context) => SelectSettingsTileDialog(
-                  option: option,
-                  immediateSelection: immediateSelection,
-                ),
+                builder: (context) => SelectSettingsTileDialog(option: option, immediateSelection: immediateSelection),
               );
 
               if (result != null) {
@@ -92,9 +78,7 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
           },
         );
       },
-      child: Text(
-        option.label(context),
-      ),
+      child: Text(option.label(context)),
     );
   }
 }
@@ -107,11 +91,7 @@ class SelectSettingsTile<T> extends InputSettingsTile<SelectOption<T>> {
 /// On cupertino platforms a [SelectSettingsTileScreen] should be used.
 @internal
 class SelectSettingsTileDialog<T> extends StatefulWidget {
-  const SelectSettingsTileDialog({
-    required this.option,
-    this.immediateSelection = true,
-    super.key,
-  });
+  const SelectSettingsTileDialog({required this.option, this.immediateSelection = true, super.key});
 
   final SelectOption<T> option;
 
@@ -141,10 +121,7 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
         children: [
           ...widget.option.values.keys.map(
             (k) => RadioListTile(
-              title: Text(
-                widget.option.values[k]!(context),
-                overflow: TextOverflow.ellipsis,
-              ),
+              title: Text(widget.option.values[k]!(context), overflow: TextOverflow.ellipsis),
               value: k,
               groupValue: value,
               onChanged: (value) {
@@ -163,20 +140,12 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
     );
 
     final actions = [
-      TextButton(
-        onPressed: cancel,
-        child: Text(NeonLocalizations.of(context).actionClose),
-      ),
-      TextButton(
-        onPressed: submit,
-        child: Text(NeonLocalizations.of(context).actionContinue),
-      ),
+      TextButton(onPressed: cancel, child: Text(NeonLocalizations.of(context).actionClose)),
+      TextButton(onPressed: submit, child: Text(NeonLocalizations.of(context).actionContinue)),
     ];
 
     return AlertDialog(
-      title: Text(
-        widget.option.label(context),
-      ),
+      title: Text(widget.option.label(context)),
       content: content,
       actions: widget.immediateSelection ? null : actions,
     );
@@ -191,10 +160,7 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
 /// On material platforms a [SelectSettingsTileDialog] should be used.
 @internal
 class SelectSettingsTileScreen<T> extends StatelessWidget {
-  const SelectSettingsTileScreen({
-    required this.option,
-    super.key,
-  });
+  const SelectSettingsTileScreen({required this.option, super.key});
 
   final SelectOption<T> option;
 
@@ -204,39 +170,30 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
 
     final selector = ValueListenableBuilder(
       valueListenable: option,
-      builder: (context, value, child) => CupertinoListSection.insetGrouped(
-        hasLeading: false,
-        header: child,
-        children: [
-          ...option.values.keys.map(
-            (k) => RadioListTile.adaptive(
-              controlAffinity: ListTileControlAffinity.trailing,
-              title: Text(
-                option.values[k]!(context),
-                overflow: TextOverflow.ellipsis,
+      builder:
+          (context, value, child) => CupertinoListSection.insetGrouped(
+            hasLeading: false,
+            header: child,
+            children: [
+              ...option.values.keys.map(
+                (k) => RadioListTile.adaptive(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(option.values[k]!(context), overflow: TextOverflow.ellipsis),
+                  value: k,
+                  groupValue: value,
+                  onChanged: (value) {
+                    option.value = value as T;
+                  },
+                ),
               ),
-              value: k,
-              groupValue: value,
-              onChanged: (value) {
-                option.value = value as T;
-              },
-            ),
+            ],
           ),
-        ],
-      ),
-      child: Text(
-        option.label(context),
-      ),
+      child: Text(option.label(context)),
     );
 
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: ConstrainedBox(
-          constraints: dialogTheme.constraints,
-          child: selector,
-        ),
-      ),
+      body: Center(child: ConstrainedBox(constraints: dialogTheme.constraints, child: selector)),
     );
   }
 }

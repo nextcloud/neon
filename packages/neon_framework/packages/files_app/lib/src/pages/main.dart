@@ -12,9 +12,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 
 class FilesMainPage extends StatefulWidget {
-  const FilesMainPage({
-    super.key,
-  });
+  const FilesMainPage({super.key});
 
   @override
   State<FilesMainPage> createState() => _FilesMainPageState();

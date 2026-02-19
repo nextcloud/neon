@@ -22,10 +22,7 @@ import 'package:provider/provider.dart';
 @internal
 class AccountSettingsPage extends StatelessWidget {
   /// Creates a new account settings page for the given [account].
-  const AccountSettingsPage({
-    required this.account,
-    super.key,
-  });
+  const AccountSettingsPage({required this.account, super.key});
 
   /// The account to display the settings for.
   final Account account;
@@ -44,10 +41,11 @@ class AccountSettingsPage extends StatelessWidget {
           onPressed: () async {
             final decision = await showAdaptiveDialog<AccountDeletion>(
               context: context,
-              builder: (context) => NeonAccountDeletionDialog(
-                account: account,
-                capabilitiesBloc: bloc.getCapabilitiesBlocFor(account),
-              ),
+              builder:
+                  (context) => NeonAccountDeletionDialog(
+                    account: account,
+                    capabilitiesBloc: bloc.getCapabilitiesBlocFor(account),
+                  ),
             );
 
             switch (decision) {
@@ -83,11 +81,12 @@ class AccountSettingsPage extends StatelessWidget {
                 '${NeonLocalizations.of(context).settingsResetForConfirmation(name)} ${NeonLocalizations.of(context).settingsResetForExplanation}';
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (context) => NeonConfirmationDialog(
-                icon: const Icon(Icons.restart_alt),
-                title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
-              ),
+              builder:
+                  (context) => NeonConfirmationDialog(
+                    icon: const Icon(Icons.restart_alt),
+                    title: NeonLocalizations.of(context).settingsReset,
+                    content: Text(content),
+                  ),
             );
 
             if (decision ?? false) {
@@ -148,11 +147,7 @@ class AccountSettingsPage extends StatelessWidget {
         ),
         SettingsCategory(
           title: Text(NeonLocalizations.of(context).optionsCategoryGeneral),
-          tiles: [
-            SelectSettingsTile(
-              option: options.initialApp,
-            ),
-          ],
+          tiles: [SelectSettingsTile(option: options.initialApp)],
         ),
       ],
     );
@@ -164,10 +159,7 @@ class AccountSettingsPage extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: NeonDialogTheme.of(context).constraints,
-            child: Provider<Account>.value(
-              value: account,
-              child: body,
-            ),
+            child: Provider<Account>.value(value: account, child: body),
           ),
         ),
       ),

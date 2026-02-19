@@ -16,8 +16,11 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   final String wireName = 'TestObject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TestObject object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TestObject object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.onlyNumbers;
@@ -108,8 +111,11 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
   }
 
   @override
-  TestObject deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TestObject deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TestObjectBuilder();
 
     final iterator = serialized.iterator;
@@ -132,20 +138,28 @@ class _$TestObjectSerializer implements StructuredSerializer<TestObject> {
               serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'min-items':
-          result.minItems.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.minItems.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'max-items':
-          result.maxItems.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.maxItems.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'array-unique':
-          result.arrayUnique.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, const [const FullType(int)]))! as BuiltSet<Object?>);
+          result.arrayUnique.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)]))!
+                as BuiltSet<Object?>,
+          );
           break;
         case 'array-multiple-checks':
-          result.arrayMultipleChecks.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltSet, const [const FullType(int)]))! as BuiltSet<Object?>);
+          result.arrayMultipleChecks.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltSet, const [const FullType(int)]))!
+                as BuiltSet<Object?>,
+          );
           break;
         case 'multipleOf':
           result.multipleOf = serializers.deserialize(value, specifiedType: const FullType(num)) as num?;
@@ -179,8 +193,11 @@ class _$TestObjectUnspecifiedSerializer implements StructuredSerializer<TestObje
   final String wireName = 'TestObjectUnspecified';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, TestObjectUnspecified object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    TestObjectUnspecified object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.value;
@@ -193,8 +210,11 @@ class _$TestObjectUnspecifiedSerializer implements StructuredSerializer<TestObje
   }
 
   @override
-  TestObjectUnspecified deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  TestObjectUnspecified deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TestObjectUnspecifiedBuilder();
 
     final iterator = serialized.iterator;
@@ -291,22 +311,22 @@ class _$TestObject extends TestObject {
 
   factory _$TestObject([void Function(TestObjectBuilder)? updates]) => (TestObjectBuilder()..update(updates))._build();
 
-  _$TestObject._(
-      {this.onlyNumbers,
-      this.minLength,
-      this.maxLength,
-      this.stringMultipleChecks,
-      this.minItems,
-      this.maxItems,
-      this.arrayUnique,
-      this.arrayMultipleChecks,
-      this.multipleOf,
-      this.maximum,
-      this.exclusiveMaximum,
-      this.minimum,
-      this.exclusiveMinimum,
-      this.numberMultipleChecks})
-      : super._();
+  _$TestObject._({
+    this.onlyNumbers,
+    this.minLength,
+    this.maxLength,
+    this.stringMultipleChecks,
+    this.minItems,
+    this.maxItems,
+    this.arrayUnique,
+    this.arrayMultipleChecks,
+    this.multipleOf,
+    this.maximum,
+    this.exclusiveMaximum,
+    this.minimum,
+    this.exclusiveMinimum,
+    this.numberMultipleChecks,
+  }) : super._();
   @override
   TestObject rebuild(void Function(TestObjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -479,7 +499,8 @@ class TestObjectBuilder implements Builder<TestObject, TestObjectBuilder>, $Test
     TestObject._validate(this);
     _$TestObject _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$TestObject._(
             onlyNumbers: onlyNumbers,
             minLength: minLength,
@@ -595,10 +616,7 @@ class TestObjectUnspecifiedBuilder
 
   _$TestObjectUnspecified _build() {
     TestObjectUnspecified._validate(this);
-    final _$result = _$v ??
-        _$TestObjectUnspecified._(
-          value: value,
-        );
+    final _$result = _$v ?? _$TestObjectUnspecified._(value: value);
     replace(_$result);
     return _$result;
   }

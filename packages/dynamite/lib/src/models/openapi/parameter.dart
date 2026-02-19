@@ -50,10 +50,11 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
       final mediaType = content!.entries.single;
 
       return StringSchema(
-        (b) => b
-          ..type = JsonSchemaType.string
-          ..contentMediaType = mediaType.key
-          ..contentSchema = mediaType.value.schema,
+        (b) =>
+            b
+              ..type = JsonSchemaType.string
+              ..contentMediaType = mediaType.key
+              ..contentSchema = mediaType.value.schema,
       );
     }
 
@@ -66,10 +67,7 @@ abstract class Parameter implements Built<Parameter, ParameterBuilder> {
   /// Specify [isFirst] according to this. When [withPrefix] is `false` the prefix will be dropped entirely.
   ///
   /// Returns `null` if the parameter does not support a uri template.
-  String? uriTemplate({
-    bool isFirst = true,
-    bool withPrefix = true,
-  }) {
+  String? uriTemplate({bool isFirst = true, bool withPrefix = true}) {
     final buffer = StringBuffer();
 
     final prefix = switch (style) {

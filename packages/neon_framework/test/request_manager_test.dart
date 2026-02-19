@@ -215,17 +215,11 @@ void main() {
       setUp(() async {
         cache = MockRequestCache();
 
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value(http.Response('Cached value', 200)),
-        );
+        when(() => cache.get(any(), any())).thenAnswer((_) => Future.value(http.Response('Cached value', 200)));
 
-        when(() => cache.set(any(), any(), any())).thenAnswer(
-          (_) => Future.value(),
-        );
+        when(() => cache.set(any(), any(), any())).thenAnswer((_) => Future.value());
 
-        when(() => cache.updateHeaders(any(), any(), any())).thenAnswer(
-          (_) => Future.value(),
-        );
+        when(() => cache.updateHeaders(any(), any(), any())).thenAnswer((_) => Future.value());
 
         when(() => storage.requestCache).thenReturn(cache);
 
@@ -369,9 +363,7 @@ void main() {
             http.Response(
               'Cached value',
               200,
-              headers: {
-                'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1))),
-              },
+              headers: {'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).add(const Duration(hours: 1)))},
             ),
           ),
         );
@@ -404,9 +396,7 @@ void main() {
             http.Response(
               'Cached value',
               200,
-              headers: {
-                'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1))),
-              },
+              headers: {'expires': formatHttpDate(tz.TZDateTime.now(tz.UTC).subtract(const Duration(hours: 1)))},
             ),
           ),
         );
@@ -445,23 +435,10 @@ void main() {
           ),
         );
 
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value(
-            http.Response(
-              'Cached value',
-              200,
-              headers: {
-                'etag': 'a',
-              },
-            ),
-          ),
-        );
-        when(callback.call).thenAnswer(
-          (_) async => {
-            'etag': 'a',
-            'expires': newExpires,
-          },
-        );
+        when(
+          () => cache.get(any(), any()),
+        ).thenAnswer((_) => Future.value(http.Response('Cached value', 200, headers: {'etag': 'a'})));
+        when(callback.call).thenAnswer((_) async => {'etag': 'a', 'expires': newExpires});
 
         var subject = BehaviorSubject<Result<String>>();
 
@@ -490,23 +467,10 @@ void main() {
         verify(() => cache.updateHeaders(account, any(), {'etag': 'a', 'expires': newExpires})).called(1);
         verifyNever(() => cache.set(any(), any(), any()));
 
-        when(() => cache.get(any(), any())).thenAnswer(
-          (_) => Future.value(
-            http.Response(
-              'Cached value',
-              200,
-              headers: {
-                'etag': 'a',
-              },
-            ),
-          ),
-        );
-        when(callback.call).thenAnswer(
-          (_) async => {
-            'etag': 'b',
-            'expires': newExpires,
-          },
-        );
+        when(
+          () => cache.get(any(), any()),
+        ).thenAnswer((_) => Future.value(http.Response('Cached value', 200, headers: {'etag': 'a'})));
+        when(callback.call).thenAnswer((_) async => {'etag': 'b', 'expires': newExpires});
 
         subject = BehaviorSubject<Result<String>>();
 
@@ -557,14 +521,7 @@ void main() {
           );
 
           RequestManager.instance.httpClient = MockClient(
-            (_) async => http.Response(
-              'Test value',
-              200,
-              headers: {
-                'etag': 'a',
-                'expires': newExpires,
-              },
-            ),
+            (_) async => http.Response('Test value', 200, headers: {'etag': 'a', 'expires': newExpires}),
           );
 
           final subject = BehaviorSubject<Result<String>>();
@@ -598,9 +555,9 @@ void main() {
                     .having((response) => response.statusCode, 'statusCode', 200)
                     .having((response) => response.body, 'body', 'Test value')
                     .having((response) => response.headers, 'headers', <String, String>{
-                  'etag': 'a',
-                  'expires': newExpires,
-                }),
+                      'etag': 'a',
+                      'expires': newExpires,
+                    }),
               ),
             ),
           ).called(1);

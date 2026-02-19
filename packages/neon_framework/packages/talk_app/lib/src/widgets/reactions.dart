@@ -11,11 +11,7 @@ import 'package:talk_app/src/widgets/reactions_overview_dialog.dart';
 /// Widget for displaying the current reactions on a chat message including the ability to add and remove reactions.
 class TalkReactions extends StatelessWidget {
   /// Creates new Talk reactions.
-  const TalkReactions({
-    required this.room,
-    required this.chatMessage,
-    super.key,
-  });
+  const TalkReactions({required this.room, required this.chatMessage, super.key});
 
   /// {@macro TalkMessage.room}
   final spreed.Room room;
@@ -29,9 +25,7 @@ class TalkReactions extends StatelessWidget {
 
     final canUpdateReactions = canSendMessageAndShareAndReact(room);
 
-    const shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(50)),
-    );
+    const shape = RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(50)));
 
     return MouseRegion(
       onEnter: (_) {
@@ -59,23 +53,21 @@ class TalkReactions extends StatelessWidget {
                     color: isSelf ? Theme.of(context).colorScheme.onPrimary : null,
                   ),
                 ),
-                tooltip: reactions?[reaction.key]?.map((r) => r.actorDisplayName).join(', ') ??
+                tooltip:
+                    reactions?[reaction.key]?.map((r) => r.actorDisplayName).join(', ') ??
                     TalkLocalizations.of(context).reactionsLoading,
                 padding: EdgeInsets.zero,
-                labelPadding: const EdgeInsets.only(
-                  top: -2.5,
-                  bottom: -2.5,
-                  right: 10,
-                ),
-                onPressed: canUpdateReactions
-                    ? () {
-                        if (isSelf) {
-                          bloc.removeReaction(chatMessage, reaction.key);
-                        } else {
-                          bloc.addReaction(chatMessage, reaction.key);
+                labelPadding: const EdgeInsets.only(top: -2.5, bottom: -2.5, right: 10),
+                onPressed:
+                    canUpdateReactions
+                        ? () {
+                          if (isSelf) {
+                            bloc.removeReaction(chatMessage, reaction.key);
+                          } else {
+                            bloc.addReaction(chatMessage, reaction.key);
+                          }
                         }
-                      }
-                    : null,
+                        : null,
               ),
             );
           }
@@ -116,11 +108,7 @@ class TalkReactions extends StatelessWidget {
             children.add(
               ActionChip(
                 shape: shape,
-                avatar: Icon(
-                  MdiIcons.heartOutline,
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  size: 16,
-                ),
+                avatar: Icon(MdiIcons.heartOutline, color: Theme.of(context).colorScheme.onSurfaceVariant, size: 16),
                 label: const SizedBox(),
                 padding: EdgeInsets.zero,
                 labelPadding: const EdgeInsets.symmetric(vertical: -2.5),
@@ -128,24 +116,18 @@ class TalkReactions extends StatelessWidget {
                 onPressed: () async {
                   await showDialog<void>(
                     context: context,
-                    builder: (context) => NeonProvider.value(
-                      value: bloc,
-                      child: TalkReactionsOverviewDialog(
-                        chatMessage: chatMessage,
-                      ),
-                    ),
+                    builder:
+                        (context) => NeonProvider.value(
+                          value: bloc,
+                          child: TalkReactionsOverviewDialog(chatMessage: chatMessage),
+                        ),
                   );
                 },
               ),
             );
           }
 
-          return Wrap(
-            runAlignment: WrapAlignment.center,
-            spacing: 5,
-            runSpacing: 5,
-            children: children,
-          );
+          return Wrap(runAlignment: WrapAlignment.center, spacing: 5, runSpacing: 5, children: children);
         },
       ),
     );

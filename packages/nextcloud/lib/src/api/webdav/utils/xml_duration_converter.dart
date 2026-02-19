@@ -7,11 +7,7 @@ final class DurationXMLConverter implements xml_annotation.XmlConverter<Duration
   const DurationXMLConverter();
 
   @override
-  void buildXmlChildren(
-    Duration? instance,
-    xml.XmlBuilder builder, {
-    Map<String, String> namespaces = const {},
-  }) {
+  void buildXmlChildren(Duration? instance, xml.XmlBuilder builder, {Map<String, String> namespaces = const {}}) {
     if (instance == null) {
       return;
     }
@@ -21,9 +17,7 @@ final class DurationXMLConverter implements xml_annotation.XmlConverter<Duration
   }
 
   @override
-  Duration? fromXmlElement(
-    xml.XmlElement element,
-  ) {
+  Duration? fromXmlElement(xml.XmlElement element) {
     final value = element.getText();
 
     if (value != null) {
@@ -35,25 +29,17 @@ final class DurationXMLConverter implements xml_annotation.XmlConverter<Duration
   }
 
   @override
-  List<xml.XmlAttribute> toXmlAttributes(
-    Duration? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlAttribute> toXmlAttributes(Duration? instance, {Map<String, String?> namespaces = const {}}) {
     return const <xml.XmlAttribute>[];
   }
 
   @override
-  List<xml.XmlNode> toXmlChildren(
-    Duration? instance, {
-    Map<String, String?> namespaces = const {},
-  }) {
+  List<xml.XmlNode> toXmlChildren(Duration? instance, {Map<String, String?> namespaces = const {}}) {
     if (instance == null) {
       return const <xml.XmlNode>[];
     }
 
     final serialized = instance.inSeconds.toString();
-    return <xml.XmlNode>[
-      xml.XmlText(serialized),
-    ];
+    return <xml.XmlNode>[xml.XmlText(serialized)];
   }
 }

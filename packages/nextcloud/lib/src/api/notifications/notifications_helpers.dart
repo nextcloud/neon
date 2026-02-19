@@ -23,9 +23,8 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
   const DecryptedSubject._();
 
   /// Decrypts the subject of a push notification.
-  factory DecryptedSubject.fromEncrypted(RSAPrivateKey privateKey, String subject) => DecryptedSubject.fromJson(
-        json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>,
-      );
+  factory DecryptedSubject.fromEncrypted(RSAPrivateKey privateKey, String subject) =>
+      DecryptedSubject.fromJson(json.decode(privateKey.decrypt(subject)) as Map<String, dynamic>);
 
   // ignore: public_member_api_docs
   factory DecryptedSubject.fromJson(Map<String, dynamic> json) => _serializers.deserializeWith(serializer, json)!;
@@ -66,8 +65,9 @@ abstract class DecryptedSubject implements Built<DecryptedSubject, DecryptedSubj
   bool? get deleteAll;
 }
 
-final Serializers _serializers = (Serializers().toBuilder()
-      ..add(DecryptedSubject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addPlugin(StandardJsonPlugin()))
-    .build();
+final Serializers _serializers =
+    (Serializers().toBuilder()
+          ..add(DecryptedSubject.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addPlugin(StandardJsonPlugin()))
+        .build();

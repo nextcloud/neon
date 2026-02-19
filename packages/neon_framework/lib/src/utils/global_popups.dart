@@ -88,10 +88,7 @@ class GlobalPopups {
             return;
           }
 
-          await showAdaptiveDialog<void>(
-            context: _context,
-            builder: (context) => const NeonUnifiedPushDialog(),
-          );
+          await showAdaptiveDialog<void>(context: _context, builder: (context) => const NeonUnifiedPushDialog());
         }),
       ]);
     }

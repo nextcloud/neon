@@ -5,11 +5,7 @@ import 'package:nextcloud/spreed.dart' as spreed;
 /// Widget for displaying a read/sent indicator next to a chat message.
 class TalkReadIndicator extends StatelessWidget {
   /// Creates a new Talk read indicator.
-  const TalkReadIndicator({
-    required this.chatMessage,
-    required this.lastCommonRead,
-    super.key,
-  });
+  const TalkReadIndicator({required this.chatMessage, required this.lastCommonRead, super.key});
 
   /// The message the indicator is for.
   final spreed.$ChatMessageInterface chatMessage;
@@ -19,10 +15,6 @@ class TalkReadIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Icon(
-      lastCommonRead >= chatMessage.id ? MdiIcons.checkAll : MdiIcons.check,
-      size: 14,
-      color: Colors.grey,
-    );
+    return Icon(lastCommonRead >= chatMessage.id ? MdiIcons.checkAll : MdiIcons.check, size: 14, color: Colors.grey);
   }
 }

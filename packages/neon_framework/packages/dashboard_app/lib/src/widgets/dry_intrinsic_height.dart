@@ -10,10 +10,7 @@ import 'package:flutter/widgets.dart';
 /// This widget is useful in situations where the `child` does not
 /// support dry layout, e.g., `TextField` as of 01/02/2021.
 class DryIntrinsicHeight extends SingleChildRenderObjectWidget {
-  const DryIntrinsicHeight({
-    super.key,
-    super.child,
-  });
+  const DryIntrinsicHeight({super.key, super.child});
 
   @override
   RenderDryIntrinsicHeight createRenderObject(BuildContext context) => RenderDryIntrinsicHeight();

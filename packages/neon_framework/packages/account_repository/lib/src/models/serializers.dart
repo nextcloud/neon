@@ -5,7 +5,8 @@ import 'package:meta/meta.dart';
 
 /// The serializer for the account repository models.
 @internal
-final Serializers serializers = (Serializers().toBuilder()
-      ..add(Credentials.serializer)
-      ..addPlugin(StandardJsonPlugin()))
-    .build();
+final Serializers serializers =
+    (Serializers().toBuilder()
+          ..add(Credentials.serializer)
+          ..addPlugin(StandardJsonPlugin()))
+        .build();

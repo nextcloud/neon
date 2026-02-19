@@ -41,43 +41,25 @@ void main() {
 
   group(NeonHttpClient, () {
     test('adds user agent', () {
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        userAgent: 'NeonTest',
-      );
+      client = NeonHttpClient(baseURL: Uri(), userAgent: 'NeonTest');
 
-      expect(
-        client.interceptors,
-        contains(isA<BaseHeaderInterceptor>()),
-      );
+      expect(client.interceptors, contains(isA<BaseHeaderInterceptor>()));
     });
 
     test('adds cookie store', () {
       final cookieStore = _MockCookieStore();
 
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
+      client = NeonHttpClient(baseURL: Uri(), cookieStore: cookieStore);
 
-      expect(
-        client.interceptors,
-        contains(isA<CookieStoreInterceptor>()),
-      );
+      expect(client.interceptors, contains(isA<CookieStoreInterceptor>()));
     });
 
     test('adds authorization throttling interceptor before cookie store', () {
       final cookieStore = _MockCookieStore();
 
-      client = NeonHttpClient(
-        baseURL: Uri(),
-        cookieStore: cookieStore,
-      );
+      client = NeonHttpClient(baseURL: Uri(), cookieStore: cookieStore);
 
-      expect(
-        client.interceptors.first,
-        isA<AuthorizationThrottlingInterceptor>(),
-      );
+      expect(client.interceptors.first, isA<AuthorizationThrottlingInterceptor>());
     });
 
     group('interceptors', () {
@@ -86,11 +68,7 @@ void main() {
       setUp(() {
         interceptor = _MockInterceptor();
 
-        client = NeonHttpClient(
-          baseURL: Uri(),
-          client: mockedClient,
-          interceptors: [interceptor],
-        );
+        client = NeonHttpClient(baseURL: Uri(), client: mockedClient, interceptors: [interceptor]);
       });
 
       test('does not intercept', () async {
@@ -100,25 +78,14 @@ void main() {
         final request = Request('GET', uri);
         await client.send(request);
 
-        verifyNever(
-          () => interceptor.interceptRequest(
-            request: any(named: 'request'),
-          ),
-        );
-        verifyNever(
-          () => interceptor.interceptResponse(
-            response: any(named: 'response'),
-            url: any(named: 'url'),
-          ),
-        );
+        verifyNever(() => interceptor.interceptRequest(request: any(named: 'request')));
+        verifyNever(() => interceptor.interceptResponse(response: any(named: 'response'), url: any(named: 'url')));
       });
 
       test('does intercept', () async {
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
         when(() => interceptor.shouldInterceptResponse(any())).thenReturn(true);
-        when(
-          () => interceptor.interceptRequest(request: any(named: 'request')),
-        ).thenReturn(fakeRequest());
+        when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenReturn(fakeRequest());
         when(
           () => interceptor.interceptResponse(response: any(named: 'response'), url: any(named: 'url')),
         ).thenReturn(fakeResponse());
@@ -126,11 +93,7 @@ void main() {
         final request = Request('GET', uri);
         await client.send(request);
 
-        verify(
-          () => interceptor.interceptRequest(
-            request: any(named: 'request', that: equals(request)),
-          ),
-        ).called(1);
+        verify(() => interceptor.interceptRequest(request: any(named: 'request', that: equals(request)))).called(1);
         verify(
           () => interceptor.interceptResponse(
             response: any(named: 'response'),
@@ -142,9 +105,7 @@ void main() {
       test('rethrows http.ClientExceptions', () async {
         final exception = DynamiteStatusCodeException(Response('', 404));
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
-        when(
-          () => interceptor.interceptRequest(request: any(named: 'request')),
-        ).thenThrow(exception);
+        when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenThrow(exception);
 
         expect(client.get(uri), throwsA(exception));
 
@@ -160,20 +121,9 @@ void main() {
 
       test('rethrows non-http.ClientExceptions as InterceptionFailure', () async {
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
-        when(
-          () => interceptor.interceptRequest(request: any(named: 'request')),
-        ).thenThrow(StateError('message'));
+        when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenThrow(StateError('message'));
 
-        expect(
-          client.get(uri),
-          throwsA(
-            isA<InterceptionException>().having(
-              (e) => e.uri,
-              'uri',
-              uri,
-            ),
-          ),
-        );
+        expect(client.get(uri), throwsA(isA<InterceptionException>().having((e) => e.uri, 'uri', uri)));
 
         when(() => interceptor.shouldInterceptRequest(any())).thenReturn(true);
         when(() => interceptor.interceptRequest(request: any(named: 'request'))).thenReturn(fakeRequest());
@@ -182,16 +132,7 @@ void main() {
           () => interceptor.interceptResponse(response: any(named: 'response'), url: any(named: 'url')),
         ).thenThrow(StateError('message'));
 
-        expect(
-          client.get(uri),
-          throwsA(
-            isA<InterceptionException>().having(
-              (e) => e.uri,
-              'uri',
-              uri,
-            ),
-          ),
-        );
+        expect(client.get(uri), throwsA(isA<InterceptionException>().having((e) => e.uri, 'uri', uri)));
       });
     });
 
@@ -206,10 +147,7 @@ void main() {
           }),
         );
 
-        expect(
-          client.get(uri),
-          completion(isA<Response>()),
-        );
+        expect(client.get(uri), completion(isA<Response>()));
       });
 
       test('does time out', () async {
@@ -223,10 +161,7 @@ void main() {
           }),
         );
 
-        expect(
-          client.get(uri),
-          throwsA(isA<HttpTimeoutException>()),
-        );
+        expect(client.get(uri), throwsA(isA<HttpTimeoutException>()));
       });
     });
   });

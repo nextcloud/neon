@@ -31,9 +31,7 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   late final NotesOptions options = NotesOptions(storage);
 
   @override
-  NotesBloc buildBloc(Account account) => NotesBloc(
-        account: account,
-      );
+  NotesBloc buildBloc(Account account) => NotesBloc(account: account);
 
   @override
   final Widget page = const NotesMainPage();
@@ -42,9 +40,6 @@ class NotesApp extends AppImplementation<NotesBloc, NotesOptions> {
   final RouteBase route = $notesAppRoute;
 
   @override
-  VersionCheck getVersionCheck(
-    Account account,
-    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
+  VersionCheck getVersionCheck(Account account, core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) =>
       account.client.notes.getVersionCheck(capabilities);
 }

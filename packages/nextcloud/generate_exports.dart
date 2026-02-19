@@ -34,14 +34,8 @@ class _State {
 void main() {
   final files = Glob('lib/src/api/**/*.openapi.dart').listSync()..sort((a, b) => a.path.compareTo(b.path));
 
-  final formatter = DartFormatter(
-    pageWidth: 120,
-    languageVersion: DartFormatter.latestLanguageVersion,
-  );
-  final emitter = DartEmitter(
-    orderDirectives: true,
-    useNullSafetySyntax: true,
-  );
+  final formatter = DartFormatter(pageWidth: 120, languageVersion: DartFormatter.latestLanguageVersion);
+  final emitter = DartEmitter(orderDirectives: true, useNullSafetySyntax: true);
 
   final states = BuiltList<_State>.build((b) {
     for (final file in files) {
@@ -52,9 +46,7 @@ void main() {
   for (final state in states) {
     final library = _buildClientExports(state);
     final output = library.accept(emitter).toString();
-    File('lib/${state.clientID}.dart').writeAsStringSync(
-      formatter.format(output),
-    );
+    File('lib/${state.clientID}.dart').writeAsStringSync(formatter.format(output));
   }
 }
 
@@ -63,14 +55,10 @@ Library _buildClientExports(_State state) {
   final dartName = state.dartName;
 
   return Library((b) {
-    b.directives.add(
-      Directive.export('package:nextcloud/src/api/$clientID/$clientID.openapi.dart'),
-    );
+    b.directives.add(Directive.export('package:nextcloud/src/api/$clientID/$clientID.openapi.dart'));
 
     if (state.hasHelpers) {
-      b.directives.add(
-        Directive.export('package:nextcloud/src/api/$clientID/${clientID}_helpers.dart'),
-      );
+      b.directives.add(Directive.export('package:nextcloud/src/api/$clientID/${clientID}_helpers.dart'));
     }
 
     final appID = Field((b) {

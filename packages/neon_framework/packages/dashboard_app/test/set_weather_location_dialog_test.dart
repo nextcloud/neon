@@ -18,9 +18,7 @@ void main() {
 
     var future = showDialog<String>(
       context: context,
-      builder: (context) => const DashboardSetWeatherLocationDialog(
-        currentAddress: 'Berlin',
-      ),
+      builder: (context) => const DashboardSetWeatherLocationDialog(currentAddress: 'Berlin'),
     );
     await tester.pumpAndSettle();
 
@@ -33,9 +31,7 @@ void main() {
 
     future = showDialog<String>(
       context: context,
-      builder: (context) => const DashboardSetWeatherLocationDialog(
-        currentAddress: null,
-      ),
+      builder: (context) => const DashboardSetWeatherLocationDialog(currentAddress: null),
     );
     await tester.pumpAndSettle();
 

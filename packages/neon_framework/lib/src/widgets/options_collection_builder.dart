@@ -8,12 +8,7 @@ class OptionsCollectionBuilder<T extends OptionsCollection> extends StatefulWidg
   /// The [valueListenable] and [builder] arguments must not be null.
   /// The [child] is optional but is good practice to use if part of the widget
   /// subtree does not depend on the value of the [valueListenable].
-  const OptionsCollectionBuilder({
-    required this.valueListenable,
-    required this.builder,
-    this.child,
-    super.key,
-  });
+  const OptionsCollectionBuilder({required this.valueListenable, required this.builder, this.child, super.key});
 
   /// The [OptionsCollection] whose values you depend on in order to build.
   final T valueListenable;
@@ -68,10 +63,6 @@ class _OptionsCollectionBuilderState<T extends OptionsCollection> extends State<
 
   @override
   Widget build(BuildContext context) {
-    return widget.builder(
-      context,
-      widget.valueListenable,
-      widget.child,
-    );
+    return widget.builder(context, widget.valueListenable, widget.child);
   }
 }

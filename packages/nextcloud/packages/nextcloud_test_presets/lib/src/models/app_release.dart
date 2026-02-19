@@ -19,10 +19,11 @@ class AppRelease implements Comparable<AppRelease> {
   final Version maximumServerVersion;
 
   ServerRelease? findLatestServerRelease(List<ServerRelease> serverReleases) {
-    final compatibleReleases = serverReleases
-        .where((serverRelease) => serverRelease.isCompatible(minimumServerVersion, maximumServerVersion))
-        .toList()
-      ..sort((a, b) => b.compareTo(a));
+    final compatibleReleases =
+        serverReleases
+            .where((serverRelease) => serverRelease.isCompatible(minimumServerVersion, maximumServerVersion))
+            .toList()
+          ..sort((a, b) => b.compareTo(a));
     return compatibleReleases.firstOrNull;
   }
 

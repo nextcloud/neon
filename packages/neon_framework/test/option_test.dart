@@ -16,11 +16,7 @@ enum StorageKey implements Storable {
   final String value;
 }
 
-enum SelectValues {
-  first,
-  second,
-  third,
-}
+enum SelectValues { first, second, third }
 
 void main() {
   final storage = MockStorage();
@@ -129,10 +125,7 @@ void main() {
 
       expect(option.values, equals(valuesLabel));
 
-      final newValues = {
-        SelectValues.second: (_) => 'second',
-        SelectValues.third: (_) => 'third',
-      };
+      final newValues = {SelectValues.second: (_) => 'second', SelectValues.third: (_) => 'third'};
 
       option.values = newValues;
       verify(callback.call).called(1);
@@ -148,10 +141,7 @@ void main() {
 
       option
         ..value = SelectValues.second
-        ..values = {
-          SelectValues.first: (_) => 'first',
-          SelectValues.third: (_) => 'third',
-        };
+        ..values = {SelectValues.first: (_) => 'first', SelectValues.third: (_) => 'third'};
       expect(option.value, SelectValues.first, reason: 'Invalid value.');
 
       option.value = SelectValues.second;
@@ -222,12 +212,7 @@ void main() {
       // ignore: discarded_futures
       when(() => storage.remove(key.value)).thenAnswer((_) async => true);
 
-      option = ToggleOption(
-        storage: storage,
-        key: key,
-        label: labelBuilder,
-        defaultValue: true,
-      );
+      option = ToggleOption(storage: storage, key: key, label: labelBuilder, defaultValue: true);
     });
 
     tearDown(() {
@@ -240,12 +225,7 @@ void main() {
 
       when(() => storage.getBool(key.value)).thenReturn(true);
 
-      option = ToggleOption(
-        storage: storage,
-        key: key,
-        label: labelBuilder,
-        defaultValue: false,
-      );
+      option = ToggleOption(storage: storage, key: key, label: labelBuilder, defaultValue: false);
 
       expect(option.value, true, reason: 'Should load value from storage when available.');
     });

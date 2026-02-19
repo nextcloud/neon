@@ -11,16 +11,9 @@ import 'package:news_app/src/options.dart';
 import 'package:nextcloud/news.dart' as news;
 import 'package:rxdart/rxdart.dart';
 
-enum FilterType {
-  all,
-  unread,
-  starred,
-}
+enum FilterType { all, unread, starred }
 
-enum ListType {
-  feed,
-  folder,
-}
+enum ListType { feed, folder }
 
 sealed class NewsArticlesBloc implements InteractiveBloc {
   factory NewsArticlesBloc({
@@ -49,21 +42,12 @@ sealed class NewsArticlesBloc implements InteractiveBloc {
 }
 
 class NewsMainArticlesBloc extends _NewsArticlesBloc {
-  NewsMainArticlesBloc({
-    required super.newsBloc,
-    required super.options,
-    required super.account,
-  });
+  NewsMainArticlesBloc({required super.newsBloc, required super.options, required super.account});
 }
 
 class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
-  _NewsArticlesBloc({
-    required NewsBloc newsBloc,
-    required this.options,
-    required this.account,
-    this.id,
-    this.listType,
-  }) : _newsBloc = newsBloc {
+  _NewsArticlesBloc({required NewsBloc newsBloc, required this.options, required this.account, this.id, this.listType})
+    : _newsBloc = newsBloc {
     filterType.add(options.defaultArticlesFilterOption.value);
     if (listType != null && filterType.value == FilterType.starred) {
       filterType.add(FilterType.all);
@@ -141,11 +125,12 @@ class _NewsArticlesBloc extends InteractiveBloc implements NewsArticlesBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: articles,
-      getRequest: () => account.client.news.items.$listArticles_Request(
-        type: type.index,
-        id: id ?? 0,
-        getRead: getRead ?? true ? 1 : 0,
-      ),
+      getRequest:
+          () => account.client.news.items.$listArticles_Request(
+            type: type.index,
+            id: id ?? 0,
+            getRead: getRead ?? true ? 1 : 0,
+          ),
       converter: ResponseConverter(account.client.news.items.$listArticles_Serializer()),
       unwrap: (response) => response.body.items,
     );

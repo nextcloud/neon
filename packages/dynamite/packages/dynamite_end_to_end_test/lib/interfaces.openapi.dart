@@ -122,12 +122,13 @@ abstract class BaseInterface implements $BaseInterfaceInterface, Built<BaseInter
 /// See: [$jsonSerializers] for serializing into json.
 @_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
-      ..add(Base.serializer)
-      ..addBuilderFactory(const FullType(BaseInterface), BaseInterfaceBuilder.new)
-      ..add(BaseInterface.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Base), BaseBuilder.new)
+          ..add(Base.serializer)
+          ..addBuilderFactory(const FullType(BaseInterface), BaseInterfaceBuilder.new)
+          ..add(BaseInterface.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -135,10 +136,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i2.DynamiteDoubleSerializer())
+          ..addPlugin(_i3.StandardJsonPlugin())
+          ..addPlugin(const _i2.HeaderPlugin())
+          ..addPlugin(const _i2.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

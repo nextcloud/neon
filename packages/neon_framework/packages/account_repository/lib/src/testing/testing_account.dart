@@ -14,19 +14,12 @@ final _mockClient = http.MockClient((request) async {
 /// The default http client backing this account can not be used to make requests.
 /// Provide a custom [http.MockClient] for testing network requests.
 @visibleForTesting
-Account createAccount({
-  Credentials? credentials,
-  http.Client? httpClient,
-}) {
+Account createAccount({Credentials? credentials, http.Client? httpClient}) {
   credentials ??= createCredentials();
 
   return Account((b) {
     b
       ..credentials.replace(credentials!)
-      ..client = buildClient(
-        httpClient: httpClient ?? _mockClient,
-        userAgent: 'neon',
-        credentials: credentials,
-      );
+      ..client = buildClient(httpClient: httpClient ?? _mockClient, userAgent: 'neon', credentials: credentials);
   });
 }

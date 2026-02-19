@@ -10,10 +10,7 @@ void main() {
     test('Schema reference resolving', () {
       const json = {
         'openapi': '3.1.0',
-        'info': {
-          'title': 'reference resolving test',
-          'version': '0.0.1',
-        },
+        'info': {'title': 'reference resolving test', 'version': '0.0.1'},
         'components': {
           'schemas': {
             'SuperClass': {
@@ -39,9 +36,7 @@ void main() {
                 },
               },
             },
-            'SubClass': {
-              r'$ref': '#/components/schemas/SuperClass',
-            },
+            'SubClass': {r'$ref': '#/components/schemas/SuperClass'},
           },
         },
         'paths': {},

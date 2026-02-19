@@ -41,13 +41,7 @@ void main() {
       const widget = NeonValidationTile(title: 'title', state: ValidationState.canceled);
 
       await tester.pumpWidgetWithAccessibility(
-        const TestApp(
-          platform: TargetPlatform.macOS,
-          child: ColoredBox(
-            color: Colors.white,
-            child: widget,
-          ),
-        ),
+        const TestApp(platform: TargetPlatform.macOS, child: ColoredBox(color: Colors.white, child: widget)),
       );
       expect(find.byType(CupertinoListTile), findsOneWidget);
     });

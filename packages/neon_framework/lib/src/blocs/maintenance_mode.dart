@@ -8,18 +8,14 @@ import 'package:nextcloud/core.dart' as core;
 
 /// A Bloc checking if the server is in maintenance mode.
 sealed class MaintenanceModeBloc implements InteractiveBloc {
-  factory MaintenanceModeBloc({
-    required Account account,
-  }) = _MaintenanceModeBloc;
+  factory MaintenanceModeBloc({required Account account}) = _MaintenanceModeBloc;
 
   /// Emits an event if the server is in maintenance mode.
   Stream<void> get onMaintenanceMode;
 }
 
 class _MaintenanceModeBloc extends InteractiveBloc implements MaintenanceModeBloc {
-  _MaintenanceModeBloc({
-    required this.account,
-  }) {
+  _MaintenanceModeBloc({required this.account}) {
     unawaited(refresh());
   }
 
@@ -48,11 +44,7 @@ class _MaintenanceModeBloc extends InteractiveBloc implements MaintenanceModeBlo
         controller.add(null);
       }
     } on http.ClientException catch (error, stackTrace) {
-      log.warning(
-        'Error getting the server status.',
-        error,
-        stackTrace,
-      );
+      log.warning('Error getting the server status.', error, stackTrace);
 
       addError(error);
     }

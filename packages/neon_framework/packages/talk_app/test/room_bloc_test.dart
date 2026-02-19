@@ -18,19 +18,19 @@ Account mockTalkAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room/abcd/participants/active'): {
-      'post': (match, request) => Response(
+      'post':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
-                'data': getRoom(
-                  token: 'abcd',
-                ),
+                'data': getRoom(token: 'abcd'),
               },
             }),
             200,
             headers: {'content-type': 'application/json'},
           ),
-      'delete': (match, request) => Response(
+      'delete':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
@@ -53,17 +53,12 @@ Account mockTalkAccount() {
                 id: messageCount++,
                 systemMessage: 'message_deleted',
                 messageType: spreed.MessageType.system,
-                parent: getChatMessage(
-                  id: id,
-                  messageType: spreed.MessageType.commentDeleted,
-                ),
+                parent: getChatMessage(id: id, messageType: spreed.MessageType.commentDeleted),
               ),
             },
           }),
           200,
-          headers: {
-            'content-type': 'application/json',
-          },
+          headers: {'content-type': 'application/json'},
         );
       },
       'put': (match, request) {
@@ -79,17 +74,12 @@ Account mockTalkAccount() {
                 id: messageCount++,
                 systemMessage: 'message_edited',
                 messageType: spreed.MessageType.system,
-                parent: getChatMessage(
-                  id: id,
-                  message: message,
-                ),
+                parent: getChatMessage(id: id, message: message),
               ),
             },
           }),
           200,
-          headers: {
-            'content-type': 'application/json',
-          },
+          headers: {'content-type': 'application/json'},
         );
       },
     },
@@ -107,35 +97,19 @@ Account mockTalkAccount() {
                   getChatMessage(
                     id: messageCount++,
                     systemMessage: 'reaction',
-                    parent: getChatMessage(
-                      id: 2,
-                      reactions: {
-                        '😊': 1,
-                      },
-                    ),
+                    parent: getChatMessage(id: 2, reactions: {'😊': 1}),
                   ),
-                  getChatMessage(
-                    id: messageCount++,
-                  ),
+                  getChatMessage(id: messageCount++),
                   getChatMessage(
                     id: messageCount++,
                     systemMessage: 'message_edited',
-                    parent: getChatMessage(
-                      id: 2,
-                      reactions: {
-                        '😊': 1,
-                      },
-                      message: 'edit',
-                    ),
+                    parent: getChatMessage(id: 2, reactions: {'😊': 1}, message: 'edit'),
                   ),
                 ],
               },
             }),
             200,
-            headers: {
-              'content-type': 'application/json; charset=utf-8',
-              'x-chat-last-common-read': '0',
-            },
+            headers: {'content-type': 'application/json; charset=utf-8', 'x-chat-last-common-read': '0'},
           );
         } else {
           return Response(
@@ -146,20 +120,13 @@ Account mockTalkAccount() {
                   messageCount,
                   (i) => getChatMessage(
                     id: messageCount - i - 1,
-                    parent: messageCount - i - 2 >= 0
-                        ? getChatMessage(
-                            id: messageCount - i - 2,
-                          )
-                        : null,
+                    parent: messageCount - i - 2 >= 0 ? getChatMessage(id: messageCount - i - 2) : null,
                   ),
                 ),
               },
             }),
             200,
-            headers: {
-              'content-type': 'application/json',
-              'x-chat-last-common-read': '0',
-            },
+            headers: {'content-type': 'application/json', 'x-chat-last-common-read': '0'},
           );
         }
       },
@@ -171,21 +138,11 @@ Account mockTalkAccount() {
           json.encode({
             'ocs': {
               'meta': {'status': '', 'statuscode': 0},
-              'data': getChatMessage(
-                id: messageCount++,
-                parent: replyTo != null
-                    ? getChatMessage(
-                        id: replyTo,
-                      )
-                    : null,
-              ),
+              'data': getChatMessage(id: messageCount++, parent: replyTo != null ? getChatMessage(id: replyTo) : null),
             },
           }),
           201,
-          headers: {
-            'content-type': 'application/json',
-            'x-chat-last-common-read': '1',
-          },
+          headers: {'content-type': 'application/json', 'x-chat-last-common-read': '1'},
         );
       },
     },
@@ -201,26 +158,14 @@ Account mockTalkAccount() {
               'meta': {'status': '', 'statuscode': 0},
               'data': {
                 reaction: [
-                  {
-                    'actorDisplayName': '',
-                    'actorId': 'test',
-                    'actorType': 'users',
-                    'timestamp': 0,
-                  },
-                  {
-                    'actorDisplayName': '',
-                    'actorId': 'other',
-                    'actorType': 'users',
-                    'timestamp': 0,
-                  },
+                  {'actorDisplayName': '', 'actorId': 'test', 'actorType': 'users', 'timestamp': 0},
+                  {'actorDisplayName': '', 'actorId': 'other', 'actorType': 'users', 'timestamp': 0},
                 ],
               },
             },
           }),
           200,
-          headers: {
-            'content-type': 'application/json; charset=utf-8',
-          },
+          headers: {'content-type': 'application/json; charset=utf-8'},
         );
       },
       'delete': (match, request) {
@@ -232,54 +177,31 @@ Account mockTalkAccount() {
               'meta': {'status': '', 'statuscode': 0},
               'data': {
                 reaction: [
-                  {
-                    'actorDisplayName': '',
-                    'actorId': 'test',
-                    'actorType': 'users',
-                    'timestamp': 0,
-                  },
-                  {
-                    'actorDisplayName': '',
-                    'actorId': 'other',
-                    'actorType': 'users',
-                    'timestamp': 0,
-                  },
+                  {'actorDisplayName': '', 'actorId': 'test', 'actorType': 'users', 'timestamp': 0},
+                  {'actorDisplayName': '', 'actorId': 'other', 'actorType': 'users', 'timestamp': 0},
                 ],
               },
             },
           }),
           200,
-          headers: {
-            'content-type': 'application/json; charset=utf-8',
-          },
+          headers: {'content-type': 'application/json; charset=utf-8'},
         );
       },
-      'get': (match, request) => Response(
+      'get':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
                 'data': {
                   '😀': [
-                    {
-                      'actorDisplayName': '',
-                      'actorId': 'test',
-                      'actorType': 'users',
-                      'timestamp': 0,
-                    },
-                    {
-                      'actorDisplayName': '',
-                      'actorId': 'other',
-                      'actorType': 'users',
-                      'timestamp': 0,
-                    },
+                    {'actorDisplayName': '', 'actorId': 'test', 'actorType': 'users', 'timestamp': 0},
+                    {'actorDisplayName': '', 'actorId': 'other', 'actorType': 'users', 'timestamp': 0},
                   ],
                 },
               },
             }),
             200,
-            headers: {
-              'content-type': 'application/json; charset=utf-8',
-            },
+            headers: {'content-type': 'application/json; charset=utf-8'},
           ),
     },
   });
@@ -305,11 +227,7 @@ void main() {
 
     account = mockTalkAccount();
     talkBloc = MockTalkBloc();
-    roomBloc = TalkRoomBloc(
-      talkBloc: talkBloc,
-      account: account,
-      room: room,
-    );
+    roomBloc = TalkRoomBloc(talkBloc: talkBloc, account: account, room: room);
   });
 
   tearDown(() async {
@@ -341,10 +259,7 @@ void main() {
       ]),
     );
 
-    expect(
-      roomBloc.lastCommonRead,
-      emitsInOrder([0, 0]),
-    );
+    expect(roomBloc.lastCommonRead, emitsInOrder([0, 0]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -364,18 +279,10 @@ void main() {
     );
     expect(
       roomBloc.room.transformResult((e) => e.lastMessage?.chatMessage?.id),
-      emitsInOrder([
-        Result<int>.loading(),
-        Result.success(null),
-        Result.success(2),
-        Result.success(3),
-      ]),
+      emitsInOrder([Result<int>.loading(), Result.success(null), Result.success(2), Result.success(3)]),
     );
 
-    expect(
-      roomBloc.lastCommonRead,
-      emitsInOrder([0, 1]),
-    );
+    expect(roomBloc.lastCommonRead, emitsInOrder([0, 1]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -397,24 +304,8 @@ void main() {
       ]),
     );
 
-    expect(
-      roomBloc.replyTo,
-      emitsInOrder([
-        null,
-        message,
-        null,
-        message,
-        null,
-      ]),
-    );
-    expect(
-      roomBloc.editing,
-      emitsInOrder([
-        null,
-        null,
-        null,
-      ]),
-    );
+    expect(roomBloc.replyTo, emitsInOrder([null, message, null, message, null]));
+    expect(roomBloc.editing, emitsInOrder([null, null, null]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -439,24 +330,8 @@ void main() {
       ]),
     );
 
-    expect(
-      roomBloc.editing,
-      emitsInOrder([
-        null,
-        message,
-        null,
-        message,
-        null,
-      ]),
-    );
-    expect(
-      roomBloc.replyTo,
-      emitsInOrder([
-        null,
-        null,
-        null,
-      ]),
-    );
+    expect(roomBloc.editing, emitsInOrder([null, message, null, message, null]));
+    expect(roomBloc.replyTo, emitsInOrder([null, null, null]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -474,11 +349,7 @@ void main() {
       emitsInOrder([
         Result<BuiltList<BuiltMap<String, int>>>.loading(),
         Result.success(
-          BuiltList<BuiltMap<String, int>>([
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-          ]),
+          BuiltList<BuiltMap<String, int>>([BuiltMap<String, int>(), BuiltMap<String, int>(), BuiltMap<String, int>()]),
         ),
         Result.success(
           BuiltList<BuiltMap<String, int>>([
@@ -493,13 +364,7 @@ void main() {
       roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
       emitsInOrder([
         Result<BuiltList<BuiltList<String>?>>.loading(),
-        Result.success(
-          BuiltList<BuiltList<String>?>([
-            null,
-            null,
-            null,
-          ]),
-        ),
+        Result.success(BuiltList<BuiltList<String>?>([null, null, null])),
         Result.success(
           BuiltList<BuiltList<String>?>([
             null,
@@ -514,9 +379,7 @@ void main() {
       emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
         BuiltMap(),
         BuiltMap({
-          0: BuiltMap<String, int>({
-            '😀': 2,
-          }),
+          0: BuiltMap<String, int>({'😀': 2}),
         }),
       ]),
     );
@@ -536,11 +399,7 @@ void main() {
       emitsInOrder([
         Result<BuiltList<BuiltMap<String, int>>>.loading(),
         Result.success(
-          BuiltList<BuiltMap<String, int>>([
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-          ]),
+          BuiltList<BuiltMap<String, int>>([BuiltMap<String, int>(), BuiltMap<String, int>(), BuiltMap<String, int>()]),
         ),
         Result.success(
           BuiltList<BuiltMap<String, int>>([
@@ -555,13 +414,7 @@ void main() {
       roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
       emitsInOrder([
         Result<BuiltList<BuiltList<String>?>>.loading(),
-        Result.success(
-          BuiltList<BuiltList<String>?>([
-            null,
-            null,
-            null,
-          ]),
-        ),
+        Result.success(BuiltList<BuiltList<String>?>([null, null, null])),
         Result.success(
           BuiltList<BuiltList<String>?>([
             BuiltList<String>(['😀']),
@@ -576,9 +429,7 @@ void main() {
       emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
         BuiltMap(),
         BuiltMap({
-          2: BuiltMap<String, int>({
-            '😀': 2,
-          }),
+          2: BuiltMap<String, int>({'😀': 2}),
         }),
       ]),
     );
@@ -598,11 +449,7 @@ void main() {
       emitsInOrder([
         Result<BuiltList<BuiltMap<String, int>>>.loading(),
         Result.success(
-          BuiltList<BuiltMap<String, int>>([
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-            BuiltMap<String, int>(),
-          ]),
+          BuiltList<BuiltMap<String, int>>([BuiltMap<String, int>(), BuiltMap<String, int>(), BuiltMap<String, int>()]),
         ),
         Result.success(
           BuiltList<BuiltMap<String, int>>([
@@ -617,13 +464,7 @@ void main() {
       roomBloc.messages.transformResult((e) => BuiltList<BuiltList<String>?>(e.map((m) => m.reactionsSelf))),
       emitsInOrder([
         Result<BuiltList<BuiltList<String>?>>.loading(),
-        Result.success(
-          BuiltList<BuiltList<String>?>([
-            null,
-            null,
-            null,
-          ]),
-        ),
+        Result.success(BuiltList<BuiltList<String>?>([null, null, null])),
         Result.success(
           BuiltList<BuiltList<String>?>([
             null,
@@ -638,9 +479,7 @@ void main() {
       emitsInOrder(<BuiltMap<int, BuiltMap<String, int>>>[
         BuiltMap(),
         BuiltMap({
-          1: BuiltMap<String, int>({
-            '😀': 2,
-          }),
+          1: BuiltMap<String, int>({'😀': 2}),
         }),
       ]),
     );
@@ -676,24 +515,13 @@ void main() {
       ]),
     );
     expect(
-      roomBloc.messages
-          .transformResult((e) => BuiltList<spreed.MessageType?>(e.map((m) => m.parent?.chatMessage!.messageType))),
+      roomBloc.messages.transformResult(
+        (e) => BuiltList<spreed.MessageType?>(e.map((m) => m.parent?.chatMessage!.messageType)),
+      ),
       emitsInOrder([
         Result<BuiltList<spreed.MessageType?>>.loading(),
-        Result.success(
-          BuiltList<spreed.MessageType?>([
-            spreed.MessageType.comment,
-            spreed.MessageType.comment,
-            null,
-          ]),
-        ),
-        Result.success(
-          BuiltList<spreed.MessageType?>([
-            spreed.MessageType.commentDeleted,
-            null,
-            null,
-          ]),
-        ),
+        Result.success(BuiltList<spreed.MessageType?>([spreed.MessageType.comment, spreed.MessageType.comment, null])),
+        Result.success(BuiltList<spreed.MessageType?>([spreed.MessageType.commentDeleted, null, null])),
       ]),
     );
 
@@ -728,18 +556,10 @@ void main() {
     );
     expect(
       roomBloc.room.transformResult((e) => e.lastMessage?.chatMessage?.id),
-      emitsInOrder([
-        Result<int>.loading(),
-        Result.success(null),
-        Result.success(2),
-        Result.success(4),
-      ]),
+      emitsInOrder([Result<int>.loading(), Result.success(null), Result.success(2), Result.success(4)]),
     );
 
-    expect(
-      roomBloc.lastCommonRead,
-      emitsInOrder([0, 0]),
-    );
+    expect(roomBloc.lastCommonRead, emitsInOrder([0, 0]));
 
     verify(() => talkBloc.updateRoom(any())).called(1);
   });

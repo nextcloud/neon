@@ -4,17 +4,12 @@ import 'package:neon_framework/src/settings/models/option.dart';
 
 @internal
 abstract class SettingsTile extends StatelessWidget {
-  const SettingsTile({
-    super.key,
-  });
+  const SettingsTile({super.key});
 }
 
 @internal
 abstract class InputSettingsTile<T extends Option<dynamic>> extends SettingsTile {
-  const InputSettingsTile({
-    required this.option,
-    super.key,
-  });
+  const InputSettingsTile({required this.option, super.key});
 
   final T option;
 }

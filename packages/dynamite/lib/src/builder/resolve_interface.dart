@@ -11,11 +11,7 @@ import 'package:dynamite/src/models/json_schema.dart' as json_schema;
 import 'package:dynamite/src/models/type_result.dart';
 import 'package:source_helper/source_helper.dart';
 
-Spec buildInterface(
-  State state,
-  json_schema.JsonSchema schema, {
-  bool isHeader = false,
-}) {
+Spec buildInterface(State state, json_schema.JsonSchema schema, {bool isHeader = false}) {
   final identifier = schema.identifier!;
 
   return Class((b) {
@@ -33,20 +29,9 @@ Spec buildInterface(
     if (schema case json_schema.JsonSchema(:final allOf) when allOf != null) {
       for (final schema in allOf) {
         if (schema case json_schema.ObjectSchema(properties: != null)) {
-          _generateProperties(
-            schema,
-            state,
-            identifier,
-            b,
-            defaults,
-            validators,
-            isHeader: isHeader,
-          );
+          _generateProperties(schema, state, identifier, b, defaults, validators, isHeader: isHeader);
         } else {
-          final object = resolveType(
-            state,
-            schema,
-          );
+          final object = resolveType(state, schema);
 
           if (object is TypeResultObject) {
             final interfaceName = '\$${object.name}$interfaceSuffix';
@@ -55,14 +40,7 @@ Spec buildInterface(
 
             b.implements.add(refer(interfaceName));
           } else {
-            _generateProperty(
-              b,
-              object.className,
-              object,
-              schema,
-              defaults,
-              validators,
-            );
+            _generateProperty(b, object.className, object, schema, defaults, validators);
           }
         }
       }
@@ -115,16 +93,13 @@ Spec buildInterface(
           ..name = '_defaults'
           ..returns = refer('void')
           ..static = true
-          ..annotations.add(
-            refer('BuiltValueHook').call([], {
-              'initializeBuilder': literalTrue,
-            }),
-          )
+          ..annotations.add(refer('BuiltValueHook').call([], {'initializeBuilder': literalTrue}))
           ..requiredParameters.add(
             Parameter(
-              (b) => b
-                ..name = 'b'
-                ..type = refer(builderName),
+              (b) =>
+                  b
+                    ..name = 'b'
+                    ..type = refer(builderName),
             ),
           );
         if (defaults.isNotEmpty) {
@@ -140,17 +115,14 @@ Spec buildInterface(
         b
           ..name = '_validate'
           ..returns = refer('void')
-          ..annotations.add(
-            refer('BuiltValueHook').call([], {
-              'finalizeBuilder': literalTrue,
-            }),
-          )
+          ..annotations.add(refer('BuiltValueHook').call([], {'finalizeBuilder': literalTrue}))
           ..static = true
           ..requiredParameters.add(
             Parameter(
-              (b) => b
-                ..name = 'b'
-                ..type = refer(builderName),
+              (b) =>
+                  b
+                    ..name = 'b'
+                    ..type = refer(builderName),
             ),
           )
           ..body = validators.build();
@@ -182,35 +154,18 @@ void _generateProperties(
       state,
       propertySchema.rebuild((b) {
         b
-          ..identifier = toDartName(
-            propertyName,
-            identifier: identifier,
-          )
-          ..nullable = isDartGetterNullable(
-            schema.required.contains(propertyName),
-            propertySchema,
-          );
+          ..identifier = toDartName(propertyName, identifier: identifier)
+          ..nullable = isDartGetterNullable(schema.required.contains(propertyName), propertySchema);
       }),
     );
 
     if (isHeader && result.className != 'String') {
-      result = TypeResultObject(
-        'Header',
-        generics: BuiltList([result]),
-        nullable: result.nullable,
-      );
+      result = TypeResultObject('Header', generics: BuiltList([result]), nullable: result.nullable);
       state.resolvedSerializers.addAll(result.serializers);
       state.resolvedTypes.add(result);
     }
 
-    _generateProperty(
-      b,
-      propertyName,
-      result,
-      propertySchema,
-      defaults,
-      validators,
-    );
+    _generateProperty(b, propertyName, result, propertySchema, defaults, validators);
   }
 }
 
@@ -225,37 +180,31 @@ void _generateProperty(
   final dartName = toDartName(propertyName);
 
   b.methods.add(
-    Method(
-      (b) {
-        b
-          ..name = dartName
-          ..type = MethodType.getter
-          ..docs.addAll(
-            escapeDescription(schema.formattedDescription()),
-          );
+    Method((b) {
+      b
+        ..name = dartName
+        ..type = MethodType.getter
+        ..docs.addAll(escapeDescription(schema.formattedDescription()));
 
-        if (schema.deprecated) {
-          b.annotations.add(refer('Deprecated').call([refer("''")]));
-        }
+      if (schema.deprecated) {
+        b.annotations.add(refer('Deprecated').call([refer("''")]));
+      }
 
-        if (result is TypeResultSomeOf && result.isSingleValue) {
-          b.returns = refer(result.dartType.name);
-        } else {
-          b.returns = refer(result.nullableName);
-        }
+      if (result is TypeResultSomeOf && result.isSingleValue) {
+        b.returns = refer(result.dartType.name);
+      } else {
+        b.returns = refer(result.nullableName);
+      }
 
-        final builtValueFieldAnnotations = <String, Expression>{};
-        if (dartName != propertyName) {
-          builtValueFieldAnnotations['wireName'] = refer(escapeDartString(propertyName));
-        }
+      final builtValueFieldAnnotations = <String, Expression>{};
+      if (dartName != propertyName) {
+        builtValueFieldAnnotations['wireName'] = refer(escapeDartString(propertyName));
+      }
 
-        if (builtValueFieldAnnotations.isNotEmpty) {
-          b.annotations.add(
-            refer('BuiltValueField').call([], builtValueFieldAnnotations),
-          );
-        }
-      },
-    ),
+      if (builtValueFieldAnnotations.isNotEmpty) {
+        b.annotations.add(refer('BuiltValueField').call([], builtValueFieldAnnotations));
+      }
+    }),
   );
 
   final $default = schema.$default;
@@ -266,9 +215,7 @@ void _generateProperty(
           ..name = '_\$$dartName'
           ..modifier = FieldModifier.final$
           ..static = true
-          ..assignment = Code(
-            result.deserialize($default),
-          );
+          ..assignment = Code(result.deserialize($default));
       }),
     );
 

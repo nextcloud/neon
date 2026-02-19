@@ -18,9 +18,7 @@ import 'package:nextcloud/core.dart' as core;
 @internal
 class NeonDrawer extends StatefulWidget {
   /// Created a new Neon drawer.
-  const NeonDrawer({
-    super.key,
-  });
+  const NeonDrawer({super.key});
 
   @override
   State<NeonDrawer> createState() => _NeonDrawerState();
@@ -67,18 +65,13 @@ class _NeonDrawerState extends State<NeonDrawer> {
   @override
   Widget build(BuildContext context) {
     final appDestinations = _apps?.map(
-      (app) => NavigationDrawerDestinationExtension.fromNeonDestination(
-        app.destination(context),
-      ),
+      (app) => NavigationDrawerDestinationExtension.fromNeonDestination(app.destination(context)),
     );
 
     final drawer = NavigationDrawer(
       selectedIndex: _activeApp,
       onDestinationSelected: onAppChange,
-      children: [
-        const NeonDrawerHeader(),
-        ...?appDestinations,
-      ],
+      children: [const NeonDrawerHeader(), ...?appDestinations],
     );
 
     return drawer;
@@ -103,16 +96,11 @@ class NeonDrawerHeader extends StatelessWidget {
       subject: capabilitiesBloc.capabilities,
       builder: (context, capabilities) {
         if (!capabilities.hasData) {
-          return NeonLinearProgressIndicator(
-            visible: capabilities.isLoading,
-          );
+          return NeonLinearProgressIndicator(visible: capabilities.isLoading);
         }
 
         if (capabilities.hasError) {
-          return NeonError(
-            capabilities.error,
-            onRetry: capabilitiesBloc.refresh,
-          );
+          return NeonError(capabilities.error, onRetry: capabilitiesBloc.refresh);
         }
 
         final theme = capabilities.requireData.capabilities.themingPublicCapabilities?.theming;
@@ -127,26 +115,14 @@ class NeonDrawerHeader extends StatelessWidget {
           children: [
             Text(
               theme.name,
-              style: DefaultTextStyle.of(context).style.copyWith(
-                    color: Theme.of(context).colorScheme.onPrimary,
-                  ),
+              style: DefaultTextStyle.of(context).style.copyWith(color: Theme.of(context).colorScheme.onPrimary),
             ),
-            Flexible(
-              child: NeonUriImage(
-                uri: Uri.parse(theme.logo),
-                account: NeonProvider.of<Account>(context),
-              ),
-            ),
+            Flexible(child: NeonUriImage(uri: Uri.parse(theme.logo), account: NeonProvider.of<Account>(context))),
           ],
         );
       },
     );
 
-    return DrawerHeader(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-      ),
-      child: branding,
-    );
+    return DrawerHeader(decoration: BoxDecoration(color: Theme.of(context).colorScheme.primary), child: branding);
   }
 }

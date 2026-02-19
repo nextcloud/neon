@@ -30,8 +30,9 @@ const View_Filter_Operator _$viewFilterOperatorEndsWith = const View_Filter_Oper
 const View_Filter_Operator _$viewFilterOperatorContains = const View_Filter_Operator._('contains');
 const View_Filter_Operator _$viewFilterOperatorIsEqual = const View_Filter_Operator._('isEqual');
 const View_Filter_Operator _$viewFilterOperatorIsGreaterThan = const View_Filter_Operator._('isGreaterThan');
-const View_Filter_Operator _$viewFilterOperatorIsGreaterThanOrEqual =
-    const View_Filter_Operator._('isGreaterThanOrEqual');
+const View_Filter_Operator _$viewFilterOperatorIsGreaterThanOrEqual = const View_Filter_Operator._(
+  'isGreaterThanOrEqual',
+);
 const View_Filter_Operator _$viewFilterOperatorIsLowerThan = const View_Filter_Operator._('isLowerThan');
 const View_Filter_Operator _$viewFilterOperatorIsLowerThanOrEqual = const View_Filter_Operator._('isLowerThanOrEqual');
 const View_Filter_Operator _$viewFilterOperatorIsEmpty = const View_Filter_Operator._('isEmpty');
@@ -63,16 +64,16 @@ View_Filter_Operator _$valueOfView_Filter_Operator(String name) {
 
 final BuiltSet<View_Filter_Operator> _$viewFilterOperatorValues =
     BuiltSet<View_Filter_Operator>(const <View_Filter_Operator>[
-  _$viewFilterOperatorBeginsWith,
-  _$viewFilterOperatorEndsWith,
-  _$viewFilterOperatorContains,
-  _$viewFilterOperatorIsEqual,
-  _$viewFilterOperatorIsGreaterThan,
-  _$viewFilterOperatorIsGreaterThanOrEqual,
-  _$viewFilterOperatorIsLowerThan,
-  _$viewFilterOperatorIsLowerThanOrEqual,
-  _$viewFilterOperatorIsEmpty,
-]);
+      _$viewFilterOperatorBeginsWith,
+      _$viewFilterOperatorEndsWith,
+      _$viewFilterOperatorContains,
+      _$viewFilterOperatorIsEqual,
+      _$viewFilterOperatorIsGreaterThan,
+      _$viewFilterOperatorIsGreaterThanOrEqual,
+      _$viewFilterOperatorIsLowerThan,
+      _$viewFilterOperatorIsLowerThanOrEqual,
+      _$viewFilterOperatorIsEmpty,
+    ]);
 
 const Api1UpdateViewRequestApplicationJson_Data0_Key _$api1UpdateViewRequestApplicationJsonData0KeyTitle =
     const Api1UpdateViewRequestApplicationJson_Data0_Key._('title');
@@ -96,10 +97,10 @@ Api1UpdateViewRequestApplicationJson_Data0_Key _$valueOfApi1UpdateViewRequestApp
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data0_Key> _$api1UpdateViewRequestApplicationJsonData0KeyValues =
     BuiltSet<Api1UpdateViewRequestApplicationJson_Data0_Key>(const <Api1UpdateViewRequestApplicationJson_Data0_Key>[
-  _$api1UpdateViewRequestApplicationJsonData0KeyTitle,
-  _$api1UpdateViewRequestApplicationJsonData0KeyEmoji,
-  _$api1UpdateViewRequestApplicationJsonData0KeyDescription,
-]);
+      _$api1UpdateViewRequestApplicationJsonData0KeyTitle,
+      _$api1UpdateViewRequestApplicationJsonData0KeyEmoji,
+      _$api1UpdateViewRequestApplicationJsonData0KeyDescription,
+    ]);
 
 const Api1UpdateViewRequestApplicationJson_Data1_Key _$api1UpdateViewRequestApplicationJsonData1KeyColumns =
     const Api1UpdateViewRequestApplicationJson_Data1_Key._('columns');
@@ -115,8 +116,8 @@ Api1UpdateViewRequestApplicationJson_Data1_Key _$valueOfApi1UpdateViewRequestApp
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data1_Key> _$api1UpdateViewRequestApplicationJsonData1KeyValues =
     BuiltSet<Api1UpdateViewRequestApplicationJson_Data1_Key>(const <Api1UpdateViewRequestApplicationJson_Data1_Key>[
-  _$api1UpdateViewRequestApplicationJsonData1KeyColumns,
-]);
+      _$api1UpdateViewRequestApplicationJsonData1KeyColumns,
+    ]);
 
 const Api1UpdateViewRequestApplicationJson_Data2_Key _$api1UpdateViewRequestApplicationJsonData2KeySort =
     const Api1UpdateViewRequestApplicationJson_Data2_Key._('sort');
@@ -132,8 +133,8 @@ Api1UpdateViewRequestApplicationJson_Data2_Key _$valueOfApi1UpdateViewRequestApp
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data2_Key> _$api1UpdateViewRequestApplicationJsonData2KeyValues =
     BuiltSet<Api1UpdateViewRequestApplicationJson_Data2_Key>(const <Api1UpdateViewRequestApplicationJson_Data2_Key>[
-  _$api1UpdateViewRequestApplicationJsonData2KeySort,
-]);
+      _$api1UpdateViewRequestApplicationJsonData2KeySort,
+    ]);
 
 const Api1UpdateViewRequestApplicationJson_Data2_Value_Mode _$api1UpdateViewRequestApplicationJsonData2ValueModeASC =
     const Api1UpdateViewRequestApplicationJson_Data2_Value_Mode._('aSC');
@@ -141,7 +142,8 @@ const Api1UpdateViewRequestApplicationJson_Data2_Value_Mode _$api1UpdateViewRequ
     const Api1UpdateViewRequestApplicationJson_Data2_Value_Mode._('dESC');
 
 Api1UpdateViewRequestApplicationJson_Data2_Value_Mode _$valueOfApi1UpdateViewRequestApplicationJson_Data2_Value_Mode(
-    String name) {
+  String name,
+) {
   switch (name) {
     case 'aSC':
       return _$api1UpdateViewRequestApplicationJsonData2ValueModeASC;
@@ -153,11 +155,13 @@ Api1UpdateViewRequestApplicationJson_Data2_Value_Mode _$valueOfApi1UpdateViewReq
 }
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>
-    _$api1UpdateViewRequestApplicationJsonData2ValueModeValues = BuiltSet<
-        Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>(const <Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>[
-  _$api1UpdateViewRequestApplicationJsonData2ValueModeASC,
-  _$api1UpdateViewRequestApplicationJsonData2ValueModeDESC,
-]);
+_$api1UpdateViewRequestApplicationJsonData2ValueModeValues =
+    BuiltSet<Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>(
+      const <Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>[
+        _$api1UpdateViewRequestApplicationJsonData2ValueModeASC,
+        _$api1UpdateViewRequestApplicationJsonData2ValueModeDESC,
+      ],
+    );
 
 const Api1UpdateViewRequestApplicationJson_Data3_Key _$api1UpdateViewRequestApplicationJsonData3KeyFilter =
     const Api1UpdateViewRequestApplicationJson_Data3_Key._('filter');
@@ -173,39 +177,39 @@ Api1UpdateViewRequestApplicationJson_Data3_Key _$valueOfApi1UpdateViewRequestApp
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data3_Key> _$api1UpdateViewRequestApplicationJsonData3KeyValues =
     BuiltSet<Api1UpdateViewRequestApplicationJson_Data3_Key>(const <Api1UpdateViewRequestApplicationJson_Data3_Key>[
-  _$api1UpdateViewRequestApplicationJsonData3KeyFilter,
-]);
+      _$api1UpdateViewRequestApplicationJsonData3KeyFilter,
+    ]);
 
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorBeginsWith =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorBeginsWith =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('beginsWith');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorEndsWith =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorEndsWith =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('endsWith');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorContains =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorContains =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('contains');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsEqual =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsEqual =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isEqual');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsGreaterThan =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsGreaterThan =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isGreaterThan');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsGreaterThanOrEqual =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsGreaterThanOrEqual =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isGreaterThanOrEqual');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsLowerThan =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsLowerThan =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isLowerThan');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsLowerThanOrEqual =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsLowerThanOrEqual =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isLowerThanOrEqual');
 const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsEmpty =
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorIsEmpty =
     const Api1UpdateViewRequestApplicationJson_Data3_Value_Operator._('isEmpty');
 
 Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
-    _$valueOfApi1UpdateViewRequestApplicationJson_Data3_Value_Operator(String name) {
+_$valueOfApi1UpdateViewRequestApplicationJson_Data3_Value_Operator(String name) {
   switch (name) {
     case 'beginsWith':
       return _$api1UpdateViewRequestApplicationJsonData3ValueOperatorBeginsWith;
@@ -231,8 +235,9 @@ Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
 }
 
 final BuiltSet<Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>
-    _$api1UpdateViewRequestApplicationJsonData3ValueOperatorValues = BuiltSet<
-        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>(const <Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>[
+_$api1UpdateViewRequestApplicationJsonData3ValueOperatorValues = BuiltSet<
+  Api1UpdateViewRequestApplicationJson_Data3_Value_Operator
+>(const <Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>[
   _$api1UpdateViewRequestApplicationJsonData3ValueOperatorBeginsWith,
   _$api1UpdateViewRequestApplicationJsonData3ValueOperatorEndsWith,
   _$api1UpdateViewRequestApplicationJsonData3ValueOperatorContains,
@@ -245,14 +250,14 @@ final BuiltSet<Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>
 ]);
 
 const Api1CreateTableShareRequestApplicationJson_ReceiverType
-    _$api1CreateTableShareRequestApplicationJsonReceiverTypeUser =
+_$api1CreateTableShareRequestApplicationJsonReceiverTypeUser =
     const Api1CreateTableShareRequestApplicationJson_ReceiverType._('user');
 const Api1CreateTableShareRequestApplicationJson_ReceiverType
-    _$api1CreateTableShareRequestApplicationJsonReceiverTypeGroup =
+_$api1CreateTableShareRequestApplicationJsonReceiverTypeGroup =
     const Api1CreateTableShareRequestApplicationJson_ReceiverType._('group');
 
 Api1CreateTableShareRequestApplicationJson_ReceiverType
-    _$valueOfApi1CreateTableShareRequestApplicationJson_ReceiverType(String name) {
+_$valueOfApi1CreateTableShareRequestApplicationJson_ReceiverType(String name) {
   switch (name) {
     case 'user':
       return _$api1CreateTableShareRequestApplicationJsonReceiverTypeUser;
@@ -264,8 +269,9 @@ Api1CreateTableShareRequestApplicationJson_ReceiverType
 }
 
 final BuiltSet<Api1CreateTableShareRequestApplicationJson_ReceiverType>
-    _$api1CreateTableShareRequestApplicationJsonReceiverTypeValues = BuiltSet<
-        Api1CreateTableShareRequestApplicationJson_ReceiverType>(const <Api1CreateTableShareRequestApplicationJson_ReceiverType>[
+_$api1CreateTableShareRequestApplicationJsonReceiverTypeValues = BuiltSet<
+  Api1CreateTableShareRequestApplicationJson_ReceiverType
+>(const <Api1CreateTableShareRequestApplicationJson_ReceiverType>[
   _$api1CreateTableShareRequestApplicationJsonReceiverTypeUser,
   _$api1CreateTableShareRequestApplicationJsonReceiverTypeGroup,
 ]);
@@ -292,10 +298,10 @@ Api1CreateShareRequestApplicationJson_NodeType _$valueOfApi1CreateShareRequestAp
 
 final BuiltSet<Api1CreateShareRequestApplicationJson_NodeType> _$api1CreateShareRequestApplicationJsonNodeTypeValues =
     BuiltSet<Api1CreateShareRequestApplicationJson_NodeType>(const <Api1CreateShareRequestApplicationJson_NodeType>[
-  _$api1CreateShareRequestApplicationJsonNodeTypeTable,
-  _$api1CreateShareRequestApplicationJsonNodeTypeView,
-  _$api1CreateShareRequestApplicationJsonNodeTypeContext,
-]);
+      _$api1CreateShareRequestApplicationJsonNodeTypeTable,
+      _$api1CreateShareRequestApplicationJsonNodeTypeView,
+      _$api1CreateShareRequestApplicationJsonNodeTypeContext,
+    ]);
 
 const Api1CreateShareRequestApplicationJson_ReceiverType _$api1CreateShareRequestApplicationJsonReceiverTypeUser =
     const Api1CreateShareRequestApplicationJson_ReceiverType._('user');
@@ -303,7 +309,8 @@ const Api1CreateShareRequestApplicationJson_ReceiverType _$api1CreateShareReques
     const Api1CreateShareRequestApplicationJson_ReceiverType._('group');
 
 Api1CreateShareRequestApplicationJson_ReceiverType _$valueOfApi1CreateShareRequestApplicationJson_ReceiverType(
-    String name) {
+  String name,
+) {
   switch (name) {
     case 'user':
       return _$api1CreateShareRequestApplicationJsonReceiverTypeUser;
@@ -315,21 +322,23 @@ Api1CreateShareRequestApplicationJson_ReceiverType _$valueOfApi1CreateShareReque
 }
 
 final BuiltSet<Api1CreateShareRequestApplicationJson_ReceiverType>
-    _$api1CreateShareRequestApplicationJsonReceiverTypeValues = BuiltSet<
-        Api1CreateShareRequestApplicationJson_ReceiverType>(const <Api1CreateShareRequestApplicationJson_ReceiverType>[
-  _$api1CreateShareRequestApplicationJsonReceiverTypeUser,
-  _$api1CreateShareRequestApplicationJsonReceiverTypeGroup,
-]);
+_$api1CreateShareRequestApplicationJsonReceiverTypeValues =
+    BuiltSet<Api1CreateShareRequestApplicationJson_ReceiverType>(
+      const <Api1CreateShareRequestApplicationJson_ReceiverType>[
+        _$api1CreateShareRequestApplicationJsonReceiverTypeUser,
+        _$api1CreateShareRequestApplicationJsonReceiverTypeGroup,
+      ],
+    );
 
 const Api1UpdateShareDisplayModeRequestApplicationJson_Target
-    _$api1UpdateShareDisplayModeRequestApplicationJsonTarget$default =
+_$api1UpdateShareDisplayModeRequestApplicationJsonTarget$default =
     const Api1UpdateShareDisplayModeRequestApplicationJson_Target._('\$default');
 const Api1UpdateShareDisplayModeRequestApplicationJson_Target
-    _$api1UpdateShareDisplayModeRequestApplicationJsonTargetSelf =
+_$api1UpdateShareDisplayModeRequestApplicationJsonTargetSelf =
     const Api1UpdateShareDisplayModeRequestApplicationJson_Target._('self');
 
 Api1UpdateShareDisplayModeRequestApplicationJson_Target
-    _$valueOfApi1UpdateShareDisplayModeRequestApplicationJson_Target(String name) {
+_$valueOfApi1UpdateShareDisplayModeRequestApplicationJson_Target(String name) {
   switch (name) {
     case '\$default':
       return _$api1UpdateShareDisplayModeRequestApplicationJsonTarget$default;
@@ -341,8 +350,9 @@ Api1UpdateShareDisplayModeRequestApplicationJson_Target
 }
 
 final BuiltSet<Api1UpdateShareDisplayModeRequestApplicationJson_Target>
-    _$api1UpdateShareDisplayModeRequestApplicationJsonTargetValues = BuiltSet<
-        Api1UpdateShareDisplayModeRequestApplicationJson_Target>(const <Api1UpdateShareDisplayModeRequestApplicationJson_Target>[
+_$api1UpdateShareDisplayModeRequestApplicationJsonTargetValues = BuiltSet<
+  Api1UpdateShareDisplayModeRequestApplicationJson_Target
+>(const <Api1UpdateShareDisplayModeRequestApplicationJson_Target>[
   _$api1UpdateShareDisplayModeRequestApplicationJsonTarget$default,
   _$api1UpdateShareDisplayModeRequestApplicationJsonTargetSelf,
 ]);
@@ -359,7 +369,8 @@ const Api1CreateTableColumnRequestApplicationJson_Type _$api1CreateTableColumnRe
     const Api1CreateTableColumnRequestApplicationJson_Type._('usergroup');
 
 Api1CreateTableColumnRequestApplicationJson_Type _$valueOfApi1CreateTableColumnRequestApplicationJson_Type(
-    String name) {
+  String name,
+) {
   switch (name) {
     case 'text':
       return _$api1CreateTableColumnRequestApplicationJsonTypeText;
@@ -377,14 +388,14 @@ Api1CreateTableColumnRequestApplicationJson_Type _$valueOfApi1CreateTableColumnR
 }
 
 final BuiltSet<Api1CreateTableColumnRequestApplicationJson_Type>
-    _$api1CreateTableColumnRequestApplicationJsonTypeValues =
+_$api1CreateTableColumnRequestApplicationJsonTypeValues =
     BuiltSet<Api1CreateTableColumnRequestApplicationJson_Type>(const <Api1CreateTableColumnRequestApplicationJson_Type>[
-  _$api1CreateTableColumnRequestApplicationJsonTypeText,
-  _$api1CreateTableColumnRequestApplicationJsonTypeNumber,
-  _$api1CreateTableColumnRequestApplicationJsonTypeDatetime,
-  _$api1CreateTableColumnRequestApplicationJsonTypeSelect,
-  _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup,
-]);
+      _$api1CreateTableColumnRequestApplicationJsonTypeText,
+      _$api1CreateTableColumnRequestApplicationJsonTypeNumber,
+      _$api1CreateTableColumnRequestApplicationJsonTypeDatetime,
+      _$api1CreateTableColumnRequestApplicationJsonTypeSelect,
+      _$api1CreateTableColumnRequestApplicationJsonTypeUsergroup,
+    ]);
 
 const Api1CreateColumnRequestApplicationJson_Type _$api1CreateColumnRequestApplicationJsonTypeText =
     const Api1CreateColumnRequestApplicationJson_Type._('text');
@@ -416,12 +427,12 @@ Api1CreateColumnRequestApplicationJson_Type _$valueOfApi1CreateColumnRequestAppl
 
 final BuiltSet<Api1CreateColumnRequestApplicationJson_Type> _$api1CreateColumnRequestApplicationJsonTypeValues =
     BuiltSet<Api1CreateColumnRequestApplicationJson_Type>(const <Api1CreateColumnRequestApplicationJson_Type>[
-  _$api1CreateColumnRequestApplicationJsonTypeText,
-  _$api1CreateColumnRequestApplicationJsonTypeNumber,
-  _$api1CreateColumnRequestApplicationJsonTypeDatetime,
-  _$api1CreateColumnRequestApplicationJsonTypeSelect,
-  _$api1CreateColumnRequestApplicationJsonTypeUsergroup,
-]);
+      _$api1CreateColumnRequestApplicationJsonTypeText,
+      _$api1CreateColumnRequestApplicationJsonTypeNumber,
+      _$api1CreateColumnRequestApplicationJsonTypeDatetime,
+      _$api1CreateColumnRequestApplicationJsonTypeSelect,
+      _$api1CreateColumnRequestApplicationJsonTypeUsergroup,
+    ]);
 
 const ApiColumnsIndexNodeType _$apiColumnsIndexNodeTypeTable = const ApiColumnsIndexNodeType._('table');
 const ApiColumnsIndexNodeType _$apiColumnsIndexNodeTypeView = const ApiColumnsIndexNodeType._('view');
@@ -437,21 +448,19 @@ ApiColumnsIndexNodeType _$valueOfApiColumnsIndexNodeType(String name) {
   }
 }
 
-final BuiltSet<ApiColumnsIndexNodeType> _$apiColumnsIndexNodeTypeValues =
-    BuiltSet<ApiColumnsIndexNodeType>(const <ApiColumnsIndexNodeType>[
-  _$apiColumnsIndexNodeTypeTable,
-  _$apiColumnsIndexNodeTypeView,
-]);
+final BuiltSet<ApiColumnsIndexNodeType> _$apiColumnsIndexNodeTypeValues = BuiltSet<ApiColumnsIndexNodeType>(
+  const <ApiColumnsIndexNodeType>[_$apiColumnsIndexNodeTypeTable, _$apiColumnsIndexNodeTypeView],
+);
 
 const ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeProgress =
+_$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeProgress =
     const ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype._('progress');
 const ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeStars =
+_$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeStars =
     const ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype._('stars');
 
 ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype
-    _$valueOfApiColumnsCreateNumberColumnRequestApplicationJson_Subtype(String name) {
+_$valueOfApiColumnsCreateNumberColumnRequestApplicationJson_Subtype(String name) {
   switch (name) {
     case 'progress':
       return _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeProgress;
@@ -463,21 +472,22 @@ ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype
 }
 
 final BuiltSet<ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype>
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeValues = BuiltSet<
-        ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype>(const <ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype>[
+_$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeValues = BuiltSet<
+  ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype
+>(const <ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype>[
   _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeProgress,
   _$apiColumnsCreateNumberColumnRequestApplicationJsonSubtypeStars,
 ]);
 
 const ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeTable =
+_$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeTable =
     const ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType._('table');
 const ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeView =
+_$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeView =
     const ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType._('view');
 
 ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType
-    _$valueOfApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType(String name) {
+_$valueOfApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType(String name) {
   switch (name) {
     case 'table':
       return _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeTable;
@@ -489,21 +499,22 @@ ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType
 }
 
 final BuiltSet<ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType>
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
-        ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType>[
+_$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+  ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType
+>(const <ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType>[
   _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeTable,
   _$apiColumnsCreateNumberColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
 const ApiColumnsCreateTextColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeProgress =
+_$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeProgress =
     const ApiColumnsCreateTextColumnRequestApplicationJson_Subtype._('progress');
 const ApiColumnsCreateTextColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeStars =
+_$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeStars =
     const ApiColumnsCreateTextColumnRequestApplicationJson_Subtype._('stars');
 
 ApiColumnsCreateTextColumnRequestApplicationJson_Subtype
-    _$valueOfApiColumnsCreateTextColumnRequestApplicationJson_Subtype(String name) {
+_$valueOfApiColumnsCreateTextColumnRequestApplicationJson_Subtype(String name) {
   switch (name) {
     case 'progress':
       return _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeProgress;
@@ -515,21 +526,22 @@ ApiColumnsCreateTextColumnRequestApplicationJson_Subtype
 }
 
 final BuiltSet<ApiColumnsCreateTextColumnRequestApplicationJson_Subtype>
-    _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeValues = BuiltSet<
-        ApiColumnsCreateTextColumnRequestApplicationJson_Subtype>(const <ApiColumnsCreateTextColumnRequestApplicationJson_Subtype>[
+_$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeValues = BuiltSet<
+  ApiColumnsCreateTextColumnRequestApplicationJson_Subtype
+>(const <ApiColumnsCreateTextColumnRequestApplicationJson_Subtype>[
   _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeProgress,
   _$apiColumnsCreateTextColumnRequestApplicationJsonSubtypeStars,
 ]);
 
 const ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeTable =
+_$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeTable =
     const ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType._('table');
 const ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeView =
+_$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeView =
     const ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType._('view');
 
 ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType
-    _$valueOfApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType(String name) {
+_$valueOfApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType(String name) {
   switch (name) {
     case 'table':
       return _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeTable;
@@ -541,21 +553,22 @@ ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType
 }
 
 final BuiltSet<ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType>
-    _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
-        ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType>[
+_$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+  ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType
+>(const <ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType>[
   _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeTable,
   _$apiColumnsCreateTextColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
 const ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeProgress =
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeProgress =
     const ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype._('progress');
 const ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeStars =
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeStars =
     const ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype._('stars');
 
 ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype
-    _$valueOfApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype(String name) {
+_$valueOfApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype(String name) {
   switch (name) {
     case 'progress':
       return _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeProgress;
@@ -567,21 +580,22 @@ ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype
 }
 
 final BuiltSet<ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype>
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeValues = BuiltSet<
-        ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype>(const <ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype>[
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeValues = BuiltSet<
+  ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype
+>(const <ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype>[
   _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeProgress,
   _$apiColumnsCreateSelectionColumnRequestApplicationJsonSubtypeStars,
 ]);
 
 const ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeTable =
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeTable =
     const ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType._('table');
 const ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeView =
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeView =
     const ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType._('view');
 
 ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType
-    _$valueOfApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType(String name) {
+_$valueOfApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType(String name) {
   switch (name) {
     case 'table':
       return _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeTable;
@@ -593,21 +607,22 @@ ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType
 }
 
 final BuiltSet<ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType>
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
-        ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType>[
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+  ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType
+>(const <ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType>[
   _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeTable,
   _$apiColumnsCreateSelectionColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultToday =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultToday =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault._('today');
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultNow =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultNow =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault._('now');
 
 ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault
-    _$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault(String name) {
+_$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault(String name) {
   switch (name) {
     case 'today':
       return _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultToday;
@@ -619,21 +634,22 @@ ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault
 }
 
 final BuiltSet<ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault>
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultValues = BuiltSet<
-        ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault>[
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultValues = BuiltSet<
+  ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault
+>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault>[
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultToday,
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonDatetimeDefaultNow,
 ]);
 
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeProgress =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeProgress =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype._('progress');
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeStars =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeStars =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype._('stars');
 
 ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype
-    _$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype(String name) {
+_$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype(String name) {
   switch (name) {
     case 'progress':
       return _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeProgress;
@@ -645,21 +661,22 @@ ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype
 }
 
 final BuiltSet<ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype>
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeValues = BuiltSet<
-        ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype>[
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeValues = BuiltSet<
+  ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype
+>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype>[
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeProgress,
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSubtypeStars,
 ]);
 
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeTable =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeTable =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType._('table');
 const ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeView =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeView =
     const ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType._('view');
 
 ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
-    _$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType(String name) {
+_$valueOfApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType(String name) {
   switch (name) {
     case 'table':
       return _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeTable;
@@ -671,21 +688,22 @@ ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
 }
 
 final BuiltSet<ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType>
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
-        ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType>[
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+  ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType
+>(const <ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType>[
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeTable,
   _$apiColumnsCreateDatetimeColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
 const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable =
+_$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable =
     const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType._('table');
 const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
-    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView =
+_$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView =
     const ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType._('view');
 
 ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
-    _$valueOfApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType(String name) {
+_$valueOfApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType(String name) {
   switch (name) {
     case 'table':
       return _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable;
@@ -697,16 +715,19 @@ ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
 }
 
 final BuiltSet<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>
-    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
-        ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>(const <ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>[
+_$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeValues = BuiltSet<
+  ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType
+>(const <ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>[
   _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeTable,
   _$apiColumnsCreateUsergroupColumnRequestApplicationJsonBaseNodeTypeView,
 ]);
 
-const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionTables =
-    const RowocsCreateRowNodeCollection._('tables');
-const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionViews =
-    const RowocsCreateRowNodeCollection._('views');
+const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionTables = const RowocsCreateRowNodeCollection._(
+  'tables',
+);
+const RowocsCreateRowNodeCollection _$rowocsCreateRowNodeCollectionViews = const RowocsCreateRowNodeCollection._(
+  'views',
+);
 
 RowocsCreateRowNodeCollection _$valueOfRowocsCreateRowNodeCollection(String name) {
   switch (name) {
@@ -721,9 +742,9 @@ RowocsCreateRowNodeCollection _$valueOfRowocsCreateRowNodeCollection(String name
 
 final BuiltSet<RowocsCreateRowNodeCollection> _$rowocsCreateRowNodeCollectionValues =
     BuiltSet<RowocsCreateRowNodeCollection>(const <RowocsCreateRowNodeCollection>[
-  _$rowocsCreateRowNodeCollectionTables,
-  _$rowocsCreateRowNodeCollectionViews,
-]);
+      _$rowocsCreateRowNodeCollectionTables,
+      _$rowocsCreateRowNodeCollectionViews,
+    ]);
 
 Serializer<Table_OnSharePermissions> _$tableOnSharePermissionsSerializer = _$Table_OnSharePermissionsSerializer();
 Serializer<View_ColumnSettings> _$viewColumnSettingsSerializer = _$View_ColumnSettingsSerializer();
@@ -744,12 +765,12 @@ Serializer<Api1UpdateViewRequestApplicationJson_Data0> _$api1UpdateViewRequestAp
 Serializer<Api1UpdateViewRequestApplicationJson_Data1> _$api1UpdateViewRequestApplicationJsonData1Serializer =
     _$Api1UpdateViewRequestApplicationJson_Data1Serializer();
 Serializer<Api1UpdateViewRequestApplicationJson_Data2_Value>
-    _$api1UpdateViewRequestApplicationJsonData2ValueSerializer =
+_$api1UpdateViewRequestApplicationJsonData2ValueSerializer =
     _$Api1UpdateViewRequestApplicationJson_Data2_ValueSerializer();
 Serializer<Api1UpdateViewRequestApplicationJson_Data2> _$api1UpdateViewRequestApplicationJsonData2Serializer =
     _$Api1UpdateViewRequestApplicationJson_Data2Serializer();
 Serializer<Api1UpdateViewRequestApplicationJson_Data3_Value>
-    _$api1UpdateViewRequestApplicationJsonData3ValueSerializer =
+_$api1UpdateViewRequestApplicationJsonData3ValueSerializer =
     _$Api1UpdateViewRequestApplicationJson_Data3_ValueSerializer();
 Serializer<Api1UpdateViewRequestApplicationJson_Data3> _$api1UpdateViewRequestApplicationJsonData3Serializer =
     _$Api1UpdateViewRequestApplicationJson_Data3Serializer();
@@ -757,14 +778,14 @@ Serializer<Api1UpdateViewRequestApplicationJson> _$api1UpdateViewRequestApplicat
     _$Api1UpdateViewRequestApplicationJsonSerializer();
 Serializer<Share> _$shareSerializer = _$ShareSerializer();
 Serializer<Api1UpdateSharePermissionsRequestApplicationJson>
-    _$api1UpdateSharePermissionsRequestApplicationJsonSerializer =
+_$api1UpdateSharePermissionsRequestApplicationJsonSerializer =
     _$Api1UpdateSharePermissionsRequestApplicationJsonSerializer();
 Serializer<Api1CreateTableShareRequestApplicationJson> _$api1CreateTableShareRequestApplicationJsonSerializer =
     _$Api1CreateTableShareRequestApplicationJsonSerializer();
 Serializer<Api1CreateShareRequestApplicationJson> _$api1CreateShareRequestApplicationJsonSerializer =
     _$Api1CreateShareRequestApplicationJsonSerializer();
 Serializer<Api1UpdateShareDisplayModeRequestApplicationJson>
-    _$api1UpdateShareDisplayModeRequestApplicationJsonSerializer =
+_$api1UpdateShareDisplayModeRequestApplicationJsonSerializer =
     _$Api1UpdateShareDisplayModeRequestApplicationJsonSerializer();
 Serializer<ContextNavigation> _$contextNavigationSerializer = _$ContextNavigationSerializer();
 Serializer<Column> _$columnSerializer = _$ColumnSerializer();
@@ -797,49 +818,49 @@ Serializer<ApiColumnsShowResponseApplicationJson_Ocs> _$apiColumnsShowResponseAp
 Serializer<ApiColumnsShowResponseApplicationJson> _$apiColumnsShowResponseApplicationJsonSerializer =
     _$ApiColumnsShowResponseApplicationJsonSerializer();
 Serializer<ApiColumnsCreateNumberColumnRequestApplicationJson>
-    _$apiColumnsCreateNumberColumnRequestApplicationJsonSerializer =
+_$apiColumnsCreateNumberColumnRequestApplicationJsonSerializer =
     _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer();
 Serializer<ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs>
-    _$apiColumnsCreateNumberColumnResponseApplicationJsonOcsSerializer =
+_$apiColumnsCreateNumberColumnResponseApplicationJsonOcsSerializer =
     _$ApiColumnsCreateNumberColumnResponseApplicationJson_OcsSerializer();
 Serializer<ApiColumnsCreateNumberColumnResponseApplicationJson>
-    _$apiColumnsCreateNumberColumnResponseApplicationJsonSerializer =
+_$apiColumnsCreateNumberColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateNumberColumnResponseApplicationJsonSerializer();
 Serializer<ApiColumnsCreateTextColumnRequestApplicationJson>
-    _$apiColumnsCreateTextColumnRequestApplicationJsonSerializer =
+_$apiColumnsCreateTextColumnRequestApplicationJsonSerializer =
     _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer();
 Serializer<ApiColumnsCreateTextColumnResponseApplicationJson_Ocs>
-    _$apiColumnsCreateTextColumnResponseApplicationJsonOcsSerializer =
+_$apiColumnsCreateTextColumnResponseApplicationJsonOcsSerializer =
     _$ApiColumnsCreateTextColumnResponseApplicationJson_OcsSerializer();
 Serializer<ApiColumnsCreateTextColumnResponseApplicationJson>
-    _$apiColumnsCreateTextColumnResponseApplicationJsonSerializer =
+_$apiColumnsCreateTextColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateTextColumnResponseApplicationJsonSerializer();
 Serializer<ApiColumnsCreateSelectionColumnRequestApplicationJson>
-    _$apiColumnsCreateSelectionColumnRequestApplicationJsonSerializer =
+_$apiColumnsCreateSelectionColumnRequestApplicationJsonSerializer =
     _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer();
 Serializer<ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs>
-    _$apiColumnsCreateSelectionColumnResponseApplicationJsonOcsSerializer =
+_$apiColumnsCreateSelectionColumnResponseApplicationJsonOcsSerializer =
     _$ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsSerializer();
 Serializer<ApiColumnsCreateSelectionColumnResponseApplicationJson>
-    _$apiColumnsCreateSelectionColumnResponseApplicationJsonSerializer =
+_$apiColumnsCreateSelectionColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateSelectionColumnResponseApplicationJsonSerializer();
 Serializer<ApiColumnsCreateDatetimeColumnRequestApplicationJson>
-    _$apiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer =
+_$apiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer =
     _$ApiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer();
 Serializer<ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs>
-    _$apiColumnsCreateDatetimeColumnResponseApplicationJsonOcsSerializer =
+_$apiColumnsCreateDatetimeColumnResponseApplicationJsonOcsSerializer =
     _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsSerializer();
 Serializer<ApiColumnsCreateDatetimeColumnResponseApplicationJson>
-    _$apiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer =
+_$apiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer();
 Serializer<ApiColumnsCreateUsergroupColumnRequestApplicationJson>
-    _$apiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer =
+_$apiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer =
     _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer();
 Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs>
-    _$apiColumnsCreateUsergroupColumnResponseApplicationJsonOcsSerializer =
+_$apiColumnsCreateUsergroupColumnResponseApplicationJsonOcsSerializer =
     _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsSerializer();
 Serializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson>
-    _$apiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer =
+_$apiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer =
     _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer();
 Serializer<ApiFavoriteCreateResponseApplicationJson_Ocs> _$apiFavoriteCreateResponseApplicationJsonOcsSerializer =
     _$ApiFavoriteCreateResponseApplicationJson_OcsSerializer();
@@ -883,13 +904,13 @@ Serializer<ApiTablesShowSchemeResponseApplicationJson_Ocs> _$apiTablesShowScheme
 Serializer<ApiTablesShowSchemeResponseApplicationJson> _$apiTablesShowSchemeResponseApplicationJsonSerializer =
     _$ApiTablesShowSchemeResponseApplicationJsonSerializer();
 Serializer<ApiTablesCreateFromSchemeRequestApplicationJson>
-    _$apiTablesCreateFromSchemeRequestApplicationJsonSerializer =
+_$apiTablesCreateFromSchemeRequestApplicationJsonSerializer =
     _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer();
 Serializer<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs>
-    _$apiTablesCreateFromSchemeResponseApplicationJsonOcsSerializer =
+_$apiTablesCreateFromSchemeResponseApplicationJsonOcsSerializer =
     _$ApiTablesCreateFromSchemeResponseApplicationJson_OcsSerializer();
 Serializer<ApiTablesCreateFromSchemeResponseApplicationJson>
-    _$apiTablesCreateFromSchemeResponseApplicationJsonSerializer =
+_$apiTablesCreateFromSchemeResponseApplicationJsonSerializer =
     _$ApiTablesCreateFromSchemeResponseApplicationJsonSerializer();
 Serializer<ApiTablesTransferRequestApplicationJson> _$apiTablesTransferRequestApplicationJsonSerializer =
     _$ApiTablesTransferRequestApplicationJsonSerializer();
@@ -933,16 +954,16 @@ Serializer<ContextTransferResponseApplicationJson_Ocs> _$contextTransferResponse
 Serializer<ContextTransferResponseApplicationJson> _$contextTransferResponseApplicationJsonSerializer =
     _$ContextTransferResponseApplicationJsonSerializer();
 Serializer<ContextUpdateContentOrderRequestApplicationJson_Content>
-    _$contextUpdateContentOrderRequestApplicationJsonContentSerializer =
+_$contextUpdateContentOrderRequestApplicationJsonContentSerializer =
     _$ContextUpdateContentOrderRequestApplicationJson_ContentSerializer();
 Serializer<ContextUpdateContentOrderRequestApplicationJson>
-    _$contextUpdateContentOrderRequestApplicationJsonSerializer =
+_$contextUpdateContentOrderRequestApplicationJsonSerializer =
     _$ContextUpdateContentOrderRequestApplicationJsonSerializer();
 Serializer<ContextUpdateContentOrderResponseApplicationJson_Ocs>
-    _$contextUpdateContentOrderResponseApplicationJsonOcsSerializer =
+_$contextUpdateContentOrderResponseApplicationJsonOcsSerializer =
     _$ContextUpdateContentOrderResponseApplicationJson_OcsSerializer();
 Serializer<ContextUpdateContentOrderResponseApplicationJson>
-    _$contextUpdateContentOrderResponseApplicationJsonSerializer =
+_$contextUpdateContentOrderResponseApplicationJsonSerializer =
     _$ContextUpdateContentOrderResponseApplicationJsonSerializer();
 Serializer<RowocsCreateRowRequestApplicationJson> _$rowocsCreateRowRequestApplicationJsonSerializer =
     _$RowocsCreateRowRequestApplicationJsonSerializer();
@@ -960,8 +981,11 @@ class _$Table_OnSharePermissionsSerializer implements StructuredSerializer<Table
   final String wireName = 'Table_OnSharePermissions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Table_OnSharePermissions object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Table_OnSharePermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'read',
       serializers.serialize(object.read, specifiedType: const FullType(bool)),
@@ -979,8 +1003,11 @@ class _$Table_OnSharePermissionsSerializer implements StructuredSerializer<Table
   }
 
   @override
-  Table_OnSharePermissions deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Table_OnSharePermissions deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Table_OnSharePermissionsBuilder();
 
     final iterator = serialized.iterator;
@@ -1018,8 +1045,11 @@ class _$View_ColumnSettingsSerializer implements StructuredSerializer<View_Colum
   final String wireName = 'View_ColumnSettings';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, View_ColumnSettings object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    View_ColumnSettings object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
@@ -1031,8 +1061,11 @@ class _$View_ColumnSettingsSerializer implements StructuredSerializer<View_Colum
   }
 
   @override
-  View_ColumnSettings deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  View_ColumnSettings deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = View_ColumnSettingsBuilder();
 
     final iterator = serialized.iterator;
@@ -1061,8 +1094,11 @@ class _$View_SortSerializer implements StructuredSerializer<View_Sort> {
   final String wireName = 'View_Sort';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, View_Sort object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    View_Sort object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
@@ -1074,8 +1110,11 @@ class _$View_SortSerializer implements StructuredSerializer<View_Sort> {
   }
 
   @override
-  View_Sort deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  View_Sort deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = View_SortBuilder();
 
     final iterator = serialized.iterator;
@@ -1105,8 +1144,11 @@ class _$View_FilterSerializer implements StructuredSerializer<View_Filter> {
   final String wireName = 'View_Filter';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, View_Filter object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    View_Filter object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
@@ -1120,8 +1162,11 @@ class _$View_FilterSerializer implements StructuredSerializer<View_Filter> {
   }
 
   @override
-  View_Filter deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  View_Filter deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = View_FilterBuilder();
 
     final iterator = serialized.iterator;
@@ -1134,8 +1179,9 @@ class _$View_FilterSerializer implements StructuredSerializer<View_Filter> {
           result.columnId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'operator':
-          result.$operator = serializers.deserialize(value, specifiedType: const FullType(View_Filter_Operator))!
-              as View_Filter_Operator;
+          result.$operator =
+              serializers.deserialize(value, specifiedType: const FullType(View_Filter_Operator))!
+                  as View_Filter_Operator;
           break;
         case 'value':
           result.value =
@@ -1155,8 +1201,11 @@ class _$View_OnSharePermissionsSerializer implements StructuredSerializer<View_O
   final String wireName = 'View_OnSharePermissions';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, View_OnSharePermissions object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    View_OnSharePermissions object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'read',
       serializers.serialize(object.read, specifiedType: const FullType(bool)),
@@ -1174,8 +1223,11 @@ class _$View_OnSharePermissionsSerializer implements StructuredSerializer<View_O
   }
 
   @override
-  View_OnSharePermissions deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  View_OnSharePermissions deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = View_OnSharePermissionsBuilder();
 
     final iterator = serialized.iterator;
@@ -1234,15 +1286,19 @@ class _$ViewSerializer implements StructuredSerializer<View> {
       'columns',
       serializers.serialize(object.columns, specifiedType: const FullType(BuiltList, const [const FullType(int)])),
       'columnSettings',
-      serializers.serialize(object.columnSettings,
-          specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)])),
+      serializers.serialize(
+        object.columnSettings,
+        specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)]),
+      ),
       'sort',
       serializers.serialize(object.sort, specifiedType: const FullType(BuiltList, const [const FullType(View_Sort)])),
       'filter',
-      serializers.serialize(object.filter,
-          specifiedType: const FullType(BuiltList, const [
-            const FullType(BuiltList, const [const FullType(View_Filter)])
-          ])),
+      serializers.serialize(
+        object.filter,
+        specifiedType: const FullType(BuiltList, const [
+          const FullType(BuiltList, const [const FullType(View_Filter)]),
+        ]),
+      ),
       'isShared',
       serializers.serialize(object.isShared, specifiedType: const FullType(bool)),
       'favorite',
@@ -1281,8 +1337,11 @@ class _$ViewSerializer implements StructuredSerializer<View> {
   }
 
   @override
-  View deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  View deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ViewBuilder();
 
     final iterator = serialized.iterator;
@@ -1325,23 +1384,36 @@ class _$ViewSerializer implements StructuredSerializer<View> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'columns':
-          result.columns.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.columns.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'columnSettings':
-          result.columnSettings.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)]))!
-              as BuiltList<Object?>);
+          result.columnSettings.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(View_ColumnSettings)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'sort':
-          result.sort.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(View_Sort)]))! as BuiltList<Object?>);
+          result.sort.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(View_Sort)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'filter':
-          result.filter.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType(BuiltList, const [const FullType(View_Filter)])
-              ]))! as BuiltList<Object?>);
+          result.filter.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(BuiltList, const [const FullType(View_Filter)]),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'isShared':
           result.isShared = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1350,8 +1422,10 @@ class _$ViewSerializer implements StructuredSerializer<View> {
           result.favorite = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'onSharePermissions':
-          result.onSharePermissions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(View_OnSharePermissions))! as View_OnSharePermissions);
+          result.onSharePermissions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(View_OnSharePermissions))!
+                as View_OnSharePermissions,
+          );
           break;
         case 'hasShares':
           result.hasShares = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1423,8 +1497,11 @@ class _$TableSerializer implements StructuredSerializer<Table> {
   }
 
   @override
-  Table deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Table deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = TableBuilder();
 
     final iterator = serialized.iterator;
@@ -1470,8 +1547,10 @@ class _$TableSerializer implements StructuredSerializer<Table> {
           result.isShared = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'onSharePermissions':
-          result.onSharePermissions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Table_OnSharePermissions))! as Table_OnSharePermissions);
+          result.onSharePermissions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Table_OnSharePermissions))!
+                as Table_OnSharePermissions,
+          );
           break;
         case 'hasShares':
           result.hasShares = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -1480,8 +1559,10 @@ class _$TableSerializer implements StructuredSerializer<Table> {
           result.rowsCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'views':
-          result.views.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(View)]))! as BuiltList<Object?>);
+          result.views.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(View)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'columnsCount':
           result.columnsCount = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -1501,8 +1582,11 @@ class _$Api1CreateTableRequestApplicationJsonSerializer
   final String wireName = 'Api1CreateTableRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateTableRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateTableRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
       serializers.serialize(object.title, specifiedType: const FullType(String)),
@@ -1520,8 +1604,11 @@ class _$Api1CreateTableRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateTableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateTableRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateTableRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1554,12 +1641,12 @@ class _$Api1UpdateTableRequestApplicationJsonSerializer
   final String wireName = 'Api1UpdateTableRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateTableRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'archived',
-      serializers.serialize(object.archived, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateTableRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['archived', serializers.serialize(object.archived, specifiedType: const FullType(bool))];
     Object? value;
     value = object.title;
     if (value != null) {
@@ -1577,8 +1664,11 @@ class _$Api1UpdateTableRequestApplicationJsonSerializer
   }
 
   @override
-  Api1UpdateTableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateTableRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateTableRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1610,8 +1700,11 @@ class _$Api1Api1ShowSchemeHeadersSerializer implements StructuredSerializer<Api1
   final String wireName = 'Api1Api1ShowSchemeHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1Api1ShowSchemeHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1Api1ShowSchemeHeaders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.contentDisposition;
@@ -1624,8 +1717,11 @@ class _$Api1Api1ShowSchemeHeadersSerializer implements StructuredSerializer<Api1
   }
 
   @override
-  Api1Api1ShowSchemeHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1Api1ShowSchemeHeaders deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1Api1ShowSchemeHeadersBuilder();
 
     final iterator = serialized.iterator;
@@ -1652,12 +1748,12 @@ class _$Api1CreateViewRequestApplicationJsonSerializer
   final String wireName = 'Api1CreateViewRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateViewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'title',
-      serializers.serialize(object.title, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateViewRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['title', serializers.serialize(object.title, specifiedType: const FullType(String))];
     Object? value;
     value = object.emoji;
     if (value != null) {
@@ -1669,8 +1765,11 @@ class _$Api1CreateViewRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateViewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateViewRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateViewRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1697,14 +1796,17 @@ class _$Api1UpdateViewRequestApplicationJson_Data0Serializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data0,
-    _$Api1UpdateViewRequestApplicationJson_Data0
+    _$Api1UpdateViewRequestApplicationJson_Data0,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'key',
       serializers.serialize(object.key, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data0_Key)),
@@ -1716,8 +1818,11 @@ class _$Api1UpdateViewRequestApplicationJson_Data0Serializer
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data0Builder();
 
     final iterator = serialized.iterator;
@@ -1727,9 +1832,12 @@ class _$Api1UpdateViewRequestApplicationJson_Data0Serializer
       final Object? value = iterator.current;
       switch (key) {
         case 'key':
-          result.key = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data0_Key))!
-              as Api1UpdateViewRequestApplicationJson_Data0_Key;
+          result.key =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data0_Key),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data0_Key;
           break;
         case 'value':
           result.value = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -1746,14 +1854,17 @@ class _$Api1UpdateViewRequestApplicationJson_Data1Serializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data1,
-    _$Api1UpdateViewRequestApplicationJson_Data1
+    _$Api1UpdateViewRequestApplicationJson_Data1,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'key',
       serializers.serialize(object.key, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data1_Key)),
@@ -1765,8 +1876,11 @@ class _$Api1UpdateViewRequestApplicationJson_Data1Serializer
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data1Builder();
 
     final iterator = serialized.iterator;
@@ -1776,13 +1890,18 @@ class _$Api1UpdateViewRequestApplicationJson_Data1Serializer
       final Object? value = iterator.current;
       switch (key) {
         case 'key':
-          result.key = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data1_Key))!
-              as Api1UpdateViewRequestApplicationJson_Data1_Key;
+          result.key =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data1_Key),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data1_Key;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.value.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1796,28 +1915,36 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_ValueSerializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data2_Value,
-    _$Api1UpdateViewRequestApplicationJson_Data2_Value
+    _$Api1UpdateViewRequestApplicationJson_Data2_Value,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data2_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data2_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data2_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
       'mode',
-      serializers.serialize(object.mode,
-          specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode)),
+      serializers.serialize(
+        object.mode,
+        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data2_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data2_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -1830,9 +1957,12 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_ValueSerializer
           result.columnId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'mode':
-          result.mode = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode))!
-              as Api1UpdateViewRequestApplicationJson_Data2_Value_Mode;
+          result.mode =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data2_Value_Mode;
           break;
       }
     }
@@ -1846,28 +1976,36 @@ class _$Api1UpdateViewRequestApplicationJson_Data2Serializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data2,
-    _$Api1UpdateViewRequestApplicationJson_Data2
+    _$Api1UpdateViewRequestApplicationJson_Data2,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data2';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data2 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data2 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'key',
       serializers.serialize(object.key, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Key)),
       'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value)),
+      serializers.serialize(
+        object.value,
+        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data2 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data2 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data2Builder();
 
     final iterator = serialized.iterator;
@@ -1877,14 +2015,21 @@ class _$Api1UpdateViewRequestApplicationJson_Data2Serializer
       final Object? value = iterator.current;
       switch (key) {
         case 'key':
-          result.key = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Key))!
-              as Api1UpdateViewRequestApplicationJson_Data2_Key;
+          result.key =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Key),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data2_Key;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value))!
-              as Api1UpdateViewRequestApplicationJson_Data2_Value);
+          result.value.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value),
+                )!
+                as Api1UpdateViewRequestApplicationJson_Data2_Value,
+          );
           break;
       }
     }
@@ -1898,31 +2043,41 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_ValueSerializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data3_Value,
-    _$Api1UpdateViewRequestApplicationJson_Data3_Value
+    _$Api1UpdateViewRequestApplicationJson_Data3_Value,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data3_Value';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data3_Value object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data3_Value object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
       'operator',
-      serializers.serialize(object.$operator,
-          specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator)),
+      serializers.serialize(
+        object.$operator,
+        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator),
+      ),
       'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Value)),
+      serializers.serialize(
+        object.value,
+        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Value),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data3_Value deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data3_Value deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder();
 
     final iterator = serialized.iterator;
@@ -1935,14 +2090,20 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_ValueSerializer
           result.columnId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'operator':
-          result.$operator = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator))!
-              as Api1UpdateViewRequestApplicationJson_Data3_Value_Operator;
+          result.$operator =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data3_Value_Operator;
           break;
         case 'value':
-          result.value = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Value))!
-              as Api1UpdateViewRequestApplicationJson_Data3_Value_Value;
+          result.value =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value_Value),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data3_Value_Value;
           break;
       }
     }
@@ -1956,28 +2117,36 @@ class _$Api1UpdateViewRequestApplicationJson_Data3Serializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateViewRequestApplicationJson_Data3,
-    _$Api1UpdateViewRequestApplicationJson_Data3
+    _$Api1UpdateViewRequestApplicationJson_Data3,
   ];
   @override
   final String wireName = 'Api1UpdateViewRequestApplicationJson_Data3';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson_Data3 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson_Data3 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'key',
       serializers.serialize(object.key, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Key)),
       'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value)),
+      serializers.serialize(
+        object.value,
+        specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson_Data3 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson_Data3 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJson_Data3Builder();
 
     final iterator = serialized.iterator;
@@ -1987,14 +2156,21 @@ class _$Api1UpdateViewRequestApplicationJson_Data3Serializer
       final Object? value = iterator.current;
       switch (key) {
         case 'key':
-          result.key = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Key))!
-              as Api1UpdateViewRequestApplicationJson_Data3_Key;
+          result.key =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Key),
+                  )!
+                  as Api1UpdateViewRequestApplicationJson_Data3_Key;
           break;
         case 'value':
-          result.value.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value))!
-              as Api1UpdateViewRequestApplicationJson_Data3_Value);
+          result.value.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value),
+                )!
+                as Api1UpdateViewRequestApplicationJson_Data3_Value,
+          );
           break;
       }
     }
@@ -2011,8 +2187,11 @@ class _$Api1UpdateViewRequestApplicationJsonSerializer
   final String wireName = 'Api1UpdateViewRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateViewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateViewRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(Api1UpdateViewRequestApplicationJson_Data)),
@@ -2022,8 +2201,11 @@ class _$Api1UpdateViewRequestApplicationJsonSerializer
   }
 
   @override
-  Api1UpdateViewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateViewRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateViewRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2087,8 +2269,11 @@ class _$ShareSerializer implements StructuredSerializer<Share> {
   }
 
   @override
-  Share deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Share deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ShareBuilder();
 
     final iterator = serialized.iterator;
@@ -2151,14 +2336,17 @@ class _$Api1UpdateSharePermissionsRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateSharePermissionsRequestApplicationJson,
-    _$Api1UpdateSharePermissionsRequestApplicationJson
+    _$Api1UpdateSharePermissionsRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1UpdateSharePermissionsRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateSharePermissionsRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateSharePermissionsRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'permissionType',
       serializers.serialize(object.permissionType, specifiedType: const FullType(String)),
@@ -2170,8 +2358,11 @@ class _$Api1UpdateSharePermissionsRequestApplicationJsonSerializer
   }
 
   @override
-  Api1UpdateSharePermissionsRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateSharePermissionsRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateSharePermissionsRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2198,20 +2389,25 @@ class _$Api1CreateTableShareRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1CreateTableShareRequestApplicationJson,
-    _$Api1CreateTableShareRequestApplicationJson
+    _$Api1CreateTableShareRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1CreateTableShareRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateTableShareRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateTableShareRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'receiver',
       serializers.serialize(object.receiver, specifiedType: const FullType(String)),
       'receiverType',
-      serializers.serialize(object.receiverType,
-          specifiedType: const FullType(Api1CreateTableShareRequestApplicationJson_ReceiverType)),
+      serializers.serialize(
+        object.receiverType,
+        specifiedType: const FullType(Api1CreateTableShareRequestApplicationJson_ReceiverType),
+      ),
       'permissionRead',
       serializers.serialize(object.permissionRead, specifiedType: const FullType(bool)),
       'permissionCreate',
@@ -2228,8 +2424,11 @@ class _$Api1CreateTableShareRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateTableShareRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateTableShareRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateTableShareRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2242,9 +2441,12 @@ class _$Api1CreateTableShareRequestApplicationJsonSerializer
           result.receiver = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'receiverType':
-          result.receiverType = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateTableShareRequestApplicationJson_ReceiverType))!
-              as Api1CreateTableShareRequestApplicationJson_ReceiverType;
+          result.receiverType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateTableShareRequestApplicationJson_ReceiverType),
+                  )!
+                  as Api1CreateTableShareRequestApplicationJson_ReceiverType;
           break;
         case 'permissionRead':
           result.permissionRead = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -2276,19 +2478,26 @@ class _$Api1CreateShareRequestApplicationJsonSerializer
   final String wireName = 'Api1CreateShareRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateShareRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateShareRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'nodeId',
       serializers.serialize(object.nodeId, specifiedType: const FullType(int)),
       'nodeType',
-      serializers.serialize(object.nodeType,
-          specifiedType: const FullType(Api1CreateShareRequestApplicationJson_NodeType)),
+      serializers.serialize(
+        object.nodeType,
+        specifiedType: const FullType(Api1CreateShareRequestApplicationJson_NodeType),
+      ),
       'receiver',
       serializers.serialize(object.receiver, specifiedType: const FullType(String)),
       'receiverType',
-      serializers.serialize(object.receiverType,
-          specifiedType: const FullType(Api1CreateShareRequestApplicationJson_ReceiverType)),
+      serializers.serialize(
+        object.receiverType,
+        specifiedType: const FullType(Api1CreateShareRequestApplicationJson_ReceiverType),
+      ),
       'permissionRead',
       serializers.serialize(object.permissionRead, specifiedType: const FullType(bool)),
       'permissionCreate',
@@ -2307,8 +2516,11 @@ class _$Api1CreateShareRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateShareRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateShareRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateShareRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2321,17 +2533,23 @@ class _$Api1CreateShareRequestApplicationJsonSerializer
           result.nodeId = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'nodeType':
-          result.nodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateShareRequestApplicationJson_NodeType))!
-              as Api1CreateShareRequestApplicationJson_NodeType;
+          result.nodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateShareRequestApplicationJson_NodeType),
+                  )!
+                  as Api1CreateShareRequestApplicationJson_NodeType;
           break;
         case 'receiver':
           result.receiver = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'receiverType':
-          result.receiverType = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateShareRequestApplicationJson_ReceiverType))!
-              as Api1CreateShareRequestApplicationJson_ReceiverType;
+          result.receiverType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateShareRequestApplicationJson_ReceiverType),
+                  )!
+                  as Api1CreateShareRequestApplicationJson_ReceiverType;
           break;
         case 'permissionRead':
           result.permissionRead = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -2363,28 +2581,36 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1UpdateShareDisplayModeRequestApplicationJson,
-    _$Api1UpdateShareDisplayModeRequestApplicationJson
+    _$Api1UpdateShareDisplayModeRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1UpdateShareDisplayModeRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateShareDisplayModeRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateShareDisplayModeRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'displayMode',
       serializers.serialize(object.displayMode, specifiedType: const FullType(int)),
       'target',
-      serializers.serialize(object.target,
-          specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target)),
+      serializers.serialize(
+        object.target,
+        specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1UpdateShareDisplayModeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateShareDisplayModeRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateShareDisplayModeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2397,9 +2623,12 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJsonSerializer
           result.displayMode = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'target':
-          result.target = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target))!
-              as Api1UpdateShareDisplayModeRequestApplicationJson_Target;
+          result.target =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target),
+                  )!
+                  as Api1UpdateShareDisplayModeRequestApplicationJson_Target;
           break;
       }
     }
@@ -2415,8 +2644,11 @@ class _$ContextNavigationSerializer implements StructuredSerializer<ContextNavig
   final String wireName = 'ContextNavigation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextNavigation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextNavigation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -2432,8 +2664,11 @@ class _$ContextNavigationSerializer implements StructuredSerializer<ContextNavig
   }
 
   @override
-  ContextNavigation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextNavigation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextNavigationBuilder();
 
     final iterator = serialized.iterator;
@@ -2536,8 +2771,11 @@ class _$ColumnSerializer implements StructuredSerializer<Column> {
   }
 
   @override
-  Column deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Column deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ColumnBuilder();
 
     final iterator = serialized.iterator;
@@ -2648,20 +2886,25 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1CreateTableColumnRequestApplicationJson,
-    _$Api1CreateTableColumnRequestApplicationJson
+    _$Api1CreateTableColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1CreateTableColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateTableColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateTableColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
       serializers.serialize(object.title, specifiedType: const FullType(String)),
       'type',
-      serializers.serialize(object.type,
-          specifiedType: const FullType(Api1CreateTableColumnRequestApplicationJson_Type)),
+      serializers.serialize(
+        object.type,
+        specifiedType: const FullType(Api1CreateTableColumnRequestApplicationJson_Type),
+      ),
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
     ];
@@ -2796,8 +3039,11 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateTableColumnRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateTableColumnRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateTableColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -2810,9 +3056,12 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
           result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'type':
-          result.type = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateTableColumnRequestApplicationJson_Type))!
-              as Api1CreateTableColumnRequestApplicationJson_Type;
+          result.type =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateTableColumnRequestApplicationJson_Type),
+                  )!
+                  as Api1CreateTableColumnRequestApplicationJson_Type;
           break;
         case 'subtype':
           result.subtype = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -2878,8 +3127,10 @@ class _$Api1CreateTableColumnRequestApplicationJsonSerializer
           result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -2896,8 +3147,11 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
   final String wireName = 'Api1CreateColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
       serializers.serialize(object.title, specifiedType: const FullType(String)),
@@ -3049,8 +3303,11 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateColumnRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateColumnRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3069,9 +3326,12 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
           result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'type':
-          result.type = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateColumnRequestApplicationJson_Type))!
-              as Api1CreateColumnRequestApplicationJson_Type;
+          result.type =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateColumnRequestApplicationJson_Type),
+                  )!
+                  as Api1CreateColumnRequestApplicationJson_Type;
           break;
         case 'subtype':
           result.subtype = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -3137,8 +3397,10 @@ class _$Api1CreateColumnRequestApplicationJsonSerializer
           result.usergroupShowUserStatus = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -3155,12 +3417,12 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
   final String wireName = 'Api1UpdateColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'mandatory',
-      serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['mandatory', serializers.serialize(object.mandatory, specifiedType: const FullType(bool))];
     Object? value;
     value = object.title;
     if (value != null) {
@@ -3292,8 +3554,11 @@ class _$Api1UpdateColumnRequestApplicationJsonSerializer
   }
 
   @override
-  Api1UpdateColumnRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateColumnRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3382,8 +3647,11 @@ class _$Row_DataSerializer implements StructuredSerializer<Row_Data> {
   final String wireName = 'Row_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Row_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Row_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'columnId',
       serializers.serialize(object.columnId, specifiedType: const FullType(int)),
@@ -3395,8 +3663,11 @@ class _$Row_DataSerializer implements StructuredSerializer<Row_Data> {
   }
 
   @override
-  Row_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Row_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Row_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -3451,8 +3722,11 @@ class _$RowSerializer implements StructuredSerializer<Row> {
   }
 
   @override
-  Row deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Row deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RowBuilder();
 
     final iterator = serialized.iterator;
@@ -3494,26 +3768,34 @@ class _$Api1CreateRowInTableRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1CreateRowInTableRequestApplicationJson,
-    _$Api1CreateRowInTableRequestApplicationJson
+    _$Api1CreateRowInTableRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1CreateRowInTableRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateRowInTableRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateRowInTableRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(Api1CreateRowInTableRequestApplicationJson_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(Api1CreateRowInTableRequestApplicationJson_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  Api1CreateRowInTableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateRowInTableRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateRowInTableRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3523,9 +3805,12 @@ class _$Api1CreateRowInTableRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'data':
-          result.data = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateRowInTableRequestApplicationJson_Data))!
-              as Api1CreateRowInTableRequestApplicationJson_Data;
+          result.data =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateRowInTableRequestApplicationJson_Data),
+                  )!
+                  as Api1CreateRowInTableRequestApplicationJson_Data;
           break;
       }
     }
@@ -3539,14 +3824,17 @@ class _$Api1CreateRowInViewRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1CreateRowInViewRequestApplicationJson,
-    _$Api1CreateRowInViewRequestApplicationJson
+    _$Api1CreateRowInViewRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1CreateRowInViewRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1CreateRowInViewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1CreateRowInViewRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(Api1CreateRowInViewRequestApplicationJson_Data)),
@@ -3556,8 +3844,11 @@ class _$Api1CreateRowInViewRequestApplicationJsonSerializer
   }
 
   @override
-  Api1CreateRowInViewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1CreateRowInViewRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1CreateRowInViewRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3567,9 +3858,12 @@ class _$Api1CreateRowInViewRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'data':
-          result.data = serializers.deserialize(value,
-                  specifiedType: const FullType(Api1CreateRowInViewRequestApplicationJson_Data))!
-              as Api1CreateRowInViewRequestApplicationJson_Data;
+          result.data =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(Api1CreateRowInViewRequestApplicationJson_Data),
+                  )!
+                  as Api1CreateRowInViewRequestApplicationJson_Data;
           break;
       }
     }
@@ -3586,8 +3880,11 @@ class _$Api1UpdateRowRequestApplicationJsonSerializer
   final String wireName = 'Api1UpdateRowRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1UpdateRowRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1UpdateRowRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(Api1UpdateRowRequestApplicationJson_Data)),
@@ -3603,8 +3900,11 @@ class _$Api1UpdateRowRequestApplicationJsonSerializer
   }
 
   @override
-  Api1UpdateRowRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1UpdateRowRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1UpdateRowRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3633,14 +3933,17 @@ class _$Api1ImportInTableRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     Api1ImportInTableRequestApplicationJson,
-    _$Api1ImportInTableRequestApplicationJson
+    _$Api1ImportInTableRequestApplicationJson,
   ];
   @override
   final String wireName = 'Api1ImportInTableRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1ImportInTableRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1ImportInTableRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
@@ -3652,8 +3955,11 @@ class _$Api1ImportInTableRequestApplicationJsonSerializer
   }
 
   @override
-  Api1ImportInTableRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1ImportInTableRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1ImportInTableRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3682,8 +3988,11 @@ class _$ImportStateSerializer implements StructuredSerializer<ImportState> {
   final String wireName = 'ImportState';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ImportState object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ImportState object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'found_columns_count',
       serializers.serialize(object.foundColumnsCount, specifiedType: const FullType(int)),
@@ -3703,8 +4012,11 @@ class _$ImportStateSerializer implements StructuredSerializer<ImportState> {
   }
 
   @override
-  ImportState deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ImportState deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ImportStateBuilder();
 
     final iterator = serialized.iterator;
@@ -3746,8 +4058,11 @@ class _$Api1ImportInViewRequestApplicationJsonSerializer
   final String wireName = 'Api1ImportInViewRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Api1ImportInViewRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Api1ImportInViewRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'path',
       serializers.serialize(object.path, specifiedType: const FullType(String)),
@@ -3759,8 +4074,11 @@ class _$Api1ImportInViewRequestApplicationJsonSerializer
   }
 
   @override
-  Api1ImportInViewRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Api1ImportInViewRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Api1ImportInViewRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3789,8 +4107,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -3820,8 +4141,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -3857,14 +4181,17 @@ class _$ApiColumnsIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsIndexResponseApplicationJson_Ocs,
-    _$ApiColumnsIndexResponseApplicationJson_Ocs
+    _$ApiColumnsIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -3876,8 +4203,11 @@ class _$ApiColumnsIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiColumnsIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -3890,8 +4220,10 @@ class _$ApiColumnsIndexResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Column)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Column)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -3908,8 +4240,11 @@ class _$ApiColumnsIndexResponseApplicationJsonSerializer
   final String wireName = 'ApiColumnsIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiColumnsIndexResponseApplicationJson_Ocs)),
@@ -3919,8 +4254,11 @@ class _$ApiColumnsIndexResponseApplicationJsonSerializer
   }
 
   @override
-  ApiColumnsIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -3931,8 +4269,9 @@ class _$ApiColumnsIndexResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiColumnsIndexResponseApplicationJson_Ocs))!
-                  as ApiColumnsIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiColumnsIndexResponseApplicationJson_Ocs))!
+                as ApiColumnsIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -3946,14 +4285,17 @@ class _$ApiColumnsShowResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsShowResponseApplicationJson_Ocs,
-    _$ApiColumnsShowResponseApplicationJson_Ocs
+    _$ApiColumnsShowResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsShowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsShowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsShowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -3965,8 +4307,11 @@ class _$ApiColumnsShowResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiColumnsShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsShowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -3996,8 +4341,11 @@ class _$ApiColumnsShowResponseApplicationJsonSerializer
   final String wireName = 'ApiColumnsShowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsShowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsShowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiColumnsShowResponseApplicationJson_Ocs)),
@@ -4007,8 +4355,11 @@ class _$ApiColumnsShowResponseApplicationJsonSerializer
   }
 
   @override
-  ApiColumnsShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsShowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4019,8 +4370,9 @@ class _$ApiColumnsShowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiColumnsShowResponseApplicationJson_Ocs))!
-                  as ApiColumnsShowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiColumnsShowResponseApplicationJson_Ocs))!
+                as ApiColumnsShowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4034,14 +4386,17 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateNumberColumnRequestApplicationJson,
-    _$ApiColumnsCreateNumberColumnRequestApplicationJson
+    _$ApiColumnsCreateNumberColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateNumberColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateNumberColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateNumberColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'baseNodeId',
       serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
@@ -4050,8 +4405,10 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
       'baseNodeType',
-      serializers.serialize(object.baseNodeType,
-          specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType)),
+      serializers.serialize(
+        object.baseNodeType,
+        specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType),
+      ),
     ];
     Object? value;
     value = object.numberDefault;
@@ -4094,8 +4451,12 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('subtype')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype),
+          ),
+        );
     }
     value = object.description;
     if (value != null) {
@@ -4113,8 +4474,11 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer
   }
 
   @override
-  ApiColumnsCreateNumberColumnRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsCreateNumberColumnRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4148,24 +4512,32 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJsonSerializer
           result.numberMax = serializers.deserialize(value, specifiedType: const FullType(double)) as double?;
           break;
         case 'subtype':
-          result.subtype = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype))
-              as ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype?;
+          result.subtype =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype),
+                  )
+                  as ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype?;
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'mandatory':
           result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'baseNodeType':
-          result.baseNodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType))!
-              as ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType;
+          result.baseNodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType),
+                  )!
+                  as ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType;
           break;
       }
     }
@@ -4179,14 +4551,17 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
-    _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs
+    _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4199,8 +4574,10 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson_OcsSerializer
 
   @override
   ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4227,26 +4604,34 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateNumberColumnResponseApplicationJson,
-    _$ApiColumnsCreateNumberColumnResponseApplicationJson
+    _$ApiColumnsCreateNumberColumnResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateNumberColumnResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateNumberColumnResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateNumberColumnResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ApiColumnsCreateNumberColumnResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsCreateNumberColumnResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4256,9 +4641,13 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs))!
-              as ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs),
+                )!
+                as ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4272,14 +4661,17 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateTextColumnRequestApplicationJson,
-    _$ApiColumnsCreateTextColumnRequestApplicationJson
+    _$ApiColumnsCreateTextColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateTextColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateTextColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateTextColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'baseNodeId',
       serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
@@ -4288,8 +4680,10 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
       'baseNodeType',
-      serializers.serialize(object.baseNodeType,
-          specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType)),
+      serializers.serialize(
+        object.baseNodeType,
+        specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType),
+      ),
     ];
     Object? value;
     value = object.textDefault;
@@ -4314,8 +4708,12 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('subtype')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype),
+          ),
+        );
     }
     value = object.description;
     if (value != null) {
@@ -4333,8 +4731,11 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer
   }
 
   @override
-  ApiColumnsCreateTextColumnRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsCreateTextColumnRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateTextColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4359,24 +4760,32 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJsonSerializer
           result.textMaxLength = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'subtype':
-          result.subtype = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype))
-              as ApiColumnsCreateTextColumnRequestApplicationJson_Subtype?;
+          result.subtype =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype),
+                  )
+                  as ApiColumnsCreateTextColumnRequestApplicationJson_Subtype?;
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'mandatory':
           result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'baseNodeType':
-          result.baseNodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType))!
-              as ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType;
+          result.baseNodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType),
+                  )!
+                  as ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType;
           break;
       }
     }
@@ -4390,14 +4799,17 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
-    _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs
+    _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsCreateTextColumnResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateTextColumnResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateTextColumnResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4410,8 +4822,10 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson_OcsSerializer
 
   @override
   ApiColumnsCreateTextColumnResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4438,26 +4852,34 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateTextColumnResponseApplicationJson,
-    _$ApiColumnsCreateTextColumnResponseApplicationJson
+    _$ApiColumnsCreateTextColumnResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateTextColumnResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateTextColumnResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateTextColumnResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ApiColumnsCreateTextColumnResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiColumnsCreateTextColumnResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateTextColumnResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4467,9 +4889,13 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs))!
-              as ApiColumnsCreateTextColumnResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs),
+                )!
+                as ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4483,14 +4909,17 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateSelectionColumnRequestApplicationJson,
-    _$ApiColumnsCreateSelectionColumnRequestApplicationJson
+    _$ApiColumnsCreateSelectionColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateSelectionColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateSelectionColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateSelectionColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'baseNodeId',
       serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
@@ -4501,8 +4930,10 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
       'baseNodeType',
-      serializers.serialize(object.baseNodeType,
-          specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType)),
+      serializers.serialize(
+        object.baseNodeType,
+        specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType),
+      ),
     ];
     Object? value;
     value = object.selectionDefault;
@@ -4515,8 +4946,12 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer
     if (value != null) {
       result
         ..add('subtype')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype),
+          ),
+        );
     }
     value = object.description;
     if (value != null) {
@@ -4535,8 +4970,10 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer
 
   @override
   ApiColumnsCreateSelectionColumnRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4558,24 +4995,32 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJsonSerializer
           result.selectionDefault = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'subtype':
-          result.subtype = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype))
-              as ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype?;
+          result.subtype =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype),
+                  )
+                  as ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype?;
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'mandatory':
           result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'baseNodeType':
-          result.baseNodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType))!
-              as ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType;
+          result.baseNodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType),
+                  )!
+                  as ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType;
           break;
       }
     }
@@ -4589,15 +5034,17 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
-    _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs
+    _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4610,8 +5057,10 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsSerializer
 
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4638,18 +5087,23 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateSelectionColumnResponseApplicationJson,
-    _$ApiColumnsCreateSelectionColumnResponseApplicationJson
+    _$ApiColumnsCreateSelectionColumnResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateSelectionColumnResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateSelectionColumnResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateSelectionColumnResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
@@ -4657,8 +5111,10 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJsonSerializer
 
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4668,9 +5124,13 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs))!
-              as ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs),
+                )!
+                as ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4684,14 +5144,17 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateDatetimeColumnRequestApplicationJson,
-    _$ApiColumnsCreateDatetimeColumnRequestApplicationJson
+    _$ApiColumnsCreateDatetimeColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateDatetimeColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateDatetimeColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateDatetimeColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'baseNodeId',
       serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
@@ -4700,23 +5163,33 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
       'baseNodeType',
-      serializers.serialize(object.baseNodeType,
-          specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType)),
+      serializers.serialize(
+        object.baseNodeType,
+        specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType),
+      ),
     ];
     Object? value;
     value = object.datetimeDefault;
     if (value != null) {
       result
         ..add('datetimeDefault')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault),
+          ),
+        );
     }
     value = object.subtype;
     if (value != null) {
       result
         ..add('subtype')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype)));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype),
+          ),
+        );
     }
     value = object.description;
     if (value != null) {
@@ -4735,8 +5208,10 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer
 
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4752,29 +5227,40 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJsonSerializer
           result.title = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'datetimeDefault':
-          result.datetimeDefault = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault))
-              as ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault?;
+          result.datetimeDefault =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault),
+                  )
+                  as ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault?;
           break;
         case 'subtype':
-          result.subtype = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype))
-              as ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype?;
+          result.subtype =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype),
+                  )
+                  as ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype?;
           break;
         case 'description':
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'mandatory':
           result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'baseNodeType':
-          result.baseNodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType))!
-              as ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType;
+          result.baseNodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType),
+                  )!
+                  as ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType;
           break;
       }
     }
@@ -4788,14 +5274,17 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
-    _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs
+    _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -4808,8 +5297,10 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsSerializer
 
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -4836,18 +5327,23 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateDatetimeColumnResponseApplicationJson,
-    _$ApiColumnsCreateDatetimeColumnResponseApplicationJson
+    _$ApiColumnsCreateDatetimeColumnResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateDatetimeColumnResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateDatetimeColumnResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateDatetimeColumnResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
@@ -4855,8 +5351,10 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer
 
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4866,9 +5364,13 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs))!
-              as ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs),
+                )!
+                as ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -4882,14 +5384,17 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateUsergroupColumnRequestApplicationJson,
-    _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
+    _$ApiColumnsCreateUsergroupColumnRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateUsergroupColumnRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateUsergroupColumnRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateUsergroupColumnRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'baseNodeId',
       serializers.serialize(object.baseNodeId, specifiedType: const FullType(int)),
@@ -4898,8 +5403,10 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
       'mandatory',
       serializers.serialize(object.mandatory, specifiedType: const FullType(bool)),
       'baseNodeType',
-      serializers.serialize(object.baseNodeType,
-          specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType)),
+      serializers.serialize(
+        object.baseNodeType,
+        specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType),
+      ),
     ];
     Object? value;
     value = object.usergroupDefault;
@@ -4955,8 +5462,10 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
 
   @override
   ApiColumnsCreateUsergroupColumnRequestApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -4993,16 +5502,21 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJsonSerializer
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'selectedViewIds':
-          result.selectedViewIds.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.selectedViewIds.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'mandatory':
           result.mandatory = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'baseNodeType':
-          result.baseNodeType = serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType))!
-              as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
+          result.baseNodeType =
+              serializers.deserialize(
+                    value,
+                    specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType),
+                  )!
+                  as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
           break;
       }
     }
@@ -5016,15 +5530,17 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
-    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5037,8 +5553,10 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsSerializer
 
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5065,18 +5583,23 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiColumnsCreateUsergroupColumnResponseApplicationJson,
-    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson
+    _$ApiColumnsCreateUsergroupColumnResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiColumnsCreateUsergroupColumnResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiColumnsCreateUsergroupColumnResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiColumnsCreateUsergroupColumnResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
@@ -5084,8 +5607,10 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer
 
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJson deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5095,9 +5620,13 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs))!
-              as ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs),
+                )!
+                as ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5111,14 +5640,17 @@ class _$ApiFavoriteCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiFavoriteCreateResponseApplicationJson_Ocs,
-    _$ApiFavoriteCreateResponseApplicationJson_Ocs
+    _$ApiFavoriteCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiFavoriteCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiFavoriteCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiFavoriteCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5130,8 +5662,11 @@ class _$ApiFavoriteCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiFavoriteCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiFavoriteCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiFavoriteCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5158,14 +5693,17 @@ class _$ApiFavoriteCreateResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiFavoriteCreateResponseApplicationJson,
-    _$ApiFavoriteCreateResponseApplicationJson
+    _$ApiFavoriteCreateResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiFavoriteCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiFavoriteCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiFavoriteCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiFavoriteCreateResponseApplicationJson_Ocs)),
@@ -5175,8 +5713,11 @@ class _$ApiFavoriteCreateResponseApplicationJsonSerializer
   }
 
   @override
-  ApiFavoriteCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiFavoriteCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiFavoriteCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5186,9 +5727,10 @@ class _$ApiFavoriteCreateResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiFavoriteCreateResponseApplicationJson_Ocs))!
-              as ApiFavoriteCreateResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ApiFavoriteCreateResponseApplicationJson_Ocs))!
+                as ApiFavoriteCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5202,14 +5744,17 @@ class _$ApiFavoriteDestroyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiFavoriteDestroyResponseApplicationJson_Ocs,
-    _$ApiFavoriteDestroyResponseApplicationJson_Ocs
+    _$ApiFavoriteDestroyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiFavoriteDestroyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiFavoriteDestroyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiFavoriteDestroyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5221,8 +5766,11 @@ class _$ApiFavoriteDestroyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiFavoriteDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiFavoriteDestroyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiFavoriteDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5249,14 +5797,17 @@ class _$ApiFavoriteDestroyResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiFavoriteDestroyResponseApplicationJson,
-    _$ApiFavoriteDestroyResponseApplicationJson
+    _$ApiFavoriteDestroyResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiFavoriteDestroyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiFavoriteDestroyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiFavoriteDestroyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiFavoriteDestroyResponseApplicationJson_Ocs)),
@@ -5266,8 +5817,11 @@ class _$ApiFavoriteDestroyResponseApplicationJsonSerializer
   }
 
   @override
-  ApiFavoriteDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiFavoriteDestroyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiFavoriteDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5277,9 +5831,13 @@ class _$ApiFavoriteDestroyResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiFavoriteDestroyResponseApplicationJson_Ocs))!
-              as ApiFavoriteDestroyResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiFavoriteDestroyResponseApplicationJson_Ocs),
+                )!
+                as ApiFavoriteDestroyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5307,8 +5865,11 @@ class _$IndexSerializer implements StructuredSerializer<Index> {
   }
 
   @override
-  Index deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Index deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = IndexBuilder();
 
     final iterator = serialized.iterator;
@@ -5318,12 +5879,16 @@ class _$IndexSerializer implements StructuredSerializer<Index> {
       final Object? value = iterator.current;
       switch (key) {
         case 'tables':
-          result.tables.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Table)]))! as BuiltList<Object?>);
+          result.tables.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Table)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'views':
-          result.views.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(View)]))! as BuiltList<Object?>);
+          result.views.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(View)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -5337,14 +5902,17 @@ class _$ApiGeneralIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiGeneralIndexResponseApplicationJson_Ocs,
-    _$ApiGeneralIndexResponseApplicationJson_Ocs
+    _$ApiGeneralIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiGeneralIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGeneralIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiGeneralIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5356,8 +5924,11 @@ class _$ApiGeneralIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiGeneralIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiGeneralIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiGeneralIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5387,8 +5958,11 @@ class _$ApiGeneralIndexResponseApplicationJsonSerializer
   final String wireName = 'ApiGeneralIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGeneralIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiGeneralIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiGeneralIndexResponseApplicationJson_Ocs)),
@@ -5398,8 +5972,11 @@ class _$ApiGeneralIndexResponseApplicationJsonSerializer
   }
 
   @override
-  ApiGeneralIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiGeneralIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiGeneralIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5410,8 +5987,9 @@ class _$ApiGeneralIndexResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiGeneralIndexResponseApplicationJson_Ocs))!
-                  as ApiGeneralIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiGeneralIndexResponseApplicationJson_Ocs))!
+                as ApiGeneralIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5425,14 +6003,17 @@ class _$ApiTablesIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesIndexResponseApplicationJson_Ocs,
-    _$ApiTablesIndexResponseApplicationJson_Ocs
+    _$ApiTablesIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5444,8 +6025,11 @@ class _$ApiTablesIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5458,8 +6042,10 @@ class _$ApiTablesIndexResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Table)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Table)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -5476,8 +6062,11 @@ class _$ApiTablesIndexResponseApplicationJsonSerializer
   final String wireName = 'ApiTablesIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesIndexResponseApplicationJson_Ocs)),
@@ -5487,8 +6076,11 @@ class _$ApiTablesIndexResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5499,8 +6091,9 @@ class _$ApiTablesIndexResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiTablesIndexResponseApplicationJson_Ocs))!
-                  as ApiTablesIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesIndexResponseApplicationJson_Ocs))!
+                as ApiTablesIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5517,8 +6110,11 @@ class _$ApiTablesCreateRequestApplicationJsonSerializer
   final String wireName = 'ApiTablesCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
       serializers.serialize(object.title, specifiedType: const FullType(String)),
@@ -5542,8 +6138,11 @@ class _$ApiTablesCreateRequestApplicationJsonSerializer
   }
 
   @override
-  ApiTablesCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5576,14 +6175,17 @@ class _$ApiTablesCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesCreateResponseApplicationJson_Ocs,
-    _$ApiTablesCreateResponseApplicationJson_Ocs
+    _$ApiTablesCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5595,8 +6197,11 @@ class _$ApiTablesCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5626,8 +6231,11 @@ class _$ApiTablesCreateResponseApplicationJsonSerializer
   final String wireName = 'ApiTablesCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesCreateResponseApplicationJson_Ocs)),
@@ -5637,8 +6245,11 @@ class _$ApiTablesCreateResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5649,8 +6260,9 @@ class _$ApiTablesCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiTablesCreateResponseApplicationJson_Ocs))!
-                  as ApiTablesCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesCreateResponseApplicationJson_Ocs))!
+                as ApiTablesCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5664,14 +6276,17 @@ class _$ApiTablesShowResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesShowResponseApplicationJson_Ocs,
-    _$ApiTablesShowResponseApplicationJson_Ocs
+    _$ApiTablesShowResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesShowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesShowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5683,8 +6298,11 @@ class _$ApiTablesShowResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesShowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5714,8 +6332,11 @@ class _$ApiTablesShowResponseApplicationJsonSerializer
   final String wireName = 'ApiTablesShowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesShowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesShowResponseApplicationJson_Ocs)),
@@ -5725,8 +6346,11 @@ class _$ApiTablesShowResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesShowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5737,8 +6361,9 @@ class _$ApiTablesShowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiTablesShowResponseApplicationJson_Ocs))!
-                  as ApiTablesShowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesShowResponseApplicationJson_Ocs))!
+                as ApiTablesShowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5755,8 +6380,11 @@ class _$ApiTablesUpdateRequestApplicationJsonSerializer
   final String wireName = 'ApiTablesUpdateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesUpdateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesUpdateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.title;
@@ -5787,8 +6415,11 @@ class _$ApiTablesUpdateRequestApplicationJsonSerializer
   }
 
   @override
-  ApiTablesUpdateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesUpdateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesUpdateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5821,14 +6452,17 @@ class _$ApiTablesUpdateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesUpdateResponseApplicationJson_Ocs,
-    _$ApiTablesUpdateResponseApplicationJson_Ocs
+    _$ApiTablesUpdateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesUpdateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesUpdateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesUpdateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5840,8 +6474,11 @@ class _$ApiTablesUpdateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesUpdateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesUpdateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesUpdateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5871,8 +6508,11 @@ class _$ApiTablesUpdateResponseApplicationJsonSerializer
   final String wireName = 'ApiTablesUpdateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesUpdateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesUpdateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesUpdateResponseApplicationJson_Ocs)),
@@ -5882,8 +6522,11 @@ class _$ApiTablesUpdateResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesUpdateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesUpdateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesUpdateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5894,8 +6537,9 @@ class _$ApiTablesUpdateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiTablesUpdateResponseApplicationJson_Ocs))!
-                  as ApiTablesUpdateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesUpdateResponseApplicationJson_Ocs))!
+                as ApiTablesUpdateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -5909,14 +6553,17 @@ class _$ApiTablesDestroyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesDestroyResponseApplicationJson_Ocs,
-    _$ApiTablesDestroyResponseApplicationJson_Ocs
+    _$ApiTablesDestroyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesDestroyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesDestroyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesDestroyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -5928,8 +6575,11 @@ class _$ApiTablesDestroyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesDestroyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -5956,14 +6606,17 @@ class _$ApiTablesDestroyResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesDestroyResponseApplicationJson,
-    _$ApiTablesDestroyResponseApplicationJson
+    _$ApiTablesDestroyResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesDestroyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesDestroyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesDestroyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesDestroyResponseApplicationJson_Ocs)),
@@ -5973,8 +6626,11 @@ class _$ApiTablesDestroyResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesDestroyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -5984,9 +6640,10 @@ class _$ApiTablesDestroyResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiTablesDestroyResponseApplicationJson_Ocs))!
-              as ApiTablesDestroyResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesDestroyResponseApplicationJson_Ocs))!
+                as ApiTablesDestroyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6000,14 +6657,17 @@ class _$ApiTablesShowSchemeResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesShowSchemeResponseApplicationJson_Ocs,
-    _$ApiTablesShowSchemeResponseApplicationJson_Ocs
+    _$ApiTablesShowSchemeResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesShowSchemeResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowSchemeResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesShowSchemeResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6019,8 +6679,11 @@ class _$ApiTablesShowSchemeResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesShowSchemeResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesShowSchemeResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesShowSchemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6047,14 +6710,17 @@ class _$ApiTablesShowSchemeResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesShowSchemeResponseApplicationJson,
-    _$ApiTablesShowSchemeResponseApplicationJson
+    _$ApiTablesShowSchemeResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesShowSchemeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesShowSchemeResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesShowSchemeResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs)),
@@ -6064,8 +6730,11 @@ class _$ApiTablesShowSchemeResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesShowSchemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesShowSchemeResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesShowSchemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6075,9 +6744,13 @@ class _$ApiTablesShowSchemeResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs))!
-              as ApiTablesShowSchemeResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs),
+                )!
+                as ApiTablesShowSchemeResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6091,14 +6764,17 @@ class _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesCreateFromSchemeRequestApplicationJson,
-    _$ApiTablesCreateFromSchemeRequestApplicationJson
+    _$ApiTablesCreateFromSchemeRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesCreateFromSchemeRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateFromSchemeRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'title',
       serializers.serialize(object.title, specifiedType: const FullType(String)),
@@ -6116,8 +6792,11 @@ class _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer
   }
 
   @override
-  ApiTablesCreateFromSchemeRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesCreateFromSchemeRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateFromSchemeRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6136,12 +6815,16 @@ class _$ApiTablesCreateFromSchemeRequestApplicationJsonSerializer
           result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'columns':
-          result.columns.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Column)]))! as BuiltList<Object?>);
+          result.columns.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Column)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'views':
-          result.views.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(View)]))! as BuiltList<Object?>);
+          result.views.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(View)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -6155,14 +6838,17 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
-    _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
+    _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateFromSchemeResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6175,8 +6861,10 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson_OcsSerializer
 
   @override
   ApiTablesCreateFromSchemeResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6203,26 +6891,34 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesCreateFromSchemeResponseApplicationJson,
-    _$ApiTablesCreateFromSchemeResponseApplicationJson
+    _$ApiTablesCreateFromSchemeResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesCreateFromSchemeResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesCreateFromSchemeResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesCreateFromSchemeResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ApiTablesCreateFromSchemeResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesCreateFromSchemeResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesCreateFromSchemeResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6232,9 +6928,13 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs))!
-              as ApiTablesCreateFromSchemeResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs),
+                )!
+                as ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6248,14 +6948,17 @@ class _$ApiTablesTransferRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesTransferRequestApplicationJson,
-    _$ApiTablesTransferRequestApplicationJson
+    _$ApiTablesTransferRequestApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesTransferRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesTransferRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesTransferRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'newOwnerUserId',
       serializers.serialize(object.newOwnerUserId, specifiedType: const FullType(String)),
@@ -6265,8 +6968,11 @@ class _$ApiTablesTransferRequestApplicationJsonSerializer
   }
 
   @override
-  ApiTablesTransferRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesTransferRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesTransferRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6290,14 +6996,17 @@ class _$ApiTablesTransferResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesTransferResponseApplicationJson_Ocs,
-    _$ApiTablesTransferResponseApplicationJson_Ocs
+    _$ApiTablesTransferResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ApiTablesTransferResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesTransferResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesTransferResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6309,8 +7018,11 @@ class _$ApiTablesTransferResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiTablesTransferResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesTransferResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesTransferResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6337,14 +7049,17 @@ class _$ApiTablesTransferResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ApiTablesTransferResponseApplicationJson,
-    _$ApiTablesTransferResponseApplicationJson
+    _$ApiTablesTransferResponseApplicationJson,
   ];
   @override
   final String wireName = 'ApiTablesTransferResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiTablesTransferResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiTablesTransferResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiTablesTransferResponseApplicationJson_Ocs)),
@@ -6354,8 +7069,11 @@ class _$ApiTablesTransferResponseApplicationJsonSerializer
   }
 
   @override
-  ApiTablesTransferResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiTablesTransferResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiTablesTransferResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6365,9 +7083,10 @@ class _$ApiTablesTransferResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiTablesTransferResponseApplicationJson_Ocs))!
-              as ApiTablesTransferResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ApiTablesTransferResponseApplicationJson_Ocs))!
+                as ApiTablesTransferResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6383,8 +7102,11 @@ class _$ContextSerializer implements StructuredSerializer<Context> {
   final String wireName = 'Context';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Context object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Context object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -6404,8 +7126,11 @@ class _$ContextSerializer implements StructuredSerializer<Context> {
   }
 
   @override
-  Context deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Context deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextBuilder();
 
     final iterator = serialized.iterator;
@@ -6444,14 +7169,17 @@ class _$ContextIndexResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextIndexResponseApplicationJson_Ocs,
-    _$ContextIndexResponseApplicationJson_Ocs
+    _$ContextIndexResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextIndexResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextIndexResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextIndexResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6463,8 +7191,11 @@ class _$ContextIndexResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextIndexResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextIndexResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextIndexResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6477,8 +7208,10 @@ class _$ContextIndexResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Context)]))! as BuiltList<Object?>);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(Context)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -6495,8 +7228,11 @@ class _$ContextIndexResponseApplicationJsonSerializer
   final String wireName = 'ContextIndexResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextIndexResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextIndexResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextIndexResponseApplicationJson_Ocs)),
@@ -6506,8 +7242,11 @@ class _$ContextIndexResponseApplicationJsonSerializer
   }
 
   @override
-  ContextIndexResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextIndexResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextIndexResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6518,8 +7257,9 @@ class _$ContextIndexResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextIndexResponseApplicationJson_Ocs))!
-                  as ContextIndexResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextIndexResponseApplicationJson_Ocs))!
+                as ContextIndexResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6533,14 +7273,17 @@ class _$ContextCreateRequestApplicationJson_NodesSerializer
   @override
   final Iterable<Type> types = const [
     ContextCreateRequestApplicationJson_Nodes,
-    _$ContextCreateRequestApplicationJson_Nodes
+    _$ContextCreateRequestApplicationJson_Nodes,
   ];
   @override
   final String wireName = 'ContextCreateRequestApplicationJson_Nodes';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextCreateRequestApplicationJson_Nodes object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextCreateRequestApplicationJson_Nodes object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -6558,8 +7301,11 @@ class _$ContextCreateRequestApplicationJson_NodesSerializer
   }
 
   @override
-  ContextCreateRequestApplicationJson_Nodes deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextCreateRequestApplicationJson_Nodes deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextCreateRequestApplicationJson_NodesBuilder();
 
     final iterator = serialized.iterator;
@@ -6592,8 +7338,11 @@ class _$ContextCreateRequestApplicationJsonSerializer
   final String wireName = 'ContextCreateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextCreateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextCreateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -6602,16 +7351,21 @@ class _$ContextCreateRequestApplicationJsonSerializer
       'description',
       serializers.serialize(object.description, specifiedType: const FullType(String)),
       'nodes',
-      serializers.serialize(object.nodes,
-          specifiedType: const FullType(BuiltList, const [const FullType(ContextCreateRequestApplicationJson_Nodes)])),
+      serializers.serialize(
+        object.nodes,
+        specifiedType: const FullType(BuiltList, const [const FullType(ContextCreateRequestApplicationJson_Nodes)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ContextCreateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextCreateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextCreateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6630,10 +7384,15 @@ class _$ContextCreateRequestApplicationJsonSerializer
           result.description = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'nodes':
-          result.nodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(ContextCreateRequestApplicationJson_Nodes)]))!
-              as BuiltList<Object?>);
+          result.nodes.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [
+                    const FullType(ContextCreateRequestApplicationJson_Nodes),
+                  ]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -6647,14 +7406,17 @@ class _$ContextCreateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextCreateResponseApplicationJson_Ocs,
-    _$ContextCreateResponseApplicationJson_Ocs
+    _$ContextCreateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextCreateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextCreateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextCreateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6666,8 +7428,11 @@ class _$ContextCreateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextCreateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextCreateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextCreateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6697,8 +7462,11 @@ class _$ContextCreateResponseApplicationJsonSerializer
   final String wireName = 'ContextCreateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextCreateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextCreateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextCreateResponseApplicationJson_Ocs)),
@@ -6708,8 +7476,11 @@ class _$ContextCreateResponseApplicationJsonSerializer
   }
 
   @override
-  ContextCreateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextCreateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextCreateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6720,8 +7491,9 @@ class _$ContextCreateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextCreateResponseApplicationJson_Ocs))!
-                  as ContextCreateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextCreateResponseApplicationJson_Ocs))!
+                as ContextCreateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6738,8 +7510,11 @@ class _$ContextShowResponseApplicationJson_OcsSerializer
   final String wireName = 'ContextShowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextShowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextShowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6751,8 +7526,11 @@ class _$ContextShowResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextShowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextShowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextShowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6782,8 +7560,11 @@ class _$ContextShowResponseApplicationJsonSerializer
   final String wireName = 'ContextShowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextShowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextShowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextShowResponseApplicationJson_Ocs)),
@@ -6793,8 +7574,11 @@ class _$ContextShowResponseApplicationJsonSerializer
   }
 
   @override
-  ContextShowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextShowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextShowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6805,8 +7589,9 @@ class _$ContextShowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextShowResponseApplicationJson_Ocs))!
-                  as ContextShowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextShowResponseApplicationJson_Ocs))!
+                as ContextShowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -6820,14 +7605,17 @@ class _$ContextUpdateRequestApplicationJson_NodesSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateRequestApplicationJson_Nodes,
-    _$ContextUpdateRequestApplicationJson_Nodes
+    _$ContextUpdateRequestApplicationJson_Nodes,
   ];
   @override
   final String wireName = 'ContextUpdateRequestApplicationJson_Nodes';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateRequestApplicationJson_Nodes object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateRequestApplicationJson_Nodes object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -6843,8 +7631,11 @@ class _$ContextUpdateRequestApplicationJson_NodesSerializer
   }
 
   @override
-  ContextUpdateRequestApplicationJson_Nodes deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateRequestApplicationJson_Nodes deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateRequestApplicationJson_NodesBuilder();
 
     final iterator = serialized.iterator;
@@ -6880,8 +7671,11 @@ class _$ContextUpdateRequestApplicationJsonSerializer
   final String wireName = 'ContextUpdateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.name;
@@ -6912,8 +7706,11 @@ class _$ContextUpdateRequestApplicationJsonSerializer
   }
 
   @override
-  ContextUpdateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -6933,8 +7730,9 @@ class _$ContextUpdateRequestApplicationJsonSerializer
           break;
         case 'nodes':
           result.nodes.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextUpdateRequestApplicationJson_Nodes))!
-                  as ContextUpdateRequestApplicationJson_Nodes);
+            serializers.deserialize(value, specifiedType: const FullType(ContextUpdateRequestApplicationJson_Nodes))!
+                as ContextUpdateRequestApplicationJson_Nodes,
+          );
           break;
       }
     }
@@ -6948,14 +7746,17 @@ class _$ContextUpdateResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateResponseApplicationJson_Ocs,
-    _$ContextUpdateResponseApplicationJson_Ocs
+    _$ContextUpdateResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextUpdateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -6967,8 +7768,11 @@ class _$ContextUpdateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextUpdateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -6998,8 +7802,11 @@ class _$ContextUpdateResponseApplicationJsonSerializer
   final String wireName = 'ContextUpdateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextUpdateResponseApplicationJson_Ocs)),
@@ -7009,8 +7816,11 @@ class _$ContextUpdateResponseApplicationJsonSerializer
   }
 
   @override
-  ContextUpdateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7021,8 +7831,9 @@ class _$ContextUpdateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextUpdateResponseApplicationJson_Ocs))!
-                  as ContextUpdateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextUpdateResponseApplicationJson_Ocs))!
+                as ContextUpdateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -7036,14 +7847,17 @@ class _$ContextDestroyResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextDestroyResponseApplicationJson_Ocs,
-    _$ContextDestroyResponseApplicationJson_Ocs
+    _$ContextDestroyResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextDestroyResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextDestroyResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextDestroyResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -7055,8 +7869,11 @@ class _$ContextDestroyResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextDestroyResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextDestroyResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextDestroyResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -7086,8 +7903,11 @@ class _$ContextDestroyResponseApplicationJsonSerializer
   final String wireName = 'ContextDestroyResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextDestroyResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextDestroyResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextDestroyResponseApplicationJson_Ocs)),
@@ -7097,8 +7917,11 @@ class _$ContextDestroyResponseApplicationJsonSerializer
   }
 
   @override
-  ContextDestroyResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextDestroyResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextDestroyResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7109,8 +7932,9 @@ class _$ContextDestroyResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextDestroyResponseApplicationJson_Ocs))!
-                  as ContextDestroyResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextDestroyResponseApplicationJson_Ocs))!
+                as ContextDestroyResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -7127,8 +7951,11 @@ class _$ContextTransferRequestApplicationJsonSerializer
   final String wireName = 'ContextTransferRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextTransferRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextTransferRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'newOwnerId',
       serializers.serialize(object.newOwnerId, specifiedType: const FullType(String)),
@@ -7140,8 +7967,11 @@ class _$ContextTransferRequestApplicationJsonSerializer
   }
 
   @override
-  ContextTransferRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextTransferRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextTransferRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7168,14 +7998,17 @@ class _$ContextTransferResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextTransferResponseApplicationJson_Ocs,
-    _$ContextTransferResponseApplicationJson_Ocs
+    _$ContextTransferResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextTransferResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextTransferResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextTransferResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -7187,8 +8020,11 @@ class _$ContextTransferResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ContextTransferResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextTransferResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextTransferResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -7218,8 +8054,11 @@ class _$ContextTransferResponseApplicationJsonSerializer
   final String wireName = 'ContextTransferResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextTransferResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextTransferResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ContextTransferResponseApplicationJson_Ocs)),
@@ -7229,8 +8068,11 @@ class _$ContextTransferResponseApplicationJsonSerializer
   }
 
   @override
-  ContextTransferResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextTransferResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextTransferResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7241,8 +8083,9 @@ class _$ContextTransferResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ContextTransferResponseApplicationJson_Ocs))!
-                  as ContextTransferResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ContextTransferResponseApplicationJson_Ocs))!
+                as ContextTransferResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -7256,14 +8099,17 @@ class _$ContextUpdateContentOrderRequestApplicationJson_ContentSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateContentOrderRequestApplicationJson_Content,
-    _$ContextUpdateContentOrderRequestApplicationJson_Content
+    _$ContextUpdateContentOrderRequestApplicationJson_Content,
   ];
   @override
   final String wireName = 'ContextUpdateContentOrderRequestApplicationJson_Content';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateContentOrderRequestApplicationJson_Content object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateContentOrderRequestApplicationJson_Content object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(int)),
@@ -7276,8 +8122,10 @@ class _$ContextUpdateContentOrderRequestApplicationJson_ContentSerializer
 
   @override
   ContextUpdateContentOrderRequestApplicationJson_Content deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateContentOrderRequestApplicationJson_ContentBuilder();
 
     final iterator = serialized.iterator;
@@ -7304,26 +8152,34 @@ class _$ContextUpdateContentOrderRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateContentOrderRequestApplicationJson,
-    _$ContextUpdateContentOrderRequestApplicationJson
+    _$ContextUpdateContentOrderRequestApplicationJson,
   ];
   @override
   final String wireName = 'ContextUpdateContentOrderRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateContentOrderRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateContentOrderRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'content',
-      serializers.serialize(object.content,
-          specifiedType: const FullType(ContextUpdateContentOrderRequestApplicationJson_Content)),
+      serializers.serialize(
+        object.content,
+        specifiedType: const FullType(ContextUpdateContentOrderRequestApplicationJson_Content),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ContextUpdateContentOrderRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateContentOrderRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateContentOrderRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7333,9 +8189,13 @@ class _$ContextUpdateContentOrderRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'content':
-          result.content.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ContextUpdateContentOrderRequestApplicationJson_Content))!
-              as ContextUpdateContentOrderRequestApplicationJson_Content);
+          result.content.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ContextUpdateContentOrderRequestApplicationJson_Content),
+                )!
+                as ContextUpdateContentOrderRequestApplicationJson_Content,
+          );
           break;
       }
     }
@@ -7349,14 +8209,17 @@ class _$ContextUpdateContentOrderResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateContentOrderResponseApplicationJson_Ocs,
-    _$ContextUpdateContentOrderResponseApplicationJson_Ocs
+    _$ContextUpdateContentOrderResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'ContextUpdateContentOrderResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateContentOrderResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateContentOrderResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -7369,8 +8232,10 @@ class _$ContextUpdateContentOrderResponseApplicationJson_OcsSerializer
 
   @override
   ContextUpdateContentOrderResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateContentOrderResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -7397,26 +8262,34 @@ class _$ContextUpdateContentOrderResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     ContextUpdateContentOrderResponseApplicationJson,
-    _$ContextUpdateContentOrderResponseApplicationJson
+    _$ContextUpdateContentOrderResponseApplicationJson,
   ];
   @override
   final String wireName = 'ContextUpdateContentOrderResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ContextUpdateContentOrderResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ContextUpdateContentOrderResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  ContextUpdateContentOrderResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ContextUpdateContentOrderResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ContextUpdateContentOrderResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7426,9 +8299,13 @@ class _$ContextUpdateContentOrderResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs))!
-              as ContextUpdateContentOrderResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs),
+                )!
+                as ContextUpdateContentOrderResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -7445,8 +8322,11 @@ class _$RowocsCreateRowRequestApplicationJsonSerializer
   final String wireName = 'RowocsCreateRowRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RowocsCreateRowRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'data',
       serializers.serialize(object.data, specifiedType: const FullType(RowocsCreateRowRequestApplicationJson_Data)),
@@ -7456,8 +8336,11 @@ class _$RowocsCreateRowRequestApplicationJsonSerializer
   }
 
   @override
-  RowocsCreateRowRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RowocsCreateRowRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RowocsCreateRowRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7483,14 +8366,17 @@ class _$RowocsCreateRowResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     RowocsCreateRowResponseApplicationJson_Ocs,
-    _$RowocsCreateRowResponseApplicationJson_Ocs
+    _$RowocsCreateRowResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'RowocsCreateRowResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RowocsCreateRowResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -7502,8 +8388,11 @@ class _$RowocsCreateRowResponseApplicationJson_OcsSerializer
   }
 
   @override
-  RowocsCreateRowResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RowocsCreateRowResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RowocsCreateRowResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -7533,8 +8422,11 @@ class _$RowocsCreateRowResponseApplicationJsonSerializer
   final String wireName = 'RowocsCreateRowResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RowocsCreateRowResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RowocsCreateRowResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(RowocsCreateRowResponseApplicationJson_Ocs)),
@@ -7544,8 +8436,11 @@ class _$RowocsCreateRowResponseApplicationJsonSerializer
   }
 
   @override
-  RowocsCreateRowResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RowocsCreateRowResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RowocsCreateRowResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -7556,8 +8451,9 @@ class _$RowocsCreateRowResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(RowocsCreateRowResponseApplicationJson_Ocs))!
-                  as RowocsCreateRowResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(RowocsCreateRowResponseApplicationJson_Ocs))!
+                as RowocsCreateRowResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -7573,21 +8469,28 @@ class _$Capabilities_TablesSerializer implements StructuredSerializer<Capabiliti
   final String wireName = 'Capabilities_Tables';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Tables object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Tables object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(bool)),
       'version',
       serializers.serialize(object.version, specifiedType: const FullType(String)),
       'apiVersions',
-      serializers.serialize(object.apiVersions,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.apiVersions,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'features',
       serializers.serialize(object.features, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
       'column_types',
-      serializers.serialize(object.columnTypes,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.columnTypes,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
     ];
     Object? value;
     value = object.isCirclesEnabled;
@@ -7600,8 +8503,11 @@ class _$Capabilities_TablesSerializer implements StructuredSerializer<Capabiliti
   }
 
   @override
-  Capabilities_Tables deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Tables deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_TablesBuilder();
 
     final iterator = serialized.iterator;
@@ -7617,19 +8523,25 @@ class _$Capabilities_TablesSerializer implements StructuredSerializer<Capabiliti
           result.version = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'apiVersions':
-          result.apiVersions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.apiVersions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'features':
-          result.features.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.features.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'isCirclesEnabled':
           result.isCirclesEnabled = serializers.deserialize(value, specifiedType: const FullType(bool)) as bool?;
           break;
         case 'column_types':
-          result.columnTypes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.columnTypes.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -7645,8 +8557,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'tables',
       serializers.serialize(object.tables, specifiedType: const FullType(Capabilities_Tables)),
@@ -7656,8 +8571,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -7667,8 +8585,9 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'tables':
-          result.tables.replace(serializers.deserialize(value, specifiedType: const FullType(Capabilities_Tables))!
-              as Capabilities_Tables);
+          result.tables.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Tables))! as Capabilities_Tables,
+          );
           break;
       }
     }
@@ -7711,9 +8630,13 @@ class _$Table_OnSharePermissions extends Table_OnSharePermissions {
   factory _$Table_OnSharePermissions([void Function(Table_OnSharePermissionsBuilder)? updates]) =>
       (Table_OnSharePermissionsBuilder()..update(updates))._build();
 
-  _$Table_OnSharePermissions._(
-      {required this.read, required this.create, required this.$update, required this.delete, required this.manage})
-      : super._();
+  _$Table_OnSharePermissions._({
+    required this.read,
+    required this.create,
+    required this.$update,
+    required this.delete,
+    required this.manage,
+  }) : super._();
   @override
   Table_OnSharePermissions rebuild(void Function(Table_OnSharePermissionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -7814,7 +8737,8 @@ class Table_OnSharePermissionsBuilder
 
   _$Table_OnSharePermissions _build() {
     Table_OnSharePermissions._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Table_OnSharePermissions._(
           read: BuiltValueNullFieldError.checkNotNull(read, r'Table_OnSharePermissions', 'read'),
           create: BuiltValueNullFieldError.checkNotNull(create, r'Table_OnSharePermissions', 'create'),
@@ -7919,7 +8843,8 @@ class View_ColumnSettingsBuilder
 
   _$View_ColumnSettings _build() {
     View_ColumnSettings._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$View_ColumnSettings._(
           columnId: BuiltValueNullFieldError.checkNotNull(columnId, r'View_ColumnSettings', 'columnId'),
           order: BuiltValueNullFieldError.checkNotNull(order, r'View_ColumnSettings', 'order'),
@@ -8018,7 +8943,8 @@ class View_SortBuilder implements Builder<View_Sort, View_SortBuilder>, $View_So
 
   _$View_Sort _build() {
     View_Sort._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$View_Sort._(
           columnId: BuiltValueNullFieldError.checkNotNull(columnId, r'View_Sort', 'columnId'),
           mode: BuiltValueNullFieldError.checkNotNull(mode, r'View_Sort', 'mode'),
@@ -8134,7 +9060,8 @@ class View_FilterBuilder implements Builder<View_Filter, View_FilterBuilder>, $V
 
   _$View_Filter _build() {
     View_Filter._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$View_Filter._(
           columnId: BuiltValueNullFieldError.checkNotNull(columnId, r'View_Filter', 'columnId'),
           $operator: BuiltValueNullFieldError.checkNotNull($operator, r'View_Filter', '\$operator'),
@@ -8179,9 +9106,13 @@ class _$View_OnSharePermissions extends View_OnSharePermissions {
   factory _$View_OnSharePermissions([void Function(View_OnSharePermissionsBuilder)? updates]) =>
       (View_OnSharePermissionsBuilder()..update(updates))._build();
 
-  _$View_OnSharePermissions._(
-      {required this.read, required this.create, required this.$update, required this.delete, required this.manage})
-      : super._();
+  _$View_OnSharePermissions._({
+    required this.read,
+    required this.create,
+    required this.$update,
+    required this.delete,
+    required this.manage,
+  }) : super._();
   @override
   View_OnSharePermissions rebuild(void Function(View_OnSharePermissionsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -8282,7 +9213,8 @@ class View_OnSharePermissionsBuilder
 
   _$View_OnSharePermissions _build() {
     View_OnSharePermissions._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$View_OnSharePermissions._(
           read: BuiltValueNullFieldError.checkNotNull(read, r'View_OnSharePermissions', 'read'),
           create: BuiltValueNullFieldError.checkNotNull(create, r'View_OnSharePermissions', 'create'),
@@ -8403,28 +9335,28 @@ class _$View extends View {
 
   factory _$View([void Function(ViewBuilder)? updates]) => (ViewBuilder()..update(updates))._build();
 
-  _$View._(
-      {required this.id,
-      required this.title,
-      this.emoji,
-      required this.tableId,
-      required this.ownership,
-      this.ownerDisplayName,
-      required this.createdBy,
-      required this.createdAt,
-      required this.lastEditBy,
-      required this.lastEditAt,
-      this.description,
-      required this.columns,
-      required this.columnSettings,
-      required this.sort,
-      required this.filter,
-      required this.isShared,
-      required this.favorite,
-      this.onSharePermissions,
-      required this.hasShares,
-      required this.rowsCount})
-      : super._();
+  _$View._({
+    required this.id,
+    required this.title,
+    this.emoji,
+    required this.tableId,
+    required this.ownership,
+    this.ownerDisplayName,
+    required this.createdBy,
+    required this.createdAt,
+    required this.lastEditBy,
+    required this.lastEditAt,
+    this.description,
+    required this.columns,
+    required this.columnSettings,
+    required this.sort,
+    required this.filter,
+    required this.isShared,
+    required this.favorite,
+    this.onSharePermissions,
+    required this.hasShares,
+    required this.rowsCount,
+  }) : super._();
   @override
   View rebuild(void Function(ViewBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -8646,7 +9578,8 @@ class ViewBuilder implements Builder<View, ViewBuilder>, $ViewInterfaceBuilder {
     View._validate(this);
     _$View _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$View._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'View', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'View', 'title'),
@@ -8786,25 +9719,25 @@ class _$Table extends Table {
 
   factory _$Table([void Function(TableBuilder)? updates]) => (TableBuilder()..update(updates))._build();
 
-  _$Table._(
-      {required this.id,
-      required this.title,
-      this.emoji,
-      required this.ownership,
-      required this.ownerDisplayName,
-      required this.createdBy,
-      required this.createdAt,
-      required this.lastEditBy,
-      required this.lastEditAt,
-      required this.archived,
-      required this.favorite,
-      required this.isShared,
-      this.onSharePermissions,
-      required this.hasShares,
-      required this.rowsCount,
-      required this.views,
-      required this.columnsCount})
-      : super._();
+  _$Table._({
+    required this.id,
+    required this.title,
+    this.emoji,
+    required this.ownership,
+    required this.ownerDisplayName,
+    required this.createdBy,
+    required this.createdAt,
+    required this.lastEditBy,
+    required this.lastEditAt,
+    required this.archived,
+    required this.favorite,
+    required this.isShared,
+    this.onSharePermissions,
+    required this.hasShares,
+    required this.rowsCount,
+    required this.views,
+    required this.columnsCount,
+  }) : super._();
   @override
   Table rebuild(void Function(TableBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -9001,7 +9934,8 @@ class TableBuilder implements Builder<Table, TableBuilder>, $TableInterfaceBuild
     Table._validate(this);
     _$Table _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Table._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Table', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'Table', 'title'),
@@ -9060,9 +9994,9 @@ class _$Api1CreateTableRequestApplicationJson extends Api1CreateTableRequestAppl
   @override
   final String template;
 
-  factory _$Api1CreateTableRequestApplicationJson(
-          [void Function(Api1CreateTableRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateTableRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateTableRequestApplicationJson([
+    void Function(Api1CreateTableRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateTableRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1CreateTableRequestApplicationJson._({required this.title, this.emoji, required this.template}) : super._();
   @override
@@ -9150,12 +10084,16 @@ class Api1CreateTableRequestApplicationJsonBuilder
 
   _$Api1CreateTableRequestApplicationJson _build() {
     Api1CreateTableRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateTableRequestApplicationJson._(
           title: BuiltValueNullFieldError.checkNotNull(title, r'Api1CreateTableRequestApplicationJson', 'title'),
           emoji: emoji,
-          template:
-              BuiltValueNullFieldError.checkNotNull(template, r'Api1CreateTableRequestApplicationJson', 'template'),
+          template: BuiltValueNullFieldError.checkNotNull(
+            template,
+            r'Api1CreateTableRequestApplicationJson',
+            'template',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -9183,9 +10121,9 @@ class _$Api1UpdateTableRequestApplicationJson extends Api1UpdateTableRequestAppl
   @override
   final bool archived;
 
-  factory _$Api1UpdateTableRequestApplicationJson(
-          [void Function(Api1UpdateTableRequestApplicationJsonBuilder)? updates]) =>
-      (Api1UpdateTableRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1UpdateTableRequestApplicationJson([
+    void Function(Api1UpdateTableRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1UpdateTableRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1UpdateTableRequestApplicationJson._({this.title, this.emoji, required this.archived}) : super._();
   @override
@@ -9273,12 +10211,16 @@ class Api1UpdateTableRequestApplicationJsonBuilder
 
   _$Api1UpdateTableRequestApplicationJson _build() {
     Api1UpdateTableRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateTableRequestApplicationJson._(
           title: title,
           emoji: emoji,
-          archived:
-              BuiltValueNullFieldError.checkNotNull(archived, r'Api1UpdateTableRequestApplicationJson', 'archived'),
+          archived: BuiltValueNullFieldError.checkNotNull(
+            archived,
+            r'Api1UpdateTableRequestApplicationJson',
+            'archived',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -9323,8 +10265,8 @@ class _$Api1Api1ShowSchemeHeaders extends Api1Api1ShowSchemeHeaders {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'Api1Api1ShowSchemeHeaders')..add('contentDisposition', contentDisposition))
-        .toString();
+    return (newBuiltValueToStringHelper(r'Api1Api1ShowSchemeHeaders')
+      ..add('contentDisposition', contentDisposition)).toString();
   }
 }
 
@@ -9366,10 +10308,7 @@ class Api1Api1ShowSchemeHeadersBuilder
 
   _$Api1Api1ShowSchemeHeaders _build() {
     Api1Api1ShowSchemeHeaders._validate(this);
-    final _$result = _$v ??
-        _$Api1Api1ShowSchemeHeaders._(
-          contentDisposition: contentDisposition,
-        );
+    final _$result = _$v ?? _$Api1Api1ShowSchemeHeaders._(contentDisposition: contentDisposition);
     replace(_$result);
     return _$result;
   }
@@ -9391,9 +10330,9 @@ class _$Api1CreateViewRequestApplicationJson extends Api1CreateViewRequestApplic
   @override
   final String? emoji;
 
-  factory _$Api1CreateViewRequestApplicationJson(
-          [void Function(Api1CreateViewRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateViewRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateViewRequestApplicationJson([
+    void Function(Api1CreateViewRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateViewRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1CreateViewRequestApplicationJson._({required this.title, this.emoji}) : super._();
   @override
@@ -9471,7 +10410,8 @@ class Api1CreateViewRequestApplicationJsonBuilder
 
   _$Api1CreateViewRequestApplicationJson _build() {
     Api1CreateViewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateViewRequestApplicationJson._(
           title: BuiltValueNullFieldError.checkNotNull(title, r'Api1CreateViewRequestApplicationJson', 'title'),
           emoji: emoji,
@@ -9497,15 +10437,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data0 extends Api1UpdateViewRequest
   @override
   final String value;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data0(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data0Builder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data0Builder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data0([
+    void Function(Api1UpdateViewRequestApplicationJson_Data0Builder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data0Builder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson_Data0._({required this.key, required this.value}) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data0 rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data0Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data0Builder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data0Builder toBuilder() =>
@@ -9578,7 +10518,8 @@ class Api1UpdateViewRequestApplicationJson_Data0Builder
 
   _$Api1UpdateViewRequestApplicationJson_Data0 _build() {
     Api1UpdateViewRequestApplicationJson_Data0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateViewRequestApplicationJson_Data0._(
           key: BuiltValueNullFieldError.checkNotNull(key, r'Api1UpdateViewRequestApplicationJson_Data0', 'key'),
           value: BuiltValueNullFieldError.checkNotNull(value, r'Api1UpdateViewRequestApplicationJson_Data0', 'value'),
@@ -9604,15 +10545,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data1 extends Api1UpdateViewRequest
   @override
   final BuiltList<int> value;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data1(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data1Builder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data1Builder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data1([
+    void Function(Api1UpdateViewRequestApplicationJson_Data1Builder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data1Builder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson_Data1._({required this.key, required this.value}) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data1 rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data1Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data1Builder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data1Builder toBuilder() =>
@@ -9687,7 +10628,8 @@ class Api1UpdateViewRequestApplicationJson_Data1Builder
     Api1UpdateViewRequestApplicationJson_Data1._validate(this);
     _$Api1UpdateViewRequestApplicationJson_Data1 _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Api1UpdateViewRequestApplicationJson_Data1._(
             key: BuiltValueNullFieldError.checkNotNull(key, r'Api1UpdateViewRequestApplicationJson_Data1', 'key'),
             value: value.build(),
@@ -9723,15 +10665,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_Value extends Api1UpdateViewR
   @override
   final Api1UpdateViewRequestApplicationJson_Data2_Value_Mode mode;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data2_Value(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data2_Value([
+    void Function(Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson_Data2_Value._({required this.columnId, required this.mode}) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data2_Value rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder toBuilder() =>
@@ -9765,8 +10707,10 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_Value extends Api1UpdateViewR
 
 class Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder
     implements
-        Builder<Api1UpdateViewRequestApplicationJson_Data2_Value,
-            Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder>,
+        Builder<
+          Api1UpdateViewRequestApplicationJson_Data2_Value,
+          Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder
+        >,
         $Api1UpdateViewRequestApplicationJson_Data2_ValueInterfaceBuilder {
   _$Api1UpdateViewRequestApplicationJson_Data2_Value? _$v;
 
@@ -9807,12 +10751,19 @@ class Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder
 
   _$Api1UpdateViewRequestApplicationJson_Data2_Value _build() {
     Api1UpdateViewRequestApplicationJson_Data2_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateViewRequestApplicationJson_Data2_Value._(
           columnId: BuiltValueNullFieldError.checkNotNull(
-              columnId, r'Api1UpdateViewRequestApplicationJson_Data2_Value', 'columnId'),
-          mode:
-              BuiltValueNullFieldError.checkNotNull(mode, r'Api1UpdateViewRequestApplicationJson_Data2_Value', 'mode'),
+            columnId,
+            r'Api1UpdateViewRequestApplicationJson_Data2_Value',
+            'columnId',
+          ),
+          mode: BuiltValueNullFieldError.checkNotNull(
+            mode,
+            r'Api1UpdateViewRequestApplicationJson_Data2_Value',
+            'mode',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -9835,15 +10786,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data2 extends Api1UpdateViewRequest
   @override
   final Api1UpdateViewRequestApplicationJson_Data2_Value value;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data2(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data2Builder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data2Builder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data2([
+    void Function(Api1UpdateViewRequestApplicationJson_Data2Builder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data2Builder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson_Data2._({required this.key, required this.value}) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data2 rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data2Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data2Builder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data2Builder toBuilder() =>
@@ -9919,7 +10870,8 @@ class Api1UpdateViewRequestApplicationJson_Data2Builder
     Api1UpdateViewRequestApplicationJson_Data2._validate(this);
     _$Api1UpdateViewRequestApplicationJson_Data2 _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Api1UpdateViewRequestApplicationJson_Data2._(
             key: BuiltValueNullFieldError.checkNotNull(key, r'Api1UpdateViewRequestApplicationJson_Data2', 'key'),
             value: value.build(),
@@ -9960,17 +10912,19 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_Value extends Api1UpdateViewR
   @override
   final Api1UpdateViewRequestApplicationJson_Data3_Value_Value value;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data3_Value(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data3_Value([
+    void Function(Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder()..update(updates))._build();
 
-  _$Api1UpdateViewRequestApplicationJson_Data3_Value._(
-      {required this.columnId, required this.$operator, required this.value})
-      : super._();
+  _$Api1UpdateViewRequestApplicationJson_Data3_Value._({
+    required this.columnId,
+    required this.$operator,
+    required this.value,
+  }) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data3_Value rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder toBuilder() =>
@@ -10008,8 +10962,10 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_Value extends Api1UpdateViewR
 
 class Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder
     implements
-        Builder<Api1UpdateViewRequestApplicationJson_Data3_Value,
-            Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder>,
+        Builder<
+          Api1UpdateViewRequestApplicationJson_Data3_Value,
+          Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder
+        >,
         $Api1UpdateViewRequestApplicationJson_Data3_ValueInterfaceBuilder {
   _$Api1UpdateViewRequestApplicationJson_Data3_Value? _$v;
 
@@ -10056,14 +11012,24 @@ class Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder
 
   _$Api1UpdateViewRequestApplicationJson_Data3_Value _build() {
     Api1UpdateViewRequestApplicationJson_Data3_Value._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateViewRequestApplicationJson_Data3_Value._(
           columnId: BuiltValueNullFieldError.checkNotNull(
-              columnId, r'Api1UpdateViewRequestApplicationJson_Data3_Value', 'columnId'),
+            columnId,
+            r'Api1UpdateViewRequestApplicationJson_Data3_Value',
+            'columnId',
+          ),
           $operator: BuiltValueNullFieldError.checkNotNull(
-              $operator, r'Api1UpdateViewRequestApplicationJson_Data3_Value', '\$operator'),
+            $operator,
+            r'Api1UpdateViewRequestApplicationJson_Data3_Value',
+            '\$operator',
+          ),
           value: BuiltValueNullFieldError.checkNotNull(
-              value, r'Api1UpdateViewRequestApplicationJson_Data3_Value', 'value'),
+            value,
+            r'Api1UpdateViewRequestApplicationJson_Data3_Value',
+            'value',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10086,15 +11052,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data3 extends Api1UpdateViewRequest
   @override
   final Api1UpdateViewRequestApplicationJson_Data3_Value value;
 
-  factory _$Api1UpdateViewRequestApplicationJson_Data3(
-          [void Function(Api1UpdateViewRequestApplicationJson_Data3Builder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJson_Data3Builder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson_Data3([
+    void Function(Api1UpdateViewRequestApplicationJson_Data3Builder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJson_Data3Builder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson_Data3._({required this.key, required this.value}) : super._();
   @override
   Api1UpdateViewRequestApplicationJson_Data3 rebuild(
-          void Function(Api1UpdateViewRequestApplicationJson_Data3Builder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateViewRequestApplicationJson_Data3Builder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateViewRequestApplicationJson_Data3Builder toBuilder() =>
@@ -10170,7 +11136,8 @@ class Api1UpdateViewRequestApplicationJson_Data3Builder
     Api1UpdateViewRequestApplicationJson_Data3._validate(this);
     _$Api1UpdateViewRequestApplicationJson_Data3 _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Api1UpdateViewRequestApplicationJson_Data3._(
             key: BuiltValueNullFieldError.checkNotNull(key, r'Api1UpdateViewRequestApplicationJson_Data3', 'key'),
             value: value.build(),
@@ -10201,9 +11168,9 @@ class _$Api1UpdateViewRequestApplicationJson extends Api1UpdateViewRequestApplic
   @override
   final Api1UpdateViewRequestApplicationJson_Data data;
 
-  factory _$Api1UpdateViewRequestApplicationJson(
-          [void Function(Api1UpdateViewRequestApplicationJsonBuilder)? updates]) =>
-      (Api1UpdateViewRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1UpdateViewRequestApplicationJson([
+    void Function(Api1UpdateViewRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1UpdateViewRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1UpdateViewRequestApplicationJson._({required this.data}) : super._();
   @override
@@ -10273,7 +11240,8 @@ class Api1UpdateViewRequestApplicationJsonBuilder
 
   _$Api1UpdateViewRequestApplicationJson _build() {
     Api1UpdateViewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateViewRequestApplicationJson._(
           data: BuiltValueNullFieldError.checkNotNull(data, r'Api1UpdateViewRequestApplicationJson', 'data'),
         );
@@ -10360,22 +11328,22 @@ class _$Share extends Share {
 
   factory _$Share([void Function(ShareBuilder)? updates]) => (ShareBuilder()..update(updates))._build();
 
-  _$Share._(
-      {required this.id,
-      required this.sender,
-      required this.receiver,
-      required this.receiverDisplayName,
-      required this.receiverType,
-      required this.nodeId,
-      required this.nodeType,
-      required this.permissionRead,
-      required this.permissionCreate,
-      required this.permissionUpdate,
-      required this.permissionDelete,
-      required this.permissionManage,
-      required this.createdAt,
-      required this.createdBy})
-      : super._();
+  _$Share._({
+    required this.id,
+    required this.sender,
+    required this.receiver,
+    required this.receiverDisplayName,
+    required this.receiverType,
+    required this.nodeId,
+    required this.nodeType,
+    required this.permissionRead,
+    required this.permissionCreate,
+    required this.permissionUpdate,
+    required this.permissionDelete,
+    required this.permissionManage,
+    required this.createdAt,
+    required this.createdBy,
+  }) : super._();
   @override
   Share rebuild(void Function(ShareBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -10544,13 +11512,17 @@ class ShareBuilder implements Builder<Share, ShareBuilder>, $ShareInterfaceBuild
 
   _$Share _build() {
     Share._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Share._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Share', 'id'),
           sender: BuiltValueNullFieldError.checkNotNull(sender, r'Share', 'sender'),
           receiver: BuiltValueNullFieldError.checkNotNull(receiver, r'Share', 'receiver'),
-          receiverDisplayName:
-              BuiltValueNullFieldError.checkNotNull(receiverDisplayName, r'Share', 'receiverDisplayName'),
+          receiverDisplayName: BuiltValueNullFieldError.checkNotNull(
+            receiverDisplayName,
+            r'Share',
+            'receiverDisplayName',
+          ),
           receiverType: BuiltValueNullFieldError.checkNotNull(receiverType, r'Share', 'receiverType'),
           nodeId: BuiltValueNullFieldError.checkNotNull(nodeId, r'Share', 'nodeId'),
           nodeType: BuiltValueNullFieldError.checkNotNull(nodeType, r'Share', 'nodeType'),
@@ -10583,16 +11555,16 @@ class _$Api1UpdateSharePermissionsRequestApplicationJson extends Api1UpdateShare
   @override
   final bool permissionValue;
 
-  factory _$Api1UpdateSharePermissionsRequestApplicationJson(
-          [void Function(Api1UpdateSharePermissionsRequestApplicationJsonBuilder)? updates]) =>
-      (Api1UpdateSharePermissionsRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1UpdateSharePermissionsRequestApplicationJson([
+    void Function(Api1UpdateSharePermissionsRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1UpdateSharePermissionsRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1UpdateSharePermissionsRequestApplicationJson._({required this.permissionType, required this.permissionValue})
-      : super._();
+    : super._();
   @override
   Api1UpdateSharePermissionsRequestApplicationJson rebuild(
-          void Function(Api1UpdateSharePermissionsRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateSharePermissionsRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateSharePermissionsRequestApplicationJsonBuilder toBuilder() =>
@@ -10626,8 +11598,10 @@ class _$Api1UpdateSharePermissionsRequestApplicationJson extends Api1UpdateShare
 
 class Api1UpdateSharePermissionsRequestApplicationJsonBuilder
     implements
-        Builder<Api1UpdateSharePermissionsRequestApplicationJson,
-            Api1UpdateSharePermissionsRequestApplicationJsonBuilder>,
+        Builder<
+          Api1UpdateSharePermissionsRequestApplicationJson,
+          Api1UpdateSharePermissionsRequestApplicationJsonBuilder
+        >,
         $Api1UpdateSharePermissionsRequestApplicationJsonInterfaceBuilder {
   _$Api1UpdateSharePermissionsRequestApplicationJson? _$v;
 
@@ -10668,12 +11642,19 @@ class Api1UpdateSharePermissionsRequestApplicationJsonBuilder
 
   _$Api1UpdateSharePermissionsRequestApplicationJson _build() {
     Api1UpdateSharePermissionsRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateSharePermissionsRequestApplicationJson._(
           permissionType: BuiltValueNullFieldError.checkNotNull(
-              permissionType, r'Api1UpdateSharePermissionsRequestApplicationJson', 'permissionType'),
+            permissionType,
+            r'Api1UpdateSharePermissionsRequestApplicationJson',
+            'permissionType',
+          ),
           permissionValue: BuiltValueNullFieldError.checkNotNull(
-              permissionValue, r'Api1UpdateSharePermissionsRequestApplicationJson', 'permissionValue'),
+            permissionValue,
+            r'Api1UpdateSharePermissionsRequestApplicationJson',
+            'permissionValue',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10721,23 +11702,23 @@ class _$Api1CreateTableShareRequestApplicationJson extends Api1CreateTableShareR
   @override
   final bool permissionManage;
 
-  factory _$Api1CreateTableShareRequestApplicationJson(
-          [void Function(Api1CreateTableShareRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateTableShareRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateTableShareRequestApplicationJson([
+    void Function(Api1CreateTableShareRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateTableShareRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$Api1CreateTableShareRequestApplicationJson._(
-      {required this.receiver,
-      required this.receiverType,
-      required this.permissionRead,
-      required this.permissionCreate,
-      required this.permissionUpdate,
-      required this.permissionDelete,
-      required this.permissionManage})
-      : super._();
+  _$Api1CreateTableShareRequestApplicationJson._({
+    required this.receiver,
+    required this.receiverType,
+    required this.permissionRead,
+    required this.permissionCreate,
+    required this.permissionUpdate,
+    required this.permissionDelete,
+    required this.permissionManage,
+  }) : super._();
   @override
   Api1CreateTableShareRequestApplicationJson rebuild(
-          void Function(Api1CreateTableShareRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1CreateTableShareRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1CreateTableShareRequestApplicationJsonBuilder toBuilder() =>
@@ -10853,22 +11834,44 @@ class Api1CreateTableShareRequestApplicationJsonBuilder
 
   _$Api1CreateTableShareRequestApplicationJson _build() {
     Api1CreateTableShareRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateTableShareRequestApplicationJson._(
           receiver: BuiltValueNullFieldError.checkNotNull(
-              receiver, r'Api1CreateTableShareRequestApplicationJson', 'receiver'),
+            receiver,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'receiver',
+          ),
           receiverType: BuiltValueNullFieldError.checkNotNull(
-              receiverType, r'Api1CreateTableShareRequestApplicationJson', 'receiverType'),
+            receiverType,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'receiverType',
+          ),
           permissionRead: BuiltValueNullFieldError.checkNotNull(
-              permissionRead, r'Api1CreateTableShareRequestApplicationJson', 'permissionRead'),
+            permissionRead,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'permissionRead',
+          ),
           permissionCreate: BuiltValueNullFieldError.checkNotNull(
-              permissionCreate, r'Api1CreateTableShareRequestApplicationJson', 'permissionCreate'),
+            permissionCreate,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'permissionCreate',
+          ),
           permissionUpdate: BuiltValueNullFieldError.checkNotNull(
-              permissionUpdate, r'Api1CreateTableShareRequestApplicationJson', 'permissionUpdate'),
+            permissionUpdate,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'permissionUpdate',
+          ),
           permissionDelete: BuiltValueNullFieldError.checkNotNull(
-              permissionDelete, r'Api1CreateTableShareRequestApplicationJson', 'permissionDelete'),
+            permissionDelete,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'permissionDelete',
+          ),
           permissionManage: BuiltValueNullFieldError.checkNotNull(
-              permissionManage, r'Api1CreateTableShareRequestApplicationJson', 'permissionManage'),
+            permissionManage,
+            r'Api1CreateTableShareRequestApplicationJson',
+            'permissionManage',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -10931,22 +11934,22 @@ class _$Api1CreateShareRequestApplicationJson extends Api1CreateShareRequestAppl
   @override
   final int displayMode;
 
-  factory _$Api1CreateShareRequestApplicationJson(
-          [void Function(Api1CreateShareRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateShareRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateShareRequestApplicationJson([
+    void Function(Api1CreateShareRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateShareRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$Api1CreateShareRequestApplicationJson._(
-      {required this.nodeId,
-      required this.nodeType,
-      required this.receiver,
-      required this.receiverType,
-      required this.permissionRead,
-      required this.permissionCreate,
-      required this.permissionUpdate,
-      required this.permissionDelete,
-      required this.permissionManage,
-      required this.displayMode})
-      : super._();
+  _$Api1CreateShareRequestApplicationJson._({
+    required this.nodeId,
+    required this.nodeType,
+    required this.receiver,
+    required this.receiverType,
+    required this.permissionRead,
+    required this.permissionCreate,
+    required this.permissionUpdate,
+    required this.permissionDelete,
+    required this.permissionManage,
+    required this.displayMode,
+  }) : super._();
   @override
   Api1CreateShareRequestApplicationJson rebuild(void Function(Api1CreateShareRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -11089,27 +12092,55 @@ class Api1CreateShareRequestApplicationJsonBuilder
 
   _$Api1CreateShareRequestApplicationJson _build() {
     Api1CreateShareRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateShareRequestApplicationJson._(
           nodeId: BuiltValueNullFieldError.checkNotNull(nodeId, r'Api1CreateShareRequestApplicationJson', 'nodeId'),
-          nodeType:
-              BuiltValueNullFieldError.checkNotNull(nodeType, r'Api1CreateShareRequestApplicationJson', 'nodeType'),
-          receiver:
-              BuiltValueNullFieldError.checkNotNull(receiver, r'Api1CreateShareRequestApplicationJson', 'receiver'),
+          nodeType: BuiltValueNullFieldError.checkNotNull(
+            nodeType,
+            r'Api1CreateShareRequestApplicationJson',
+            'nodeType',
+          ),
+          receiver: BuiltValueNullFieldError.checkNotNull(
+            receiver,
+            r'Api1CreateShareRequestApplicationJson',
+            'receiver',
+          ),
           receiverType: BuiltValueNullFieldError.checkNotNull(
-              receiverType, r'Api1CreateShareRequestApplicationJson', 'receiverType'),
+            receiverType,
+            r'Api1CreateShareRequestApplicationJson',
+            'receiverType',
+          ),
           permissionRead: BuiltValueNullFieldError.checkNotNull(
-              permissionRead, r'Api1CreateShareRequestApplicationJson', 'permissionRead'),
+            permissionRead,
+            r'Api1CreateShareRequestApplicationJson',
+            'permissionRead',
+          ),
           permissionCreate: BuiltValueNullFieldError.checkNotNull(
-              permissionCreate, r'Api1CreateShareRequestApplicationJson', 'permissionCreate'),
+            permissionCreate,
+            r'Api1CreateShareRequestApplicationJson',
+            'permissionCreate',
+          ),
           permissionUpdate: BuiltValueNullFieldError.checkNotNull(
-              permissionUpdate, r'Api1CreateShareRequestApplicationJson', 'permissionUpdate'),
+            permissionUpdate,
+            r'Api1CreateShareRequestApplicationJson',
+            'permissionUpdate',
+          ),
           permissionDelete: BuiltValueNullFieldError.checkNotNull(
-              permissionDelete, r'Api1CreateShareRequestApplicationJson', 'permissionDelete'),
+            permissionDelete,
+            r'Api1CreateShareRequestApplicationJson',
+            'permissionDelete',
+          ),
           permissionManage: BuiltValueNullFieldError.checkNotNull(
-              permissionManage, r'Api1CreateShareRequestApplicationJson', 'permissionManage'),
+            permissionManage,
+            r'Api1CreateShareRequestApplicationJson',
+            'permissionManage',
+          ),
           displayMode: BuiltValueNullFieldError.checkNotNull(
-              displayMode, r'Api1CreateShareRequestApplicationJson', 'displayMode'),
+            displayMode,
+            r'Api1CreateShareRequestApplicationJson',
+            'displayMode',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -11132,15 +12163,15 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJson extends Api1UpdateShare
   @override
   final Api1UpdateShareDisplayModeRequestApplicationJson_Target target;
 
-  factory _$Api1UpdateShareDisplayModeRequestApplicationJson(
-          [void Function(Api1UpdateShareDisplayModeRequestApplicationJsonBuilder)? updates]) =>
-      (Api1UpdateShareDisplayModeRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1UpdateShareDisplayModeRequestApplicationJson([
+    void Function(Api1UpdateShareDisplayModeRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1UpdateShareDisplayModeRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1UpdateShareDisplayModeRequestApplicationJson._({required this.displayMode, required this.target}) : super._();
   @override
   Api1UpdateShareDisplayModeRequestApplicationJson rebuild(
-          void Function(Api1UpdateShareDisplayModeRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateShareDisplayModeRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateShareDisplayModeRequestApplicationJsonBuilder toBuilder() =>
@@ -11174,8 +12205,10 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJson extends Api1UpdateShare
 
 class Api1UpdateShareDisplayModeRequestApplicationJsonBuilder
     implements
-        Builder<Api1UpdateShareDisplayModeRequestApplicationJson,
-            Api1UpdateShareDisplayModeRequestApplicationJsonBuilder>,
+        Builder<
+          Api1UpdateShareDisplayModeRequestApplicationJson,
+          Api1UpdateShareDisplayModeRequestApplicationJsonBuilder
+        >,
         $Api1UpdateShareDisplayModeRequestApplicationJsonInterfaceBuilder {
   _$Api1UpdateShareDisplayModeRequestApplicationJson? _$v;
 
@@ -11216,12 +12249,19 @@ class Api1UpdateShareDisplayModeRequestApplicationJsonBuilder
 
   _$Api1UpdateShareDisplayModeRequestApplicationJson _build() {
     Api1UpdateShareDisplayModeRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateShareDisplayModeRequestApplicationJson._(
           displayMode: BuiltValueNullFieldError.checkNotNull(
-              displayMode, r'Api1UpdateShareDisplayModeRequestApplicationJson', 'displayMode'),
+            displayMode,
+            r'Api1UpdateShareDisplayModeRequestApplicationJson',
+            'displayMode',
+          ),
           target: BuiltValueNullFieldError.checkNotNull(
-              target, r'Api1UpdateShareDisplayModeRequestApplicationJson', 'target'),
+            target,
+            r'Api1UpdateShareDisplayModeRequestApplicationJson',
+            'target',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -11258,7 +12298,7 @@ class _$ContextNavigation extends ContextNavigation {
       (ContextNavigationBuilder()..update(updates))._build();
 
   _$ContextNavigation._({required this.id, required this.shareId, required this.displayMode, required this.userId})
-      : super._();
+    : super._();
   @override
   ContextNavigation rebuild(void Function(ContextNavigationBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -11348,7 +12388,8 @@ class ContextNavigationBuilder
 
   _$ContextNavigation _build() {
     ContextNavigation._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ContextNavigation._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'ContextNavigation', 'id'),
           shareId: BuiltValueNullFieldError.checkNotNull(shareId, r'ContextNavigation', 'shareId'),
@@ -11518,38 +12559,38 @@ class _$Column extends Column {
 
   factory _$Column([void Function(ColumnBuilder)? updates]) => (ColumnBuilder()..update(updates))._build();
 
-  _$Column._(
-      {required this.id,
-      required this.title,
-      required this.tableId,
-      required this.createdBy,
-      required this.createdAt,
-      required this.lastEditBy,
-      required this.lastEditAt,
-      required this.type,
-      required this.subtype,
-      required this.mandatory,
-      required this.description,
-      required this.orderWeight,
-      required this.numberDefault,
-      required this.numberMin,
-      required this.numberMax,
-      required this.numberDecimals,
-      required this.numberPrefix,
-      required this.numberSuffix,
-      required this.textDefault,
-      required this.textAllowedPattern,
-      required this.textMaxLength,
-      required this.selectionOptions,
-      required this.selectionDefault,
-      required this.datetimeDefault,
-      required this.usergroupDefault,
-      required this.usergroupMultipleItems,
-      required this.usergroupSelectUsers,
-      required this.usergroupSelectGroups,
-      required this.usergroupSelectTeams,
-      required this.showUserStatus})
-      : super._();
+  _$Column._({
+    required this.id,
+    required this.title,
+    required this.tableId,
+    required this.createdBy,
+    required this.createdAt,
+    required this.lastEditBy,
+    required this.lastEditAt,
+    required this.type,
+    required this.subtype,
+    required this.mandatory,
+    required this.description,
+    required this.orderWeight,
+    required this.numberDefault,
+    required this.numberMin,
+    required this.numberMax,
+    required this.numberDecimals,
+    required this.numberPrefix,
+    required this.numberSuffix,
+    required this.textDefault,
+    required this.textAllowedPattern,
+    required this.textMaxLength,
+    required this.selectionOptions,
+    required this.selectionDefault,
+    required this.datetimeDefault,
+    required this.usergroupDefault,
+    required this.usergroupMultipleItems,
+    required this.usergroupSelectUsers,
+    required this.usergroupSelectGroups,
+    required this.usergroupSelectTeams,
+    required this.showUserStatus,
+  }) : super._();
   @override
   Column rebuild(void Function(ColumnBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -11848,7 +12889,8 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
 
   _$Column _build() {
     Column._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Column._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Column', 'id'),
           title: BuiltValueNullFieldError.checkNotNull(title, r'Column', 'title'),
@@ -11869,21 +12911,36 @@ class ColumnBuilder implements Builder<Column, ColumnBuilder>, $ColumnInterfaceB
           numberPrefix: BuiltValueNullFieldError.checkNotNull(numberPrefix, r'Column', 'numberPrefix'),
           numberSuffix: BuiltValueNullFieldError.checkNotNull(numberSuffix, r'Column', 'numberSuffix'),
           textDefault: BuiltValueNullFieldError.checkNotNull(textDefault, r'Column', 'textDefault'),
-          textAllowedPattern:
-              BuiltValueNullFieldError.checkNotNull(textAllowedPattern, r'Column', 'textAllowedPattern'),
+          textAllowedPattern: BuiltValueNullFieldError.checkNotNull(
+            textAllowedPattern,
+            r'Column',
+            'textAllowedPattern',
+          ),
           textMaxLength: BuiltValueNullFieldError.checkNotNull(textMaxLength, r'Column', 'textMaxLength'),
           selectionOptions: BuiltValueNullFieldError.checkNotNull(selectionOptions, r'Column', 'selectionOptions'),
           selectionDefault: BuiltValueNullFieldError.checkNotNull(selectionDefault, r'Column', 'selectionDefault'),
           datetimeDefault: BuiltValueNullFieldError.checkNotNull(datetimeDefault, r'Column', 'datetimeDefault'),
           usergroupDefault: BuiltValueNullFieldError.checkNotNull(usergroupDefault, r'Column', 'usergroupDefault'),
-          usergroupMultipleItems:
-              BuiltValueNullFieldError.checkNotNull(usergroupMultipleItems, r'Column', 'usergroupMultipleItems'),
-          usergroupSelectUsers:
-              BuiltValueNullFieldError.checkNotNull(usergroupSelectUsers, r'Column', 'usergroupSelectUsers'),
-          usergroupSelectGroups:
-              BuiltValueNullFieldError.checkNotNull(usergroupSelectGroups, r'Column', 'usergroupSelectGroups'),
-          usergroupSelectTeams:
-              BuiltValueNullFieldError.checkNotNull(usergroupSelectTeams, r'Column', 'usergroupSelectTeams'),
+          usergroupMultipleItems: BuiltValueNullFieldError.checkNotNull(
+            usergroupMultipleItems,
+            r'Column',
+            'usergroupMultipleItems',
+          ),
+          usergroupSelectUsers: BuiltValueNullFieldError.checkNotNull(
+            usergroupSelectUsers,
+            r'Column',
+            'usergroupSelectUsers',
+          ),
+          usergroupSelectGroups: BuiltValueNullFieldError.checkNotNull(
+            usergroupSelectGroups,
+            r'Column',
+            'usergroupSelectGroups',
+          ),
+          usergroupSelectTeams: BuiltValueNullFieldError.checkNotNull(
+            usergroupSelectTeams,
+            r'Column',
+            'usergroupSelectTeams',
+          ),
           showUserStatus: BuiltValueNullFieldError.checkNotNull(showUserStatus, r'Column', 'showUserStatus'),
         );
     replace(_$result);
@@ -12017,40 +13074,40 @@ class _$Api1CreateTableColumnRequestApplicationJson extends Api1CreateTableColum
   @override
   final BuiltList<int>? selectedViewIds;
 
-  factory _$Api1CreateTableColumnRequestApplicationJson(
-          [void Function(Api1CreateTableColumnRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateTableColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateTableColumnRequestApplicationJson([
+    void Function(Api1CreateTableColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateTableColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$Api1CreateTableColumnRequestApplicationJson._(
-      {required this.title,
-      required this.type,
-      this.subtype,
-      required this.mandatory,
-      this.description,
-      this.numberPrefix,
-      this.numberSuffix,
-      this.numberDefault,
-      this.numberMin,
-      this.numberMax,
-      this.numberDecimals,
-      this.textDefault,
-      this.textAllowedPattern,
-      this.textMaxLength,
-      this.selectionOptions,
-      this.selectionDefault,
-      this.datetimeDefault,
-      this.usergroupDefault,
-      this.usergroupMultipleItems,
-      this.usergroupSelectUsers,
-      this.usergroupSelectGroups,
-      this.usergroupSelectTeams,
-      this.usergroupShowUserStatus,
-      this.selectedViewIds})
-      : super._();
+  _$Api1CreateTableColumnRequestApplicationJson._({
+    required this.title,
+    required this.type,
+    this.subtype,
+    required this.mandatory,
+    this.description,
+    this.numberPrefix,
+    this.numberSuffix,
+    this.numberDefault,
+    this.numberMin,
+    this.numberMax,
+    this.numberDecimals,
+    this.textDefault,
+    this.textAllowedPattern,
+    this.textMaxLength,
+    this.selectionOptions,
+    this.selectionDefault,
+    this.datetimeDefault,
+    this.usergroupDefault,
+    this.usergroupMultipleItems,
+    this.usergroupSelectUsers,
+    this.usergroupSelectGroups,
+    this.usergroupSelectTeams,
+    this.usergroupShowUserStatus,
+    this.selectedViewIds,
+  }) : super._();
   @override
   Api1CreateTableColumnRequestApplicationJson rebuild(
-          void Function(Api1CreateTableColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1CreateTableColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1CreateTableColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -12306,14 +13363,21 @@ class Api1CreateTableColumnRequestApplicationJsonBuilder
     Api1CreateTableColumnRequestApplicationJson._validate(this);
     _$Api1CreateTableColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Api1CreateTableColumnRequestApplicationJson._(
-            title:
-                BuiltValueNullFieldError.checkNotNull(title, r'Api1CreateTableColumnRequestApplicationJson', 'title'),
+            title: BuiltValueNullFieldError.checkNotNull(
+              title,
+              r'Api1CreateTableColumnRequestApplicationJson',
+              'title',
+            ),
             type: BuiltValueNullFieldError.checkNotNull(type, r'Api1CreateTableColumnRequestApplicationJson', 'type'),
             subtype: subtype,
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'Api1CreateTableColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'Api1CreateTableColumnRequestApplicationJson',
+              'mandatory',
+            ),
             description: description,
             numberPrefix: numberPrefix,
             numberSuffix: numberSuffix,
@@ -12486,42 +13550,42 @@ class _$Api1CreateColumnRequestApplicationJson extends Api1CreateColumnRequestAp
   @override
   final BuiltList<int>? selectedViewIds;
 
-  factory _$Api1CreateColumnRequestApplicationJson(
-          [void Function(Api1CreateColumnRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateColumnRequestApplicationJson([
+    void Function(Api1CreateColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$Api1CreateColumnRequestApplicationJson._(
-      {this.tableId,
-      this.viewId,
-      required this.title,
-      required this.type,
-      this.subtype,
-      required this.mandatory,
-      this.description,
-      this.numberPrefix,
-      this.numberSuffix,
-      this.numberDefault,
-      this.numberMin,
-      this.numberMax,
-      this.numberDecimals,
-      this.textDefault,
-      this.textAllowedPattern,
-      this.textMaxLength,
-      this.selectionOptions,
-      this.selectionDefault,
-      this.datetimeDefault,
-      this.usergroupDefault,
-      this.usergroupMultipleItems,
-      this.usergroupSelectUsers,
-      this.usergroupSelectGroups,
-      this.usergroupSelectTeams,
-      this.usergroupShowUserStatus,
-      this.selectedViewIds})
-      : super._();
+  _$Api1CreateColumnRequestApplicationJson._({
+    this.tableId,
+    this.viewId,
+    required this.title,
+    required this.type,
+    this.subtype,
+    required this.mandatory,
+    this.description,
+    this.numberPrefix,
+    this.numberSuffix,
+    this.numberDefault,
+    this.numberMin,
+    this.numberMax,
+    this.numberDecimals,
+    this.textDefault,
+    this.textAllowedPattern,
+    this.textMaxLength,
+    this.selectionOptions,
+    this.selectionDefault,
+    this.datetimeDefault,
+    this.usergroupDefault,
+    this.usergroupMultipleItems,
+    this.usergroupSelectUsers,
+    this.usergroupSelectGroups,
+    this.usergroupSelectTeams,
+    this.usergroupShowUserStatus,
+    this.selectedViewIds,
+  }) : super._();
   @override
   Api1CreateColumnRequestApplicationJson rebuild(
-          void Function(Api1CreateColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1CreateColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1CreateColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -12793,7 +13857,8 @@ class Api1CreateColumnRequestApplicationJsonBuilder
     Api1CreateColumnRequestApplicationJson._validate(this);
     _$Api1CreateColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Api1CreateColumnRequestApplicationJson._(
             tableId: tableId,
             viewId: viewId,
@@ -12801,7 +13866,10 @@ class Api1CreateColumnRequestApplicationJsonBuilder
             type: BuiltValueNullFieldError.checkNotNull(type, r'Api1CreateColumnRequestApplicationJson', 'type'),
             subtype: subtype,
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'Api1CreateColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'Api1CreateColumnRequestApplicationJson',
+              'mandatory',
+            ),
             description: description,
             numberPrefix: numberPrefix,
             numberSuffix: numberSuffix,
@@ -12954,38 +14022,38 @@ class _$Api1UpdateColumnRequestApplicationJson extends Api1UpdateColumnRequestAp
   @override
   final bool? usergroupShowUserStatus;
 
-  factory _$Api1UpdateColumnRequestApplicationJson(
-          [void Function(Api1UpdateColumnRequestApplicationJsonBuilder)? updates]) =>
-      (Api1UpdateColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1UpdateColumnRequestApplicationJson([
+    void Function(Api1UpdateColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1UpdateColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$Api1UpdateColumnRequestApplicationJson._(
-      {this.title,
-      this.subtype,
-      required this.mandatory,
-      this.description,
-      this.numberPrefix,
-      this.numberSuffix,
-      this.numberDefault,
-      this.numberMin,
-      this.numberMax,
-      this.numberDecimals,
-      this.textDefault,
-      this.textAllowedPattern,
-      this.textMaxLength,
-      this.selectionOptions,
-      this.selectionDefault,
-      this.datetimeDefault,
-      this.usergroupDefault,
-      this.usergroupMultipleItems,
-      this.usergroupSelectUsers,
-      this.usergroupSelectGroups,
-      this.usergroupSelectTeams,
-      this.usergroupShowUserStatus})
-      : super._();
+  _$Api1UpdateColumnRequestApplicationJson._({
+    this.title,
+    this.subtype,
+    required this.mandatory,
+    this.description,
+    this.numberPrefix,
+    this.numberSuffix,
+    this.numberDefault,
+    this.numberMin,
+    this.numberMax,
+    this.numberDecimals,
+    this.textDefault,
+    this.textAllowedPattern,
+    this.textMaxLength,
+    this.selectionOptions,
+    this.selectionDefault,
+    this.datetimeDefault,
+    this.usergroupDefault,
+    this.usergroupMultipleItems,
+    this.usergroupSelectUsers,
+    this.usergroupSelectGroups,
+    this.usergroupSelectTeams,
+    this.usergroupShowUserStatus,
+  }) : super._();
   @override
   Api1UpdateColumnRequestApplicationJson rebuild(
-          void Function(Api1UpdateColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1UpdateColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1UpdateColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -13223,12 +14291,16 @@ class Api1UpdateColumnRequestApplicationJsonBuilder
 
   _$Api1UpdateColumnRequestApplicationJson _build() {
     Api1UpdateColumnRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateColumnRequestApplicationJson._(
           title: title,
           subtype: subtype,
-          mandatory:
-              BuiltValueNullFieldError.checkNotNull(mandatory, r'Api1UpdateColumnRequestApplicationJson', 'mandatory'),
+          mandatory: BuiltValueNullFieldError.checkNotNull(
+            mandatory,
+            r'Api1UpdateColumnRequestApplicationJson',
+            'mandatory',
+          ),
           description: description,
           numberPrefix: numberPrefix,
           numberSuffix: numberSuffix,
@@ -13343,7 +14415,8 @@ class Row_DataBuilder implements Builder<Row_Data, Row_DataBuilder>, $Row_DataIn
 
   _$Row_Data _build() {
     Row_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Row_Data._(
           columnId: BuiltValueNullFieldError.checkNotNull(columnId, r'Row_Data', 'columnId'),
           value: BuiltValueNullFieldError.checkNotNull(value, r'Row_Data', 'value'),
@@ -13396,15 +14469,15 @@ class _$Row extends Row {
 
   factory _$Row([void Function(RowBuilder)? updates]) => (RowBuilder()..update(updates))._build();
 
-  _$Row._(
-      {required this.id,
-      required this.tableId,
-      required this.createdBy,
-      required this.createdAt,
-      required this.lastEditBy,
-      required this.lastEditAt,
-      this.data})
-      : super._();
+  _$Row._({
+    required this.id,
+    required this.tableId,
+    required this.createdBy,
+    required this.createdAt,
+    required this.lastEditBy,
+    required this.lastEditAt,
+    this.data,
+  }) : super._();
   @override
   Row rebuild(void Function(RowBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -13519,7 +14592,8 @@ class RowBuilder implements Builder<Row, RowBuilder>, $RowInterfaceBuilder {
     Row._validate(this);
     _$Row _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Row._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Row', 'id'),
             tableId: BuiltValueNullFieldError.checkNotNull(tableId, r'Row', 'tableId'),
@@ -13555,15 +14629,15 @@ class _$Api1CreateRowInTableRequestApplicationJson extends Api1CreateRowInTableR
   @override
   final Api1CreateRowInTableRequestApplicationJson_Data data;
 
-  factory _$Api1CreateRowInTableRequestApplicationJson(
-          [void Function(Api1CreateRowInTableRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateRowInTableRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateRowInTableRequestApplicationJson([
+    void Function(Api1CreateRowInTableRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateRowInTableRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1CreateRowInTableRequestApplicationJson._({required this.data}) : super._();
   @override
   Api1CreateRowInTableRequestApplicationJson rebuild(
-          void Function(Api1CreateRowInTableRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1CreateRowInTableRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1CreateRowInTableRequestApplicationJsonBuilder toBuilder() =>
@@ -13628,7 +14702,8 @@ class Api1CreateRowInTableRequestApplicationJsonBuilder
 
   _$Api1CreateRowInTableRequestApplicationJson _build() {
     Api1CreateRowInTableRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateRowInTableRequestApplicationJson._(
           data: BuiltValueNullFieldError.checkNotNull(data, r'Api1CreateRowInTableRequestApplicationJson', 'data'),
         );
@@ -13648,15 +14723,15 @@ class _$Api1CreateRowInViewRequestApplicationJson extends Api1CreateRowInViewReq
   @override
   final Api1CreateRowInViewRequestApplicationJson_Data data;
 
-  factory _$Api1CreateRowInViewRequestApplicationJson(
-          [void Function(Api1CreateRowInViewRequestApplicationJsonBuilder)? updates]) =>
-      (Api1CreateRowInViewRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1CreateRowInViewRequestApplicationJson([
+    void Function(Api1CreateRowInViewRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1CreateRowInViewRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1CreateRowInViewRequestApplicationJson._({required this.data}) : super._();
   @override
   Api1CreateRowInViewRequestApplicationJson rebuild(
-          void Function(Api1CreateRowInViewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1CreateRowInViewRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1CreateRowInViewRequestApplicationJsonBuilder toBuilder() =>
@@ -13721,7 +14796,8 @@ class Api1CreateRowInViewRequestApplicationJsonBuilder
 
   _$Api1CreateRowInViewRequestApplicationJson _build() {
     Api1CreateRowInViewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1CreateRowInViewRequestApplicationJson._(
           data: BuiltValueNullFieldError.checkNotNull(data, r'Api1CreateRowInViewRequestApplicationJson', 'data'),
         );
@@ -13825,7 +14901,8 @@ class Api1UpdateRowRequestApplicationJsonBuilder
 
   _$Api1UpdateRowRequestApplicationJson _build() {
     Api1UpdateRowRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1UpdateRowRequestApplicationJson._(
           viewId: viewId,
           data: BuiltValueNullFieldError.checkNotNull(data, r'Api1UpdateRowRequestApplicationJson', 'data'),
@@ -13851,15 +14928,15 @@ class _$Api1ImportInTableRequestApplicationJson extends Api1ImportInTableRequest
   @override
   final bool createMissingColumns;
 
-  factory _$Api1ImportInTableRequestApplicationJson(
-          [void Function(Api1ImportInTableRequestApplicationJsonBuilder)? updates]) =>
-      (Api1ImportInTableRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1ImportInTableRequestApplicationJson([
+    void Function(Api1ImportInTableRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1ImportInTableRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1ImportInTableRequestApplicationJson._({required this.path, required this.createMissingColumns}) : super._();
   @override
   Api1ImportInTableRequestApplicationJson rebuild(
-          void Function(Api1ImportInTableRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1ImportInTableRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1ImportInTableRequestApplicationJsonBuilder toBuilder() =>
@@ -13934,11 +15011,15 @@ class Api1ImportInTableRequestApplicationJsonBuilder
 
   _$Api1ImportInTableRequestApplicationJson _build() {
     Api1ImportInTableRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1ImportInTableRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'Api1ImportInTableRequestApplicationJson', 'path'),
           createMissingColumns: BuiltValueNullFieldError.checkNotNull(
-              createMissingColumns, r'Api1ImportInTableRequestApplicationJson', 'createMissingColumns'),
+            createMissingColumns,
+            r'Api1ImportInTableRequestApplicationJson',
+            'createMissingColumns',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -13984,14 +15065,14 @@ class _$ImportState extends ImportState {
   factory _$ImportState([void Function(ImportStateBuilder)? updates]) =>
       (ImportStateBuilder()..update(updates))._build();
 
-  _$ImportState._(
-      {required this.foundColumnsCount,
-      required this.matchingColumnsCount,
-      required this.createdColumnsCount,
-      required this.insertedRowsCount,
-      required this.errorsParsingCount,
-      required this.errorsCount})
-      : super._();
+  _$ImportState._({
+    required this.foundColumnsCount,
+    required this.matchingColumnsCount,
+    required this.createdColumnsCount,
+    required this.insertedRowsCount,
+    required this.errorsParsingCount,
+    required this.errorsCount,
+  }) : super._();
   @override
   ImportState rebuild(void Function(ImportStateBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -14096,18 +15177,34 @@ class ImportStateBuilder implements Builder<ImportState, ImportStateBuilder>, $I
 
   _$ImportState _build() {
     ImportState._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ImportState._(
-          foundColumnsCount:
-              BuiltValueNullFieldError.checkNotNull(foundColumnsCount, r'ImportState', 'foundColumnsCount'),
-          matchingColumnsCount:
-              BuiltValueNullFieldError.checkNotNull(matchingColumnsCount, r'ImportState', 'matchingColumnsCount'),
-          createdColumnsCount:
-              BuiltValueNullFieldError.checkNotNull(createdColumnsCount, r'ImportState', 'createdColumnsCount'),
-          insertedRowsCount:
-              BuiltValueNullFieldError.checkNotNull(insertedRowsCount, r'ImportState', 'insertedRowsCount'),
-          errorsParsingCount:
-              BuiltValueNullFieldError.checkNotNull(errorsParsingCount, r'ImportState', 'errorsParsingCount'),
+          foundColumnsCount: BuiltValueNullFieldError.checkNotNull(
+            foundColumnsCount,
+            r'ImportState',
+            'foundColumnsCount',
+          ),
+          matchingColumnsCount: BuiltValueNullFieldError.checkNotNull(
+            matchingColumnsCount,
+            r'ImportState',
+            'matchingColumnsCount',
+          ),
+          createdColumnsCount: BuiltValueNullFieldError.checkNotNull(
+            createdColumnsCount,
+            r'ImportState',
+            'createdColumnsCount',
+          ),
+          insertedRowsCount: BuiltValueNullFieldError.checkNotNull(
+            insertedRowsCount,
+            r'ImportState',
+            'insertedRowsCount',
+          ),
+          errorsParsingCount: BuiltValueNullFieldError.checkNotNull(
+            errorsParsingCount,
+            r'ImportState',
+            'errorsParsingCount',
+          ),
           errorsCount: BuiltValueNullFieldError.checkNotNull(errorsCount, r'ImportState', 'errorsCount'),
         );
     replace(_$result);
@@ -14131,15 +15228,15 @@ class _$Api1ImportInViewRequestApplicationJson extends Api1ImportInViewRequestAp
   @override
   final bool createMissingColumns;
 
-  factory _$Api1ImportInViewRequestApplicationJson(
-          [void Function(Api1ImportInViewRequestApplicationJsonBuilder)? updates]) =>
-      (Api1ImportInViewRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$Api1ImportInViewRequestApplicationJson([
+    void Function(Api1ImportInViewRequestApplicationJsonBuilder)? updates,
+  ]) => (Api1ImportInViewRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$Api1ImportInViewRequestApplicationJson._({required this.path, required this.createMissingColumns}) : super._();
   @override
   Api1ImportInViewRequestApplicationJson rebuild(
-          void Function(Api1ImportInViewRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(Api1ImportInViewRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   Api1ImportInViewRequestApplicationJsonBuilder toBuilder() =>
@@ -14214,11 +15311,15 @@ class Api1ImportInViewRequestApplicationJsonBuilder
 
   _$Api1ImportInViewRequestApplicationJson _build() {
     Api1ImportInViewRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Api1ImportInViewRequestApplicationJson._(
           path: BuiltValueNullFieldError.checkNotNull(path, r'Api1ImportInViewRequestApplicationJson', 'path'),
           createMissingColumns: BuiltValueNullFieldError.checkNotNull(
-              createMissingColumns, r'Api1ImportInViewRequestApplicationJson', 'createMissingColumns'),
+            createMissingColumns,
+            r'Api1ImportInViewRequestApplicationJson',
+            'createMissingColumns',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -14259,7 +15360,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -14356,7 +15457,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -14385,15 +15487,15 @@ class _$ApiColumnsIndexResponseApplicationJson_Ocs extends ApiColumnsIndexRespon
   @override
   final BuiltList<Column> data;
 
-  factory _$ApiColumnsIndexResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsIndexResponseApplicationJson_Ocs([
+    void Function(ApiColumnsIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsIndexResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -14468,11 +15570,7 @@ class ApiColumnsIndexResponseApplicationJson_OcsBuilder
     ApiColumnsIndexResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14501,15 +15599,15 @@ class _$ApiColumnsIndexResponseApplicationJson extends ApiColumnsIndexResponseAp
   @override
   final ApiColumnsIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsIndexResponseApplicationJson(
-          [void Function(ApiColumnsIndexResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsIndexResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsIndexResponseApplicationJson([
+    void Function(ApiColumnsIndexResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsIndexResponseApplicationJson rebuild(
-          void Function(ApiColumnsIndexResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsIndexResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsIndexResponseApplicationJsonBuilder toBuilder() =>
@@ -14576,10 +15674,7 @@ class ApiColumnsIndexResponseApplicationJsonBuilder
     ApiColumnsIndexResponseApplicationJson._validate(this);
     _$ApiColumnsIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14611,15 +15706,15 @@ class _$ApiColumnsShowResponseApplicationJson_Ocs extends ApiColumnsShowResponse
   @override
   final Column data;
 
-  factory _$ApiColumnsShowResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsShowResponseApplicationJson_Ocs([
+    void Function(ApiColumnsShowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsShowResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsShowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsShowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsShowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -14694,11 +15789,7 @@ class ApiColumnsShowResponseApplicationJson_OcsBuilder
     ApiColumnsShowResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsShowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14727,9 +15818,9 @@ class _$ApiColumnsShowResponseApplicationJson extends ApiColumnsShowResponseAppl
   @override
   final ApiColumnsShowResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsShowResponseApplicationJson(
-          [void Function(ApiColumnsShowResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsShowResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsShowResponseApplicationJson([
+    void Function(ApiColumnsShowResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsShowResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsShowResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -14801,10 +15892,7 @@ class ApiColumnsShowResponseApplicationJsonBuilder
     ApiColumnsShowResponseApplicationJson._validate(this);
     _$ApiColumnsShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsShowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsShowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -14891,29 +15979,29 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson extends ApiColumnsCre
   @override
   final ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType baseNodeType;
 
-  factory _$ApiColumnsCreateNumberColumnRequestApplicationJson(
-          [void Function(ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateNumberColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiColumnsCreateNumberColumnRequestApplicationJson._(
-      {required this.baseNodeId,
-      required this.title,
-      this.numberDefault,
-      this.numberDecimals,
-      this.numberPrefix,
-      this.numberSuffix,
-      this.numberMin,
-      this.numberMax,
-      this.subtype,
-      this.description,
-      this.selectedViewIds,
-      required this.mandatory,
-      required this.baseNodeType})
-      : super._();
+  _$ApiColumnsCreateNumberColumnRequestApplicationJson._({
+    required this.baseNodeId,
+    required this.title,
+    this.numberDefault,
+    this.numberDecimals,
+    this.numberPrefix,
+    this.numberSuffix,
+    this.numberMin,
+    this.numberMax,
+    this.subtype,
+    this.description,
+    this.selectedViewIds,
+    required this.mandatory,
+    required this.baseNodeType,
+  }) : super._();
   @override
   ApiColumnsCreateNumberColumnRequestApplicationJson rebuild(
-          void Function(ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -14980,8 +16068,10 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson extends ApiColumnsCre
 
 class ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateNumberColumnRequestApplicationJson,
-            ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateNumberColumnRequestApplicationJson,
+          ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
+        >,
         $ApiColumnsCreateNumberColumnRequestApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateNumberColumnRequestApplicationJson? _$v;
 
@@ -15081,12 +16171,19 @@ class ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
     ApiColumnsCreateNumberColumnRequestApplicationJson._validate(this);
     _$ApiColumnsCreateNumberColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiColumnsCreateNumberColumnRequestApplicationJson._(
             baseNodeId: BuiltValueNullFieldError.checkNotNull(
-                baseNodeId, r'ApiColumnsCreateNumberColumnRequestApplicationJson', 'baseNodeId'),
+              baseNodeId,
+              r'ApiColumnsCreateNumberColumnRequestApplicationJson',
+              'baseNodeId',
+            ),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiColumnsCreateNumberColumnRequestApplicationJson', 'title'),
+              title,
+              r'ApiColumnsCreateNumberColumnRequestApplicationJson',
+              'title',
+            ),
             numberDefault: numberDefault,
             numberDecimals: numberDecimals,
             numberPrefix: numberPrefix,
@@ -15097,9 +16194,15 @@ class ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'ApiColumnsCreateNumberColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'ApiColumnsCreateNumberColumnRequestApplicationJson',
+              'mandatory',
+            ),
             baseNodeType: BuiltValueNullFieldError.checkNotNull(
-                baseNodeType, r'ApiColumnsCreateNumberColumnRequestApplicationJson', 'baseNodeType'),
+              baseNodeType,
+              r'ApiColumnsCreateNumberColumnRequestApplicationJson',
+              'baseNodeType',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -15108,7 +16211,10 @@ class ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
         _selectedViewIds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateNumberColumnRequestApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateNumberColumnRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15134,15 +16240,15 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs
   @override
   final Column data;
 
-  factory _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -15174,8 +16280,10 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs
 
 class ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder
+        >,
         $ApiColumnsCreateNumberColumnResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs? _$v;
 
@@ -15218,11 +16326,8 @@ class ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder
     ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15232,7 +16337,10 @@ class ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15253,15 +16361,15 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson
   @override
   final ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsCreateNumberColumnResponseApplicationJson(
-          [void Function(ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateNumberColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateNumberColumnResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsCreateNumberColumnResponseApplicationJson rebuild(
-          void Function(ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder toBuilder() =>
@@ -15283,15 +16391,17 @@ class _$ApiColumnsCreateNumberColumnResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiColumnsCreateNumberColumnResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateNumberColumnResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateNumberColumnResponseApplicationJson,
-            ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateNumberColumnResponseApplicationJson,
+          ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder
+        >,
         $ApiColumnsCreateNumberColumnResponseApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateNumberColumnResponseApplicationJson? _$v;
 
@@ -15330,10 +16440,7 @@ class ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder
     ApiColumnsCreateNumberColumnResponseApplicationJson._validate(this);
     _$ApiColumnsCreateNumberColumnResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateNumberColumnResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsCreateNumberColumnResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15341,7 +16448,10 @@ class ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateNumberColumnResponseApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateNumberColumnResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15406,26 +16516,26 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson extends ApiColumnsCreat
   @override
   final ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType baseNodeType;
 
-  factory _$ApiColumnsCreateTextColumnRequestApplicationJson(
-          [void Function(ApiColumnsCreateTextColumnRequestApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateTextColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateTextColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateTextColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateTextColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiColumnsCreateTextColumnRequestApplicationJson._(
-      {required this.baseNodeId,
-      required this.title,
-      this.textDefault,
-      this.textAllowedPattern,
-      this.textMaxLength,
-      this.subtype,
-      this.description,
-      this.selectedViewIds,
-      required this.mandatory,
-      required this.baseNodeType})
-      : super._();
+  _$ApiColumnsCreateTextColumnRequestApplicationJson._({
+    required this.baseNodeId,
+    required this.title,
+    this.textDefault,
+    this.textAllowedPattern,
+    this.textMaxLength,
+    this.subtype,
+    this.description,
+    this.selectedViewIds,
+    required this.mandatory,
+    required this.baseNodeType,
+  }) : super._();
   @override
   ApiColumnsCreateTextColumnRequestApplicationJson rebuild(
-          void Function(ApiColumnsCreateTextColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateTextColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateTextColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -15483,8 +16593,10 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson extends ApiColumnsCreat
 
 class ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateTextColumnRequestApplicationJson,
-            ApiColumnsCreateTextColumnRequestApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateTextColumnRequestApplicationJson,
+          ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
+        >,
         $ApiColumnsCreateTextColumnRequestApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateTextColumnRequestApplicationJson? _$v;
 
@@ -15568,12 +16680,19 @@ class ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
     ApiColumnsCreateTextColumnRequestApplicationJson._validate(this);
     _$ApiColumnsCreateTextColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiColumnsCreateTextColumnRequestApplicationJson._(
             baseNodeId: BuiltValueNullFieldError.checkNotNull(
-                baseNodeId, r'ApiColumnsCreateTextColumnRequestApplicationJson', 'baseNodeId'),
+              baseNodeId,
+              r'ApiColumnsCreateTextColumnRequestApplicationJson',
+              'baseNodeId',
+            ),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiColumnsCreateTextColumnRequestApplicationJson', 'title'),
+              title,
+              r'ApiColumnsCreateTextColumnRequestApplicationJson',
+              'title',
+            ),
             textDefault: textDefault,
             textAllowedPattern: textAllowedPattern,
             textMaxLength: textMaxLength,
@@ -15581,9 +16700,15 @@ class ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'ApiColumnsCreateTextColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'ApiColumnsCreateTextColumnRequestApplicationJson',
+              'mandatory',
+            ),
             baseNodeType: BuiltValueNullFieldError.checkNotNull(
-                baseNodeType, r'ApiColumnsCreateTextColumnRequestApplicationJson', 'baseNodeType'),
+              baseNodeType,
+              r'ApiColumnsCreateTextColumnRequestApplicationJson',
+              'baseNodeType',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -15592,7 +16717,10 @@ class ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
         _selectedViewIds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateTextColumnRequestApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateTextColumnRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15618,15 +16746,15 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs
   @override
   final Column data;
 
-  factory _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsCreateTextColumnResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -15658,8 +16786,10 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs
 
 class ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder
+        >,
         $ApiColumnsCreateTextColumnResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs? _$v;
 
@@ -15702,11 +16832,8 @@ class ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder
     ApiColumnsCreateTextColumnResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiColumnsCreateTextColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15716,7 +16843,10 @@ class ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateTextColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiColumnsCreateTextColumnResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15736,15 +16866,15 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson extends ApiColumnsCrea
   @override
   final ApiColumnsCreateTextColumnResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsCreateTextColumnResponseApplicationJson(
-          [void Function(ApiColumnsCreateTextColumnResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateTextColumnResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateTextColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateTextColumnResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateTextColumnResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateTextColumnResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsCreateTextColumnResponseApplicationJson rebuild(
-          void Function(ApiColumnsCreateTextColumnResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateTextColumnResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateTextColumnResponseApplicationJsonBuilder toBuilder() =>
@@ -15766,15 +16896,17 @@ class _$ApiColumnsCreateTextColumnResponseApplicationJson extends ApiColumnsCrea
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiColumnsCreateTextColumnResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateTextColumnResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiColumnsCreateTextColumnResponseApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateTextColumnResponseApplicationJson,
-            ApiColumnsCreateTextColumnResponseApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateTextColumnResponseApplicationJson,
+          ApiColumnsCreateTextColumnResponseApplicationJsonBuilder
+        >,
         $ApiColumnsCreateTextColumnResponseApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateTextColumnResponseApplicationJson? _$v;
 
@@ -15813,10 +16945,7 @@ class ApiColumnsCreateTextColumnResponseApplicationJsonBuilder
     ApiColumnsCreateTextColumnResponseApplicationJson._validate(this);
     _$ApiColumnsCreateTextColumnResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateTextColumnResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsCreateTextColumnResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -15824,7 +16953,10 @@ class ApiColumnsCreateTextColumnResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateTextColumnResponseApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateTextColumnResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -15885,25 +17017,25 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson
   @override
   final ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType baseNodeType;
 
-  factory _$ApiColumnsCreateSelectionColumnRequestApplicationJson(
-          [void Function(ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateSelectionColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiColumnsCreateSelectionColumnRequestApplicationJson._(
-      {required this.baseNodeId,
-      required this.title,
-      required this.selectionOptions,
-      this.selectionDefault,
-      this.subtype,
-      this.description,
-      this.selectedViewIds,
-      required this.mandatory,
-      required this.baseNodeType})
-      : super._();
+  _$ApiColumnsCreateSelectionColumnRequestApplicationJson._({
+    required this.baseNodeId,
+    required this.title,
+    required this.selectionOptions,
+    this.selectionDefault,
+    this.subtype,
+    this.description,
+    this.selectedViewIds,
+    required this.mandatory,
+    required this.baseNodeType,
+  }) : super._();
   @override
   ApiColumnsCreateSelectionColumnRequestApplicationJson rebuild(
-          void Function(ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -15958,8 +17090,10 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson
 
 class ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateSelectionColumnRequestApplicationJson,
-            ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateSelectionColumnRequestApplicationJson,
+          ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder
+        >,
         $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateSelectionColumnRequestApplicationJson? _$v;
 
@@ -16039,22 +17173,38 @@ class ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder
     ApiColumnsCreateSelectionColumnRequestApplicationJson._validate(this);
     _$ApiColumnsCreateSelectionColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiColumnsCreateSelectionColumnRequestApplicationJson._(
             baseNodeId: BuiltValueNullFieldError.checkNotNull(
-                baseNodeId, r'ApiColumnsCreateSelectionColumnRequestApplicationJson', 'baseNodeId'),
+              baseNodeId,
+              r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+              'baseNodeId',
+            ),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiColumnsCreateSelectionColumnRequestApplicationJson', 'title'),
+              title,
+              r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+              'title',
+            ),
             selectionOptions: BuiltValueNullFieldError.checkNotNull(
-                selectionOptions, r'ApiColumnsCreateSelectionColumnRequestApplicationJson', 'selectionOptions'),
+              selectionOptions,
+              r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+              'selectionOptions',
+            ),
             selectionDefault: selectionDefault,
             subtype: subtype,
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'ApiColumnsCreateSelectionColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+              'mandatory',
+            ),
             baseNodeType: BuiltValueNullFieldError.checkNotNull(
-                baseNodeType, r'ApiColumnsCreateSelectionColumnRequestApplicationJson', 'baseNodeType'),
+              baseNodeType,
+              r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+              'baseNodeType',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -16063,7 +17213,10 @@ class ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder
         _selectedViewIds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateSelectionColumnRequestApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateSelectionColumnRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16089,15 +17242,15 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs
   @override
   final Column data;
 
-  factory _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -16131,8 +17284,10 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs
 
 class ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder
+        >,
         $ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs? _$v;
 
@@ -16175,11 +17330,8 @@ class ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder
     ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16189,7 +17341,10 @@ class ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16210,15 +17365,15 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson
   @override
   final ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsCreateSelectionColumnResponseApplicationJson(
-          [void Function(ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateSelectionColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateSelectionColumnResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJson rebuild(
-          void Function(ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder toBuilder() =>
@@ -16240,15 +17395,17 @@ class _$ApiColumnsCreateSelectionColumnResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiColumnsCreateSelectionColumnResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateSelectionColumnResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateSelectionColumnResponseApplicationJson,
-            ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateSelectionColumnResponseApplicationJson,
+          ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder
+        >,
         $ApiColumnsCreateSelectionColumnResponseApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateSelectionColumnResponseApplicationJson? _$v;
 
@@ -16287,10 +17444,7 @@ class ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder
     ApiColumnsCreateSelectionColumnResponseApplicationJson._validate(this);
     _$ApiColumnsCreateSelectionColumnResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateSelectionColumnResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsCreateSelectionColumnResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16298,7 +17452,10 @@ class ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateSelectionColumnResponseApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateSelectionColumnResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16354,24 +17511,24 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson
   @override
   final ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType baseNodeType;
 
-  factory _$ApiColumnsCreateDatetimeColumnRequestApplicationJson(
-          [void Function(ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateDatetimeColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiColumnsCreateDatetimeColumnRequestApplicationJson._(
-      {required this.baseNodeId,
-      required this.title,
-      this.datetimeDefault,
-      this.subtype,
-      this.description,
-      this.selectedViewIds,
-      required this.mandatory,
-      required this.baseNodeType})
-      : super._();
+  _$ApiColumnsCreateDatetimeColumnRequestApplicationJson._({
+    required this.baseNodeId,
+    required this.title,
+    this.datetimeDefault,
+    this.subtype,
+    this.description,
+    this.selectedViewIds,
+    required this.mandatory,
+    required this.baseNodeType,
+  }) : super._();
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJson rebuild(
-          void Function(ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -16423,8 +17580,10 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson
 
 class ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateDatetimeColumnRequestApplicationJson,
-            ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateDatetimeColumnRequestApplicationJson,
+          ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
+        >,
         $ApiColumnsCreateDatetimeColumnRequestApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateDatetimeColumnRequestApplicationJson? _$v;
 
@@ -16439,8 +17598,8 @@ class ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault? _datetimeDefault;
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault? get datetimeDefault => _$this._datetimeDefault;
   set datetimeDefault(
-          covariant ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault? datetimeDefault) =>
-      _$this._datetimeDefault = datetimeDefault;
+    covariant ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault? datetimeDefault,
+  ) => _$this._datetimeDefault = datetimeDefault;
 
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype? _subtype;
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype? get subtype => _$this._subtype;
@@ -16501,20 +17660,33 @@ class ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
     ApiColumnsCreateDatetimeColumnRequestApplicationJson._validate(this);
     _$ApiColumnsCreateDatetimeColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiColumnsCreateDatetimeColumnRequestApplicationJson._(
             baseNodeId: BuiltValueNullFieldError.checkNotNull(
-                baseNodeId, r'ApiColumnsCreateDatetimeColumnRequestApplicationJson', 'baseNodeId'),
+              baseNodeId,
+              r'ApiColumnsCreateDatetimeColumnRequestApplicationJson',
+              'baseNodeId',
+            ),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiColumnsCreateDatetimeColumnRequestApplicationJson', 'title'),
+              title,
+              r'ApiColumnsCreateDatetimeColumnRequestApplicationJson',
+              'title',
+            ),
             datetimeDefault: datetimeDefault,
             subtype: subtype,
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'ApiColumnsCreateDatetimeColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'ApiColumnsCreateDatetimeColumnRequestApplicationJson',
+              'mandatory',
+            ),
             baseNodeType: BuiltValueNullFieldError.checkNotNull(
-                baseNodeType, r'ApiColumnsCreateDatetimeColumnRequestApplicationJson', 'baseNodeType'),
+              baseNodeType,
+              r'ApiColumnsCreateDatetimeColumnRequestApplicationJson',
+              'baseNodeType',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -16523,7 +17695,10 @@ class ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
         _selectedViewIds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateDatetimeColumnRequestApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateDatetimeColumnRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16549,15 +17724,15 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs
   @override
   final Column data;
 
-  factory _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -16591,8 +17766,10 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs
 
 class ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder
+        >,
         $ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs? _$v;
 
@@ -16635,11 +17812,8 @@ class ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder
     ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16649,7 +17823,10 @@ class ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16670,15 +17847,15 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson
   @override
   final ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsCreateDatetimeColumnResponseApplicationJson(
-          [void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateDatetimeColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateDatetimeColumnResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJson rebuild(
-          void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder toBuilder() =>
@@ -16700,15 +17877,17 @@ class _$ApiColumnsCreateDatetimeColumnResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiColumnsCreateDatetimeColumnResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateDatetimeColumnResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateDatetimeColumnResponseApplicationJson,
-            ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson,
+          ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
+        >,
         $ApiColumnsCreateDatetimeColumnResponseApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateDatetimeColumnResponseApplicationJson? _$v;
 
@@ -16747,10 +17926,7 @@ class ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
     ApiColumnsCreateDatetimeColumnResponseApplicationJson._validate(this);
     _$ApiColumnsCreateDatetimeColumnResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateDatetimeColumnResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsCreateDatetimeColumnResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -16758,7 +17934,10 @@ class ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateDatetimeColumnResponseApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateDatetimeColumnResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -16834,28 +18013,28 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
   @override
   final ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType baseNodeType;
 
-  factory _$ApiColumnsCreateUsergroupColumnRequestApplicationJson(
-          [void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateUsergroupColumnRequestApplicationJson([
+    void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiColumnsCreateUsergroupColumnRequestApplicationJson._(
-      {required this.baseNodeId,
-      required this.title,
-      this.usergroupDefault,
-      this.usergroupMultipleItems,
-      this.usergroupSelectUsers,
-      this.usergroupSelectGroups,
-      this.usergroupSelectTeams,
-      this.showUserStatus,
-      this.description,
-      this.selectedViewIds,
-      required this.mandatory,
-      required this.baseNodeType})
-      : super._();
+  _$ApiColumnsCreateUsergroupColumnRequestApplicationJson._({
+    required this.baseNodeId,
+    required this.title,
+    this.usergroupDefault,
+    this.usergroupMultipleItems,
+    this.usergroupSelectUsers,
+    this.usergroupSelectGroups,
+    this.usergroupSelectTeams,
+    this.showUserStatus,
+    this.description,
+    this.selectedViewIds,
+    required this.mandatory,
+    required this.baseNodeType,
+  }) : super._();
   @override
   ApiColumnsCreateUsergroupColumnRequestApplicationJson rebuild(
-          void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder toBuilder() =>
@@ -16919,8 +18098,10 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson
 
 class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateUsergroupColumnRequestApplicationJson,
-            ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateUsergroupColumnRequestApplicationJson,
+          ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
+        >,
         $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateUsergroupColumnRequestApplicationJson? _$v;
 
@@ -17016,12 +18197,19 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
     ApiColumnsCreateUsergroupColumnRequestApplicationJson._validate(this);
     _$ApiColumnsCreateUsergroupColumnRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiColumnsCreateUsergroupColumnRequestApplicationJson._(
             baseNodeId: BuiltValueNullFieldError.checkNotNull(
-                baseNodeId, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeId'),
+              baseNodeId,
+              r'ApiColumnsCreateUsergroupColumnRequestApplicationJson',
+              'baseNodeId',
+            ),
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'title'),
+              title,
+              r'ApiColumnsCreateUsergroupColumnRequestApplicationJson',
+              'title',
+            ),
             usergroupDefault: usergroupDefault,
             usergroupMultipleItems: usergroupMultipleItems,
             usergroupSelectUsers: usergroupSelectUsers,
@@ -17031,9 +18219,15 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
             description: description,
             selectedViewIds: _selectedViewIds?.build(),
             mandatory: BuiltValueNullFieldError.checkNotNull(
-                mandatory, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'mandatory'),
+              mandatory,
+              r'ApiColumnsCreateUsergroupColumnRequestApplicationJson',
+              'mandatory',
+            ),
             baseNodeType: BuiltValueNullFieldError.checkNotNull(
-                baseNodeType, r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', 'baseNodeType'),
+              baseNodeType,
+              r'ApiColumnsCreateUsergroupColumnRequestApplicationJson',
+              'baseNodeType',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -17042,7 +18236,10 @@ class ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
         _selectedViewIds?.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateUsergroupColumnRequestApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateUsergroupColumnRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -17068,15 +18265,15 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
   @override
   final Column data;
 
-  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs(
-          [void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs([
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs rebuild(
-          void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -17110,8 +18307,10 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
 
 class ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
+        >,
         $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs? _$v;
 
@@ -17154,11 +18353,8 @@ class ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
     ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._validate(this);
     _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17168,7 +18364,10 @@ class ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -17189,15 +18388,15 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson
   @override
   final ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson(
-          [void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? updates]) =>
-      (ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiColumnsCreateUsergroupColumnResponseApplicationJson([
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiColumnsCreateUsergroupColumnResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJson rebuild(
-          void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder toBuilder() =>
@@ -17219,15 +18418,17 @@ class _$ApiColumnsCreateUsergroupColumnResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiColumnsCreateUsergroupColumnResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiColumnsCreateUsergroupColumnResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
     implements
-        Builder<ApiColumnsCreateUsergroupColumnResponseApplicationJson,
-            ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder>,
+        Builder<
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson,
+          ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
+        >,
         $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterfaceBuilder {
   _$ApiColumnsCreateUsergroupColumnResponseApplicationJson? _$v;
 
@@ -17266,10 +18467,7 @@ class ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
     ApiColumnsCreateUsergroupColumnResponseApplicationJson._validate(this);
     _$ApiColumnsCreateUsergroupColumnResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiColumnsCreateUsergroupColumnResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiColumnsCreateUsergroupColumnResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17277,7 +18475,10 @@ class ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiColumnsCreateUsergroupColumnResponseApplicationJson', _$failedField, e.toString());
+          r'ApiColumnsCreateUsergroupColumnResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -17302,15 +18503,15 @@ class _$ApiFavoriteCreateResponseApplicationJson_Ocs extends ApiFavoriteCreateRe
   @override
   final JsonObject data;
 
-  factory _$ApiFavoriteCreateResponseApplicationJson_Ocs(
-          [void Function(ApiFavoriteCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiFavoriteCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiFavoriteCreateResponseApplicationJson_Ocs([
+    void Function(ApiFavoriteCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiFavoriteCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiFavoriteCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiFavoriteCreateResponseApplicationJson_Ocs rebuild(
-          void Function(ApiFavoriteCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiFavoriteCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiFavoriteCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -17385,7 +18586,8 @@ class ApiFavoriteCreateResponseApplicationJson_OcsBuilder
     ApiFavoriteCreateResponseApplicationJson_Ocs._validate(this);
     _$ApiFavoriteCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiFavoriteCreateResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'ApiFavoriteCreateResponseApplicationJson_Ocs', 'data'),
@@ -17416,15 +18618,15 @@ class _$ApiFavoriteCreateResponseApplicationJson extends ApiFavoriteCreateRespon
   @override
   final ApiFavoriteCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiFavoriteCreateResponseApplicationJson(
-          [void Function(ApiFavoriteCreateResponseApplicationJsonBuilder)? updates]) =>
-      (ApiFavoriteCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiFavoriteCreateResponseApplicationJson([
+    void Function(ApiFavoriteCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiFavoriteCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiFavoriteCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiFavoriteCreateResponseApplicationJson rebuild(
-          void Function(ApiFavoriteCreateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiFavoriteCreateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiFavoriteCreateResponseApplicationJsonBuilder toBuilder() =>
@@ -17491,10 +18693,7 @@ class ApiFavoriteCreateResponseApplicationJsonBuilder
     ApiFavoriteCreateResponseApplicationJson._validate(this);
     _$ApiFavoriteCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiFavoriteCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiFavoriteCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17526,15 +18725,15 @@ class _$ApiFavoriteDestroyResponseApplicationJson_Ocs extends ApiFavoriteDestroy
   @override
   final JsonObject data;
 
-  factory _$ApiFavoriteDestroyResponseApplicationJson_Ocs(
-          [void Function(ApiFavoriteDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiFavoriteDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiFavoriteDestroyResponseApplicationJson_Ocs([
+    void Function(ApiFavoriteDestroyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiFavoriteDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiFavoriteDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiFavoriteDestroyResponseApplicationJson_Ocs rebuild(
-          void Function(ApiFavoriteDestroyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiFavoriteDestroyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiFavoriteDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -17609,7 +18808,8 @@ class ApiFavoriteDestroyResponseApplicationJson_OcsBuilder
     ApiFavoriteDestroyResponseApplicationJson_Ocs._validate(this);
     _$ApiFavoriteDestroyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiFavoriteDestroyResponseApplicationJson_Ocs._(
             meta: meta.build(),
             data: BuiltValueNullFieldError.checkNotNull(data, r'ApiFavoriteDestroyResponseApplicationJson_Ocs', 'data'),
@@ -17640,15 +18840,15 @@ class _$ApiFavoriteDestroyResponseApplicationJson extends ApiFavoriteDestroyResp
   @override
   final ApiFavoriteDestroyResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiFavoriteDestroyResponseApplicationJson(
-          [void Function(ApiFavoriteDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (ApiFavoriteDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiFavoriteDestroyResponseApplicationJson([
+    void Function(ApiFavoriteDestroyResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiFavoriteDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiFavoriteDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiFavoriteDestroyResponseApplicationJson rebuild(
-          void Function(ApiFavoriteDestroyResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiFavoriteDestroyResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiFavoriteDestroyResponseApplicationJsonBuilder toBuilder() =>
@@ -17715,10 +18915,7 @@ class ApiFavoriteDestroyResponseApplicationJsonBuilder
     ApiFavoriteDestroyResponseApplicationJson._validate(this);
     _$ApiFavoriteDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiFavoriteDestroyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiFavoriteDestroyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17825,11 +19022,7 @@ class IndexBuilder implements Builder<Index, IndexBuilder>, $IndexInterfaceBuild
     Index._validate(this);
     _$Index _$result;
     try {
-      _$result = _$v ??
-          _$Index._(
-            tables: tables.build(),
-            views: views.build(),
-          );
+      _$result = _$v ?? _$Index._(tables: tables.build(), views: views.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17863,15 +19056,15 @@ class _$ApiGeneralIndexResponseApplicationJson_Ocs extends ApiGeneralIndexRespon
   @override
   final Index data;
 
-  factory _$ApiGeneralIndexResponseApplicationJson_Ocs(
-          [void Function(ApiGeneralIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGeneralIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiGeneralIndexResponseApplicationJson_Ocs([
+    void Function(ApiGeneralIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiGeneralIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiGeneralIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiGeneralIndexResponseApplicationJson_Ocs rebuild(
-          void Function(ApiGeneralIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiGeneralIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiGeneralIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -17946,11 +19139,7 @@ class ApiGeneralIndexResponseApplicationJson_OcsBuilder
     ApiGeneralIndexResponseApplicationJson_Ocs._validate(this);
     _$ApiGeneralIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiGeneralIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiGeneralIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -17979,15 +19168,15 @@ class _$ApiGeneralIndexResponseApplicationJson extends ApiGeneralIndexResponseAp
   @override
   final ApiGeneralIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiGeneralIndexResponseApplicationJson(
-          [void Function(ApiGeneralIndexResponseApplicationJsonBuilder)? updates]) =>
-      (ApiGeneralIndexResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiGeneralIndexResponseApplicationJson([
+    void Function(ApiGeneralIndexResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiGeneralIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiGeneralIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiGeneralIndexResponseApplicationJson rebuild(
-          void Function(ApiGeneralIndexResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiGeneralIndexResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiGeneralIndexResponseApplicationJsonBuilder toBuilder() =>
@@ -18054,10 +19243,7 @@ class ApiGeneralIndexResponseApplicationJsonBuilder
     ApiGeneralIndexResponseApplicationJson._validate(this);
     _$ApiGeneralIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiGeneralIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiGeneralIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18089,15 +19275,15 @@ class _$ApiTablesIndexResponseApplicationJson_Ocs extends ApiTablesIndexResponse
   @override
   final BuiltList<Table> data;
 
-  factory _$ApiTablesIndexResponseApplicationJson_Ocs(
-          [void Function(ApiTablesIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesIndexResponseApplicationJson_Ocs([
+    void Function(ApiTablesIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesIndexResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -18172,11 +19358,7 @@ class ApiTablesIndexResponseApplicationJson_OcsBuilder
     ApiTablesIndexResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18205,9 +19387,9 @@ class _$ApiTablesIndexResponseApplicationJson extends ApiTablesIndexResponseAppl
   @override
   final ApiTablesIndexResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesIndexResponseApplicationJson(
-          [void Function(ApiTablesIndexResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesIndexResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesIndexResponseApplicationJson([
+    void Function(ApiTablesIndexResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesIndexResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesIndexResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -18279,10 +19461,7 @@ class ApiTablesIndexResponseApplicationJsonBuilder
     ApiTablesIndexResponseApplicationJson._validate(this);
     _$ApiTablesIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18324,12 +19503,12 @@ class _$ApiTablesCreateRequestApplicationJson extends ApiTablesCreateRequestAppl
   @override
   final String template;
 
-  factory _$ApiTablesCreateRequestApplicationJson(
-          [void Function(ApiTablesCreateRequestApplicationJsonBuilder)? updates]) =>
-      (ApiTablesCreateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateRequestApplicationJson([
+    void Function(ApiTablesCreateRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesCreateRequestApplicationJson._({required this.title, this.emoji, this.description, required this.template})
-      : super._();
+    : super._();
   @override
   ApiTablesCreateRequestApplicationJson rebuild(void Function(ApiTablesCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -18423,13 +19602,17 @@ class ApiTablesCreateRequestApplicationJsonBuilder
 
   _$ApiTablesCreateRequestApplicationJson _build() {
     ApiTablesCreateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiTablesCreateRequestApplicationJson._(
           title: BuiltValueNullFieldError.checkNotNull(title, r'ApiTablesCreateRequestApplicationJson', 'title'),
           emoji: emoji,
           description: description,
-          template:
-              BuiltValueNullFieldError.checkNotNull(template, r'ApiTablesCreateRequestApplicationJson', 'template'),
+          template: BuiltValueNullFieldError.checkNotNull(
+            template,
+            r'ApiTablesCreateRequestApplicationJson',
+            'template',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -18452,15 +19635,15 @@ class _$ApiTablesCreateResponseApplicationJson_Ocs extends ApiTablesCreateRespon
   @override
   final Table data;
 
-  factory _$ApiTablesCreateResponseApplicationJson_Ocs(
-          [void Function(ApiTablesCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateResponseApplicationJson_Ocs([
+    void Function(ApiTablesCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesCreateResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -18535,11 +19718,7 @@ class ApiTablesCreateResponseApplicationJson_OcsBuilder
     ApiTablesCreateResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18568,15 +19747,15 @@ class _$ApiTablesCreateResponseApplicationJson extends ApiTablesCreateResponseAp
   @override
   final ApiTablesCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesCreateResponseApplicationJson(
-          [void Function(ApiTablesCreateResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateResponseApplicationJson([
+    void Function(ApiTablesCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesCreateResponseApplicationJson rebuild(
-          void Function(ApiTablesCreateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesCreateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesCreateResponseApplicationJsonBuilder toBuilder() =>
@@ -18643,10 +19822,7 @@ class ApiTablesCreateResponseApplicationJsonBuilder
     ApiTablesCreateResponseApplicationJson._validate(this);
     _$ApiTablesCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18678,15 +19854,15 @@ class _$ApiTablesShowResponseApplicationJson_Ocs extends ApiTablesShowResponseAp
   @override
   final Table data;
 
-  factory _$ApiTablesShowResponseApplicationJson_Ocs(
-          [void Function(ApiTablesShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesShowResponseApplicationJson_Ocs([
+    void Function(ApiTablesShowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesShowResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesShowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesShowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesShowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -18761,11 +19937,7 @@ class ApiTablesShowResponseApplicationJson_OcsBuilder
     ApiTablesShowResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesShowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18794,9 +19966,9 @@ class _$ApiTablesShowResponseApplicationJson extends ApiTablesShowResponseApplic
   @override
   final ApiTablesShowResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesShowResponseApplicationJson(
-          [void Function(ApiTablesShowResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesShowResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesShowResponseApplicationJson([
+    void Function(ApiTablesShowResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesShowResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesShowResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -18868,10 +20040,7 @@ class ApiTablesShowResponseApplicationJsonBuilder
     ApiTablesShowResponseApplicationJson._validate(this);
     _$ApiTablesShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesShowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesShowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -18913,9 +20082,9 @@ class _$ApiTablesUpdateRequestApplicationJson extends ApiTablesUpdateRequestAppl
   @override
   final bool? archived;
 
-  factory _$ApiTablesUpdateRequestApplicationJson(
-          [void Function(ApiTablesUpdateRequestApplicationJsonBuilder)? updates]) =>
-      (ApiTablesUpdateRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesUpdateRequestApplicationJson([
+    void Function(ApiTablesUpdateRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesUpdateRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesUpdateRequestApplicationJson._({this.title, this.emoji, this.description, this.archived}) : super._();
   @override
@@ -19011,7 +20180,8 @@ class ApiTablesUpdateRequestApplicationJsonBuilder
 
   _$ApiTablesUpdateRequestApplicationJson _build() {
     ApiTablesUpdateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiTablesUpdateRequestApplicationJson._(
           title: title,
           emoji: emoji,
@@ -19039,15 +20209,15 @@ class _$ApiTablesUpdateResponseApplicationJson_Ocs extends ApiTablesUpdateRespon
   @override
   final Table data;
 
-  factory _$ApiTablesUpdateResponseApplicationJson_Ocs(
-          [void Function(ApiTablesUpdateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesUpdateResponseApplicationJson_Ocs([
+    void Function(ApiTablesUpdateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesUpdateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesUpdateResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesUpdateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesUpdateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesUpdateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -19122,11 +20292,7 @@ class ApiTablesUpdateResponseApplicationJson_OcsBuilder
     ApiTablesUpdateResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesUpdateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesUpdateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesUpdateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19155,15 +20321,15 @@ class _$ApiTablesUpdateResponseApplicationJson extends ApiTablesUpdateResponseAp
   @override
   final ApiTablesUpdateResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesUpdateResponseApplicationJson(
-          [void Function(ApiTablesUpdateResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesUpdateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesUpdateResponseApplicationJson([
+    void Function(ApiTablesUpdateResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesUpdateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesUpdateResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesUpdateResponseApplicationJson rebuild(
-          void Function(ApiTablesUpdateResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesUpdateResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesUpdateResponseApplicationJsonBuilder toBuilder() =>
@@ -19230,10 +20396,7 @@ class ApiTablesUpdateResponseApplicationJsonBuilder
     ApiTablesUpdateResponseApplicationJson._validate(this);
     _$ApiTablesUpdateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesUpdateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesUpdateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19265,15 +20428,15 @@ class _$ApiTablesDestroyResponseApplicationJson_Ocs extends ApiTablesDestroyResp
   @override
   final Table data;
 
-  factory _$ApiTablesDestroyResponseApplicationJson_Ocs(
-          [void Function(ApiTablesDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesDestroyResponseApplicationJson_Ocs([
+    void Function(ApiTablesDestroyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesDestroyResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesDestroyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesDestroyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -19348,11 +20511,7 @@ class ApiTablesDestroyResponseApplicationJson_OcsBuilder
     ApiTablesDestroyResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesDestroyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesDestroyResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesDestroyResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19381,15 +20540,15 @@ class _$ApiTablesDestroyResponseApplicationJson extends ApiTablesDestroyResponse
   @override
   final ApiTablesDestroyResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesDestroyResponseApplicationJson(
-          [void Function(ApiTablesDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesDestroyResponseApplicationJson([
+    void Function(ApiTablesDestroyResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesDestroyResponseApplicationJson rebuild(
-          void Function(ApiTablesDestroyResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesDestroyResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesDestroyResponseApplicationJsonBuilder toBuilder() =>
@@ -19456,10 +20615,7 @@ class ApiTablesDestroyResponseApplicationJsonBuilder
     ApiTablesDestroyResponseApplicationJson._validate(this);
     _$ApiTablesDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesDestroyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesDestroyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19491,15 +20647,15 @@ class _$ApiTablesShowSchemeResponseApplicationJson_Ocs extends ApiTablesShowSche
   @override
   final Table data;
 
-  factory _$ApiTablesShowSchemeResponseApplicationJson_Ocs(
-          [void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesShowSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesShowSchemeResponseApplicationJson_Ocs([
+    void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesShowSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesShowSchemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesShowSchemeResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesShowSchemeResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesShowSchemeResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -19574,11 +20730,7 @@ class ApiTablesShowSchemeResponseApplicationJson_OcsBuilder
     ApiTablesShowSchemeResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesShowSchemeResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesShowSchemeResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesShowSchemeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19588,7 +20740,10 @@ class ApiTablesShowSchemeResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiTablesShowSchemeResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiTablesShowSchemeResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -19608,15 +20763,15 @@ class _$ApiTablesShowSchemeResponseApplicationJson extends ApiTablesShowSchemeRe
   @override
   final ApiTablesShowSchemeResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesShowSchemeResponseApplicationJson(
-          [void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesShowSchemeResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesShowSchemeResponseApplicationJson([
+    void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesShowSchemeResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesShowSchemeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesShowSchemeResponseApplicationJson rebuild(
-          void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesShowSchemeResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesShowSchemeResponseApplicationJsonBuilder toBuilder() =>
@@ -19683,10 +20838,7 @@ class ApiTablesShowSchemeResponseApplicationJsonBuilder
     ApiTablesShowSchemeResponseApplicationJson._validate(this);
     _$ApiTablesShowSchemeResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesShowSchemeResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesShowSchemeResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19733,17 +20885,21 @@ class _$ApiTablesCreateFromSchemeRequestApplicationJson extends ApiTablesCreateF
   @override
   final BuiltList<View> views;
 
-  factory _$ApiTablesCreateFromSchemeRequestApplicationJson(
-          [void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder)? updates]) =>
-      (ApiTablesCreateFromSchemeRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateFromSchemeRequestApplicationJson([
+    void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesCreateFromSchemeRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ApiTablesCreateFromSchemeRequestApplicationJson._(
-      {required this.title, required this.emoji, required this.description, required this.columns, required this.views})
-      : super._();
+  _$ApiTablesCreateFromSchemeRequestApplicationJson._({
+    required this.title,
+    required this.emoji,
+    required this.description,
+    required this.columns,
+    required this.views,
+  }) : super._();
   @override
   ApiTablesCreateFromSchemeRequestApplicationJson rebuild(
-          void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesCreateFromSchemeRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesCreateFromSchemeRequestApplicationJsonBuilder toBuilder() =>
@@ -19786,8 +20942,10 @@ class _$ApiTablesCreateFromSchemeRequestApplicationJson extends ApiTablesCreateF
 
 class ApiTablesCreateFromSchemeRequestApplicationJsonBuilder
     implements
-        Builder<ApiTablesCreateFromSchemeRequestApplicationJson,
-            ApiTablesCreateFromSchemeRequestApplicationJsonBuilder>,
+        Builder<
+          ApiTablesCreateFromSchemeRequestApplicationJson,
+          ApiTablesCreateFromSchemeRequestApplicationJsonBuilder
+        >,
         $ApiTablesCreateFromSchemeRequestApplicationJsonInterfaceBuilder {
   _$ApiTablesCreateFromSchemeRequestApplicationJson? _$v;
 
@@ -19845,14 +21003,24 @@ class ApiTablesCreateFromSchemeRequestApplicationJsonBuilder
     ApiTablesCreateFromSchemeRequestApplicationJson._validate(this);
     _$ApiTablesCreateFromSchemeRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ApiTablesCreateFromSchemeRequestApplicationJson._(
             title: BuiltValueNullFieldError.checkNotNull(
-                title, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'title'),
+              title,
+              r'ApiTablesCreateFromSchemeRequestApplicationJson',
+              'title',
+            ),
             emoji: BuiltValueNullFieldError.checkNotNull(
-                emoji, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'emoji'),
+              emoji,
+              r'ApiTablesCreateFromSchemeRequestApplicationJson',
+              'emoji',
+            ),
             description: BuiltValueNullFieldError.checkNotNull(
-                description, r'ApiTablesCreateFromSchemeRequestApplicationJson', 'description'),
+              description,
+              r'ApiTablesCreateFromSchemeRequestApplicationJson',
+              'description',
+            ),
             columns: columns.build(),
             views: views.build(),
           );
@@ -19865,7 +21033,10 @@ class ApiTablesCreateFromSchemeRequestApplicationJsonBuilder
         views.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiTablesCreateFromSchemeRequestApplicationJson', _$failedField, e.toString());
+          r'ApiTablesCreateFromSchemeRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -19891,15 +21062,15 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
   @override
   final Table data;
 
-  factory _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs(
-          [void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs([
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesCreateFromSchemeResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -19931,8 +21102,10 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
 
 class ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
     implements
-        Builder<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
-            ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+          ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
+        >,
         $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterfaceBuilder {
   _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs? _$v;
 
@@ -19975,11 +21148,8 @@ class ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
     ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ApiTablesCreateFromSchemeResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -19989,7 +21159,10 @@ class ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ApiTablesCreateFromSchemeResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -20009,15 +21182,15 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson extends ApiTablesCreate
   @override
   final ApiTablesCreateFromSchemeResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesCreateFromSchemeResponseApplicationJson(
-          [void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesCreateFromSchemeResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesCreateFromSchemeResponseApplicationJson([
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesCreateFromSchemeResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesCreateFromSchemeResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesCreateFromSchemeResponseApplicationJson rebuild(
-          void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesCreateFromSchemeResponseApplicationJsonBuilder toBuilder() =>
@@ -20039,15 +21212,17 @@ class _$ApiTablesCreateFromSchemeResponseApplicationJson extends ApiTablesCreate
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiTablesCreateFromSchemeResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiTablesCreateFromSchemeResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
     implements
-        Builder<ApiTablesCreateFromSchemeResponseApplicationJson,
-            ApiTablesCreateFromSchemeResponseApplicationJsonBuilder>,
+        Builder<
+          ApiTablesCreateFromSchemeResponseApplicationJson,
+          ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
+        >,
         $ApiTablesCreateFromSchemeResponseApplicationJsonInterfaceBuilder {
   _$ApiTablesCreateFromSchemeResponseApplicationJson? _$v;
 
@@ -20086,10 +21261,7 @@ class ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
     ApiTablesCreateFromSchemeResponseApplicationJson._validate(this);
     _$ApiTablesCreateFromSchemeResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesCreateFromSchemeResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesCreateFromSchemeResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20097,7 +21269,10 @@ class ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ApiTablesCreateFromSchemeResponseApplicationJson', _$failedField, e.toString());
+          r'ApiTablesCreateFromSchemeResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -20117,15 +21292,15 @@ class _$ApiTablesTransferRequestApplicationJson extends ApiTablesTransferRequest
   @override
   final String newOwnerUserId;
 
-  factory _$ApiTablesTransferRequestApplicationJson(
-          [void Function(ApiTablesTransferRequestApplicationJsonBuilder)? updates]) =>
-      (ApiTablesTransferRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesTransferRequestApplicationJson([
+    void Function(ApiTablesTransferRequestApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesTransferRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesTransferRequestApplicationJson._({required this.newOwnerUserId}) : super._();
   @override
   ApiTablesTransferRequestApplicationJson rebuild(
-          void Function(ApiTablesTransferRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesTransferRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesTransferRequestApplicationJsonBuilder toBuilder() =>
@@ -20148,8 +21323,7 @@ class _$ApiTablesTransferRequestApplicationJson extends ApiTablesTransferRequest
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ApiTablesTransferRequestApplicationJson')
-          ..add('newOwnerUserId', newOwnerUserId))
-        .toString();
+      ..add('newOwnerUserId', newOwnerUserId)).toString();
   }
 }
 
@@ -20191,10 +21365,14 @@ class ApiTablesTransferRequestApplicationJsonBuilder
 
   _$ApiTablesTransferRequestApplicationJson _build() {
     ApiTablesTransferRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiTablesTransferRequestApplicationJson._(
           newOwnerUserId: BuiltValueNullFieldError.checkNotNull(
-              newOwnerUserId, r'ApiTablesTransferRequestApplicationJson', 'newOwnerUserId'),
+            newOwnerUserId,
+            r'ApiTablesTransferRequestApplicationJson',
+            'newOwnerUserId',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -20217,15 +21395,15 @@ class _$ApiTablesTransferResponseApplicationJson_Ocs extends ApiTablesTransferRe
   @override
   final Table data;
 
-  factory _$ApiTablesTransferResponseApplicationJson_Ocs(
-          [void Function(ApiTablesTransferResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiTablesTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiTablesTransferResponseApplicationJson_Ocs([
+    void Function(ApiTablesTransferResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiTablesTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiTablesTransferResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiTablesTransferResponseApplicationJson_Ocs rebuild(
-          void Function(ApiTablesTransferResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesTransferResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesTransferResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -20300,11 +21478,7 @@ class ApiTablesTransferResponseApplicationJson_OcsBuilder
     ApiTablesTransferResponseApplicationJson_Ocs._validate(this);
     _$ApiTablesTransferResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesTransferResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiTablesTransferResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20333,15 +21507,15 @@ class _$ApiTablesTransferResponseApplicationJson extends ApiTablesTransferRespon
   @override
   final ApiTablesTransferResponseApplicationJson_Ocs ocs;
 
-  factory _$ApiTablesTransferResponseApplicationJson(
-          [void Function(ApiTablesTransferResponseApplicationJsonBuilder)? updates]) =>
-      (ApiTablesTransferResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ApiTablesTransferResponseApplicationJson([
+    void Function(ApiTablesTransferResponseApplicationJsonBuilder)? updates,
+  ]) => (ApiTablesTransferResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ApiTablesTransferResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ApiTablesTransferResponseApplicationJson rebuild(
-          void Function(ApiTablesTransferResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiTablesTransferResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiTablesTransferResponseApplicationJsonBuilder toBuilder() =>
@@ -20408,10 +21582,7 @@ class ApiTablesTransferResponseApplicationJsonBuilder
     ApiTablesTransferResponseApplicationJson._validate(this);
     _$ApiTablesTransferResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiTablesTransferResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiTablesTransferResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20465,14 +21636,14 @@ class _$Context extends Context {
 
   factory _$Context([void Function(ContextBuilder)? updates]) => (ContextBuilder()..update(updates))._build();
 
-  _$Context._(
-      {required this.id,
-      required this.name,
-      required this.iconName,
-      required this.description,
-      required this.owner,
-      required this.ownerType})
-      : super._();
+  _$Context._({
+    required this.id,
+    required this.name,
+    required this.iconName,
+    required this.description,
+    required this.owner,
+    required this.ownerType,
+  }) : super._();
   @override
   Context rebuild(void Function(ContextBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -20577,7 +21748,8 @@ class ContextBuilder implements Builder<Context, ContextBuilder>, $ContextInterf
 
   _$Context _build() {
     Context._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Context._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'Context', 'id'),
           name: BuiltValueNullFieldError.checkNotNull(name, r'Context', 'name'),
@@ -20607,15 +21779,15 @@ class _$ContextIndexResponseApplicationJson_Ocs extends ContextIndexResponseAppl
   @override
   final BuiltList<Context> data;
 
-  factory _$ContextIndexResponseApplicationJson_Ocs(
-          [void Function(ContextIndexResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextIndexResponseApplicationJson_Ocs([
+    void Function(ContextIndexResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextIndexResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextIndexResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextIndexResponseApplicationJson_Ocs rebuild(
-          void Function(ContextIndexResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextIndexResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextIndexResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -20690,11 +21862,7 @@ class ContextIndexResponseApplicationJson_OcsBuilder
     ContextIndexResponseApplicationJson_Ocs._validate(this);
     _$ContextIndexResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextIndexResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextIndexResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20795,10 +21963,7 @@ class ContextIndexResponseApplicationJsonBuilder
     ContextIndexResponseApplicationJson._validate(this);
     _$ContextIndexResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextIndexResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextIndexResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -20835,15 +22000,15 @@ class _$ContextCreateRequestApplicationJson_Nodes extends ContextCreateRequestAp
   @override
   final int? permissions;
 
-  factory _$ContextCreateRequestApplicationJson_Nodes(
-          [void Function(ContextCreateRequestApplicationJson_NodesBuilder)? updates]) =>
-      (ContextCreateRequestApplicationJson_NodesBuilder()..update(updates))._build();
+  factory _$ContextCreateRequestApplicationJson_Nodes([
+    void Function(ContextCreateRequestApplicationJson_NodesBuilder)? updates,
+  ]) => (ContextCreateRequestApplicationJson_NodesBuilder()..update(updates))._build();
 
   _$ContextCreateRequestApplicationJson_Nodes._({required this.id, required this.type, this.permissions}) : super._();
   @override
   ContextCreateRequestApplicationJson_Nodes rebuild(
-          void Function(ContextCreateRequestApplicationJson_NodesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextCreateRequestApplicationJson_NodesBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextCreateRequestApplicationJson_NodesBuilder toBuilder() =>
@@ -20926,7 +22091,8 @@ class ContextCreateRequestApplicationJson_NodesBuilder
 
   _$ContextCreateRequestApplicationJson_Nodes _build() {
     ContextCreateRequestApplicationJson_Nodes._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ContextCreateRequestApplicationJson_Nodes._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'ContextCreateRequestApplicationJson_Nodes', 'id'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'ContextCreateRequestApplicationJson_Nodes', 'type'),
@@ -20966,9 +22132,12 @@ class _$ContextCreateRequestApplicationJson extends ContextCreateRequestApplicat
   factory _$ContextCreateRequestApplicationJson([void Function(ContextCreateRequestApplicationJsonBuilder)? updates]) =>
       (ContextCreateRequestApplicationJsonBuilder()..update(updates))._build();
 
-  _$ContextCreateRequestApplicationJson._(
-      {required this.name, required this.iconName, required this.description, required this.nodes})
-      : super._();
+  _$ContextCreateRequestApplicationJson._({
+    required this.name,
+    required this.iconName,
+    required this.description,
+    required this.nodes,
+  }) : super._();
   @override
   ContextCreateRequestApplicationJson rebuild(void Function(ContextCreateRequestApplicationJsonBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -21064,13 +22233,20 @@ class ContextCreateRequestApplicationJsonBuilder
     ContextCreateRequestApplicationJson._validate(this);
     _$ContextCreateRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ContextCreateRequestApplicationJson._(
             name: BuiltValueNullFieldError.checkNotNull(name, r'ContextCreateRequestApplicationJson', 'name'),
-            iconName:
-                BuiltValueNullFieldError.checkNotNull(iconName, r'ContextCreateRequestApplicationJson', 'iconName'),
+            iconName: BuiltValueNullFieldError.checkNotNull(
+              iconName,
+              r'ContextCreateRequestApplicationJson',
+              'iconName',
+            ),
             description: BuiltValueNullFieldError.checkNotNull(
-                description, r'ContextCreateRequestApplicationJson', 'description'),
+              description,
+              r'ContextCreateRequestApplicationJson',
+              'description',
+            ),
             nodes: nodes.build(),
           );
     } catch (_) {
@@ -21104,15 +22280,15 @@ class _$ContextCreateResponseApplicationJson_Ocs extends ContextCreateResponseAp
   @override
   final Context data;
 
-  factory _$ContextCreateResponseApplicationJson_Ocs(
-          [void Function(ContextCreateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextCreateResponseApplicationJson_Ocs([
+    void Function(ContextCreateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextCreateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextCreateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextCreateResponseApplicationJson_Ocs rebuild(
-          void Function(ContextCreateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextCreateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextCreateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -21187,11 +22363,7 @@ class ContextCreateResponseApplicationJson_OcsBuilder
     ContextCreateResponseApplicationJson_Ocs._validate(this);
     _$ContextCreateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextCreateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextCreateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21220,9 +22392,9 @@ class _$ContextCreateResponseApplicationJson extends ContextCreateResponseApplic
   @override
   final ContextCreateResponseApplicationJson_Ocs ocs;
 
-  factory _$ContextCreateResponseApplicationJson(
-          [void Function(ContextCreateResponseApplicationJsonBuilder)? updates]) =>
-      (ContextCreateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextCreateResponseApplicationJson([
+    void Function(ContextCreateResponseApplicationJsonBuilder)? updates,
+  ]) => (ContextCreateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextCreateResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -21294,10 +22466,7 @@ class ContextCreateResponseApplicationJsonBuilder
     ContextCreateResponseApplicationJson._validate(this);
     _$ContextCreateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextCreateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextCreateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21329,15 +22498,15 @@ class _$ContextShowResponseApplicationJson_Ocs extends ContextShowResponseApplic
   @override
   final Context data;
 
-  factory _$ContextShowResponseApplicationJson_Ocs(
-          [void Function(ContextShowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextShowResponseApplicationJson_Ocs([
+    void Function(ContextShowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextShowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextShowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextShowResponseApplicationJson_Ocs rebuild(
-          void Function(ContextShowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextShowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextShowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -21412,11 +22581,7 @@ class ContextShowResponseApplicationJson_OcsBuilder
     ContextShowResponseApplicationJson_Ocs._validate(this);
     _$ContextShowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextShowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextShowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21517,10 +22682,7 @@ class ContextShowResponseApplicationJsonBuilder
     ContextShowResponseApplicationJson._validate(this);
     _$ContextShowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextShowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextShowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21562,17 +22724,20 @@ class _$ContextUpdateRequestApplicationJson_Nodes extends ContextUpdateRequestAp
   @override
   final int order;
 
-  factory _$ContextUpdateRequestApplicationJson_Nodes(
-          [void Function(ContextUpdateRequestApplicationJson_NodesBuilder)? updates]) =>
-      (ContextUpdateRequestApplicationJson_NodesBuilder()..update(updates))._build();
+  factory _$ContextUpdateRequestApplicationJson_Nodes([
+    void Function(ContextUpdateRequestApplicationJson_NodesBuilder)? updates,
+  ]) => (ContextUpdateRequestApplicationJson_NodesBuilder()..update(updates))._build();
 
-  _$ContextUpdateRequestApplicationJson_Nodes._(
-      {required this.id, required this.type, required this.permissions, required this.order})
-      : super._();
+  _$ContextUpdateRequestApplicationJson_Nodes._({
+    required this.id,
+    required this.type,
+    required this.permissions,
+    required this.order,
+  }) : super._();
   @override
   ContextUpdateRequestApplicationJson_Nodes rebuild(
-          void Function(ContextUpdateRequestApplicationJson_NodesBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateRequestApplicationJson_NodesBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateRequestApplicationJson_NodesBuilder toBuilder() =>
@@ -21663,12 +22828,16 @@ class ContextUpdateRequestApplicationJson_NodesBuilder
 
   _$ContextUpdateRequestApplicationJson_Nodes _build() {
     ContextUpdateRequestApplicationJson_Nodes._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ContextUpdateRequestApplicationJson_Nodes._(
           id: BuiltValueNullFieldError.checkNotNull(id, r'ContextUpdateRequestApplicationJson_Nodes', 'id'),
           type: BuiltValueNullFieldError.checkNotNull(type, r'ContextUpdateRequestApplicationJson_Nodes', 'type'),
           permissions: BuiltValueNullFieldError.checkNotNull(
-              permissions, r'ContextUpdateRequestApplicationJson_Nodes', 'permissions'),
+            permissions,
+            r'ContextUpdateRequestApplicationJson_Nodes',
+            'permissions',
+          ),
           order: BuiltValueNullFieldError.checkNotNull(order, r'ContextUpdateRequestApplicationJson_Nodes', 'order'),
         );
     replace(_$result);
@@ -21801,7 +22970,8 @@ class ContextUpdateRequestApplicationJsonBuilder
     ContextUpdateRequestApplicationJson._validate(this);
     _$ContextUpdateRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$ContextUpdateRequestApplicationJson._(
             name: name,
             iconName: iconName,
@@ -21839,15 +23009,15 @@ class _$ContextUpdateResponseApplicationJson_Ocs extends ContextUpdateResponseAp
   @override
   final Context data;
 
-  factory _$ContextUpdateResponseApplicationJson_Ocs(
-          [void Function(ContextUpdateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextUpdateResponseApplicationJson_Ocs([
+    void Function(ContextUpdateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextUpdateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextUpdateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextUpdateResponseApplicationJson_Ocs rebuild(
-          void Function(ContextUpdateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -21922,11 +23092,7 @@ class ContextUpdateResponseApplicationJson_OcsBuilder
     ContextUpdateResponseApplicationJson_Ocs._validate(this);
     _$ContextUpdateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextUpdateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextUpdateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -21955,9 +23121,9 @@ class _$ContextUpdateResponseApplicationJson extends ContextUpdateResponseApplic
   @override
   final ContextUpdateResponseApplicationJson_Ocs ocs;
 
-  factory _$ContextUpdateResponseApplicationJson(
-          [void Function(ContextUpdateResponseApplicationJsonBuilder)? updates]) =>
-      (ContextUpdateResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextUpdateResponseApplicationJson([
+    void Function(ContextUpdateResponseApplicationJsonBuilder)? updates,
+  ]) => (ContextUpdateResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextUpdateResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -22029,10 +23195,7 @@ class ContextUpdateResponseApplicationJsonBuilder
     ContextUpdateResponseApplicationJson._validate(this);
     _$ContextUpdateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextUpdateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextUpdateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22064,15 +23227,15 @@ class _$ContextDestroyResponseApplicationJson_Ocs extends ContextDestroyResponse
   @override
   final Context data;
 
-  factory _$ContextDestroyResponseApplicationJson_Ocs(
-          [void Function(ContextDestroyResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextDestroyResponseApplicationJson_Ocs([
+    void Function(ContextDestroyResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextDestroyResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextDestroyResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextDestroyResponseApplicationJson_Ocs rebuild(
-          void Function(ContextDestroyResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextDestroyResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextDestroyResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -22147,11 +23310,7 @@ class ContextDestroyResponseApplicationJson_OcsBuilder
     ContextDestroyResponseApplicationJson_Ocs._validate(this);
     _$ContextDestroyResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextDestroyResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextDestroyResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22180,9 +23339,9 @@ class _$ContextDestroyResponseApplicationJson extends ContextDestroyResponseAppl
   @override
   final ContextDestroyResponseApplicationJson_Ocs ocs;
 
-  factory _$ContextDestroyResponseApplicationJson(
-          [void Function(ContextDestroyResponseApplicationJsonBuilder)? updates]) =>
-      (ContextDestroyResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextDestroyResponseApplicationJson([
+    void Function(ContextDestroyResponseApplicationJsonBuilder)? updates,
+  ]) => (ContextDestroyResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextDestroyResponseApplicationJson._({required this.ocs}) : super._();
   @override
@@ -22254,10 +23413,7 @@ class ContextDestroyResponseApplicationJsonBuilder
     ContextDestroyResponseApplicationJson._validate(this);
     _$ContextDestroyResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextDestroyResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextDestroyResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22289,9 +23445,9 @@ class _$ContextTransferRequestApplicationJson extends ContextTransferRequestAppl
   @override
   final int newOwnerType;
 
-  factory _$ContextTransferRequestApplicationJson(
-          [void Function(ContextTransferRequestApplicationJsonBuilder)? updates]) =>
-      (ContextTransferRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextTransferRequestApplicationJson([
+    void Function(ContextTransferRequestApplicationJsonBuilder)? updates,
+  ]) => (ContextTransferRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextTransferRequestApplicationJson._({required this.newOwnerId, required this.newOwnerType}) : super._();
   @override
@@ -22371,12 +23527,19 @@ class ContextTransferRequestApplicationJsonBuilder
 
   _$ContextTransferRequestApplicationJson _build() {
     ContextTransferRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ContextTransferRequestApplicationJson._(
-          newOwnerId:
-              BuiltValueNullFieldError.checkNotNull(newOwnerId, r'ContextTransferRequestApplicationJson', 'newOwnerId'),
+          newOwnerId: BuiltValueNullFieldError.checkNotNull(
+            newOwnerId,
+            r'ContextTransferRequestApplicationJson',
+            'newOwnerId',
+          ),
           newOwnerType: BuiltValueNullFieldError.checkNotNull(
-              newOwnerType, r'ContextTransferRequestApplicationJson', 'newOwnerType'),
+            newOwnerType,
+            r'ContextTransferRequestApplicationJson',
+            'newOwnerType',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -22399,15 +23562,15 @@ class _$ContextTransferResponseApplicationJson_Ocs extends ContextTransferRespon
   @override
   final Context data;
 
-  factory _$ContextTransferResponseApplicationJson_Ocs(
-          [void Function(ContextTransferResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextTransferResponseApplicationJson_Ocs([
+    void Function(ContextTransferResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextTransferResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextTransferResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextTransferResponseApplicationJson_Ocs rebuild(
-          void Function(ContextTransferResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextTransferResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextTransferResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -22482,11 +23645,7 @@ class ContextTransferResponseApplicationJson_OcsBuilder
     ContextTransferResponseApplicationJson_Ocs._validate(this);
     _$ContextTransferResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextTransferResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ContextTransferResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22515,15 +23674,15 @@ class _$ContextTransferResponseApplicationJson extends ContextTransferResponseAp
   @override
   final ContextTransferResponseApplicationJson_Ocs ocs;
 
-  factory _$ContextTransferResponseApplicationJson(
-          [void Function(ContextTransferResponseApplicationJsonBuilder)? updates]) =>
-      (ContextTransferResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextTransferResponseApplicationJson([
+    void Function(ContextTransferResponseApplicationJsonBuilder)? updates,
+  ]) => (ContextTransferResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextTransferResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ContextTransferResponseApplicationJson rebuild(
-          void Function(ContextTransferResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextTransferResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextTransferResponseApplicationJsonBuilder toBuilder() =>
@@ -22590,10 +23749,7 @@ class ContextTransferResponseApplicationJsonBuilder
     ContextTransferResponseApplicationJson._validate(this);
     _$ContextTransferResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextTransferResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextTransferResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22626,15 +23782,15 @@ class _$ContextUpdateContentOrderRequestApplicationJson_Content
   @override
   final int order;
 
-  factory _$ContextUpdateContentOrderRequestApplicationJson_Content(
-          [void Function(ContextUpdateContentOrderRequestApplicationJson_ContentBuilder)? updates]) =>
-      (ContextUpdateContentOrderRequestApplicationJson_ContentBuilder()..update(updates))._build();
+  factory _$ContextUpdateContentOrderRequestApplicationJson_Content([
+    void Function(ContextUpdateContentOrderRequestApplicationJson_ContentBuilder)? updates,
+  ]) => (ContextUpdateContentOrderRequestApplicationJson_ContentBuilder()..update(updates))._build();
 
   _$ContextUpdateContentOrderRequestApplicationJson_Content._({required this.id, required this.order}) : super._();
   @override
   ContextUpdateContentOrderRequestApplicationJson_Content rebuild(
-          void Function(ContextUpdateContentOrderRequestApplicationJson_ContentBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateContentOrderRequestApplicationJson_ContentBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateContentOrderRequestApplicationJson_ContentBuilder toBuilder() =>
@@ -22666,8 +23822,10 @@ class _$ContextUpdateContentOrderRequestApplicationJson_Content
 
 class ContextUpdateContentOrderRequestApplicationJson_ContentBuilder
     implements
-        Builder<ContextUpdateContentOrderRequestApplicationJson_Content,
-            ContextUpdateContentOrderRequestApplicationJson_ContentBuilder>,
+        Builder<
+          ContextUpdateContentOrderRequestApplicationJson_Content,
+          ContextUpdateContentOrderRequestApplicationJson_ContentBuilder
+        >,
         $ContextUpdateContentOrderRequestApplicationJson_ContentInterfaceBuilder {
   _$ContextUpdateContentOrderRequestApplicationJson_Content? _$v;
 
@@ -22708,12 +23866,19 @@ class ContextUpdateContentOrderRequestApplicationJson_ContentBuilder
 
   _$ContextUpdateContentOrderRequestApplicationJson_Content _build() {
     ContextUpdateContentOrderRequestApplicationJson_Content._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ContextUpdateContentOrderRequestApplicationJson_Content._(
           id: BuiltValueNullFieldError.checkNotNull(
-              id, r'ContextUpdateContentOrderRequestApplicationJson_Content', 'id'),
+            id,
+            r'ContextUpdateContentOrderRequestApplicationJson_Content',
+            'id',
+          ),
           order: BuiltValueNullFieldError.checkNotNull(
-              order, r'ContextUpdateContentOrderRequestApplicationJson_Content', 'order'),
+            order,
+            r'ContextUpdateContentOrderRequestApplicationJson_Content',
+            'order',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -22731,15 +23896,15 @@ class _$ContextUpdateContentOrderRequestApplicationJson extends ContextUpdateCon
   @override
   final ContextUpdateContentOrderRequestApplicationJson_Content content;
 
-  factory _$ContextUpdateContentOrderRequestApplicationJson(
-          [void Function(ContextUpdateContentOrderRequestApplicationJsonBuilder)? updates]) =>
-      (ContextUpdateContentOrderRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextUpdateContentOrderRequestApplicationJson([
+    void Function(ContextUpdateContentOrderRequestApplicationJsonBuilder)? updates,
+  ]) => (ContextUpdateContentOrderRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextUpdateContentOrderRequestApplicationJson._({required this.content}) : super._();
   @override
   ContextUpdateContentOrderRequestApplicationJson rebuild(
-          void Function(ContextUpdateContentOrderRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateContentOrderRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateContentOrderRequestApplicationJsonBuilder toBuilder() =>
@@ -22761,15 +23926,17 @@ class _$ContextUpdateContentOrderRequestApplicationJson extends ContextUpdateCon
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ContextUpdateContentOrderRequestApplicationJson')..add('content', content))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ContextUpdateContentOrderRequestApplicationJson')
+      ..add('content', content)).toString();
   }
 }
 
 class ContextUpdateContentOrderRequestApplicationJsonBuilder
     implements
-        Builder<ContextUpdateContentOrderRequestApplicationJson,
-            ContextUpdateContentOrderRequestApplicationJsonBuilder>,
+        Builder<
+          ContextUpdateContentOrderRequestApplicationJson,
+          ContextUpdateContentOrderRequestApplicationJsonBuilder
+        >,
         $ContextUpdateContentOrderRequestApplicationJsonInterfaceBuilder {
   _$ContextUpdateContentOrderRequestApplicationJson? _$v;
 
@@ -22809,10 +23976,7 @@ class ContextUpdateContentOrderRequestApplicationJsonBuilder
     ContextUpdateContentOrderRequestApplicationJson._validate(this);
     _$ContextUpdateContentOrderRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextUpdateContentOrderRequestApplicationJson._(
-            content: content.build(),
-          );
+      _$result = _$v ?? _$ContextUpdateContentOrderRequestApplicationJson._(content: content.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22820,7 +23984,10 @@ class ContextUpdateContentOrderRequestApplicationJsonBuilder
         content.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ContextUpdateContentOrderRequestApplicationJson', _$failedField, e.toString());
+          r'ContextUpdateContentOrderRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -22846,15 +24013,15 @@ class _$ContextUpdateContentOrderResponseApplicationJson_Ocs
   @override
   final Context data;
 
-  factory _$ContextUpdateContentOrderResponseApplicationJson_Ocs(
-          [void Function(ContextUpdateContentOrderResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ContextUpdateContentOrderResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ContextUpdateContentOrderResponseApplicationJson_Ocs([
+    void Function(ContextUpdateContentOrderResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ContextUpdateContentOrderResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ContextUpdateContentOrderResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ContextUpdateContentOrderResponseApplicationJson_Ocs rebuild(
-          void Function(ContextUpdateContentOrderResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateContentOrderResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateContentOrderResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -22886,8 +24053,10 @@ class _$ContextUpdateContentOrderResponseApplicationJson_Ocs
 
 class ContextUpdateContentOrderResponseApplicationJson_OcsBuilder
     implements
-        Builder<ContextUpdateContentOrderResponseApplicationJson_Ocs,
-            ContextUpdateContentOrderResponseApplicationJson_OcsBuilder>,
+        Builder<
+          ContextUpdateContentOrderResponseApplicationJson_Ocs,
+          ContextUpdateContentOrderResponseApplicationJson_OcsBuilder
+        >,
         $ContextUpdateContentOrderResponseApplicationJson_OcsInterfaceBuilder {
   _$ContextUpdateContentOrderResponseApplicationJson_Ocs? _$v;
 
@@ -22930,11 +24099,8 @@ class ContextUpdateContentOrderResponseApplicationJson_OcsBuilder
     ContextUpdateContentOrderResponseApplicationJson_Ocs._validate(this);
     _$ContextUpdateContentOrderResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ContextUpdateContentOrderResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$ContextUpdateContentOrderResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -22944,7 +24110,10 @@ class ContextUpdateContentOrderResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ContextUpdateContentOrderResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'ContextUpdateContentOrderResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -22964,15 +24133,15 @@ class _$ContextUpdateContentOrderResponseApplicationJson extends ContextUpdateCo
   @override
   final ContextUpdateContentOrderResponseApplicationJson_Ocs ocs;
 
-  factory _$ContextUpdateContentOrderResponseApplicationJson(
-          [void Function(ContextUpdateContentOrderResponseApplicationJsonBuilder)? updates]) =>
-      (ContextUpdateContentOrderResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$ContextUpdateContentOrderResponseApplicationJson([
+    void Function(ContextUpdateContentOrderResponseApplicationJsonBuilder)? updates,
+  ]) => (ContextUpdateContentOrderResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$ContextUpdateContentOrderResponseApplicationJson._({required this.ocs}) : super._();
   @override
   ContextUpdateContentOrderResponseApplicationJson rebuild(
-          void Function(ContextUpdateContentOrderResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ContextUpdateContentOrderResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ContextUpdateContentOrderResponseApplicationJsonBuilder toBuilder() =>
@@ -22994,15 +24163,17 @@ class _$ContextUpdateContentOrderResponseApplicationJson extends ContextUpdateCo
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ContextUpdateContentOrderResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ContextUpdateContentOrderResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class ContextUpdateContentOrderResponseApplicationJsonBuilder
     implements
-        Builder<ContextUpdateContentOrderResponseApplicationJson,
-            ContextUpdateContentOrderResponseApplicationJsonBuilder>,
+        Builder<
+          ContextUpdateContentOrderResponseApplicationJson,
+          ContextUpdateContentOrderResponseApplicationJsonBuilder
+        >,
         $ContextUpdateContentOrderResponseApplicationJsonInterfaceBuilder {
   _$ContextUpdateContentOrderResponseApplicationJson? _$v;
 
@@ -23041,10 +24212,7 @@ class ContextUpdateContentOrderResponseApplicationJsonBuilder
     ContextUpdateContentOrderResponseApplicationJson._validate(this);
     _$ContextUpdateContentOrderResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ContextUpdateContentOrderResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ContextUpdateContentOrderResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23052,7 +24220,10 @@ class ContextUpdateContentOrderResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'ContextUpdateContentOrderResponseApplicationJson', _$failedField, e.toString());
+          r'ContextUpdateContentOrderResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -23072,9 +24243,9 @@ class _$RowocsCreateRowRequestApplicationJson extends RowocsCreateRowRequestAppl
   @override
   final RowocsCreateRowRequestApplicationJson_Data data;
 
-  factory _$RowocsCreateRowRequestApplicationJson(
-          [void Function(RowocsCreateRowRequestApplicationJsonBuilder)? updates]) =>
-      (RowocsCreateRowRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$RowocsCreateRowRequestApplicationJson([
+    void Function(RowocsCreateRowRequestApplicationJsonBuilder)? updates,
+  ]) => (RowocsCreateRowRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$RowocsCreateRowRequestApplicationJson._({required this.data}) : super._();
   @override
@@ -23144,7 +24315,8 @@ class RowocsCreateRowRequestApplicationJsonBuilder
 
   _$RowocsCreateRowRequestApplicationJson _build() {
     RowocsCreateRowRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$RowocsCreateRowRequestApplicationJson._(
           data: BuiltValueNullFieldError.checkNotNull(data, r'RowocsCreateRowRequestApplicationJson', 'data'),
         );
@@ -23169,15 +24341,15 @@ class _$RowocsCreateRowResponseApplicationJson_Ocs extends RowocsCreateRowRespon
   @override
   final Row data;
 
-  factory _$RowocsCreateRowResponseApplicationJson_Ocs(
-          [void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder)? updates]) =>
-      (RowocsCreateRowResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$RowocsCreateRowResponseApplicationJson_Ocs([
+    void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (RowocsCreateRowResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$RowocsCreateRowResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   RowocsCreateRowResponseApplicationJson_Ocs rebuild(
-          void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RowocsCreateRowResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RowocsCreateRowResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -23252,11 +24424,7 @@ class RowocsCreateRowResponseApplicationJson_OcsBuilder
     RowocsCreateRowResponseApplicationJson_Ocs._validate(this);
     _$RowocsCreateRowResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$RowocsCreateRowResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$RowocsCreateRowResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23285,15 +24453,15 @@ class _$RowocsCreateRowResponseApplicationJson extends RowocsCreateRowResponseAp
   @override
   final RowocsCreateRowResponseApplicationJson_Ocs ocs;
 
-  factory _$RowocsCreateRowResponseApplicationJson(
-          [void Function(RowocsCreateRowResponseApplicationJsonBuilder)? updates]) =>
-      (RowocsCreateRowResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$RowocsCreateRowResponseApplicationJson([
+    void Function(RowocsCreateRowResponseApplicationJsonBuilder)? updates,
+  ]) => (RowocsCreateRowResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$RowocsCreateRowResponseApplicationJson._({required this.ocs}) : super._();
   @override
   RowocsCreateRowResponseApplicationJson rebuild(
-          void Function(RowocsCreateRowResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(RowocsCreateRowResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   RowocsCreateRowResponseApplicationJsonBuilder toBuilder() =>
@@ -23360,10 +24528,7 @@ class RowocsCreateRowResponseApplicationJsonBuilder
     RowocsCreateRowResponseApplicationJson._validate(this);
     _$RowocsCreateRowResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$RowocsCreateRowResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$RowocsCreateRowResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -23418,14 +24583,14 @@ class _$Capabilities_Tables extends Capabilities_Tables {
   factory _$Capabilities_Tables([void Function(Capabilities_TablesBuilder)? updates]) =>
       (Capabilities_TablesBuilder()..update(updates))._build();
 
-  _$Capabilities_Tables._(
-      {required this.enabled,
-      required this.version,
-      required this.apiVersions,
-      required this.features,
-      this.isCirclesEnabled,
-      required this.columnTypes})
-      : super._();
+  _$Capabilities_Tables._({
+    required this.enabled,
+    required this.version,
+    required this.apiVersions,
+    required this.features,
+    this.isCirclesEnabled,
+    required this.columnTypes,
+  }) : super._();
   @override
   Capabilities_Tables rebuild(void Function(Capabilities_TablesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -23534,7 +24699,8 @@ class Capabilities_TablesBuilder
     Capabilities_Tables._validate(this);
     _$Capabilities_Tables _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_Tables._(
             enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Tables', 'enabled'),
             version: BuiltValueNullFieldError.checkNotNull(version, r'Capabilities_Tables', 'version'),
@@ -23641,10 +24807,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            tables: tables.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(tables: tables.build());
     } catch (_) {
       late String _$failedField;
       try {

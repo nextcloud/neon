@@ -6,11 +6,7 @@ import 'package:neon_framework/widgets.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFeedIcon extends StatelessWidget {
-  const NewsFeedIcon({
-    required this.feed,
-    this.size = largeIconSize,
-    super.key,
-  });
+  const NewsFeedIcon({required this.feed, this.size = largeIconSize, super.key});
 
   final news.Feed feed;
   final double size;
@@ -21,17 +17,14 @@ class NewsFeedIcon extends StatelessWidget {
 
     return SizedBox.square(
       dimension: size,
-      child: faviconLink != null && faviconLink.isNotEmpty
-          ? NeonUriImage(
-              uri: Uri.parse(faviconLink),
-              size: Size.square(size),
-              account: NeonProvider.of<Account>(context),
-            )
-          : Icon(
-              Icons.rss_feed,
-              size: size,
-              color: Theme.of(context).colorScheme.primary,
-            ),
+      child:
+          faviconLink != null && faviconLink.isNotEmpty
+              ? NeonUriImage(
+                uri: Uri.parse(faviconLink),
+                size: Size.square(size),
+                account: NeonProvider.of<Account>(context),
+              )
+              : Icon(Icons.rss_feed, size: size, color: Theme.of(context).colorScheme.primary),
     );
   }
 }

@@ -9,63 +9,63 @@ part of 'dashboard.openapi.dart';
 Serializer<OCSMeta> _$oCSMetaSerializer = _$OCSMetaSerializer();
 Serializer<WidgetItem> _$widgetItemSerializer = _$WidgetItemSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs>
-    _$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer =
+_$dashboardApiGetWidgetItemsResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetItemsResponseApplicationJson>
-    _$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer =
+_$dashboardApiGetWidgetItemsResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer();
 Serializer<WidgetItems> _$widgetItemsSerializer = _$WidgetItemsSerializer();
 Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs>
-    _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer =
+_$dashboardApiGetWidgetItemsV2ResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetItemsV2ResponseApplicationJson>
-    _$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer =
+_$dashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer();
 Serializer<Widget_Buttons> _$widgetButtonsSerializer = _$Widget_ButtonsSerializer();
 Serializer<Widget> _$widgetSerializer = _$WidgetSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson_Ocs>
-    _$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer =
+_$dashboardApiGetWidgetsResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetWidgetsResponseApplicationJson> _$dashboardApiGetWidgetsResponseApplicationJsonSerializer =
     _$DashboardApiGetWidgetsResponseApplicationJsonSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data>
-    _$dashboardApiGetLayoutResponseApplicationJsonOcsDataSerializer =
+_$dashboardApiGetLayoutResponseApplicationJsonOcsDataSerializer =
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson_Ocs>
-    _$dashboardApiGetLayoutResponseApplicationJsonOcsSerializer =
+_$dashboardApiGetLayoutResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetLayoutResponseApplicationJson> _$dashboardApiGetLayoutResponseApplicationJsonSerializer =
     _$DashboardApiGetLayoutResponseApplicationJsonSerializer();
 Serializer<DashboardApiUpdateLayoutRequestApplicationJson> _$dashboardApiUpdateLayoutRequestApplicationJsonSerializer =
     _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data>
-    _$dashboardApiUpdateLayoutResponseApplicationJsonOcsDataSerializer =
+_$dashboardApiUpdateLayoutResponseApplicationJsonOcsDataSerializer =
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson_Ocs>
-    _$dashboardApiUpdateLayoutResponseApplicationJsonOcsSerializer =
+_$dashboardApiUpdateLayoutResponseApplicationJsonOcsSerializer =
     _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiUpdateLayoutResponseApplicationJson>
-    _$dashboardApiUpdateLayoutResponseApplicationJsonSerializer =
+_$dashboardApiUpdateLayoutResponseApplicationJsonSerializer =
     _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data>
-    _$dashboardApiGetStatusesResponseApplicationJsonOcsDataSerializer =
+_$dashboardApiGetStatusesResponseApplicationJsonOcsDataSerializer =
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson_Ocs>
-    _$dashboardApiGetStatusesResponseApplicationJsonOcsSerializer =
+_$dashboardApiGetStatusesResponseApplicationJsonOcsSerializer =
     _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiGetStatusesResponseApplicationJson> _$dashboardApiGetStatusesResponseApplicationJsonSerializer =
     _$DashboardApiGetStatusesResponseApplicationJsonSerializer();
 Serializer<DashboardApiUpdateStatusesRequestApplicationJson>
-    _$dashboardApiUpdateStatusesRequestApplicationJsonSerializer =
+_$dashboardApiUpdateStatusesRequestApplicationJsonSerializer =
     _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data>
-    _$dashboardApiUpdateStatusesResponseApplicationJsonOcsDataSerializer =
+_$dashboardApiUpdateStatusesResponseApplicationJsonOcsDataSerializer =
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson_Ocs>
-    _$dashboardApiUpdateStatusesResponseApplicationJsonOcsSerializer =
+_$dashboardApiUpdateStatusesResponseApplicationJsonOcsSerializer =
     _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer();
 Serializer<DashboardApiUpdateStatusesResponseApplicationJson>
-    _$dashboardApiUpdateStatusesResponseApplicationJsonSerializer =
+_$dashboardApiUpdateStatusesResponseApplicationJsonSerializer =
     _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer();
 
 class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
@@ -75,8 +75,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -106,8 +109,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -145,8 +151,11 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
   final String wireName = 'WidgetItem';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WidgetItem object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WidgetItem object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'subtitle',
       serializers.serialize(object.subtitle, specifiedType: const FullType(String)),
@@ -166,8 +175,11 @@ class _$WidgetItemSerializer implements StructuredSerializer<WidgetItem> {
   }
 
   @override
-  WidgetItem deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WidgetItem deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WidgetItemBuilder();
 
     final iterator = serialized.iterator;
@@ -206,23 +218,28 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
-    _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
+    _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType(BuiltList, const [const FullType(WidgetItem)])
-          ])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, const [
+          const FullType(String),
+          const FullType(BuiltList, const [const FullType(WidgetItem)]),
+        ]),
+      ),
     ];
 
     return result;
@@ -230,8 +247,10 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -244,11 +263,15 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
+          result.data.replace(
+            serializers.deserialize(
+              value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(BuiltList, const [const FullType(WidgetItem)])
-              ]))!);
+                const FullType(BuiltList, const [const FullType(WidgetItem)]),
+              ]),
+            )!,
+          );
           break;
       }
     }
@@ -262,26 +285,34 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsResponseApplicationJson,
-    _$DashboardApiGetWidgetItemsResponseApplicationJson
+    _$DashboardApiGetWidgetItemsResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetItemsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetItemsResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetItemsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetWidgetItemsResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetItemsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -291,9 +322,13 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs))!
-              as DashboardApiGetWidgetItemsResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -309,8 +344,11 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
   final String wireName = 'WidgetItems';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WidgetItems object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WidgetItems object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'items',
       serializers.serialize(object.items, specifiedType: const FullType(BuiltList, const [const FullType(WidgetItem)])),
@@ -324,8 +362,11 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
   }
 
   @override
-  WidgetItems deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WidgetItems deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WidgetItemsBuilder();
 
     final iterator = serialized.iterator;
@@ -335,8 +376,13 @@ class _$WidgetItemsSerializer implements StructuredSerializer<WidgetItems> {
       final Object? value = iterator.current;
       switch (key) {
         case 'items':
-          result.items.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(WidgetItem)]))! as BuiltList<Object?>);
+          result.items.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(WidgetItem)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'emptyContentMessage':
           result.emptyContentMessage = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -357,20 +403,25 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
-    _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
+    _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(WidgetItems)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(WidgetItems)]),
+      ),
     ];
 
     return result;
@@ -378,8 +429,10 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -392,8 +445,12 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(WidgetItems)]))!);
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(WidgetItems)]),
+            )!,
+          );
           break;
       }
     }
@@ -407,26 +464,34 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetItemsV2ResponseApplicationJson,
-    _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
+    _$DashboardApiGetWidgetItemsV2ResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetItemsV2ResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetItemsV2ResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetItemsV2ResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetWidgetItemsV2ResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -436,9 +501,13 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs))!
-              as DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -454,8 +523,11 @@ class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons>
   final String wireName = 'Widget_Buttons';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Widget_Buttons object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Widget_Buttons object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'type',
       serializers.serialize(object.type, specifiedType: const FullType(String)),
@@ -469,8 +541,11 @@ class _$Widget_ButtonsSerializer implements StructuredSerializer<Widget_Buttons>
   }
 
   @override
-  Widget_Buttons deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Widget_Buttons deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Widget_ButtonsBuilder();
 
     final iterator = serialized.iterator;
@@ -517,8 +592,10 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
       'item_icons_round',
       serializers.serialize(object.itemIconsRound, specifiedType: const FullType(bool)),
       'item_api_versions',
-      serializers.serialize(object.itemApiVersions,
-          specifiedType: const FullType(BuiltList, const [const FullType(int)])),
+      serializers.serialize(
+        object.itemApiVersions,
+        specifiedType: const FullType(BuiltList, const [const FullType(int)]),
+      ),
       'reload_interval',
       serializers.serialize(object.reloadInterval, specifiedType: const FullType(int)),
     ];
@@ -533,15 +610,22 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
     if (value != null) {
       result
         ..add('buttons')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [const FullType(Widget_Buttons)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltList, const [const FullType(Widget_Buttons)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Widget deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Widget deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WidgetBuilder();
 
     final iterator = serialized.iterator;
@@ -572,15 +656,22 @@ class _$WidgetSerializer implements StructuredSerializer<Widget> {
           result.itemIconsRound = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
           break;
         case 'item_api_versions':
-          result.itemApiVersions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.itemApiVersions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'reload_interval':
           result.reloadInterval = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
           break;
         case 'buttons':
-          result.buttons.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(Widget_Buttons)]))! as BuiltList<Object?>);
+          result.buttons.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(Widget_Buttons)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -594,28 +685,36 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetsResponseApplicationJson_Ocs,
-    _$DashboardApiGetWidgetsResponseApplicationJson_Ocs
+    _$DashboardApiGetWidgetsResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetsResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetsResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetsResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Widget)])),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Widget)]),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetWidgetsResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -628,8 +727,12 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Widget)]))!);
+          result.data.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [const FullType(String), const FullType(Widget)]),
+            )!,
+          );
           break;
       }
     }
@@ -643,26 +746,34 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetWidgetsResponseApplicationJson,
-    _$DashboardApiGetWidgetsResponseApplicationJson
+    _$DashboardApiGetWidgetsResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiGetWidgetsResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetWidgetsResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetWidgetsResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetWidgetsResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetWidgetsResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetWidgetsResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -672,9 +783,13 @@ class _$DashboardApiGetWidgetsResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs))!
-              as DashboardApiGetWidgetsResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -688,14 +803,17 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
-    _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
+    _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetLayoutResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetLayoutResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'layout',
       serializers.serialize(object.layout, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -706,8 +824,10 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer
 
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -717,8 +837,10 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'layout':
-          result.layout.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.layout.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -732,28 +854,36 @@ class _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetLayoutResponseApplicationJson_Ocs,
-    _$DashboardApiGetLayoutResponseApplicationJson_Ocs
+    _$DashboardApiGetLayoutResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiGetLayoutResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetLayoutResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetLayoutResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetLayoutResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetLayoutResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetLayoutResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -766,9 +896,13 @@ class _$DashboardApiGetLayoutResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data))!
-              as DashboardApiGetLayoutResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data),
+                )!
+                as DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -782,26 +916,34 @@ class _$DashboardApiGetLayoutResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetLayoutResponseApplicationJson,
-    _$DashboardApiGetLayoutResponseApplicationJson
+    _$DashboardApiGetLayoutResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiGetLayoutResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetLayoutResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetLayoutResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetLayoutResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetLayoutResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetLayoutResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -811,9 +953,13 @@ class _$DashboardApiGetLayoutResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs))!
-              as DashboardApiGetLayoutResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiGetLayoutResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -827,14 +973,17 @@ class _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateLayoutRequestApplicationJson,
-    _$DashboardApiUpdateLayoutRequestApplicationJson
+    _$DashboardApiUpdateLayoutRequestApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiUpdateLayoutRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateLayoutRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateLayoutRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'layout',
       serializers.serialize(object.layout, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -844,8 +993,11 @@ class _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer
   }
 
   @override
-  DashboardApiUpdateLayoutRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiUpdateLayoutRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateLayoutRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -855,8 +1007,10 @@ class _$DashboardApiUpdateLayoutRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'layout':
-          result.layout.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.layout.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -870,14 +1024,17 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
-    _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
+    _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'layout',
       serializers.serialize(object.layout, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -888,8 +1045,10 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -899,8 +1058,10 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'layout':
-          result.layout.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.layout.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -914,28 +1075,36 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
-    _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs
+    _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiUpdateLayoutResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateLayoutResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateLayoutResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiUpdateLayoutResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiUpdateLayoutResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -948,9 +1117,13 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data))!
-              as DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data),
+                )!
+                as DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -964,26 +1137,34 @@ class _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateLayoutResponseApplicationJson,
-    _$DashboardApiUpdateLayoutResponseApplicationJson
+    _$DashboardApiUpdateLayoutResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiUpdateLayoutResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateLayoutResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateLayoutResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiUpdateLayoutResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiUpdateLayoutResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateLayoutResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -993,9 +1174,13 @@ class _$DashboardApiUpdateLayoutResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs))!
-              as DashboardApiUpdateLayoutResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1009,14 +1194,17 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
-    _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
+    _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetStatusesResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetStatusesResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'statuses',
       serializers.serialize(object.statuses, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -1027,8 +1215,10 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer
 
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1038,8 +1228,10 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'statuses':
-          result.statuses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.statuses.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1053,28 +1245,36 @@ class _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetStatusesResponseApplicationJson_Ocs,
-    _$DashboardApiGetStatusesResponseApplicationJson_Ocs
+    _$DashboardApiGetStatusesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiGetStatusesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetStatusesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetStatusesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetStatusesResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetStatusesResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetStatusesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1087,9 +1287,13 @@ class _$DashboardApiGetStatusesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data))!
-              as DashboardApiGetStatusesResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data),
+                )!
+                as DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1103,26 +1307,34 @@ class _$DashboardApiGetStatusesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiGetStatusesResponseApplicationJson,
-    _$DashboardApiGetStatusesResponseApplicationJson
+    _$DashboardApiGetStatusesResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiGetStatusesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiGetStatusesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiGetStatusesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiGetStatusesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiGetStatusesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiGetStatusesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1132,9 +1344,13 @@ class _$DashboardApiGetStatusesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs))!
-              as DashboardApiGetStatusesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiGetStatusesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1148,14 +1364,17 @@ class _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateStatusesRequestApplicationJson,
-    _$DashboardApiUpdateStatusesRequestApplicationJson
+    _$DashboardApiUpdateStatusesRequestApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiUpdateStatusesRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateStatusesRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateStatusesRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'statuses',
       serializers.serialize(object.statuses, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -1165,8 +1384,11 @@ class _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer
   }
 
   @override
-  DashboardApiUpdateStatusesRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiUpdateStatusesRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateStatusesRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1176,8 +1398,10 @@ class _$DashboardApiUpdateStatusesRequestApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'statuses':
-          result.statuses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.statuses.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1191,15 +1415,17 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
-    _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
+    _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'statuses',
       serializers.serialize(object.statuses, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
@@ -1210,8 +1436,10 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -1221,8 +1449,10 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'statuses':
-          result.statuses.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.statuses.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
       }
     }
@@ -1236,20 +1466,25 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
-    _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs
+    _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
   ];
   @override
   final String wireName = 'DashboardApiUpdateStatusesResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateStatusesResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateStatusesResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
       'data',
-      serializers.serialize(object.data,
-          specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data)),
+      serializers.serialize(
+        object.data,
+        specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data),
+      ),
     ];
 
     return result;
@@ -1257,8 +1492,10 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs deserialize(
-      Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -1271,9 +1508,13 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data))!
-              as DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data),
+                )!
+                as DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -1287,26 +1528,34 @@ class _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer
   @override
   final Iterable<Type> types = const [
     DashboardApiUpdateStatusesResponseApplicationJson,
-    _$DashboardApiUpdateStatusesResponseApplicationJson
+    _$DashboardApiUpdateStatusesResponseApplicationJson,
   ];
   @override
   final String wireName = 'DashboardApiUpdateStatusesResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DashboardApiUpdateStatusesResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DashboardApiUpdateStatusesResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
-      serializers.serialize(object.ocs,
-          specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs)),
+      serializers.serialize(
+        object.ocs,
+        specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs),
+      ),
     ];
 
     return result;
   }
 
   @override
-  DashboardApiUpdateStatusesResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DashboardApiUpdateStatusesResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DashboardApiUpdateStatusesResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -1316,9 +1565,13 @@ class _$DashboardApiUpdateStatusesResponseApplicationJsonSerializer
       final Object? value = iterator.current;
       switch (key) {
         case 'ocs':
-          result.ocs.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs))!
-              as DashboardApiUpdateStatusesResponseApplicationJson_Ocs);
+          result.ocs.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs),
+                )!
+                as DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -1361,7 +1614,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1458,7 +1711,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -1509,14 +1763,14 @@ class _$WidgetItem extends WidgetItem {
 
   factory _$WidgetItem([void Function(WidgetItemBuilder)? updates]) => (WidgetItemBuilder()..update(updates))._build();
 
-  _$WidgetItem._(
-      {required this.subtitle,
-      required this.title,
-      required this.link,
-      required this.iconUrl,
-      required this.overlayIconUrl,
-      required this.sinceId})
-      : super._();
+  _$WidgetItem._({
+    required this.subtitle,
+    required this.title,
+    required this.link,
+    required this.iconUrl,
+    required this.overlayIconUrl,
+    required this.sinceId,
+  }) : super._();
   @override
   WidgetItem rebuild(void Function(WidgetItemBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1621,7 +1875,8 @@ class WidgetItemBuilder implements Builder<WidgetItem, WidgetItemBuilder>, $Widg
 
   _$WidgetItem _build() {
     WidgetItem._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$WidgetItem._(
           subtitle: BuiltValueNullFieldError.checkNotNull(subtitle, r'WidgetItem', 'subtitle'),
           title: BuiltValueNullFieldError.checkNotNull(title, r'WidgetItem', 'title'),
@@ -1652,15 +1907,15 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
   @override
   final BuiltMap<String, BuiltList<WidgetItem>> data;
 
-  factory _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1692,8 +1947,10 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
 
 class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs? _$v;
 
@@ -1736,11 +1993,8 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1750,7 +2004,10 @@ class DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiGetWidgetItemsResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -1770,15 +2027,15 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
   @override
   final DashboardApiGetWidgetItemsResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiGetWidgetItemsResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetItemsResponseApplicationJson([
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiGetWidgetItemsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetItemsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetItemsResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsResponseApplicationJsonBuilder toBuilder() =>
@@ -1800,15 +2057,17 @@ class _$DashboardApiGetWidgetItemsResponseApplicationJson extends DashboardApiGe
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
     implements
-        Builder<DashboardApiGetWidgetItemsResponseApplicationJson,
-            DashboardApiGetWidgetItemsResponseApplicationJsonBuilder>,
+        Builder<
+          DashboardApiGetWidgetItemsResponseApplicationJson,
+          DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
+        >,
         $DashboardApiGetWidgetItemsResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetItemsResponseApplicationJson? _$v;
 
@@ -1847,10 +2106,7 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
     DashboardApiGetWidgetItemsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetItemsResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetWidgetItemsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1858,7 +2114,10 @@ class DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsResponseApplicationJson', _$failedField, e.toString());
+          r'DashboardApiGetWidgetItemsResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -1892,7 +2151,7 @@ class _$WidgetItems extends WidgetItems {
       (WidgetItemsBuilder()..update(updates))._build();
 
   _$WidgetItems._({required this.items, required this.emptyContentMessage, required this.halfEmptyContentMessage})
-      : super._();
+    : super._();
   @override
   WidgetItems rebuild(void Function(WidgetItemsBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1976,13 +2235,20 @@ class WidgetItemsBuilder implements Builder<WidgetItems, WidgetItemsBuilder>, $W
     WidgetItems._validate(this);
     _$WidgetItems _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$WidgetItems._(
             items: items.build(),
-            emptyContentMessage:
-                BuiltValueNullFieldError.checkNotNull(emptyContentMessage, r'WidgetItems', 'emptyContentMessage'),
+            emptyContentMessage: BuiltValueNullFieldError.checkNotNull(
+              emptyContentMessage,
+              r'WidgetItems',
+              'emptyContentMessage',
+            ),
             halfEmptyContentMessage: BuiltValueNullFieldError.checkNotNull(
-                halfEmptyContentMessage, r'WidgetItems', 'halfEmptyContentMessage'),
+              halfEmptyContentMessage,
+              r'WidgetItems',
+              'halfEmptyContentMessage',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -2016,15 +2282,15 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
   @override
   final BuiltMap<String, WidgetItems> data;
 
-  factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2056,8 +2322,10 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
 
 class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs? _$v;
 
@@ -2100,11 +2368,8 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2114,7 +2379,10 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2135,15 +2403,15 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
   @override
   final DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetItemsV2ResponseApplicationJson([
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder toBuilder() =>
@@ -2165,15 +2433,17 @@ class _$DashboardApiGetWidgetItemsV2ResponseApplicationJson
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsV2ResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiGetWidgetItemsV2ResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
     implements
-        Builder<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
-            DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder>,
+        Builder<
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson,
+          DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
+        >,
         $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiGetWidgetItemsV2ResponseApplicationJson? _$v;
 
@@ -2212,10 +2482,7 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
     DashboardApiGetWidgetItemsV2ResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetItemsV2ResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetWidgetItemsV2ResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2223,7 +2490,10 @@ class DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetItemsV2ResponseApplicationJson', _$failedField, e.toString());
+          r'DashboardApiGetWidgetItemsV2ResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2334,7 +2604,8 @@ class Widget_ButtonsBuilder implements Builder<Widget_Buttons, Widget_ButtonsBui
 
   _$Widget_Buttons _build() {
     Widget_Buttons._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Widget_Buttons._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'Widget_Buttons', 'type'),
           text: BuiltValueNullFieldError.checkNotNull(text, r'Widget_Buttons', 'text'),
@@ -2403,18 +2674,18 @@ class _$Widget extends Widget {
 
   factory _$Widget([void Function(WidgetBuilder)? updates]) => (WidgetBuilder()..update(updates))._build();
 
-  _$Widget._(
-      {required this.id,
-      required this.title,
-      required this.order,
-      required this.iconClass,
-      required this.iconUrl,
-      this.widgetUrl,
-      required this.itemIconsRound,
-      required this.itemApiVersions,
-      required this.reloadInterval,
-      this.buttons})
-      : super._();
+  _$Widget._({
+    required this.id,
+    required this.title,
+    required this.order,
+    required this.iconClass,
+    required this.iconUrl,
+    this.widgetUrl,
+    required this.itemIconsRound,
+    required this.itemApiVersions,
+    required this.reloadInterval,
+    this.buttons,
+  }) : super._();
   @override
   Widget rebuild(void Function(WidgetBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2553,7 +2824,8 @@ class WidgetBuilder implements Builder<Widget, WidgetBuilder>, $WidgetInterfaceB
     Widget._validate(this);
     _$Widget _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Widget._(
             id: BuiltValueNullFieldError.checkNotNull(id, r'Widget', 'id'),
             title: BuiltValueNullFieldError.checkNotNull(title, r'Widget', 'title'),
@@ -2600,15 +2872,15 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
   @override
   final BuiltMap<String, Widget> data;
 
-  factory _$DashboardApiGetWidgetsResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetsResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetWidgetsResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2640,8 +2912,10 @@ class _$DashboardApiGetWidgetsResponseApplicationJson_Ocs extends DashboardApiGe
 
 class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiGetWidgetsResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetWidgetsResponseApplicationJson_Ocs? _$v;
 
@@ -2684,11 +2958,7 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
     DashboardApiGetWidgetsResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2698,7 +2968,10 @@ class DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetWidgetsResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiGetWidgetsResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2718,15 +2991,15 @@ class _$DashboardApiGetWidgetsResponseApplicationJson extends DashboardApiGetWid
   @override
   final DashboardApiGetWidgetsResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiGetWidgetsResponseApplicationJson(
-          [void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiGetWidgetsResponseApplicationJson([
+    void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiGetWidgetsResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiGetWidgetsResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetWidgetsResponseApplicationJson rebuild(
-          void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetWidgetsResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetWidgetsResponseApplicationJsonBuilder toBuilder() =>
@@ -2793,10 +3066,7 @@ class DashboardApiGetWidgetsResponseApplicationJsonBuilder
     DashboardApiGetWidgetsResponseApplicationJson._validate(this);
     _$DashboardApiGetWidgetsResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetWidgetsResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetWidgetsResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2824,15 +3094,15 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
   @override
   final BuiltList<String> layout;
 
-  factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data(
-          [void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -2855,15 +3125,16 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data')
-          ..add('layout', layout))
-        .toString();
+      ..add('layout', layout)).toString();
   }
 }
 
 class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
-            DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
+          DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data? _$v;
 
@@ -2901,10 +3172,7 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
     DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(
-            layout: layout.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson_Ocs_Data._(layout: layout.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -2912,7 +3180,10 @@ class DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
         layout.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DashboardApiGetLayoutResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -2937,15 +3208,15 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs extends DashboardApiGet
   @override
   final DashboardApiGetLayoutResponseApplicationJson_Ocs_Data data;
 
-  factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiGetLayoutResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiGetLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetLayoutResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -2977,8 +3248,10 @@ class _$DashboardApiGetLayoutResponseApplicationJson_Ocs extends DashboardApiGet
 
 class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiGetLayoutResponseApplicationJson_Ocs,
-            DashboardApiGetLayoutResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiGetLayoutResponseApplicationJson_Ocs,
+          DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiGetLayoutResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetLayoutResponseApplicationJson_Ocs? _$v;
 
@@ -3022,11 +3295,7 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
     DashboardApiGetLayoutResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3036,7 +3305,10 @@ class DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetLayoutResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiGetLayoutResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3056,15 +3328,15 @@ class _$DashboardApiGetLayoutResponseApplicationJson extends DashboardApiGetLayo
   @override
   final DashboardApiGetLayoutResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiGetLayoutResponseApplicationJson(
-          [void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetLayoutResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiGetLayoutResponseApplicationJson([
+    void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiGetLayoutResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiGetLayoutResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetLayoutResponseApplicationJson rebuild(
-          void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetLayoutResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetLayoutResponseApplicationJsonBuilder toBuilder() =>
@@ -3131,10 +3403,7 @@ class DashboardApiGetLayoutResponseApplicationJsonBuilder
     DashboardApiGetLayoutResponseApplicationJson._validate(this);
     _$DashboardApiGetLayoutResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetLayoutResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetLayoutResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3161,15 +3430,15 @@ class _$DashboardApiUpdateLayoutRequestApplicationJson extends DashboardApiUpdat
   @override
   final BuiltList<String> layout;
 
-  factory _$DashboardApiUpdateLayoutRequestApplicationJson(
-          [void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder)? updates]) =>
-      (DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateLayoutRequestApplicationJson([
+    void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiUpdateLayoutRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateLayoutRequestApplicationJson._({required this.layout}) : super._();
   @override
   DashboardApiUpdateLayoutRequestApplicationJson rebuild(
-          void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateLayoutRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateLayoutRequestApplicationJsonBuilder toBuilder() =>
@@ -3191,8 +3460,8 @@ class _$DashboardApiUpdateLayoutRequestApplicationJson extends DashboardApiUpdat
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiUpdateLayoutRequestApplicationJson')..add('layout', layout))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiUpdateLayoutRequestApplicationJson')
+      ..add('layout', layout)).toString();
   }
 }
 
@@ -3236,10 +3505,7 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
     DashboardApiUpdateLayoutRequestApplicationJson._validate(this);
     _$DashboardApiUpdateLayoutRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateLayoutRequestApplicationJson._(
-            layout: layout.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateLayoutRequestApplicationJson._(layout: layout.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3247,7 +3513,10 @@ class DashboardApiUpdateLayoutRequestApplicationJsonBuilder
         layout.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateLayoutRequestApplicationJson', _$failedField, e.toString());
+          r'DashboardApiUpdateLayoutRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3268,15 +3537,15 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
   @override
   final BuiltList<String> layout;
 
-  factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data(
-          [void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._({required this.layout}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -3299,15 +3568,16 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data')
-          ..add('layout', layout))
-        .toString();
+      ..add('layout', layout)).toString();
   }
 }
 
 class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
-            DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data? _$v;
 
@@ -3345,10 +3615,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(
-            layout: layout.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data._(layout: layout.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3356,7 +3623,10 @@ class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
         layout.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3382,15 +3652,15 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs
   @override
   final DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data data;
 
-  factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs(
-          [void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3422,8 +3692,10 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs
 
 class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
-            DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
+          DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs? _$v;
 
@@ -3467,11 +3739,7 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
     DashboardApiUpdateLayoutResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3481,7 +3749,10 @@ class DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiUpdateLayoutResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3501,15 +3772,15 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson extends DashboardApiUpda
   @override
   final DashboardApiUpdateLayoutResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiUpdateLayoutResponseApplicationJson(
-          [void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateLayoutResponseApplicationJson([
+    void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiUpdateLayoutResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateLayoutResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiUpdateLayoutResponseApplicationJson rebuild(
-          void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateLayoutResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateLayoutResponseApplicationJsonBuilder toBuilder() =>
@@ -3531,15 +3802,17 @@ class _$DashboardApiUpdateLayoutResponseApplicationJson extends DashboardApiUpda
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiUpdateLayoutResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiUpdateLayoutResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
     implements
-        Builder<DashboardApiUpdateLayoutResponseApplicationJson,
-            DashboardApiUpdateLayoutResponseApplicationJsonBuilder>,
+        Builder<
+          DashboardApiUpdateLayoutResponseApplicationJson,
+          DashboardApiUpdateLayoutResponseApplicationJsonBuilder
+        >,
         $DashboardApiUpdateLayoutResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiUpdateLayoutResponseApplicationJson? _$v;
 
@@ -3578,10 +3851,7 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
     DashboardApiUpdateLayoutResponseApplicationJson._validate(this);
     _$DashboardApiUpdateLayoutResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateLayoutResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateLayoutResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3589,7 +3859,10 @@ class DashboardApiUpdateLayoutResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateLayoutResponseApplicationJson', _$failedField, e.toString());
+          r'DashboardApiUpdateLayoutResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3610,15 +3883,15 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
   @override
   final BuiltList<String> statuses;
 
-  factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data(
-          [void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -3641,15 +3914,16 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data')
-          ..add('statuses', statuses))
-        .toString();
+      ..add('statuses', statuses)).toString();
   }
 }
 
 class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
-            DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
+          DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data? _$v;
 
@@ -3687,10 +3961,7 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
     DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(
-            statuses: statuses.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson_Ocs_Data._(statuses: statuses.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3698,7 +3969,10 @@ class DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
         statuses.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DashboardApiGetStatusesResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3723,15 +3997,15 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs extends DashboardApiG
   @override
   final DashboardApiGetStatusesResponseApplicationJson_Ocs_Data data;
 
-  factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs(
-          [void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiGetStatusesResponseApplicationJson_Ocs([
+    void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiGetStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetStatusesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -3763,8 +4037,10 @@ class _$DashboardApiGetStatusesResponseApplicationJson_Ocs extends DashboardApiG
 
 class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiGetStatusesResponseApplicationJson_Ocs,
-            DashboardApiGetStatusesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiGetStatusesResponseApplicationJson_Ocs,
+          DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiGetStatusesResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiGetStatusesResponseApplicationJson_Ocs? _$v;
 
@@ -3808,11 +4084,7 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
     DashboardApiGetStatusesResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3822,7 +4094,10 @@ class DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetStatusesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiGetStatusesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3842,15 +4117,15 @@ class _$DashboardApiGetStatusesResponseApplicationJson extends DashboardApiGetSt
   @override
   final DashboardApiGetStatusesResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiGetStatusesResponseApplicationJson(
-          [void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiGetStatusesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiGetStatusesResponseApplicationJson([
+    void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiGetStatusesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiGetStatusesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiGetStatusesResponseApplicationJson rebuild(
-          void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiGetStatusesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiGetStatusesResponseApplicationJsonBuilder toBuilder() =>
@@ -3917,10 +4192,7 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
     DashboardApiGetStatusesResponseApplicationJson._validate(this);
     _$DashboardApiGetStatusesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiGetStatusesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiGetStatusesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -3928,7 +4200,10 @@ class DashboardApiGetStatusesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiGetStatusesResponseApplicationJson', _$failedField, e.toString());
+          r'DashboardApiGetStatusesResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -3948,15 +4223,15 @@ class _$DashboardApiUpdateStatusesRequestApplicationJson extends DashboardApiUpd
   @override
   final BuiltList<String> statuses;
 
-  factory _$DashboardApiUpdateStatusesRequestApplicationJson(
-          [void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder)? updates]) =>
-      (DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateStatusesRequestApplicationJson([
+    void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiUpdateStatusesRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateStatusesRequestApplicationJson._({required this.statuses}) : super._();
   @override
   DashboardApiUpdateStatusesRequestApplicationJson rebuild(
-          void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateStatusesRequestApplicationJsonBuilder toBuilder() =>
@@ -3978,15 +4253,17 @@ class _$DashboardApiUpdateStatusesRequestApplicationJson extends DashboardApiUpd
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiUpdateStatusesRequestApplicationJson')..add('statuses', statuses))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiUpdateStatusesRequestApplicationJson')
+      ..add('statuses', statuses)).toString();
   }
 }
 
 class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
     implements
-        Builder<DashboardApiUpdateStatusesRequestApplicationJson,
-            DashboardApiUpdateStatusesRequestApplicationJsonBuilder>,
+        Builder<
+          DashboardApiUpdateStatusesRequestApplicationJson,
+          DashboardApiUpdateStatusesRequestApplicationJsonBuilder
+        >,
         $DashboardApiUpdateStatusesRequestApplicationJsonInterfaceBuilder {
   _$DashboardApiUpdateStatusesRequestApplicationJson? _$v;
 
@@ -4024,10 +4301,7 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
     DashboardApiUpdateStatusesRequestApplicationJson._validate(this);
     _$DashboardApiUpdateStatusesRequestApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateStatusesRequestApplicationJson._(
-            statuses: statuses.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateStatusesRequestApplicationJson._(statuses: statuses.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4035,7 +4309,10 @@ class DashboardApiUpdateStatusesRequestApplicationJsonBuilder
         statuses.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateStatusesRequestApplicationJson', _$failedField, e.toString());
+          r'DashboardApiUpdateStatusesRequestApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4056,15 +4333,15 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
   @override
   final BuiltList<String> statuses;
 
-  factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data(
-          [void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._({required this.statuses}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data rebuild(
-          void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -4087,15 +4364,16 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data')
-          ..add('statuses', statuses))
-        .toString();
+      ..add('statuses', statuses)).toString();
   }
 }
 
 class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
     implements
-        Builder<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
-            DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder>,
+        Builder<
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
+        >,
         $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfaceBuilder {
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data? _$v;
 
@@ -4133,10 +4411,7 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(
-            statuses: statuses.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data._(statuses: statuses.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4144,7 +4419,10 @@ class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
         statuses.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data', _$failedField, e.toString());
+          r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4170,15 +4448,15 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs
   @override
   final DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data data;
 
-  factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs(
-          [void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder)? updates]) =>
-      (DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_Ocs rebuild(
-          void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -4210,8 +4488,10 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs
 
 class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
     implements
-        Builder<DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
-            DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder>,
+        Builder<
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
+          DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
+        >,
         $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterfaceBuilder {
   _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs? _$v;
 
@@ -4255,11 +4535,8 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
     DashboardApiUpdateStatusesResponseApplicationJson_Ocs._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result =
+          _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4269,7 +4546,10 @@ class DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
         data.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs', _$failedField, e.toString());
+          r'DashboardApiUpdateStatusesResponseApplicationJson_Ocs',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }
@@ -4289,15 +4569,15 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson extends DashboardApiUp
   @override
   final DashboardApiUpdateStatusesResponseApplicationJson_Ocs ocs;
 
-  factory _$DashboardApiUpdateStatusesResponseApplicationJson(
-          [void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder)? updates]) =>
-      (DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..update(updates))._build();
+  factory _$DashboardApiUpdateStatusesResponseApplicationJson([
+    void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder)? updates,
+  ]) => (DashboardApiUpdateStatusesResponseApplicationJsonBuilder()..update(updates))._build();
 
   _$DashboardApiUpdateStatusesResponseApplicationJson._({required this.ocs}) : super._();
   @override
   DashboardApiUpdateStatusesResponseApplicationJson rebuild(
-          void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   DashboardApiUpdateStatusesResponseApplicationJsonBuilder toBuilder() =>
@@ -4319,15 +4599,17 @@ class _$DashboardApiUpdateStatusesResponseApplicationJson extends DashboardApiUp
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'DashboardApiUpdateStatusesResponseApplicationJson')..add('ocs', ocs))
-        .toString();
+    return (newBuiltValueToStringHelper(r'DashboardApiUpdateStatusesResponseApplicationJson')
+      ..add('ocs', ocs)).toString();
   }
 }
 
 class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
     implements
-        Builder<DashboardApiUpdateStatusesResponseApplicationJson,
-            DashboardApiUpdateStatusesResponseApplicationJsonBuilder>,
+        Builder<
+          DashboardApiUpdateStatusesResponseApplicationJson,
+          DashboardApiUpdateStatusesResponseApplicationJsonBuilder
+        >,
         $DashboardApiUpdateStatusesResponseApplicationJsonInterfaceBuilder {
   _$DashboardApiUpdateStatusesResponseApplicationJson? _$v;
 
@@ -4366,10 +4648,7 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
     DashboardApiUpdateStatusesResponseApplicationJson._validate(this);
     _$DashboardApiUpdateStatusesResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$DashboardApiUpdateStatusesResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$DashboardApiUpdateStatusesResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -4377,7 +4656,10 @@ class DashboardApiUpdateStatusesResponseApplicationJsonBuilder
         ocs.build();
       } catch (e) {
         throw BuiltValueNestedFieldError(
-            r'DashboardApiUpdateStatusesResponseApplicationJson', _$failedField, e.toString());
+          r'DashboardApiUpdateStatusesResponseApplicationJson',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

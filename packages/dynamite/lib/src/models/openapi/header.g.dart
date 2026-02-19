@@ -16,10 +16,7 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Header object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'required',
-      serializers.serialize(object.required, specifiedType: const FullType(bool)),
-    ];
+    final result = <Object?>['required', serializers.serialize(object.required, specifiedType: const FullType(bool))];
     Object? value;
     value = object.description;
     if (value != null) {
@@ -37,8 +34,11 @@ class _$HeaderSerializer implements StructuredSerializer<Header> {
   }
 
   @override
-  Header deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Header deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = HeaderBuilder();
 
     final iterator = serialized.iterator;
@@ -152,11 +152,13 @@ class HeaderBuilder implements Builder<Header, HeaderBuilder> {
 
   _$Header _build() {
     Header._defaults(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Header._(
-            description: description,
-            required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
-            schema: schema);
+          description: description,
+          required: BuiltValueNullFieldError.checkNotNull(required, r'Header', 'required'),
+          schema: schema,
+        );
     replace(_$result);
     return _$result;
   }

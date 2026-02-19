@@ -88,10 +88,12 @@ class AccountBuilder implements Builder<Account, AccountBuilder> {
   _$Account _build() {
     _$Account _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Account._(
-              credentials: credentials.build(),
-              client: BuiltValueNullFieldError.checkNotNull(client, r'Account', 'client'));
+            credentials: credentials.build(),
+            client: BuiltValueNullFieldError.checkNotNull(client, r'Account', 'client'),
+          );
     } catch (_) {
       late String _$failedField;
       try {

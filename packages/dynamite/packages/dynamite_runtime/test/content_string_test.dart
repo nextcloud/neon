@@ -11,42 +11,42 @@ import 'package:test/test.dart';
 
 part 'content_string_test.g.dart';
 
-@SerializersFor([
-  ContentString,
-])
-final Serializers serializers = (_$serializers.toBuilder()
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const ContentStringPlugin())
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(double)]), ContentStringBuilder<double>.new)
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltList, [FullType(int)]),
-        ]),
-        ContentStringBuilder<BuiltList<int>>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(BuiltMap, [FullType(String), FullType(int)]),
-        ]),
-        ContentStringBuilder<BuiltMap<String, int>>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
-      ..addBuilderFactory(const FullType(ContentString, [FullType(String)]), ContentStringBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(ContentString, [
-          FullType(ContentString, [FullType(String)]),
-        ]),
-        ContentStringBuilder<ContentString<String>>.new,
-      ))
-    .build();
+@SerializersFor([ContentString])
+final Serializers serializers =
+    (_$serializers.toBuilder()
+          ..addPlugin(StandardJsonPlugin())
+          ..addPlugin(const ContentStringPlugin())
+          ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new)
+          ..addBuilderFactory(const FullType(ContentString, [FullType(double)]), ContentStringBuilder<double>.new)
+          ..addBuilderFactory(
+            const FullType(ContentString, [
+              FullType(BuiltList, [FullType(int)]),
+            ]),
+            ContentStringBuilder<BuiltList<int>>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(
+            const FullType(ContentString, [
+              FullType(BuiltMap, [FullType(String), FullType(int)]),
+            ]),
+            ContentStringBuilder<BuiltMap<String, int>>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+          ..addBuilderFactory(const FullType(ContentString, [FullType(int)]), ContentStringBuilder<int>.new)
+          ..addBuilderFactory(const FullType(ContentString, [FullType(String)]), ContentStringBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(ContentString, [
+              FullType(ContentString, [FullType(String)]),
+            ]),
+            ContentStringBuilder<ContentString<String>>.new,
+          ))
+        .build();
 
-final Serializers invalidSerializers = (_$serializers.toBuilder()
-      ..addPlugin(const ContentStringPlugin())
-      ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new))
-    .build();
+final Serializers invalidSerializers =
+    (_$serializers.toBuilder()
+          ..addPlugin(const ContentStringPlugin())
+          ..addBuilderFactory(const FullType(ContentString, [FullType(bool)]), ContentStringBuilder<bool>.new))
+        .build();
 
 void main() {
   group('ContentString with known specifiedType holding bool', () {
@@ -65,12 +65,14 @@ void main() {
 
   group('ContentString with unknown specifiedType holding bool', () {
     final data = ContentString((b) => b..content = true);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {r'$': 'bool', '': true},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {r'$': 'bool', '': true},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -98,12 +100,14 @@ void main() {
 
   group('ContentString with unknown specifiedType holding double', () {
     final data = ContentString((b) => b..content = 42.5);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {r'$': 'double', '': 42.5},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {r'$': 'double', '': 42.5},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -133,19 +137,21 @@ void main() {
 
   group('ContentString with unknown specifiedType holding list', () {
     final data = ContentString((b) => b..content = BuiltList<int>([1, 2, 3]));
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {
-          r'$': 'list',
-          '': [
-            {r'$': 'int', '': 1},
-            {r'$': 'int', '': 2},
-            {r'$': 'int', '': 3},
-          ],
-        },
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {
+                  r'$': 'list',
+                  '': [
+                    {r'$': 'int', '': 1},
+                    {r'$': 'int', '': 2},
+                    {r'$': 'int', '': 3},
+                  ],
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -177,17 +183,19 @@ void main() {
 
   group('ContentString with unknown specifiedType holding map', () {
     final data = ContentString((b) => b..content = BuiltMap<String, int>({'one': 1, 'two': 2, 'three': 3}));
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {
-          r'$': 'encoded_map',
-          r'{"$":"String","":"one"}': {r'$': 'int', '': 1},
-          r'{"$":"String","":"two"}': {r'$': 'int', '': 2},
-          r'{"$":"String","":"three"}': {r'$': 'int', '': 3},
-        },
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {
+                  r'$': 'encoded_map',
+                  r'{"$":"String","":"one"}': {r'$': 'int', '': 1},
+                  r'{"$":"String","":"two"}': {r'$': 'int', '': 2},
+                  r'{"$":"String","":"three"}': {r'$': 'int', '': 3},
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -199,31 +207,30 @@ void main() {
     });
   });
 
-  group(
-    'ContentString with known specifiedType holding int',
-    () {
-      final data = ContentString<int>((b) => b..content = 42);
-      final serialized = json.encode(42);
-      const specifiedType = FullType(ContentString, [FullType(int)]);
+  group('ContentString with known specifiedType holding int', () {
+    final data = ContentString<int>((b) => b..content = 42);
+    final serialized = json.encode(42);
+    const specifiedType = FullType(ContentString, [FullType(int)]);
 
-      test('can be serialized', () {
-        expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
-      });
+    test('can be serialized', () {
+      expect(serializers.serialize(data, specifiedType: specifiedType), serialized);
+    });
 
-      test('can be deserialized', () {
-        expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
-      });
-    },
-  );
+    test('can be deserialized', () {
+      expect(serializers.deserialize(serialized, specifiedType: specifiedType), data);
+    });
+  });
 
   group('ContentString with unknown specifiedType holding int', () {
     final data = ContentString((b) => b..content = 42);
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {r'$': 'int', '': 42},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {r'$': 'int', '': 42},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -251,12 +258,14 @@ void main() {
 
   group('ContentString with unknown specifiedType holding String', () {
     final data = ContentString((b) => b..content = 'test');
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {r'$': 'String', '': 'test'},
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {r'$': 'String', '': 'test'},
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {
@@ -270,10 +279,7 @@ void main() {
 
   group('ContentString with known specifiedType holding ContentString', () {
     final data = ContentString<ContentString<String>>(
-      (b) => b
-        ..content = ContentString<String>(
-          (b) => b..content = 'test',
-        ),
+      (b) => b..content = ContentString<String>((b) => b..content = 'test'),
     );
     final serialized = json.encode(json.encode('test'));
     const specifiedType = FullType(ContentString, [
@@ -291,20 +297,19 @@ void main() {
 
   group('ContentString with unknown specifiedType holding ContentString', () {
     final data = ContentString<ContentString<String>>(
-      (b) => b
-        ..content = ContentString<String>(
-          (b) => b..content = 'test',
-        ),
+      (b) => b..content = ContentString<String>((b) => b..content = 'test'),
     );
-    final serialized = json.decode(
-      json.encode({
-        r'$': 'ContentString',
-        'content': {
-          r'$': 'ContentString',
-          'content': {r'$': 'String', '': 'test'},
-        },
-      }),
-    ) as Object;
+    final serialized =
+        json.decode(
+              json.encode({
+                r'$': 'ContentString',
+                'content': {
+                  r'$': 'ContentString',
+                  'content': {r'$': 'String', '': 'test'},
+                },
+              }),
+            )
+            as Object;
     const specifiedType = FullType.unspecified;
 
     test('can be serialized', () {

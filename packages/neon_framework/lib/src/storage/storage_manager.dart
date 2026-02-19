@@ -105,10 +105,7 @@ class NeonStorage {
       return null;
     }
 
-    final persistence = SQLiteCookiePersistence(
-      accountID: accountID,
-      allowedBaseUri: serverURL,
-    );
+    final persistence = SQLiteCookiePersistence(accountID: accountID, allowedBaseUri: serverURL);
 
     return DefaultCookieStore(persistence);
   }

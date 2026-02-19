@@ -33,9 +33,7 @@ class NotificationsApp extends AppImplementation<NotificationsBlocInterface, Not
   late final NotificationsOptions options = NotificationsOptions(storage);
 
   @override
-  NotificationsBlocInterface buildBloc(Account account) => NotificationsBloc(
-        account: account,
-      );
+  NotificationsBlocInterface buildBloc(Account account) => NotificationsBloc(account: account);
 
   @override
   final Widget page = const NotificationsMainPage();

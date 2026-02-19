@@ -13,30 +13,12 @@ void main() {
       final sanitizedBaseURL = Uri.parse(values.$2);
 
       test(baseURL, () {
-        expect(
-          constructUri(baseURL).toString(),
-          '$sanitizedBaseURL$webdavBase',
-        );
-        expect(
-          constructUri(baseURL, PathUri.parse('/')).toString(),
-          '$sanitizedBaseURL$webdavBase',
-        );
-        expect(
-          constructUri(baseURL, PathUri.parse('test')).toString(),
-          '$sanitizedBaseURL$webdavBase/test',
-        );
-        expect(
-          constructUri(baseURL, PathUri.parse('test/')).toString(),
-          '$sanitizedBaseURL$webdavBase/test',
-        );
-        expect(
-          constructUri(baseURL, PathUri.parse('/test')).toString(),
-          '$sanitizedBaseURL$webdavBase/test',
-        );
-        expect(
-          constructUri(baseURL, PathUri.parse('/test/')).toString(),
-          '$sanitizedBaseURL$webdavBase/test',
-        );
+        expect(constructUri(baseURL).toString(), '$sanitizedBaseURL$webdavBase');
+        expect(constructUri(baseURL, PathUri.parse('/')).toString(), '$sanitizedBaseURL$webdavBase');
+        expect(constructUri(baseURL, PathUri.parse('test')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(constructUri(baseURL, PathUri.parse('test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(constructUri(baseURL, PathUri.parse('/test')).toString(), '$sanitizedBaseURL$webdavBase/test');
+        expect(constructUri(baseURL, PathUri.parse('/test/')).toString(), '$sanitizedBaseURL$webdavBase/test');
       });
     }
   });

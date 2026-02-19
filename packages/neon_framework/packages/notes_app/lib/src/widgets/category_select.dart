@@ -30,65 +30,53 @@ class NotesCategorySelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Autocomplete(
-      initialValue: initialValue != null
-          ? TextEditingValue(
-              text: initialValue!,
-            )
-          : null,
+      initialValue: initialValue != null ? TextEditingValue(text: initialValue!) : null,
       optionsBuilder: (value) {
         if (value.text.isEmpty) {
           return categories;
         }
         return categories.where((category) => category.toLowerCase().contains(value.text.toLowerCase()));
       },
-      fieldViewBuilder: (
-        context,
-        textEditingController,
-        focusNode,
-        onFieldSubmitted,
-      ) =>
-          TextFormField(
-        controller: textEditingController,
-        focusNode: focusNode,
-        decoration: InputDecoration(
-          hintText: NotesLocalizations.of(context).category,
-        ),
-        onFieldSubmitted: (value) {
-          onChanged(value);
-          onSubmitted();
-          onFieldSubmitted();
-        },
-        onChanged: onChanged,
-      ),
-      optionsViewBuilder: (context, onSelected, options) => Align(
-        alignment: Alignment.topLeft,
-        child: Material(
-          elevation: 4,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxHeight: 200),
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              shrinkWrap: true,
-              itemCount: options.length,
-              itemBuilder: (context, index) {
-                final option = options.elementAt(index);
-                return ListTile(
-                  leading: Icon(
-                    AdaptiveIcons.tag,
-                    color: option.isNotEmpty ? NotesCategoryColor.compute(option) : null,
-                  ),
-                  title: Text(
-                    option.isNotEmpty ? option : NotesLocalizations.of(context).categoryUncategorized,
-                  ),
-                  onTap: () {
-                    onSelected(option);
+      fieldViewBuilder:
+          (context, textEditingController, focusNode, onFieldSubmitted) => TextFormField(
+            controller: textEditingController,
+            focusNode: focusNode,
+            decoration: InputDecoration(hintText: NotesLocalizations.of(context).category),
+            onFieldSubmitted: (value) {
+              onChanged(value);
+              onSubmitted();
+              onFieldSubmitted();
+            },
+            onChanged: onChanged,
+          ),
+      optionsViewBuilder:
+          (context, onSelected, options) => Align(
+            alignment: Alignment.topLeft,
+            child: Material(
+              elevation: 4,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxHeight: 200),
+                child: ListView.builder(
+                  padding: EdgeInsets.zero,
+                  shrinkWrap: true,
+                  itemCount: options.length,
+                  itemBuilder: (context, index) {
+                    final option = options.elementAt(index);
+                    return ListTile(
+                      leading: Icon(
+                        AdaptiveIcons.tag,
+                        color: option.isNotEmpty ? NotesCategoryColor.compute(option) : null,
+                      ),
+                      title: Text(option.isNotEmpty ? option : NotesLocalizations.of(context).categoryUncategorized),
+                      onTap: () {
+                        onSelected(option);
+                      },
+                    );
                   },
-                );
-              },
+                ),
+              ),
             ),
           ),
-        ),
-      ),
       onSelected: (value) {
         if (categories.contains(value)) {
           onChanged(value);

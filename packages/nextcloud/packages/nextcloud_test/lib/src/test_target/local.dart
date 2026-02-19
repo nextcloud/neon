@@ -12,11 +12,7 @@ import 'package:version/version.dart';
 @internal
 final class LocalFactory extends TestTargetFactory<LocalInstance> {
   /// Creates a new test factory for a local server.
-  LocalFactory({
-    required String dir,
-    required Uri url,
-  })  : _dir = dir,
-        _instance = LocalInstance(url: url, dir: dir);
+  LocalFactory({required String dir, required Uri url}) : _dir = dir, _instance = LocalInstance(url: url, dir: dir);
 
   final String _dir;
 
@@ -30,16 +26,7 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
     final presets = ListMultimapBuilder<String, Version>();
     final regex = RegExp('  - (.*): (.*)');
 
-    var result = runExecutableArgumentsSync(
-      'php',
-      [
-        '-f',
-        './occ',
-        'app:list',
-        '--enabled',
-      ],
-      workingDirectory: _dir,
-    );
+    var result = runExecutableArgumentsSync('php', ['-f', './occ', 'app:list', '--enabled'], workingDirectory: _dir);
     if (result.exitCode != 0) {
       throw Exception('Failed to list apps\n${result.stderr}\n${result.stdout}');
     }
@@ -54,15 +41,7 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
       }
     }
 
-    result = runExecutableArgumentsSync(
-      'php',
-      [
-        '-f',
-        './occ',
-        'status',
-      ],
-      workingDirectory: _dir,
-    );
+    result = runExecutableArgumentsSync('php', ['-f', './occ', 'status'], workingDirectory: _dir);
     if (result.exitCode != 0) {
       throw Exception('Failed to get status\n${result.stderr}\n${result.stdout}');
     }
@@ -89,10 +68,7 @@ final class LocalFactory extends TestTargetFactory<LocalInstance> {
 @internal
 final class LocalInstance extends TestTargetInstance {
   /// Creates a new test instance for a local server.
-  LocalInstance({
-    required this.url,
-    required String dir,
-  }) : _dir = dir;
+  LocalInstance({required this.url, required String dir}) : _dir = dir;
 
   final String _dir;
 
@@ -107,12 +83,7 @@ final class LocalInstance extends TestTargetInstance {
     final inputStream = StreamController<List<int>>();
     final process = runExecutableArguments(
       'php',
-      [
-        '-f',
-        'occ',
-        'user:add-app-password',
-        username,
-      ],
+      ['-f', 'occ', 'user:add-app-password', username],
       stdin: inputStream.stream,
       workingDirectory: _dir,
     );

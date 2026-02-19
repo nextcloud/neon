@@ -20,10 +20,7 @@ TextSpan buildRichTextSpan({
   required bool isMarkdown,
   bool isPreview = false,
 }) {
-  assert(
-    !isPreview || !isMarkdown,
-    'A preview must not be markdown',
-  );
+  assert(!isPreview || !isMarkdown, 'A preview must not be markdown');
 
   if (isPreview) {
     text = text.replaceAll('\n', ' ');
@@ -40,10 +37,7 @@ TextSpan buildRichTextSpan({
     );
   }
 
-  final document = md.Document(
-    extensionSet: md.ExtensionSet.gitHubFlavored,
-    encodeHtml: false,
-  );
+  final document = md.Document(extensionSet: md.ExtensionSet.gitHubFlavored, encodeHtml: false);
 
   final nodes = document.parse(text);
 
@@ -57,10 +51,7 @@ TextSpan buildRichTextSpan({
   );
 
   // Here we can just ignore the final newline
-  return TextSpan(
-    children: spans.children,
-    style: textStyle,
-  );
+  return TextSpan(children: spans.children, style: textStyle);
 }
 
 TextSpan _buildRichObjectSpan({
@@ -117,13 +108,7 @@ TextSpan _buildRichObjectSpan({
   for (final entry in unusedParameters.entries) {
     if (entry.key == core.RichObjectParameter_Type.file.value) {
       children
-        ..add(
-          buildRichObjectParameter(
-            parameter: entry.value,
-            textStyle: textStyle,
-            isPreview: isPreview,
-          ),
-        )
+        ..add(buildRichObjectParameter(parameter: entry.value, textStyle: textStyle, isPreview: isPreview))
         ..add(const TextSpan(text: '\n'));
     }
   }
@@ -154,13 +139,7 @@ TextSpan _buildRichObjectSpan({
         if (reference == part) {
           final gestureRecognizer = TapGestureRecognizer()..onTap = () => onReferenceClicked!(reference);
 
-          children.add(
-            TextSpan(
-              text: part,
-              style: textStyle.merge(_linkTextStyle),
-              recognizer: gestureRecognizer,
-            ),
-          );
+          children.add(TextSpan(text: part, style: textStyle.merge(_linkTextStyle), recognizer: gestureRecognizer));
           match = true;
           break;
         }
@@ -168,41 +147,18 @@ TextSpan _buildRichObjectSpan({
     }
 
     if (!match) {
-      children.add(
-        TextSpan(
-          style: textStyle,
-          text: part,
-        ),
-      );
+      children.add(TextSpan(style: textStyle, text: part));
     }
   }
 
-  return TextSpan(
-    style: textStyle,
-    children: children,
-  );
+  return TextSpan(style: textStyle, children: children);
 }
 
-const _linkTextStyle = TextStyle(
-  decoration: TextDecoration.underline,
-  decorationThickness: 2,
-);
+const _linkTextStyle = TextStyle(decoration: TextDecoration.underline, decorationThickness: 2);
 
-enum _MarkdownListType {
-  unordered,
-  ordered,
-}
+enum _MarkdownListType { unordered, ordered }
 
-const _markdownNewlineTags = [
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-  'li',
-  'p',
-];
+const _markdownNewlineTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'p'];
 
 ({List<InlineSpan> children, bool finalNewline}) _buildMarkdownSpans({
   required Account account,
@@ -242,10 +198,7 @@ const _markdownNewlineTags = [
     }
   }
 
-  return (
-    children: children,
-    finalNewline: finalNewline,
-  );
+  return (children: children, finalNewline: finalNewline);
 }
 
 ({InlineSpan child, bool finalNewline}) _buildMarkdownSpan({
@@ -322,22 +275,8 @@ const _markdownNewlineTags = [
             child: Container(
               margin: const EdgeInsets.only(left: 5),
               padding: const EdgeInsets.only(left: 5),
-              decoration: const BoxDecoration(
-                border: Border(
-                  left: BorderSide(
-                    color: Colors.grey,
-                    width: 2.5,
-                  ),
-                ),
-              ),
-              child: Text.rich(
-                TextSpan(
-                  children: spans.children,
-                  style: localTextStyle.copyWith(
-                    color: Colors.grey,
-                  ),
-                ),
-              ),
+              decoration: const BoxDecoration(border: Border(left: BorderSide(color: Colors.grey, width: 2.5))),
+              child: Text.rich(TextSpan(children: spans.children, style: localTextStyle.copyWith(color: Colors.grey))),
             ),
           ),
           finalNewline: spans.finalNewline,
@@ -365,13 +304,7 @@ const _markdownNewlineTags = [
 
         // Inline code
         if (!spans.finalNewline) {
-          return (
-            child: TextSpan(
-              children: spans.children,
-              style: localTextStyle,
-            ),
-            finalNewline: spans.finalNewline,
-          );
+          return (child: TextSpan(children: spans.children, style: localTextStyle), finalNewline: spans.finalNewline);
         }
 
         return (
@@ -379,70 +312,35 @@ const _markdownNewlineTags = [
             child: Container(
               color: backgroundColor,
               padding: const EdgeInsets.all(8),
-              child: Text.rich(
-                TextSpan(
-                  children: spans.children,
-                  style: localTextStyle,
-                ),
-              ),
+              child: Text.rich(TextSpan(children: spans.children, style: localTextStyle)),
             ),
           ),
           finalNewline: spans.finalNewline,
         );
       case 'del':
-        localTextStyle = localTextStyle.copyWith(
-          decoration: TextDecoration.lineThrough,
-        );
+        localTextStyle = localTextStyle.copyWith(decoration: TextDecoration.lineThrough);
       case 'em':
-        localTextStyle = localTextStyle.copyWith(
-          fontStyle: FontStyle.italic,
-        );
+        localTextStyle = localTextStyle.copyWith(fontStyle: FontStyle.italic);
       case 'hr':
-        return (
-          child: const WidgetSpan(
-            child: Divider(),
-          ),
-          finalNewline: false,
-        );
+        return (child: const WidgetSpan(child: Divider()), finalNewline: false);
       case 'h1':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 32, fontWeight: FontWeight.bold);
       case 'h2':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.bold);
       case 'h3':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 18.72,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 18.72, fontWeight: FontWeight.bold);
       case 'h4':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 16, fontWeight: FontWeight.bold);
       case 'h5':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 13.28,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 13.28, fontWeight: FontWeight.bold);
       case 'h6':
-        localTextStyle = localTextStyle.copyWith(
-          fontSize: 10.72,
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontSize: 10.72, fontWeight: FontWeight.bold);
       case 'img':
         return (
           child: WidgetSpan(
             child: Tooltip(
               message: node.attributes['alt'],
-              child: NeonUriImage(
-                uri: Uri.parse(node.attributes['src']!),
-                account: account,
-              ),
+              child: NeonUriImage(uri: Uri.parse(node.attributes['src']!), account: account),
             ),
           ),
           finalNewline: false,
@@ -508,12 +406,7 @@ const _markdownNewlineTags = [
         return (
           child: TextSpan(
             children: [
-              TextSpan(
-                text: ''.padRight(localListDepth),
-                style: const TextStyle(
-                  fontFamily: 'monospace',
-                ),
-              ),
+              TextSpan(text: ''.padRight(localListDepth), style: const TextStyle(fontFamily: 'monospace')),
               prefix,
               ...spans.children.sublist(0, subListIndex),
               if (subListIndex != null) const TextSpan(text: '\n'),
@@ -528,34 +421,22 @@ const _markdownNewlineTags = [
         // Do nothing, a final newline will be inserted by the parent _buildMarkdownSpans() call.
         break;
       case 'pre':
-        localTextStyle = localTextStyle.copyWith(
-          fontFamily: 'monospace',
-        );
+        localTextStyle = localTextStyle.copyWith(fontFamily: 'monospace');
       case 'section':
       // Do nothing, no special rendering.
       case 'strong':
-        localTextStyle = localTextStyle.copyWith(
-          fontWeight: FontWeight.bold,
-        );
+        localTextStyle = localTextStyle.copyWith(fontWeight: FontWeight.bold);
       case 'sup':
-        localTextStyle = localTextStyle.copyWith(
-          fontFeatures: [
-            const FontFeature.superscripts(),
-          ],
-        );
+        localTextStyle = localTextStyle.copyWith(fontFeatures: [const FontFeature.superscripts()]);
       case 'table':
-        final head = childNodes.firstWhere(
-          (childNode) => childNode is md.Element && childNode.tag == 'thead',
-        ) as md.Element;
+        final head =
+            childNodes.firstWhere((childNode) => childNode is md.Element && childNode.tag == 'thead') as md.Element;
         final columns = (head.children!.first as md.Element).children!.map((childNode) => childNode as md.Element);
 
-        final body = childNodes.firstWhere(
-          (childNode) => childNode is md.Element && childNode.tag == 'tbody',
-        ) as md.Element;
+        final body =
+            childNodes.firstWhere((childNode) => childNode is md.Element && childNode.tag == 'tbody') as md.Element;
         final rows = body.children!.map(
-          (childNode) => (childNode as md.Element).children!.map(
-                (childNode) => childNode as md.Element,
-              ),
+          (childNode) => (childNode as md.Element).children!.map((childNode) => childNode as md.Element),
         );
 
         return (
@@ -623,13 +504,7 @@ const _markdownNewlineTags = [
       listDepth: localListDepth,
     );
 
-    return (
-      child: TextSpan(
-        children: spans.children,
-        style: localTextStyle,
-      ),
-      finalNewline: spans.finalNewline,
-    );
+    return (child: TextSpan(children: spans.children, style: localTextStyle), finalNewline: spans.finalNewline);
   }
 
   throw UnimplementedError('Unexpected node type ${node.runtimeType}.'); // coverage:ignore-line

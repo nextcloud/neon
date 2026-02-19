@@ -44,11 +44,7 @@
 ///   className: false,
 /// )); // Identifier_String
 /// ```
-String toDartName(
-  String name, {
-  String? identifier,
-  bool className = false,
-}) {
+String toDartName(String name, {String? identifier, bool className = false}) {
   final capitalize = identifier != null || className;
 
   var result = '';

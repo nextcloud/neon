@@ -4,25 +4,13 @@ import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 
 @internal
 class TextSettingsTile extends SettingsTile {
-  const TextSettingsTile({
-    required this.text,
-    this.style,
-    super.key,
-  });
+  const TextSettingsTile({required this.text, this.style, super.key});
 
   final String text;
   final TextStyle? style;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-      ),
-      child: Text(
-        text,
-        style: style,
-      ),
-    );
+    return Padding(padding: const EdgeInsets.symmetric(horizontal: 16), child: Text(text, style: style));
   }
 }

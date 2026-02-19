@@ -6,8 +6,9 @@ part of 'systemtags.openapi.dart';
 // BuiltValueGenerator
 // **************************************************************************
 
-const Capabilities_Systemtags_Enabled _$capabilitiesSystemtagsEnabled$true =
-    const Capabilities_Systemtags_Enabled._('\$true');
+const Capabilities_Systemtags_Enabled _$capabilitiesSystemtagsEnabled$true = const Capabilities_Systemtags_Enabled._(
+  '\$true',
+);
 
 Capabilities_Systemtags_Enabled _$valueOfCapabilities_Systemtags_Enabled(String name) {
   switch (name) {
@@ -20,8 +21,8 @@ Capabilities_Systemtags_Enabled _$valueOfCapabilities_Systemtags_Enabled(String 
 
 final BuiltSet<Capabilities_Systemtags_Enabled> _$capabilitiesSystemtagsEnabledValues =
     BuiltSet<Capabilities_Systemtags_Enabled>(const <Capabilities_Systemtags_Enabled>[
-  _$capabilitiesSystemtagsEnabled$true,
-]);
+      _$capabilitiesSystemtagsEnabled$true,
+    ]);
 
 Serializer<Capabilities_Systemtags> _$capabilitiesSystemtagsSerializer = _$Capabilities_SystemtagsSerializer();
 Serializer<Capabilities> _$capabilitiesSerializer = _$CapabilitiesSerializer();
@@ -33,8 +34,11 @@ class _$Capabilities_SystemtagsSerializer implements StructuredSerializer<Capabi
   final String wireName = 'Capabilities_Systemtags';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_Systemtags object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_Systemtags object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'enabled',
       serializers.serialize(object.enabled, specifiedType: const FullType(Capabilities_Systemtags_Enabled)),
@@ -44,8 +48,11 @@ class _$Capabilities_SystemtagsSerializer implements StructuredSerializer<Capabi
   }
 
   @override
-  Capabilities_Systemtags deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_Systemtags deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_SystemtagsBuilder();
 
     final iterator = serialized.iterator;
@@ -55,8 +62,9 @@ class _$Capabilities_SystemtagsSerializer implements StructuredSerializer<Capabi
       final Object? value = iterator.current;
       switch (key) {
         case 'enabled':
-          result.enabled = serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_Systemtags_Enabled))! as Capabilities_Systemtags_Enabled;
+          result.enabled =
+              serializers.deserialize(value, specifiedType: const FullType(Capabilities_Systemtags_Enabled))!
+                  as Capabilities_Systemtags_Enabled;
           break;
       }
     }
@@ -72,8 +80,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'systemtags',
       serializers.serialize(object.systemtags, specifiedType: const FullType(Capabilities_Systemtags)),
@@ -83,8 +94,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -94,8 +108,10 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'systemtags':
-          result.systemtags.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_Systemtags))! as Capabilities_Systemtags);
+          result.systemtags.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_Systemtags))!
+                as Capabilities_Systemtags,
+          );
           break;
       }
     }
@@ -184,7 +200,8 @@ class Capabilities_SystemtagsBuilder
 
   _$Capabilities_Systemtags _build() {
     Capabilities_Systemtags._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_Systemtags._(
           enabled: BuiltValueNullFieldError.checkNotNull(enabled, r'Capabilities_Systemtags', 'enabled'),
         );
@@ -271,10 +288,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            systemtags: systemtags.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(systemtags: systemtags.build());
     } catch (_) {
       late String _$failedField;
       try {

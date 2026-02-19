@@ -6,9 +6,7 @@ import 'package:neon_framework/src/settings/models/option.dart';
 @immutable
 class OptionsCategory {
   /// Creates a new Category.
-  const OptionsCategory({
-    required this.name,
-  });
+  const OptionsCategory({required this.name});
 
   /// Builder function for the category name.
   final LabelBuilder name;

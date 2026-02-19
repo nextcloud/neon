@@ -40,34 +40,19 @@ final class NeonHttpClient extends InterceptorHttpClient {
       builder.add(AuthorizationThrottlingInterceptor(baseURL: baseURL));
 
       if (cookieStore != null) {
-        builder.add(
-          CookieStoreInterceptor(cookieStore: cookieStore),
-        );
+        builder.add(CookieStoreInterceptor(cookieStore: cookieStore));
       }
 
       if (userAgent != null) {
-        builder.add(
-          BaseHeaderInterceptor(
-            baseHeaders: {
-              HttpHeaders.userAgentHeader: userAgent,
-            },
-          ),
-        );
+        builder.add(BaseHeaderInterceptor(baseHeaders: {HttpHeaders.userAgentHeader: userAgent}));
       }
     });
 
-    return NeonHttpClient._(
-      baseClient: baseClient,
-      interceptors: builtInterceptors,
-      timeLimit: timeLimit,
-    );
+    return NeonHttpClient._(baseClient: baseClient, interceptors: builtInterceptors, timeLimit: timeLimit);
   }
 
-  const NeonHttpClient._({
-    required super.baseClient,
-    required super.interceptors,
-    Duration? timeLimit,
-  }) : _timeLimit = timeLimit;
+  const NeonHttpClient._({required super.baseClient, required super.interceptors, Duration? timeLimit})
+    : _timeLimit = timeLimit;
 
   /// Stop waiting for a response after timeLimit has passed.
   final Duration? _timeLimit;

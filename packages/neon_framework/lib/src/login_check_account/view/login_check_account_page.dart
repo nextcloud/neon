@@ -6,10 +6,7 @@ import 'package:neon_framework/src/login_check_account/login_check_account.dart'
 
 @internal
 class LoginCheckAccountPage extends StatelessWidget {
-  const LoginCheckAccountPage({
-    required this.credentials,
-    super.key,
-  });
+  const LoginCheckAccountPage({required this.credentials, super.key});
 
   /// The credentials of the account to check.
   final Credentials credentials;
@@ -19,10 +16,10 @@ class LoginCheckAccountPage extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         BlocProvider(
-          create: (context) => LoginCheckAccountBloc(
-            accountRepository: context.read<AccountRepository>(),
-            credentials: credentials,
-          )..add(const LoginCheckAccount()),
+          create:
+              (context) =>
+                  LoginCheckAccountBloc(accountRepository: context.read<AccountRepository>(), credentials: credentials)
+                    ..add(const LoginCheckAccount()),
         ),
       ],
       child: const LoginCheckAccountView(),

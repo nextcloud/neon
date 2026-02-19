@@ -29,10 +29,7 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
   late final FilesOptions options = FilesOptions(storage);
 
   @override
-  FilesBloc buildBloc(Account account) => FilesBloc(
-        options: options,
-        account: account,
-      );
+  FilesBloc buildBloc(Account account) => FilesBloc(options: options, account: account);
 
   @override
   final Widget page = const FilesMainPage();

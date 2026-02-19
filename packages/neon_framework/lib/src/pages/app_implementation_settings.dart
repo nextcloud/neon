@@ -11,10 +11,7 @@ import 'package:neon_framework/src/widgets/dialog.dart';
 
 @internal
 class AppImplementationSettingsPage extends StatelessWidget {
-  const AppImplementationSettingsPage({
-    required this.appImplementation,
-    super.key,
-  });
+  const AppImplementationSettingsPage({required this.appImplementation, super.key});
 
   final AppImplementation appImplementation;
 
@@ -30,11 +27,12 @@ class AppImplementationSettingsPage extends StatelessWidget {
 
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (context) => NeonConfirmationDialog(
-                icon: const Icon(Icons.restart_alt),
-                title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
-              ),
+              builder:
+                  (context) => NeonConfirmationDialog(
+                    icon: const Icon(Icons.restart_alt),
+                    title: NeonLocalizations.of(context).settingsReset,
+                    content: Text(content),
+                  ),
             );
 
             if (decision ?? false) {
@@ -67,12 +65,7 @@ class AppImplementationSettingsPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: appBar,
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: NeonDialogTheme.of(context).constraints,
-            child: body,
-          ),
-        ),
+        child: Center(child: ConstrainedBox(constraints: NeonDialogTheme.of(context).constraints, child: body)),
       ),
     );
   }

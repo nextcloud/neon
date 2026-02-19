@@ -4,10 +4,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/notifications.dart' as notifications;
 
 class NotificationsAction extends StatelessWidget {
-  const NotificationsAction({
-    required this.action,
-    super.key,
-  });
+  const NotificationsAction({required this.action, super.key});
 
   final notifications.NotificationAction action;
 

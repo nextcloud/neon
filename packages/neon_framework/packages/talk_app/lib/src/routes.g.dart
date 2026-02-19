@@ -6,22 +6,15 @@ part of 'routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [
-      $talkAppRoute,
-    ];
+List<RouteBase> get $appRoutes => [$talkAppRoute];
 
-RouteBase get $talkAppRoute => GoRouteData.$route(
-      path: '/apps/talk',
-      name: 'talk',
-      factory: $TalkAppRouteExtension._fromState,
-    );
+RouteBase get $talkAppRoute =>
+    GoRouteData.$route(path: '/apps/talk', name: 'talk', factory: $TalkAppRouteExtension._fromState);
 
 extension $TalkAppRouteExtension on TalkAppRoute {
   static TalkAppRoute _fromState(GoRouterState state) => const TalkAppRoute();
 
-  String get location => GoRouteData.$location(
-        '/apps/talk',
-      );
+  String get location => GoRouteData.$location('/apps/talk');
 
   void go(BuildContext context) => context.go(location);
 

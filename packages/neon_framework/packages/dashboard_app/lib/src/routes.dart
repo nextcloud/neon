@@ -7,10 +7,7 @@ import 'package:nextcloud/dashboard.dart' as dashboard;
 part 'routes.g.dart';
 
 /// Route for the dashboard app.
-@TypedGoRoute<DashboardAppRoute>(
-  path: '$appsBaseRoutePrefix${dashboard.appID}',
-  name: dashboard.appID,
-)
+@TypedGoRoute<DashboardAppRoute>(path: '$appsBaseRoutePrefix${dashboard.appID}', name: dashboard.appID)
 @immutable
 class DashboardAppRoute extends NeonBaseAppRoute {
   /// Creates a new dashboard app route.

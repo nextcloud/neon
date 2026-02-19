@@ -47,8 +47,10 @@ sealed class $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface {
 abstract class Capabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
         $Capabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+        Built<
+          Capabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+          Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
+        > {
   /// Creates a new Capabilities_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
   factory Capabilities_FilesSharing_Sharebymail_UploadFilesDrop([
     void Function(Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
@@ -176,8 +178,10 @@ sealed class $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface {
 abstract class Capabilities_FilesSharing_Sharebymail_ExpireDate
     implements
         $Capabilities_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<Capabilities_FilesSharing_Sharebymail_ExpireDate,
-            Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+        Built<
+          Capabilities_FilesSharing_Sharebymail_ExpireDate,
+          Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder
+        > {
   /// Creates a new Capabilities_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
   factory Capabilities_FilesSharing_Sharebymail_ExpireDate([
     void Function(Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
@@ -404,32 +408,33 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
-      ..add(Capabilities_FilesSharing.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Sharebymail),
-        Capabilities_FilesSharing_SharebymailBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Sharebymail.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop),
-        Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Sharebymail_Password),
-        Capabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Sharebymail_Password.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Sharebymail_ExpireDate),
-        Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Sharebymail_ExpireDate.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
+          ..add(Capabilities_FilesSharing.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Sharebymail),
+            Capabilities_FilesSharing_SharebymailBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Sharebymail.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+            Capabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Sharebymail_Password),
+            Capabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Sharebymail_Password.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Sharebymail_ExpireDate),
+            Capabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Sharebymail_ExpireDate.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -437,10 +442,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i2.DynamiteDoubleSerializer())
+          ..addPlugin(_i3.StandardJsonPlugin())
+          ..addPlugin(const _i2.HeaderPlugin())
+          ..addPlugin(const _i2.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

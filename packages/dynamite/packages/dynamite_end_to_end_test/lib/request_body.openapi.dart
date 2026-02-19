@@ -29,7 +29,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   /// Builds a serializer to parse the response of [$post_Request].
   @_i2.experimental
@@ -103,16 +103,17 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('get', _uri);
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(GetObjectRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              GetObjectRequestApplicationJson(),
-              specifiedType: const FullType(GetObjectRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(GetObjectRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                GetObjectRequestApplicationJson(),
+                specifiedType: const FullType(GetObjectRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -154,16 +155,17 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('put', _uri);
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(PutObjectRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              PutObjectRequestApplicationJson(),
-              specifiedType: const FullType(PutObjectRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(PutObjectRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                PutObjectRequestApplicationJson(),
+                specifiedType: const FullType(PutObjectRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -249,11 +251,12 @@ class $Client extends _i1.DynamiteClient {
     final _uri = Uri.parse('$baseURL$_path');
     final _request = _i3.Request('delete', _uri);
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(DeleteObjectRequestApplicationJson)),
-          )
-        : json.encode(const {'test': '123'});
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(DeleteObjectRequestApplicationJson)),
+            )
+            : json.encode(const {'test': '123'});
     return _request;
   }
 
@@ -635,28 +638,29 @@ abstract class DeleteObjectRequestApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(GetObjectRequestApplicationJson),
-        GetObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(GetObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PutObjectRequestApplicationJson),
-        PutObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(PutObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PostObjectRequestApplicationJson),
-        PostObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(PostObjectRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeleteObjectRequestApplicationJson),
-        DeleteObjectRequestApplicationJsonBuilder.new,
-      )
-      ..add(DeleteObjectRequestApplicationJson.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(GetObjectRequestApplicationJson),
+            GetObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(GetObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PutObjectRequestApplicationJson),
+            PutObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(PutObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PostObjectRequestApplicationJson),
+            PostObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(PostObjectRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeleteObjectRequestApplicationJson),
+            DeleteObjectRequestApplicationJsonBuilder.new,
+          )
+          ..add(DeleteObjectRequestApplicationJson.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -664,10 +668,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i5.DynamiteDoubleSerializer())
-      ..addPlugin(_i6.StandardJsonPlugin())
-      ..addPlugin(const _i5.HeaderPlugin())
-      ..addPlugin(const _i5.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i5.DynamiteDoubleSerializer())
+          ..addPlugin(_i6.StandardJsonPlugin())
+          ..addPlugin(const _i5.HeaderPlugin())
+          ..addPlugin(const _i5.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

@@ -247,21 +247,11 @@ void main() {
       httpOnlyFlag: false,
     );
 
-    final list = [
-      laterLongestPathCookie,
-      longerPathCookie,
-      shortPathCookie,
-      earlyLongestPathCookie,
-    ];
+    final list = [laterLongestPathCookie, longerPathCookie, shortPathCookie, earlyLongestPathCookie];
 
     expect(
       list..sort(sortCookies),
-      orderedEquals([
-        earlyLongestPathCookie,
-        laterLongestPathCookie,
-        longerPathCookie,
-        shortPathCookie,
-      ]),
+      orderedEquals([earlyLongestPathCookie, laterLongestPathCookie, longerPathCookie, shortPathCookie]),
     );
   });
 }

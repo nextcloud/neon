@@ -17,10 +17,7 @@ void main() {
       });
 
       test('has correct initial state', () {
-        expect(
-          buildBloc().state,
-          equals(const LoginQrCodeState()),
-        );
+        expect(buildBloc().state, equals(const LoginQrCodeState()));
       });
     });
 
@@ -28,38 +25,36 @@ void main() {
       blocTest<LoginQrCodeBloc, LoginQrCodeState>(
         'emits new state with credentials for valid qr code',
         build: buildBloc,
-        act: (bloc) => bloc
-            .add(const LoginQrCodeScanned('nc://login/user:JohnDoe&password:super_secret&server:https://example.com')),
-        expect: () => [
-          const LoginQrCodeState(),
-          LoginQrCodeState(
-            credentials: Credentials((b) {
-              b
-                ..serverURL = Uri.https('example.com')
-                ..username = 'JohnDoe'
-                ..appPassword = 'super_secret';
-            }),
-          ),
-        ],
+        act:
+            (bloc) => bloc.add(
+              const LoginQrCodeScanned('nc://login/user:JohnDoe&password:super_secret&server:https://example.com'),
+            ),
+        expect:
+            () => [
+              const LoginQrCodeState(),
+              LoginQrCodeState(
+                credentials: Credentials((b) {
+                  b
+                    ..serverURL = Uri.https('example.com')
+                    ..username = 'JohnDoe'
+                    ..appPassword = 'super_secret';
+                }),
+              ),
+            ],
       );
 
       blocTest<LoginQrCodeBloc, LoginQrCodeState>(
         'emits valid new state for null qr code',
         build: buildBloc,
         act: (bloc) => bloc.add(const LoginQrCodeScanned(null)),
-        expect: () => const [
-          LoginQrCodeState(),
-        ],
+        expect: () => const [LoginQrCodeState()],
       );
 
       blocTest<LoginQrCodeBloc, LoginQrCodeState>(
         'emits invalid new state for invalid qr code',
         build: buildBloc,
         act: (bloc) => bloc.add(const LoginQrCodeScanned('invalid')),
-        expect: () => const [
-          LoginQrCodeState(),
-          LoginQrCodeState(invalid: true),
-        ],
+        expect: () => const [LoginQrCodeState(), LoginQrCodeState(invalid: true)],
       );
 
       blocTest<LoginQrCodeBloc, LoginQrCodeState>(
@@ -67,9 +62,7 @@ void main() {
         build: buildBloc,
         act: (bloc) => bloc.add(const LoginQrCodeScanned(null)),
         seed: () => const LoginQrCodeState(invalid: true),
-        expect: () => const [
-          LoginQrCodeState(),
-        ],
+        expect: () => const [LoginQrCodeState()],
       );
     });
   });

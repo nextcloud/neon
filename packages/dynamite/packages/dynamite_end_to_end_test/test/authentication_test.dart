@@ -7,14 +7,9 @@ import 'package:test/test.dart';
 void main() {
   final uri = Uri.parse('example.com');
 
-  const basicAuth = DynamiteHttpBasicAuthentication(
-    username: 'bearer-username',
-    password: 'bearer-password',
-  );
+  const basicAuth = DynamiteHttpBasicAuthentication(username: 'bearer-username', password: 'bearer-password');
 
-  const bearerAuth = DynamiteHttpBearerAuthentication(
-    token: 'bearer-token',
-  );
+  const bearerAuth = DynamiteHttpBearerAuthentication(token: 'bearer-token');
 
   test('No Authentication', () async {
     // no registered authentications
@@ -92,10 +87,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
@@ -124,10 +116,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
@@ -169,13 +158,7 @@ void main() {
       authentications: const [bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
@@ -188,13 +171,7 @@ void main() {
       authentications: const [basicAuth, bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
@@ -224,10 +201,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
@@ -241,13 +215,7 @@ void main() {
       authentications: const [bearerAuth],
       httpClient: MockClient((request) async {
         expect(request.bodyBytes.length, 0);
-        expect(
-          request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Bearer bearer-token',
-          }),
-        );
+        expect(request.headers, equals({'Accept': 'application/json', 'Authorization': 'Bearer bearer-token'}));
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
@@ -262,10 +230,7 @@ void main() {
         expect(request.bodyBytes.length, 0);
         expect(
           request.headers,
-          equals({
-            'Accept': 'application/json',
-            'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA==',
-          }),
+          equals({'Accept': 'application/json', 'Authorization': 'Basic YmVhcmVyLXVzZXJuYW1lOmJlYXJlci1wYXNzd29yZA=='}),
         );
 
         return Response('{}', 200, headers: {'content-type': 'application/json'});

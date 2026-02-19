@@ -19,10 +19,7 @@ import 'package:nextcloud/core.dart' as core;
 
 @internal
 class NeonUnifiedSearchResults extends StatelessWidget {
-  const NeonUnifiedSearchResults({
-    required this.onSelected,
-    super.key,
-  });
+  const NeonUnifiedSearchResults({required this.onSelected, super.key});
 
   final void Function(core.UnifiedSearchResultEntry entry) onSelected;
 
@@ -31,47 +28,45 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final bloc = NeonProvider.of<UnifiedSearchBloc>(context);
     return StreamBuilder(
       stream: bloc.isExtendedSearch,
-      builder: (context, isExtendedSearchSnapshot) => ResultBuilder.behaviorSubject(
-        subject: bloc.providers,
-        builder: (context, providers) => StreamBuilder(
-          stream: bloc.results,
-          builder: (context, resultsSnapshot) {
-            final results = resultsSnapshot.data;
+      builder:
+          (context, isExtendedSearchSnapshot) => ResultBuilder.behaviorSubject(
+            subject: bloc.providers,
+            builder:
+                (context, providers) => StreamBuilder(
+                  stream: bloc.results,
+                  builder: (context, resultsSnapshot) {
+                    final results = resultsSnapshot.data;
 
-            return NeonListView(
-              scrollKey: 'unified-search',
-              isLoading: providers.isLoading,
-              error: providers.error,
-              onRefresh: bloc.refresh,
-              topFixedChildren: [
-                if (!(isExtendedSearchSnapshot.data ?? true))
-                  Align(
-                    child: ElevatedButton.icon(
-                      onPressed: bloc.enableExtendedSearch,
-                      label: Text(NeonLocalizations.of(context).searchGlobally),
-                      icon: Icon(AdaptiveIcons.search),
-                    ),
-                  ),
-                if (results != null && results.isEmpty) _buildNoResultsTile(context),
-              ],
-              itemCount: providers.data?.length ?? 0,
-              itemBuilder: (context, index) {
-                final provider = providers.data![index];
-                final result = results?[provider.id];
-                if (result == null) {
-                  return const SizedBox.shrink();
-                }
+                    return NeonListView(
+                      scrollKey: 'unified-search',
+                      isLoading: providers.isLoading,
+                      error: providers.error,
+                      onRefresh: bloc.refresh,
+                      topFixedChildren: [
+                        if (!(isExtendedSearchSnapshot.data ?? true))
+                          Align(
+                            child: ElevatedButton.icon(
+                              onPressed: bloc.enableExtendedSearch,
+                              label: Text(NeonLocalizations.of(context).searchGlobally),
+                              icon: Icon(AdaptiveIcons.search),
+                            ),
+                          ),
+                        if (results != null && results.isEmpty) _buildNoResultsTile(context),
+                      ],
+                      itemCount: providers.data?.length ?? 0,
+                      itemBuilder: (context, index) {
+                        final provider = providers.data![index];
+                        final result = results?[provider.id];
+                        if (result == null) {
+                          return const SizedBox.shrink();
+                        }
 
-                return _buildResult(
-                  context: context,
-                  provider: provider,
-                  result: result,
-                );
-              },
-            );
-          },
-        ),
-      ),
+                        return _buildResult(context: context, provider: provider, result: result);
+                      },
+                    );
+                  },
+                ),
+          ),
     );
   }
 
@@ -87,16 +82,8 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     final title = Text(provider.name);
 
     final children = <Widget>[
-      if (!showCupertino)
-        DefaultTextStyle(
-          style: Theme.of(context).textTheme.headlineSmall!,
-          child: title,
-        ),
-      if (result.hasError)
-        NeonError(
-          result.error,
-          onRetry: bloc.refresh,
-        ),
+      if (!showCupertino) DefaultTextStyle(style: Theme.of(context).textTheme.headlineSmall!, child: title),
+      if (result.hasError) NeonError(result.error, onRetry: bloc.refresh),
       if (result.isLoading) const NeonLinearProgressIndicator(),
       if (result.hasData && result.requireData.entries.isEmpty) _buildNoResultsTile(context),
       if (result.hasData)
@@ -112,18 +99,12 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     ];
 
     if (isCupertino(context)) {
-      return CupertinoListSection.insetGrouped(
-        header: title,
-        children: children,
-      );
+      return CupertinoListSection.insetGrouped(header: title, children: children);
     } else {
       return Card(
         child: Container(
           padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: children,
-          ),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
         ),
       );
     }
@@ -131,19 +112,12 @@ class NeonUnifiedSearchResults extends StatelessWidget {
 
   Widget _buildNoResultsTile(BuildContext context) {
     return AdaptiveListTile(
-      leading: Icon(
-        AdaptiveIcons.close,
-        size: largeIconSize,
-      ),
+      leading: Icon(AdaptiveIcons.close, size: largeIconSize),
       title: Text(NeonLocalizations.of(context).searchNoResults),
     );
   }
 
-  Widget _buildThumbnail(
-    BuildContext context,
-    Account account,
-    core.UnifiedSearchResultEntry entry,
-  ) {
+  Widget _buildThumbnail(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
     if (entry.thumbnailUrl.isNotEmpty) {
       return NeonUriImage(
         size: const Size.square(largeIconSize),
@@ -157,17 +131,9 @@ class NeonUnifiedSearchResults extends StatelessWidget {
     return _buildFallbackIcon(context, account, entry) ?? const SizedBox.shrink();
   }
 
-  Widget? _buildFallbackIcon(
-    BuildContext context,
-    Account account,
-    core.UnifiedSearchResultEntry entry,
-  ) {
+  Widget? _buildFallbackIcon(BuildContext context, Account account, core.UnifiedSearchResultEntry entry) {
     if (entry.icon.startsWith('/')) {
-      return NeonUriImage(
-        size: const Size.square(largeIconSize),
-        uri: Uri.parse(entry.icon),
-        account: account,
-      );
+      return NeonUriImage(size: const Size.square(largeIconSize), uri: Uri.parse(entry.icon), account: account);
     }
 
     if (entry.icon.startsWith('icon-')) {

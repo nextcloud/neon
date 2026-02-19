@@ -3,11 +3,7 @@ import 'package:meta/meta.dart';
 
 /// Creates a mocked [Credentials] object.
 @visibleForTesting
-Credentials createCredentials({
-  Uri? serverURL,
-  String username = 'username',
-  String? appPassword = 'appPassword',
-}) {
+Credentials createCredentials({Uri? serverURL, String username = 'username', String? appPassword = 'appPassword'}) {
   return Credentials((b) {
     b
       ..serverURL = serverURL ?? Uri.https('serverURL')

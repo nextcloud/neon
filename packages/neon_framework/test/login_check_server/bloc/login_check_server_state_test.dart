@@ -18,10 +18,7 @@ void main() {
     }
 
     test('supports value equality', () {
-      expect(
-        createSubject(),
-        equals(createSubject()),
-      );
+      expect(createSubject(), equals(createSubject()));
     });
 
     test('props are correct', () {
@@ -38,9 +35,7 @@ void main() {
     test('isSuccess returns true when a serverVersionState and maintenanceMode are successful', () {
       expect(
         createSubject(
-          serverVersionState: const ServerVersionStateSuccess(
-            serverVersion: '28.0.0',
-          ),
+          serverVersionState: const ServerVersionStateSuccess(serverVersion: '28.0.0'),
           maintenanceModeState: const MaintenanceModeStateSuccess(),
         ).isSuccess,
         isTrue,
@@ -49,20 +44,11 @@ void main() {
 
     group('copyWith', () {
       test('returns the same object if not arguments are provided', () {
-        expect(
-          createSubject().copyWith(),
-          equals(createSubject()),
-        );
+        expect(createSubject().copyWith(), equals(createSubject()));
       });
 
       test('retains the old value for every parameter if null is provided', () {
-        expect(
-          createSubject().copyWith(
-            serverVersionState: null,
-            maintenanceModeState: null,
-          ),
-          equals(createSubject()),
-        );
+        expect(createSubject().copyWith(serverVersionState: null, maintenanceModeState: null), equals(createSubject()));
       });
 
       test('replaces every non-null parameter', () {
@@ -85,37 +71,25 @@ void main() {
   group('ServerVersionState', () {
     group('ServerVersionStateLoading', () {
       test('supports value comparison', () {
-        expect(
-          ServerVersionStateLoading(),
-          ServerVersionStateLoading(),
-        );
+        expect(ServerVersionStateLoading(), ServerVersionStateLoading());
       });
 
       test('props are correct', () {
-        expect(
-          ServerVersionStateLoading().props,
-          equals(<Object?>[]),
-        );
+        expect(ServerVersionStateLoading().props, equals(<Object?>[]));
       });
     });
 
     group('ServerVersionStateSuccess', () {
       test('supports value comparison', () {
         expect(
-          ServerVersionStateSuccess(
-            serverVersion: 'serverVersion',
-          ),
-          ServerVersionStateSuccess(
-            serverVersion: 'serverVersion',
-          ),
+          ServerVersionStateSuccess(serverVersion: 'serverVersion'),
+          ServerVersionStateSuccess(serverVersion: 'serverVersion'),
         );
       });
 
       test('props are correct', () {
         expect(
-          ServerVersionStateSuccess(
-            serverVersion: 'serverVersion',
-          ).props,
+          ServerVersionStateSuccess(serverVersion: 'serverVersion').props,
           equals(<Object?>[
             'serverVersion', // serverVersion
           ]),
@@ -126,20 +100,14 @@ void main() {
     group('ServerVersionStateFailure', () {
       test('supports value comparison', () {
         expect(
-          ServerVersionStateFailure(
-            serverVersion: 'serverVersion',
-          ),
-          ServerVersionStateFailure(
-            serverVersion: 'serverVersion',
-          ),
+          ServerVersionStateFailure(serverVersion: 'serverVersion'),
+          ServerVersionStateFailure(serverVersion: 'serverVersion'),
         );
       });
 
       test('props are correct', () {
         expect(
-          ServerVersionStateFailure(
-            serverVersion: 'serverVersion',
-          ).props,
+          ServerVersionStateFailure(serverVersion: 'serverVersion').props,
           equals(<Object?>[
             'serverVersion', // serverVersion
           ]),
@@ -149,17 +117,11 @@ void main() {
 
     group('ServerVersionStateCanceled', () {
       test('supports value comparison', () {
-        expect(
-          ServerVersionStateCanceled(),
-          ServerVersionStateCanceled(),
-        );
+        expect(ServerVersionStateCanceled(), ServerVersionStateCanceled());
       });
 
       test('props are correct', () {
-        expect(
-          ServerVersionStateCanceled().props,
-          equals(<Object?>[]),
-        );
+        expect(ServerVersionStateCanceled().props, equals(<Object?>[]));
       });
     });
   });
@@ -167,65 +129,41 @@ void main() {
   group('MaintenanceModeState', () {
     group('MaintenanceModeStateLoading', () {
       test('supports value comparison', () {
-        expect(
-          MaintenanceModeStateLoading(),
-          MaintenanceModeStateLoading(),
-        );
+        expect(MaintenanceModeStateLoading(), MaintenanceModeStateLoading());
       });
 
       test('props are correct', () {
-        expect(
-          MaintenanceModeStateLoading().props,
-          equals(<Object?>[]),
-        );
+        expect(MaintenanceModeStateLoading().props, equals(<Object?>[]));
       });
     });
 
     group('MaintenanceModeStateSuccess', () {
       test('supports value comparison', () {
-        expect(
-          MaintenanceModeStateSuccess(),
-          MaintenanceModeStateSuccess(),
-        );
+        expect(MaintenanceModeStateSuccess(), MaintenanceModeStateSuccess());
       });
 
       test('props are correct', () {
-        expect(
-          MaintenanceModeStateSuccess().props,
-          equals(<Object?>[]),
-        );
+        expect(MaintenanceModeStateSuccess().props, equals(<Object?>[]));
       });
     });
 
     group('MaintenanceModeStateFailure', () {
       test('supports value comparison', () {
-        expect(
-          MaintenanceModeStateFailure(),
-          MaintenanceModeStateFailure(),
-        );
+        expect(MaintenanceModeStateFailure(), MaintenanceModeStateFailure());
       });
 
       test('props are correct', () {
-        expect(
-          MaintenanceModeStateFailure().props,
-          equals(<Object?>[]),
-        );
+        expect(MaintenanceModeStateFailure().props, equals(<Object?>[]));
       });
     });
 
     group('MaintenanceModeStateCanceled', () {
       test('supports value comparison', () {
-        expect(
-          MaintenanceModeStateCanceled(),
-          MaintenanceModeStateCanceled(),
-        );
+        expect(MaintenanceModeStateCanceled(), MaintenanceModeStateCanceled());
       });
 
       test('props are correct', () {
-        expect(
-          MaintenanceModeStateCanceled().props,
-          equals(<Object?>[]),
-        );
+        expect(MaintenanceModeStateCanceled().props, equals(<Object?>[]));
       });
     });
   });

@@ -14,9 +14,6 @@ extension NotesVersionCheck on notes.$Client {
   /// Also returns the supported API version number
   VersionCheck getVersionCheck(core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) {
     final versions = capabilities.capabilities.notesCapabilities?.notes.apiVersion;
-    return VersionCheck(
-      versions: versions?.map(Version.parse).toBuiltList(),
-      minimumVersion: minVersion,
-    );
+    return VersionCheck(versions: versions?.map(Version.parse).toBuiltList(), minimumVersion: minVersion);
   }
 }

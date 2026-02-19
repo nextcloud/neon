@@ -9,12 +9,9 @@ import 'package:version/version.dart';
 /// Class that manages the creation of nextcloud api clients and the test environment.
 final class NextcloudTester {
   /// Creates a new Nextcloud tester for the given [appName] and [version].
-  NextcloudTester({
-    required String appName,
-    required Version version,
-    String username = defaultTestUsername,
-  })  : _preset = (name: appName, version: version),
-        _username = username;
+  NextcloudTester({required String appName, required Version version, String username = defaultTestUsername})
+    : _preset = (name: appName, version: version),
+      _username = username;
 
   final Preset _preset;
 

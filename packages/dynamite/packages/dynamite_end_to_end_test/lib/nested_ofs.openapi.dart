@@ -283,13 +283,14 @@ abstract class BaseNestedOneOf3
   }
 }
 
-typedef BaseNestedOneOf = ({
-  BaseAllOf? baseAllOf,
-  BaseAnyOf? baseAnyOf,
-  BaseNestedOneOf3? baseNestedOneOf3,
-  BaseOneOf1? baseOneOf1,
-  double? $double,
-});
+typedef BaseNestedOneOf =
+    ({
+      BaseAllOf? baseAllOf,
+      BaseAnyOf? baseAnyOf,
+      BaseNestedOneOf3? baseNestedOneOf3,
+      BaseOneOf1? baseOneOf1,
+      double? $double,
+    });
 
 @BuiltValue(instantiable: false)
 sealed class $BaseNestedAnyOf3Interface {
@@ -341,13 +342,14 @@ abstract class BaseNestedAnyOf3
   }
 }
 
-typedef BaseNestedAnyOf = ({
-  BaseAllOf? baseAllOf,
-  BaseAnyOf1? baseAnyOf1,
-  BaseNestedAnyOf3? baseNestedAnyOf3,
-  BaseOneOf? baseOneOf,
-  int? $int,
-});
+typedef BaseNestedAnyOf =
+    ({
+      BaseAllOf? baseAllOf,
+      BaseAnyOf1? baseAnyOf1,
+      BaseNestedAnyOf3? baseNestedAnyOf3,
+      BaseOneOf? baseOneOf,
+      int? $int,
+    });
 typedef NestedOptimizedOneOf = ({BaseOneOf1? baseOneOf1, num? $num});
 
 /// Serialization extension for `BaseOneOf`.
@@ -550,13 +552,14 @@ class _$ce3c7b262d1c503446a436c461be5be9Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$8da5087c0b3f2cce06998d453af8ad19 = ({
-  BaseAllOf? baseAllOf,
-  BaseAnyOf? baseAnyOf,
-  BaseNestedOneOf3? baseNestedOneOf3,
-  BaseOneOf1? baseOneOf1,
-  double? $double,
-});
+typedef _$8da5087c0b3f2cce06998d453af8ad19 =
+    ({
+      BaseAllOf? baseAllOf,
+      BaseAnyOf? baseAnyOf,
+      BaseNestedOneOf3? baseNestedOneOf3,
+      BaseOneOf1? baseOneOf1,
+      double? $double,
+    });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -632,8 +635,8 @@ class _$8da5087c0b3f2cce06998d453af8ad19Serializer implements PrimitiveSerialize
     } catch (_) {}
     BaseAnyOf? baseAnyOf;
     try {
-      baseAnyOf = (serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)
-        ..validateAnyOf();
+      baseAnyOf =
+          (serializers.deserialize(data, specifiedType: const FullType(BaseAnyOf))! as BaseAnyOf)..validateAnyOf();
     } catch (_) {}
     BaseNestedOneOf3? baseNestedOneOf3;
     try {
@@ -658,13 +661,14 @@ class _$8da5087c0b3f2cce06998d453af8ad19Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$523892e2348458a2bdb28f9f942dca37 = ({
-  BaseAllOf? baseAllOf,
-  BaseAnyOf1? baseAnyOf1,
-  BaseNestedAnyOf3? baseNestedAnyOf3,
-  BaseOneOf? baseOneOf,
-  int? $int,
-});
+typedef _$523892e2348458a2bdb28f9f942dca37 =
+    ({
+      BaseAllOf? baseAllOf,
+      BaseAnyOf1? baseAnyOf1,
+      BaseNestedAnyOf3? baseNestedAnyOf3,
+      BaseOneOf? baseOneOf,
+      int? $int,
+    });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -749,8 +753,8 @@ class _$523892e2348458a2bdb28f9f942dca37Serializer implements PrimitiveSerialize
     } catch (_) {}
     BaseOneOf? baseOneOf;
     try {
-      baseOneOf = (serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)
-        ..validateOneOf();
+      baseOneOf =
+          (serializers.deserialize(data, specifiedType: const FullType(BaseOneOf))! as BaseOneOf)..validateOneOf();
     } catch (_) {}
     int? $int;
     try {
@@ -843,25 +847,26 @@ class _$abe6d27882a5771a98ede04cd64de567Serializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
-      ..add(BaseAllOf.serializer)
-      ..addBuilderFactory(const FullType(BaseOneOf1), BaseOneOf1Builder.new)
-      ..add(BaseOneOf1.serializer)
-      ..add($fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer)
-      ..addBuilderFactory(const FullType(BaseAnyOf1), BaseAnyOf1Builder.new)
-      ..add(BaseAnyOf1.serializer)
-      ..add($ce3c7b262d1c503446a436c461be5be9Extension._serializer)
-      ..addBuilderFactory(const FullType(BaseNestedAllOf), BaseNestedAllOfBuilder.new)
-      ..add(BaseNestedAllOf.serializer)
-      ..addBuilderFactory(const FullType(BaseNestedOneOf3), BaseNestedOneOf3Builder.new)
-      ..add(BaseNestedOneOf3.serializer)
-      ..add($8da5087c0b3f2cce06998d453af8ad19Extension._serializer)
-      ..addBuilderFactory(const FullType(BaseNestedAnyOf3), BaseNestedAnyOf3Builder.new)
-      ..add(BaseNestedAnyOf3.serializer)
-      ..add($523892e2348458a2bdb28f9f942dca37Extension._serializer)
-      ..add($abe6d27882a5771a98ede04cd64de567Extension._serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(BaseAllOf), BaseAllOfBuilder.new)
+          ..add(BaseAllOf.serializer)
+          ..addBuilderFactory(const FullType(BaseOneOf1), BaseOneOf1Builder.new)
+          ..add(BaseOneOf1.serializer)
+          ..add($fc0451dbdd462718bd075afd2e3ce0ecExtension._serializer)
+          ..addBuilderFactory(const FullType(BaseAnyOf1), BaseAnyOf1Builder.new)
+          ..add(BaseAnyOf1.serializer)
+          ..add($ce3c7b262d1c503446a436c461be5be9Extension._serializer)
+          ..addBuilderFactory(const FullType(BaseNestedAllOf), BaseNestedAllOfBuilder.new)
+          ..add(BaseNestedAllOf.serializer)
+          ..addBuilderFactory(const FullType(BaseNestedOneOf3), BaseNestedOneOf3Builder.new)
+          ..add(BaseNestedOneOf3.serializer)
+          ..add($8da5087c0b3f2cce06998d453af8ad19Extension._serializer)
+          ..addBuilderFactory(const FullType(BaseNestedAnyOf3), BaseNestedAnyOf3Builder.new)
+          ..add(BaseNestedAnyOf3.serializer)
+          ..add($523892e2348458a2bdb28f9f942dca37Extension._serializer)
+          ..add($abe6d27882a5771a98ede04cd64de567Extension._serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -869,20 +874,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i4.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$fc0451dbdd462718bd075afd2e3ce0ec,
-            _$ce3c7b262d1c503446a436c461be5be9,
-            _$8da5087c0b3f2cce06998d453af8ad19,
-            _$523892e2348458a2bdb28f9f942dca37,
-            _$abe6d27882a5771a98ede04cd64de567,
-          },
-        ),
-      )
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i4.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$fc0451dbdd462718bd075afd2e3ce0ec,
+                _$ce3c7b262d1c503446a436c461be5be9,
+                _$8da5087c0b3f2cce06998d453af8ad19,
+                _$523892e2348458a2bdb28f9f942dca37,
+                _$abe6d27882a5771a98ede04cd64de567,
+              },
+            ),
+          )
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

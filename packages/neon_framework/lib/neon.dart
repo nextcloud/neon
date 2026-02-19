@@ -76,9 +76,7 @@ Future<void> runNeon({
   if (NeonPlatform.instance.canUsePushNotifications) {
     final notificationsPushStorage = NotificationsPushStorage(
       devicePrivateKeyPersistence: NeonStorage().singleValueStore(StorageKeys.notificationsDevicePrivateKey),
-      pushSubscriptionsPersistence: SQLiteCachedPersistence(
-        prefix: 'notifications-push-subscriptions',
-      ),
+      pushSubscriptionsPersistence: SQLiteCachedPersistence(prefix: 'notifications-push-subscriptions'),
     );
 
     notificationsPushRepository = NotificationsPushRepository(
@@ -90,10 +88,7 @@ Future<void> runNeon({
     distributors = await notificationsPushRepository.distributors;
   }
 
-  final globalOptions = GlobalOptions(
-    packageInfo,
-    distributors,
-  );
+  final globalOptions = GlobalOptions(packageInfo, distributors);
 
   await accountRepository.loadAccounts(
     initialAccount: globalOptions.initialAccount.value,
@@ -103,22 +98,13 @@ Future<void> runNeon({
   if (notificationsPushRepository != null) {
     await notificationsPushRepository.initialize();
 
-    PushNotificationsBloc(
-      globalOptions: globalOptions,
-      notificationsPushRepository: notificationsPushRepository,
-    );
+    PushNotificationsBloc(globalOptions: globalOptions, notificationsPushRepository: notificationsPushRepository);
   }
 
-  final accountsBloc = AccountsBloc(
-    allAppImplementations: appImplementations,
-    accountRepository: accountRepository,
-  );
+  final accountsBloc = AccountsBloc(allAppImplementations: appImplementations, accountRepository: accountRepository);
 
   final firstLaunchBloc = FirstLaunchBloc();
-  final nextPushBloc = NextPushBloc(
-    accountsSubject: accountsBloc.accounts,
-    globalOptions: globalOptions,
-  );
+  final nextPushBloc = NextPushBloc(accountsSubject: accountsBloc.accounts, globalOptions: globalOptions);
 
   runApp(
     MultiProvider(

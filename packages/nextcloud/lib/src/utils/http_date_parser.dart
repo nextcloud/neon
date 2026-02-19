@@ -22,22 +22,23 @@ final _zoneRegExp = RegExp(r'[+|-]');
 /// [RFC 1123](http://tools.ietf.org/html/rfc1123).
 String formatHttpDate(DateTime date) {
   date = date.toUtc();
-  final buffer = StringBuffer()
-    ..write(_weekdays[date.weekday - 1])
-    ..write(', ')
-    ..write(date.day <= 9 ? '0' : '')
-    ..write(date.day.toString())
-    ..write(' ')
-    ..write(_months[date.month - 1])
-    ..write(' ')
-    ..write(date.year.toString())
-    ..write(date.hour <= 9 ? ' 0' : ' ')
-    ..write(date.hour.toString())
-    ..write(date.minute <= 9 ? ':0' : ':')
-    ..write(date.minute.toString())
-    ..write(date.second <= 9 ? ':0' : ':')
-    ..write(date.second.toString())
-    ..write(' GMT');
+  final buffer =
+      StringBuffer()
+        ..write(_weekdays[date.weekday - 1])
+        ..write(', ')
+        ..write(date.day <= 9 ? '0' : '')
+        ..write(date.day.toString())
+        ..write(' ')
+        ..write(_months[date.month - 1])
+        ..write(' ')
+        ..write(date.year.toString())
+        ..write(date.hour <= 9 ? ' 0' : ' ')
+        ..write(date.hour.toString())
+        ..write(date.minute <= 9 ? ':0' : ':')
+        ..write(date.minute.toString())
+        ..write(date.second <= 9 ? ':0' : ':')
+        ..write(date.second.toString())
+        ..write(' GMT');
   return buffer.toString();
 }
 

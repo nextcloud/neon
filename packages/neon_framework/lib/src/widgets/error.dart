@@ -70,12 +70,13 @@ class NeonError extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(details.getText(context)),
-        action: details.isUnauthorized
-            ? SnackBarAction(
-                label: NeonLocalizations.of(context).loginAgain,
-                onPressed: () async => _openLoginPage(context),
-              )
-            : null,
+        action:
+            details.isUnauthorized
+                ? SnackBarAction(
+                  label: NeonLocalizations.of(context).loginAgain,
+                  onPressed: () async => _openLoginPage(context),
+                )
+                : null,
       ),
     );
   }
@@ -88,16 +89,10 @@ class NeonError extends StatelessWidget {
 
     final details = NeonExceptionDetails.fromError(error);
     final color = this.color ?? Theme.of(context).colorScheme.error;
-    final textStyle = TextStyle(
-      color: color,
-    );
+    final textStyle = TextStyle(color: color);
 
     final message = details.getText(context);
-    final errorIcon = Icon(
-      AdaptiveIcons.error_outline,
-      size: iconSize ?? 30,
-      color: color,
-    );
+    final errorIcon = Icon(AdaptiveIcons.error_outline, size: iconSize ?? 30, color: color);
 
     final actionMessage =
         details.isUnauthorized ? NeonLocalizations.of(context).loginAgain : NeonLocalizations.of(context).actionRetry;
@@ -127,35 +122,18 @@ class NeonError extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  errorIcon,
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Flexible(
-                    child: Text(message, style: textStyle),
-                  ),
-                ],
+                children: [errorIcon, const SizedBox(width: 10), Flexible(child: Text(message, style: textStyle))],
               ),
-              ElevatedButton(
-                onPressed: onPressed,
-                child: Text(actionMessage),
-              ),
+              ElevatedButton(onPressed: onPressed, child: Text(actionMessage)),
             ],
           ),
         );
       case NeonErrorType.listTile:
-        return AdaptiveListTile(
-          leading: errorIcon,
-          title: Text(message, style: textStyle),
-          onTap: onPressed,
-        );
+        return AdaptiveListTile(leading: errorIcon, title: Text(message, style: textStyle), onTap: onPressed);
     }
   }
 
   static Future<void> _openLoginPage(BuildContext context) async {
-    await LoginRoute(
-      serverUrl: NeonProvider.of<Account>(context).credentials.serverURL,
-    ).push<void>(context);
+    await LoginRoute(serverUrl: NeonProvider.of<Account>(context).credentials.serverURL).push<void>(context);
   }
 }

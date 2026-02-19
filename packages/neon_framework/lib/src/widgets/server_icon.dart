@@ -6,12 +6,7 @@ import 'package:vector_graphics/vector_graphics.dart';
 /// Draws an icon from the Nextcloud server icon set.
 class NeonServerIcon extends StatelessWidget {
   /// Creates a new server icon
-  const NeonServerIcon({
-    required this.icon,
-    this.colorFilter,
-    this.size,
-    super.key,
-  });
+  const NeonServerIcon({required this.icon, this.colorFilter, this.size, super.key});
 
   /// Name of the server icon to draw.
   final String icon;

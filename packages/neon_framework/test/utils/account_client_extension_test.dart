@@ -14,25 +14,15 @@ void main() {
       ]) {
         group(serverURL, () {
           final account = createAccount(
-            credentials: createCredentials(
-              serverURL: Uri.parse(serverURL),
-              username: 'example',
-              appPassword: null,
-            ),
+            credentials: createCredentials(serverURL: Uri.parse(serverURL), username: 'example', appPassword: null),
           );
 
           test('Complete absolute path', () {
-            expect(
-              account.completeUri(Uri.parse('$path/$testURL')),
-              Uri.parse('$serverURL/$testURL'),
-            );
+            expect(account.completeUri(Uri.parse('$path/$testURL')), Uri.parse('$serverURL/$testURL'));
           });
 
           test('Complete relative path', () {
-            expect(
-              account.completeUri(Uri.parse(testURL)),
-              Uri.parse('$serverURL/$testURL'),
-            );
+            expect(account.completeUri(Uri.parse(testURL)), Uri.parse('$serverURL/$testURL'));
           });
         });
       }

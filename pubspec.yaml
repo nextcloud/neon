@@ -2,7 +2,7 @@ name: neon_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
   flutter: ^3.27.0
 
 workspace:

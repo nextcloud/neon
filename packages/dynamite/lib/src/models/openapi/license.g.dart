@@ -15,12 +15,12 @@ class _$LicenseSerializer implements StructuredSerializer<License> {
   final String wireName = 'License';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, License object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    License object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
     Object? value;
     value = object.identifier;
     if (value != null) {
@@ -38,8 +38,11 @@ class _$LicenseSerializer implements StructuredSerializer<License> {
   }
 
   @override
-  License deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  License deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = LicenseBuilder();
 
     final iterator = serialized.iterator;
@@ -153,9 +156,13 @@ class LicenseBuilder implements Builder<License, LicenseBuilder> {
   License build() => _build();
 
   _$License _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$License._(
-            name: BuiltValueNullFieldError.checkNotNull(name, r'License', 'name'), identifier: identifier, url: url);
+          name: BuiltValueNullFieldError.checkNotNull(name, r'License', 'name'),
+          identifier: identifier,
+          url: url,
+        );
     replace(_$result);
     return _$result;
   }

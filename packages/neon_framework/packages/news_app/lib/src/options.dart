@@ -7,12 +7,7 @@ import 'package:news_app/src/blocs/articles.dart';
 
 class NewsOptions extends AppImplementationOptions {
   NewsOptions(super.storage) {
-    super.categories = [
-      generalCategory,
-      articlesCategory,
-      foldersCategory,
-      feedsCategory,
-    ];
+    super.categories = [generalCategory, articlesCategory, foldersCategory, feedsCategory];
     super.options = [
       defaultCategoryOption,
       articleViewTypeOption,
@@ -28,21 +23,13 @@ class NewsOptions extends AppImplementationOptions {
     ];
   }
 
-  final generalCategory = OptionsCategory(
-    name: (context) => NewsLocalizations.of(context).general,
-  );
+  final generalCategory = OptionsCategory(name: (context) => NewsLocalizations.of(context).general);
 
-  final articlesCategory = OptionsCategory(
-    name: (context) => NewsLocalizations.of(context).articles,
-  );
+  final articlesCategory = OptionsCategory(name: (context) => NewsLocalizations.of(context).articles);
 
-  final foldersCategory = OptionsCategory(
-    name: (context) => NewsLocalizations.of(context).folders,
-  );
+  final foldersCategory = OptionsCategory(name: (context) => NewsLocalizations.of(context).folders);
 
-  final feedsCategory = OptionsCategory(
-    name: (context) => NewsLocalizations.of(context).feeds,
-  );
+  final feedsCategory = OptionsCategory(name: (context) => NewsLocalizations.of(context).feeds);
 
   late final defaultCategoryOption = SelectOption<DefaultCategory>(
     storage: super.storage,
@@ -66,8 +53,8 @@ class NewsOptions extends AppImplementationOptions {
     values: {
       ArticleViewType.direct: (context) => NewsLocalizations.of(context).optionsArticleViewTypeDirect,
       if (NeonPlatform.instance.canUseWebView)
-        ArticleViewType.internalBrowser: (context) =>
-            NewsLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
+        ArticleViewType.internalBrowser:
+            (context) => NewsLocalizations.of(context).optionsArticleViewTypeInternalBrowser,
       ArticleViewType.externalBrowser: (context) => NewsLocalizations.of(context).optionsArticleViewTypeExternalBrowser,
     },
   );
@@ -100,10 +87,10 @@ class NewsOptions extends AppImplementationOptions {
     label: (context) => NewsLocalizations.of(context).optionsArticlesSortProperty,
     defaultValue: ArticlesSortProperty.publishDate,
     values: {
-      ArticlesSortProperty.publishDate: (context) =>
-          NewsLocalizations.of(context).optionsArticlesSortPropertyPublishDate,
-      ArticlesSortProperty.alphabetical: (context) =>
-          NewsLocalizations.of(context).optionsArticlesSortPropertyAlphabetical,
+      ArticlesSortProperty.publishDate:
+          (context) => NewsLocalizations.of(context).optionsArticlesSortPropertyPublishDate,
+      ArticlesSortProperty.alphabetical:
+          (context) => NewsLocalizations.of(context).optionsArticlesSortPropertyAlphabetical,
       ArticlesSortProperty.byFeed: (context) => NewsLocalizations.of(context).optionsArticlesSortPropertyFeed,
     },
   );
@@ -124,8 +111,8 @@ class NewsOptions extends AppImplementationOptions {
     label: (context) => NewsLocalizations.of(context).optionsFoldersSortProperty,
     defaultValue: FoldersSortProperty.alphabetical,
     values: {
-      FoldersSortProperty.alphabetical: (context) =>
-          NewsLocalizations.of(context).optionsFoldersSortPropertyAlphabetical,
+      FoldersSortProperty.alphabetical:
+          (context) => NewsLocalizations.of(context).optionsFoldersSortPropertyAlphabetical,
       FoldersSortProperty.unreadCount: (context) => NewsLocalizations.of(context).optionsFoldersSortPropertyUnreadCount,
     },
   );
@@ -192,35 +179,14 @@ enum NewsOptionKeys implements Storable {
   final String value;
 }
 
-enum DefaultCategory {
-  articles,
-  folders,
-  feeds,
-}
+enum DefaultCategory { articles, folders, feeds }
 
-enum ArticleViewType {
-  direct,
-  internalBrowser,
-  externalBrowser,
-}
+enum ArticleViewType { direct, internalBrowser, externalBrowser }
 
-enum ArticlesSortProperty {
-  publishDate,
-  alphabetical,
-  byFeed,
-}
+enum ArticlesSortProperty { publishDate, alphabetical, byFeed }
 
-enum FoldersSortProperty {
-  alphabetical,
-  unreadCount,
-}
+enum FoldersSortProperty { alphabetical, unreadCount }
 
-enum DefaultFolderViewType {
-  articles,
-  feeds,
-}
+enum DefaultFolderViewType { articles, feeds }
 
-enum FeedsSortProperty {
-  alphabetical,
-  unreadCount,
-}
+enum FeedsSortProperty { alphabetical, unreadCount }

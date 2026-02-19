@@ -69,10 +69,7 @@ void main() {
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
           Provider<Account>.value(value: account),
         ],
-        child: NotificationsNotification(
-          notification: notification,
-          onDelete: callback,
-        ),
+        child: NotificationsNotification(notification: notification, onDelete: callback),
       ),
     );
 
@@ -122,10 +119,7 @@ void main() {
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
           Provider<Account>.value(value: account),
         ],
-        child: NotificationsNotification(
-          notification: notification,
-          onDelete: callback,
-        ),
+        child: NotificationsNotification(notification: notification, onDelete: callback),
       ),
     );
 
@@ -144,10 +138,7 @@ void main() {
           Provider<BuiltSet<AppImplementation>>.value(value: BuiltSet()),
           Provider<Account>.value(value: account),
         ],
-        child: NotificationsNotification(
-          notification: notification,
-          onDelete: callback,
-        ),
+        child: NotificationsNotification(notification: notification, onDelete: callback),
       ),
     );
 

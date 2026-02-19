@@ -20,10 +20,7 @@ void main() {
     accountsStore = _SingleValueStoreMock();
     lastAccountStore = _SingleValueStoreMock();
 
-    storage = AccountStorage(
-      accountsPersistence: accountsStore,
-      lastAccountPersistence: lastAccountStore,
-    );
+    storage = AccountStorage(accountsPersistence: accountsStore, lastAccountPersistence: lastAccountStore);
   });
 
   final credentialsList = [
@@ -51,10 +48,7 @@ void main() {
       test('returns empty list when no value is stored', () async {
         when(() => accountsStore.hasValue()).thenReturn(false);
 
-        await expectLater(
-          storage.readCredentials(),
-          completion(isEmpty),
-        );
+        await expectLater(storage.readCredentials(), completion(isEmpty));
 
         verifyNever(() => accountsStore.getStringList());
       });
@@ -63,10 +57,7 @@ void main() {
         when(() => accountsStore.hasValue()).thenReturn(true);
         when(() => accountsStore.getStringList()).thenReturn(serializedCredentials);
 
-        await expectLater(
-          storage.readCredentials(),
-          completion(credentialsList),
-        );
+        await expectLater(storage.readCredentials(), completion(credentialsList));
 
         verify(() => accountsStore.getStringList()).called(1);
       });
@@ -86,10 +77,7 @@ void main() {
       test('returns null when no value is stored', () async {
         when(() => lastAccountStore.getString()).thenReturn(null);
 
-        await expectLater(
-          storage.readLastAccount(),
-          completion(isNull),
-        );
+        await expectLater(storage.readLastAccount(), completion(isNull));
 
         verify(() => lastAccountStore.getString()).called(1);
       });
@@ -97,10 +85,7 @@ void main() {
       test('returns account id for the stored value', () async {
         when(() => lastAccountStore.getString()).thenReturn('accountID');
 
-        await expectLater(
-          storage.readLastAccount(),
-          completion('accountID'),
-        );
+        await expectLater(storage.readLastAccount(), completion('accountID'));
 
         verify(() => lastAccountStore.getString()).called(1);
       });

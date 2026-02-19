@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $FeedsClient feeds = $FeedsClient(this);
 
@@ -50,11 +50,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getSupportedApiVersions_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<SupportedAPIVersions, void> $getSupportedApiVersions_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(SupportedAPIVersions),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(SupportedAPIVersions),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getSupportedApiVersions] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -117,11 +117,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$listFeeds_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListFeeds, void> $listFeeds_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFeeds),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListFeeds),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [listFeeds] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -177,11 +177,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$addFeed_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListFeeds, void> $addFeed_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFeeds),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListFeeds),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [addFeed] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -252,11 +252,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$deleteFeed_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $deleteFeed_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [deleteFeed] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -315,11 +315,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$moveFeed_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $moveFeed_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [moveFeed] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -387,11 +387,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$renameFeed_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $renameFeed_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [renameFeed] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -461,11 +461,11 @@ class $FeedsClient {
   /// Builds a serializer to parse the response of [$markFeedAsRead_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $markFeedAsRead_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [markFeedAsRead] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -542,11 +542,11 @@ class $FoldersClient {
   /// Builds a serializer to parse the response of [$listFolders_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListFolders, void> $listFolders_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFolders),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListFolders),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [listFolders] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -602,11 +602,11 @@ class $FoldersClient {
   /// Builds a serializer to parse the response of [$createFolder_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListFolders, void> $createFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListFolders),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListFolders),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [createFolder] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -672,11 +672,11 @@ class $FoldersClient {
   /// Builds a serializer to parse the response of [$renameFolder_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $renameFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [renameFolder] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -744,11 +744,11 @@ class $FoldersClient {
   /// Builds a serializer to parse the response of [$deleteFolder_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $deleteFolder_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [deleteFolder] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -807,11 +807,11 @@ class $FoldersClient {
   /// Builds a serializer to parse the response of [$markFolderAsRead_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $markFolderAsRead_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [markFolderAsRead] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -888,11 +888,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$listArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListArticles, void> $listArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListArticles),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListArticles),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [listArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1005,11 +1005,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$listUpdatedArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ListArticles, void> $listUpdatedArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ListArticles),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ListArticles),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [listUpdatedArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1090,11 +1090,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$markArticleAsRead_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $markArticleAsRead_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [markArticleAsRead] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1153,11 +1153,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$markArticleAsUnread_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $markArticleAsUnread_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [markArticleAsUnread] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1216,11 +1216,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$readMultipleArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $readMultipleArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [readMultipleArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1281,11 +1281,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$unreadMultipleArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $unreadMultipleArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [unreadMultipleArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1346,11 +1346,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$starArticle_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $starArticle_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [starArticle] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1409,11 +1409,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$unstarArticle_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $unstarArticle_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [unstarArticle] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1472,11 +1472,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$starMultipleArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $starMultipleArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [starMultipleArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -1537,11 +1537,11 @@ class $ItemsClient {
   /// Builds a serializer to parse the response of [$unstarMultipleArticles_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $unstarMultipleArticles_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [unstarMultipleArticles] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -2445,54 +2445,55 @@ abstract class EmptyOCS implements $EmptyOCSInterface, Built<EmptyOCS, EmptyOCSB
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
-      ..add(SupportedAPIVersions.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(ListFeeds), ListFeedsBuilder.new)
-      ..add(ListFeeds.serializer)
-      ..addBuilderFactory(const FullType(Feed), FeedBuilder.new)
-      ..add(Feed.serializer)
-      ..addBuilderFactory(const FullType(Article), ArticleBuilder.new)
-      ..add(Article.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Article)]), ListBuilder<Article>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Feed)]), ListBuilder<Feed>.new)
-      ..addBuilderFactory(const FullType(ListFolders), ListFoldersBuilder.new)
-      ..add(ListFolders.serializer)
-      ..addBuilderFactory(const FullType(Folder), FolderBuilder.new)
-      ..add(Folder.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Folder)]), ListBuilder<Folder>.new)
-      ..addBuilderFactory(const FullType(ListArticles), ListArticlesBuilder.new)
-      ..add(ListArticles.serializer)
-      ..addBuilderFactory(
-        const FullType(ReadMultipleArticlesRequestApplicationJson),
-        ReadMultipleArticlesRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReadMultipleArticlesRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(
-        const FullType(UnreadMultipleArticlesRequestApplicationJson),
-        UnreadMultipleArticlesRequestApplicationJsonBuilder.new,
-      )
-      ..add(UnreadMultipleArticlesRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(StarMultipleArticlesRequestApplicationJson),
-        StarMultipleArticlesRequestApplicationJsonBuilder.new,
-      )
-      ..add(StarMultipleArticlesRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UnstarMultipleArticlesRequestApplicationJson),
-        UnstarMultipleArticlesRequestApplicationJsonBuilder.new,
-      )
-      ..add(UnstarMultipleArticlesRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
-      ..add(EmptyOCS.serializer)
-      ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_OcsBuilder.new)
-      ..add(EmptyOCS_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(SupportedAPIVersions), SupportedAPIVersionsBuilder.new)
+          ..add(SupportedAPIVersions.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(ListFeeds), ListFeedsBuilder.new)
+          ..add(ListFeeds.serializer)
+          ..addBuilderFactory(const FullType(Feed), FeedBuilder.new)
+          ..add(Feed.serializer)
+          ..addBuilderFactory(const FullType(Article), ArticleBuilder.new)
+          ..add(Article.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Article)]), ListBuilder<Article>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Feed)]), ListBuilder<Feed>.new)
+          ..addBuilderFactory(const FullType(ListFolders), ListFoldersBuilder.new)
+          ..add(ListFolders.serializer)
+          ..addBuilderFactory(const FullType(Folder), FolderBuilder.new)
+          ..add(Folder.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Folder)]), ListBuilder<Folder>.new)
+          ..addBuilderFactory(const FullType(ListArticles), ListArticlesBuilder.new)
+          ..add(ListArticles.serializer)
+          ..addBuilderFactory(
+            const FullType(ReadMultipleArticlesRequestApplicationJson),
+            ReadMultipleArticlesRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReadMultipleArticlesRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(
+            const FullType(UnreadMultipleArticlesRequestApplicationJson),
+            UnreadMultipleArticlesRequestApplicationJsonBuilder.new,
+          )
+          ..add(UnreadMultipleArticlesRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(StarMultipleArticlesRequestApplicationJson),
+            StarMultipleArticlesRequestApplicationJsonBuilder.new,
+          )
+          ..add(StarMultipleArticlesRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UnstarMultipleArticlesRequestApplicationJson),
+            UnstarMultipleArticlesRequestApplicationJsonBuilder.new,
+          )
+          ..add(UnstarMultipleArticlesRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(EmptyOCS), EmptyOCSBuilder.new)
+          ..add(EmptyOCS.serializer)
+          ..addBuilderFactory(const FullType(EmptyOCS_Ocs), EmptyOCS_OcsBuilder.new)
+          ..add(EmptyOCS_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -2500,10 +2501,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

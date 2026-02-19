@@ -16,10 +16,8 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for managing unified search.
 sealed class UnifiedSearchBloc implements InteractiveBloc {
   @internal
-  factory UnifiedSearchBloc({
-    required BehaviorSubject<AppImplementation> activeAppSubject,
-    required Account account,
-  }) = _UnifiedSearchBloc;
+  factory UnifiedSearchBloc({required BehaviorSubject<AppImplementation> activeAppSubject, required Account account}) =
+      _UnifiedSearchBloc;
 
   /// Search for a [term].
   void search(String term);
@@ -38,10 +36,7 @@ sealed class UnifiedSearchBloc implements InteractiveBloc {
 }
 
 class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
-  _UnifiedSearchBloc({
-    required this.activeAppSubject,
-    required this.account,
-  }) {
+  _UnifiedSearchBloc({required this.activeAppSubject, required this.account}) {
     activeAppSubscription = activeAppSubject.listen((_) {
       term = '';
       extendedSearchEnabled = false;
@@ -141,17 +136,10 @@ class _UnifiedSearchBloc extends InteractiveBloc implements UnifiedSearchBloc {
     await Future.wait(
       providerIDs.map((providerID) async {
         try {
-          final response = await account.client.core.unifiedSearch.search(
-            providerId: providerID,
-            term: term,
-          );
+          final response = await account.client.core.unifiedSearch.search(providerId: providerID, term: term);
           updateResults(providerID, Result.success(response.body.ocs.data));
         } on http.ClientException catch (error, stackTrace) {
-          log.warning(
-            'Error searching in $providerID.',
-            error,
-            stackTrace,
-          );
+          log.warning('Error searching in $providerID.', error, stackTrace);
 
           updateResults(providerID, Result.error(error));
         }

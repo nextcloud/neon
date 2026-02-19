@@ -5,11 +5,7 @@ import 'package:notes_app/l10n/localizations.dart';
 
 class NotesOptions extends AppImplementationOptions {
   NotesOptions(super.storage) {
-    super.categories = [
-      generalCategory,
-      notesCategory,
-      categoriesCategory,
-    ];
+    super.categories = [generalCategory, notesCategory, categoriesCategory];
     super.options = [
       defaultCategoryOption,
       defaultNoteViewTypeOption,
@@ -20,17 +16,11 @@ class NotesOptions extends AppImplementationOptions {
     ];
   }
 
-  final generalCategory = OptionsCategory(
-    name: (context) => NotesLocalizations.of(context).general,
-  );
+  final generalCategory = OptionsCategory(name: (context) => NotesLocalizations.of(context).general);
 
-  final notesCategory = OptionsCategory(
-    name: (context) => NotesLocalizations.of(context).notes,
-  );
+  final notesCategory = OptionsCategory(name: (context) => NotesLocalizations.of(context).notes);
 
-  final categoriesCategory = OptionsCategory(
-    name: (context) => NotesLocalizations.of(context).categories,
-  );
+  final categoriesCategory = OptionsCategory(name: (context) => NotesLocalizations.of(context).categories);
 
   late final defaultCategoryOption = SelectOption<DefaultCategory>(
     storage: super.storage,
@@ -84,10 +74,10 @@ class NotesOptions extends AppImplementationOptions {
     label: (context) => NotesLocalizations.of(context).optionsCategoriesSortProperty,
     defaultValue: CategoriesSortProperty.alphabetical,
     values: {
-      CategoriesSortProperty.alphabetical: (context) =>
-          NotesLocalizations.of(context).optionsCategoriesSortPropertyAlphabetical,
-      CategoriesSortProperty.notesCount: (context) =>
-          NotesLocalizations.of(context).optionsCategoriesSortPropertyNotesCount,
+      CategoriesSortProperty.alphabetical:
+          (context) => NotesLocalizations.of(context).optionsCategoriesSortPropertyAlphabetical,
+      CategoriesSortProperty.notesCount:
+          (context) => NotesLocalizations.of(context).optionsCategoriesSortPropertyNotesCount,
     },
   );
 
@@ -115,23 +105,10 @@ enum NotesOptionKeys implements Storable {
   final String value;
 }
 
-enum DefaultNoteViewType {
-  preview,
-  edit,
-}
+enum DefaultNoteViewType { preview, edit }
 
-enum NotesSortProperty {
-  lastModified,
-  alphabetical,
-  favorite,
-}
+enum NotesSortProperty { lastModified, alphabetical, favorite }
 
-enum CategoriesSortProperty {
-  alphabetical,
-  notesCount,
-}
+enum CategoriesSortProperty { alphabetical, notesCount }
 
-enum DefaultCategory {
-  notes,
-  categories,
-}
+enum DefaultCategory { notes, categories }

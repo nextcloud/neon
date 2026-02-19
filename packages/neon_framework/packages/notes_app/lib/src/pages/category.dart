@@ -6,11 +6,7 @@ import 'package:notes_app/src/widgets/notes_floating_action_button.dart';
 import 'package:notes_app/src/widgets/notes_view.dart';
 
 class NotesCategoryPage extends StatelessWidget {
-  const NotesCategoryPage({
-    required this.bloc,
-    required this.category,
-    super.key,
-  });
+  const NotesCategoryPage({required this.bloc, required this.category, super.key});
 
   final NotesBloc bloc;
   final NoteCategory category;
@@ -22,16 +18,8 @@ class NotesCategoryPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(category.name.isNotEmpty ? category.name : NotesLocalizations.of(context).categoryUncategorized),
       ),
-      body: SafeArea(
-        child: NotesView(
-          bloc: bloc,
-          category: category.name,
-        ),
-      ),
-      floatingActionButton: NotesFloatingActionButton(
-        bloc: bloc,
-        category: category.name,
-      ),
+      body: SafeArea(child: NotesView(bloc: bloc, category: category.name)),
+      floatingActionButton: NotesFloatingActionButton(bloc: bloc, category: category.name),
     );
   }
 }

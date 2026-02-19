@@ -27,11 +27,7 @@ void presets(
   void innerBody() {
     for (final presetVersion in presets[presetGroup]) {
       group('${presetVersion.major}.${presetVersion.minor}', () {
-        final tester = NextcloudTester(
-          appName: presetGroup,
-          version: presetVersion,
-          username: username,
-        );
+        final tester = NextcloudTester(appName: presetGroup, version: presetVersion, username: username);
 
         setUpAll(() async {
           await tester.init();

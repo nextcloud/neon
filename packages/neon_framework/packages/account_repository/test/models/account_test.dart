@@ -5,42 +5,21 @@ void main() {
   group('Account', () {
     group('constructor', () {
       test('works correctly', () {
-        expect(
-          createAccount,
-          returnsNormally,
-        );
+        expect(createAccount, returnsNormally);
       });
     });
 
     test('supports value equality', () {
-      expect(
-        createAccount(),
-        equals(createAccount()),
-      );
+      expect(createAccount(), equals(createAccount()));
 
-      expect(
-        createAccount().hashCode,
-        equals(createAccount().hashCode),
-      );
+      expect(createAccount().hashCode, equals(createAccount().hashCode));
 
-      expect(
-        createAccount(),
-        isNot(
-          equals(
-            createAccount(
-              credentials: createCredentials(appPassword: null),
-            ),
-          ),
-        ),
-      );
+      expect(createAccount(), isNot(equals(createAccount(credentials: createCredentials(appPassword: null)))));
     });
 
     group('rebuild', () {
       test('returns the same object if not attributes are changed', () {
-        expect(
-          createAccount().rebuild((_) {}),
-          equals(createAccount()),
-        );
+        expect(createAccount().rebuild((_) {}), equals(createAccount()));
       });
 
       test('replaces every attribute', () {
@@ -65,9 +44,7 @@ void main() {
     });
 
     test('credential getters', () {
-      final account = createAccount(
-        credentials: createCredentials(serverURL: Uri(host: 'server')),
-      );
+      final account = createAccount(credentials: createCredentials(serverURL: Uri(host: 'server')));
 
       expect(account.username, equals('username'));
       expect(account.id, equals('43c2c7ec8332735e75756dcb08c4fcc6c2b07071'));

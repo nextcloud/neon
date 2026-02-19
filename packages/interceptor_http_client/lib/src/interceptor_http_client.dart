@@ -20,10 +20,7 @@ final class InterceptionException extends InterceptorHttpClientException {
 /// A http client for intercepting requests and responses.
 class InterceptorHttpClient with http.BaseClient {
   /// Creates a new interceptor http client.
-  const InterceptorHttpClient({
-    required http.Client baseClient,
-    required this.interceptors,
-  }) : _baseClient = baseClient;
+  const InterceptorHttpClient({required http.Client baseClient, required this.interceptors}) : _baseClient = baseClient;
 
   /// The underlying HTTP client.
   final http.Client _baseClient;
@@ -39,18 +36,13 @@ class InterceptorHttpClient with http.BaseClient {
     for (final interceptor in interceptors) {
       if (interceptor.shouldInterceptRequest(interceptedRequest)) {
         try {
-          interceptedRequest = await interceptor.interceptRequest(
-            request: interceptedRequest,
-          );
+          interceptedRequest = await interceptor.interceptRequest(request: interceptedRequest);
         } catch (error, stackTrace) {
           if (error is http.ClientException) {
             rethrow;
           }
 
-          Error.throwWithStackTrace(
-            InterceptionException('Failed to intercept request', request.url),
-            stackTrace,
-          );
+          Error.throwWithStackTrace(InterceptionException('Failed to intercept request', request.url), stackTrace);
         }
       }
     }
@@ -67,18 +59,12 @@ class InterceptorHttpClient with http.BaseClient {
     for (final interceptor in interceptors) {
       if (interceptor.shouldInterceptResponse(interceptedResponse)) {
         try {
-          interceptedResponse = await interceptor.interceptResponse(
-            response: interceptedResponse,
-            url: url,
-          );
+          interceptedResponse = await interceptor.interceptResponse(response: interceptedResponse, url: url);
         } catch (error, stackTrace) {
           if (error is http.ClientException) {
             rethrow;
           }
-          Error.throwWithStackTrace(
-            InterceptionException('Failed to intercept response', request.url),
-            stackTrace,
-          );
+          Error.throwWithStackTrace(InterceptionException('Failed to intercept response', request.url), stackTrace);
         }
       }
     }

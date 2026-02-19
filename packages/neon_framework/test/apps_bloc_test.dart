@@ -21,48 +21,46 @@ Account mockAppsAccount() {
     RegExp(r'/ocs/v2\.php/core/navigation/apps'): {
       'get': (match, request) {
         return Response(
-          json.encode(
-            {
-              'ocs': {
-                'meta': {'status': '', 'statuscode': 0},
-                'data': <dynamic>[
-                  {
-                    'id': 'test',
-                    'order': 0,
-                    'href': '',
-                    'icon': '',
-                    'type': '',
-                    'name': '',
-                    'active': false,
-                    'classes': '',
-                    'unread': 0,
-                  },
-                  {
-                    'id': 'initial',
-                    'order': 1,
-                    'href': '',
-                    'icon': '',
-                    'type': '',
-                    'name': '',
-                    'active': false,
-                    'classes': '',
-                    'unread': 0,
-                  },
-                  {
-                    'id': dashboard.appID,
-                    'order': 2,
-                    'href': '',
-                    'icon': '',
-                    'type': '',
-                    'name': '',
-                    'active': false,
-                    'classes': '',
-                    'unread': 0,
-                  },
-                ],
-              },
+          json.encode({
+            'ocs': {
+              'meta': {'status': '', 'statuscode': 0},
+              'data': <dynamic>[
+                {
+                  'id': 'test',
+                  'order': 0,
+                  'href': '',
+                  'icon': '',
+                  'type': '',
+                  'name': '',
+                  'active': false,
+                  'classes': '',
+                  'unread': 0,
+                },
+                {
+                  'id': 'initial',
+                  'order': 1,
+                  'href': '',
+                  'icon': '',
+                  'type': '',
+                  'name': '',
+                  'active': false,
+                  'classes': '',
+                  'unread': 0,
+                },
+                {
+                  'id': dashboard.appID,
+                  'order': 2,
+                  'href': '',
+                  'icon': '',
+                  'type': '',
+                  'name': '',
+                  'active': false,
+                  'classes': '',
+                  'unread': 0,
+                },
+              ],
             },
-          ),
+          }),
           200,
           headers: {'content-type': 'application/json'},
         );
@@ -73,17 +71,18 @@ Account mockAppsAccount() {
 
 core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(
   core.NotificationsCapabilities? capabilities,
-) =>
-    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
-      (b) => b
+) => core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data(
+  (b) =>
+      b
         ..version.update(
-          (b) => b
-            ..major = 0
-            ..minor = 0
-            ..micro = 0
-            ..string = ''
-            ..edition = ''
-            ..extendedSupport = false,
+          (b) =>
+              b
+                ..major = 0
+                ..minor = 0
+                ..micro = 0
+                ..string = ''
+                ..edition = ''
+                ..extendedSupport = false,
         )
         ..capabilities = (
           // We need to provide at least one capability because anyOf expects at least one schema to match
@@ -110,7 +109,7 @@ core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data buildCapabilities(
           userStatusCapabilities: null,
           weatherStatusCapabilities: null,
         ),
-    );
+);
 
 void main() {
   late Account account;
@@ -130,13 +129,15 @@ void main() {
       Result.success(
         buildCapabilities(
           core.NotificationsCapabilities(
-            (b) => b
-              ..notifications.update(
-                (b) => b
-                  ..ocsEndpoints.replace([])
-                  ..push.replace([])
-                  ..adminNotifications.replace([]),
-              ),
+            (b) =>
+                b
+                  ..notifications.update(
+                    (b) =>
+                        b
+                          ..ocsEndpoints.replace([])
+                          ..push.replace([])
+                          ..adminNotifications.replace([]),
+                  ),
           ),
         ),
       ),
@@ -186,9 +187,7 @@ void main() {
       when(() => appImplementation1.id).thenReturn('test');
       when(() => appImplementation1.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
-      final allAppImplementation = BuiltSet<AppImplementation>([
-        appImplementation1,
-      ]);
+      final allAppImplementation = BuiltSet<AppImplementation>([appImplementation1]);
 
       appsBloc = AppsBloc(
         capabilitiesSubject: capabilitiesSubject,
@@ -206,12 +205,7 @@ void main() {
         ]),
       );
 
-      expect(
-        appsBloc.activeApp,
-        emitsInOrder([
-          appImplementation1,
-        ]),
-      );
+      expect(appsBloc.activeApp, emitsInOrder([appImplementation1]));
     });
 
     test('Initial', () {
@@ -223,10 +217,7 @@ void main() {
       when(() => appImplementation2.id).thenReturn('initial');
       when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
-      final allAppImplementation = BuiltSet<AppImplementation>([
-        appImplementation1,
-        appImplementation2,
-      ]);
+      final allAppImplementation = BuiltSet<AppImplementation>([appImplementation1, appImplementation2]);
 
       appsBloc = AppsBloc(
         capabilitiesSubject: capabilitiesSubject,
@@ -244,12 +235,7 @@ void main() {
         ]),
       );
 
-      expect(
-        appsBloc.activeApp,
-        emitsInOrder([
-          appImplementation2,
-        ]),
-      );
+      expect(appsBloc.activeApp, emitsInOrder([appImplementation2]));
     });
 
     test('Fallback', () {
@@ -261,10 +247,7 @@ void main() {
       when(() => appImplementation2.id).thenReturn(dashboard.appID);
       when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
-      final allAppImplementation = BuiltSet<AppImplementation>([
-        appImplementation1,
-        appImplementation2,
-      ]);
+      final allAppImplementation = BuiltSet<AppImplementation>([appImplementation1, appImplementation2]);
 
       appsBloc = AppsBloc(
         capabilitiesSubject: capabilitiesSubject,
@@ -282,12 +265,7 @@ void main() {
         ]),
       );
 
-      expect(
-        appsBloc.activeApp,
-        emitsInOrder([
-          appImplementation2,
-        ]),
-      );
+      expect(appsBloc.activeApp, emitsInOrder([appImplementation2]));
     });
   });
 
@@ -300,10 +278,7 @@ void main() {
     when(() => appImplementation2.id).thenReturn(notifications.appID);
     when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
 
-    final allAppImplementation = BuiltSet<AppImplementation>([
-      appImplementation1,
-      appImplementation2,
-    ]);
+    final allAppImplementation = BuiltSet<AppImplementation>([appImplementation1, appImplementation2]);
 
     appsBloc = AppsBloc(
       capabilitiesSubject: capabilitiesSubject,
@@ -321,44 +296,27 @@ void main() {
       ]),
     );
 
-    expect(
-      appsBloc.activeApp,
-      emitsInOrder([
-        appImplementation1,
-      ]),
-    );
+    expect(appsBloc.activeApp, emitsInOrder([appImplementation1]));
   });
 
   test('Version checks', () {
-    final versionCheckCore = VersionCheck(
-      versions: BuiltList([Version(0, 0, 0)]),
-      minimumVersion: core.minVersion,
-    );
+    final versionCheckCore = VersionCheck(versions: BuiltList([Version(0, 0, 0)]), minimumVersion: core.minVersion);
 
-    final versionCheck1 = VersionCheck(
-      versions: BuiltList([Version(2, 0, 0)]),
-      minimumVersion: Version(2, 0, 0),
-    );
+    final versionCheck1 = VersionCheck(versions: BuiltList([Version(2, 0, 0)]), minimumVersion: Version(2, 0, 0));
 
     final appImplementation1 = MockAppImplementation();
     when(() => appImplementation1.id).thenReturn('test');
     when(() => appImplementation1.blocsCache).thenReturn(MockAccountCache<Bloc>());
     when(() async => appImplementation1.getVersionCheck(any(), any())).thenAnswer((_) async => versionCheck1);
 
-    final versionCheck2 = VersionCheck(
-      versions: BuiltList([Version(1, 0, 0)]),
-      minimumVersion: Version(2, 0, 0),
-    );
+    final versionCheck2 = VersionCheck(versions: BuiltList([Version(1, 0, 0)]), minimumVersion: Version(2, 0, 0));
 
     final appImplementation2 = MockAppImplementation();
     when(() => appImplementation2.id).thenReturn('initial');
     when(() => appImplementation2.blocsCache).thenReturn(MockAccountCache<Bloc>());
     when(() async => appImplementation2.getVersionCheck(any(), any())).thenAnswer((_) async => versionCheck2);
 
-    final allAppImplementation = BuiltSet<AppImplementation>([
-      appImplementation1,
-      appImplementation2,
-    ]);
+    final allAppImplementation = BuiltSet<AppImplementation>([appImplementation1, appImplementation2]);
 
     appsBloc = AppsBloc(
       capabilitiesSubject: capabilitiesSubject,
@@ -375,29 +333,17 @@ void main() {
         Result.success(BuiltSet<AppImplementation>({appImplementation1, appImplementation2})),
       ]),
     );
-    expect(
-      appsBloc.activeApp,
-      emitsInOrder([
-        appImplementation2,
-      ]),
-    );
+    expect(appsBloc.activeApp, emitsInOrder([appImplementation2]));
     expect(
       appsBloc.appVersionChecks,
       emitsInOrder([
-        BuiltMap<String, VersionCheck>({
-          'core': versionCheckCore,
-          'test': versionCheck1,
-          'initial': versionCheck2,
-        }),
+        BuiltMap<String, VersionCheck>({'core': versionCheckCore, 'test': versionCheck1, 'initial': versionCheck2}),
       ]),
     );
     expect(
       appsBloc.unsupportedApps,
       emitsInOrder([
-        BuiltMap<String, VersionCheck>({
-          'core': versionCheckCore,
-          'initial': versionCheck2,
-        }),
+        BuiltMap<String, VersionCheck>({'core': versionCheckCore, 'initial': versionCheck2}),
       ]),
     );
   });

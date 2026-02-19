@@ -20,14 +20,12 @@ class LoginCheckServerView extends StatelessWidget {
             NeonValidationTile(
               key: const Key('login_check_server-server_version_validation'),
               title: switch (state.serverVersionState) {
-                ServerVersionStateSuccess(:final serverVersion) =>
-                  NeonLocalizations.of(context).loginServerVersionSupported(
-                    serverVersion,
-                  ),
-                ServerVersionStateFailure(:final serverVersion) =>
-                  NeonLocalizations.of(context).loginServerVersionUnsupported(
-                    serverVersion,
-                  ),
+                ServerVersionStateSuccess(:final serverVersion) => NeonLocalizations.of(
+                  context,
+                ).loginServerVersionSupported(serverVersion),
+                ServerVersionStateFailure(:final serverVersion) => NeonLocalizations.of(
+                  context,
+                ).loginServerVersionUnsupported(serverVersion),
                 _ => NeonLocalizations.of(context).loginServerVersion,
               },
               state: switch (state.serverVersionState) {
@@ -53,9 +51,10 @@ class LoginCheckServerView extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.bottomRight,
-              child: state.isSuccess
-                  ? const _CheckServerContinue(key: Key('login_check_server-continue'))
-                  : const _CheckServerRetry(key: Key('login_check_server-retry')),
+              child:
+                  state.isSuccess
+                      ? const _CheckServerContinue(key: Key('login_check_server-continue'))
+                      : const _CheckServerRetry(key: Key('login_check_server-retry')),
             ),
           ],
         );

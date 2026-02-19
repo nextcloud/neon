@@ -11,14 +11,8 @@ import 'package:universal_io/io.dart';
 const unicodeVersion = '15_0';
 
 void main() {
-  final formatter = DartFormatter(
-    pageWidth: 120,
-    languageVersion: DartFormatter.latestLanguageVersion,
-  );
-  final emitter = DartEmitter(
-    orderDirectives: true,
-    useNullSafetySyntax: true,
-  );
+  final formatter = DartFormatter(pageWidth: 120, languageVersion: DartFormatter.latestLanguageVersion);
+  final emitter = DartEmitter(orderDirectives: true, useNullSafetySyntax: true);
 
   final inputFile = File('../../external/emoji-metadata/emoji_${unicodeVersion}_ordering.json');
   final input = json.decode(inputFile.readAsStringSync());
@@ -28,90 +22,102 @@ void main() {
 
     b.body.add(
       Class(
-        (b) => b
-          ..name = 'Emoji'
-          ..docs.add('/// Holds the metadata of a Unicode emoji.')
-          ..constructors.add(
-            Constructor(
-              (b) => b
-                ..constant = true
-                ..docs.add('/// Creates a new [Emoji].')
-                ..optionalParameters.addAll([
-                  Parameter(
-                    (b) => b
-                      ..name = 'base'
-                      ..named = true
-                      ..toThis = true
-                      ..required = true,
-                  ),
-                  Parameter(
-                    (b) => b
-                      ..name = 'alternates'
-                      ..named = true
-                      ..toThis = true
-                      ..required = true,
-                  ),
-                  Parameter(
-                    (b) => b
-                      ..name = 'emoticons'
-                      ..named = true
-                      ..toThis = true
-                      ..required = true,
-                  ),
-                  Parameter(
-                    (b) => b
-                      ..name = 'shortcodes'
-                      ..named = true
-                      ..toThis = true
-                      ..required = true,
-                  ),
-                  Parameter(
-                    (b) => b
-                      ..name = 'animated'
-                      ..named = true
-                      ..toThis = true
-                      ..required = true,
-                  ),
-                ]),
-            ),
-          )
-          ..fields.addAll([
-            Field(
-              (b) => b
-                ..name = 'base'
-                ..type = refer('String')
-                ..modifier = FieldModifier.final$
-                ..docs.add('/// The base emoji symbol.'),
-            ),
-            Field(
-              (b) => b
-                ..name = 'alternates'
-                ..type = refer('List<String>')
-                ..modifier = FieldModifier.final$
-                ..docs.add('/// The associated alternate emoji symbols.'),
-            ),
-            Field(
-              (b) => b
-                ..name = 'emoticons'
-                ..type = refer('List<String>')
-                ..modifier = FieldModifier.final$
-                ..docs.add('/// The associated emoticons.'),
-            ),
-            Field(
-              (b) => b
-                ..name = 'shortcodes'
-                ..type = refer('List<String>')
-                ..modifier = FieldModifier.final$
-                ..docs.add('/// The associated short codes.'),
-            ),
-            Field(
-              (b) => b
-                ..name = 'animated'
-                ..type = refer('bool')
-                ..modifier = FieldModifier.final$
-                ..docs.add('/// Whether the emoji can be animated.'),
-            ),
-          ]),
+        (b) =>
+            b
+              ..name = 'Emoji'
+              ..docs.add('/// Holds the metadata of a Unicode emoji.')
+              ..constructors.add(
+                Constructor(
+                  (b) =>
+                      b
+                        ..constant = true
+                        ..docs.add('/// Creates a new [Emoji].')
+                        ..optionalParameters.addAll([
+                          Parameter(
+                            (b) =>
+                                b
+                                  ..name = 'base'
+                                  ..named = true
+                                  ..toThis = true
+                                  ..required = true,
+                          ),
+                          Parameter(
+                            (b) =>
+                                b
+                                  ..name = 'alternates'
+                                  ..named = true
+                                  ..toThis = true
+                                  ..required = true,
+                          ),
+                          Parameter(
+                            (b) =>
+                                b
+                                  ..name = 'emoticons'
+                                  ..named = true
+                                  ..toThis = true
+                                  ..required = true,
+                          ),
+                          Parameter(
+                            (b) =>
+                                b
+                                  ..name = 'shortcodes'
+                                  ..named = true
+                                  ..toThis = true
+                                  ..required = true,
+                          ),
+                          Parameter(
+                            (b) =>
+                                b
+                                  ..name = 'animated'
+                                  ..named = true
+                                  ..toThis = true
+                                  ..required = true,
+                          ),
+                        ]),
+                ),
+              )
+              ..fields.addAll([
+                Field(
+                  (b) =>
+                      b
+                        ..name = 'base'
+                        ..type = refer('String')
+                        ..modifier = FieldModifier.final$
+                        ..docs.add('/// The base emoji symbol.'),
+                ),
+                Field(
+                  (b) =>
+                      b
+                        ..name = 'alternates'
+                        ..type = refer('List<String>')
+                        ..modifier = FieldModifier.final$
+                        ..docs.add('/// The associated alternate emoji symbols.'),
+                ),
+                Field(
+                  (b) =>
+                      b
+                        ..name = 'emoticons'
+                        ..type = refer('List<String>')
+                        ..modifier = FieldModifier.final$
+                        ..docs.add('/// The associated emoticons.'),
+                ),
+                Field(
+                  (b) =>
+                      b
+                        ..name = 'shortcodes'
+                        ..type = refer('List<String>')
+                        ..modifier = FieldModifier.final$
+                        ..docs.add('/// The associated short codes.'),
+                ),
+                Field(
+                  (b) =>
+                      b
+                        ..name = 'animated'
+                        ..type = refer('bool')
+                        ..modifier = FieldModifier.final$
+                        ..docs.add('/// Whether the emoji can be animated.'),
+                ),
+              ]),
       ),
     );
 
@@ -135,9 +141,10 @@ void main() {
 
       for (final emoji in (group['emoji'] as List).map((t) => t as Map<String, dynamic>)) {
         final base = String.fromCharCodes((emoji['base'] as List).cast<int>());
-        final alternates = (emoji['alternates'] as List)
-            .map((alternate) => String.fromCharCodes((alternate as List).cast<int>()))
-            .toList();
+        final alternates =
+            (emoji['alternates'] as List)
+                .map((alternate) => String.fromCharCodes((alternate as List).cast<int>()))
+                .toList();
         final emoticons = (emoji['emoticons'] as List).cast<String>();
         final shortcodes = (emoji['shortcodes'] as List).cast<String>();
         final animated = emoji['animated'] as bool;
@@ -145,24 +152,25 @@ void main() {
         var name = '';
         for (final shortcode in shortcodes) {
           name = shortcode.substring(1, shortcode.length - 1).toLowerCase();
-          name = name
-              .split('-')
-              .map(
-                (t) => switch (t) {
-                  '1' => 'one',
-                  '2' => 'two',
-                  '3' => 'three',
-                  '4' => 'four',
-                  '5' => 'five',
-                  '6' => 'six',
-                  '7' => 'seven',
-                  '8' => 'eight',
-                  '9' => 'nine',
-                  _ => t,
-                },
-              )
-              .mapIndexed((i, t) => i == 0 ? t : '${t.substring(0, 1).toUpperCase()}${t.substring(1)}')
-              .join();
+          name =
+              name
+                  .split('-')
+                  .map(
+                    (t) => switch (t) {
+                      '1' => 'one',
+                      '2' => 'two',
+                      '3' => 'three',
+                      '4' => 'four',
+                      '5' => 'five',
+                      '6' => 'six',
+                      '7' => 'seven',
+                      '8' => 'eight',
+                      '9' => 'nine',
+                      _ => t,
+                    },
+                  )
+                  .mapIndexed((i, t) => i == 0 ? t : '${t.substring(0, 1).toUpperCase()}${t.substring(1)}')
+                  .join();
           name = StringNormalizer.normalize(name);
           name = name.replaceAll(RegExp('[^a-z]', caseSensitive: false), '');
           if (name.isNotEmpty) {

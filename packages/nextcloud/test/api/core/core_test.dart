@@ -91,15 +91,7 @@ void main() {
         expect(() => response.headers, isA<void>());
         expect(
           response.body.ocs.data.map((e) => e.id),
-          containsAll([
-            'dashboard',
-            'files',
-            'spreed',
-            'notes',
-            'tables',
-            'news',
-            'cookbook',
-          ]),
+          containsAll(['dashboard', 'files', 'spreed', 'notes', 'tables', 'news', 'cookbook']),
         );
       });
     });
@@ -138,9 +130,7 @@ void main() {
       });
 
       test('Get', () async {
-        final response = await tester.client.core.preview.getPreview(
-          file: 'preview.png',
-        );
+        final response = await tester.client.core.preview.getPreview(file: 'preview.png');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -150,10 +140,7 @@ void main() {
 
     group('Avatar', () {
       test('Get', () async {
-        final response = await tester.client.core.avatar.getAvatar(
-          userId: 'admin',
-          size: core.AvatarGetAvatarSize.$64,
-        );
+        final response = await tester.client.core.avatar.getAvatar(userId: 'admin', size: core.AvatarGetAvatarSize.$64);
         expect(response.body, isNotEmpty);
         expect(response.headers.xNcIscustomavatar?.content, 0);
       });
@@ -191,10 +178,7 @@ void main() {
       });
 
       test('Search', () async {
-        final response = await tester.client.core.unifiedSearch.search(
-          providerId: 'settings',
-          term: 'Personal info',
-        );
+        final response = await tester.client.core.unifiedSearch.search(providerId: 'settings', term: 'Personal info');
 
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
@@ -224,9 +208,7 @@ void main() {
 
         await expectLater(
           () => tester.client.core.clientFlowLoginV2.poll(
-            $body: core.ClientFlowLoginV2PollRequestApplicationJson(
-              (b) => b..token = response.body.poll.token,
-            ),
+            $body: core.ClientFlowLoginV2PollRequestApplicationJson((b) => b..token = response.body.poll.token),
           ),
           throwsA(predicate<DynamiteStatusCodeException>((e) => e.statusCode == 404)),
         );
@@ -235,9 +217,7 @@ void main() {
 
     group('References', () {
       test('resolveOne', () async {
-        final response = await tester.client.core.referenceApi.resolveOne(
-          reference: 'https://example.com',
-        );
+        final response = await tester.client.core.referenceApi.resolveOne(reference: 'https://example.com');
         expect(response.statusCode, 200);
         expect(() => response.headers, isA<void>());
 
@@ -258,12 +238,10 @@ void main() {
       test('resolve', () async {
         final response = await tester.client.core.referenceApi.resolve(
           $body: core.ReferenceApiResolveRequestApplicationJson(
-            (b) => b
-              ..references.replace([
-                'https://example.com',
-                'https://example.org',
-              ])
-              ..limit = 2,
+            (b) =>
+                b
+                  ..references.replace(['https://example.com', 'https://example.org'])
+                  ..limit = 2,
           ),
         );
         expect(response.statusCode, 200);
@@ -288,14 +266,15 @@ void main() {
       test('extract', () async {
         final response = await tester.client.core.referenceApi.extract(
           $body: core.ReferenceApiExtractRequestApplicationJson(
-            (b) => b
-              ..text = '''
+            (b) =>
+                b
+                  ..text = '''
 abc https://example.com def
 https://example.org
 ghi
 '''
-              ..resolve = true
-              ..limit = 2,
+                  ..resolve = true
+                  ..limit = 2,
           ),
         );
         expect(response.statusCode, 200);

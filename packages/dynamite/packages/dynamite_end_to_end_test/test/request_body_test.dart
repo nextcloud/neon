@@ -48,11 +48,7 @@ void main() async {
         return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
-    await client.postObject(
-      $body: PostObjectRequestApplicationJson(
-        (b) => b..test = '123',
-      ),
-    );
+    await client.postObject($body: PostObjectRequestApplicationJson((b) => b..test = '123'));
 
     // with nullable body
     client = $Client(
@@ -94,9 +90,7 @@ void main() async {
         return Response('{}', 200, headers: {'content-type': 'application/json'});
       }),
     );
-    await client.postBinary(
-      $body: Uint8List.fromList([116, 101, 115, 116]),
-    );
+    await client.postBinary($body: Uint8List.fromList([116, 101, 115, 116]));
 
     // with body with default
     client = $Client(

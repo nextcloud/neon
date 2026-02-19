@@ -33,16 +33,11 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
   final NeonDialogTheme dialogTheme;
 
   @override
-  NeonTheme copyWith({
-    Branding? branding,
-    NeonColorScheme? colorScheme,
-    NeonDialogTheme? dialogTheme,
-  }) =>
-      NeonTheme(
-        branding: branding ?? this.branding,
-        colorScheme: colorScheme ?? this.colorScheme,
-        dialogTheme: dialogTheme ?? this.dialogTheme,
-      );
+  NeonTheme copyWith({Branding? branding, NeonColorScheme? colorScheme, NeonDialogTheme? dialogTheme}) => NeonTheme(
+    branding: branding ?? this.branding,
+    colorScheme: colorScheme ?? this.colorScheme,
+    dialogTheme: dialogTheme ?? this.dialogTheme,
+  );
 
   @override
   NeonTheme lerp(NeonTheme? other, double t) {
@@ -57,11 +52,7 @@ class NeonTheme extends ThemeExtension<NeonTheme> {
   }
 
   @override
-  int get hashCode => Object.hashAll([
-        branding,
-        colorScheme,
-        dialogTheme,
-      ]);
+  int get hashCode => Object.hashAll([branding, colorScheme, dialogTheme]);
 
   @override
   bool operator ==(Object other) {

@@ -6,12 +6,9 @@ import 'package:neon_framework/src/login/login.dart';
 /// The page for the login flow
 class LoginPage extends StatelessWidget {
   /// Creates a login page.
-  LoginPage({
-    this.serverURL,
-    this.qrCode,
-    super.key,
-  })  : assert(qrCode == null || serverURL == null, 'Either a serverURL or qrCode can be provided'),
-        assert(qrCode == null || LoginQRcode.tryParse(qrCode) != null, 'qrCode can is not a valid login qr code');
+  LoginPage({this.serverURL, this.qrCode, super.key})
+    : assert(qrCode == null || serverURL == null, 'Either a serverURL or qrCode can be provided'),
+      assert(qrCode == null || LoginQRcode.tryParse(qrCode) != null, 'qrCode can is not a valid login qr code');
 
   /// The initial server url.
   final Uri? serverURL;

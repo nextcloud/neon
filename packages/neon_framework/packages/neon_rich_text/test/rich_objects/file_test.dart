@@ -39,18 +39,17 @@ void main() {
     testWidgets('Opens link', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'no'
-                ..path = ''
-                ..link = '/link',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'no'
+                    ..path = ''
+                    ..link = '/link',
             ),
           ),
         ),
@@ -63,45 +62,38 @@ void main() {
     testWidgets('With blurhash', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'no'
-                ..path = ''
-                ..blurhash = validBlurHash,
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'no'
+                    ..path = ''
+                    ..blurhash = validBlurHash,
             ),
           ),
         ),
       );
 
-      expect(
-        find.byWidgetPredicate(
-          (widget) => widget is NeonApiImage && widget.blurHash == validBlurHash,
-        ),
-        findsOne,
-      );
+      expect(find.byWidgetPredicate((widget) => widget is NeonApiImage && widget.blurHash == validBlurHash), findsOne);
     });
 
     testWidgets('Without preview', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'no'
-                ..path = 'path',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'no'
+                    ..path = 'path',
             ),
           ),
         ),
@@ -114,17 +106,16 @@ void main() {
     testWidgets('Without dimensions', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'yes'
+                    ..path = 'path',
             ),
           ),
         ),
@@ -149,19 +140,18 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..width = width.toString()
-                ..height = height.toString(),
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'yes'
+                    ..path = 'path'
+                    ..width = width.toString()
+                    ..height = height.toString(),
             ),
           ),
         ),
@@ -181,28 +171,24 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..width = ((maxWidth * widthFactor) * pixelRatio).toString()
-                ..height = ((maxHeight * heightFactor) * pixelRatio).toString(),
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'yes'
+                    ..path = 'path'
+                    ..width = ((maxWidth * widthFactor) * pixelRatio).toString()
+                    ..height = ((maxHeight * heightFactor) * pixelRatio).toString(),
             ),
           ),
         ),
       );
 
-      final size = Size(
-        widthFactor * maxWidth / heightFactor,
-        maxHeight.toDouble(),
-      );
+      final size = Size(widthFactor * maxWidth / heightFactor, maxHeight.toDouble());
       final expectedConstraints = BoxConstraints.tight(size);
       expect(
         find.byWidgetPredicate((widget) => widget is ConstrainedBox && widget.constraints == expectedConstraints),
@@ -214,19 +200,18 @@ void main() {
     testWidgets('Full image for animated GIF', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.file
-                ..id = '0'
-                ..name = 'name'
-                ..previewAvailable = 'yes'
-                ..path = 'path'
-                ..mimetype = 'image/gif'
-                ..blurhash = validBlurHash,
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.file
+                    ..id = '0'
+                    ..name = 'name'
+                    ..previewAvailable = 'yes'
+                    ..path = 'path'
+                    ..mimetype = 'image/gif'
+                    ..blurhash = validBlurHash,
             ),
           ),
         ),

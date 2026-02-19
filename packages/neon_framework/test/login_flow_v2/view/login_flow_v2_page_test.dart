@@ -23,9 +23,7 @@ class _FakeUri extends Fake implements Uri {}
 
 void main() {
   final serverURL = Uri.https('serverURL');
-  final credentials = createCredentials(
-    serverURL: Uri.https('credentials_serverURL'),
-  );
+  final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
 
   group('LoginFLowV2Page', () {
     late AccountRepository accountRepository;
@@ -45,27 +43,14 @@ void main() {
 
     Widget buildSubject() {
       return TestApp(
-        appThemes: const [
-          NeonTheme(
-            branding: Branding(
-              name: 'neon',
-              logo: Placeholder(),
-            ),
-          ),
-        ],
-        providers: [
-          RepositoryProvider<AccountRepository>.value(
-            value: accountRepository,
-          ),
-        ],
+        appThemes: const [NeonTheme(branding: Branding(name: 'neon', logo: Placeholder()))],
+        providers: [RepositoryProvider<AccountRepository>.value(value: accountRepository)],
         child: LoginFLowV2Page(serverURL: serverURL),
       );
     }
 
     testWidgets('renders LoginFLowV2View', (tester) async {
-      when(() => accountRepository.loginFlowInit(any())).thenAnswer(
-        (_) async => (Uri.https('login_uri'), 'token'),
-      );
+      when(() => accountRepository.loginFlowInit(any())).thenAnswer((_) async => (Uri.https('login_uri'), 'token'));
 
       await tester.pumpWidgetWithAccessibility(buildSubject());
 
@@ -80,68 +65,48 @@ void main() {
     setUp(() {
       loginBloc = _MockLoginBloc();
       loginFlowV2Bloc = _MockLoginFlowV2Bloc();
-      when(() => loginFlowV2Bloc.state).thenReturn(
-        LoginFlowV2StateInitial(serverURL: serverURL),
-      );
+      when(() => loginFlowV2Bloc.state).thenReturn(LoginFlowV2StateInitial(serverURL: serverURL));
     });
 
     Widget buildSubject() {
       return TestApp(
         providers: [
-          RepositoryProvider<LoginFlowV2Bloc>.value(
-            value: loginFlowV2Bloc,
-          ),
+          RepositoryProvider<LoginFlowV2Bloc>.value(value: loginFlowV2Bloc),
           BlocProvider<LoginBloc>.value(value: loginBloc),
         ],
         child: const LoginFLowV2View(),
       );
     }
 
-    testWidgets(
-      'LoginCredentialsEntered to LoginBloc when credentials are known',
-      (tester) async {
-        whenListen<LoginFlowV2State>(
-          loginFlowV2Bloc,
-          Stream.fromIterable([
-            LoginFlowV2StateInitial(serverURL: serverURL),
-            LoginFlowV2StateSuccess(
-              serverURL: serverURL,
-              credentials: credentials,
-            ),
-          ]),
-        );
-        await tester.pumpWidgetWithAccessibility(buildSubject());
+    testWidgets('LoginCredentialsEntered to LoginBloc when credentials are known', (tester) async {
+      whenListen<LoginFlowV2State>(
+        loginFlowV2Bloc,
+        Stream.fromIterable([
+          LoginFlowV2StateInitial(serverURL: serverURL),
+          LoginFlowV2StateSuccess(serverURL: serverURL, credentials: credentials),
+        ]),
+      );
+      await tester.pumpWidgetWithAccessibility(buildSubject());
 
-        verify(() => loginBloc.add(LoginCredentialsEntered(credentials))).called(1);
-      },
-    );
+      verify(() => loginBloc.add(LoginCredentialsEntered(credentials))).called(1);
+    });
 
     group('LoginButton', () {
-      testWidgets(
-        'is not added with null `loginEndpoint`',
-        (tester) async {
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(find.byType(ElevatedButton), findsNothing);
-        },
-      );
+      testWidgets('is not added with null `loginEndpoint`', (tester) async {
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byType(ElevatedButton), findsNothing);
+      });
 
-      testWidgets(
-        'adds LoginFlowV2OpenPage event when pressed',
-        (tester) async {
-          when(() => loginFlowV2Bloc.state).thenReturn(
-            LoginFlowV2StatePolling(
-              serverURL: serverURL,
-              loginEndpoint: Uri(),
-              token: 'token',
-            ),
-          );
+      testWidgets('adds LoginFlowV2OpenPage event when pressed', (tester) async {
+        when(
+          () => loginFlowV2Bloc.state,
+        ).thenReturn(LoginFlowV2StatePolling(serverURL: serverURL, loginEndpoint: Uri(), token: 'token'));
 
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(find.byType(ElevatedButton), findsOneWidget);
-          await tester.tap(find.byType(ElevatedButton));
-          verify(() => loginFlowV2Bloc.add(const LoginFlowV2OpenPage())).called(1);
-        },
-      );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byType(ElevatedButton), findsOneWidget);
+        await tester.tap(find.byType(ElevatedButton));
+        verify(() => loginFlowV2Bloc.add(const LoginFlowV2OpenPage())).called(1);
+      });
     });
   });
 }

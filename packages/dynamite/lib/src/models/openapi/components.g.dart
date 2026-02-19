@@ -15,30 +15,44 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
   final String wireName = 'Components';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Components object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Components object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.securitySchemes;
     if (value != null) {
       result
         ..add('securitySchemes')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]),
+          ),
+        );
     }
     value = object.schemas;
     if (value != null) {
       result
         ..add('schemas')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Components deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Components deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ComponentsBuilder();
 
     final iterator = serialized.iterator;
@@ -48,12 +62,20 @@ class _$ComponentsSerializer implements StructuredSerializer<Components> {
       final Object? value = iterator.current;
       switch (key) {
         case 'securitySchemes':
-          result.securitySchemes.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]))!);
+          result.securitySchemes.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(SecurityScheme)]),
+            )!,
+          );
           break;
         case 'schemas':
-          result.schemas.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]))!);
+          result.schemas.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonSchema)]),
+            )!,
+          );
           break;
       }
     }

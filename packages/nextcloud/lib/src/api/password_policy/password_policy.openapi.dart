@@ -37,7 +37,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 }
@@ -51,11 +51,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$generate_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGenerateResponseApplicationJson, void> $generate_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiGenerateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiGenerateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Generate a random password that validates against the enabled password policy rules.
   ///
@@ -127,11 +127,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$validate_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiValidateResponseApplicationJson, void> $validate_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiValidateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiValidateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Validate a password against the enabled password policy rules.
   ///
@@ -963,63 +963,64 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(ApiGenerateResponseApplicationJson),
-        ApiGenerateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiGenerateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGenerateResponseApplicationJson_Ocs),
-        ApiGenerateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGenerateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGenerateResponseApplicationJson_Ocs_Data),
-        ApiGenerateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiGenerateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiValidateRequestApplicationJson),
-        ApiValidateRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiValidateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiValidateResponseApplicationJson),
-        ApiValidateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiValidateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiValidateResponseApplicationJson_Ocs),
-        ApiValidateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiValidateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiValidateResponseApplicationJson_Ocs_Data),
-        ApiValidateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ApiValidateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_PasswordPolicy), Capabilities_PasswordPolicyBuilder.new)
-      ..add(Capabilities_PasswordPolicy.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_PasswordPolicy_Api),
-        Capabilities_PasswordPolicy_ApiBuilder.new,
-      )
-      ..add(Capabilities_PasswordPolicy_Api.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_PasswordPolicy_Policies),
-        Capabilities_PasswordPolicy_PoliciesBuilder.new,
-      )
-      ..add(Capabilities_PasswordPolicy_Policies.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Capabilities_PasswordPolicy_Policies)]),
-        MapBuilder<String, Capabilities_PasswordPolicy_Policies>.new,
-      ))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(ApiGenerateResponseApplicationJson),
+            ApiGenerateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiGenerateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGenerateResponseApplicationJson_Ocs),
+            ApiGenerateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGenerateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGenerateResponseApplicationJson_Ocs_Data),
+            ApiGenerateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiGenerateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiValidateRequestApplicationJson),
+            ApiValidateRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiValidateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiValidateResponseApplicationJson),
+            ApiValidateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiValidateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiValidateResponseApplicationJson_Ocs),
+            ApiValidateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiValidateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiValidateResponseApplicationJson_Ocs_Data),
+            ApiValidateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ApiValidateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_PasswordPolicy), Capabilities_PasswordPolicyBuilder.new)
+          ..add(Capabilities_PasswordPolicy.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_PasswordPolicy_Api),
+            Capabilities_PasswordPolicy_ApiBuilder.new,
+          )
+          ..add(Capabilities_PasswordPolicy_Api.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_PasswordPolicy_Policies),
+            Capabilities_PasswordPolicy_PoliciesBuilder.new,
+          )
+          ..add(Capabilities_PasswordPolicy_Policies.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(Capabilities_PasswordPolicy_Policies)]),
+            MapBuilder<String, Capabilities_PasswordPolicy_Policies>.new,
+          ))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1027,10 +1028,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i6.DynamiteDoubleSerializer())
-      ..addPlugin(_i7.StandardJsonPlugin())
-      ..addPlugin(const _i6.HeaderPlugin())
-      ..addPlugin(const _i6.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i6.DynamiteDoubleSerializer())
+          ..addPlugin(_i7.StandardJsonPlugin())
+          ..addPlugin(const _i6.HeaderPlugin())
+          ..addPlugin(const _i6.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

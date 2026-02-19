@@ -38,7 +38,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DashboardApiClient dashboardApi = $DashboardApiClient(this);
 }
@@ -818,8 +818,10 @@ sealed class $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface {
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson_Ocs
     implements
         $DashboardApiGetWidgetItemsResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiGetWidgetItemsResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiGetWidgetItemsResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetItemsResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder)? b,
@@ -882,8 +884,10 @@ sealed class $DashboardApiGetWidgetItemsResponseApplicationJsonInterface {
 abstract class DashboardApiGetWidgetItemsResponseApplicationJson
     implements
         $DashboardApiGetWidgetItemsResponseApplicationJsonInterface,
-        Built<DashboardApiGetWidgetItemsResponseApplicationJson,
-            DashboardApiGetWidgetItemsResponseApplicationJsonBuilder> {
+        Built<
+          DashboardApiGetWidgetItemsResponseApplicationJson,
+          DashboardApiGetWidgetItemsResponseApplicationJsonBuilder
+        > {
   /// Creates a new DashboardApiGetWidgetItemsResponseApplicationJson object using the builder pattern.
   factory DashboardApiGetWidgetItemsResponseApplicationJson([
     void Function(DashboardApiGetWidgetItemsResponseApplicationJsonBuilder)? b,
@@ -1003,8 +1007,10 @@ sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface {
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs
     implements
         $DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder)? b,
@@ -1067,8 +1073,10 @@ sealed class $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface {
 abstract class DashboardApiGetWidgetItemsV2ResponseApplicationJson
     implements
         $DashboardApiGetWidgetItemsV2ResponseApplicationJsonInterface,
-        Built<DashboardApiGetWidgetItemsV2ResponseApplicationJson,
-            DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder> {
+        Built<
+          DashboardApiGetWidgetItemsV2ResponseApplicationJson,
+          DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder
+        > {
   /// Creates a new DashboardApiGetWidgetItemsV2ResponseApplicationJson object using the builder pattern.
   factory DashboardApiGetWidgetItemsV2ResponseApplicationJson([
     void Function(DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder)? b,
@@ -1257,8 +1265,10 @@ sealed class $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface {
 abstract class DashboardApiGetWidgetsResponseApplicationJson_Ocs
     implements
         $DashboardApiGetWidgetsResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetWidgetsResponseApplicationJson_Ocs,
-            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiGetWidgetsResponseApplicationJson_Ocs,
+          DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiGetWidgetsResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetWidgetsResponseApplicationJson_Ocs([
     void Function(DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder)? b,
@@ -1384,8 +1394,10 @@ sealed class $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface {
 abstract class DashboardApiGetLayoutResponseApplicationJson_Ocs_Data
     implements
         $DashboardApiGetLayoutResponseApplicationJson_Ocs_DataInterface,
-        Built<DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
-            DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DashboardApiGetLayoutResponseApplicationJson_Ocs_Data,
+          DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DashboardApiGetLayoutResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DashboardApiGetLayoutResponseApplicationJson_Ocs_Data([
     void Function(DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -1449,8 +1461,10 @@ sealed class $DashboardApiGetLayoutResponseApplicationJson_OcsInterface {
 abstract class DashboardApiGetLayoutResponseApplicationJson_Ocs
     implements
         $DashboardApiGetLayoutResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetLayoutResponseApplicationJson_Ocs,
-            DashboardApiGetLayoutResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiGetLayoutResponseApplicationJson_Ocs,
+          DashboardApiGetLayoutResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiGetLayoutResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetLayoutResponseApplicationJson_Ocs([
     void Function(DashboardApiGetLayoutResponseApplicationJson_OcsBuilder)? b,
@@ -1640,8 +1654,10 @@ sealed class $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface 
 abstract class DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data
     implements
         $DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataInterface,
-        Built<DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
-            DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data,
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data([
     void Function(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -1705,8 +1721,10 @@ sealed class $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface {
 abstract class DashboardApiUpdateLayoutResponseApplicationJson_Ocs
     implements
         $DashboardApiUpdateLayoutResponseApplicationJson_OcsInterface,
-        Built<DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
-            DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiUpdateLayoutResponseApplicationJson_Ocs,
+          DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiUpdateLayoutResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiUpdateLayoutResponseApplicationJson_Ocs([
     void Function(DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder)? b,
@@ -1832,8 +1850,10 @@ sealed class $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface {
 abstract class DashboardApiGetStatusesResponseApplicationJson_Ocs_Data
     implements
         $DashboardApiGetStatusesResponseApplicationJson_Ocs_DataInterface,
-        Built<DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
-            DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DashboardApiGetStatusesResponseApplicationJson_Ocs_Data,
+          DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DashboardApiGetStatusesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DashboardApiGetStatusesResponseApplicationJson_Ocs_Data([
     void Function(DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -1897,8 +1917,10 @@ sealed class $DashboardApiGetStatusesResponseApplicationJson_OcsInterface {
 abstract class DashboardApiGetStatusesResponseApplicationJson_Ocs
     implements
         $DashboardApiGetStatusesResponseApplicationJson_OcsInterface,
-        Built<DashboardApiGetStatusesResponseApplicationJson_Ocs,
-            DashboardApiGetStatusesResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiGetStatusesResponseApplicationJson_Ocs,
+          DashboardApiGetStatusesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiGetStatusesResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiGetStatusesResponseApplicationJson_Ocs([
     void Function(DashboardApiGetStatusesResponseApplicationJson_OcsBuilder)? b,
@@ -2025,8 +2047,10 @@ sealed class $DashboardApiUpdateStatusesRequestApplicationJsonInterface {
 abstract class DashboardApiUpdateStatusesRequestApplicationJson
     implements
         $DashboardApiUpdateStatusesRequestApplicationJsonInterface,
-        Built<DashboardApiUpdateStatusesRequestApplicationJson,
-            DashboardApiUpdateStatusesRequestApplicationJsonBuilder> {
+        Built<
+          DashboardApiUpdateStatusesRequestApplicationJson,
+          DashboardApiUpdateStatusesRequestApplicationJsonBuilder
+        > {
   /// Creates a new DashboardApiUpdateStatusesRequestApplicationJson object using the builder pattern.
   factory DashboardApiUpdateStatusesRequestApplicationJson([
     void Function(DashboardApiUpdateStatusesRequestApplicationJsonBuilder)? b,
@@ -2089,8 +2113,10 @@ sealed class $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterfac
 abstract class DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data
     implements
         $DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataInterface,
-        Built<DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
-            DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data,
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data([
     void Function(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -2154,8 +2180,10 @@ sealed class $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface {
 abstract class DashboardApiUpdateStatusesResponseApplicationJson_Ocs
     implements
         $DashboardApiUpdateStatusesResponseApplicationJson_OcsInterface,
-        Built<DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
-            DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder> {
+        Built<
+          DashboardApiUpdateStatusesResponseApplicationJson_Ocs,
+          DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson_Ocs object using the builder pattern.
   factory DashboardApiUpdateStatusesResponseApplicationJson_Ocs([
     void Function(DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder)? b,
@@ -2218,8 +2246,10 @@ sealed class $DashboardApiUpdateStatusesResponseApplicationJsonInterface {
 abstract class DashboardApiUpdateStatusesResponseApplicationJson
     implements
         $DashboardApiUpdateStatusesResponseApplicationJsonInterface,
-        Built<DashboardApiUpdateStatusesResponseApplicationJson,
-            DashboardApiUpdateStatusesResponseApplicationJsonBuilder> {
+        Built<
+          DashboardApiUpdateStatusesResponseApplicationJson,
+          DashboardApiUpdateStatusesResponseApplicationJsonBuilder
+        > {
   /// Creates a new DashboardApiUpdateStatusesResponseApplicationJson object using the builder pattern.
   factory DashboardApiUpdateStatusesResponseApplicationJson([
     void Function(DashboardApiUpdateStatusesResponseApplicationJsonBuilder)? b,
@@ -2266,137 +2296,138 @@ abstract class DashboardApiUpdateStatusesResponseApplicationJson
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
-        DashboardApiGetWidgetItemsResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetItemsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(WidgetItem), WidgetItemBuilder.new)
-      ..add(WidgetItem.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(WidgetItem)]), ListBuilder<WidgetItem>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(WidgetItem)]),
-        ]),
-        MapBuilder<String, BuiltList<WidgetItem>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
-        DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(WidgetItems), WidgetItemsBuilder.new)
-      ..add(WidgetItems.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
-        MapBuilder<String, WidgetItems>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetsResponseApplicationJson),
-        DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
-        DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Widget), WidgetBuilder.new)
-      ..add(Widget.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(Widget_Buttons), Widget_ButtonsBuilder.new)
-      ..add(Widget_Buttons.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
-        MapBuilder<String, Widget>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetLayoutResponseApplicationJson),
-        DashboardApiGetLayoutResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetLayoutResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs),
-        DashboardApiGetLayoutResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data),
-        DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateLayoutRequestApplicationJson),
-        DashboardApiUpdateLayoutRequestApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiUpdateLayoutRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateLayoutResponseApplicationJson),
-        DashboardApiUpdateLayoutResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiUpdateLayoutResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs),
-        DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data),
-        DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetStatusesResponseApplicationJson),
-        DashboardApiGetStatusesResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiGetStatusesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs),
-        DashboardApiGetStatusesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data),
-        DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateStatusesRequestApplicationJson),
-        DashboardApiUpdateStatusesRequestApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiUpdateStatusesRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateStatusesResponseApplicationJson),
-        DashboardApiUpdateStatusesResponseApplicationJsonBuilder.new,
-      )
-      ..add(DashboardApiUpdateStatusesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs),
-        DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data),
-        DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetItemsResponseApplicationJson),
+            DashboardApiGetWidgetItemsResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetItemsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs),
+            DashboardApiGetWidgetItemsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetItemsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(WidgetItem), WidgetItemBuilder.new)
+          ..add(WidgetItem.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(WidgetItem)]), ListBuilder<WidgetItem>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(WidgetItem)]),
+            ]),
+            MapBuilder<String, BuiltList<WidgetItem>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson),
+            DashboardApiGetWidgetItemsV2ResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs),
+            DashboardApiGetWidgetItemsV2ResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetItemsV2ResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(WidgetItems), WidgetItemsBuilder.new)
+          ..add(WidgetItems.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(WidgetItems)]),
+            MapBuilder<String, WidgetItems>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetsResponseApplicationJson),
+            DashboardApiGetWidgetsResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetWidgetsResponseApplicationJson_Ocs),
+            DashboardApiGetWidgetsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiGetWidgetsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Widget), WidgetBuilder.new)
+          ..add(Widget.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(const FullType(Widget_Buttons), Widget_ButtonsBuilder.new)
+          ..add(Widget_Buttons.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Widget_Buttons)]), ListBuilder<Widget_Buttons>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(Widget)]),
+            MapBuilder<String, Widget>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetLayoutResponseApplicationJson),
+            DashboardApiGetLayoutResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiGetLayoutResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs),
+            DashboardApiGetLayoutResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data),
+            DashboardApiGetLayoutResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DashboardApiGetLayoutResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateLayoutRequestApplicationJson),
+            DashboardApiUpdateLayoutRequestApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiUpdateLayoutRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateLayoutResponseApplicationJson),
+            DashboardApiUpdateLayoutResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiUpdateLayoutResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs),
+            DashboardApiUpdateLayoutResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data),
+            DashboardApiUpdateLayoutResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DashboardApiUpdateLayoutResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetStatusesResponseApplicationJson),
+            DashboardApiGetStatusesResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiGetStatusesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs),
+            DashboardApiGetStatusesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data),
+            DashboardApiGetStatusesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DashboardApiGetStatusesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateStatusesRequestApplicationJson),
+            DashboardApiUpdateStatusesRequestApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiUpdateStatusesRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateStatusesResponseApplicationJson),
+            DashboardApiUpdateStatusesResponseApplicationJsonBuilder.new,
+          )
+          ..add(DashboardApiUpdateStatusesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs),
+            DashboardApiUpdateStatusesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data),
+            DashboardApiUpdateStatusesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DashboardApiUpdateStatusesResponseApplicationJson_Ocs_Data.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -2404,10 +2435,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

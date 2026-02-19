@@ -32,16 +32,15 @@ void main() {
     testWidgets('Opens link', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.calendarEvent
-                ..id = ''
-                ..name = 'name'
-                ..link = '/link',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.calendarEvent
+                    ..id = ''
+                    ..name = 'name'
+                    ..link = '/link',
             ),
           ),
         ),
@@ -56,10 +55,11 @@ void main() {
         TestApp(
           child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.addressbook
-                ..id = ''
-                ..name = 'name',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.addressbook
+                    ..id = ''
+                    ..name = 'name',
             ),
           ),
         ),
@@ -75,16 +75,15 @@ void main() {
     testWidgets('With icon', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
+          providers: [Provider<Account>.value(value: account)],
           child: NeonRichObjectFallback(
             parameter: core.RichObjectParameter(
-              (b) => b
-                ..type = core.RichObjectParameter_Type.addressbook
-                ..id = ''
-                ..name = 'name'
-                ..iconUrl = '',
+              (b) =>
+                  b
+                    ..type = core.RichObjectParameter_Type.addressbook
+                    ..id = ''
+                    ..name = 'name'
+                    ..iconUrl = '',
             ),
           ),
         ),

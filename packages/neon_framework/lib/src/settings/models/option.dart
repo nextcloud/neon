@@ -27,8 +27,8 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     bool enabled = true,
     this.category,
     T? initialValue,
-  })  : _value = initialValue ?? defaultValue,
-        _enabled = enabled;
+  }) : _value = initialValue ?? defaultValue,
+       _enabled = enabled;
 
   /// Creates an Option depending on the State of another one.
   Option.depend({
@@ -39,8 +39,8 @@ sealed class Option<T> extends ChangeNotifier implements ValueListenable<T>, Dis
     required ValueListenable<bool> enabled,
     this.category,
     T? initialValue,
-  })  : _value = initialValue ?? defaultValue,
-        _enabled = enabled.value {
+  }) : _value = initialValue ?? defaultValue,
+       _enabled = enabled.value {
     enabled.addListener(() {
       this.enabled = enabled.value;
     });
@@ -159,8 +159,8 @@ class SelectOption<T> extends Option<T> {
     bool forceLoadValue = true,
     super.category,
     super.enabled,
-  })  : _values = values,
-        super(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+  }) : _values = values,
+       super(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
 
   /// Creates a SelectOption depending on the State of another [Option].
   SelectOption.depend({
@@ -177,8 +177,8 @@ class SelectOption<T> extends Option<T> {
     /// This only works when [T] is of type String?.
     bool forceLoadValue = true,
     super.category,
-  })  : _values = values,
-        super.depend(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
+  }) : _values = values,
+       super.depend(initialValue: _loadValue(values, storage.getString(key.value), forceLoad: forceLoadValue));
 
   static T? _loadValue<T>(Map<T, LabelBuilder> vs, String? stored, {bool forceLoad = true}) {
     if (forceLoad && vs.isEmpty && stored is T) {
@@ -271,9 +271,7 @@ class ToggleOption extends Option<bool> {
     required bool defaultValue,
     required super.enabled,
     super.category,
-  }) : super.depend(
-          defaultValue: storage.getBool(key.value) ?? defaultValue,
-        );
+  }) : super.depend(defaultValue: storage.getBool(key.value) ?? defaultValue);
 
   @override
   void reset() {

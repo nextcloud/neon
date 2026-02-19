@@ -6,23 +6,12 @@ import 'package:dynamite/src/models/openapi.dart' as openapi;
 
 String clientName(String tag) => '\$${toDartName(tag, className: true)}Client';
 
-bool isDartParameterNullable(
-  bool required,
-  json_schema.JsonSchema? schema,
-) =>
-    !required || (schema?.nullable ?? false);
+bool isDartParameterNullable(bool required, json_schema.JsonSchema? schema) => !required || (schema?.nullable ?? false);
 
-bool isDartGetterNullable(
-  bool required,
-  json_schema.JsonSchema? schema,
-) =>
+bool isDartGetterNullable(bool required, json_schema.JsonSchema? schema) =>
     (!required && schema?.$default == null) || (schema?.nullable ?? false);
 
-bool isRequired(
-  bool required,
-  json_schema.JsonSchema? schema,
-) =>
-    required && schema?.$default == null;
+bool isRequired(bool required, json_schema.JsonSchema? schema) => required && schema?.$default == null;
 
 int sortRequiredParameters(openapi.Parameter a, openapi.Parameter b) {
   final aRequired = isRequired(a.required, a.schema);

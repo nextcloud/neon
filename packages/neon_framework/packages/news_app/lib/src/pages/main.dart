@@ -14,9 +14,7 @@ import 'package:news_app/src/widgets/folder_floating_action_button.dart';
 import 'package:news_app/src/widgets/folders_view.dart';
 
 class NewsMainPage extends StatefulWidget {
-  const NewsMainPage({
-    super.key,
-  });
+  const NewsMainPage({super.key});
 
   @override
   State<NewsMainPage> createState() => _NewsMainPageState();
@@ -50,16 +48,9 @@ class _NewsMainPageState extends State<NewsMainPage> {
   @override
   Widget build(BuildContext context) {
     final views = [
-      NewsArticlesView(
-        bloc: bloc.mainArticlesBloc,
-        newsBloc: bloc,
-      ),
-      NewsFoldersView(
-        bloc: bloc,
-      ),
-      NewsFeedsView(
-        bloc: bloc,
-      ),
+      NewsArticlesView(bloc: bloc.mainArticlesBloc, newsBloc: bloc),
+      NewsFoldersView(bloc: bloc),
+      NewsFeedsView(bloc: bloc),
     ];
 
     final floatingActionButtons = [
@@ -78,18 +69,9 @@ class _NewsMainPageState extends State<NewsMainPage> {
           });
         },
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(AdaptiveIcons.newspaper),
-            label: NewsLocalizations.of(context).articles,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(AdaptiveIcons.folder),
-            label: NewsLocalizations.of(context).folders,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.rss_feed),
-            label: NewsLocalizations.of(context).feeds,
-          ),
+          BottomNavigationBarItem(icon: Icon(AdaptiveIcons.newspaper), label: NewsLocalizations.of(context).articles),
+          BottomNavigationBarItem(icon: Icon(AdaptiveIcons.folder), label: NewsLocalizations.of(context).folders),
+          BottomNavigationBarItem(icon: const Icon(Icons.rss_feed), label: NewsLocalizations.of(context).feeds),
         ],
       ),
       body: views[index],

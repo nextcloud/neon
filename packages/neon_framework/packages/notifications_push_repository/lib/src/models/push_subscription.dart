@@ -23,8 +23,9 @@ abstract class PushSubscription implements Built<PushSubscription, PushSubscript
   notifications.PushDevice? get pushDevice;
 }
 
-final Serializers _serializers = (Serializers().toBuilder()
-      ..add(PushSubscription.serializer)
-      ..add(notifications.PushDevice.serializer)
-      ..addPlugin(StandardJsonPlugin()))
-    .build();
+final Serializers _serializers =
+    (Serializers().toBuilder()
+          ..add(PushSubscription.serializer)
+          ..add(notifications.PushDevice.serializer)
+          ..addPlugin(StandardJsonPlugin()))
+        .build();

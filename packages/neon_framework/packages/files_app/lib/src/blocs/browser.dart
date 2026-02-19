@@ -81,45 +81,47 @@ class _FilesBrowserBloc extends InteractiveBloc implements FilesBrowserBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: files,
-      getRequest: () => account.client.webdav.propfind_Request(
-        uri,
-        prop: const webdav.WebDavPropWithoutValues.fromBools(
-          davGetcontenttype: true,
-          davGetetag: true,
-          davGetlastmodified: true,
-          ncHasPreview: true,
-          ncMetadataBlurhash: true,
-          ocSize: true,
-          ocFavorite: true,
-        ),
-        depth: webdav.WebDavDepth.one,
-      ),
+      getRequest:
+          () => account.client.webdav.propfind_Request(
+            uri,
+            prop: const webdav.WebDavPropWithoutValues.fromBools(
+              davGetcontenttype: true,
+              davGetetag: true,
+              davGetlastmodified: true,
+              ncHasPreview: true,
+              ncMetadataBlurhash: true,
+              ocSize: true,
+              ocFavorite: true,
+            ),
+            depth: webdav.WebDavDepth.one,
+          ),
       converter: const webdav.WebDavResponseConverter(),
-      unwrap: (response) => BuiltList<webdav.WebDavFile>.build((b) {
-        for (final file in response.toWebDavFiles()) {
-          // Do not show itself
-          if (uri == file.path) {
-            continue;
-          }
+      unwrap:
+          (response) => BuiltList<webdav.WebDavFile>.build((b) {
+            for (final file in response.toWebDavFiles()) {
+              // Do not show itself
+              if (uri == file.path) {
+                continue;
+              }
 
-          // Do not show files when selecting a directory
-          if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
-            continue;
-          }
+              // Do not show files when selecting a directory
+              if (mode == FilesBrowserMode.selectDirectory && !file.isDirectory) {
+                continue;
+              }
 
-          // Do not show the original directory when selecting a directory
-          if (mode == FilesBrowserMode.selectDirectory && hideUri == file.path) {
-            continue;
-          }
+              // Do not show the original directory when selecting a directory
+              if (mode == FilesBrowserMode.selectDirectory && hideUri == file.path) {
+                continue;
+              }
 
-          // Do not show hidden files unless the option is enabled
-          if (!options.showHiddenFilesOption.value && file.isHidden) {
-            continue;
-          }
+              // Do not show hidden files unless the option is enabled
+              if (!options.showHiddenFilesOption.value && file.isHidden) {
+                continue;
+              }
 
-          b.add(file);
-        }
-      }),
+              b.add(file);
+            }
+          }),
     );
   }
 }

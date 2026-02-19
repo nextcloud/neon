@@ -25,9 +25,7 @@ void main() {
 
       test('fail', () async {
         final validateResponse = await tester.client.passwordPolicy.api.validate(
-          $body: password_policy.ApiValidateRequestApplicationJson(
-            (b) => b.password = '12345678',
-          ),
+          $body: password_policy.ApiValidateRequestApplicationJson((b) => b.password = '12345678'),
         );
         expect(validateResponse.body.ocs.data.passed, isFalse);
         expect(validateResponse.body.ocs.data.reason, isNotEmpty);

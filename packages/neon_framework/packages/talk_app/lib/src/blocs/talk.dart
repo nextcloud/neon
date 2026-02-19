@@ -15,9 +15,7 @@ import 'package:rxdart/rxdart.dart';
 @sealed
 abstract class TalkBloc implements InteractiveBloc {
   /// Creates a new Talk Bloc instance.
-  factory TalkBloc({
-    required Account account,
-  }) = _TalkBloc;
+  factory TalkBloc({required Account account}) = _TalkBloc;
 
   /// Creates a new Talk room.
   void createRoom(spreed.RoomType type, String? roomName, core.AutocompleteResult? invite);
@@ -33,9 +31,7 @@ abstract class TalkBloc implements InteractiveBloc {
 }
 
 class _TalkBloc extends InteractiveBloc implements TalkBloc {
-  _TalkBloc({
-    required this.account,
-  }) {
+  _TalkBloc({required this.account}) {
     rooms.listen((result) {
       if (!result.hasData) {
         return;
@@ -78,35 +74,28 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
     await RequestManager.instance.wrap(
       account: account,
       subject: rooms,
-      getRequest: () => account.client.spreed.room.$getRooms_Request(
-        includeStatus: spreed.RoomGetRoomsIncludeStatus.$1,
-      ),
+      getRequest:
+          () => account.client.spreed.room.$getRooms_Request(includeStatus: spreed.RoomGetRoomsIncludeStatus.$1),
       converter: ResponseConverter(account.client.spreed.room.$getRooms_Serializer()),
-      unwrap: (response) => response.body.ocs.data.rebuild(
-        (b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity)),
-      ),
+      unwrap:
+          (response) =>
+              response.body.ocs.data.rebuild((b) => b.sort((a, b) => b.lastActivity.compareTo(a.lastActivity))),
     );
   }
 
   @override
-  Future<void> createRoom(
-    spreed.RoomType type,
-    String? roomName,
-    core.AutocompleteResult? invite,
-  ) async {
+  Future<void> createRoom(spreed.RoomType type, String? roomName, core.AutocompleteResult? invite) async {
     await wrapAction(() async {
       await account.client.spreed.room.createRoom(
-        $body: spreed.RoomCreateRoomRequestApplicationJson(
-          (b) {
-            b
-              ..roomType = type.value
-              ..invite = invite?.id
-              ..source = invite?.source;
-            if (roomName != null) {
-              b.roomName = roomName;
-            }
-          },
-        ),
+        $body: spreed.RoomCreateRoomRequestApplicationJson((b) {
+          b
+            ..roomType = type.value
+            ..invite = invite?.id
+            ..source = invite?.source;
+          if (roomName != null) {
+            b.roomName = roomName;
+          }
+        }),
       );
     });
   }
@@ -118,10 +107,6 @@ class _TalkBloc extends InteractiveBloc implements TalkBloc {
       return;
     }
 
-    rooms.add(
-      value.copyWith(
-        data: value.requireData.map((r) => r.id == room.id ? room : r).toBuiltList(),
-      ),
-    );
+    rooms.add(value.copyWith(data: value.requireData.map((r) => r.id == room.id ? room : r).toBuiltList()));
   }
 }

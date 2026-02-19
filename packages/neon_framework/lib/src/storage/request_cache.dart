@@ -129,11 +129,7 @@ WHERE account = ?
         ],
       );
     } on DatabaseException catch (error, stackTrace) {
-      _log.severe(
-        'Error while getting `$request` from cache.',
-        error,
-        stackTrace,
-      );
+      _log.severe('Error while getting `$request` from cache.', error, stackTrace);
     }
 
     final row = result?.singleOrNull;
@@ -156,30 +152,32 @@ WHERE account = ?
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
-      final batch = _requireDatabase.batch()
-        ..update(
-          'cache',
-          {
-            'account': account.id,
-            'request_method': request.method.toUpperCase(),
-            'request_url': request.url.toString(),
-            'request_headers': encodedRequestHeaders,
-            'request_body': request.bodyBytes,
-            'response_status_code': response.statusCode,
-            'response_headers': encodedResponseHeaders,
-            'response_body': response.bodyBytes,
-          },
-          where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
-          whereArgs: [
-            account.id,
-            request.method.toUpperCase(),
-            request.url.toString(),
-            encodedRequestHeaders,
-            request.bodyBytes,
-          ],
-        )
-        ..rawInsert(
-          '''
+      final batch =
+          _requireDatabase.batch()
+            ..update(
+              'cache',
+              {
+                'account': account.id,
+                'request_method': request.method.toUpperCase(),
+                'request_url': request.url.toString(),
+                'request_headers': encodedRequestHeaders,
+                'request_body': request.bodyBytes,
+                'response_status_code': response.statusCode,
+                'response_headers': encodedResponseHeaders,
+                'response_body': response.bodyBytes,
+              },
+              where:
+                  'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
+              whereArgs: [
+                account.id,
+                request.method.toUpperCase(),
+                request.url.toString(),
+                encodedRequestHeaders,
+                request.bodyBytes,
+              ],
+            )
+            ..rawInsert(
+              '''
 INSERT INTO cache (
   account,
   request_method,
@@ -193,24 +191,20 @@ INSERT INTO cache (
 SELECT ?, ?, ?, ?, ?, ?, ?, ?
 WHERE (SELECT changes() = 0)
 ''',
-          [
-            account.id,
-            request.method.toUpperCase(),
-            request.url.toString(),
-            encodedRequestHeaders,
-            request.bodyBytes,
-            response.statusCode,
-            encodedResponseHeaders,
-            response.bodyBytes,
-          ],
-        );
+              [
+                account.id,
+                request.method.toUpperCase(),
+                request.url.toString(),
+                encodedRequestHeaders,
+                request.bodyBytes,
+                response.statusCode,
+                encodedResponseHeaders,
+                response.bodyBytes,
+              ],
+            );
       await batch.commit(noResult: true);
     } on DatabaseException catch (error, stackTrace) {
-      _log.severe(
-        'Error while setting `$request` in the cache.',
-        error,
-        stackTrace,
-      );
+      _log.severe('Error while setting `$request` in the cache.', error, stackTrace);
     }
   }
 
@@ -219,10 +213,7 @@ WHERE (SELECT changes() = 0)
     try {
       await _requireDatabase.update(
         'cache',
-        {
-          'account': account.id,
-          'response_headers': json.encode(headers),
-        },
+        {'account': account.id, 'response_headers': json.encode(headers)},
         where: 'account = ? AND request_method = ? AND request_url = ? AND request_headers = ? AND request_body = ?',
         whereArgs: [
           account.id,
@@ -233,11 +224,7 @@ WHERE (SELECT changes() = 0)
         ],
       );
     } on DatabaseException catch (error, stackTrace) {
-      _log.severe(
-        'Error while updating headers at `$request`.',
-        error,
-        stackTrace,
-      );
+      _log.severe('Error while updating headers at `$request`.', error, stackTrace);
     }
   }
 

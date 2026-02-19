@@ -28,20 +28,13 @@ abstract interface class ReferencesBloc implements Bloc {
 }
 
 class _ReferencesBloc extends Bloc implements ReferencesBloc {
-  _ReferencesBloc({
-    required this.account,
-    required this.capabilities,
-  }) {
+  _ReferencesBloc({required this.account, required this.capabilities}) {
     capabilities.listen((result) {
       referenceRegex.add(
         result.transform((data) {
           final regex = data.capabilities.coreCapabilities?.core.referenceRegex;
           if (regex != null) {
-            return RegExp(
-              regex,
-              multiLine: true,
-              caseSensitive: false,
-            );
+            return RegExp(regex, multiLine: true, caseSensitive: false);
           }
 
           return null;
@@ -79,50 +72,47 @@ class _ReferencesBloc extends Bloc implements ReferencesBloc {
     }
 
     this.references.add(
-          this.references.value.rebuild((b) {
-            for (final reference in filteredReferences) {
-              b[reference] = b[reference]?.asLoading() ?? Result.loading();
-            }
-          }),
-        );
+      this.references.value.rebuild((b) {
+        for (final reference in filteredReferences) {
+          b[reference] = b[reference]?.asLoading() ?? Result.loading();
+        }
+      }),
+    );
 
     try {
       await RequestManager.instance.timeout(() async {
         final response = await account.client.core.referenceApi.resolve(
           $body: core.ReferenceApiResolveRequestApplicationJson(
-            (b) => b
-              ..references.replace(filteredReferences)
-              // Just always load all references.
-              // If less are desired simply pass only the ones you want or filter the results.
-              // TBH I don't understand why this logic is handled by the API and not the clients.
-              ..limit = filteredReferences.length,
+            (b) =>
+                b
+                  ..references.replace(filteredReferences)
+                  // Just always load all references.
+                  // If less are desired simply pass only the ones you want or filter the results.
+                  // TBH I don't understand why this logic is handled by the API and not the clients.
+                  ..limit = filteredReferences.length,
           ),
         );
 
         this.references.add(
-              this.references.value.rebuild((b) {
-                for (final entry in response.body.ocs.data.references.entries) {
-                  b[entry.key] = Result.success(entry.value);
-                }
-              }),
-            );
+          this.references.value.rebuild((b) {
+            for (final entry in response.body.ocs.data.references.entries) {
+              b[entry.key] = Result.success(entry.value);
+            }
+          }),
+        );
       });
     } on Exception catch (error, stackTrace) {
-      log.info(
-        'Error resolving references',
-        error,
-        stackTrace,
-      );
+      log.info('Error resolving references', error, stackTrace);
 
       final result = Result<core.Reference>.error(error);
 
       this.references.add(
-            this.references.value.rebuild((b) {
-              for (final reference in filteredReferences) {
-                b[reference] = result;
-              }
-            }),
-          );
+        this.references.value.rebuild((b) {
+          for (final reference in filteredReferences) {
+            b[reference] = result;
+          }
+        }),
+      );
     }
   }
 }

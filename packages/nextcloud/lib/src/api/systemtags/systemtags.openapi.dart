@@ -71,16 +71,14 @@ class _$Capabilities_Systemtags_EnabledSerializer implements PrimitiveSerializer
     Serializers serializers,
     Capabilities_Systemtags_Enabled object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Capabilities_Systemtags_Enabled deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -200,13 +198,14 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i1.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Systemtags), Capabilities_SystemtagsBuilder.new)
-      ..add(Capabilities_Systemtags.serializer)
-      ..add(Capabilities_Systemtags_Enabled.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Systemtags), Capabilities_SystemtagsBuilder.new)
+          ..add(Capabilities_Systemtags.serializer)
+          ..add(Capabilities_Systemtags_Enabled.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -214,10 +213,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i1.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i2.DynamiteDoubleSerializer())
-      ..addPlugin(_i3.StandardJsonPlugin())
-      ..addPlugin(const _i2.HeaderPlugin())
-      ..addPlugin(const _i2.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i2.DynamiteDoubleSerializer())
+          ..addPlugin(_i3.StandardJsonPlugin())
+          ..addPlugin(const _i2.HeaderPlugin())
+          ..addPlugin(const _i2.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

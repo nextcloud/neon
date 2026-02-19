@@ -23,9 +23,7 @@ class LoginFLowV2View extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10),
             if (state case LoginFlowV2StatePolling())
               ElevatedButton(
                 onPressed: () => context.read<LoginFlowV2Bloc>().add(const LoginFlowV2OpenPage()),

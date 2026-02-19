@@ -13,9 +13,7 @@ import 'package:rxdart/rxdart.dart';
 /// Bloc for fetching dashboard widgets and their items.
 sealed class DashboardBloc implements InteractiveBloc {
   /// Creates a new Dashboard Bloc instance.
-  factory DashboardBloc({
-    required Account account,
-  }) = _DashboardBloc;
+  factory DashboardBloc({required Account account}) = _DashboardBloc;
 
   /// Dashboard widgets that are displayed.
   BehaviorSubject<Result<BuiltList<dashboard.Widget>>> get widgets;
@@ -28,9 +26,7 @@ sealed class DashboardBloc implements InteractiveBloc {
 ///
 /// Automatically starts fetching the widgets and their items and refreshes everything every 30 seconds.
 class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
-  _DashboardBloc({
-    required this.account,
-  }) {
+  _DashboardBloc({required this.account}) {
     itemsV1.listen((_) => _updateItems());
     itemsV2.listen((_) => _updateItems());
 
@@ -73,9 +69,8 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         getRequest: account.client.dashboard.dashboardApi.$getWidgets_Request,
         converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgets_Serializer()),
         // Filter all widgets that don't support v1 nor v2
-        unwrap: (response) => BuiltList(
-          response.body.ocs.data.values.where((widget) => widget.itemApiVersions.isNotEmpty),
-        ),
+        unwrap:
+            (response) => BuiltList(response.body.ocs.data.values.where((widget) => widget.itemApiVersions.isNotEmpty)),
       );
     }
 
@@ -100,10 +95,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         RequestManager.instance.wrap(
           account: account,
           subject: itemsV1,
-          getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
-            widgets: BuiltList(v1WidgetIDs.build()),
-            limit: maxItems,
-          ),
+          getRequest:
+              () => account.client.dashboard.dashboardApi.$getWidgetItems_Request(
+                widgets: BuiltList(v1WidgetIDs.build()),
+                limit: maxItems,
+              ),
           converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItems_Serializer()),
           unwrap: (response) => response.body.ocs.data,
         ),
@@ -111,10 +107,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
         RequestManager.instance.wrap(
           account: account,
           subject: itemsV2,
-          getRequest: () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
-            widgets: BuiltList(v2WidgetIDs.build()),
-            limit: maxItems,
-          ),
+          getRequest:
+              () => account.client.dashboard.dashboardApi.$getWidgetItemsV2_Request(
+                widgets: BuiltList(v2WidgetIDs.build()),
+                limit: maxItems,
+              ),
           converter: ResponseConverter(account.client.dashboard.dashboardApi.$getWidgetItemsV2_Serializer()),
           unwrap: (response) => response.body.ocs.data,
         ),
@@ -128,10 +125,11 @@ class _DashboardBloc extends InteractiveBloc implements DashboardBloc {
     if (resultV1 != null && resultV1.hasData) {
       for (final entry in resultV1.requireData.entries) {
         data[entry.key] = dashboard.WidgetItems(
-          (b) => b
-            ..items.replace(entry.value.sublist(0, min(entry.value.length, maxItems)))
-            ..emptyContentMessage = ''
-            ..halfEmptyContentMessage = '',
+          (b) =>
+              b
+                ..items.replace(entry.value.sublist(0, min(entry.value.length, maxItems)))
+                ..emptyContentMessage = ''
+                ..halfEmptyContentMessage = '',
         );
       }
     }

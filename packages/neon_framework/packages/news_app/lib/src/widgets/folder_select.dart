@@ -4,12 +4,7 @@ import 'package:news_app/l10n/localizations.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderSelect extends StatelessWidget {
-  const NewsFolderSelect({
-    required this.folders,
-    required this.onChanged,
-    this.value,
-    super.key,
-  });
+  const NewsFolderSelect({required this.folders, required this.onChanged, this.value, super.key});
 
   final BuiltList<news.Folder> folders;
 
@@ -20,20 +15,11 @@ class NewsFolderSelect extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<news.Folder>(
-      decoration: InputDecoration(
-        hintText: NewsLocalizations.of(context).folder,
-      ),
+      decoration: InputDecoration(hintText: NewsLocalizations.of(context).folder),
       value: value,
       items: [
-        DropdownMenuItem(
-          child: Text(NewsLocalizations.of(context).folderRoot),
-        ),
-        ...folders.map(
-          (f) => DropdownMenuItem(
-            value: f,
-            child: Text(f.name),
-          ),
-        ),
+        DropdownMenuItem(child: Text(NewsLocalizations.of(context).folderRoot)),
+        ...folders.map((f) => DropdownMenuItem(value: f, child: Text(f.name))),
       ],
       onChanged: onChanged,
     );

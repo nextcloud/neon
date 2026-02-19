@@ -24,9 +24,10 @@ void main() {
           BuiltMap({
             'test': Result<user_status.$PublicInterface>(
               user_status.Public(
-                (b) => b
-                  ..userId = 'test'
-                  ..status = user_status.$Type.online,
+                (b) =>
+                    b
+                      ..userId = 'test'
+                      ..status = user_status.$Type.online,
               ),
               null,
               isLoading: false,
@@ -37,12 +38,7 @@ void main() {
       );
 
       await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: NeonUserAvatar(
-            account: account,
-            userStatusBloc: userStatusBloc,
-          ),
-        ),
+        TestApp(child: NeonUserAvatar(account: account, userStatusBloc: userStatusBloc)),
       );
 
       expect(find.byType(NeonUserStatusIndicator), findsOne);
@@ -52,18 +48,14 @@ void main() {
       final account = MockAccount();
 
       final userStatus = user_status.Public(
-        (b) => b
-          ..userId = 'test'
-          ..status = user_status.$Type.online,
+        (b) =>
+            b
+              ..userId = 'test'
+              ..status = user_status.$Type.online,
       );
 
       await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: NeonUserAvatar(
-            account: account,
-            userStatus: userStatus,
-          ),
-        ),
+        TestApp(child: NeonUserAvatar(account: account, userStatus: userStatus)),
       );
 
       expect(find.byType(NeonUserStatusIndicator), findsOne);
@@ -72,13 +64,7 @@ void main() {
     testWidgets('Without UserStatusBloc and user status', (tester) async {
       final account = MockAccount();
 
-      await tester.pumpWidgetWithAccessibility(
-        TestApp(
-          child: NeonUserAvatar(
-            account: account,
-          ),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(TestApp(child: NeonUserAvatar(account: account)));
 
       expect(find.byType(NeonUserStatusIndicator), findsNothing);
     });
@@ -99,10 +85,11 @@ void main() {
             child: NeonUserStatusIndicator(
               result: Result<user_status.$PublicInterface>(
                 user_status.Public(
-                  (b) => b
-                    ..userId = 'test'
-                    ..status = status
-                    ..icon = icon,
+                  (b) =>
+                      b
+                        ..userId = 'test'
+                        ..status = status
+                        ..icon = icon,
                 ),
                 null,
                 isLoading: false,

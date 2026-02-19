@@ -33,9 +33,7 @@ class LoginCheckAccountView extends StatelessWidget {
           tile = NeonAccountTile(
             account: state.account,
             userStatusBloc: null,
-            userDetailsBloc: NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(
-              state.account,
-            ),
+            userDetailsBloc: NeonProvider.of<AccountsBloc>(context).getUserDetailsBlocFor(state.account),
           );
         }
 
@@ -45,12 +43,10 @@ class LoginCheckAccountView extends StatelessWidget {
             tile,
             Align(
               alignment: Alignment.bottomRight,
-              child: success
-                  ? _CheckAccountContinue(
-                      account: state.account,
-                      key: const Key('login-check-account-continue'),
-                    )
-                  : const _CheckAccountRetry(key: Key('login-check-account-retry')),
+              child:
+                  success
+                      ? _CheckAccountContinue(account: state.account, key: const Key('login-check-account-continue'))
+                      : const _CheckAccountRetry(key: Key('login-check-account-retry')),
             ),
           ],
         );

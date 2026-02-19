@@ -16,19 +16,16 @@ abstract class PushNotification implements Built<PushNotification, PushNotificat
   /// Creates a new PushNotification object from the given [json] data containing an encrypted [subject].
   ///
   /// Use [PushNotification.fromJson] when the [subject] is not encrypted.
-  factory PushNotification.fromEncrypted(
-    Map<String, dynamic> json,
-    String accountID,
-    RSAPrivateKey privateKey,
-  ) {
+  factory PushNotification.fromEncrypted(Map<String, dynamic> json, String accountID, RSAPrivateKey privateKey) {
     final subject = notifications.DecryptedSubject.fromEncrypted(privateKey, json['subject'] as String);
 
     return PushNotification(
-      (b) => b
-        ..accountID = accountID
-        ..priority = json['priority'] as String
-        ..type = json['type'] as String
-        ..subject.replace(subject),
+      (b) =>
+          b
+            ..accountID = accountID
+            ..priority = json['priority'] as String
+            ..type = json['type'] as String
+            ..subject.replace(subject),
     );
   }
 
@@ -56,8 +53,9 @@ abstract class PushNotification implements Built<PushNotification, PushNotificat
   notifications.DecryptedSubject get subject;
 }
 
-final Serializers _serializers = (Serializers().toBuilder()
-      ..add(PushNotification.serializer)
-      ..add(notifications.DecryptedSubject.serializer)
-      ..addPlugin(StandardJsonPlugin()))
-    .build();
+final Serializers _serializers =
+    (Serializers().toBuilder()
+          ..add(PushNotification.serializer)
+          ..add(notifications.DecryptedSubject.serializer)
+          ..addPlugin(StandardJsonPlugin()))
+        .build();

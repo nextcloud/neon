@@ -45,9 +45,6 @@ class AndroidNeonPlatform implements NeonPlatform {
 
   @override
   Future<void> saveFileWithPickDialog(String fileName, String mimeType, Uint8List data) async {
-    await FilePicker.platform.saveFile(
-      fileName: fileName,
-      bytes: data,
-    );
+    await FilePicker.platform.saveFile(fileName: fileName, bytes: data);
   }
 }

@@ -6,22 +6,15 @@ part of 'routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [
-      $newsAppRoute,
-    ];
+List<RouteBase> get $appRoutes => [$newsAppRoute];
 
-RouteBase get $newsAppRoute => GoRouteData.$route(
-      path: '/apps/news',
-      name: 'news',
-      factory: $NewsAppRouteExtension._fromState,
-    );
+RouteBase get $newsAppRoute =>
+    GoRouteData.$route(path: '/apps/news', name: 'news', factory: $NewsAppRouteExtension._fromState);
 
 extension $NewsAppRouteExtension on NewsAppRoute {
   static NewsAppRoute _fromState(GoRouterState state) => const NewsAppRoute();
 
-  String get location => GoRouteData.$location(
-        '/apps/news',
-      );
+  String get location => GoRouteData.$location('/apps/news');
 
   void go(BuildContext context) => context.go(location);
 

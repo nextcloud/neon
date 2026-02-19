@@ -7,13 +7,7 @@ import 'package:built_value/json_object.dart';
 /// * matching the given [pattern].
 /// * longer than [minLength].
 /// * shorter than [maxLength].
-void checkString(
-  dynamic input,
-  String parameterName, {
-  int? maxLength,
-  int? minLength,
-  RegExp? pattern,
-}) {
+void checkString(dynamic input, String parameterName, {int? maxLength, int? minLength, RegExp? pattern}) {
   String value;
   if (input is JsonObject && input.isString) {
     value = input.asString;
@@ -47,13 +41,7 @@ void checkString(
 /// * shorter than [minItems].
 /// * containing only [uniqueItems].
 ///   If the input is a [Set] or [BuiltSet] this validation is skipped.
-void checkIterable(
-  dynamic input,
-  String parameterName, {
-  int? maxItems,
-  int? minItems,
-  bool uniqueItems = false,
-}) {
+void checkIterable(dynamic input, String parameterName, {int? maxItems, int? minItems, bool uniqueItems = false}) {
   switch (input) {
     case ListJsonObject():
     case ListBuilder():

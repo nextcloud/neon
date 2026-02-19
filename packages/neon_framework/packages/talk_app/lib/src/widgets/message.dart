@@ -40,12 +40,7 @@ String getActorDisplayName(TalkLocalizations localizations, spreed.$ChatMessageI
 /// Displays a preview of the [chatMessage] including the display name of the sender.
 class TalkMessagePreview extends StatelessWidget {
   /// Creates a new Talk message preview.
-  const TalkMessagePreview({
-    required this.actorId,
-    required this.roomType,
-    required this.chatMessage,
-    super.key,
-  });
+  const TalkMessagePreview({required this.actorId, required this.roomType, required this.chatMessage, super.key});
 
   /// ID of the current actor.
   final String actorId;
@@ -71,17 +66,9 @@ class TalkMessagePreview extends StatelessWidget {
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       text: TextSpan(
-        style: TextStyle(
-          color: Theme.of(context).colorScheme.onSurface,
-        ),
+        style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         children: [
-          if (actorName != null)
-            TextSpan(
-              text: '$actorName: ',
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          if (actorName != null) TextSpan(text: '$actorName: ', style: const TextStyle(fontWeight: FontWeight.bold)),
           buildRichTextSpan(
             account: NeonProvider.of<Account>(context),
             text: chatMessage.message,
@@ -136,10 +123,7 @@ class TalkMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (chatMessage.messageType == spreed.MessageType.system) {
-      return TalkSystemMessage(
-        chatMessage: chatMessage,
-        previousChatMessage: previousChatMessage,
-      );
+      return TalkSystemMessage(chatMessage: chatMessage, previousChatMessage: previousChatMessage);
     }
 
     return TalkCommentMessage(
@@ -155,11 +139,7 @@ class TalkMessage extends StatelessWidget {
 /// Displays a system chat message.
 class TalkSystemMessage extends StatelessWidget {
   /// Creates a new Talk system message.
-  const TalkSystemMessage({
-    required this.chatMessage,
-    required this.previousChatMessage,
-    super.key,
-  });
+  const TalkSystemMessage({required this.chatMessage, required this.previousChatMessage, super.key});
 
   /// {@macro TalkMessage.chatMessage}
   final spreed.$ChatMessageInterface chatMessage;
@@ -215,21 +195,11 @@ class TalkParentMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
-        ),
-        border: Border.all(
-          color: Theme.of(context).colorScheme.secondaryContainer,
-          width: 2,
-        ),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        border: Border.all(color: Theme.of(context).colorScheme.secondaryContainer, width: 2),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: TalkMessage(
-        room: room,
-        chatMessage: parentChatMessage,
-        lastCommonRead: lastCommonRead,
-        isParent: true,
-      ),
+      child: TalkMessage(room: room, chatMessage: parentChatMessage, lastCommonRead: lastCommonRead, isParent: true),
     );
   }
 }
@@ -304,7 +274,8 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           previousDate = widget.previousChatMessage!.parsedTimestamp;
         }
 
-        final separateMessages = widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
+        final separateMessages =
+            widget.chatMessage.actorId != widget.previousChatMessage?.actorId ||
             widget.previousChatMessage?.messageType == spreed.MessageType.system ||
             previousDate == null ||
             date.difference(previousDate) > const Duration(minutes: 3) ||
@@ -316,9 +287,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         if (separateMessages) {
           label = Text(
             getActorDisplayName(TalkLocalizations.of(context), widget.chatMessage),
-            style: textTheme.labelLarge!.copyWith(
-              color: labelColor,
-            ),
+            style: textTheme.labelLarge!.copyWith(color: labelColor),
           );
 
           if (widget.chatMessage.lastEditTimestamp != null && widget.chatMessage.lastEditActorDisplayName != null) {
@@ -332,9 +301,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
                   ),
                   child: Text(
                     ' (${TalkLocalizations.of(context).roomMessageEdited})',
-                    style: textTheme.labelLarge!.copyWith(
-                      color: labelColor,
-                    ),
+                    style: textTheme.labelLarge!.copyWith(color: labelColor),
                   ),
                 ),
               ],
@@ -342,27 +309,20 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           }
 
           if (!widget.isParent) {
-            avatar = TalkActorAvatar(
-              actorId: widget.chatMessage.actorId,
-              actorType: widget.chatMessage.actorType,
-            );
+            avatar = TalkActorAvatar(actorId: widget.chatMessage.actorId, actorType: widget.chatMessage.actorType);
 
             time = Tooltip(
               message: _dateTimeFormat.format(date),
-              child: Text(
-                _timeFormat.format(date),
-                style: textTheme.labelSmall,
-              ),
+              child: Text(_timeFormat.format(date), style: textTheme.labelSmall),
             );
           }
         }
 
         Widget? parent;
-        if (widget.chatMessage
-            case spreed.ChatMessageWithParent(
-              parent: final p,
-              messageType: != spreed.MessageType.commentDeleted,
-            ) when p?.chatMessage != null && !widget.isParent) {
+        if (widget.chatMessage case spreed.ChatMessageWithParent(
+          parent: final p,
+          messageType: != spreed.MessageType.commentDeleted,
+        ) when p?.chatMessage != null && !widget.isParent) {
           parent = TalkParentMessage(
             room: widget.room,
             parentChatMessage: p!.chatMessage!,
@@ -388,9 +348,10 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             isPreview: widget.isParent,
             references: references.keys.toBuiltList(),
             textStyle: textTheme.bodyLarge!.copyWith(
-              color: widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
-                  ? labelColor
-                  : null,
+              color:
+                  widget.isParent || widget.chatMessage.messageType == spreed.MessageType.commentDeleted
+                      ? labelColor
+                      : null,
             ),
             onReferenceClicked: (url) async => launchUrl(NeonProvider.of<Account>(context), url),
           ),
@@ -400,14 +361,8 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
         if (widget.chatMessage.messageType == spreed.MessageType.commentDeleted) {
           text = Row(
             children: [
-              Icon(
-                AdaptiveIcons.cancel,
-                size: textTheme.bodySmall!.fontSize,
-                color: labelColor,
-              ),
-              const SizedBox(
-                width: 2.5,
-              ),
+              Icon(AdaptiveIcons.cancel, size: textTheme.bodySmall!.fontSize, color: labelColor),
+              const SizedBox(width: 2.5),
               text,
             ],
           );
@@ -417,10 +372,7 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
 
         Widget? readIndicator;
         if (widget.lastCommonRead != null && account.username == widget.chatMessage.actorId) {
-          readIndicator = TalkReadIndicator(
-            chatMessage: widget.chatMessage,
-            lastCommonRead: widget.lastCommonRead!,
-          );
+          readIndicator = TalkReadIndicator(chatMessage: widget.chatMessage, lastCommonRead: widget.lastCommonRead!);
         }
 
         Widget message = Column(
@@ -429,23 +381,14 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (label != null) label,
-                if (time != null) time,
-              ],
+              children: [if (label != null) label, if (time != null) time],
             ),
             if (parent != null) parent,
             text,
             for (final entry in references.entries.take(3))
-              TalkReferencePreview(
-                url: entry.key,
-                openGraphObject: entry.value.data?.openGraphObject,
-              ),
+              TalkReferencePreview(url: entry.key, openGraphObject: entry.value.data?.openGraphObject),
             if (!widget.isParent && widget.chatMessage.reactions.isNotEmpty)
-              TalkReactions(
-                room: widget.room,
-                chatMessage: widget.chatMessage,
-              ),
+              TalkReactions(room: widget.room, chatMessage: widget.chatMessage),
           ],
         );
 
@@ -457,23 +400,9 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 10),
-                  child: SizedBox(
-                    width: 40,
-                    child: avatar,
-                  ),
-                ),
-                Expanded(
-                  child: message,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: SizedBox(
-                    width: 14,
-                    child: readIndicator,
-                  ),
-                ),
+                Padding(padding: const EdgeInsets.only(right: 10), child: SizedBox(width: 40, child: avatar)),
+                Expanded(child: message),
+                Padding(padding: const EdgeInsets.only(left: 5), child: SizedBox(width: 14, child: readIndicator)),
                 SizedBox.square(
                   dimension: 32,
                   child: actions.isNotEmpty && (hoverState || menuOpen) ? _buildPopupMenuButton(actions) : null,
@@ -494,29 +423,17 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
                   hoverState = false;
                 });
               },
-              child: InkWell(
-                onLongPress: () async => _showActionsModal(actions),
-                child: message,
-              ),
+              child: InkWell(onLongPress: () async => _showActionsModal(actions), child: message),
             );
           }
         }
 
-        return Container(
-          margin: EdgeInsets.only(
-            top: topMargin,
-            bottom: 5,
-          ),
-          child: message,
-        );
+        return Container(margin: EdgeInsets.only(top: topMargin, bottom: 5), child: message);
       },
     );
   }
 
-  List<TalkMessageAction> _buildMessageActions(
-    spreed.Room room,
-    spreed.$ChatMessageInterface chatMessage,
-  ) {
+  List<TalkMessageAction> _buildMessageActions(spreed.Room room, spreed.$ChatMessageInterface chatMessage) {
     return [
       if (canReplyToMessage(room, chatMessage))
         (
@@ -561,21 +478,22 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
   }
 
   Widget? _buildPopupMenuButton(List<TalkMessageAction> actions) {
-    final children = actions
-        .map(
-          (action) => MenuItemButton(
-            leadingIcon: action.icon,
-            onPressed: () {
-              setState(() {
-                menuOpen = false;
-              });
+    final children =
+        actions
+            .map(
+              (action) => MenuItemButton(
+                leadingIcon: action.icon,
+                onPressed: () {
+                  setState(() {
+                    menuOpen = false;
+                  });
 
-              action.onPressed();
-            },
-            child: action.child,
-          ),
-        )
-        .toList();
+                  action.onPressed();
+                },
+                child: action.child,
+              ),
+            )
+            .toList();
 
     return MenuAnchor(
       menuChildren: children,
@@ -589,17 +507,18 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
           menuOpen = false;
         });
       },
-      builder: (context, controller, child) => IconButton(
-        onPressed: () {
-          if (controller.isOpen) {
-            controller.close();
-          } else {
-            controller.open();
-          }
-        },
-        padding: const EdgeInsets.all(4),
-        icon: const Icon(Icons.more_vert),
-      ),
+      builder:
+          (context, controller, child) => IconButton(
+            onPressed: () {
+              if (controller.isOpen) {
+                controller.close();
+              } else {
+                controller.open();
+              }
+            },
+            padding: const EdgeInsets.all(4),
+            icon: const Icon(Icons.more_vert),
+          ),
     );
   }
 
@@ -607,36 +526,37 @@ class _TalkCommentMessageState extends State<TalkCommentMessage> {
     await showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
-      builder: (context) => SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                child: Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: TalkParentMessage(
-                    room: widget.room,
-                    parentChatMessage: widget.chatMessage,
-                    lastCommonRead: widget.lastCommonRead,
+      builder:
+          (context) => SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: TalkParentMessage(
+                        room: widget.room,
+                        parentChatMessage: widget.chatMessage,
+                        lastCommonRead: widget.lastCommonRead,
+                      ),
+                    ),
                   ),
-                ),
+                  for (final action in actions)
+                    ListTile(
+                      leading: action.icon,
+                      title: action.child,
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        action.onPressed();
+                      },
+                    ),
+                ],
               ),
-              for (final action in actions)
-                ListTile(
-                  leading: action.icon,
-                  title: action.child,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    action.onPressed();
-                  },
-                ),
-            ],
+            ),
           ),
-        ),
-      ),
     );
   }
 }

@@ -23,10 +23,7 @@ final class LoginCheckServerState extends Equatable {
       serverVersionState is ServerVersionStateSuccess && maintenanceModeState is MaintenanceModeStateSuccess;
 
   /// Creates a copy of this with changed attributes.
-  LoginCheckServerState copyWith({
-    ServerVersionState? serverVersionState,
-    MaintenanceModeState? maintenanceModeState,
-  }) {
+  LoginCheckServerState copyWith({ServerVersionState? serverVersionState, MaintenanceModeState? maintenanceModeState}) {
     return LoginCheckServerState(
       serverURL: serverURL,
       serverVersionState: serverVersionState ?? this.serverVersionState,
@@ -35,11 +32,7 @@ final class LoginCheckServerState extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-        serverURL,
-        serverVersionState,
-        maintenanceModeState,
-      ];
+  List<Object?> get props => [serverURL, serverVersionState, maintenanceModeState];
 }
 
 /// The server version check sate of [LoginCheckServerState].
@@ -59,17 +52,13 @@ final class ServerVersionStateLoading extends ServerVersionState {
 /// The success state for the server version check.
 final class ServerVersionStateSuccess extends ServerVersionState {
   /// Creates a new server version success state.
-  const ServerVersionStateSuccess({
-    required this.serverVersion,
-  });
+  const ServerVersionStateSuccess({required this.serverVersion});
 
   /// The server version.
   final String serverVersion;
 
   @override
-  List<Object?> get props => [
-        serverVersion,
-      ];
+  List<Object?> get props => [serverVersion];
 }
 
 /// The failure state for the server version check.
@@ -77,17 +66,13 @@ final class ServerVersionStateSuccess extends ServerVersionState {
 /// This is emitted when the server version was retrieved successfully but is unsupported.
 final class ServerVersionStateFailure extends ServerVersionState {
   /// Creates a new server version failure state.
-  const ServerVersionStateFailure({
-    required this.serverVersion,
-  });
+  const ServerVersionStateFailure({required this.serverVersion});
 
   /// The server version.
   final String serverVersion;
 
   @override
-  List<Object?> get props => [
-        serverVersion,
-      ];
+  List<Object?> get props => [serverVersion];
 }
 
 /// The canceled state for the server version check.

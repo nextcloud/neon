@@ -24,70 +24,38 @@ void sortTests(
   });
 
   group('sort cookies,', () {
-    test(
-      'by path length',
-      () async {
-        final cookies = [
-          TestCookie('root', 'value')..path = '/',
-          TestCookie('docs', 'value')..path = '/docs/',
-          TestCookie('docs-Web', 'value')..path = '/docs/Web/',
-          TestCookie('docs-Web-HTTP', 'value')..path = '/docs/Web/HTTP',
-        ];
+    test('by path length', () async {
+      final cookies = [
+        TestCookie('root', 'value')..path = '/',
+        TestCookie('docs', 'value')..path = '/docs/',
+        TestCookie('docs-Web', 'value')..path = '/docs/Web/',
+        TestCookie('docs-Web-HTTP', 'value')..path = '/docs/Web/HTTP',
+      ];
 
-        await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
-        final stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
-        expect(
-          toStringList(stored),
-          equals([
-            'docs-Web-HTTP=value',
-            'docs-Web=value',
-            'docs=value',
-            'root=value',
-          ]),
-        );
-      },
-      skip: canSortByPath ? false : 'does not support sorting by path length',
-    );
+      await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
+      final stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
+      expect(toStringList(stored), equals(['docs-Web-HTTP=value', 'docs-Web=value', 'docs=value', 'root=value']));
+    }, skip: canSortByPath ? false : 'does not support sorting by path length');
 
-    test(
-      'by access time',
-      () async {
-        var cookies = [
-          TestCookie('root', 'value')..path = '/',
-          TestCookie('docs', 'value')..path = '/docs/',
-          TestCookie('docs-Web', 'value')..path = '/docs/Web/',
-          TestCookie('docs-Web-HTTP', 'value')..path = '/docs/Web/HTTP',
-        ];
+    test('by access time', () async {
+      var cookies = [
+        TestCookie('root', 'value')..path = '/',
+        TestCookie('docs', 'value')..path = '/docs/',
+        TestCookie('docs-Web', 'value')..path = '/docs/Web/',
+        TestCookie('docs-Web-HTTP', 'value')..path = '/docs/Web/HTTP',
+      ];
 
-        await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
-        var stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
-        expect(
-          toStringList(stored),
-          equals([
-            'docs-Web-HTTP=value',
-            'docs-Web=value',
-            'docs=value',
-            'root=value',
-          ]),
-        );
+      await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
+      var stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
+      expect(toStringList(stored), equals(['docs-Web-HTTP=value', 'docs-Web=value', 'docs=value', 'root=value']));
 
-        cookies = [
-          TestCookie('later-written', 'value')..path = '/docs/Web/',
-        ];
-        await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
-        stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
-        expect(
-          toStringList(stored),
-          equals([
-            'docs-Web-HTTP=value',
-            'docs-Web=value',
-            'later-written=value',
-            'docs=value',
-            'root=value',
-          ]),
-        );
-      },
-      skip: (canSortByPath && canSortByCreationTime) ? false : 'does not support sorting by creating time',
-    );
+      cookies = [TestCookie('later-written', 'value')..path = '/docs/Web/'];
+      await cookieStore.saveFromResponse(Uri(path: '/'), cookies);
+      stored = await cookieStore.loadForRequest(Uri(path: '/docs/Web/HTTP'));
+      expect(
+        toStringList(stored),
+        equals(['docs-Web-HTTP=value', 'docs-Web=value', 'later-written=value', 'docs=value', 'root=value']),
+      );
+    }, skip: (canSortByPath && canSortByCreationTime) ? false : 'does not support sorting by creating time');
   });
 }

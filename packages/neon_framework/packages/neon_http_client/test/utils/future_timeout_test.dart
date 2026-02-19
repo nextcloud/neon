@@ -13,10 +13,7 @@ void main() {
     });
 
     test('does not time out with null value', () async {
-      expect(
-        Future<void>.delayed(const Duration(milliseconds: 10)).maybeTimeout(null),
-        completes,
-      );
+      expect(Future<void>.delayed(const Duration(milliseconds: 10)).maybeTimeout(null), completes);
     });
   });
 }

@@ -21,13 +21,8 @@ void main() {
 
       await tester.pumpWidgetWithAccessibility(
         TestApp(
-          providers: [
-            Provider<Account>.value(value: account),
-          ],
-          child: TalkActorAvatar(
-            actorId: '',
-            actorType: type,
-          ),
+          providers: [Provider<Account>.value(value: account)],
+          child: TalkActorAvatar(actorId: '', actorType: type),
         ),
       );
 

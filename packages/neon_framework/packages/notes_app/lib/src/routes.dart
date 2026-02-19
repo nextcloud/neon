@@ -6,10 +6,7 @@ import 'package:notes_app/src/pages/main.dart';
 
 part 'routes.g.dart';
 
-@TypedGoRoute<NotesAppRoute>(
-  path: '$appsBaseRoutePrefix${notes.appID}',
-  name: notes.appID,
-)
+@TypedGoRoute<NotesAppRoute>(path: '$appsBaseRoutePrefix${notes.appID}', name: notes.appID)
 @immutable
 class NotesAppRoute extends NeonBaseAppRoute {
   const NotesAppRoute();

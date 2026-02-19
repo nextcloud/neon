@@ -39,7 +39,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $Api1Client api1 = $Api1Client(this);
 
@@ -65,11 +65,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Table>, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Table)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Table)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns all Tables.
   ///
@@ -135,11 +135,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Table, void> $createTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Table),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Table),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new table and return it.
   ///
@@ -209,11 +209,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$getTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Table, void> $getTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Table),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Table),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a table object.
   ///
@@ -293,11 +293,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Table, void> $updateTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Table),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Table),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update tables properties.
   ///
@@ -344,16 +344,17 @@ class $Api1Client {
 
     // coverage:ignore-end
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateTableRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              Api1UpdateTableRequestApplicationJson(),
-              specifiedType: const FullType(Api1UpdateTableRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(Api1UpdateTableRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                Api1UpdateTableRequestApplicationJson(),
+                specifiedType: const FullType(Api1UpdateTableRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -391,11 +392,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Table, void> $deleteTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Table),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Table),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a table.
   ///
@@ -475,11 +476,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$showScheme_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Table, Api1Api1ShowSchemeHeaders> $showScheme_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Table),
-        headersType: const FullType(Api1Api1ShowSchemeHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Table),
+    headersType: const FullType(Api1Api1ShowSchemeHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// returns table scheme.
   ///
@@ -559,11 +560,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexViews_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<View>, void> $indexViews_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(View)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(View)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all views for a table.
   ///
@@ -643,11 +644,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<View, void> $createView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(View),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(View),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new view for a table.
   ///
@@ -734,11 +735,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$getView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<View, void> $getView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(View),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(View),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a view object.
   ///
@@ -818,11 +819,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<View, void> $updateView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(View),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(View),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update a view via key-value sets.
   ///
@@ -911,11 +912,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<View, void> $deleteView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(View),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(View),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a view.
   ///
@@ -995,11 +996,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$getShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Share, void> $getShare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Share),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Share),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a share object.
   ///
@@ -1079,11 +1080,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateSharePermissions_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Share, void> $updateSharePermissions_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Share),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Share),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update a share permission.
   ///
@@ -1176,11 +1177,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Share, void> $deleteShare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Share),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Share),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a share.
   ///
@@ -1260,11 +1261,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexViewShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Share>, void> $indexViewShares_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Share)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Share)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all shares for a view Will be empty if view does not exist.
   ///
@@ -1340,11 +1341,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexTableShares_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Share>, void> $indexTableShares_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Share)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Share)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all shares for a table Will be empty if table does not exist.
   ///
@@ -1420,11 +1421,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createTableShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Share, void> $createTableShare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Share),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Share),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a share for a table.
   ///
@@ -1514,11 +1515,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Share, void> $createShare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Share),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Share),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new share.
   ///
@@ -1592,11 +1593,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateShareDisplayMode_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextNavigation, void> $updateShareDisplayMode_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextNavigation),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextNavigation),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Updates the display mode of a context share.
   ///
@@ -1691,11 +1692,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexTableColumns_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Column>, void> $indexTableColumns_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Column)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Column)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all columns for a table or a underlying view Return an empty array if no columns were found.
   ///
@@ -1782,11 +1783,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createTableColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Column, void> $createTableColumn_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Column),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Column),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a new column for a table.
   ///
@@ -1876,11 +1877,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexViewColumns_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Column>, void> $indexViewColumns_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Column)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Column)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get all columns for a view Return an empty array if no columns were found.
   ///
@@ -1960,11 +1961,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Column, void> $createColumn_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Column),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Column),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a column.
   ///
@@ -2040,11 +2041,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$getColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Column, void> $getColumn_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Column),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Column),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a column object.
   ///
@@ -2124,11 +2125,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Column, void> $updateColumn_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Column),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Column),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update a column.
   ///
@@ -2211,11 +2212,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Column, void> $deleteColumn_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Column),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Column),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a column.
   ///
@@ -2295,11 +2296,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexTableRowsSimple_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<String>, void> $indexTableRowsSimple_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(String)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(String)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List all rows values for a table, first row are the column titles.
   ///
@@ -2395,11 +2396,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexTableRows_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Row>, void> $indexTableRows_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Row)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Row)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List all rows for a table.
   ///
@@ -2495,11 +2496,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createRowInTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $createRowInTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a row within a table.
   ///
@@ -2589,11 +2590,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$indexViewRows_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<Row>, void> $indexViewRows_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(Row)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(Row)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List all rows for a view.
   ///
@@ -2689,11 +2690,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$createRowInView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $createRowInView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a row within a view.
   ///
@@ -2781,11 +2782,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$getRow_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $getRow_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a row.
   ///
@@ -2865,11 +2866,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$updateRow_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $updateRow_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update a row.
   ///
@@ -2956,11 +2957,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteRow_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $deleteRow_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a row.
   ///
@@ -3040,11 +3041,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$deleteRowByView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Row, void> $deleteRowByView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Row),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Row),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a row within a view.
   ///
@@ -3129,11 +3130,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$importInTable_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ImportState, void> $importInTable_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ImportState),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ImportState),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Import from file in to a table.
   ///
@@ -3220,11 +3221,11 @@ class $Api1Client {
   /// Builds a serializer to parse the response of [$importInView_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ImportState, void> $importInView_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ImportState),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ImportState),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Import from file in to a table.
   ///
@@ -3318,11 +3319,11 @@ class $ApiColumnsClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiColumnsIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiColumnsIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiColumnsIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Get all columns for a table or a view.
   ///
@@ -3417,11 +3418,11 @@ class $ApiColumnsClient {
   /// Builds a serializer to parse the response of [$$show_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiColumnsShowResponseApplicationJson, void> $$show_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiColumnsShowResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiColumnsShowResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Get a column object.
   ///
@@ -3706,12 +3707,12 @@ class $ApiColumnsClient {
   /// Builds a serializer to parse the response of [$createSelectionColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiColumnsCreateSelectionColumnResponseApplicationJson, void>
-      $createSelectionColumn_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $createSelectionColumn_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Create new selection column.
   ///
@@ -3806,12 +3807,12 @@ class $ApiColumnsClient {
   /// Builds a serializer to parse the response of [$createDatetimeColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiColumnsCreateDatetimeColumnResponseApplicationJson, void>
-      $createDatetimeColumn_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $createDatetimeColumn_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Create new datetime column.
   ///
@@ -3906,12 +3907,12 @@ class $ApiColumnsClient {
   /// Builds a serializer to parse the response of [$createUsergroupColumn_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiColumnsCreateUsergroupColumnResponseApplicationJson, void>
-      $createUsergroupColumn_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $createUsergroupColumn_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Create new usergroup column.
   ///
@@ -4009,11 +4010,11 @@ class $ApiFavoriteClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiFavoriteCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiFavoriteCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiFavoriteCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Add a node (table or view) to user favorites.
   ///
@@ -4207,11 +4208,11 @@ class $ApiGeneralClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiGeneralIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiGeneralIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiGeneralIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Returns all main resources.
   ///
@@ -4294,11 +4295,11 @@ class $ApiTablesClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiTablesIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiTablesIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiTablesIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Returns all Tables.
   ///
@@ -4370,11 +4371,11 @@ class $ApiTablesClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiTablesCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiTablesCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiTablesCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Create a new table and return it.
   ///
@@ -4453,11 +4454,11 @@ class $ApiTablesClient {
   /// Builds a serializer to parse the response of [$$show_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiTablesShowResponseApplicationJson, void> $$show_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiTablesShowResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiTablesShowResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Get a table object.
   ///
@@ -4542,11 +4543,11 @@ class $ApiTablesClient {
   /// Builds a serializer to parse the response of [$$update_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiTablesUpdateResponseApplicationJson, void> $$update_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiTablesUpdateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiTablesUpdateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Update tables properties.
   ///
@@ -4596,16 +4597,17 @@ class $ApiTablesClient {
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(ApiTablesUpdateRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ApiTablesUpdateRequestApplicationJson(),
-              specifiedType: const FullType(ApiTablesUpdateRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(ApiTablesUpdateRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ApiTablesUpdateRequestApplicationJson(),
+                specifiedType: const FullType(ApiTablesUpdateRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -4643,11 +4645,11 @@ class $ApiTablesClient {
   /// Builds a serializer to parse the response of [$destroy_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ApiTablesDestroyResponseApplicationJson, void> $destroy_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ApiTablesDestroyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ApiTablesDestroyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Delete a table.
   ///
@@ -5024,11 +5026,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Get all contexts available to the requesting person.
   ///
@@ -5104,11 +5106,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Create a new context and return it.
   ///
@@ -5191,11 +5193,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$$show_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextShowResponseApplicationJson, void> $$show_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextShowResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextShowResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Get information about the requests context.
   ///
@@ -5278,11 +5280,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$$update_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextUpdateResponseApplicationJson, void> $$update_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextUpdateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextUpdateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Update an existing context and return it.
   ///
@@ -5336,16 +5338,17 @@ class $ContextClient {
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(ContextUpdateRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ContextUpdateRequestApplicationJson(),
-              specifiedType: const FullType(ContextUpdateRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(ContextUpdateRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ContextUpdateRequestApplicationJson(),
+                specifiedType: const FullType(ContextUpdateRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -5383,11 +5386,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$destroy_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextDestroyResponseApplicationJson, void> $destroy_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextDestroyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextDestroyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Delete an existing context and return it.
   ///
@@ -5472,11 +5475,11 @@ class $ContextClient {
   /// Builds a serializer to parse the response of [$transfer_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ContextTransferResponseApplicationJson, void> $transfer_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ContextTransferResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ContextTransferResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// [api v2] Transfer the ownership of a context and return it.
   ///
@@ -5988,8 +5991,7 @@ class _$View_Sort_ModeSerializer implements PrimitiveSerializer<View_Sort_Mode> 
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -6139,16 +6141,14 @@ class _$View_Filter_OperatorSerializer implements PrimitiveSerializer<View_Filte
     Serializers serializers,
     View_Filter_Operator object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   View_Filter_Operator deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 typedef View_Filter_Value = ({num? $num, String? string});
@@ -6727,17 +6727,17 @@ class _$Api1UpdateViewRequestApplicationJson_Data0_KeySerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data0_Key, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data0_Key, Object>{
-    Api1UpdateViewRequestApplicationJson_Data0_Key.title: 'title',
-    Api1UpdateViewRequestApplicationJson_Data0_Key.emoji: 'emoji',
-    Api1UpdateViewRequestApplicationJson_Data0_Key.description: 'description',
-  };
+        Api1UpdateViewRequestApplicationJson_Data0_Key.title: 'title',
+        Api1UpdateViewRequestApplicationJson_Data0_Key.emoji: 'emoji',
+        Api1UpdateViewRequestApplicationJson_Data0_Key.description: 'description',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data0_Key> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data0_Key>{
-    'title': Api1UpdateViewRequestApplicationJson_Data0_Key.title,
-    'emoji': Api1UpdateViewRequestApplicationJson_Data0_Key.emoji,
-    'description': Api1UpdateViewRequestApplicationJson_Data0_Key.description,
-  };
+        'title': Api1UpdateViewRequestApplicationJson_Data0_Key.title,
+        'emoji': Api1UpdateViewRequestApplicationJson_Data0_Key.emoji,
+        'description': Api1UpdateViewRequestApplicationJson_Data0_Key.description,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data0_Key];
@@ -6750,16 +6750,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data0_KeySerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data0_Key object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data0_Key deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -6858,13 +6856,13 @@ class _$Api1UpdateViewRequestApplicationJson_Data1_KeySerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data1_Key, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data1_Key, Object>{
-    Api1UpdateViewRequestApplicationJson_Data1_Key.columns: 'columns',
-  };
+        Api1UpdateViewRequestApplicationJson_Data1_Key.columns: 'columns',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data1_Key> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data1_Key>{
-    'columns': Api1UpdateViewRequestApplicationJson_Data1_Key.columns,
-  };
+        'columns': Api1UpdateViewRequestApplicationJson_Data1_Key.columns,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data1_Key];
@@ -6877,16 +6875,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data1_KeySerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data1_Key object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data1_Key deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -6984,13 +6980,13 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_KeySerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data2_Key, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data2_Key, Object>{
-    Api1UpdateViewRequestApplicationJson_Data2_Key.sort: 'sort',
-  };
+        Api1UpdateViewRequestApplicationJson_Data2_Key.sort: 'sort',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data2_Key> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data2_Key>{
-    'sort': Api1UpdateViewRequestApplicationJson_Data2_Key.sort,
-  };
+        'sort': Api1UpdateViewRequestApplicationJson_Data2_Key.sort,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data2_Key];
@@ -7003,16 +6999,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_KeySerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data2_Key object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data2_Key deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class Api1UpdateViewRequestApplicationJson_Data2_Value_Mode extends EnumClass {
@@ -7053,15 +7047,15 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_Value_ModeSerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data2_Value_Mode, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data2_Value_Mode, Object>{
-    Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.aSC: 'ASC',
-    Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.dESC: 'DESC',
-  };
+        Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.aSC: 'ASC',
+        Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.dESC: 'DESC',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data2_Value_Mode> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data2_Value_Mode>{
-    'ASC': Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.aSC,
-    'DESC': Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.dESC,
-  };
+        'ASC': Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.aSC,
+        'DESC': Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.dESC,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data2_Value_Mode];
@@ -7074,16 +7068,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data2_Value_ModeSerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data2_Value_Mode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data2_Value_Mode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -7110,8 +7102,10 @@ sealed class $Api1UpdateViewRequestApplicationJson_Data2_ValueInterface {
 abstract class Api1UpdateViewRequestApplicationJson_Data2_Value
     implements
         $Api1UpdateViewRequestApplicationJson_Data2_ValueInterface,
-        Built<Api1UpdateViewRequestApplicationJson_Data2_Value,
-            Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder> {
+        Built<
+          Api1UpdateViewRequestApplicationJson_Data2_Value,
+          Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder
+        > {
   /// Creates a new Api1UpdateViewRequestApplicationJson_Data2_Value object using the builder pattern.
   factory Api1UpdateViewRequestApplicationJson_Data2_Value([
     void Function(Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder)? b,
@@ -7247,13 +7241,13 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_KeySerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data3_Key, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data3_Key, Object>{
-    Api1UpdateViewRequestApplicationJson_Data3_Key.filter: 'filter',
-  };
+        Api1UpdateViewRequestApplicationJson_Data3_Key.filter: 'filter',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data3_Key> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data3_Key>{
-    'filter': Api1UpdateViewRequestApplicationJson_Data3_Key.filter,
-  };
+        'filter': Api1UpdateViewRequestApplicationJson_Data3_Key.filter,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data3_Key];
@@ -7266,16 +7260,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_KeySerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data3_Key object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data3_Key deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class Api1UpdateViewRequestApplicationJson_Data3_Value_Operator extends EnumClass {
@@ -7350,29 +7342,29 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_Value_OperatorSerializer
 
   static const Map<Api1UpdateViewRequestApplicationJson_Data3_Value_Operator, Object> _toWire =
       <Api1UpdateViewRequestApplicationJson_Data3_Value_Operator, Object>{
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.beginsWith: 'begins-with',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.endsWith: 'ends-with',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.contains: 'contains',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEqual: 'is-equal',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThan: 'is-greater-than',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThanOrEqual: 'is-greater-than-or-equal',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThan: 'is-lower-than',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThanOrEqual: 'is-lower-than-or-equal',
-    Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEmpty: 'is-empty',
-  };
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.beginsWith: 'begins-with',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.endsWith: 'ends-with',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.contains: 'contains',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEqual: 'is-equal',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThan: 'is-greater-than',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThanOrEqual: 'is-greater-than-or-equal',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThan: 'is-lower-than',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThanOrEqual: 'is-lower-than-or-equal',
+        Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEmpty: 'is-empty',
+      };
 
   static const Map<Object, Api1UpdateViewRequestApplicationJson_Data3_Value_Operator> _fromWire =
       <Object, Api1UpdateViewRequestApplicationJson_Data3_Value_Operator>{
-    'begins-with': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.beginsWith,
-    'ends-with': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.endsWith,
-    'contains': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.contains,
-    'is-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEqual,
-    'is-greater-than': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThan,
-    'is-greater-than-or-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThanOrEqual,
-    'is-lower-than': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThan,
-    'is-lower-than-or-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThanOrEqual,
-    'is-empty': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEmpty,
-  };
+        'begins-with': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.beginsWith,
+        'ends-with': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.endsWith,
+        'contains': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.contains,
+        'is-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEqual,
+        'is-greater-than': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThan,
+        'is-greater-than-or-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isGreaterThanOrEqual,
+        'is-lower-than': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThan,
+        'is-lower-than-or-equal': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isLowerThanOrEqual,
+        'is-empty': Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.isEmpty,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateViewRequestApplicationJson_Data3_Value_Operator];
@@ -7385,16 +7377,14 @@ class _$Api1UpdateViewRequestApplicationJson_Data3_Value_OperatorSerializer
     Serializers serializers,
     Api1UpdateViewRequestApplicationJson_Data3_Value_Operator object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateViewRequestApplicationJson_Data3_Value_Operator deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 typedef Api1UpdateViewRequestApplicationJson_Data3_Value_Value = ({num? $num, String? string});
@@ -7427,8 +7417,10 @@ sealed class $Api1UpdateViewRequestApplicationJson_Data3_ValueInterface {
 abstract class Api1UpdateViewRequestApplicationJson_Data3_Value
     implements
         $Api1UpdateViewRequestApplicationJson_Data3_ValueInterface,
-        Built<Api1UpdateViewRequestApplicationJson_Data3_Value,
-            Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder> {
+        Built<
+          Api1UpdateViewRequestApplicationJson_Data3_Value,
+          Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder
+        > {
   /// Creates a new Api1UpdateViewRequestApplicationJson_Data3_Value object using the builder pattern.
   factory Api1UpdateViewRequestApplicationJson_Data3_Value([
     void Function(Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder)? b,
@@ -7533,12 +7525,13 @@ abstract class Api1UpdateViewRequestApplicationJson_Data3
 }
 
 /// key-value pairs.
-typedef Api1UpdateViewRequestApplicationJson_Data = ({
-  Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
-  Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
-  Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
-  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
-});
+typedef Api1UpdateViewRequestApplicationJson_Data =
+    ({
+      Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
+      Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
+      Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
+      Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
+    });
 
 @BuiltValue(instantiable: false)
 sealed class $Api1UpdateViewRequestApplicationJsonInterface {
@@ -7699,8 +7692,10 @@ sealed class $Api1UpdateSharePermissionsRequestApplicationJsonInterface {
 abstract class Api1UpdateSharePermissionsRequestApplicationJson
     implements
         $Api1UpdateSharePermissionsRequestApplicationJsonInterface,
-        Built<Api1UpdateSharePermissionsRequestApplicationJson,
-            Api1UpdateSharePermissionsRequestApplicationJsonBuilder> {
+        Built<
+          Api1UpdateSharePermissionsRequestApplicationJson,
+          Api1UpdateSharePermissionsRequestApplicationJsonBuilder
+        > {
   /// Creates a new Api1UpdateSharePermissionsRequestApplicationJson object using the builder pattern.
   factory Api1UpdateSharePermissionsRequestApplicationJson([
     void Function(Api1UpdateSharePermissionsRequestApplicationJsonBuilder)? b,
@@ -7777,15 +7772,15 @@ class _$Api1CreateTableShareRequestApplicationJson_ReceiverTypeSerializer
 
   static const Map<Api1CreateTableShareRequestApplicationJson_ReceiverType, Object> _toWire =
       <Api1CreateTableShareRequestApplicationJson_ReceiverType, Object>{
-    Api1CreateTableShareRequestApplicationJson_ReceiverType.user: 'user',
-    Api1CreateTableShareRequestApplicationJson_ReceiverType.group: 'group',
-  };
+        Api1CreateTableShareRequestApplicationJson_ReceiverType.user: 'user',
+        Api1CreateTableShareRequestApplicationJson_ReceiverType.group: 'group',
+      };
 
   static const Map<Object, Api1CreateTableShareRequestApplicationJson_ReceiverType> _fromWire =
       <Object, Api1CreateTableShareRequestApplicationJson_ReceiverType>{
-    'user': Api1CreateTableShareRequestApplicationJson_ReceiverType.user,
-    'group': Api1CreateTableShareRequestApplicationJson_ReceiverType.group,
-  };
+        'user': Api1CreateTableShareRequestApplicationJson_ReceiverType.user,
+        'group': Api1CreateTableShareRequestApplicationJson_ReceiverType.group,
+      };
 
   @override
   Iterable<Type> get types => const [Api1CreateTableShareRequestApplicationJson_ReceiverType];
@@ -7798,16 +7793,14 @@ class _$Api1CreateTableShareRequestApplicationJson_ReceiverTypeSerializer
     Serializers serializers,
     Api1CreateTableShareRequestApplicationJson_ReceiverType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1CreateTableShareRequestApplicationJson_ReceiverType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -7933,17 +7926,17 @@ class _$Api1CreateShareRequestApplicationJson_NodeTypeSerializer
 
   static const Map<Api1CreateShareRequestApplicationJson_NodeType, Object> _toWire =
       <Api1CreateShareRequestApplicationJson_NodeType, Object>{
-    Api1CreateShareRequestApplicationJson_NodeType.table: 'table',
-    Api1CreateShareRequestApplicationJson_NodeType.view: 'view',
-    Api1CreateShareRequestApplicationJson_NodeType.context: 'context',
-  };
+        Api1CreateShareRequestApplicationJson_NodeType.table: 'table',
+        Api1CreateShareRequestApplicationJson_NodeType.view: 'view',
+        Api1CreateShareRequestApplicationJson_NodeType.context: 'context',
+      };
 
   static const Map<Object, Api1CreateShareRequestApplicationJson_NodeType> _fromWire =
       <Object, Api1CreateShareRequestApplicationJson_NodeType>{
-    'table': Api1CreateShareRequestApplicationJson_NodeType.table,
-    'view': Api1CreateShareRequestApplicationJson_NodeType.view,
-    'context': Api1CreateShareRequestApplicationJson_NodeType.context,
-  };
+        'table': Api1CreateShareRequestApplicationJson_NodeType.table,
+        'view': Api1CreateShareRequestApplicationJson_NodeType.view,
+        'context': Api1CreateShareRequestApplicationJson_NodeType.context,
+      };
 
   @override
   Iterable<Type> get types => const [Api1CreateShareRequestApplicationJson_NodeType];
@@ -7956,16 +7949,14 @@ class _$Api1CreateShareRequestApplicationJson_NodeTypeSerializer
     Serializers serializers,
     Api1CreateShareRequestApplicationJson_NodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1CreateShareRequestApplicationJson_NodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Receiver type.
@@ -8005,15 +7996,15 @@ class _$Api1CreateShareRequestApplicationJson_ReceiverTypeSerializer
 
   static const Map<Api1CreateShareRequestApplicationJson_ReceiverType, Object> _toWire =
       <Api1CreateShareRequestApplicationJson_ReceiverType, Object>{
-    Api1CreateShareRequestApplicationJson_ReceiverType.user: 'user',
-    Api1CreateShareRequestApplicationJson_ReceiverType.group: 'group',
-  };
+        Api1CreateShareRequestApplicationJson_ReceiverType.user: 'user',
+        Api1CreateShareRequestApplicationJson_ReceiverType.group: 'group',
+      };
 
   static const Map<Object, Api1CreateShareRequestApplicationJson_ReceiverType> _fromWire =
       <Object, Api1CreateShareRequestApplicationJson_ReceiverType>{
-    'user': Api1CreateShareRequestApplicationJson_ReceiverType.user,
-    'group': Api1CreateShareRequestApplicationJson_ReceiverType.group,
-  };
+        'user': Api1CreateShareRequestApplicationJson_ReceiverType.user,
+        'group': Api1CreateShareRequestApplicationJson_ReceiverType.group,
+      };
 
   @override
   Iterable<Type> get types => const [Api1CreateShareRequestApplicationJson_ReceiverType];
@@ -8026,16 +8017,14 @@ class _$Api1CreateShareRequestApplicationJson_ReceiverTypeSerializer
     Serializers serializers,
     Api1CreateShareRequestApplicationJson_ReceiverType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1CreateShareRequestApplicationJson_ReceiverType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8188,15 +8177,15 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJson_TargetSerializer
 
   static const Map<Api1UpdateShareDisplayModeRequestApplicationJson_Target, Object> _toWire =
       <Api1UpdateShareDisplayModeRequestApplicationJson_Target, Object>{
-    Api1UpdateShareDisplayModeRequestApplicationJson_Target.$default: 'default',
-    Api1UpdateShareDisplayModeRequestApplicationJson_Target.self: 'self',
-  };
+        Api1UpdateShareDisplayModeRequestApplicationJson_Target.$default: 'default',
+        Api1UpdateShareDisplayModeRequestApplicationJson_Target.self: 'self',
+      };
 
   static const Map<Object, Api1UpdateShareDisplayModeRequestApplicationJson_Target> _fromWire =
       <Object, Api1UpdateShareDisplayModeRequestApplicationJson_Target>{
-    'default': Api1UpdateShareDisplayModeRequestApplicationJson_Target.$default,
-    'self': Api1UpdateShareDisplayModeRequestApplicationJson_Target.self,
-  };
+        'default': Api1UpdateShareDisplayModeRequestApplicationJson_Target.$default,
+        'self': Api1UpdateShareDisplayModeRequestApplicationJson_Target.self,
+      };
 
   @override
   Iterable<Type> get types => const [Api1UpdateShareDisplayModeRequestApplicationJson_Target];
@@ -8209,24 +8198,24 @@ class _$Api1UpdateShareDisplayModeRequestApplicationJson_TargetSerializer
     Serializers serializers,
     Api1UpdateShareDisplayModeRequestApplicationJson_Target object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1UpdateShareDisplayModeRequestApplicationJson_Target deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $Api1UpdateShareDisplayModeRequestApplicationJsonInterface {
-  static final _$target = _$jsonSerializers.deserialize(
-    'default',
-    specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target),
-  )! as Api1UpdateShareDisplayModeRequestApplicationJson_Target;
+  static final _$target =
+      _$jsonSerializers.deserialize(
+            'default',
+            specifiedType: const FullType(Api1UpdateShareDisplayModeRequestApplicationJson_Target),
+          )!
+          as Api1UpdateShareDisplayModeRequestApplicationJson_Target;
 
   /// The new value for the display mode of the nav bar icon. 0: hidden, 1: visible for recipients, 2: visible for all.
   int get displayMode;
@@ -8258,8 +8247,10 @@ sealed class $Api1UpdateShareDisplayModeRequestApplicationJsonInterface {
 abstract class Api1UpdateShareDisplayModeRequestApplicationJson
     implements
         $Api1UpdateShareDisplayModeRequestApplicationJsonInterface,
-        Built<Api1UpdateShareDisplayModeRequestApplicationJson,
-            Api1UpdateShareDisplayModeRequestApplicationJsonBuilder> {
+        Built<
+          Api1UpdateShareDisplayModeRequestApplicationJson,
+          Api1UpdateShareDisplayModeRequestApplicationJsonBuilder
+        > {
   /// Creates a new Api1UpdateShareDisplayModeRequestApplicationJson object using the builder pattern.
   factory Api1UpdateShareDisplayModeRequestApplicationJson([
     void Function(Api1UpdateShareDisplayModeRequestApplicationJsonBuilder)? b,
@@ -8489,21 +8480,21 @@ class _$Api1CreateTableColumnRequestApplicationJson_TypeSerializer
 
   static const Map<Api1CreateTableColumnRequestApplicationJson_Type, Object> _toWire =
       <Api1CreateTableColumnRequestApplicationJson_Type, Object>{
-    Api1CreateTableColumnRequestApplicationJson_Type.text: 'text',
-    Api1CreateTableColumnRequestApplicationJson_Type.number: 'number',
-    Api1CreateTableColumnRequestApplicationJson_Type.datetime: 'datetime',
-    Api1CreateTableColumnRequestApplicationJson_Type.select: 'select',
-    Api1CreateTableColumnRequestApplicationJson_Type.usergroup: 'usergroup',
-  };
+        Api1CreateTableColumnRequestApplicationJson_Type.text: 'text',
+        Api1CreateTableColumnRequestApplicationJson_Type.number: 'number',
+        Api1CreateTableColumnRequestApplicationJson_Type.datetime: 'datetime',
+        Api1CreateTableColumnRequestApplicationJson_Type.select: 'select',
+        Api1CreateTableColumnRequestApplicationJson_Type.usergroup: 'usergroup',
+      };
 
   static const Map<Object, Api1CreateTableColumnRequestApplicationJson_Type> _fromWire =
       <Object, Api1CreateTableColumnRequestApplicationJson_Type>{
-    'text': Api1CreateTableColumnRequestApplicationJson_Type.text,
-    'number': Api1CreateTableColumnRequestApplicationJson_Type.number,
-    'datetime': Api1CreateTableColumnRequestApplicationJson_Type.datetime,
-    'select': Api1CreateTableColumnRequestApplicationJson_Type.select,
-    'usergroup': Api1CreateTableColumnRequestApplicationJson_Type.usergroup,
-  };
+        'text': Api1CreateTableColumnRequestApplicationJson_Type.text,
+        'number': Api1CreateTableColumnRequestApplicationJson_Type.number,
+        'datetime': Api1CreateTableColumnRequestApplicationJson_Type.datetime,
+        'select': Api1CreateTableColumnRequestApplicationJson_Type.select,
+        'usergroup': Api1CreateTableColumnRequestApplicationJson_Type.usergroup,
+      };
 
   @override
   Iterable<Type> get types => const [Api1CreateTableColumnRequestApplicationJson_Type];
@@ -8516,16 +8507,14 @@ class _$Api1CreateTableColumnRequestApplicationJson_TypeSerializer
     Serializers serializers,
     Api1CreateTableColumnRequestApplicationJson_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1CreateTableColumnRequestApplicationJson_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8538,8 +8527,9 @@ sealed class $Api1CreateTableColumnRequestApplicationJsonInterface {
 
   static final _$usergroupDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   /// Title.
   String get title;
@@ -8725,21 +8715,21 @@ class _$Api1CreateColumnRequestApplicationJson_TypeSerializer
 
   static const Map<Api1CreateColumnRequestApplicationJson_Type, Object> _toWire =
       <Api1CreateColumnRequestApplicationJson_Type, Object>{
-    Api1CreateColumnRequestApplicationJson_Type.text: 'text',
-    Api1CreateColumnRequestApplicationJson_Type.number: 'number',
-    Api1CreateColumnRequestApplicationJson_Type.datetime: 'datetime',
-    Api1CreateColumnRequestApplicationJson_Type.select: 'select',
-    Api1CreateColumnRequestApplicationJson_Type.usergroup: 'usergroup',
-  };
+        Api1CreateColumnRequestApplicationJson_Type.text: 'text',
+        Api1CreateColumnRequestApplicationJson_Type.number: 'number',
+        Api1CreateColumnRequestApplicationJson_Type.datetime: 'datetime',
+        Api1CreateColumnRequestApplicationJson_Type.select: 'select',
+        Api1CreateColumnRequestApplicationJson_Type.usergroup: 'usergroup',
+      };
 
   static const Map<Object, Api1CreateColumnRequestApplicationJson_Type> _fromWire =
       <Object, Api1CreateColumnRequestApplicationJson_Type>{
-    'text': Api1CreateColumnRequestApplicationJson_Type.text,
-    'number': Api1CreateColumnRequestApplicationJson_Type.number,
-    'datetime': Api1CreateColumnRequestApplicationJson_Type.datetime,
-    'select': Api1CreateColumnRequestApplicationJson_Type.select,
-    'usergroup': Api1CreateColumnRequestApplicationJson_Type.usergroup,
-  };
+        'text': Api1CreateColumnRequestApplicationJson_Type.text,
+        'number': Api1CreateColumnRequestApplicationJson_Type.number,
+        'datetime': Api1CreateColumnRequestApplicationJson_Type.datetime,
+        'select': Api1CreateColumnRequestApplicationJson_Type.select,
+        'usergroup': Api1CreateColumnRequestApplicationJson_Type.usergroup,
+      };
 
   @override
   Iterable<Type> get types => const [Api1CreateColumnRequestApplicationJson_Type];
@@ -8752,16 +8742,14 @@ class _$Api1CreateColumnRequestApplicationJson_TypeSerializer
     Serializers serializers,
     Api1CreateColumnRequestApplicationJson_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Api1CreateColumnRequestApplicationJson_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8774,8 +8762,9 @@ sealed class $Api1CreateColumnRequestApplicationJsonInterface {
 
   static final _$usergroupDefault = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   /// Table ID.
   int? get tableId;
@@ -9162,10 +9151,8 @@ abstract class Row implements $RowInterface, Built<Row, RowBuilder> {
 }
 
 /// Data as key - value store.
-typedef Api1CreateRowInTableRequestApplicationJson_Data = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string,
-});
+typedef Api1CreateRowInTableRequestApplicationJson_Data =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateRowInTableRequestApplicationJsonInterface {
@@ -9234,10 +9221,8 @@ abstract class Api1CreateRowInTableRequestApplicationJson
 }
 
 /// Data as key - value store.
-typedef Api1CreateRowInViewRequestApplicationJson_Data = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string,
-});
+typedef Api1CreateRowInViewRequestApplicationJson_Data =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $Api1CreateRowInViewRequestApplicationJsonInterface {
@@ -9306,10 +9291,8 @@ abstract class Api1CreateRowInViewRequestApplicationJson
 }
 
 /// Data as key - value store.
-typedef Api1UpdateRowRequestApplicationJson_Data = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string,
-});
+typedef Api1UpdateRowRequestApplicationJson_Data =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $Api1UpdateRowRequestApplicationJsonInterface {
@@ -9637,16 +9620,14 @@ class _$ApiColumnsIndexNodeTypeSerializer implements PrimitiveSerializer<ApiColu
     Serializers serializers,
     ApiColumnsIndexNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsIndexNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -9996,15 +9977,15 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson_SubtypeSerializer
 
   static const Map<ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype, Object> _toWire =
       <ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype, Object>{
-    ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.progress: 'progress',
-    ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.stars: 'stars',
-  };
+        ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.progress: 'progress',
+        ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.stars: 'stars',
+      };
 
   static const Map<Object, ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype> _fromWire =
       <Object, ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype>{
-    'progress': ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.progress,
-    'stars': ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.stars,
-  };
+        'progress': ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.progress,
+        'stars': ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.stars,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype];
@@ -10017,16 +9998,14 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson_SubtypeSerializer
     Serializers serializers,
     ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Context type of the column creation.
@@ -10066,15 +10045,15 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeTypeSerialize
 
   static const Map<ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
       <ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType, Object>{
-    ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.table: 'table',
-    ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.view: 'view',
-  };
+        ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.table: 'table',
+        ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.view: 'view',
+      };
 
   static const Map<Object, ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType> _fromWire =
       <Object, ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType>{
-    'table': ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.table,
-    'view': ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.view,
-  };
+        'table': ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.table,
+        'view': ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.view,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType];
@@ -10087,29 +10066,30 @@ class _$ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeTypeSerialize
     Serializers serializers,
     ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateNumberColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$baseNodeType = _$jsonSerializers.deserialize(
-    'table',
-    specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType),
-  )! as ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType;
+  static final _$baseNodeType =
+      _$jsonSerializers.deserialize(
+            'table',
+            specifiedType: const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType),
+          )!
+          as ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType;
 
   /// Context of the column creation.
   int get baseNodeId;
@@ -10174,8 +10154,10 @@ sealed class $ApiColumnsCreateNumberColumnRequestApplicationJsonInterface {
 abstract class ApiColumnsCreateNumberColumnRequestApplicationJson
     implements
         $ApiColumnsCreateNumberColumnRequestApplicationJsonInterface,
-        Built<ApiColumnsCreateNumberColumnRequestApplicationJson,
-            ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateNumberColumnRequestApplicationJson,
+          ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateNumberColumnRequestApplicationJson object using the builder pattern.
   factory ApiColumnsCreateNumberColumnRequestApplicationJson([
     void Function(ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder)? b,
@@ -10239,8 +10221,10 @@ sealed class $ApiColumnsCreateNumberColumnResponseApplicationJson_OcsInterface {
 abstract class ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs
     implements
         $ApiColumnsCreateNumberColumnResponseApplicationJson_OcsInterface,
-        Built<ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs([
     void Function(ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder)? b,
@@ -10303,8 +10287,10 @@ sealed class $ApiColumnsCreateNumberColumnResponseApplicationJsonInterface {
 abstract class ApiColumnsCreateNumberColumnResponseApplicationJson
     implements
         $ApiColumnsCreateNumberColumnResponseApplicationJsonInterface,
-        Built<ApiColumnsCreateNumberColumnResponseApplicationJson,
-            ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateNumberColumnResponseApplicationJson,
+          ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateNumberColumnResponseApplicationJson object using the builder pattern.
   factory ApiColumnsCreateNumberColumnResponseApplicationJson([
     void Function(ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder)? b,
@@ -10381,15 +10367,15 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson_SubtypeSerializer
 
   static const Map<ApiColumnsCreateTextColumnRequestApplicationJson_Subtype, Object> _toWire =
       <ApiColumnsCreateTextColumnRequestApplicationJson_Subtype, Object>{
-    ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.progress: 'progress',
-    ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.stars: 'stars',
-  };
+        ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.progress: 'progress',
+        ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.stars: 'stars',
+      };
 
   static const Map<Object, ApiColumnsCreateTextColumnRequestApplicationJson_Subtype> _fromWire =
       <Object, ApiColumnsCreateTextColumnRequestApplicationJson_Subtype>{
-    'progress': ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.progress,
-    'stars': ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.stars,
-  };
+        'progress': ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.progress,
+        'stars': ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.stars,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateTextColumnRequestApplicationJson_Subtype];
@@ -10402,16 +10388,14 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson_SubtypeSerializer
     Serializers serializers,
     ApiColumnsCreateTextColumnRequestApplicationJson_Subtype object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateTextColumnRequestApplicationJson_Subtype deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Context type of the column creation.
@@ -10451,15 +10435,15 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeTypeSerializer
 
   static const Map<ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
       <ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType, Object>{
-    ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.table: 'table',
-    ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.view: 'view',
-  };
+        ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.table: 'table',
+        ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.view: 'view',
+      };
 
   static const Map<Object, ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType> _fromWire =
       <Object, ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType>{
-    'table': ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.table,
-    'view': ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.view,
-  };
+        'table': ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.table,
+        'view': ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.view,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType];
@@ -10472,29 +10456,30 @@ class _$ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeTypeSerializer
     Serializers serializers,
     ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateTextColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$baseNodeType = _$jsonSerializers.deserialize(
-    'table',
-    specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType),
-  )! as ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType;
+  static final _$baseNodeType =
+      _$jsonSerializers.deserialize(
+            'table',
+            specifiedType: const FullType(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType),
+          )!
+          as ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType;
 
   /// Context of the column creation.
   int get baseNodeId;
@@ -10550,8 +10535,10 @@ sealed class $ApiColumnsCreateTextColumnRequestApplicationJsonInterface {
 abstract class ApiColumnsCreateTextColumnRequestApplicationJson
     implements
         $ApiColumnsCreateTextColumnRequestApplicationJsonInterface,
-        Built<ApiColumnsCreateTextColumnRequestApplicationJson,
-            ApiColumnsCreateTextColumnRequestApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateTextColumnRequestApplicationJson,
+          ApiColumnsCreateTextColumnRequestApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateTextColumnRequestApplicationJson object using the builder pattern.
   factory ApiColumnsCreateTextColumnRequestApplicationJson([
     void Function(ApiColumnsCreateTextColumnRequestApplicationJsonBuilder)? b,
@@ -10615,8 +10602,10 @@ sealed class $ApiColumnsCreateTextColumnResponseApplicationJson_OcsInterface {
 abstract class ApiColumnsCreateTextColumnResponseApplicationJson_Ocs
     implements
         $ApiColumnsCreateTextColumnResponseApplicationJson_OcsInterface,
-        Built<ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiColumnsCreateTextColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiColumnsCreateTextColumnResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiColumnsCreateTextColumnResponseApplicationJson_Ocs([
     void Function(ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder)? b,
@@ -10679,8 +10668,10 @@ sealed class $ApiColumnsCreateTextColumnResponseApplicationJsonInterface {
 abstract class ApiColumnsCreateTextColumnResponseApplicationJson
     implements
         $ApiColumnsCreateTextColumnResponseApplicationJsonInterface,
-        Built<ApiColumnsCreateTextColumnResponseApplicationJson,
-            ApiColumnsCreateTextColumnResponseApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateTextColumnResponseApplicationJson,
+          ApiColumnsCreateTextColumnResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateTextColumnResponseApplicationJson object using the builder pattern.
   factory ApiColumnsCreateTextColumnResponseApplicationJson([
     void Function(ApiColumnsCreateTextColumnResponseApplicationJsonBuilder)? b,
@@ -10757,15 +10748,15 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson_SubtypeSerializer
 
   static const Map<ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype, Object> _toWire =
       <ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype, Object>{
-    ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.progress: 'progress',
-    ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.stars: 'stars',
-  };
+        ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.progress: 'progress',
+        ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.stars: 'stars',
+      };
 
   static const Map<Object, ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype> _fromWire =
       <Object, ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype>{
-    'progress': ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.progress,
-    'stars': ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.stars,
-  };
+        'progress': ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.progress,
+        'stars': ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.stars,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype];
@@ -10778,16 +10769,14 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson_SubtypeSerializer
     Serializers serializers,
     ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Context type of the column creation.
@@ -10827,15 +10816,15 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeTypeSerial
 
   static const Map<ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
       <ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType, Object>{
-    ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.table: 'table',
-    ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.view: 'view',
-  };
+        ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.table: 'table',
+        ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.view: 'view',
+      };
 
   static const Map<Object, ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType> _fromWire =
       <Object, ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType>{
-    'table': ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.table,
-    'view': ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.view,
-  };
+        'table': ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.table,
+        'view': ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.view,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType];
@@ -10848,29 +10837,30 @@ class _$ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeTypeSerial
     Serializers serializers,
     ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$baseNodeType = _$jsonSerializers.deserialize(
-    'table',
-    specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType),
-  )! as ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType;
+  static final _$baseNodeType =
+      _$jsonSerializers.deserialize(
+            'table',
+            specifiedType: const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType),
+          )!
+          as ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType;
 
   /// Context of the column creation.
   int get baseNodeId;
@@ -10923,8 +10913,10 @@ sealed class $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterface {
 abstract class ApiColumnsCreateSelectionColumnRequestApplicationJson
     implements
         $ApiColumnsCreateSelectionColumnRequestApplicationJsonInterface,
-        Built<ApiColumnsCreateSelectionColumnRequestApplicationJson,
-            ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateSelectionColumnRequestApplicationJson,
+          ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateSelectionColumnRequestApplicationJson object using the builder pattern.
   factory ApiColumnsCreateSelectionColumnRequestApplicationJson([
     void Function(ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder)? b,
@@ -10988,8 +10980,10 @@ sealed class $ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsInterfac
 abstract class ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs
     implements
         $ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsInterface,
-        Built<ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs([
     void Function(ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder)? b,
@@ -11052,8 +11046,10 @@ sealed class $ApiColumnsCreateSelectionColumnResponseApplicationJsonInterface {
 abstract class ApiColumnsCreateSelectionColumnResponseApplicationJson
     implements
         $ApiColumnsCreateSelectionColumnResponseApplicationJsonInterface,
-        Built<ApiColumnsCreateSelectionColumnResponseApplicationJson,
-            ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateSelectionColumnResponseApplicationJson,
+          ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateSelectionColumnResponseApplicationJson object using the builder pattern.
   factory ApiColumnsCreateSelectionColumnResponseApplicationJson([
     void Function(ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder)? b,
@@ -11130,15 +11126,15 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefaultSeri
 
   static const Map<ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault, Object> _toWire =
       <ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault, Object>{
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.today: 'today',
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.now: 'now',
-  };
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.today: 'today',
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.now: 'now',
+      };
 
   static const Map<Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault> _fromWire =
       <Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault>{
-    'today': ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.today,
-    'now': ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.now,
-  };
+        'today': ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.today,
+        'now': ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.now,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault];
@@ -11151,16 +11147,14 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefaultSeri
     Serializers serializers,
     ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Subtype for the new column.
@@ -11200,15 +11194,15 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_SubtypeSerializer
 
   static const Map<ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype, Object> _toWire =
       <ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype, Object>{
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.progress: 'progress',
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.stars: 'stars',
-  };
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.progress: 'progress',
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.stars: 'stars',
+      };
 
   static const Map<Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype> _fromWire =
       <Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype>{
-    'progress': ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.progress,
-    'stars': ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.stars,
-  };
+        'progress': ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.progress,
+        'stars': ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.stars,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype];
@@ -11221,16 +11215,14 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_SubtypeSerializer
     Serializers serializers,
     ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Context type of the column creation.
@@ -11270,15 +11262,15 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeTypeSeriali
 
   static const Map<ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
       <ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType, Object>{
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.table: 'table',
-    ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.view: 'view',
-  };
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.table: 'table',
+        ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.view: 'view',
+      };
 
   static const Map<Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType> _fromWire =
       <Object, ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType>{
-    'table': ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.table,
-    'view': ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.view,
-  };
+        'table': ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.table,
+        'view': ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.view,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType];
@@ -11291,29 +11283,30 @@ class _$ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeTypeSeriali
     Serializers serializers,
     ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateDatetimeColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$baseNodeType = _$jsonSerializers.deserialize(
-    'table',
-    specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType),
-  )! as ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType;
+  static final _$baseNodeType =
+      _$jsonSerializers.deserialize(
+            'table',
+            specifiedType: const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType),
+          )!
+          as ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType;
 
   /// Context of the column creation.
   int get baseNodeId;
@@ -11363,8 +11356,10 @@ sealed class $ApiColumnsCreateDatetimeColumnRequestApplicationJsonInterface {
 abstract class ApiColumnsCreateDatetimeColumnRequestApplicationJson
     implements
         $ApiColumnsCreateDatetimeColumnRequestApplicationJsonInterface,
-        Built<ApiColumnsCreateDatetimeColumnRequestApplicationJson,
-            ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateDatetimeColumnRequestApplicationJson,
+          ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateDatetimeColumnRequestApplicationJson object using the builder pattern.
   factory ApiColumnsCreateDatetimeColumnRequestApplicationJson([
     void Function(ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder)? b,
@@ -11428,8 +11423,10 @@ sealed class $ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsInterface
 abstract class ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs
     implements
         $ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsInterface,
-        Built<ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs([
     void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder)? b,
@@ -11492,8 +11489,10 @@ sealed class $ApiColumnsCreateDatetimeColumnResponseApplicationJsonInterface {
 abstract class ApiColumnsCreateDatetimeColumnResponseApplicationJson
     implements
         $ApiColumnsCreateDatetimeColumnResponseApplicationJsonInterface,
-        Built<ApiColumnsCreateDatetimeColumnResponseApplicationJson,
-            ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateDatetimeColumnResponseApplicationJson,
+          ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateDatetimeColumnResponseApplicationJson object using the builder pattern.
   factory ApiColumnsCreateDatetimeColumnResponseApplicationJson([
     void Function(ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder)? b,
@@ -11570,15 +11569,15 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerial
 
   static const Map<ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType, Object> _toWire =
       <ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType, Object>{
-    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table: 'table',
-    ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view: 'view',
-  };
+        ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table: 'table',
+        ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view: 'view',
+      };
 
   static const Map<Object, ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType> _fromWire =
       <Object, ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType>{
-    'table': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table,
-    'view': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view,
-  };
+        'table': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.table,
+        'view': ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.view,
+      };
 
   @override
   Iterable<Type> get types => const [ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType];
@@ -11591,29 +11590,30 @@ class _$ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeTypeSerial
     Serializers serializers,
     ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface {
-  static final _$selectedViewIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$selectedViewIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   static final _$mandatory = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$baseNodeType = _$jsonSerializers.deserialize(
-    'table',
-    specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType),
-  )! as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
+  static final _$baseNodeType =
+      _$jsonSerializers.deserialize(
+            'table',
+            specifiedType: const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType),
+          )!
+          as ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType;
 
   /// Context of the column creation.
   int get baseNodeId;
@@ -11675,8 +11675,10 @@ sealed class $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface {
 abstract class ApiColumnsCreateUsergroupColumnRequestApplicationJson
     implements
         $ApiColumnsCreateUsergroupColumnRequestApplicationJsonInterface,
-        Built<ApiColumnsCreateUsergroupColumnRequestApplicationJson,
-            ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateUsergroupColumnRequestApplicationJson,
+          ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateUsergroupColumnRequestApplicationJson object using the builder pattern.
   factory ApiColumnsCreateUsergroupColumnRequestApplicationJson([
     void Function(ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder)? b,
@@ -11740,8 +11742,10 @@ sealed class $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterfac
 abstract class ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs
     implements
         $ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsInterface,
-        Built<ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
-            ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs,
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs([
     void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder)? b,
@@ -11804,8 +11808,10 @@ sealed class $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface {
 abstract class ApiColumnsCreateUsergroupColumnResponseApplicationJson
     implements
         $ApiColumnsCreateUsergroupColumnResponseApplicationJsonInterface,
-        Built<ApiColumnsCreateUsergroupColumnResponseApplicationJson,
-            ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder> {
+        Built<
+          ApiColumnsCreateUsergroupColumnResponseApplicationJson,
+          ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiColumnsCreateUsergroupColumnResponseApplicationJson object using the builder pattern.
   factory ApiColumnsCreateUsergroupColumnResponseApplicationJson([
     void Function(ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder)? b,
@@ -13286,8 +13292,10 @@ sealed class $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface {
 abstract class ApiTablesCreateFromSchemeResponseApplicationJson_Ocs
     implements
         $ApiTablesCreateFromSchemeResponseApplicationJson_OcsInterface,
-        Built<ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
-            ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder> {
+        Built<
+          ApiTablesCreateFromSchemeResponseApplicationJson_Ocs,
+          ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ApiTablesCreateFromSchemeResponseApplicationJson_Ocs object using the builder pattern.
   factory ApiTablesCreateFromSchemeResponseApplicationJson_Ocs([
     void Function(ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder)? b,
@@ -13350,8 +13358,10 @@ sealed class $ApiTablesCreateFromSchemeResponseApplicationJsonInterface {
 abstract class ApiTablesCreateFromSchemeResponseApplicationJson
     implements
         $ApiTablesCreateFromSchemeResponseApplicationJsonInterface,
-        Built<ApiTablesCreateFromSchemeResponseApplicationJson,
-            ApiTablesCreateFromSchemeResponseApplicationJsonBuilder> {
+        Built<
+          ApiTablesCreateFromSchemeResponseApplicationJson,
+          ApiTablesCreateFromSchemeResponseApplicationJsonBuilder
+        > {
   /// Creates a new ApiTablesCreateFromSchemeResponseApplicationJson object using the builder pattern.
   factory ApiTablesCreateFromSchemeResponseApplicationJson([
     void Function(ApiTablesCreateFromSchemeResponseApplicationJsonBuilder)? b,
@@ -13834,10 +13844,12 @@ abstract class ContextCreateRequestApplicationJson_Nodes
 sealed class $ContextCreateRequestApplicationJsonInterface {
   static final _$description = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
-  static final _$nodes = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [FullType(ContextCreateRequestApplicationJson_Nodes)]),
-  )! as BuiltList<ContextCreateRequestApplicationJson_Nodes>;
+  static final _$nodes =
+      _$jsonSerializers.deserialize(
+            const [],
+            specifiedType: const FullType(BuiltList, [FullType(ContextCreateRequestApplicationJson_Nodes)]),
+          )!
+          as BuiltList<ContextCreateRequestApplicationJson_Nodes>;
 
   /// Name of the context.
   String get name;
@@ -14781,8 +14793,10 @@ sealed class $ContextUpdateContentOrderRequestApplicationJson_ContentInterface {
 abstract class ContextUpdateContentOrderRequestApplicationJson_Content
     implements
         $ContextUpdateContentOrderRequestApplicationJson_ContentInterface,
-        Built<ContextUpdateContentOrderRequestApplicationJson_Content,
-            ContextUpdateContentOrderRequestApplicationJson_ContentBuilder> {
+        Built<
+          ContextUpdateContentOrderRequestApplicationJson_Content,
+          ContextUpdateContentOrderRequestApplicationJson_ContentBuilder
+        > {
   /// Creates a new ContextUpdateContentOrderRequestApplicationJson_Content object using the builder pattern.
   factory ContextUpdateContentOrderRequestApplicationJson_Content([
     void Function(ContextUpdateContentOrderRequestApplicationJson_ContentBuilder)? b,
@@ -14910,8 +14924,10 @@ sealed class $ContextUpdateContentOrderResponseApplicationJson_OcsInterface {
 abstract class ContextUpdateContentOrderResponseApplicationJson_Ocs
     implements
         $ContextUpdateContentOrderResponseApplicationJson_OcsInterface,
-        Built<ContextUpdateContentOrderResponseApplicationJson_Ocs,
-            ContextUpdateContentOrderResponseApplicationJson_OcsBuilder> {
+        Built<
+          ContextUpdateContentOrderResponseApplicationJson_Ocs,
+          ContextUpdateContentOrderResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ContextUpdateContentOrderResponseApplicationJson_Ocs object using the builder pattern.
   factory ContextUpdateContentOrderResponseApplicationJson_Ocs([
     void Function(ContextUpdateContentOrderResponseApplicationJson_OcsBuilder)? b,
@@ -14974,8 +14990,10 @@ sealed class $ContextUpdateContentOrderResponseApplicationJsonInterface {
 abstract class ContextUpdateContentOrderResponseApplicationJson
     implements
         $ContextUpdateContentOrderResponseApplicationJsonInterface,
-        Built<ContextUpdateContentOrderResponseApplicationJson,
-            ContextUpdateContentOrderResponseApplicationJsonBuilder> {
+        Built<
+          ContextUpdateContentOrderResponseApplicationJson,
+          ContextUpdateContentOrderResponseApplicationJsonBuilder
+        > {
   /// Creates a new ContextUpdateContentOrderResponseApplicationJson object using the builder pattern.
   factory ContextUpdateContentOrderResponseApplicationJson([
     void Function(ContextUpdateContentOrderResponseApplicationJsonBuilder)? b,
@@ -15064,23 +15082,19 @@ class _$RowocsCreateRowNodeCollectionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RowocsCreateRowNodeCollection object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RowocsCreateRowNodeCollection deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// An array containing the column identifiers and their values.
-typedef RowocsCreateRowRequestApplicationJson_Data = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  String? string,
-});
+typedef RowocsCreateRowRequestApplicationJson_Data =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $RowocsCreateRowRequestApplicationJsonInterface {
@@ -15556,28 +15570,29 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$8518b50581163640f148d1e5a6a7db2c = ({
-  Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
-  Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
-  Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
-  Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
-});
+typedef _$8518b50581163640f148d1e5a6a7db2c =
+    ({
+      Api1UpdateViewRequestApplicationJson_Data0? api1UpdateViewRequestApplicationJsonData0,
+      Api1UpdateViewRequestApplicationJson_Data1? api1UpdateViewRequestApplicationJsonData1,
+      Api1UpdateViewRequestApplicationJson_Data2? api1UpdateViewRequestApplicationJsonData2,
+      Api1UpdateViewRequestApplicationJson_Data3? api1UpdateViewRequestApplicationJsonData3,
+    });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $8518b50581163640f148d1e5a6a7db2cExtension on _$8518b50581163640f148d1e5a6a7db2c {
   List<dynamic> get _values => [
-        api1UpdateViewRequestApplicationJsonData0,
-        api1UpdateViewRequestApplicationJsonData1,
-        api1UpdateViewRequestApplicationJsonData2,
-        api1UpdateViewRequestApplicationJsonData3,
-      ];
+    api1UpdateViewRequestApplicationJsonData0,
+    api1UpdateViewRequestApplicationJsonData1,
+    api1UpdateViewRequestApplicationJsonData2,
+    api1UpdateViewRequestApplicationJsonData3,
+  ];
   List<String> get _names => const [
-        'api1UpdateViewRequestApplicationJsonData0',
-        'api1UpdateViewRequestApplicationJsonData1',
-        'api1UpdateViewRequestApplicationJsonData2',
-        'api1UpdateViewRequestApplicationJsonData3',
-      ];
+    'api1UpdateViewRequestApplicationJsonData0',
+    'api1UpdateViewRequestApplicationJsonData1',
+    'api1UpdateViewRequestApplicationJsonData2',
+    'api1UpdateViewRequestApplicationJsonData3',
+  ];
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i6.validateOneOf(_values, _names);
@@ -15733,10 +15748,12 @@ class _$3f5057013fe375112018fdacdf7c966aSerializer implements PrimitiveSerialize
   }) {
     BuiltMap<String, JsonObject>? builtMapStringJsonObject;
     try {
-      builtMapStringJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-      )! as BuiltMap<String, JsonObject>;
+      builtMapStringJsonObject =
+          serializers.deserialize(
+                data,
+                specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+              )!
+              as BuiltMap<String, JsonObject>;
     } catch (_) {}
     String? string;
     try {
@@ -15753,558 +15770,559 @@ class _$3f5057013fe375112018fdacdf7c966aSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Table), TableBuilder.new)
-      ..add(Table.serializer)
-      ..addBuilderFactory(const FullType(Table_OnSharePermissions), Table_OnSharePermissionsBuilder.new)
-      ..add(Table_OnSharePermissions.serializer)
-      ..addBuilderFactory(const FullType(View), ViewBuilder.new)
-      ..add(View.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(const FullType(View_ColumnSettings), View_ColumnSettingsBuilder.new)
-      ..add(View_ColumnSettings.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(View_ColumnSettings)]),
-        ListBuilder<View_ColumnSettings>.new,
-      )
-      ..addBuilderFactory(const FullType(View_Sort), View_SortBuilder.new)
-      ..add(View_Sort.serializer)
-      ..add(View_Sort_Mode.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(View_Sort)]), ListBuilder<View_Sort>.new)
-      ..addBuilderFactory(const FullType(View_Filter), View_FilterBuilder.new)
-      ..add(View_Filter.serializer)
-      ..add(View_Filter_Operator.serializer)
-      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(View_Filter)]), ListBuilder<View_Filter>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [
-          FullType(BuiltList, [FullType(View_Filter)]),
-        ]),
-        ListBuilder<BuiltList<View_Filter>>.new,
-      )
-      ..addBuilderFactory(const FullType(View_OnSharePermissions), View_OnSharePermissionsBuilder.new)
-      ..add(View_OnSharePermissions.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(View)]), ListBuilder<View>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Table)]), ListBuilder<Table>.new)
-      ..addBuilderFactory(
-        const FullType(Api1CreateTableRequestApplicationJson),
-        Api1CreateTableRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateTableRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateTableRequestApplicationJson),
-        Api1UpdateTableRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateTableRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(Api1Api1ShowSchemeHeaders), Api1Api1ShowSchemeHeadersBuilder.new)
-      ..add(Api1Api1ShowSchemeHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1CreateViewRequestApplicationJson),
-        Api1CreateViewRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateViewRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson),
-        Api1UpdateViewRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data0),
-        Api1UpdateViewRequestApplicationJson_Data0Builder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data0.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data0_Key.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data1),
-        Api1UpdateViewRequestApplicationJson_Data1Builder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data1.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data1_Key.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data2),
-        Api1UpdateViewRequestApplicationJson_Data2Builder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data2.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data2_Key.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value),
-        Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data2_Value.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data3),
-        Api1UpdateViewRequestApplicationJson_Data3Builder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data3.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data3_Key.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value),
-        Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder.new,
-      )
-      ..add(Api1UpdateViewRequestApplicationJson_Data3_Value.serializer)
-      ..add(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.serializer)
-      ..add($8518b50581163640f148d1e5a6a7db2cExtension._serializer)
-      ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
-      ..add(Share.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateSharePermissionsRequestApplicationJson),
-        Api1UpdateSharePermissionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateSharePermissionsRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
-      ..addBuilderFactory(
-        const FullType(Api1CreateTableShareRequestApplicationJson),
-        Api1CreateTableShareRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateTableShareRequestApplicationJson.serializer)
-      ..add(Api1CreateTableShareRequestApplicationJson_ReceiverType.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1CreateShareRequestApplicationJson),
-        Api1CreateShareRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateShareRequestApplicationJson.serializer)
-      ..add(Api1CreateShareRequestApplicationJson_NodeType.serializer)
-      ..add(Api1CreateShareRequestApplicationJson_ReceiverType.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateShareDisplayModeRequestApplicationJson),
-        Api1UpdateShareDisplayModeRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateShareDisplayModeRequestApplicationJson.serializer)
-      ..add(Api1UpdateShareDisplayModeRequestApplicationJson_Target.serializer)
-      ..addBuilderFactory(const FullType(ContextNavigation), ContextNavigationBuilder.new)
-      ..add(ContextNavigation.serializer)
-      ..addBuilderFactory(const FullType(Column), ColumnBuilder.new)
-      ..add(Column.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Column)]), ListBuilder<Column>.new)
-      ..addBuilderFactory(
-        const FullType(Api1CreateTableColumnRequestApplicationJson),
-        Api1CreateTableColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateTableColumnRequestApplicationJson.serializer)
-      ..add(Api1CreateTableColumnRequestApplicationJson_Type.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1CreateColumnRequestApplicationJson),
-        Api1CreateColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateColumnRequestApplicationJson.serializer)
-      ..add(Api1CreateColumnRequestApplicationJson_Type.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateColumnRequestApplicationJson),
-        Api1UpdateColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateColumnRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(Row), RowBuilder.new)
-      ..add(Row.serializer)
-      ..addBuilderFactory(const FullType(Row_Data), Row_DataBuilder.new)
-      ..add(Row_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Row)]), ListBuilder<Row>.new)
-      ..addBuilderFactory(
-        const FullType(Api1CreateRowInTableRequestApplicationJson),
-        Api1CreateRowInTableRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateRowInTableRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..add($3f5057013fe375112018fdacdf7c966aExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(Api1CreateRowInViewRequestApplicationJson),
-        Api1CreateRowInViewRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1CreateRowInViewRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1UpdateRowRequestApplicationJson),
-        Api1UpdateRowRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1UpdateRowRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1ImportInTableRequestApplicationJson),
-        Api1ImportInTableRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1ImportInTableRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(ImportState), ImportStateBuilder.new)
-      ..add(ImportState.serializer)
-      ..addBuilderFactory(
-        const FullType(Api1ImportInViewRequestApplicationJson),
-        Api1ImportInViewRequestApplicationJsonBuilder.new,
-      )
-      ..add(Api1ImportInViewRequestApplicationJson.serializer)
-      ..add(ApiColumnsIndexNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsIndexResponseApplicationJson),
-        ApiColumnsIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsIndexResponseApplicationJson_Ocs),
-        ApiColumnsIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsShowResponseApplicationJson),
-        ApiColumnsShowResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsShowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsShowResponseApplicationJson_Ocs),
-        ApiColumnsShowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsShowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson),
-        ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateNumberColumnRequestApplicationJson.serializer)
-      ..add(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.serializer)
-      ..add(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson),
-        ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateNumberColumnResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs),
-        ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateTextColumnRequestApplicationJson),
-        ApiColumnsCreateTextColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateTextColumnRequestApplicationJson.serializer)
-      ..add(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.serializer)
-      ..add(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateTextColumnResponseApplicationJson),
-        ApiColumnsCreateTextColumnResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateTextColumnResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs),
-        ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson),
-        ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson.serializer)
-      ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.serializer)
-      ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson),
-        ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateSelectionColumnResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs),
-        ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson),
-        ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson.serializer)
-      ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.serializer)
-      ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.serializer)
-      ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson),
-        ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateDatetimeColumnResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs),
-        ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson),
-        ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson.serializer)
-      ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
-        ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs),
-        ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiFavoriteCreateResponseApplicationJson),
-        ApiFavoriteCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiFavoriteCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiFavoriteCreateResponseApplicationJson_Ocs),
-        ApiFavoriteCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiFavoriteCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiFavoriteDestroyResponseApplicationJson),
-        ApiFavoriteDestroyResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiFavoriteDestroyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiFavoriteDestroyResponseApplicationJson_Ocs),
-        ApiFavoriteDestroyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiFavoriteDestroyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGeneralIndexResponseApplicationJson),
-        ApiGeneralIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiGeneralIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiGeneralIndexResponseApplicationJson_Ocs),
-        ApiGeneralIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiGeneralIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Index), IndexBuilder.new)
-      ..add(Index.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesIndexResponseApplicationJson),
-        ApiTablesIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesIndexResponseApplicationJson_Ocs),
-        ApiTablesIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateRequestApplicationJson),
-        ApiTablesCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateResponseApplicationJson),
-        ApiTablesCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateResponseApplicationJson_Ocs),
-        ApiTablesCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesShowResponseApplicationJson),
-        ApiTablesShowResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesShowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesShowResponseApplicationJson_Ocs),
-        ApiTablesShowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesShowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesUpdateRequestApplicationJson),
-        ApiTablesUpdateRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesUpdateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesUpdateResponseApplicationJson),
-        ApiTablesUpdateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesUpdateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesUpdateResponseApplicationJson_Ocs),
-        ApiTablesUpdateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesUpdateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesDestroyResponseApplicationJson),
-        ApiTablesDestroyResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesDestroyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesDestroyResponseApplicationJson_Ocs),
-        ApiTablesDestroyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesDestroyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesShowSchemeResponseApplicationJson),
-        ApiTablesShowSchemeResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesShowSchemeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs),
-        ApiTablesShowSchemeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesShowSchemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateFromSchemeRequestApplicationJson),
-        ApiTablesCreateFromSchemeRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesCreateFromSchemeRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateFromSchemeResponseApplicationJson),
-        ApiTablesCreateFromSchemeResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesCreateFromSchemeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs),
-        ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesTransferRequestApplicationJson),
-        ApiTablesTransferRequestApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesTransferRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesTransferResponseApplicationJson),
-        ApiTablesTransferResponseApplicationJsonBuilder.new,
-      )
-      ..add(ApiTablesTransferResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ApiTablesTransferResponseApplicationJson_Ocs),
-        ApiTablesTransferResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ApiTablesTransferResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextIndexResponseApplicationJson),
-        ContextIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextIndexResponseApplicationJson_Ocs),
-        ContextIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Context), ContextBuilder.new)
-      ..add(Context.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Context)]), ListBuilder<Context>.new)
-      ..addBuilderFactory(
-        const FullType(ContextCreateRequestApplicationJson),
-        ContextCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(ContextCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextCreateRequestApplicationJson_Nodes),
-        ContextCreateRequestApplicationJson_NodesBuilder.new,
-      )
-      ..add(ContextCreateRequestApplicationJson_Nodes.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ContextCreateRequestApplicationJson_Nodes)]),
-        ListBuilder<ContextCreateRequestApplicationJson_Nodes>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ContextCreateResponseApplicationJson),
-        ContextCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextCreateResponseApplicationJson_Ocs),
-        ContextCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextShowResponseApplicationJson),
-        ContextShowResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextShowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextShowResponseApplicationJson_Ocs),
-        ContextShowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextShowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateRequestApplicationJson),
-        ContextUpdateRequestApplicationJsonBuilder.new,
-      )
-      ..add(ContextUpdateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateRequestApplicationJson_Nodes),
-        ContextUpdateRequestApplicationJson_NodesBuilder.new,
-      )
-      ..add(ContextUpdateRequestApplicationJson_Nodes.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateResponseApplicationJson),
-        ContextUpdateResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextUpdateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateResponseApplicationJson_Ocs),
-        ContextUpdateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextUpdateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextDestroyResponseApplicationJson),
-        ContextDestroyResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextDestroyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextDestroyResponseApplicationJson_Ocs),
-        ContextDestroyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextDestroyResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextTransferRequestApplicationJson),
-        ContextTransferRequestApplicationJsonBuilder.new,
-      )
-      ..add(ContextTransferRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextTransferResponseApplicationJson),
-        ContextTransferResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextTransferResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextTransferResponseApplicationJson_Ocs),
-        ContextTransferResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextTransferResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateContentOrderRequestApplicationJson),
-        ContextUpdateContentOrderRequestApplicationJsonBuilder.new,
-      )
-      ..add(ContextUpdateContentOrderRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateContentOrderRequestApplicationJson_Content),
-        ContextUpdateContentOrderRequestApplicationJson_ContentBuilder.new,
-      )
-      ..add(ContextUpdateContentOrderRequestApplicationJson_Content.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateContentOrderResponseApplicationJson),
-        ContextUpdateContentOrderResponseApplicationJsonBuilder.new,
-      )
-      ..add(ContextUpdateContentOrderResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs),
-        ContextUpdateContentOrderResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ContextUpdateContentOrderResponseApplicationJson_Ocs.serializer)
-      ..add(RowocsCreateRowNodeCollection.serializer)
-      ..addBuilderFactory(
-        const FullType(RowocsCreateRowRequestApplicationJson),
-        RowocsCreateRowRequestApplicationJsonBuilder.new,
-      )
-      ..add(RowocsCreateRowRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RowocsCreateRowResponseApplicationJson),
-        RowocsCreateRowResponseApplicationJsonBuilder.new,
-      )
-      ..add(RowocsCreateRowResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RowocsCreateRowResponseApplicationJson_Ocs),
-        RowocsCreateRowResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RowocsCreateRowResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Tables), Capabilities_TablesBuilder.new)
-      ..add(Capabilities_Tables.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Table), TableBuilder.new)
+          ..add(Table.serializer)
+          ..addBuilderFactory(const FullType(Table_OnSharePermissions), Table_OnSharePermissionsBuilder.new)
+          ..add(Table_OnSharePermissions.serializer)
+          ..addBuilderFactory(const FullType(View), ViewBuilder.new)
+          ..add(View.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(const FullType(View_ColumnSettings), View_ColumnSettingsBuilder.new)
+          ..add(View_ColumnSettings.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(View_ColumnSettings)]),
+            ListBuilder<View_ColumnSettings>.new,
+          )
+          ..addBuilderFactory(const FullType(View_Sort), View_SortBuilder.new)
+          ..add(View_Sort.serializer)
+          ..add(View_Sort_Mode.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(View_Sort)]), ListBuilder<View_Sort>.new)
+          ..addBuilderFactory(const FullType(View_Filter), View_FilterBuilder.new)
+          ..add(View_Filter.serializer)
+          ..add(View_Filter_Operator.serializer)
+          ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(View_Filter)]), ListBuilder<View_Filter>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [
+              FullType(BuiltList, [FullType(View_Filter)]),
+            ]),
+            ListBuilder<BuiltList<View_Filter>>.new,
+          )
+          ..addBuilderFactory(const FullType(View_OnSharePermissions), View_OnSharePermissionsBuilder.new)
+          ..add(View_OnSharePermissions.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(View)]), ListBuilder<View>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Table)]), ListBuilder<Table>.new)
+          ..addBuilderFactory(
+            const FullType(Api1CreateTableRequestApplicationJson),
+            Api1CreateTableRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateTableRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateTableRequestApplicationJson),
+            Api1UpdateTableRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateTableRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(Api1Api1ShowSchemeHeaders), Api1Api1ShowSchemeHeadersBuilder.new)
+          ..add(Api1Api1ShowSchemeHeaders.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1CreateViewRequestApplicationJson),
+            Api1CreateViewRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateViewRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson),
+            Api1UpdateViewRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data0),
+            Api1UpdateViewRequestApplicationJson_Data0Builder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data0.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data0_Key.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data1),
+            Api1UpdateViewRequestApplicationJson_Data1Builder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data1.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data1_Key.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data2),
+            Api1UpdateViewRequestApplicationJson_Data2Builder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data2.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data2_Key.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data2_Value),
+            Api1UpdateViewRequestApplicationJson_Data2_ValueBuilder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data2_Value.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data2_Value_Mode.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data3),
+            Api1UpdateViewRequestApplicationJson_Data3Builder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data3.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data3_Key.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateViewRequestApplicationJson_Data3_Value),
+            Api1UpdateViewRequestApplicationJson_Data3_ValueBuilder.new,
+          )
+          ..add(Api1UpdateViewRequestApplicationJson_Data3_Value.serializer)
+          ..add(Api1UpdateViewRequestApplicationJson_Data3_Value_Operator.serializer)
+          ..add($8518b50581163640f148d1e5a6a7db2cExtension._serializer)
+          ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
+          ..add(Share.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateSharePermissionsRequestApplicationJson),
+            Api1UpdateSharePermissionsRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateSharePermissionsRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
+          ..addBuilderFactory(
+            const FullType(Api1CreateTableShareRequestApplicationJson),
+            Api1CreateTableShareRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateTableShareRequestApplicationJson.serializer)
+          ..add(Api1CreateTableShareRequestApplicationJson_ReceiverType.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1CreateShareRequestApplicationJson),
+            Api1CreateShareRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateShareRequestApplicationJson.serializer)
+          ..add(Api1CreateShareRequestApplicationJson_NodeType.serializer)
+          ..add(Api1CreateShareRequestApplicationJson_ReceiverType.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateShareDisplayModeRequestApplicationJson),
+            Api1UpdateShareDisplayModeRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateShareDisplayModeRequestApplicationJson.serializer)
+          ..add(Api1UpdateShareDisplayModeRequestApplicationJson_Target.serializer)
+          ..addBuilderFactory(const FullType(ContextNavigation), ContextNavigationBuilder.new)
+          ..add(ContextNavigation.serializer)
+          ..addBuilderFactory(const FullType(Column), ColumnBuilder.new)
+          ..add(Column.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Column)]), ListBuilder<Column>.new)
+          ..addBuilderFactory(
+            const FullType(Api1CreateTableColumnRequestApplicationJson),
+            Api1CreateTableColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateTableColumnRequestApplicationJson.serializer)
+          ..add(Api1CreateTableColumnRequestApplicationJson_Type.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1CreateColumnRequestApplicationJson),
+            Api1CreateColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateColumnRequestApplicationJson.serializer)
+          ..add(Api1CreateColumnRequestApplicationJson_Type.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateColumnRequestApplicationJson),
+            Api1UpdateColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateColumnRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(Row), RowBuilder.new)
+          ..add(Row.serializer)
+          ..addBuilderFactory(const FullType(Row_Data), Row_DataBuilder.new)
+          ..add(Row_Data.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Row)]), ListBuilder<Row>.new)
+          ..addBuilderFactory(
+            const FullType(Api1CreateRowInTableRequestApplicationJson),
+            Api1CreateRowInTableRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateRowInTableRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..add($3f5057013fe375112018fdacdf7c966aExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(Api1CreateRowInViewRequestApplicationJson),
+            Api1CreateRowInViewRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1CreateRowInViewRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1UpdateRowRequestApplicationJson),
+            Api1UpdateRowRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1UpdateRowRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1ImportInTableRequestApplicationJson),
+            Api1ImportInTableRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1ImportInTableRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(ImportState), ImportStateBuilder.new)
+          ..add(ImportState.serializer)
+          ..addBuilderFactory(
+            const FullType(Api1ImportInViewRequestApplicationJson),
+            Api1ImportInViewRequestApplicationJsonBuilder.new,
+          )
+          ..add(Api1ImportInViewRequestApplicationJson.serializer)
+          ..add(ApiColumnsIndexNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsIndexResponseApplicationJson),
+            ApiColumnsIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsIndexResponseApplicationJson_Ocs),
+            ApiColumnsIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsShowResponseApplicationJson),
+            ApiColumnsShowResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsShowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsShowResponseApplicationJson_Ocs),
+            ApiColumnsShowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsShowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateNumberColumnRequestApplicationJson),
+            ApiColumnsCreateNumberColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateNumberColumnRequestApplicationJson.serializer)
+          ..add(ApiColumnsCreateNumberColumnRequestApplicationJson_Subtype.serializer)
+          ..add(ApiColumnsCreateNumberColumnRequestApplicationJson_BaseNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson),
+            ApiColumnsCreateNumberColumnResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateNumberColumnResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs),
+            ApiColumnsCreateNumberColumnResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsCreateNumberColumnResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateTextColumnRequestApplicationJson),
+            ApiColumnsCreateTextColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateTextColumnRequestApplicationJson.serializer)
+          ..add(ApiColumnsCreateTextColumnRequestApplicationJson_Subtype.serializer)
+          ..add(ApiColumnsCreateTextColumnRequestApplicationJson_BaseNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateTextColumnResponseApplicationJson),
+            ApiColumnsCreateTextColumnResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateTextColumnResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs),
+            ApiColumnsCreateTextColumnResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsCreateTextColumnResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateSelectionColumnRequestApplicationJson),
+            ApiColumnsCreateSelectionColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson.serializer)
+          ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson_Subtype.serializer)
+          ..add(ApiColumnsCreateSelectionColumnRequestApplicationJson_BaseNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson),
+            ApiColumnsCreateSelectionColumnResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateSelectionColumnResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs),
+            ApiColumnsCreateSelectionColumnResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsCreateSelectionColumnResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateDatetimeColumnRequestApplicationJson),
+            ApiColumnsCreateDatetimeColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson.serializer)
+          ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_DatetimeDefault.serializer)
+          ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_Subtype.serializer)
+          ..add(ApiColumnsCreateDatetimeColumnRequestApplicationJson_BaseNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson),
+            ApiColumnsCreateDatetimeColumnResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateDatetimeColumnResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs),
+            ApiColumnsCreateDatetimeColumnResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsCreateDatetimeColumnResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateUsergroupColumnRequestApplicationJson),
+            ApiColumnsCreateUsergroupColumnRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson.serializer)
+          ..add(ApiColumnsCreateUsergroupColumnRequestApplicationJson_BaseNodeType.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson),
+            ApiColumnsCreateUsergroupColumnResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs),
+            ApiColumnsCreateUsergroupColumnResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiColumnsCreateUsergroupColumnResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiFavoriteCreateResponseApplicationJson),
+            ApiFavoriteCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiFavoriteCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiFavoriteCreateResponseApplicationJson_Ocs),
+            ApiFavoriteCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiFavoriteCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiFavoriteDestroyResponseApplicationJson),
+            ApiFavoriteDestroyResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiFavoriteDestroyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiFavoriteDestroyResponseApplicationJson_Ocs),
+            ApiFavoriteDestroyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiFavoriteDestroyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGeneralIndexResponseApplicationJson),
+            ApiGeneralIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiGeneralIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiGeneralIndexResponseApplicationJson_Ocs),
+            ApiGeneralIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiGeneralIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Index), IndexBuilder.new)
+          ..add(Index.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesIndexResponseApplicationJson),
+            ApiTablesIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesIndexResponseApplicationJson_Ocs),
+            ApiTablesIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateRequestApplicationJson),
+            ApiTablesCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateResponseApplicationJson),
+            ApiTablesCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateResponseApplicationJson_Ocs),
+            ApiTablesCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesShowResponseApplicationJson),
+            ApiTablesShowResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesShowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesShowResponseApplicationJson_Ocs),
+            ApiTablesShowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesShowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesUpdateRequestApplicationJson),
+            ApiTablesUpdateRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesUpdateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesUpdateResponseApplicationJson),
+            ApiTablesUpdateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesUpdateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesUpdateResponseApplicationJson_Ocs),
+            ApiTablesUpdateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesUpdateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesDestroyResponseApplicationJson),
+            ApiTablesDestroyResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesDestroyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesDestroyResponseApplicationJson_Ocs),
+            ApiTablesDestroyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesDestroyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesShowSchemeResponseApplicationJson),
+            ApiTablesShowSchemeResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesShowSchemeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesShowSchemeResponseApplicationJson_Ocs),
+            ApiTablesShowSchemeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesShowSchemeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateFromSchemeRequestApplicationJson),
+            ApiTablesCreateFromSchemeRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesCreateFromSchemeRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateFromSchemeResponseApplicationJson),
+            ApiTablesCreateFromSchemeResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesCreateFromSchemeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs),
+            ApiTablesCreateFromSchemeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesCreateFromSchemeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesTransferRequestApplicationJson),
+            ApiTablesTransferRequestApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesTransferRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesTransferResponseApplicationJson),
+            ApiTablesTransferResponseApplicationJsonBuilder.new,
+          )
+          ..add(ApiTablesTransferResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ApiTablesTransferResponseApplicationJson_Ocs),
+            ApiTablesTransferResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ApiTablesTransferResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextIndexResponseApplicationJson),
+            ContextIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextIndexResponseApplicationJson_Ocs),
+            ContextIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Context), ContextBuilder.new)
+          ..add(Context.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Context)]), ListBuilder<Context>.new)
+          ..addBuilderFactory(
+            const FullType(ContextCreateRequestApplicationJson),
+            ContextCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(ContextCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextCreateRequestApplicationJson_Nodes),
+            ContextCreateRequestApplicationJson_NodesBuilder.new,
+          )
+          ..add(ContextCreateRequestApplicationJson_Nodes.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ContextCreateRequestApplicationJson_Nodes)]),
+            ListBuilder<ContextCreateRequestApplicationJson_Nodes>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ContextCreateResponseApplicationJson),
+            ContextCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextCreateResponseApplicationJson_Ocs),
+            ContextCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextShowResponseApplicationJson),
+            ContextShowResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextShowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextShowResponseApplicationJson_Ocs),
+            ContextShowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextShowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateRequestApplicationJson),
+            ContextUpdateRequestApplicationJsonBuilder.new,
+          )
+          ..add(ContextUpdateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateRequestApplicationJson_Nodes),
+            ContextUpdateRequestApplicationJson_NodesBuilder.new,
+          )
+          ..add(ContextUpdateRequestApplicationJson_Nodes.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateResponseApplicationJson),
+            ContextUpdateResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextUpdateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateResponseApplicationJson_Ocs),
+            ContextUpdateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextUpdateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextDestroyResponseApplicationJson),
+            ContextDestroyResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextDestroyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextDestroyResponseApplicationJson_Ocs),
+            ContextDestroyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextDestroyResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextTransferRequestApplicationJson),
+            ContextTransferRequestApplicationJsonBuilder.new,
+          )
+          ..add(ContextTransferRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextTransferResponseApplicationJson),
+            ContextTransferResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextTransferResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextTransferResponseApplicationJson_Ocs),
+            ContextTransferResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextTransferResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateContentOrderRequestApplicationJson),
+            ContextUpdateContentOrderRequestApplicationJsonBuilder.new,
+          )
+          ..add(ContextUpdateContentOrderRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateContentOrderRequestApplicationJson_Content),
+            ContextUpdateContentOrderRequestApplicationJson_ContentBuilder.new,
+          )
+          ..add(ContextUpdateContentOrderRequestApplicationJson_Content.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateContentOrderResponseApplicationJson),
+            ContextUpdateContentOrderResponseApplicationJsonBuilder.new,
+          )
+          ..add(ContextUpdateContentOrderResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ContextUpdateContentOrderResponseApplicationJson_Ocs),
+            ContextUpdateContentOrderResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ContextUpdateContentOrderResponseApplicationJson_Ocs.serializer)
+          ..add(RowocsCreateRowNodeCollection.serializer)
+          ..addBuilderFactory(
+            const FullType(RowocsCreateRowRequestApplicationJson),
+            RowocsCreateRowRequestApplicationJsonBuilder.new,
+          )
+          ..add(RowocsCreateRowRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RowocsCreateRowResponseApplicationJson),
+            RowocsCreateRowResponseApplicationJsonBuilder.new,
+          )
+          ..add(RowocsCreateRowResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RowocsCreateRowResponseApplicationJson_Ocs),
+            RowocsCreateRowResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RowocsCreateRowResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Tables), Capabilities_TablesBuilder.new)
+          ..add(Capabilities_Tables.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -16312,18 +16330,19 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i8.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$b6d67dc2a96424d2f407f8e51557f3de,
-            _$8518b50581163640f148d1e5a6a7db2c,
-            _$3f5057013fe375112018fdacdf7c966a,
-          },
-        ),
-      )
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i8.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$b6d67dc2a96424d2f407f8e51557f3de,
+                _$8518b50581163640f148d1e5a6a7db2c,
+                _$3f5057013fe375112018fdacdf7c966a,
+              },
+            ),
+          )
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

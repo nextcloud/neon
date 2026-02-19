@@ -70,13 +70,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
     await tester.pumpAndSettle();
@@ -91,13 +86,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -111,13 +101,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -131,13 +116,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -156,13 +136,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -183,14 +158,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc), Provider<Account>.value(value: account)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -209,13 +178,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 
@@ -232,13 +196,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
-        child: TalkReactions(
-          room: room,
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
+        child: TalkReactions(room: room, chatMessage: chatMessage),
       ),
     );
 

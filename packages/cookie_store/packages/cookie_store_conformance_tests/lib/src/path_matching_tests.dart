@@ -17,9 +17,7 @@ void pathMatching(FutureOr<CookieStore> Function() cookieStoreFactory) {
 
   group('path matching,', () {
     test('with path attribute', () async {
-      final cookies = [
-        TestCookie('docs', 'value')..path = '/docs',
-      ];
+      final cookies = [TestCookie('docs', 'value')..path = '/docs'];
 
       await cookieStore.saveFromResponse(Uri(), cookies);
       var stored = await cookieStore.loadAll();
@@ -51,44 +49,28 @@ void pathMatching(FutureOr<CookieStore> Function() cookieStoreFactory) {
     });
 
     test('default path check', () async {
-      var cookies = [
-        TestCookie('no-path', '/'),
-      ];
+      var cookies = [TestCookie('no-path', '/')];
       await cookieStore.saveFromResponse(Uri(), cookies);
 
-      cookies = [
-        TestCookie('no-path-query', '/'),
-      ];
+      cookies = [TestCookie('no-path-query', '/')];
       await cookieStore.saveFromResponse(Uri(query: 'queryParam'), cookies);
 
-      cookies = [
-        TestCookie('no-path-fragment', '/'),
-      ];
+      cookies = [TestCookie('no-path-fragment', '/')];
       await cookieStore.saveFromResponse(Uri(fragment: 'fragment'), cookies);
 
-      cookies = [
-        TestCookie('relative', '/'),
-      ];
+      cookies = [TestCookie('relative', '/')];
       await cookieStore.saveFromResponse(Uri(path: 'docs'), cookies);
 
-      cookies = [
-        TestCookie('relative-one-slash', '/'),
-      ];
+      cookies = [TestCookie('relative-one-slash', '/')];
       await cookieStore.saveFromResponse(Uri(path: 'docs/Web'), cookies);
 
-      cookies = [
-        TestCookie('relative-multiple-slash', '/'),
-      ];
+      cookies = [TestCookie('relative-multiple-slash', '/')];
       await cookieStore.saveFromResponse(Uri(path: 'docs/Web/'), cookies);
 
-      cookies = [
-        TestCookie('absolute-path', '/'),
-      ];
+      cookies = [TestCookie('absolute-path', '/')];
       await cookieStore.saveFromResponse(Uri(path: '/docs'), cookies);
 
-      cookies = [
-        TestCookie('absolute-path-trailing-slash', '/docs'),
-      ];
+      cookies = [TestCookie('absolute-path-trailing-slash', '/docs')];
       await cookieStore.saveFromResponse(Uri(path: '/docs/'), cookies);
 
       var stored = await cookieStore.loadAll();

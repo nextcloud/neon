@@ -7,17 +7,11 @@ void main() {
   group('LoginCheckServerEvent', () {
     group('LoginCheckServer', () {
       test('supports value equality', () {
-        expect(
-          LoginCheckServer(),
-          equals(LoginCheckServer()),
-        );
+        expect(LoginCheckServer(), equals(LoginCheckServer()));
       });
 
       test('props are correct', () {
-        expect(
-          LoginCheckServer().props,
-          equals(<Object?>[]),
-        );
+        expect(LoginCheckServer().props, equals(<Object?>[]));
       });
     });
   });

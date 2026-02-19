@@ -13,28 +13,27 @@ import 'package:neon_framework/src/widgets/user_avatar.dart';
 
 @internal
 class AccountSwitcherButton extends StatelessWidget {
-  const AccountSwitcherButton({
-    super.key,
-  });
+  const AccountSwitcherButton({super.key});
 
   Future<void> _onPressed(BuildContext context) async {
     final accountsBloc = NeonProvider.of<AccountsBloc>(context);
 
     final account = await showDialog<Account>(
       context: context,
-      builder: (context) => NeonAccountSelectionDialog(
-        highlightActiveAccount: true,
-        children: [
-          AdaptiveListTile(
-            leading: Icon(AdaptiveIcons.settings),
-            title: Text(NeonLocalizations.of(context).settings),
-            onTap: () async {
-              Navigator.of(context).pop();
-              await const SettingsRoute().push<void>(context);
-            },
+      builder:
+          (context) => NeonAccountSelectionDialog(
+            highlightActiveAccount: true,
+            children: [
+              AdaptiveListTile(
+                leading: Icon(AdaptiveIcons.settings),
+                title: Text(NeonLocalizations.of(context).settings),
+                onTap: () async {
+                  Navigator.of(context).pop();
+                  await const SettingsRoute().push<void>(context);
+                },
+              ),
+            ],
           ),
-        ],
-      ),
     );
 
     if (account != null) {

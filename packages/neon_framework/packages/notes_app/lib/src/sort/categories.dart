@@ -7,17 +7,12 @@ final categoriesSortBox = SortBox<CategoriesSortProperty, NoteCategory>(
     CategoriesSortProperty.notesCount: (category) => category.count,
   },
   boxes: const {
-    CategoriesSortProperty.notesCount: {
-      (property: CategoriesSortProperty.alphabetical, order: SortBoxOrder.ascending),
-    },
+    CategoriesSortProperty.notesCount: {(property: CategoriesSortProperty.alphabetical, order: SortBoxOrder.ascending)},
   },
 );
 
 class NoteCategory {
-  NoteCategory(
-    this.name,
-    this.count,
-  );
+  NoteCategory(this.name, this.count);
 
   final String name;
   final int count;

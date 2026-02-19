@@ -6,11 +6,7 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 @visibleForTesting
 class SettingsList extends StatelessWidget {
   /// Creates a new settings list.
-  const SettingsList({
-    required this.categories,
-    this.initialCategoryKey,
-    super.key,
-  });
+  const SettingsList({required this.categories, this.initialCategoryKey, super.key});
 
   /// The categories of this settings screen.
   final List<Widget> categories;

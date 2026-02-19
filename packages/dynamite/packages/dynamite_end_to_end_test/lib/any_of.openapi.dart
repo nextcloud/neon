@@ -488,19 +488,20 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(ObjectAnyOf0), ObjectAnyOf0Builder.new)
-      ..add(ObjectAnyOf0.serializer)
-      ..addBuilderFactory(const FullType(ObjectAnyOf1), ObjectAnyOf1Builder.new)
-      ..add(ObjectAnyOf1.serializer)
-      ..add($0c9017d9a03ba2eb2f15acadeab85bbeExtension._serializer)
-      ..addBuilderFactory(const FullType(MixedAnyOf1), MixedAnyOf1Builder.new)
-      ..add(MixedAnyOf1.serializer)
-      ..add($fba45e085ee99d64c5141852d4323e3dExtension._serializer)
-      ..addBuilderFactory(const FullType(OneObjectAnyOf0), OneObjectAnyOf0Builder.new)
-      ..add(OneObjectAnyOf0.serializer)
-      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(ObjectAnyOf0), ObjectAnyOf0Builder.new)
+          ..add(ObjectAnyOf0.serializer)
+          ..addBuilderFactory(const FullType(ObjectAnyOf1), ObjectAnyOf1Builder.new)
+          ..add(ObjectAnyOf1.serializer)
+          ..add($0c9017d9a03ba2eb2f15acadeab85bbeExtension._serializer)
+          ..addBuilderFactory(const FullType(MixedAnyOf1), MixedAnyOf1Builder.new)
+          ..add(MixedAnyOf1.serializer)
+          ..add($fba45e085ee99d64c5141852d4323e3dExtension._serializer)
+          ..addBuilderFactory(const FullType(OneObjectAnyOf0), OneObjectAnyOf0Builder.new)
+          ..add(OneObjectAnyOf0.serializer)
+          ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -508,18 +509,19 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i3.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i4.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$0c9017d9a03ba2eb2f15acadeab85bbe,
-            _$fba45e085ee99d64c5141852d4323e3d,
-            _$b6d67dc2a96424d2f407f8e51557f3de,
-          },
-        ),
-      )
-      ..addPlugin(const _i3.HeaderPlugin())
-      ..addPlugin(const _i3.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i3.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i4.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$0c9017d9a03ba2eb2f15acadeab85bbe,
+                _$fba45e085ee99d64c5141852d4323e3d,
+                _$b6d67dc2a96424d2f407f8e51557f3de,
+              },
+            ),
+          )
+          ..addPlugin(const _i3.HeaderPlugin())
+          ..addPlugin(const _i3.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

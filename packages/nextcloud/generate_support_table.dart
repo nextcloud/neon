@@ -52,9 +52,7 @@ void main() {
     }),
   );
 
-  final columns = <String, String>{
-    'Component': 'Supported versions (1)',
-  };
+  final columns = <String, String>{'Component': 'Supported versions (1)'};
   for (final entry in support.entries) {
     final app = entry.key;
     final min = entry.value.min;

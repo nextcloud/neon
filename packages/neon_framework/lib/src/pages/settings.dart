@@ -70,10 +70,7 @@ enum SettingsCategories {
 @internal
 class SettingsPage extends StatelessWidget {
   /// Creates a new settings page.
-  const SettingsPage({
-    this.initialCategory,
-    super.key,
-  });
+  const SettingsPage({this.initialCategory, super.key});
 
   /// The optional initial category to show.
   final SettingsCategories? initialCategory;
@@ -94,11 +91,12 @@ class SettingsPage extends StatelessWidget {
                 '${NeonLocalizations.of(context).settingsResetAllConfirmation} ${NeonLocalizations.of(context).settingsResetAllExplanation}';
             final decision = await showAdaptiveDialog<bool>(
               context: context,
-              builder: (context) => NeonConfirmationDialog(
-                icon: const Icon(Icons.restart_alt),
-                title: NeonLocalizations.of(context).settingsReset,
-                content: Text(content),
-              ),
+              builder:
+                  (context) => NeonConfirmationDialog(
+                    icon: const Icon(Icons.restart_alt),
+                    title: NeonLocalizations.of(context).settingsReset,
+                    content: Text(content),
+                  ),
             );
 
             if (decision ?? false) {
@@ -141,28 +139,16 @@ class SettingsPage extends StatelessWidget {
           title: Text(NeonLocalizations.of(context).optionsCategoryTheme),
           key: ValueKey(SettingsCategories.theme.name),
           tiles: [
-            SelectSettingsTile(
-              option: globalOptions.themeMode,
-            ),
-            ToggleSettingsTile(
-              option: globalOptions.themeOLEDAsDark,
-            ),
-            ToggleSettingsTile(
-              option: globalOptions.themeUseNextcloudTheme,
-            ),
-            ToggleSettingsTile(
-              option: globalOptions.themeCustomBackground,
-            ),
+            SelectSettingsTile(option: globalOptions.themeMode),
+            ToggleSettingsTile(option: globalOptions.themeOLEDAsDark),
+            ToggleSettingsTile(option: globalOptions.themeUseNextcloudTheme),
+            ToggleSettingsTile(option: globalOptions.themeCustomBackground),
           ],
         ),
         SettingsCategory(
           title: Text(NeonLocalizations.of(context).optionsCategoryNavigation),
           key: ValueKey(SettingsCategories.navigation.name),
-          tiles: [
-            SelectSettingsTile(
-              option: globalOptions.navigationMode,
-            ),
-          ],
+          tiles: [SelectSettingsTile(option: globalOptions.navigationMode)],
         ),
         if (NeonPlatform.instance.canUsePushNotifications) buildNotificationsCategory(context),
         if (NeonPlatform.instance.canUseWindowManager)
@@ -170,12 +156,8 @@ class SettingsPage extends StatelessWidget {
             title: Text(NeonLocalizations.of(context).optionsCategoryStartup),
             key: ValueKey(SettingsCategories.startup.name),
             tiles: [
-              ToggleSettingsTile(
-                option: globalOptions.startupMinimized,
-              ),
-              ToggleSettingsTile(
-                option: globalOptions.startupMinimizeInsteadOfExit,
-              ),
+              ToggleSettingsTile(option: globalOptions.startupMinimized),
+              ToggleSettingsTile(option: globalOptions.startupMinimizeInsteadOfExit),
             ],
           ),
         ...buildAccountCategory(context),
@@ -186,10 +168,7 @@ class SettingsPage extends StatelessWidget {
           tiles: [
             if (branding.sourceCodeURL != null)
               CustomSettingsTile(
-                leading: Icon(
-                  Icons.code,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                leading: Icon(Icons.code, color: Theme.of(context).colorScheme.primary),
                 title: Text(NeonLocalizations.of(context).sourceCode),
                 onTap: () async {
                   await launchUrl(NeonProvider.of<Account>(context), branding.sourceCodeURL!);
@@ -197,20 +176,14 @@ class SettingsPage extends StatelessWidget {
               ),
             if (branding.issueTrackerURL != null)
               CustomSettingsTile(
-                leading: Icon(
-                  MdiIcons.textBoxEditOutline,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
+                leading: Icon(MdiIcons.textBoxEditOutline, color: Theme.of(context).colorScheme.primary),
                 title: Text(NeonLocalizations.of(context).issueTracker),
                 onTap: () async {
                   await launchUrl(NeonProvider.of<Account>(context), branding.issueTrackerURL!);
                 },
               ),
             CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.scriptText,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              leading: Icon(MdiIcons.scriptText, color: Theme.of(context).colorScheme.primary),
               title: Text(NeonLocalizations.of(context).licenses),
               onTap: () async {
                 showLicensePage(
@@ -223,10 +196,7 @@ class SettingsPage extends StatelessWidget {
               },
             ),
             CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.export,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              leading: Icon(MdiIcons.export, color: Theme.of(context).colorScheme.primary),
               title: Text(NeonLocalizations.of(context).settingsExport),
               onTap: () async {
                 final settingsExportHelper = _buildSettingsExportHelper(context);
@@ -237,11 +207,7 @@ class SettingsPage extends StatelessWidget {
                   final data = settingsExportHelper.exportToFile();
                   await NeonPlatform.instance.saveFileWithPickDialog(fileName, 'application/json', data);
                 } on Exception catch (error, stackTrace) {
-                  _log.info(
-                    'Error selecting an export destination.',
-                    error,
-                    stackTrace,
-                  );
+                  _log.info('Error selecting an export destination.', error, stackTrace);
 
                   if (context.mounted) {
                     NeonError.showSnackbar(context, error);
@@ -250,18 +216,13 @@ class SettingsPage extends StatelessWidget {
               },
             ),
             CustomSettingsTile(
-              leading: Icon(
-                MdiIcons.import,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+              leading: Icon(MdiIcons.import, color: Theme.of(context).colorScheme.primary),
               title: Text(NeonLocalizations.of(context).settingsImport),
               onTap: () async {
                 final settingsExportHelper = _buildSettingsExportHelper(context);
 
                 try {
-                  final result = await FilePicker.platform.pickFiles(
-                    withReadStream: true,
-                  );
+                  final result = await FilePicker.platform.pickFiles(withReadStream: true);
 
                   if (result == null) {
                     return;
@@ -269,21 +230,14 @@ class SettingsPage extends StatelessWidget {
 
                   if (!result.files.single.path!.endsWith('.json')) {
                     if (context.mounted) {
-                      NeonError.showSnackbar(
-                        context,
-                        NeonLocalizations.of(context).settingsImportWrongFileExtension,
-                      );
+                      NeonError.showSnackbar(context, NeonLocalizations.of(context).settingsImportWrongFileExtension);
                     }
                     return;
                   }
 
                   await settingsExportHelper.applyFromFile(result.files.single.readStream);
                 } on Exception catch (error, stackTrace) {
-                  _log.info(
-                    'Error importing settings.',
-                    error,
-                    stackTrace,
-                  );
+                  _log.info('Error importing settings.', error, stackTrace);
 
                   if (context.mounted) {
                     NeonError.showSnackbar(context, error);
@@ -300,12 +254,7 @@ class SettingsPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: appBar,
       body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: NeonDialogTheme.of(context).constraints,
-            child: body,
-          ),
-        ),
+        child: Center(child: ConstrainedBox(constraints: NeonDialogTheme.of(context).constraints, child: body)),
       ),
     );
   }
@@ -316,11 +265,7 @@ class SettingsPage extends StatelessWidget {
     return SettingsCategory(
       title: Text(NeonLocalizations.of(context).optionsCategoryPushNotifications),
       key: ValueKey(SettingsCategories.pushNotifications.name),
-      tiles: [
-        SelectSettingsTile(
-          option: globalOptions.pushNotificationsDistributor,
-        ),
-      ],
+      tiles: [SelectSettingsTile(option: globalOptions.pushNotificationsDistributor)],
     );
   }
 
@@ -340,28 +285,15 @@ class SettingsPage extends StatelessWidget {
         onTap: () => AccountSettingsRoute(accountID: account.id).go(context),
       ),
     );
-    final rememberLastUsedAccountTile = ToggleSettingsTile(
-      option: globalOptions.rememberLastUsedAccount,
-    );
-    final initialAccountTile = SelectSettingsTile(
-      option: globalOptions.initialAccount,
-    );
+    final rememberLastUsedAccountTile = ToggleSettingsTile(option: globalOptions.rememberLastUsedAccount);
+    final initialAccountTile = SelectSettingsTile(option: globalOptions.initialAccount);
 
     if (isCupertino(context)) {
       if (hasMultipleAccounts) {
-        yield SettingsCategory(
-          title: title,
-          key: key,
-          tiles: [
-            rememberLastUsedAccountTile,
-            initialAccountTile,
-          ],
-        );
+        yield SettingsCategory(title: title, key: key, tiles: [rememberLastUsedAccountTile, initialAccountTile]);
       }
       final addAccountTile = CustomSettingsTile(
-        leading: const Icon(
-          CupertinoIcons.add,
-        ),
+        leading: const Icon(CupertinoIcons.add),
         title: Text(NeonLocalizations.of(context).globalOptionsAccountsAdd),
         onTap: () async => const LoginRoute().push(context),
       );
@@ -369,10 +301,7 @@ class SettingsPage extends StatelessWidget {
       yield CupertinoListSection.insetGrouped(
         header: !hasMultipleAccounts ? title : null,
         key: !hasMultipleAccounts ? key : null,
-        children: [
-          ...accountTiles,
-          addAccountTile,
-        ],
+        children: [...accountTiles, addAccountTile],
       );
     } else {
       final addAccountTile = CustomSettingsTile(
@@ -402,11 +331,7 @@ class SettingsPage extends StatelessWidget {
     final appImplementations = NeonProvider.of<BuiltSet<AppImplementation>>(context);
 
     return SettingsExportHelper(
-      exportables: {
-        globalOptions,
-        AccountsBlocExporter(accountsBloc),
-        AppImplementationsExporter(appImplementations),
-      },
+      exportables: {globalOptions, AccountsBlocExporter(accountsBloc), AppImplementationsExporter(appImplementations)},
     );
   }
 }

@@ -42,8 +42,9 @@ class _NeonAppBarState extends State<NeonAppBar> {
     unifiedSearchBloc = NeonProvider.of<UnifiedSearchBloc>(context);
     appsBloc = NeonProvider.of<AppsBloc>(context);
 
-    searchTermSubscription =
-        searchTermController.stream.debounceTime(const Duration(milliseconds: 250)).listen(unifiedSearchBloc.search);
+    searchTermSubscription = searchTermController.stream
+        .debounceTime(const Duration(milliseconds: 250))
+        .listen(unifiedSearchBloc.search);
   }
 
   @override
@@ -63,10 +64,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
           stream: appsBloc.activeApp,
           builder: (context, activeAppSnapshot) {
             if (!activeAppSnapshot.hasData) {
-              return const Align(
-                alignment: Alignment.topRight,
-                child: AccountSwitcherButton(),
-              );
+              return const Align(alignment: Alignment.topRight, child: AccountSwitcherButton());
             }
             final activeApp = activeAppSnapshot.requireData;
 
@@ -92,9 +90,7 @@ class _NeonAppBarState extends State<NeonAppBar> {
                           padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 8)),
                           textInputAction: TextInputAction.search,
                           leading: showDrawer && !drawerAlwaysVisible ? const DrawerButton() : null,
-                          trailing: const [
-                            AccountSwitcherButton(),
-                          ],
+                          trailing: const [AccountSwitcherButton()],
                           onTap: () {
                             controller.openView();
                           },
@@ -104,15 +100,16 @@ class _NeonAppBarState extends State<NeonAppBar> {
                   },
                 );
               },
-              viewBuilder: (_) => Padding(
-                padding: const EdgeInsets.all(8),
-                child: NeonUnifiedSearchResults(
-                  onSelected: (entry) async {
-                    searchController.closeView('');
-                    await launchUrl(NeonProvider.of<Account>(context), entry.resourceUrl);
-                  },
-                ),
-              ),
+              viewBuilder:
+                  (_) => Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: NeonUnifiedSearchResults(
+                      onSelected: (entry) async {
+                        searchController.closeView('');
+                        await launchUrl(NeonProvider.of<Account>(context), entry.resourceUrl);
+                      },
+                    ),
+                  ),
               viewOnChanged: searchTermController.add,
               // The view is completely custom rendered, so we don't need the suggestions
               suggestionsBuilder: (context, controller) async {

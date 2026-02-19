@@ -51,24 +51,28 @@ MDsCAQAwDQYJKoZIhvcNAQEBBQAEJzAlAgEAAgMBchMCAwEAAQICFgECAgHBAgIA0wICAQECAgCtAgIB
     group('Push subscriptions', () {
       final subscriptionsMap = BuiltMap<String, PushSubscription>({
         'a': PushSubscription(
-          (b) => b
-            ..endpoint = 'endpoint1'
-            ..pushDevice.update(
-              (b) => b
-                ..publicKey = 'publicKey1'
-                ..deviceIdentifier = 'deviceIdentifier1'
-                ..signature = 'signature1',
-            ),
+          (b) =>
+              b
+                ..endpoint = 'endpoint1'
+                ..pushDevice.update(
+                  (b) =>
+                      b
+                        ..publicKey = 'publicKey1'
+                        ..deviceIdentifier = 'deviceIdentifier1'
+                        ..signature = 'signature1',
+                ),
         ),
         'b': PushSubscription(
-          (b) => b
-            ..endpoint = 'endpoint2'
-            ..pushDevice.update(
-              (b) => b
-                ..publicKey = 'publicKey2'
-                ..deviceIdentifier = 'deviceIdentifier2'
-                ..signature = 'signature2',
-            ),
+          (b) =>
+              b
+                ..endpoint = 'endpoint2'
+                ..pushDevice.update(
+                  (b) =>
+                      b
+                        ..publicKey = 'publicKey2'
+                        ..deviceIdentifier = 'deviceIdentifier2'
+                        ..signature = 'signature2',
+                ),
         ),
       });
       final serializedSubscriptions = BuiltMap<String, String>({

@@ -6,8 +6,8 @@ class NotificationsPushStorage {
   NotificationsPushStorage({
     required SingleValueStore devicePrivateKeyPersistence,
     required Persistence<Object> pushSubscriptionsPersistence,
-  })  : _pushSubscriptionsPersistence = pushSubscriptionsPersistence,
-        _devicePrivateKeyPersistence = devicePrivateKeyPersistence;
+  }) : _pushSubscriptionsPersistence = pushSubscriptionsPersistence,
+       _devicePrivateKeyPersistence = devicePrivateKeyPersistence;
 
   final SingleValueStore _devicePrivateKeyPersistence;
   final Persistence _pushSubscriptionsPersistence;

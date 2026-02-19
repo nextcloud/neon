@@ -18,17 +18,12 @@ Account mockTalkAccount() {
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/spreed/api/v4/room'): {
-      'get': (match, request) => Response(
+      'get':
+          (match, request) => Response(
             json.encode({
               'ocs': {
                 'meta': {'status': '', 'statuscode': 0},
-                'data': [
-                  for (var i = 0; i < roomCount; i++)
-                    getRoom(
-                      id: i,
-                      unreadMessages: i,
-                    ),
-                ],
+                'data': [for (var i = 0; i < roomCount; i++) getRoom(id: i, unreadMessages: i)],
               },
             }),
             200,
@@ -41,10 +36,7 @@ Account mockTalkAccount() {
           json.encode({
             'ocs': {
               'meta': {'status': '', 'statuscode': 0},
-              'data': getRoom(
-                id: roomCount - 1,
-                unreadMessages: roomCount - 1,
-              ),
+              'data': getRoom(id: roomCount - 1, unreadMessages: roomCount - 1),
             },
           }),
           200,
@@ -65,9 +57,7 @@ void main() {
 
   setUp(() {
     account = mockTalkAccount();
-    bloc = TalkBloc(
-      account: account,
-    );
+    bloc = TalkBloc(account: account);
   });
 
   tearDown(() async {
@@ -86,14 +76,7 @@ void main() {
         Result.success(BuiltList<int>([0, 1, 2])),
       ]),
     );
-    expect(
-      bloc.unreadCounter,
-      emitsInOrder([
-        3,
-        3,
-        3,
-      ]),
-    );
+    expect(bloc.unreadCounter, emitsInOrder([3, 3, 3]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -110,14 +93,7 @@ void main() {
         Result.success(BuiltList<int>([0, 1, 2, 3])),
       ]),
     );
-    expect(
-      bloc.unreadCounter,
-      emitsInOrder([
-        3,
-        3,
-        6,
-      ]),
-    );
+    expect(bloc.unreadCounter, emitsInOrder([3, 3, 6]));
 
     // The delay is necessary to avoid a race condition with loading twice at the same time
     await Future<void>.delayed(const Duration(milliseconds: 1));
@@ -126,14 +102,15 @@ void main() {
       spreed.RoomType.oneToOne,
       null,
       core.AutocompleteResult(
-        (b) => b
-          ..id = 'test'
-          ..label = ''
-          ..icon = ''
-          ..source = 'users'
-          ..status = (autocompleteResultStatus0: null, string: '')
-          ..subline = ''
-          ..shareWithDisplayNameUnique = '',
+        (b) =>
+            b
+              ..id = 'test'
+              ..label = ''
+              ..icon = ''
+              ..source = 'users'
+              ..status = (autocompleteResultStatus0: null, string: '')
+              ..subline = ''
+              ..shareWithDisplayNameUnique = '',
       ),
     );
   });

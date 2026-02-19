@@ -17,11 +17,7 @@ Use `import 'package:nextcloud/<id>.dart' as <id>;` instead.
   static final _regex = RegExp(r'^package:nextcloud/(.*)\.dart$');
 
   @override
-  void run(
-    CustomLintResolver resolver,
-    ErrorReporter reporter,
-    CustomLintContext context,
-  ) {
+  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addImportDirective((node) {
       final match = _regex.firstMatch(node.uri.stringValue ?? '');
       if (match == null) {

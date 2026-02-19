@@ -137,15 +137,11 @@ void main() {
       httpOnlyFlag: false,
     );
 
-    var cookie2 = cookie1.copyWith(
-      value: 'different-value',
-    );
+    var cookie2 = cookie1.copyWith(value: 'different-value');
     expect(cookie1, equals(cookie2));
     expect(cookie1.hashCode, equals(cookie2.hashCode));
 
-    cookie2 = cookie1.copyWith(
-      lastAccessTime: now.subtract(const Duration(seconds: 2)),
-    );
+    cookie2 = cookie1.copyWith(lastAccessTime: now.subtract(const Duration(seconds: 2)));
     expect(cookie1, equals(cookie2));
     expect(cookie1.hashCode, equals(cookie2.hashCode));
   });

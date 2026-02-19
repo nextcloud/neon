@@ -41,7 +41,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $AvatarClient avatar = $AvatarClient(this);
 
@@ -95,11 +95,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getAvatar_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getAvatar_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the avatar of a room.
   ///
@@ -514,11 +514,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getAvatarDark_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getAvatarDark_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the dark mode avatar of a room.
   ///
@@ -612,11 +612,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getUserProxyAvatarWithoutRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarWithoutRoom_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the avatar of a cloudId user when inviting users while creating a conversation.
   ///
@@ -738,11 +738,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getUserProxyAvatarDarkWithoutRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarDarkWithoutRoom_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the dark mode avatar of a cloudId user when inviting users while creating a conversation.
   ///
@@ -852,11 +852,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getUserProxyAvatar_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatar_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the avatar of a cloudId user.
   ///
@@ -982,11 +982,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getUserProxyAvatarDark_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getUserProxyAvatarDark_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the dark mode avatar of a cloudId user.
   ///
@@ -1107,11 +1107,11 @@ class $BanClient {
   /// Builds a serializer to parse the response of [$listBans_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BanListBansResponseApplicationJson, void> $listBans_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BanListBansResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BanListBansResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List the bans of a conversation.
   ///
@@ -1200,11 +1200,11 @@ class $BanClient {
   /// Builds a serializer to parse the response of [$banActor_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BanBanActorResponseApplicationJson, void> $banActor_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BanBanActorResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BanBanActorResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Ban an actor or IP address.
   ///
@@ -1310,11 +1310,11 @@ class $BanClient {
   /// Builds a serializer to parse the response of [$unbanActor_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BanUnbanActorResponseApplicationJson, void> $unbanActor_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BanUnbanActorResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BanUnbanActorResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Unban an actor or IP address.
   ///
@@ -1426,11 +1426,11 @@ class $BotClient {
   /// Builds a serializer to parse the response of [$listBots_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BotListBotsResponseApplicationJson, void> $listBots_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotListBotsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BotListBotsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List bots.
   ///
@@ -1517,11 +1517,11 @@ class $BotClient {
   /// Builds a serializer to parse the response of [$enableBot_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BotEnableBotResponseApplicationJson, void> $enableBot_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotEnableBotResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
+    bodyType: const FullType(BotEnableBotResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201},
+  );
 
   /// Enables a bot.
   ///
@@ -1628,11 +1628,11 @@ class $BotClient {
   /// Builds a serializer to parse the response of [$disableBot_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BotDisableBotResponseApplicationJson, void> $disableBot_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotDisableBotResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BotDisableBotResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Disables a bot.
   ///
@@ -1852,11 +1852,11 @@ class $BotClient {
   /// Builds a serializer to parse the response of [$react_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BotReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BotReactResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201, 400, 401, 404},
-      );
+    bodyType: const FullType(BotReactResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201, 400, 401, 404},
+  );
 
   /// Adds a reaction to a chat message.
   ///
@@ -2106,12 +2106,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$configureBreakoutRooms_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson, void>
-      $configureBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $configureBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Configure the breakout rooms.
   ///
@@ -2225,12 +2225,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$removeBreakoutRooms_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson, void>
-      $removeBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $removeBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Remove the breakout rooms.
   ///
@@ -2328,12 +2328,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$broadcastChatMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomBroadcastChatMessageResponseApplicationJson, void>
-      $broadcastChatMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {201},
-          );
+  $broadcastChatMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Broadcast a chat message to all breakout rooms.
   ///
@@ -2673,12 +2673,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$resetRequestForAssistance_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>
-      $resetRequestForAssistance_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $resetRequestForAssistance_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Reset the request for assistance.
   ///
@@ -2761,7 +2761,7 @@ class $BreakoutRoomClient {
   ///  * [$resetRequestForAssistance_Request] for the request send by this method.
   ///  * [$resetRequestForAssistance_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<BreakoutRoomResetRequestForAssistanceResponseApplicationJson, void>>
-      resetRequestForAssistance({
+  resetRequestForAssistance({
     required String token,
     BreakoutRoomResetRequestForAssistanceApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -2783,12 +2783,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$startBreakoutRooms_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomStartBreakoutRoomsResponseApplicationJson, void>
-      $startBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $startBreakoutRooms_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Start the breakout rooms.
   ///
@@ -2993,12 +2993,12 @@ class $BreakoutRoomClient {
   /// Builds a serializer to parse the response of [$switchBreakoutRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson, void>
-      $switchBreakoutRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $switchBreakoutRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Switch to another breakout room.
   ///
@@ -3119,12 +3119,12 @@ class $CalendarIntegrationClient {
   /// Builds a serializer to parse the response of [$getDashboardEvents_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CalendarIntegrationGetDashboardEventsResponseApplicationJson, void>
-      $getDashboardEvents_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getDashboardEvents_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get up to 10 rooms that have events in the next 7 days sorted by their start timestamp ascending.
   ///
@@ -3216,12 +3216,12 @@ class $CalendarIntegrationClient {
   /// Builds a serializer to parse the response of [$getMutualEvents_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CalendarIntegrationGetMutualEventsResponseApplicationJson, void>
-      $getMutualEvents_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getMutualEvents_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get up to 3 events in the next 7 days sorted by their start timestamp ascending.
   ///
@@ -3541,11 +3541,11 @@ class $CallClient {
   /// Builds a serializer to parse the response of [$joinCall_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CallJoinCallResponseApplicationJson, void> $joinCall_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(CallJoinCallResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404},
-      );
+    bodyType: const FullType(CallJoinCallResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 404},
+  );
 
   /// Join a call.
   ///
@@ -3603,16 +3603,17 @@ class $CallClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(CallJoinCallRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              CallJoinCallRequestApplicationJson(),
-              specifiedType: const FullType(CallJoinCallRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(CallJoinCallRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                CallJoinCallRequestApplicationJson(),
+                specifiedType: const FullType(CallJoinCallRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -3656,11 +3657,11 @@ class $CallClient {
   /// Builds a serializer to parse the response of [$leaveCall_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CallLeaveCallResponseApplicationJson, void> $leaveCall_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(CallLeaveCallResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404},
-      );
+    bodyType: const FullType(CallLeaveCallResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 404},
+  );
 
   /// Leave a call.
   ///
@@ -3870,11 +3871,11 @@ class $CallClient {
   /// Builds a serializer to parse the response of [$downloadParticipantsForCall_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $downloadParticipantsForCall_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Download the list of current call participants.
   ///
@@ -3990,12 +3991,12 @@ class $CallClient {
   /// Builds a serializer to parse the response of [$updateFederatedCallFlags_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CallUpdateFederatedCallFlagsResponseApplicationJson, void>
-      $updateFederatedCallFlags_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200, 400, 404},
-          );
+  $updateFederatedCallFlags_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 400, 404},
+  );
 
   /// Update the in-call flags on the host server using the session id of the federated user.
   ///
@@ -4572,12 +4573,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$receiveMessages_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>
-      $receiveMessages_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
-            headersType: const FullType(ChatChatReceiveMessagesHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $receiveMessages_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatReceiveMessagesResponseApplicationJson),
+    headersType: const FullType(ChatChatReceiveMessagesHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Receives chat messages from the given room.
   ///
@@ -4746,7 +4747,7 @@ class $ChatClient {
   ///  * [$receiveMessages_Request] for the request send by this method.
   ///  * [$receiveMessages_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatReceiveMessagesResponseApplicationJson, ChatChatReceiveMessagesHeaders>>
-      receiveMessages({
+  receiveMessages({
     required String token,
     required ChatReceiveMessagesLookIntoFuture lookIntoFuture,
     ChatReceiveMessagesApiVersion? apiVersion,
@@ -4786,12 +4787,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$sendMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatSendMessageResponseApplicationJson, ChatChatSendMessageHeaders>
-      $sendMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatSendMessageResponseApplicationJson),
-            headersType: const FullType(ChatChatSendMessageHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {201},
-          );
+  $sendMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatSendMessageResponseApplicationJson),
+    headersType: const FullType(ChatChatSendMessageHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Sends a new chat message to the given room.
   ///
@@ -4908,12 +4909,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$clearHistory_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatClearHistoryResponseApplicationJson, ChatChatClearHistoryHeaders>
-      $clearHistory_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
-            headersType: const FullType(ChatChatClearHistoryHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200, 202},
-          );
+  $clearHistory_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatClearHistoryResponseApplicationJson),
+    headersType: const FullType(ChatChatClearHistoryHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 202},
+  );
 
   /// Clear the chat history.
   ///
@@ -5133,12 +5134,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$editMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatEditMessageResponseApplicationJson, ChatChatEditMessageHeaders>
-      $editMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatEditMessageResponseApplicationJson),
-            headersType: const FullType(ChatChatEditMessageHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200, 202},
-          );
+  $editMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatEditMessageResponseApplicationJson),
+    headersType: const FullType(ChatChatEditMessageHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 202},
+  );
 
   /// Edit a chat message.
   ///
@@ -5266,12 +5267,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$deleteMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatDeleteMessageResponseApplicationJson, ChatChatDeleteMessageHeaders>
-      $deleteMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
-            headersType: const FullType(ChatChatDeleteMessageHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200, 202},
-          );
+  $deleteMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatDeleteMessageResponseApplicationJson),
+    headersType: const FullType(ChatChatDeleteMessageHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 202},
+  );
 
   /// Delete a chat message.
   ///
@@ -5390,12 +5391,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$getMessageContext_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>
-      $getMessageContext_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
-            headersType: const FullType(ChatChatGetMessageContextHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getMessageContext_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatGetMessageContextResponseApplicationJson),
+    headersType: const FullType(ChatChatGetMessageContextHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the context of a message.
   ///
@@ -5491,7 +5492,7 @@ class $ChatClient {
   ///  * [$getMessageContext_Request] for the request send by this method.
   ///  * [$getMessageContext_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatGetMessageContextResponseApplicationJson, ChatChatGetMessageContextHeaders>>
-      getMessageContext({
+  getMessageContext({
     required String token,
     required int messageId,
     ChatGetMessageContextApiVersion? apiVersion,
@@ -5966,12 +5967,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$setReadMarker_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatSetReadMarkerResponseApplicationJson, ChatChatSetReadMarkerHeaders>
-      $setReadMarker_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
-            headersType: const FullType(ChatChatSetReadMarkerHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $setReadMarker_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatSetReadMarkerResponseApplicationJson),
+    headersType: const FullType(ChatChatSetReadMarkerHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Set the read marker to a specific message.
   ///
@@ -6030,16 +6031,20 @@ class $ChatClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ChatSetReadMarkerRequestApplicationJson(),
-              specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ChatSetReadMarkerRequestApplicationJson(),
+                specifiedType: const FullType(ChatSetReadMarkerRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -6175,11 +6180,11 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$mentions_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatMentionsResponseApplicationJson, void> $mentions_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ChatMentionsResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ChatMentionsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Search for mentions.
   ///
@@ -6303,12 +6308,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$getObjectsSharedInRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>
-      $getObjectsSharedInRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
-            headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getObjectsSharedInRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
+    headersType: const FullType(ChatChatGetObjectsSharedInRoomHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get objects that are shared in the room.
   ///
@@ -6409,7 +6414,7 @@ class $ChatClient {
   ///  * [$getObjectsSharedInRoom_Request] for the request send by this method.
   ///  * [$getObjectsSharedInRoom_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatGetObjectsSharedInRoomResponseApplicationJson, ChatChatGetObjectsSharedInRoomHeaders>>
-      getObjectsSharedInRoom({
+  getObjectsSharedInRoom({
     required String token,
     required String objectType,
     ChatGetObjectsSharedInRoomApiVersion? apiVersion,
@@ -6429,20 +6434,21 @@ class $ChatClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getObjectsSharedInRoom_Serializer();
-    return _i1.ResponseConverter<ChatGetObjectsSharedInRoomResponseApplicationJson,
-            ChatChatGetObjectsSharedInRoomHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<
+      ChatGetObjectsSharedInRoomResponseApplicationJson,
+      ChatChatGetObjectsSharedInRoomHeaders
+    >(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$shareObjectToChat_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>
-      $shareObjectToChat_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
-            headersType: const FullType(ChatChatShareObjectToChatHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {201},
-          );
+  $shareObjectToChat_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatShareObjectToChatResponseApplicationJson),
+    headersType: const FullType(ChatChatShareObjectToChatHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Sends a rich-object to the given room.
   ///
@@ -6534,7 +6540,7 @@ class $ChatClient {
   ///  * [$shareObjectToChat_Request] for the request send by this method.
   ///  * [$shareObjectToChat_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatShareObjectToChatResponseApplicationJson, ChatChatShareObjectToChatHeaders>>
-      shareObjectToChat({
+  shareObjectToChat({
     required String token,
     required ChatShareObjectToChatRequestApplicationJson $body,
     ChatShareObjectToChatApiVersion? apiVersion,
@@ -6558,12 +6564,12 @@ class $ChatClient {
   /// Builds a serializer to parse the response of [$getObjectsSharedInRoomOverview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>
-      $getObjectsSharedInRoomOverview_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getObjectsSharedInRoomOverview_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get objects that are shared in the room overview.
   ///
@@ -6650,7 +6656,7 @@ class $ChatClient {
   ///  * [$getObjectsSharedInRoomOverview_Request] for the request send by this method.
   ///  * [$getObjectsSharedInRoomOverview_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson, void>>
-      getObjectsSharedInRoomOverview({
+  getObjectsSharedInRoomOverview({
     required String token,
     ChatGetObjectsSharedInRoomOverviewApiVersion? apiVersion,
     int? limit,
@@ -7223,12 +7229,12 @@ class $FilesIntegrationClient {
   /// Builds a serializer to parse the response of [$getRoomByShareToken_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<FilesIntegrationGetRoomByShareTokenResponseApplicationJson, void>
-      $getRoomByShareToken_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getRoomByShareToken_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns the token of the room associated to the file of the given share token.
   ///
@@ -7342,12 +7348,12 @@ class $FilesIntegrationClient {
   /// Builds a serializer to parse the response of [$publicShareAuthCreateRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<PublicShareAuthCreateRoomResponseApplicationJson, void>
-      $publicShareAuthCreateRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {201},
-          );
+  $publicShareAuthCreateRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Creates a new room for video verification (requesting the password of a share).
   ///
@@ -7692,11 +7698,11 @@ class $HostedSignalingServerClient {
   /// Builds a serializer to parse the response of [$deleteAccount_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<void, void> $deleteAccount_Serializer() => _i1.DynamiteSerializer(
-        bodyType: null,
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {204},
-      );
+    bodyType: null,
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {204},
+  );
 
   /// Delete the account.
   ///
@@ -8336,12 +8342,12 @@ class $MatterbridgeClient {
   /// Builds a serializer to parse the response of [$deleteBridgeOfRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson, void>
-      $deleteBridgeOfRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $deleteBridgeOfRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete bridge of one room.
   ///
@@ -8439,12 +8445,12 @@ class $MatterbridgeClient {
   /// Builds a serializer to parse the response of [$getBridgeProcessState_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeGetBridgeProcessStateResponseApplicationJson, void>
-      $getBridgeProcessState_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getBridgeProcessState_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get bridge process information.
   ///
@@ -8542,12 +8548,12 @@ class $MatterbridgeClient {
   /// Builds a serializer to parse the response of [$matterbridgeSettingsStopAllBridges_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>
-      $matterbridgeSettingsStopAllBridges_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $matterbridgeSettingsStopAllBridges_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Stop all bridges.
   ///
@@ -8625,7 +8631,7 @@ class $MatterbridgeClient {
   ///  * [$matterbridgeSettingsStopAllBridges_Request] for the request send by this method.
   ///  * [$matterbridgeSettingsStopAllBridges_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<MatterbridgeSettingsStopAllBridgesResponseApplicationJson, void>>
-      matterbridgeSettingsStopAllBridges({
+  matterbridgeSettingsStopAllBridges({
     MatterbridgeSettingsStopAllBridgesApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -8642,12 +8648,12 @@ class $MatterbridgeClient {
   /// Builds a serializer to parse the response of [$matterbridgeSettingsGetMatterbridgeVersion_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>
-      $matterbridgeSettingsGetMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $matterbridgeSettingsGetMatterbridgeVersion_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get Matterbridge version.
   ///
@@ -8725,7 +8731,7 @@ class $MatterbridgeClient {
   ///  * [$matterbridgeSettingsGetMatterbridgeVersion_Request] for the request send by this method.
   ///  * [$matterbridgeSettingsGetMatterbridgeVersion_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson, void>>
-      matterbridgeSettingsGetMatterbridgeVersion({
+  matterbridgeSettingsGetMatterbridgeVersion({
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion? apiVersion,
     bool? oCSAPIRequest,
   }) async {
@@ -9094,11 +9100,11 @@ class $PollClient {
   /// Builds a serializer to parse the response of [$showPoll_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<PollShowPollResponseApplicationJson, void> $showPoll_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(PollShowPollResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(PollShowPollResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a poll.
   ///
@@ -9202,11 +9208,11 @@ class $PollClient {
   /// Builds a serializer to parse the response of [$votePoll_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<PollVotePollResponseApplicationJson, void> $votePoll_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(PollVotePollResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(PollVotePollResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Vote on a poll.
   ///
@@ -9270,16 +9276,17 @@ class $PollClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(PollVotePollRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              PollVotePollRequestApplicationJson(),
-              specifiedType: const FullType(PollVotePollRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(PollVotePollRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                PollVotePollRequestApplicationJson(),
+                specifiedType: const FullType(PollVotePollRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -9326,11 +9333,11 @@ class $PollClient {
   /// Builds a serializer to parse the response of [$closePoll_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<PollClosePollResponseApplicationJson, void> $closePoll_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(PollClosePollResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(PollClosePollResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Close a poll.
   ///
@@ -9569,11 +9576,11 @@ class $ReactionClient {
   /// Builds a serializer to parse the response of [$react_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ReactionReactResponseApplicationJson, void> $react_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ReactionReactResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
+    bodyType: const FullType(ReactionReactResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201},
+  );
 
   /// Add a reaction to a message.
   ///
@@ -9690,11 +9697,11 @@ class $ReactionClient {
   /// Builds a serializer to parse the response of [$delete_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ReactionDeleteResponseApplicationJson, void> $delete_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ReactionDeleteResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ReactionDeleteResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete a reaction from a message.
   ///
@@ -9817,11 +9824,11 @@ class $RecordingClient {
   /// Builds a serializer to parse the response of [$start_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingStartResponseApplicationJson, void> $start_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingStartResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RecordingStartResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Start the recording.
   ///
@@ -9920,11 +9927,11 @@ class $RecordingClient {
   /// Builds a serializer to parse the response of [$stop_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingStopResponseApplicationJson, void> $stop_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingStopResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RecordingStopResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Stop the recording.
   ///
@@ -10245,11 +10252,11 @@ class $RecordingClient {
   /// Builds a serializer to parse the response of [$backend_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingBackendResponseApplicationJson, void> $backend_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingBackendResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RecordingBackendResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update the recording status as a backend.
   ///
@@ -10336,11 +10343,11 @@ class $RecordingClient {
   /// Builds a serializer to parse the response of [$store_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingStoreResponseApplicationJson, void> $store_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RecordingStoreResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RecordingStoreResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Store the recording.
   ///
@@ -10400,16 +10407,17 @@ class $RecordingClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(RecordingStoreRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RecordingStoreRequestApplicationJson(),
-              specifiedType: const FullType(RecordingStoreRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(RecordingStoreRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RecordingStoreRequestApplicationJson(),
+                specifiedType: const FullType(RecordingStoreRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -10809,12 +10817,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$getNoteToSelfConversation_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
-      $getNoteToSelfConversation_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
-            headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getNoteToSelfConversation_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
+    headersType: const FullType(RoomRoomGetNoteToSelfConversationHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the "Note to self" conversation for the user.
   ///
@@ -10890,30 +10898,29 @@ class $RoomClient {
   ///  * [$getNoteToSelfConversation_Request] for the request send by this method.
   ///  * [$getNoteToSelfConversation_Serializer] for a converter to parse the `Response` from an executed request.
   Future<
-      _i1.DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson,
-          RoomRoomGetNoteToSelfConversationHeaders>> getNoteToSelfConversation({
-    RoomGetNoteToSelfConversationApiVersion? apiVersion,
-    bool? oCSAPIRequest,
-  }) async {
+    _i1.DynamiteResponse<RoomGetNoteToSelfConversationResponseApplicationJson, RoomRoomGetNoteToSelfConversationHeaders>
+  >
+  getNoteToSelfConversation({RoomGetNoteToSelfConversationApiVersion? apiVersion, bool? oCSAPIRequest}) async {
     final _request = $getNoteToSelfConversation_Request(apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getNoteToSelfConversation_Serializer();
-    return _i1.ResponseConverter<RoomGetNoteToSelfConversationResponseApplicationJson,
-            RoomRoomGetNoteToSelfConversationHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<
+      RoomGetNoteToSelfConversationResponseApplicationJson,
+      RoomRoomGetNoteToSelfConversationHeaders
+    >(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$getSingleRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomGetSingleRoomResponseApplicationJson, RoomRoomGetSingleRoomHeaders>
-      $getSingleRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
-            headersType: const FullType(RoomRoomGetSingleRoomHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getSingleRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomGetSingleRoomResponseApplicationJson),
+    headersType: const FullType(RoomRoomGetSingleRoomHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a room.
   ///
@@ -11486,16 +11493,17 @@ class $RoomClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomMakePublicRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomMakePublicRequestApplicationJson(),
-              specifiedType: const FullType(RoomMakePublicRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomMakePublicRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RoomMakePublicRequestApplicationJson(),
+                specifiedType: const FullType(RoomMakePublicRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -12210,12 +12218,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$getParticipants_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>
-      $getParticipants_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
-            headersType: const FullType(RoomRoomGetParticipantsHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getParticipants_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomGetParticipantsResponseApplicationJson),
+    headersType: const FullType(RoomRoomGetParticipantsHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a list of participants for a room.
   ///
@@ -12306,7 +12314,7 @@ class $RoomClient {
   ///  * [$getParticipants_Request] for the request send by this method.
   ///  * [$getParticipants_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomGetParticipantsResponseApplicationJson, RoomRoomGetParticipantsHeaders>>
-      getParticipants({
+  getParticipants({
     required String token,
     RoomGetParticipantsApiVersion? apiVersion,
     RoomGetParticipantsIncludeStatus? includeStatus,
@@ -12448,13 +12456,15 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$getBreakoutRoomParticipants_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<
-          RoomGetBreakoutRoomParticipantsResponseApplicationJson, RoomRoomGetBreakoutRoomParticipantsHeaders>
-      $getBreakoutRoomParticipants_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
-            headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+    RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+    RoomRoomGetBreakoutRoomParticipantsHeaders
+  >
+  $getBreakoutRoomParticipants_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
+    headersType: const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the breakout room participants for a room.
   ///
@@ -12547,8 +12557,12 @@ class $RoomClient {
   ///  * [$getBreakoutRoomParticipants_Request] for the request send by this method.
   ///  * [$getBreakoutRoomParticipants_Serializer] for a converter to parse the `Response` from an executed request.
   Future<
-      _i1.DynamiteResponse<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
-          RoomRoomGetBreakoutRoomParticipantsHeaders>> getBreakoutRoomParticipants({
+    _i1.DynamiteResponse<
+      RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+      RoomRoomGetBreakoutRoomParticipantsHeaders
+    >
+  >
+  getBreakoutRoomParticipants({
     required String token,
     RoomGetBreakoutRoomParticipantsApiVersion? apiVersion,
     RoomGetBreakoutRoomParticipantsIncludeStatus? includeStatus,
@@ -12564,9 +12578,10 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $getBreakoutRoomParticipants_Serializer();
-    return _i1.ResponseConverter<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
-            RoomRoomGetBreakoutRoomParticipantsHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<
+      RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+      RoomRoomGetBreakoutRoomParticipantsHeaders
+    >(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$removeSelfFromRoom_Request].
@@ -12677,12 +12692,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$removeAttendeeFromRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomRemoveAttendeeFromRoomResponseApplicationJson, void>
-      $removeAttendeeFromRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $removeAttendeeFromRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Remove an attendee from a room.
   ///
@@ -12797,12 +12812,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$setAttendeePermissions_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomSetAttendeePermissionsResponseApplicationJson, RoomRoomSetAttendeePermissionsHeaders>
-      $setAttendeePermissions_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
-            headersType: const FullType(RoomRoomSetAttendeePermissionsHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $setAttendeePermissions_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
+    headersType: const FullType(RoomRoomSetAttendeePermissionsHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update the permissions of an attendee.
   ///
@@ -12895,7 +12910,7 @@ class $RoomClient {
   ///  * [$setAttendeePermissions_Request] for the request send by this method.
   ///  * [$setAttendeePermissions_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomSetAttendeePermissionsResponseApplicationJson, RoomRoomSetAttendeePermissionsHeaders>>
-      setAttendeePermissions({
+  setAttendeePermissions({
     required String token,
     required RoomSetAttendeePermissionsRequestApplicationJson $body,
     RoomSetAttendeePermissionsApiVersion? apiVersion,
@@ -12911,21 +12926,22 @@ class $RoomClient {
     final _response = await _i3.Response.fromStream(_streamedResponse);
 
     final _serializer = $setAttendeePermissions_Serializer();
-    return _i1.ResponseConverter<RoomSetAttendeePermissionsResponseApplicationJson,
-            RoomRoomSetAttendeePermissionsHeaders>(_serializer)
-        .convert(_response);
+    return _i1.ResponseConverter<
+      RoomSetAttendeePermissionsResponseApplicationJson,
+      RoomRoomSetAttendeePermissionsHeaders
+    >(_serializer).convert(_response);
   }
 
   /// Builds a serializer to parse the response of [$setAllAttendeesPermissions_Request].
   @_i2.experimental
   @Deprecated('')
   _i1.DynamiteSerializer<RoomSetAllAttendeesPermissionsResponseApplicationJson, void>
-      $setAllAttendeesPermissions_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $setAllAttendeesPermissions_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update the permissions of all attendees.
   ///
@@ -13105,16 +13121,17 @@ class $RoomClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomJoinRoomRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomJoinRoomRequestApplicationJson(),
-              specifiedType: const FullType(RoomJoinRoomRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(RoomJoinRoomRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RoomJoinRoomRequestApplicationJson(),
+                specifiedType: const FullType(RoomJoinRoomRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -13161,11 +13178,11 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$leaveRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomLeaveRoomResponseApplicationJson, void> $leaveRoom_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RoomLeaveRoomResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Leave a room.
   ///
@@ -13321,19 +13338,20 @@ class $RoomClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(RoomResendInvitationsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomResendInvitationsRequestApplicationJson(),
-              specifiedType: const FullType(RoomResendInvitationsRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(RoomResendInvitationsRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RoomResendInvitationsRequestApplicationJson(),
+                specifiedType: const FullType(RoomResendInvitationsRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -13922,12 +13940,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$markConversationAsImportant_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomMarkConversationAsImportantResponseApplicationJson, void>
-      $markConversationAsImportant_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomMarkConversationAsImportantResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $markConversationAsImportant_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomMarkConversationAsImportantResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Mark a conversation as important (still sending notifications while on DND).
   ///
@@ -14012,7 +14030,7 @@ class $RoomClient {
   ///  * [$markConversationAsImportant_Request] for the request send by this method.
   ///  * [$markConversationAsImportant_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomMarkConversationAsImportantResponseApplicationJson, void>>
-      markConversationAsImportant({
+  markConversationAsImportant({
     required String token,
     RoomMarkConversationAsImportantApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -14034,12 +14052,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$markConversationAsUnimportant_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomMarkConversationAsUnimportantResponseApplicationJson, void>
-      $markConversationAsUnimportant_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $markConversationAsUnimportant_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Mark a conversation as unimportant (no longer sending notifications while on DND).
   ///
@@ -14124,7 +14142,7 @@ class $RoomClient {
   ///  * [$markConversationAsUnimportant_Request] for the request send by this method.
   ///  * [$markConversationAsUnimportant_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomMarkConversationAsUnimportantResponseApplicationJson, void>>
-      markConversationAsUnimportant({
+  markConversationAsUnimportant({
     required String token,
     RoomMarkConversationAsUnimportantApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -14146,12 +14164,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$markConversationAsSensitive_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomMarkConversationAsSensitiveResponseApplicationJson, void>
-      $markConversationAsSensitive_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $markConversationAsSensitive_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Mark a conversation as sensitive (no last message is visible / no push preview is shown).
   ///
@@ -14236,7 +14254,7 @@ class $RoomClient {
   ///  * [$markConversationAsSensitive_Request] for the request send by this method.
   ///  * [$markConversationAsSensitive_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomMarkConversationAsSensitiveResponseApplicationJson, void>>
-      markConversationAsSensitive({
+  markConversationAsSensitive({
     required String token,
     RoomMarkConversationAsSensitiveApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -14258,12 +14276,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$markConversationAsInsensitive_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomMarkConversationAsInsensitiveResponseApplicationJson, void>
-      $markConversationAsInsensitive_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $markConversationAsInsensitive_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Mark a conversation as insensitive (last message is visible / push preview is shown).
   ///
@@ -14348,7 +14366,7 @@ class $RoomClient {
   ///  * [$markConversationAsInsensitive_Request] for the request send by this method.
   ///  * [$markConversationAsInsensitive_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomMarkConversationAsInsensitiveResponseApplicationJson, void>>
-      markConversationAsInsensitive({
+  markConversationAsInsensitive({
     required String token,
     RoomMarkConversationAsInsensitiveApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -14596,11 +14614,11 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$setLobby_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomSetLobbyResponseApplicationJson, void> $setLobby_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RoomSetLobbyResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Update the lobby state for a room.
   ///
@@ -15054,12 +15072,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$getCapabilities_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>
-      $getCapabilities_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomGetCapabilitiesResponseApplicationJson),
-            headersType: const FullType(RoomRoomGetCapabilitiesHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getCapabilities_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomGetCapabilitiesResponseApplicationJson),
+    headersType: const FullType(RoomRoomGetCapabilitiesHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get capabilities for a room.
   ///
@@ -15142,7 +15160,7 @@ class $RoomClient {
   ///  * [$getCapabilities_Request] for the request send by this method.
   ///  * [$getCapabilities_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomGetCapabilitiesResponseApplicationJson, RoomRoomGetCapabilitiesHeaders>>
-      getCapabilities({required String token, RoomGetCapabilitiesApiVersion? apiVersion, bool? oCSAPIRequest}) async {
+  getCapabilities({required String token, RoomGetCapabilitiesApiVersion? apiVersion, bool? oCSAPIRequest}) async {
     final _request = $getCapabilities_Request(token: token, apiVersion: apiVersion, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -15483,12 +15501,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$importEmailsAsParticipants_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomImportEmailsAsParticipantsResponseApplicationJson, void>
-      $importEmailsAsParticipants_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $importEmailsAsParticipants_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Import a list of email attendees.
   ///
@@ -15555,19 +15573,20 @@ class $RoomClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomImportEmailsAsParticipantsRequestApplicationJson(),
-              specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RoomImportEmailsAsParticipantsRequestApplicationJson(),
+                specifiedType: const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -15731,12 +15750,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$joinFederatedRoom_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomJoinFederatedRoomResponseApplicationJson, RoomRoomJoinFederatedRoomHeaders>
-      $joinFederatedRoom_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomJoinFederatedRoomResponseApplicationJson),
-            headersType: const FullType(RoomRoomJoinFederatedRoomHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $joinFederatedRoom_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomJoinFederatedRoomResponseApplicationJson),
+    headersType: const FullType(RoomRoomJoinFederatedRoomHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Join room on the host server using the session id of the federated user.
   ///
@@ -15800,19 +15819,20 @@ class $RoomClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(RoomJoinFederatedRoomRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              RoomJoinFederatedRoomRequestApplicationJson(),
-              specifiedType: const FullType(RoomJoinFederatedRoomRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(RoomJoinFederatedRoomRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                RoomJoinFederatedRoomRequestApplicationJson(),
+                specifiedType: const FullType(RoomJoinFederatedRoomRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -15836,7 +15856,7 @@ class $RoomClient {
   ///  * [$joinFederatedRoom_Request] for the request send by this method.
   ///  * [$joinFederatedRoom_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<RoomJoinFederatedRoomResponseApplicationJson, RoomRoomJoinFederatedRoomHeaders>>
-      joinFederatedRoom({
+  joinFederatedRoom({
     required String token,
     RoomJoinFederatedRoomApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -15973,12 +15993,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$verifyDialInPinDeprecated_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomVerifyDialInPinDeprecatedResponseApplicationJson, void>
-      $verifyDialInPinDeprecated_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $verifyDialInPinDeprecated_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Verify a dial-in PIN (SIP bridge).
   ///
@@ -16537,12 +16557,12 @@ class $RoomClient {
   /// Builds a serializer to parse the response of [$rejectedDialOutRequest_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RoomRejectedDialOutRequestResponseApplicationJson, void>
-      $rejectedDialOutRequest_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200, 400, 401, 404, 501},
-          );
+  $rejectedDialOutRequest_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 400, 401, 404, 501},
+  );
 
   /// Reset call ID of a dial-out participant when the SIP gateway rejected it.
   ///
@@ -16864,12 +16884,12 @@ class $SettingsClient {
   /// Builds a serializer to parse the response of [$certificateGetCertificateExpiration_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CertificateGetCertificateExpirationResponseApplicationJson, void>
-      $certificateGetCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $certificateGetCertificateExpiration_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the certificate expiration for a host.
   ///
@@ -16955,7 +16975,7 @@ class $SettingsClient {
   ///  * [$certificateGetCertificateExpiration_Request] for the request send by this method.
   ///  * [$certificateGetCertificateExpiration_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CertificateGetCertificateExpirationResponseApplicationJson, void>>
-      certificateGetCertificateExpiration({
+  certificateGetCertificateExpiration({
     required String host,
     CertificateGetCertificateExpirationApiVersion? apiVersion,
     bool? oCSAPIRequest,
@@ -16977,12 +16997,12 @@ class $SettingsClient {
   /// Builds a serializer to parse the response of [$recordingGetWelcomeMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RecordingGetWelcomeMessageResponseApplicationJson, void>
-      $recordingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $recordingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the welcome message of a recording server.
   ///
@@ -17154,19 +17174,20 @@ class $SettingsClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(SettingsSetsipSettingsRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              SettingsSetsipSettingsRequestApplicationJson(),
-              specifiedType: const FullType(SettingsSetsipSettingsRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(SettingsSetsipSettingsRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                SettingsSetsipSettingsRequestApplicationJson(),
+                specifiedType: const FullType(SettingsSetsipSettingsRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -17203,12 +17224,12 @@ class $SettingsClient {
   /// Builds a serializer to parse the response of [$signalingGetWelcomeMessage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<SignalingGetWelcomeMessageResponseApplicationJson, void>
-      $signalingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $signalingGetWelcomeMessage_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the welcome message from a signaling server.
   ///
@@ -17327,11 +17348,11 @@ class $SignalingClient {
   /// Builds a serializer to parse the response of [$backend_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<SignalingBackendResponseApplicationJson, void> $backend_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(SignalingBackendResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(SignalingBackendResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Backend API to query information required for standalone signaling servers.
   ///
@@ -17625,16 +17646,14 @@ class _$AvatarGetAvatarApiVersionSerializer implements PrimitiveSerializer<Avata
     Serializers serializers,
     AvatarGetAvatarApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetAvatarDarkTheme extends EnumClass {
@@ -17688,16 +17707,14 @@ class _$AvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<Avatar
     Serializers serializers,
     AvatarGetAvatarDarkTheme object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarDarkTheme deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarUploadAvatarApiVersion extends EnumClass {
@@ -17744,16 +17761,14 @@ class _$AvatarUploadAvatarApiVersionSerializer implements PrimitiveSerializer<Av
     Serializers serializers,
     AvatarUploadAvatarApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarUploadAvatarApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18002,8 +18017,7 @@ class _$MessageTypeSerializer implements PrimitiveSerializer<MessageType> {
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18112,16 +18126,14 @@ class _$ChatMessage_DeletedSerializer implements PrimitiveSerializer<ChatMessage
     Serializers serializers,
     ChatMessage_Deleted object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatMessage_Deleted deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18592,16 +18604,14 @@ class _$AvatarDeleteAvatarApiVersionSerializer implements PrimitiveSerializer<Av
     Serializers serializers,
     AvatarDeleteAvatarApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarDeleteAvatarApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -18775,16 +18785,14 @@ class _$AvatarEmojiAvatarApiVersionSerializer implements PrimitiveSerializer<Ava
     Serializers serializers,
     AvatarEmojiAvatarApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarEmojiAvatarApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19024,16 +19032,14 @@ class _$AvatarGetAvatarDarkApiVersionSerializer implements PrimitiveSerializer<A
     Serializers serializers,
     AvatarGetAvatarDarkApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarDarkApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarWithoutRoomSize extends EnumClass {
@@ -19072,15 +19078,15 @@ class _$AvatarGetUserProxyAvatarWithoutRoomSizeSerializer
 
   static const Map<AvatarGetUserProxyAvatarWithoutRoomSize, Object> _toWire =
       <AvatarGetUserProxyAvatarWithoutRoomSize, Object>{
-    AvatarGetUserProxyAvatarWithoutRoomSize.$64: 64,
-    AvatarGetUserProxyAvatarWithoutRoomSize.$512: 512,
-  };
+        AvatarGetUserProxyAvatarWithoutRoomSize.$64: 64,
+        AvatarGetUserProxyAvatarWithoutRoomSize.$512: 512,
+      };
 
   static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomSize> _fromWire =
       <Object, AvatarGetUserProxyAvatarWithoutRoomSize>{
-    64: AvatarGetUserProxyAvatarWithoutRoomSize.$64,
-    512: AvatarGetUserProxyAvatarWithoutRoomSize.$512,
-  };
+        64: AvatarGetUserProxyAvatarWithoutRoomSize.$64,
+        512: AvatarGetUserProxyAvatarWithoutRoomSize.$512,
+      };
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomSize];
@@ -19093,16 +19099,14 @@ class _$AvatarGetUserProxyAvatarWithoutRoomSizeSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarWithoutRoomSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarWithoutRoomSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarWithoutRoomApiVersion extends EnumClass {
@@ -19151,16 +19155,14 @@ class _$AvatarGetUserProxyAvatarWithoutRoomApiVersionSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarWithoutRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarWithoutRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarWithoutRoomDarkTheme extends EnumClass {
@@ -19199,15 +19201,15 @@ class _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer
 
   static const Map<AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object> _toWire =
       <AvatarGetUserProxyAvatarWithoutRoomDarkTheme, Object>{
-    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0: 0,
-    AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1: 1,
-  };
+        AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0: 0,
+        AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1: 1,
+      };
 
   static const Map<Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme> _fromWire =
       <Object, AvatarGetUserProxyAvatarWithoutRoomDarkTheme>{
-    0: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0,
-    1: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1,
-  };
+        0: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$0,
+        1: AvatarGetUserProxyAvatarWithoutRoomDarkTheme.$1,
+      };
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarWithoutRoomDarkTheme];
@@ -19220,16 +19222,14 @@ class _$AvatarGetUserProxyAvatarWithoutRoomDarkThemeSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarWithoutRoomDarkTheme object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarWithoutRoomDarkTheme deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkWithoutRoomSize extends EnumClass {
@@ -19268,15 +19268,15 @@ class _$AvatarGetUserProxyAvatarDarkWithoutRoomSizeSerializer
 
   static const Map<AvatarGetUserProxyAvatarDarkWithoutRoomSize, Object> _toWire =
       <AvatarGetUserProxyAvatarDarkWithoutRoomSize, Object>{
-    AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64: 64,
-    AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512: 512,
-  };
+        AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64: 64,
+        AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512: 512,
+      };
 
   static const Map<Object, AvatarGetUserProxyAvatarDarkWithoutRoomSize> _fromWire =
       <Object, AvatarGetUserProxyAvatarDarkWithoutRoomSize>{
-    64: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64,
-    512: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512,
-  };
+        64: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$64,
+        512: AvatarGetUserProxyAvatarDarkWithoutRoomSize.$512,
+      };
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkWithoutRoomSize];
@@ -19289,16 +19289,14 @@ class _$AvatarGetUserProxyAvatarDarkWithoutRoomSizeSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarDarkWithoutRoomSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarDarkWithoutRoomSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion extends EnumClass {
@@ -19333,13 +19331,13 @@ class _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer
 
   static const Map<AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion, Object> _toWire =
       <AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion, Object>{
-    AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1: 'v1',
-  };
+        AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1: 'v1',
+      };
 
   static const Map<Object, AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion> _fromWire =
       <Object, AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion>{
-    'v1': AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1,
-  };
+        'v1': AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.v1,
+      };
 
   @override
   Iterable<Type> get types => const [AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion];
@@ -19352,16 +19350,14 @@ class _$AvatarGetUserProxyAvatarDarkWithoutRoomApiVersionSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarSize extends EnumClass {
@@ -19415,16 +19411,14 @@ class _$AvatarGetUserProxyAvatarSizeSerializer implements PrimitiveSerializer<Av
     Serializers serializers,
     AvatarGetUserProxyAvatarSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarApiVersion extends EnumClass {
@@ -19473,16 +19467,14 @@ class _$AvatarGetUserProxyAvatarApiVersionSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkTheme extends EnumClass {
@@ -19537,16 +19529,14 @@ class _$AvatarGetUserProxyAvatarDarkThemeSerializer implements PrimitiveSerializ
     Serializers serializers,
     AvatarGetUserProxyAvatarDarkTheme object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarDarkTheme deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkSize extends EnumClass {
@@ -19601,16 +19591,14 @@ class _$AvatarGetUserProxyAvatarDarkSizeSerializer implements PrimitiveSerialize
     Serializers serializers,
     AvatarGetUserProxyAvatarDarkSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarDarkSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetUserProxyAvatarDarkApiVersion extends EnumClass {
@@ -19658,16 +19646,14 @@ class _$AvatarGetUserProxyAvatarDarkApiVersionSerializer
     Serializers serializers,
     AvatarGetUserProxyAvatarDarkApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetUserProxyAvatarDarkApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class BanListBansApiVersion extends EnumClass {
@@ -19714,16 +19700,14 @@ class _$BanListBansApiVersionSerializer implements PrimitiveSerializer<BanListBa
     Serializers serializers,
     BanListBansApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BanListBansApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -19957,16 +19941,14 @@ class _$BanBanActorApiVersionSerializer implements PrimitiveSerializer<BanBanAct
     Serializers serializers,
     BanBanActorApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BanBanActorApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Type of actor to ban, or `ip` when banning a clients remote address.
@@ -20010,19 +19992,19 @@ class _$BanBanActorRequestApplicationJson_ActorTypeSerializer
 
   static const Map<BanBanActorRequestApplicationJson_ActorType, Object> _toWire =
       <BanBanActorRequestApplicationJson_ActorType, Object>{
-    BanBanActorRequestApplicationJson_ActorType.users: 'users',
-    BanBanActorRequestApplicationJson_ActorType.guests: 'guests',
-    BanBanActorRequestApplicationJson_ActorType.emails: 'emails',
-    BanBanActorRequestApplicationJson_ActorType.ip: 'ip',
-  };
+        BanBanActorRequestApplicationJson_ActorType.users: 'users',
+        BanBanActorRequestApplicationJson_ActorType.guests: 'guests',
+        BanBanActorRequestApplicationJson_ActorType.emails: 'emails',
+        BanBanActorRequestApplicationJson_ActorType.ip: 'ip',
+      };
 
   static const Map<Object, BanBanActorRequestApplicationJson_ActorType> _fromWire =
       <Object, BanBanActorRequestApplicationJson_ActorType>{
-    'users': BanBanActorRequestApplicationJson_ActorType.users,
-    'guests': BanBanActorRequestApplicationJson_ActorType.guests,
-    'emails': BanBanActorRequestApplicationJson_ActorType.emails,
-    'ip': BanBanActorRequestApplicationJson_ActorType.ip,
-  };
+        'users': BanBanActorRequestApplicationJson_ActorType.users,
+        'guests': BanBanActorRequestApplicationJson_ActorType.guests,
+        'emails': BanBanActorRequestApplicationJson_ActorType.emails,
+        'ip': BanBanActorRequestApplicationJson_ActorType.ip,
+      };
 
   @override
   Iterable<Type> get types => const [BanBanActorRequestApplicationJson_ActorType];
@@ -20035,16 +20017,14 @@ class _$BanBanActorRequestApplicationJson_ActorTypeSerializer
     Serializers serializers,
     BanBanActorRequestApplicationJson_ActorType object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BanBanActorRequestApplicationJson_ActorType deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20289,16 +20269,14 @@ class _$BanUnbanActorApiVersionSerializer implements PrimitiveSerializer<BanUnba
     Serializers serializers,
     BanUnbanActorApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BanUnbanActorApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20471,16 +20449,14 @@ class _$BotListBotsApiVersionSerializer implements PrimitiveSerializer<BotListBo
     Serializers serializers,
     BotListBotsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotListBotsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20709,16 +20685,14 @@ class _$BotEnableBotApiVersionSerializer implements PrimitiveSerializer<BotEnabl
     Serializers serializers,
     BotEnableBotApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotEnableBotApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20890,16 +20864,14 @@ class _$BotDisableBotApiVersionSerializer implements PrimitiveSerializer<BotDisa
     Serializers serializers,
     BotDisableBotApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotDisableBotApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21072,16 +21044,14 @@ class _$BotSendMessageApiVersionSerializer implements PrimitiveSerializer<BotSen
     Serializers serializers,
     BotSendMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotSendMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21333,16 +21303,14 @@ class _$BotReactApiVersionSerializer implements PrimitiveSerializer<BotReactApiV
     Serializers serializers,
     BotReactApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotReactApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21575,16 +21543,14 @@ class _$BotDeleteReactionApiVersionSerializer implements PrimitiveSerializer<Bot
     Serializers serializers,
     BotDeleteReactionApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotDeleteReactionApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21760,16 +21726,14 @@ class _$BreakoutRoomConfigureBreakoutRoomsApiVersionSerializer
     Serializers serializers,
     BreakoutRoomConfigureBreakoutRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomConfigureBreakoutRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Mode of the breakout rooms.
@@ -21821,19 +21785,19 @@ class _$BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_ModeSerializer
 
   static const Map<BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode, Object> _toWire =
       <BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode, Object>{
-    BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$0: 0,
-    BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$1: 1,
-    BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$2: 2,
-    BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$3: 3,
-  };
+        BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$0: 0,
+        BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$1: 1,
+        BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$2: 2,
+        BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$3: 3,
+      };
 
   static const Map<Object, BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode> _fromWire =
       <Object, BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode>{
-    0: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$0,
-    1: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$1,
-    2: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$2,
-    3: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$3,
-  };
+        0: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$0,
+        1: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$1,
+        2: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$2,
+        3: BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.$3,
+      };
 
   @override
   Iterable<Type> get types => const [BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode];
@@ -21846,16 +21810,14 @@ class _$BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_ModeSerializer
     Serializers serializers,
     BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -21895,8 +21857,10 @@ sealed class $BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonInterface 
 abstract class BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson
     implements
         $BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonInterface,
-        Built<BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson,
-            BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson,
+          BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson object using the builder pattern.
   factory BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson([
     void Function(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonBuilder)? b,
@@ -21960,8 +21924,10 @@ sealed class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInter
 abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs
     implements
         $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
-            BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs,
+          BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -22024,8 +21990,10 @@ sealed class $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface
 abstract class BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson
     implements
         $BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonInterface,
-        Built<BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
-            BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson,
+          BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder)? b,
@@ -22111,16 +22079,14 @@ class _$BreakoutRoomRemoveBreakoutRoomsApiVersionSerializer
     Serializers serializers,
     BreakoutRoomRemoveBreakoutRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomRemoveBreakoutRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22147,8 +22113,10 @@ sealed class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterfac
 abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs
     implements
         $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
-            BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs,
+          BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -22211,8 +22179,10 @@ sealed class $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface {
 abstract class BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson
     implements
         $BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonInterface,
-        Built<BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
-            BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson,
+          BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder)? b,
@@ -22298,16 +22268,14 @@ class _$BreakoutRoomBroadcastChatMessageApiVersionSerializer
     Serializers serializers,
     BreakoutRoomBroadcastChatMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomBroadcastChatMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22334,8 +22302,10 @@ sealed class $BreakoutRoomBroadcastChatMessageRequestApplicationJsonInterface {
 abstract class BreakoutRoomBroadcastChatMessageRequestApplicationJson
     implements
         $BreakoutRoomBroadcastChatMessageRequestApplicationJsonInterface,
-        Built<BreakoutRoomBroadcastChatMessageRequestApplicationJson,
-            BreakoutRoomBroadcastChatMessageRequestApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomBroadcastChatMessageRequestApplicationJson,
+          BreakoutRoomBroadcastChatMessageRequestApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomBroadcastChatMessageRequestApplicationJson object using the builder pattern.
   factory BreakoutRoomBroadcastChatMessageRequestApplicationJson([
     void Function(BreakoutRoomBroadcastChatMessageRequestApplicationJsonBuilder)? b,
@@ -22399,8 +22369,10 @@ sealed class $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterfa
 abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs
     implements
         $BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
-            BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs,
+          BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs([
     void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder)? b,
@@ -22463,8 +22435,10 @@ sealed class $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface {
 abstract class BreakoutRoomBroadcastChatMessageResponseApplicationJson
     implements
         $BreakoutRoomBroadcastChatMessageResponseApplicationJsonInterface,
-        Built<BreakoutRoomBroadcastChatMessageResponseApplicationJson,
-            BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomBroadcastChatMessageResponseApplicationJson,
+          BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomBroadcastChatMessageResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomBroadcastChatMessageResponseApplicationJson([
     void Function(BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder)? b,
@@ -22549,16 +22523,14 @@ class _$BreakoutRoomApplyAttendeeMapApiVersionSerializer
     Serializers serializers,
     BreakoutRoomApplyAttendeeMapApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomApplyAttendeeMapApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22585,8 +22557,10 @@ sealed class $BreakoutRoomApplyAttendeeMapRequestApplicationJsonInterface {
 abstract class BreakoutRoomApplyAttendeeMapRequestApplicationJson
     implements
         $BreakoutRoomApplyAttendeeMapRequestApplicationJsonInterface,
-        Built<BreakoutRoomApplyAttendeeMapRequestApplicationJson,
-            BreakoutRoomApplyAttendeeMapRequestApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomApplyAttendeeMapRequestApplicationJson,
+          BreakoutRoomApplyAttendeeMapRequestApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomApplyAttendeeMapRequestApplicationJson object using the builder pattern.
   factory BreakoutRoomApplyAttendeeMapRequestApplicationJson([
     void Function(BreakoutRoomApplyAttendeeMapRequestApplicationJsonBuilder)? b,
@@ -22650,8 +22624,10 @@ sealed class $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface {
 abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs
     implements
         $BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
-            BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs,
+          BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs([
     void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder)? b,
@@ -22714,8 +22690,10 @@ sealed class $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface {
 abstract class BreakoutRoomApplyAttendeeMapResponseApplicationJson
     implements
         $BreakoutRoomApplyAttendeeMapResponseApplicationJsonInterface,
-        Built<BreakoutRoomApplyAttendeeMapResponseApplicationJson,
-            BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomApplyAttendeeMapResponseApplicationJson,
+          BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomApplyAttendeeMapResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomApplyAttendeeMapResponseApplicationJson([
     void Function(BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder)? b,
@@ -22801,16 +22779,14 @@ class _$BreakoutRoomRequestAssistanceApiVersionSerializer
     Serializers serializers,
     BreakoutRoomRequestAssistanceApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomRequestAssistanceApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -22837,8 +22813,10 @@ sealed class $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface 
 abstract class BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs
     implements
         $BreakoutRoomRequestAssistanceResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
-            BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs,
+          BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs([
     void Function(BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder)? b,
@@ -22901,8 +22879,10 @@ sealed class $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface {
 abstract class BreakoutRoomRequestAssistanceResponseApplicationJson
     implements
         $BreakoutRoomRequestAssistanceResponseApplicationJsonInterface,
-        Built<BreakoutRoomRequestAssistanceResponseApplicationJson,
-            BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomRequestAssistanceResponseApplicationJson,
+          BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomRequestAssistanceResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomRequestAssistanceResponseApplicationJson([
     void Function(BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder)? b,
@@ -22973,13 +22953,13 @@ class _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer
 
   static const Map<BreakoutRoomResetRequestForAssistanceApiVersion, Object> _toWire =
       <BreakoutRoomResetRequestForAssistanceApiVersion, Object>{
-    BreakoutRoomResetRequestForAssistanceApiVersion.v1: 'v1',
-  };
+        BreakoutRoomResetRequestForAssistanceApiVersion.v1: 'v1',
+      };
 
   static const Map<Object, BreakoutRoomResetRequestForAssistanceApiVersion> _fromWire =
       <Object, BreakoutRoomResetRequestForAssistanceApiVersion>{
-    'v1': BreakoutRoomResetRequestForAssistanceApiVersion.v1,
-  };
+        'v1': BreakoutRoomResetRequestForAssistanceApiVersion.v1,
+      };
 
   @override
   Iterable<Type> get types => const [BreakoutRoomResetRequestForAssistanceApiVersion];
@@ -22992,16 +22972,14 @@ class _$BreakoutRoomResetRequestForAssistanceApiVersionSerializer
     Serializers serializers,
     BreakoutRoomResetRequestForAssistanceApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomResetRequestForAssistanceApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -23028,8 +23006,10 @@ sealed class $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsIn
 abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs
     implements
         $BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
-            BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs,
+          BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs([
     void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder)? b,
@@ -23092,8 +23072,10 @@ sealed class $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterf
 abstract class BreakoutRoomResetRequestForAssistanceResponseApplicationJson
     implements
         $BreakoutRoomResetRequestForAssistanceResponseApplicationJsonInterface,
-        Built<BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
-            BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomResetRequestForAssistanceResponseApplicationJson,
+          BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomResetRequestForAssistanceResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomResetRequestForAssistanceResponseApplicationJson([
     void Function(BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder)? b,
@@ -23179,16 +23161,14 @@ class _$BreakoutRoomStartBreakoutRoomsApiVersionSerializer
     Serializers serializers,
     BreakoutRoomStartBreakoutRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomStartBreakoutRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -23215,8 +23195,10 @@ sealed class $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface
 abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs
     implements
         $BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
-            BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs,
+          BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -23279,8 +23261,10 @@ sealed class $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface {
 abstract class BreakoutRoomStartBreakoutRoomsResponseApplicationJson
     implements
         $BreakoutRoomStartBreakoutRoomsResponseApplicationJsonInterface,
-        Built<BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
-            BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomStartBreakoutRoomsResponseApplicationJson,
+          BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomStartBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomStartBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder)? b,
@@ -23366,16 +23350,14 @@ class _$BreakoutRoomStopBreakoutRoomsApiVersionSerializer
     Serializers serializers,
     BreakoutRoomStopBreakoutRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomStopBreakoutRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -23402,8 +23384,10 @@ sealed class $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface 
 abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs
     implements
         $BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
-            BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs,
+          BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs([
     void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder)? b,
@@ -23466,8 +23450,10 @@ sealed class $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface {
 abstract class BreakoutRoomStopBreakoutRoomsResponseApplicationJson
     implements
         $BreakoutRoomStopBreakoutRoomsResponseApplicationJsonInterface,
-        Built<BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
-            BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomStopBreakoutRoomsResponseApplicationJson,
+          BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomStopBreakoutRoomsResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomStopBreakoutRoomsResponseApplicationJson([
     void Function(BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder)? b,
@@ -23553,16 +23539,14 @@ class _$BreakoutRoomSwitchBreakoutRoomApiVersionSerializer
     Serializers serializers,
     BreakoutRoomSwitchBreakoutRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BreakoutRoomSwitchBreakoutRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -23589,8 +23573,10 @@ sealed class $BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonInterface {
 abstract class BreakoutRoomSwitchBreakoutRoomRequestApplicationJson
     implements
         $BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonInterface,
-        Built<BreakoutRoomSwitchBreakoutRoomRequestApplicationJson,
-            BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomSwitchBreakoutRoomRequestApplicationJson,
+          BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomSwitchBreakoutRoomRequestApplicationJson object using the builder pattern.
   factory BreakoutRoomSwitchBreakoutRoomRequestApplicationJson([
     void Function(BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonBuilder)? b,
@@ -23654,8 +23640,10 @@ sealed class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface
 abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs
     implements
         $BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsInterface,
-        Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
-            BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs,
+          BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs([
     void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder)? b,
@@ -23718,8 +23706,10 @@ sealed class $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface {
 abstract class BreakoutRoomSwitchBreakoutRoomResponseApplicationJson
     implements
         $BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonInterface,
-        Built<BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
-            BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder> {
+        Built<
+          BreakoutRoomSwitchBreakoutRoomResponseApplicationJson,
+          BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new BreakoutRoomSwitchBreakoutRoomResponseApplicationJson object using the builder pattern.
   factory BreakoutRoomSwitchBreakoutRoomResponseApplicationJson([
     void Function(BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder)? b,
@@ -23790,13 +23780,13 @@ class _$CalendarIntegrationGetDashboardEventsApiVersionSerializer
 
   static const Map<CalendarIntegrationGetDashboardEventsApiVersion, Object> _toWire =
       <CalendarIntegrationGetDashboardEventsApiVersion, Object>{
-    CalendarIntegrationGetDashboardEventsApiVersion.v4: 'v4',
-  };
+        CalendarIntegrationGetDashboardEventsApiVersion.v4: 'v4',
+      };
 
   static const Map<Object, CalendarIntegrationGetDashboardEventsApiVersion> _fromWire =
       <Object, CalendarIntegrationGetDashboardEventsApiVersion>{
-    'v4': CalendarIntegrationGetDashboardEventsApiVersion.v4,
-  };
+        'v4': CalendarIntegrationGetDashboardEventsApiVersion.v4,
+      };
 
   @override
   Iterable<Type> get types => const [CalendarIntegrationGetDashboardEventsApiVersion];
@@ -23809,16 +23799,14 @@ class _$CalendarIntegrationGetDashboardEventsApiVersionSerializer
     Serializers serializers,
     CalendarIntegrationGetDashboardEventsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CalendarIntegrationGetDashboardEventsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24038,8 +24026,10 @@ sealed class $CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsIn
 abstract class CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs
     implements
         $CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsInterface,
-        Built<CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs,
-            CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder> {
+        Built<
+          CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs,
+          CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs object using the builder pattern.
   factory CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs([
     void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder)? b,
@@ -24102,8 +24092,10 @@ sealed class $CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterf
 abstract class CalendarIntegrationGetDashboardEventsResponseApplicationJson
     implements
         $CalendarIntegrationGetDashboardEventsResponseApplicationJsonInterface,
-        Built<CalendarIntegrationGetDashboardEventsResponseApplicationJson,
-            CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder> {
+        Built<
+          CalendarIntegrationGetDashboardEventsResponseApplicationJson,
+          CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder
+        > {
   /// Creates a new CalendarIntegrationGetDashboardEventsResponseApplicationJson object using the builder pattern.
   factory CalendarIntegrationGetDashboardEventsResponseApplicationJson([
     void Function(CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder)? b,
@@ -24189,16 +24181,14 @@ class _$CalendarIntegrationGetMutualEventsApiVersionSerializer
     Serializers serializers,
     CalendarIntegrationGetMutualEventsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CalendarIntegrationGetMutualEventsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24225,8 +24215,10 @@ sealed class $CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInter
 abstract class CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs
     implements
         $CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsInterface,
-        Built<CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs,
-            CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder> {
+        Built<
+          CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs,
+          CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs object using the builder pattern.
   factory CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs([
     void Function(CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder)? b,
@@ -24289,8 +24281,10 @@ sealed class $CalendarIntegrationGetMutualEventsResponseApplicationJsonInterface
 abstract class CalendarIntegrationGetMutualEventsResponseApplicationJson
     implements
         $CalendarIntegrationGetMutualEventsResponseApplicationJsonInterface,
-        Built<CalendarIntegrationGetMutualEventsResponseApplicationJson,
-            CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder> {
+        Built<
+          CalendarIntegrationGetMutualEventsResponseApplicationJson,
+          CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder
+        > {
   /// Creates a new CalendarIntegrationGetMutualEventsResponseApplicationJson object using the builder pattern.
   factory CalendarIntegrationGetMutualEventsResponseApplicationJson([
     void Function(CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder)? b,
@@ -24374,16 +24368,14 @@ class _$CallGetPeersForCallApiVersionSerializer implements PrimitiveSerializer<C
     Serializers serializers,
     CallGetPeersForCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallGetPeersForCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24616,16 +24608,14 @@ class _$CallUpdateCallFlagsApiVersionSerializer implements PrimitiveSerializer<C
     Serializers serializers,
     CallUpdateCallFlagsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallUpdateCallFlagsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24865,16 +24855,14 @@ class _$CallJoinCallApiVersionSerializer implements PrimitiveSerializer<CallJoin
     Serializers serializers,
     CallJoinCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallJoinCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24883,8 +24871,9 @@ sealed class $CallJoinCallRequestApplicationJsonInterface {
 
   static final _$recordingConsent = _$jsonSerializers.deserialize(false, specifiedType: const FullType(bool))! as bool;
 
-  static final _$silentFor = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+  static final _$silentFor =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
 
   /// In-Call flags.
   int? get flags;
@@ -25132,16 +25121,14 @@ class _$CallLeaveCallApiVersionSerializer implements PrimitiveSerializer<CallLea
     Serializers serializers,
     CallLeaveCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallLeaveCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class CallLeaveCallAll extends EnumClass {
@@ -25199,8 +25186,7 @@ class _$CallLeaveCallAllSerializer implements PrimitiveSerializer<CallLeaveCallA
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -25374,16 +25360,14 @@ class _$CallNotificationStateApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     CallNotificationStateApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallNotificationStateApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -25410,8 +25394,10 @@ sealed class $CallNotificationStateResponseApplicationJson_OcsInterface {
 abstract class CallNotificationStateResponseApplicationJson_Ocs
     implements
         $CallNotificationStateResponseApplicationJson_OcsInterface,
-        Built<CallNotificationStateResponseApplicationJson_Ocs,
-            CallNotificationStateResponseApplicationJson_OcsBuilder> {
+        Built<
+          CallNotificationStateResponseApplicationJson_Ocs,
+          CallNotificationStateResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CallNotificationStateResponseApplicationJson_Ocs object using the builder pattern.
   factory CallNotificationStateResponseApplicationJson_Ocs([
     void Function(CallNotificationStateResponseApplicationJson_OcsBuilder)? b,
@@ -25560,16 +25546,14 @@ class _$CallDownloadParticipantsForCallApiVersionSerializer
     Serializers serializers,
     CallDownloadParticipantsForCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallDownloadParticipantsForCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class CallDownloadParticipantsForCallFormat extends EnumClass {
@@ -25617,16 +25601,14 @@ class _$CallDownloadParticipantsForCallFormatSerializer
     Serializers serializers,
     CallDownloadParticipantsForCallFormat object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallDownloadParticipantsForCallFormat deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class CallUpdateFederatedCallFlagsApiVersion extends EnumClass {
@@ -25674,16 +25656,14 @@ class _$CallUpdateFederatedCallFlagsApiVersionSerializer
     Serializers serializers,
     CallUpdateFederatedCallFlagsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallUpdateFederatedCallFlagsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -25715,8 +25695,10 @@ sealed class $CallUpdateFederatedCallFlagsRequestApplicationJsonInterface {
 abstract class CallUpdateFederatedCallFlagsRequestApplicationJson
     implements
         $CallUpdateFederatedCallFlagsRequestApplicationJsonInterface,
-        Built<CallUpdateFederatedCallFlagsRequestApplicationJson,
-            CallUpdateFederatedCallFlagsRequestApplicationJsonBuilder> {
+        Built<
+          CallUpdateFederatedCallFlagsRequestApplicationJson,
+          CallUpdateFederatedCallFlagsRequestApplicationJsonBuilder
+        > {
   /// Creates a new CallUpdateFederatedCallFlagsRequestApplicationJson object using the builder pattern.
   factory CallUpdateFederatedCallFlagsRequestApplicationJson([
     void Function(CallUpdateFederatedCallFlagsRequestApplicationJsonBuilder)? b,
@@ -25780,8 +25762,10 @@ sealed class $CallUpdateFederatedCallFlagsResponseApplicationJson_OcsInterface {
 abstract class CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs
     implements
         $CallUpdateFederatedCallFlagsResponseApplicationJson_OcsInterface,
-        Built<CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs,
-            CallUpdateFederatedCallFlagsResponseApplicationJson_OcsBuilder> {
+        Built<
+          CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs,
+          CallUpdateFederatedCallFlagsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs object using the builder pattern.
   factory CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs([
     void Function(CallUpdateFederatedCallFlagsResponseApplicationJson_OcsBuilder)? b,
@@ -25844,8 +25828,10 @@ sealed class $CallUpdateFederatedCallFlagsResponseApplicationJsonInterface {
 abstract class CallUpdateFederatedCallFlagsResponseApplicationJson
     implements
         $CallUpdateFederatedCallFlagsResponseApplicationJsonInterface,
-        Built<CallUpdateFederatedCallFlagsResponseApplicationJson,
-            CallUpdateFederatedCallFlagsResponseApplicationJsonBuilder> {
+        Built<
+          CallUpdateFederatedCallFlagsResponseApplicationJson,
+          CallUpdateFederatedCallFlagsResponseApplicationJsonBuilder
+        > {
   /// Creates a new CallUpdateFederatedCallFlagsResponseApplicationJson object using the builder pattern.
   factory CallUpdateFederatedCallFlagsResponseApplicationJson([
     void Function(CallUpdateFederatedCallFlagsResponseApplicationJsonBuilder)? b,
@@ -25930,16 +25916,14 @@ class _$CallJoinFederatedCallApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     CallJoinFederatedCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallJoinFederatedCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -26049,8 +26033,10 @@ sealed class $CallJoinFederatedCallResponseApplicationJson_OcsInterface {
 abstract class CallJoinFederatedCallResponseApplicationJson_Ocs
     implements
         $CallJoinFederatedCallResponseApplicationJson_OcsInterface,
-        Built<CallJoinFederatedCallResponseApplicationJson_Ocs,
-            CallJoinFederatedCallResponseApplicationJson_OcsBuilder> {
+        Built<
+          CallJoinFederatedCallResponseApplicationJson_Ocs,
+          CallJoinFederatedCallResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CallJoinFederatedCallResponseApplicationJson_Ocs object using the builder pattern.
   factory CallJoinFederatedCallResponseApplicationJson_Ocs([
     void Function(CallJoinFederatedCallResponseApplicationJson_OcsBuilder)? b,
@@ -26198,16 +26184,14 @@ class _$CallLeaveFederatedCallApiVersionSerializer implements PrimitiveSerialize
     Serializers serializers,
     CallLeaveFederatedCallApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallLeaveFederatedCallApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -26234,8 +26218,10 @@ sealed class $CallLeaveFederatedCallResponseApplicationJson_OcsInterface {
 abstract class CallLeaveFederatedCallResponseApplicationJson_Ocs
     implements
         $CallLeaveFederatedCallResponseApplicationJson_OcsInterface,
-        Built<CallLeaveFederatedCallResponseApplicationJson_Ocs,
-            CallLeaveFederatedCallResponseApplicationJson_OcsBuilder> {
+        Built<
+          CallLeaveFederatedCallResponseApplicationJson_Ocs,
+          CallLeaveFederatedCallResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CallLeaveFederatedCallResponseApplicationJson_Ocs object using the builder pattern.
   factory CallLeaveFederatedCallResponseApplicationJson_Ocs([
     void Function(CallLeaveFederatedCallResponseApplicationJson_OcsBuilder)? b,
@@ -26382,16 +26368,14 @@ class _$CallRingAttendeeApiVersionSerializer implements PrimitiveSerializer<Call
     Serializers serializers,
     CallRingAttendeeApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallRingAttendeeApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -26564,16 +26548,14 @@ class _$CallSipDialOutApiVersionSerializer implements PrimitiveSerializer<CallSi
     Serializers serializers,
     CallSipDialOutApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CallSipDialOutApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -26754,16 +26736,14 @@ class _$ChatReceiveMessagesLookIntoFutureSerializer implements PrimitiveSerializ
     Serializers serializers,
     ChatReceiveMessagesLookIntoFuture object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesLookIntoFuture deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesApiVersion extends EnumClass {
@@ -26810,16 +26790,14 @@ class _$ChatReceiveMessagesApiVersionSerializer implements PrimitiveSerializer<C
     Serializers serializers,
     ChatReceiveMessagesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesSetReadMarker extends EnumClass {
@@ -26874,16 +26852,14 @@ class _$ChatReceiveMessagesSetReadMarkerSerializer implements PrimitiveSerialize
     Serializers serializers,
     ChatReceiveMessagesSetReadMarker object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesSetReadMarker deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesIncludeLastKnown extends EnumClass {
@@ -26925,9 +26901,9 @@ class _$ChatReceiveMessagesIncludeLastKnownSerializer
 
   static const Map<Object, ChatReceiveMessagesIncludeLastKnown> _fromWire =
       <Object, ChatReceiveMessagesIncludeLastKnown>{
-    0: ChatReceiveMessagesIncludeLastKnown.$0,
-    1: ChatReceiveMessagesIncludeLastKnown.$1,
-  };
+        0: ChatReceiveMessagesIncludeLastKnown.$0,
+        1: ChatReceiveMessagesIncludeLastKnown.$1,
+      };
 
   @override
   Iterable<Type> get types => const [ChatReceiveMessagesIncludeLastKnown];
@@ -26940,16 +26916,14 @@ class _$ChatReceiveMessagesIncludeLastKnownSerializer
     Serializers serializers,
     ChatReceiveMessagesIncludeLastKnown object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesIncludeLastKnown deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesNoStatusUpdate extends EnumClass {
@@ -27004,16 +26978,14 @@ class _$ChatReceiveMessagesNoStatusUpdateSerializer implements PrimitiveSerializ
     Serializers serializers,
     ChatReceiveMessagesNoStatusUpdate object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesNoStatusUpdate deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatReceiveMessagesMarkNotificationsAsRead extends EnumClass {
@@ -27052,15 +27024,15 @@ class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
 
   static const Map<ChatReceiveMessagesMarkNotificationsAsRead, Object> _toWire =
       <ChatReceiveMessagesMarkNotificationsAsRead, Object>{
-    ChatReceiveMessagesMarkNotificationsAsRead.$0: 0,
-    ChatReceiveMessagesMarkNotificationsAsRead.$1: 1,
-  };
+        ChatReceiveMessagesMarkNotificationsAsRead.$0: 0,
+        ChatReceiveMessagesMarkNotificationsAsRead.$1: 1,
+      };
 
   static const Map<Object, ChatReceiveMessagesMarkNotificationsAsRead> _fromWire =
       <Object, ChatReceiveMessagesMarkNotificationsAsRead>{
-    0: ChatReceiveMessagesMarkNotificationsAsRead.$0,
-    1: ChatReceiveMessagesMarkNotificationsAsRead.$1,
-  };
+        0: ChatReceiveMessagesMarkNotificationsAsRead.$0,
+        1: ChatReceiveMessagesMarkNotificationsAsRead.$1,
+      };
 
   @override
   Iterable<Type> get types => const [ChatReceiveMessagesMarkNotificationsAsRead];
@@ -27073,16 +27045,14 @@ class _$ChatReceiveMessagesMarkNotificationsAsReadSerializer
     Serializers serializers,
     ChatReceiveMessagesMarkNotificationsAsRead object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatReceiveMessagesMarkNotificationsAsRead deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class DeletedChatMessage_Deleted extends EnumClass {
@@ -27130,16 +27100,14 @@ class _$DeletedChatMessage_DeletedSerializer implements PrimitiveSerializer<Dele
     Serializers serializers,
     DeletedChatMessage_Deleted object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   DeletedChatMessage_Deleted deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -27500,16 +27468,14 @@ class _$ChatSendMessageApiVersionSerializer implements PrimitiveSerializer<ChatS
     Serializers serializers,
     ChatSendMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatSendMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -27833,16 +27799,14 @@ class _$ChatClearHistoryApiVersionSerializer implements PrimitiveSerializer<Chat
     Serializers serializers,
     ChatClearHistoryApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatClearHistoryApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28075,16 +28039,14 @@ class _$ChatSummarizeChatApiVersionSerializer implements PrimitiveSerializer<Cha
     Serializers serializers,
     ChatSummarizeChatApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatSummarizeChatApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28176,8 +28138,10 @@ sealed class $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface {
 abstract class ChatSummarizeChatResponseApplicationJson_Ocs_Data
     implements
         $ChatSummarizeChatResponseApplicationJson_Ocs_DataInterface,
-        Built<ChatSummarizeChatResponseApplicationJson_Ocs_Data,
-            ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ChatSummarizeChatResponseApplicationJson_Ocs_Data,
+          ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ChatSummarizeChatResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ChatSummarizeChatResponseApplicationJson_Ocs_Data([
     void Function(ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -28388,16 +28352,14 @@ class _$ChatEditMessageApiVersionSerializer implements PrimitiveSerializer<ChatE
     Serializers serializers,
     ChatEditMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatEditMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28693,16 +28655,14 @@ class _$ChatDeleteMessageApiVersionSerializer implements PrimitiveSerializer<Cha
     Serializers serializers,
     ChatDeleteMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatDeleteMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28937,16 +28897,14 @@ class _$ChatGetMessageContextApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     ChatGetMessageContextApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatGetMessageContextApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28973,8 +28931,10 @@ sealed class $ChatGetMessageContextResponseApplicationJson_OcsInterface {
 abstract class ChatGetMessageContextResponseApplicationJson_Ocs
     implements
         $ChatGetMessageContextResponseApplicationJson_OcsInterface,
-        Built<ChatGetMessageContextResponseApplicationJson_Ocs,
-            ChatGetMessageContextResponseApplicationJson_OcsBuilder> {
+        Built<
+          ChatGetMessageContextResponseApplicationJson_Ocs,
+          ChatGetMessageContextResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ChatGetMessageContextResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetMessageContextResponseApplicationJson_Ocs([
     void Function(ChatGetMessageContextResponseApplicationJson_OcsBuilder)? b,
@@ -29185,16 +29145,14 @@ class _$ChatGetReminderApiVersionSerializer implements PrimitiveSerializer<ChatG
     Serializers serializers,
     ChatGetReminderApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatGetReminderApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -29424,16 +29382,14 @@ class _$ChatSetReminderApiVersionSerializer implements PrimitiveSerializer<ChatS
     Serializers serializers,
     ChatSetReminderApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatSetReminderApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -29671,16 +29627,14 @@ class _$ChatDeleteReminderApiVersionSerializer implements PrimitiveSerializer<Ch
     Serializers serializers,
     ChatDeleteReminderApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatDeleteReminderApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -29706,8 +29660,10 @@ sealed class $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface {
 abstract class ChatDeleteReminderResponseApplicationJson_Ocs_Data
     implements
         $ChatDeleteReminderResponseApplicationJson_Ocs_DataInterface,
-        Built<ChatDeleteReminderResponseApplicationJson_Ocs_Data,
-            ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ChatDeleteReminderResponseApplicationJson_Ocs_Data,
+          ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ChatDeleteReminderResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ChatDeleteReminderResponseApplicationJson_Ocs_Data([
     void Function(ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -29920,16 +29876,14 @@ class _$ChatGetUpcomingRemindersApiVersionSerializer
     Serializers serializers,
     ChatGetUpcomingRemindersApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatGetUpcomingRemindersApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -30019,8 +29973,10 @@ sealed class $ChatGetUpcomingRemindersResponseApplicationJson_OcsInterface {
 abstract class ChatGetUpcomingRemindersResponseApplicationJson_Ocs
     implements
         $ChatGetUpcomingRemindersResponseApplicationJson_OcsInterface,
-        Built<ChatGetUpcomingRemindersResponseApplicationJson_Ocs,
-            ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder> {
+        Built<
+          ChatGetUpcomingRemindersResponseApplicationJson_Ocs,
+          ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ChatGetUpcomingRemindersResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetUpcomingRemindersResponseApplicationJson_Ocs([
     void Function(ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder)? b,
@@ -30167,16 +30123,14 @@ class _$ChatSetReadMarkerApiVersionSerializer implements PrimitiveSerializer<Cha
     Serializers serializers,
     ChatSetReadMarkerApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatSetReadMarkerApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -30475,16 +30429,14 @@ class _$ChatMarkUnreadApiVersionSerializer implements PrimitiveSerializer<ChatMa
     Serializers serializers,
     ChatMarkUnreadApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatMarkUnreadApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -30714,16 +30666,14 @@ class _$ChatMentionsApiVersionSerializer implements PrimitiveSerializer<ChatMent
     Serializers serializers,
     ChatMentionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatMentionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ChatMentionsIncludeStatus extends EnumClass {
@@ -30777,16 +30727,14 @@ class _$ChatMentionsIncludeStatusSerializer implements PrimitiveSerializer<ChatM
     Serializers serializers,
     ChatMentionsIncludeStatus object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatMentionsIncludeStatus deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -31023,16 +30971,14 @@ class _$ChatGetObjectsSharedInRoomApiVersionSerializer
     Serializers serializers,
     ChatGetObjectsSharedInRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatGetObjectsSharedInRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -31059,8 +31005,10 @@ sealed class $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface {
 abstract class ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs
     implements
         $ChatGetObjectsSharedInRoomResponseApplicationJson_OcsInterface,
-        Built<ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
-            ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs,
+          ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs([
     void Function(ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder)? b,
@@ -31123,8 +31071,10 @@ sealed class $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface {
 abstract class ChatGetObjectsSharedInRoomResponseApplicationJson
     implements
         $ChatGetObjectsSharedInRoomResponseApplicationJsonInterface,
-        Built<ChatGetObjectsSharedInRoomResponseApplicationJson,
-            ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder> {
+        Built<
+          ChatGetObjectsSharedInRoomResponseApplicationJson,
+          ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new ChatGetObjectsSharedInRoomResponseApplicationJson object using the builder pattern.
   factory ChatGetObjectsSharedInRoomResponseApplicationJson([
     void Function(ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder)? b,
@@ -31272,16 +31222,14 @@ class _$ChatShareObjectToChatApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     ChatShareObjectToChatApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatShareObjectToChatApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -31395,8 +31343,10 @@ sealed class $ChatShareObjectToChatResponseApplicationJson_OcsInterface {
 abstract class ChatShareObjectToChatResponseApplicationJson_Ocs
     implements
         $ChatShareObjectToChatResponseApplicationJson_OcsInterface,
-        Built<ChatShareObjectToChatResponseApplicationJson_Ocs,
-            ChatShareObjectToChatResponseApplicationJson_OcsBuilder> {
+        Built<
+          ChatShareObjectToChatResponseApplicationJson_Ocs,
+          ChatShareObjectToChatResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ChatShareObjectToChatResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatShareObjectToChatResponseApplicationJson_Ocs([
     void Function(ChatShareObjectToChatResponseApplicationJson_OcsBuilder)? b,
@@ -31607,16 +31557,14 @@ class _$ChatGetObjectsSharedInRoomOverviewApiVersionSerializer
     Serializers serializers,
     ChatGetObjectsSharedInRoomOverviewApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ChatGetObjectsSharedInRoomOverviewApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -31643,8 +31591,10 @@ sealed class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInter
 abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs
     implements
         $ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsInterface,
-        Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
-            ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder> {
+        Built<
+          ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs,
+          ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs object using the builder pattern.
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs([
     void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder)? b,
@@ -31707,8 +31657,10 @@ sealed class $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface
 abstract class ChatGetObjectsSharedInRoomOverviewResponseApplicationJson
     implements
         $ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonInterface,
-        Built<ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
-            ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder> {
+        Built<
+          ChatGetObjectsSharedInRoomOverviewResponseApplicationJson,
+          ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder
+        > {
   /// Creates a new ChatGetObjectsSharedInRoomOverviewResponseApplicationJson object using the builder pattern.
   factory ChatGetObjectsSharedInRoomOverviewResponseApplicationJson([
     void Function(ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder)? b,
@@ -31793,16 +31745,14 @@ class _$SignalingGetSettingsApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     SignalingGetSettingsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SignalingGetSettingsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -31930,10 +31880,8 @@ abstract class SignalingFederationSettings
   }
 }
 
-typedef SignalingSettings_Federation = ({
-  BuiltList<Never>? builtListNever,
-  SignalingFederationSettings? signalingFederationSettings,
-});
+typedef SignalingSettings_Federation =
+    ({BuiltList<Never>? builtListNever, SignalingFederationSettings? signalingFederationSettings});
 
 @BuiltValue(instantiable: false)
 sealed class $SignalingSettings_HelloAuthParams_10Interface {
@@ -32486,16 +32434,14 @@ class _$FederationAcceptShareApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     FederationAcceptShareApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   FederationAcceptShareApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -32522,8 +32468,10 @@ sealed class $FederationAcceptShareResponseApplicationJson_OcsInterface {
 abstract class FederationAcceptShareResponseApplicationJson_Ocs
     implements
         $FederationAcceptShareResponseApplicationJson_OcsInterface,
-        Built<FederationAcceptShareResponseApplicationJson_Ocs,
-            FederationAcceptShareResponseApplicationJson_OcsBuilder> {
+        Built<
+          FederationAcceptShareResponseApplicationJson_Ocs,
+          FederationAcceptShareResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new FederationAcceptShareResponseApplicationJson_Ocs object using the builder pattern.
   factory FederationAcceptShareResponseApplicationJson_Ocs([
     void Function(FederationAcceptShareResponseApplicationJson_OcsBuilder)? b,
@@ -32671,16 +32619,14 @@ class _$FederationRejectShareApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     FederationRejectShareApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   FederationRejectShareApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -32707,8 +32653,10 @@ sealed class $FederationRejectShareResponseApplicationJson_OcsInterface {
 abstract class FederationRejectShareResponseApplicationJson_Ocs
     implements
         $FederationRejectShareResponseApplicationJson_OcsInterface,
-        Built<FederationRejectShareResponseApplicationJson_Ocs,
-            FederationRejectShareResponseApplicationJson_OcsBuilder> {
+        Built<
+          FederationRejectShareResponseApplicationJson_Ocs,
+          FederationRejectShareResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new FederationRejectShareResponseApplicationJson_Ocs object using the builder pattern.
   factory FederationRejectShareResponseApplicationJson_Ocs([
     void Function(FederationRejectShareResponseApplicationJson_OcsBuilder)? b,
@@ -32855,16 +32803,14 @@ class _$FederationGetSharesApiVersionSerializer implements PrimitiveSerializer<F
     Serializers serializers,
     FederationGetSharesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   FederationGetSharesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -33105,16 +33051,14 @@ class _$FilesIntegrationGetRoomByFileIdApiVersionSerializer
     Serializers serializers,
     FilesIntegrationGetRoomByFileIdApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   FilesIntegrationGetRoomByFileIdApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -33140,8 +33084,10 @@ sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInt
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data
     implements
         $FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataInterface,
-        Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
-            FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data,
+          FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -33205,8 +33151,10 @@ sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterfac
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs
     implements
         $FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsInterface,
-        Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
-            FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder> {
+        Built<
+          FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs,
+          FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder)? b,
@@ -33269,8 +33217,10 @@ sealed class $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface {
 abstract class FilesIntegrationGetRoomByFileIdResponseApplicationJson
     implements
         $FilesIntegrationGetRoomByFileIdResponseApplicationJsonInterface,
-        Built<FilesIntegrationGetRoomByFileIdResponseApplicationJson,
-            FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder> {
+        Built<
+          FilesIntegrationGetRoomByFileIdResponseApplicationJson,
+          FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByFileIdResponseApplicationJson object using the builder pattern.
   factory FilesIntegrationGetRoomByFileIdResponseApplicationJson([
     void Function(FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder)? b,
@@ -33356,16 +33306,14 @@ class _$FilesIntegrationGetRoomByShareTokenApiVersionSerializer
     Serializers serializers,
     FilesIntegrationGetRoomByShareTokenApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   FilesIntegrationGetRoomByShareTokenApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -33393,8 +33341,10 @@ sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Dat
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data
     implements
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataInterface,
-        Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
-            FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data,
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -33458,8 +33408,10 @@ sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInte
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs
     implements
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsInterface,
-        Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
-            FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder> {
+        Built<
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs,
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder)? b,
@@ -33522,8 +33474,10 @@ sealed class $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterfac
 abstract class FilesIntegrationGetRoomByShareTokenResponseApplicationJson
     implements
         $FilesIntegrationGetRoomByShareTokenResponseApplicationJsonInterface,
-        Built<FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
-            FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder> {
+        Built<
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJson,
+          FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder
+        > {
   /// Creates a new FilesIntegrationGetRoomByShareTokenResponseApplicationJson object using the builder pattern.
   factory FilesIntegrationGetRoomByShareTokenResponseApplicationJson([
     void Function(FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder)? b,
@@ -33608,16 +33562,14 @@ class _$PublicShareAuthCreateRoomApiVersionSerializer
     Serializers serializers,
     PublicShareAuthCreateRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PublicShareAuthCreateRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -33709,8 +33661,10 @@ sealed class $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface
 abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data
     implements
         $PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
-            PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data,
+          PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data([
     void Function(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -33774,8 +33728,10 @@ sealed class $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface {
 abstract class PublicShareAuthCreateRoomResponseApplicationJson_Ocs
     implements
         $PublicShareAuthCreateRoomResponseApplicationJson_OcsInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
-            PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          PublicShareAuthCreateRoomResponseApplicationJson_Ocs,
+          PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson_Ocs([
     void Function(PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder)? b,
@@ -33838,8 +33794,10 @@ sealed class $PublicShareAuthCreateRoomResponseApplicationJsonInterface {
 abstract class PublicShareAuthCreateRoomResponseApplicationJson
     implements
         $PublicShareAuthCreateRoomResponseApplicationJsonInterface,
-        Built<PublicShareAuthCreateRoomResponseApplicationJson,
-            PublicShareAuthCreateRoomResponseApplicationJsonBuilder> {
+        Built<
+          PublicShareAuthCreateRoomResponseApplicationJson,
+          PublicShareAuthCreateRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new PublicShareAuthCreateRoomResponseApplicationJson object using the builder pattern.
   factory PublicShareAuthCreateRoomResponseApplicationJson([
     void Function(PublicShareAuthCreateRoomResponseApplicationJsonBuilder)? b,
@@ -33923,16 +33881,14 @@ class _$GuestSetDisplayNameApiVersionSerializer implements PrimitiveSerializer<G
     Serializers serializers,
     GuestSetDisplayNameApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   GuestSetDisplayNameApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -34172,16 +34128,14 @@ class _$HostedSignalingServerRequestTrialApiVersionSerializer
     Serializers serializers,
     HostedSignalingServerRequestTrialApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   HostedSignalingServerRequestTrialApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -34220,8 +34174,10 @@ sealed class $HostedSignalingServerRequestTrialRequestApplicationJsonInterface {
 abstract class HostedSignalingServerRequestTrialRequestApplicationJson
     implements
         $HostedSignalingServerRequestTrialRequestApplicationJsonInterface,
-        Built<HostedSignalingServerRequestTrialRequestApplicationJson,
-            HostedSignalingServerRequestTrialRequestApplicationJsonBuilder> {
+        Built<
+          HostedSignalingServerRequestTrialRequestApplicationJson,
+          HostedSignalingServerRequestTrialRequestApplicationJsonBuilder
+        > {
   /// Creates a new HostedSignalingServerRequestTrialRequestApplicationJson object using the builder pattern.
   factory HostedSignalingServerRequestTrialRequestApplicationJson([
     void Function(HostedSignalingServerRequestTrialRequestApplicationJsonBuilder)? b,
@@ -34285,8 +34241,10 @@ sealed class $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterf
 abstract class HostedSignalingServerRequestTrialResponseApplicationJson_Ocs
     implements
         $HostedSignalingServerRequestTrialResponseApplicationJson_OcsInterface,
-        Built<HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
-            HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder> {
+        Built<
+          HostedSignalingServerRequestTrialResponseApplicationJson_Ocs,
+          HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new HostedSignalingServerRequestTrialResponseApplicationJson_Ocs object using the builder pattern.
   factory HostedSignalingServerRequestTrialResponseApplicationJson_Ocs([
     void Function(HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder)? b,
@@ -34349,8 +34307,10 @@ sealed class $HostedSignalingServerRequestTrialResponseApplicationJsonInterface 
 abstract class HostedSignalingServerRequestTrialResponseApplicationJson
     implements
         $HostedSignalingServerRequestTrialResponseApplicationJsonInterface,
-        Built<HostedSignalingServerRequestTrialResponseApplicationJson,
-            HostedSignalingServerRequestTrialResponseApplicationJsonBuilder> {
+        Built<
+          HostedSignalingServerRequestTrialResponseApplicationJson,
+          HostedSignalingServerRequestTrialResponseApplicationJsonBuilder
+        > {
   /// Creates a new HostedSignalingServerRequestTrialResponseApplicationJson object using the builder pattern.
   factory HostedSignalingServerRequestTrialResponseApplicationJson([
     void Function(HostedSignalingServerRequestTrialResponseApplicationJsonBuilder)? b,
@@ -34436,16 +34396,14 @@ class _$HostedSignalingServerDeleteAccountApiVersionSerializer
     Serializers serializers,
     HostedSignalingServerDeleteAccountApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   HostedSignalingServerDeleteAccountApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class SignalingPullMessagesApiVersion extends EnumClass {
@@ -34493,16 +34451,14 @@ class _$SignalingPullMessagesApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     SignalingPullMessagesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SignalingPullMessagesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -34567,10 +34523,8 @@ abstract class SignalingSession
   }
 }
 
-typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data = ({
-  BuiltList<SignalingSession>? builtListSignalingSession,
-  String? string,
-});
+typedef SignalingPullMessagesResponseApplicationJson_Ocs_Data_Data =
+    ({BuiltList<SignalingSession>? builtListSignalingSession, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
@@ -34598,8 +34552,10 @@ sealed class $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface {
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs_Data
     implements
         $SignalingPullMessagesResponseApplicationJson_Ocs_DataInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs_Data,
-            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          SignalingPullMessagesResponseApplicationJson_Ocs_Data,
+          SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory SignalingPullMessagesResponseApplicationJson_Ocs_Data([
     void Function(SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -34663,8 +34619,10 @@ sealed class $SignalingPullMessagesResponseApplicationJson_OcsInterface {
 abstract class SignalingPullMessagesResponseApplicationJson_Ocs
     implements
         $SignalingPullMessagesResponseApplicationJson_OcsInterface,
-        Built<SignalingPullMessagesResponseApplicationJson_Ocs,
-            SignalingPullMessagesResponseApplicationJson_OcsBuilder> {
+        Built<
+          SignalingPullMessagesResponseApplicationJson_Ocs,
+          SignalingPullMessagesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SignalingPullMessagesResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingPullMessagesResponseApplicationJson_Ocs([
     void Function(SignalingPullMessagesResponseApplicationJson_OcsBuilder)? b,
@@ -34812,16 +34770,14 @@ class _$SignalingSendMessagesApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     SignalingSendMessagesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SignalingSendMessagesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -34912,8 +34868,10 @@ sealed class $SignalingSendMessagesResponseApplicationJson_OcsInterface {
 abstract class SignalingSendMessagesResponseApplicationJson_Ocs
     implements
         $SignalingSendMessagesResponseApplicationJson_OcsInterface,
-        Built<SignalingSendMessagesResponseApplicationJson_Ocs,
-            SignalingSendMessagesResponseApplicationJson_OcsBuilder> {
+        Built<
+          SignalingSendMessagesResponseApplicationJson_Ocs,
+          SignalingSendMessagesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SignalingSendMessagesResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingSendMessagesResponseApplicationJson_Ocs([
     void Function(SignalingSendMessagesResponseApplicationJson_OcsBuilder)? b,
@@ -35061,16 +35019,14 @@ class _$MatterbridgeGetBridgeOfRoomApiVersionSerializer
     Serializers serializers,
     MatterbridgeGetBridgeOfRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeGetBridgeOfRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -35275,8 +35231,10 @@ sealed class $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface {
 abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs
     implements
         $MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
-            MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs,
+          MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
@@ -35339,8 +35297,10 @@ sealed class $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface {
 abstract class MatterbridgeGetBridgeOfRoomResponseApplicationJson
     implements
         $MatterbridgeGetBridgeOfRoomResponseApplicationJsonInterface,
-        Built<MatterbridgeGetBridgeOfRoomResponseApplicationJson,
-            MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeGetBridgeOfRoomResponseApplicationJson,
+          MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeGetBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeGetBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder)? b,
@@ -35425,26 +35385,26 @@ class _$MatterbridgeEditBridgeOfRoomApiVersionSerializer
     Serializers serializers,
     MatterbridgeEditBridgeOfRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeEditBridgeOfRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $MatterbridgeEditBridgeOfRoomRequestApplicationJsonInterface {
-  static final _$parts = _$jsonSerializers.deserialize(
-    const [],
-    specifiedType: const FullType(BuiltList, [
-      FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-    ]),
-  )! as BuiltList<BuiltMap<String, JsonObject>>;
+  static final _$parts =
+      _$jsonSerializers.deserialize(
+            const [],
+            specifiedType: const FullType(BuiltList, [
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ]),
+          )!
+          as BuiltList<BuiltMap<String, JsonObject>>;
 
   /// If the bridge should be enabled.
   bool get enabled;
@@ -35474,8 +35434,10 @@ sealed class $MatterbridgeEditBridgeOfRoomRequestApplicationJsonInterface {
 abstract class MatterbridgeEditBridgeOfRoomRequestApplicationJson
     implements
         $MatterbridgeEditBridgeOfRoomRequestApplicationJsonInterface,
-        Built<MatterbridgeEditBridgeOfRoomRequestApplicationJson,
-            MatterbridgeEditBridgeOfRoomRequestApplicationJsonBuilder> {
+        Built<
+          MatterbridgeEditBridgeOfRoomRequestApplicationJson,
+          MatterbridgeEditBridgeOfRoomRequestApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeEditBridgeOfRoomRequestApplicationJson object using the builder pattern.
   factory MatterbridgeEditBridgeOfRoomRequestApplicationJson([
     void Function(MatterbridgeEditBridgeOfRoomRequestApplicationJsonBuilder)? b,
@@ -35539,8 +35501,10 @@ sealed class $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface {
 abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs
     implements
         $MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
-            MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs,
+          MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
@@ -35603,8 +35567,10 @@ sealed class $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface {
 abstract class MatterbridgeEditBridgeOfRoomResponseApplicationJson
     implements
         $MatterbridgeEditBridgeOfRoomResponseApplicationJsonInterface,
-        Built<MatterbridgeEditBridgeOfRoomResponseApplicationJson,
-            MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeEditBridgeOfRoomResponseApplicationJson,
+          MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeEditBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeEditBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder)? b,
@@ -35690,16 +35656,14 @@ class _$MatterbridgeDeleteBridgeOfRoomApiVersionSerializer
     Serializers serializers,
     MatterbridgeDeleteBridgeOfRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeDeleteBridgeOfRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -35726,8 +35690,10 @@ sealed class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface
 abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs
     implements
         $MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
-            MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs,
+          MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs([
     void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder)? b,
@@ -35790,8 +35756,10 @@ sealed class $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface {
 abstract class MatterbridgeDeleteBridgeOfRoomResponseApplicationJson
     implements
         $MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonInterface,
-        Built<MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
-            MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeDeleteBridgeOfRoomResponseApplicationJson,
+          MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeDeleteBridgeOfRoomResponseApplicationJson object using the builder pattern.
   factory MatterbridgeDeleteBridgeOfRoomResponseApplicationJson([
     void Function(MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder)? b,
@@ -35877,16 +35845,14 @@ class _$MatterbridgeGetBridgeProcessStateApiVersionSerializer
     Serializers serializers,
     MatterbridgeGetBridgeProcessStateApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeGetBridgeProcessStateApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -35913,8 +35879,10 @@ sealed class $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterf
 abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs
     implements
         $MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
-            MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs,
+          MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs([
     void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder)? b,
@@ -35977,8 +35945,10 @@ sealed class $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface 
 abstract class MatterbridgeGetBridgeProcessStateResponseApplicationJson
     implements
         $MatterbridgeGetBridgeProcessStateResponseApplicationJsonInterface,
-        Built<MatterbridgeGetBridgeProcessStateResponseApplicationJson,
-            MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeGetBridgeProcessStateResponseApplicationJson,
+          MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeGetBridgeProcessStateResponseApplicationJson object using the builder pattern.
   factory MatterbridgeGetBridgeProcessStateResponseApplicationJson([
     void Function(MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder)? b,
@@ -36064,16 +36034,14 @@ class _$MatterbridgeSettingsStopAllBridgesApiVersionSerializer
     Serializers serializers,
     MatterbridgeSettingsStopAllBridgesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeSettingsStopAllBridgesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -36100,8 +36068,10 @@ sealed class $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInter
 abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs
     implements
         $MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
-            MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs,
+          MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs([
     void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder)? b,
@@ -36164,8 +36134,10 @@ sealed class $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface
 abstract class MatterbridgeSettingsStopAllBridgesResponseApplicationJson
     implements
         $MatterbridgeSettingsStopAllBridgesResponseApplicationJsonInterface,
-        Built<MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
-            MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeSettingsStopAllBridgesResponseApplicationJson,
+          MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeSettingsStopAllBridgesResponseApplicationJson object using the builder pattern.
   factory MatterbridgeSettingsStopAllBridgesResponseApplicationJson([
     void Function(MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder)? b,
@@ -36237,13 +36209,13 @@ class _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer
 
   static const Map<MatterbridgeSettingsGetMatterbridgeVersionApiVersion, Object> _toWire =
       <MatterbridgeSettingsGetMatterbridgeVersionApiVersion, Object>{
-    MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1: 'v1',
-  };
+        MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1: 'v1',
+      };
 
   static const Map<Object, MatterbridgeSettingsGetMatterbridgeVersionApiVersion> _fromWire =
       <Object, MatterbridgeSettingsGetMatterbridgeVersionApiVersion>{
-    'v1': MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1,
-  };
+        'v1': MatterbridgeSettingsGetMatterbridgeVersionApiVersion.v1,
+      };
 
   @override
   Iterable<Type> get types => const [MatterbridgeSettingsGetMatterbridgeVersionApiVersion];
@@ -36256,16 +36228,14 @@ class _$MatterbridgeSettingsGetMatterbridgeVersionApiVersionSerializer
     Serializers serializers,
     MatterbridgeSettingsGetMatterbridgeVersionApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   MatterbridgeSettingsGetMatterbridgeVersionApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -36295,8 +36265,10 @@ sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data
     implements
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataInterface,
-        Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
-            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data,
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -36312,8 +36284,7 @@ abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
   // coverage:ignore-start
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -36362,8 +36333,10 @@ sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs
     implements
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsInterface,
-        Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
-            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder> {
+        Built<
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs,
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder)? b,
@@ -36426,8 +36399,10 @@ sealed class $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonI
 abstract class MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson
     implements
         $MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonInterface,
-        Built<MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
-            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder> {
+        Built<
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson,
+          MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder
+        > {
   /// Creates a new MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson object using the builder pattern.
   factory MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson([
     void Function(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder)? b,
@@ -36511,16 +36486,14 @@ class _$PollCreatePollApiVersionSerializer implements PrimitiveSerializer<PollCr
     Serializers serializers,
     PollCreatePollApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollCreatePollApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Mode how the results will be shown.
@@ -36560,15 +36533,15 @@ class _$PollCreatePollRequestApplicationJson_ResultModeSerializer
 
   static const Map<PollCreatePollRequestApplicationJson_ResultMode, Object> _toWire =
       <PollCreatePollRequestApplicationJson_ResultMode, Object>{
-    PollCreatePollRequestApplicationJson_ResultMode.$0: 0,
-    PollCreatePollRequestApplicationJson_ResultMode.$1: 1,
-  };
+        PollCreatePollRequestApplicationJson_ResultMode.$0: 0,
+        PollCreatePollRequestApplicationJson_ResultMode.$1: 1,
+      };
 
   static const Map<Object, PollCreatePollRequestApplicationJson_ResultMode> _fromWire =
       <Object, PollCreatePollRequestApplicationJson_ResultMode>{
-    0: PollCreatePollRequestApplicationJson_ResultMode.$0,
-    1: PollCreatePollRequestApplicationJson_ResultMode.$1,
-  };
+        0: PollCreatePollRequestApplicationJson_ResultMode.$0,
+        1: PollCreatePollRequestApplicationJson_ResultMode.$1,
+      };
 
   @override
   Iterable<Type> get types => const [PollCreatePollRequestApplicationJson_ResultMode];
@@ -36581,16 +36554,14 @@ class _$PollCreatePollRequestApplicationJson_ResultModeSerializer
     Serializers serializers,
     PollCreatePollRequestApplicationJson_ResultMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollCreatePollRequestApplicationJson_ResultMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -36724,16 +36695,14 @@ class _$PollDraft_ResultModeSerializer implements PrimitiveSerializer<PollDraft_
     Serializers serializers,
     PollDraft_ResultMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollDraft_ResultMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PollDraft_Status extends EnumClass {
@@ -36797,8 +36766,7 @@ class _$PollDraft_StatusSerializer implements PrimitiveSerializer<PollDraft_Stat
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -37038,16 +37006,14 @@ class _$PollUpdateDraftPollApiVersionSerializer implements PrimitiveSerializer<P
     Serializers serializers,
     PollUpdateDraftPollApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollUpdateDraftPollApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Mode how the results will be shown.
@@ -37089,15 +37055,15 @@ class _$PollUpdateDraftPollRequestApplicationJson_ResultModeSerializer
 
   static const Map<PollUpdateDraftPollRequestApplicationJson_ResultMode, Object> _toWire =
       <PollUpdateDraftPollRequestApplicationJson_ResultMode, Object>{
-    PollUpdateDraftPollRequestApplicationJson_ResultMode.$0: 0,
-    PollUpdateDraftPollRequestApplicationJson_ResultMode.$1: 1,
-  };
+        PollUpdateDraftPollRequestApplicationJson_ResultMode.$0: 0,
+        PollUpdateDraftPollRequestApplicationJson_ResultMode.$1: 1,
+      };
 
   static const Map<Object, PollUpdateDraftPollRequestApplicationJson_ResultMode> _fromWire =
       <Object, PollUpdateDraftPollRequestApplicationJson_ResultMode>{
-    0: PollUpdateDraftPollRequestApplicationJson_ResultMode.$0,
-    1: PollUpdateDraftPollRequestApplicationJson_ResultMode.$1,
-  };
+        0: PollUpdateDraftPollRequestApplicationJson_ResultMode.$0,
+        1: PollUpdateDraftPollRequestApplicationJson_ResultMode.$1,
+      };
 
   @override
   Iterable<Type> get types => const [PollUpdateDraftPollRequestApplicationJson_ResultMode];
@@ -37110,16 +37076,14 @@ class _$PollUpdateDraftPollRequestApplicationJson_ResultModeSerializer
     Serializers serializers,
     PollUpdateDraftPollRequestApplicationJson_ResultMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollUpdateDraftPollRequestApplicationJson_ResultMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -37367,16 +37331,14 @@ class _$PollGetAllDraftPollsApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     PollGetAllDraftPollsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollGetAllDraftPollsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -37550,16 +37512,14 @@ class _$PollShowPollApiVersionSerializer implements PrimitiveSerializer<PollShow
     Serializers serializers,
     PollShowPollApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollShowPollApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -37853,22 +37813,21 @@ class _$PollVotePollApiVersionSerializer implements PrimitiveSerializer<PollVote
     Serializers serializers,
     PollVotePollApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollVotePollApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $PollVotePollRequestApplicationJsonInterface {
-  static final _$optionIds = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))! as BuiltList<int>;
+  static final _$optionIds =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(int)]))!
+          as BuiltList<int>;
 
   /// IDs of the selected options.
   BuiltList<int> get optionIds;
@@ -38103,16 +38062,14 @@ class _$PollClosePollApiVersionSerializer implements PrimitiveSerializer<PollClo
     Serializers serializers,
     PollClosePollApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PollClosePollApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -38286,16 +38243,14 @@ class _$ReactionGetReactionsApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     ReactionGetReactionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ReactionGetReactionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -38526,16 +38481,14 @@ class _$ReactionReactApiVersionSerializer implements PrimitiveSerializer<Reactio
     Serializers serializers,
     ReactionReactApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ReactionReactApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -38771,16 +38724,14 @@ class _$ReactionDeleteApiVersionSerializer implements PrimitiveSerializer<Reacti
     Serializers serializers,
     ReactionDeleteApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ReactionDeleteApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -38953,16 +38904,14 @@ class _$RecordingStartApiVersionSerializer implements PrimitiveSerializer<Record
     Serializers serializers,
     RecordingStartApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingStartApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39198,16 +39147,14 @@ class _$RecordingStopApiVersionSerializer implements PrimitiveSerializer<Recordi
     Serializers serializers,
     RecordingStopApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingStopApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39381,16 +39328,14 @@ class _$RecordingNotificationDismissApiVersionSerializer
     Serializers serializers,
     RecordingNotificationDismissApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingNotificationDismissApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39417,8 +39362,10 @@ sealed class $RecordingNotificationDismissResponseApplicationJson_OcsInterface {
 abstract class RecordingNotificationDismissResponseApplicationJson_Ocs
     implements
         $RecordingNotificationDismissResponseApplicationJson_OcsInterface,
-        Built<RecordingNotificationDismissResponseApplicationJson_Ocs,
-            RecordingNotificationDismissResponseApplicationJson_OcsBuilder> {
+        Built<
+          RecordingNotificationDismissResponseApplicationJson_Ocs,
+          RecordingNotificationDismissResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RecordingNotificationDismissResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingNotificationDismissResponseApplicationJson_Ocs([
     void Function(RecordingNotificationDismissResponseApplicationJson_OcsBuilder)? b,
@@ -39481,8 +39428,10 @@ sealed class $RecordingNotificationDismissResponseApplicationJsonInterface {
 abstract class RecordingNotificationDismissResponseApplicationJson
     implements
         $RecordingNotificationDismissResponseApplicationJsonInterface,
-        Built<RecordingNotificationDismissResponseApplicationJson,
-            RecordingNotificationDismissResponseApplicationJsonBuilder> {
+        Built<
+          RecordingNotificationDismissResponseApplicationJson,
+          RecordingNotificationDismissResponseApplicationJsonBuilder
+        > {
   /// Creates a new RecordingNotificationDismissResponseApplicationJson object using the builder pattern.
   factory RecordingNotificationDismissResponseApplicationJson([
     void Function(RecordingNotificationDismissResponseApplicationJsonBuilder)? b,
@@ -39567,16 +39516,14 @@ class _$RecordingShareToChatApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     RecordingShareToChatApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingShareToChatApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -39820,16 +39767,14 @@ class _$RecordingBackendApiVersionSerializer implements PrimitiveSerializer<Reco
     Serializers serializers,
     RecordingBackendApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingBackendApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -40002,16 +39947,14 @@ class _$RecordingStoreApiVersionSerializer implements PrimitiveSerializer<Record
     Serializers serializers,
     RecordingStoreApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingStoreApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -40247,16 +40190,14 @@ class _$RoomGetRoomsApiVersionSerializer implements PrimitiveSerializer<RoomGetR
     Serializers serializers,
     RoomGetRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomGetRoomsNoStatusUpdate extends EnumClass {
@@ -40310,16 +40251,14 @@ class _$RoomGetRoomsNoStatusUpdateSerializer implements PrimitiveSerializer<Room
     Serializers serializers,
     RoomGetRoomsNoStatusUpdate object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetRoomsNoStatusUpdate deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomGetRoomsIncludeStatus extends EnumClass {
@@ -40373,16 +40312,14 @@ class _$RoomGetRoomsIncludeStatusSerializer implements PrimitiveSerializer<RoomG
     Serializers serializers,
     RoomGetRoomsIncludeStatus object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetRoomsIncludeStatus deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomGetRoomsIncludeLastMessage extends EnumClass {
@@ -40437,16 +40374,14 @@ class _$RoomGetRoomsIncludeLastMessageSerializer implements PrimitiveSerializer<
     Serializers serializers,
     RoomGetRoomsIncludeLastMessage object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetRoomsIncludeLastMessage deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -40679,16 +40614,14 @@ class _$RoomCreateRoomApiVersionSerializer implements PrimitiveSerializer<RoomCr
     Serializers serializers,
     RoomCreateRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Read only state of the conversation (Default writable) (only available with `conversation-creation-all` capability).
@@ -40728,15 +40661,15 @@ class _$RoomCreateRoomRequestApplicationJson_ReadOnlySerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_ReadOnly, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_ReadOnly, Object>{
-    RoomCreateRoomRequestApplicationJson_ReadOnly.$0: 0,
-    RoomCreateRoomRequestApplicationJson_ReadOnly.$1: 1,
-  };
+        RoomCreateRoomRequestApplicationJson_ReadOnly.$0: 0,
+        RoomCreateRoomRequestApplicationJson_ReadOnly.$1: 1,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_ReadOnly> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_ReadOnly>{
-    0: RoomCreateRoomRequestApplicationJson_ReadOnly.$0,
-    1: RoomCreateRoomRequestApplicationJson_ReadOnly.$1,
-  };
+        0: RoomCreateRoomRequestApplicationJson_ReadOnly.$0,
+        1: RoomCreateRoomRequestApplicationJson_ReadOnly.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_ReadOnly];
@@ -40749,16 +40682,14 @@ class _$RoomCreateRoomRequestApplicationJson_ReadOnlySerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_ReadOnly object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_ReadOnly deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Scope where the conversation is listable (Default not listable for anyone) (only available with `conversation-creation-all` capability).
@@ -40802,17 +40733,17 @@ class _$RoomCreateRoomRequestApplicationJson_ListableSerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_Listable, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_Listable, Object>{
-    RoomCreateRoomRequestApplicationJson_Listable.$0: 0,
-    RoomCreateRoomRequestApplicationJson_Listable.$1: 1,
-    RoomCreateRoomRequestApplicationJson_Listable.$2: 2,
-  };
+        RoomCreateRoomRequestApplicationJson_Listable.$0: 0,
+        RoomCreateRoomRequestApplicationJson_Listable.$1: 1,
+        RoomCreateRoomRequestApplicationJson_Listable.$2: 2,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_Listable> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_Listable>{
-    0: RoomCreateRoomRequestApplicationJson_Listable.$0,
-    1: RoomCreateRoomRequestApplicationJson_Listable.$1,
-    2: RoomCreateRoomRequestApplicationJson_Listable.$2,
-  };
+        0: RoomCreateRoomRequestApplicationJson_Listable.$0,
+        1: RoomCreateRoomRequestApplicationJson_Listable.$1,
+        2: RoomCreateRoomRequestApplicationJson_Listable.$2,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_Listable];
@@ -40825,16 +40756,14 @@ class _$RoomCreateRoomRequestApplicationJson_ListableSerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_Listable object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_Listable deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Lobby state of the conversation (Default lobby is disabled) (only available with `conversation-creation-all` capability).
@@ -40874,15 +40803,15 @@ class _$RoomCreateRoomRequestApplicationJson_LobbyStateSerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_LobbyState, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_LobbyState, Object>{
-    RoomCreateRoomRequestApplicationJson_LobbyState.$0: 0,
-    RoomCreateRoomRequestApplicationJson_LobbyState.$1: 1,
-  };
+        RoomCreateRoomRequestApplicationJson_LobbyState.$0: 0,
+        RoomCreateRoomRequestApplicationJson_LobbyState.$1: 1,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_LobbyState> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_LobbyState>{
-    0: RoomCreateRoomRequestApplicationJson_LobbyState.$0,
-    1: RoomCreateRoomRequestApplicationJson_LobbyState.$1,
-  };
+        0: RoomCreateRoomRequestApplicationJson_LobbyState.$0,
+        1: RoomCreateRoomRequestApplicationJson_LobbyState.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_LobbyState];
@@ -40895,16 +40824,14 @@ class _$RoomCreateRoomRequestApplicationJson_LobbyStateSerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_LobbyState object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_LobbyState deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Whether SIP dial-in shall be enabled (only available with `conversation-creation-all` capability).
@@ -40948,17 +40875,17 @@ class _$RoomCreateRoomRequestApplicationJson_SipEnabledSerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_SipEnabled, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_SipEnabled, Object>{
-    RoomCreateRoomRequestApplicationJson_SipEnabled.$0: 0,
-    RoomCreateRoomRequestApplicationJson_SipEnabled.$1: 1,
-    RoomCreateRoomRequestApplicationJson_SipEnabled.$2: 2,
-  };
+        RoomCreateRoomRequestApplicationJson_SipEnabled.$0: 0,
+        RoomCreateRoomRequestApplicationJson_SipEnabled.$1: 1,
+        RoomCreateRoomRequestApplicationJson_SipEnabled.$2: 2,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_SipEnabled> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_SipEnabled>{
-    0: RoomCreateRoomRequestApplicationJson_SipEnabled.$0,
-    1: RoomCreateRoomRequestApplicationJson_SipEnabled.$1,
-    2: RoomCreateRoomRequestApplicationJson_SipEnabled.$2,
-  };
+        0: RoomCreateRoomRequestApplicationJson_SipEnabled.$0,
+        1: RoomCreateRoomRequestApplicationJson_SipEnabled.$1,
+        2: RoomCreateRoomRequestApplicationJson_SipEnabled.$2,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_SipEnabled];
@@ -40971,16 +40898,14 @@ class _$RoomCreateRoomRequestApplicationJson_SipEnabledSerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_SipEnabled object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_SipEnabled deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Whether participants need to agree to a recording before joining a call (only available with `conversation-creation-all` capability).
@@ -41022,15 +40947,15 @@ class _$RoomCreateRoomRequestApplicationJson_RecordingConsentSerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_RecordingConsent, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_RecordingConsent, Object>{
-    RoomCreateRoomRequestApplicationJson_RecordingConsent.$0: 0,
-    RoomCreateRoomRequestApplicationJson_RecordingConsent.$1: 1,
-  };
+        RoomCreateRoomRequestApplicationJson_RecordingConsent.$0: 0,
+        RoomCreateRoomRequestApplicationJson_RecordingConsent.$1: 1,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_RecordingConsent> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_RecordingConsent>{
-    0: RoomCreateRoomRequestApplicationJson_RecordingConsent.$0,
-    1: RoomCreateRoomRequestApplicationJson_RecordingConsent.$1,
-  };
+        0: RoomCreateRoomRequestApplicationJson_RecordingConsent.$0,
+        1: RoomCreateRoomRequestApplicationJson_RecordingConsent.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_RecordingConsent];
@@ -41043,16 +40968,14 @@ class _$RoomCreateRoomRequestApplicationJson_RecordingConsentSerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_RecordingConsent object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_RecordingConsent deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Who can mention at-all in the chat (only available with `conversation-creation-all` capability).
@@ -41094,15 +41017,15 @@ class _$RoomCreateRoomRequestApplicationJson_MentionPermissionsSerializer
 
   static const Map<RoomCreateRoomRequestApplicationJson_MentionPermissions, Object> _toWire =
       <RoomCreateRoomRequestApplicationJson_MentionPermissions, Object>{
-    RoomCreateRoomRequestApplicationJson_MentionPermissions.$0: 0,
-    RoomCreateRoomRequestApplicationJson_MentionPermissions.$1: 1,
-  };
+        RoomCreateRoomRequestApplicationJson_MentionPermissions.$0: 0,
+        RoomCreateRoomRequestApplicationJson_MentionPermissions.$1: 1,
+      };
 
   static const Map<Object, RoomCreateRoomRequestApplicationJson_MentionPermissions> _fromWire =
       <Object, RoomCreateRoomRequestApplicationJson_MentionPermissions>{
-    0: RoomCreateRoomRequestApplicationJson_MentionPermissions.$0,
-    1: RoomCreateRoomRequestApplicationJson_MentionPermissions.$1,
-  };
+        0: RoomCreateRoomRequestApplicationJson_MentionPermissions.$0,
+        1: RoomCreateRoomRequestApplicationJson_MentionPermissions.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomCreateRoomRequestApplicationJson_MentionPermissions];
@@ -41115,16 +41038,14 @@ class _$RoomCreateRoomRequestApplicationJson_MentionPermissionsSerializer
     Serializers serializers,
     RoomCreateRoomRequestApplicationJson_MentionPermissions object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateRoomRequestApplicationJson_MentionPermissions deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -41513,16 +41434,14 @@ class _$RoomGetListedRoomsApiVersionSerializer implements PrimitiveSerializer<Ro
     Serializers serializers,
     RoomGetListedRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetListedRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -41698,16 +41617,14 @@ class _$RoomGetNoteToSelfConversationApiVersionSerializer
     Serializers serializers,
     RoomGetNoteToSelfConversationApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetNoteToSelfConversationApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -41734,8 +41651,10 @@ sealed class $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface 
 abstract class RoomGetNoteToSelfConversationResponseApplicationJson_Ocs
     implements
         $RoomGetNoteToSelfConversationResponseApplicationJson_OcsInterface,
-        Built<RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
-            RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomGetNoteToSelfConversationResponseApplicationJson_Ocs,
+          RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomGetNoteToSelfConversationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetNoteToSelfConversationResponseApplicationJson_Ocs([
     void Function(RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder)? b,
@@ -41798,8 +41717,10 @@ sealed class $RoomGetNoteToSelfConversationResponseApplicationJsonInterface {
 abstract class RoomGetNoteToSelfConversationResponseApplicationJson
     implements
         $RoomGetNoteToSelfConversationResponseApplicationJsonInterface,
-        Built<RoomGetNoteToSelfConversationResponseApplicationJson,
-            RoomGetNoteToSelfConversationResponseApplicationJsonBuilder> {
+        Built<
+          RoomGetNoteToSelfConversationResponseApplicationJson,
+          RoomGetNoteToSelfConversationResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomGetNoteToSelfConversationResponseApplicationJson object using the builder pattern.
   factory RoomGetNoteToSelfConversationResponseApplicationJson([
     void Function(RoomGetNoteToSelfConversationResponseApplicationJsonBuilder)? b,
@@ -41947,16 +41868,14 @@ class _$RoomGetSingleRoomApiVersionSerializer implements PrimitiveSerializer<Roo
     Serializers serializers,
     RoomGetSingleRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetSingleRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -42190,16 +42109,14 @@ class _$RoomRenameRoomApiVersionSerializer implements PrimitiveSerializer<RoomRe
     Serializers serializers,
     RoomRenameRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRenameRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -42435,16 +42352,14 @@ class _$RoomDeleteRoomApiVersionSerializer implements PrimitiveSerializer<RoomDe
     Serializers serializers,
     RoomDeleteRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomDeleteRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -42618,16 +42533,14 @@ class _$RoomGetBreakoutRoomsApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     RoomGetBreakoutRoomsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetBreakoutRoomsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -42803,16 +42716,14 @@ class _$RoomUnbindRoomFromObjectApiVersionSerializer
     Serializers serializers,
     RoomUnbindRoomFromObjectApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomUnbindRoomFromObjectApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -42839,8 +42750,10 @@ sealed class $RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterface {
 abstract class RoomUnbindRoomFromObjectResponseApplicationJson_Ocs
     implements
         $RoomUnbindRoomFromObjectResponseApplicationJson_OcsInterface,
-        Built<RoomUnbindRoomFromObjectResponseApplicationJson_Ocs,
-            RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomUnbindRoomFromObjectResponseApplicationJson_Ocs,
+          RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomUnbindRoomFromObjectResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomUnbindRoomFromObjectResponseApplicationJson_Ocs([
     void Function(RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder)? b,
@@ -42987,16 +42900,14 @@ class _$RoomMakePublicApiVersionSerializer implements PrimitiveSerializer<RoomMa
     Serializers serializers,
     RoomMakePublicApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMakePublicApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -43237,16 +43148,14 @@ class _$RoomMakePrivateApiVersionSerializer implements PrimitiveSerializer<RoomM
     Serializers serializers,
     RoomMakePrivateApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMakePrivateApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -43419,16 +43328,14 @@ class _$RoomSetDescriptionApiVersionSerializer implements PrimitiveSerializer<Ro
     Serializers serializers,
     RoomSetDescriptionApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetDescriptionApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -43666,16 +43573,14 @@ class _$RoomSetReadOnlyApiVersionSerializer implements PrimitiveSerializer<RoomS
     Serializers serializers,
     RoomSetReadOnlyApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetReadOnlyApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// New read-only state.
@@ -43715,15 +43620,15 @@ class _$RoomSetReadOnlyRequestApplicationJson_StateSerializer
 
   static const Map<RoomSetReadOnlyRequestApplicationJson_State, Object> _toWire =
       <RoomSetReadOnlyRequestApplicationJson_State, Object>{
-    RoomSetReadOnlyRequestApplicationJson_State.$0: 0,
-    RoomSetReadOnlyRequestApplicationJson_State.$1: 1,
-  };
+        RoomSetReadOnlyRequestApplicationJson_State.$0: 0,
+        RoomSetReadOnlyRequestApplicationJson_State.$1: 1,
+      };
 
   static const Map<Object, RoomSetReadOnlyRequestApplicationJson_State> _fromWire =
       <Object, RoomSetReadOnlyRequestApplicationJson_State>{
-    0: RoomSetReadOnlyRequestApplicationJson_State.$0,
-    1: RoomSetReadOnlyRequestApplicationJson_State.$1,
-  };
+        0: RoomSetReadOnlyRequestApplicationJson_State.$0,
+        1: RoomSetReadOnlyRequestApplicationJson_State.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetReadOnlyRequestApplicationJson_State];
@@ -43736,16 +43641,14 @@ class _$RoomSetReadOnlyRequestApplicationJson_StateSerializer
     Serializers serializers,
     RoomSetReadOnlyRequestApplicationJson_State object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetReadOnlyRequestApplicationJson_State deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -43981,16 +43884,14 @@ class _$RoomSetListableApiVersionSerializer implements PrimitiveSerializer<RoomS
     Serializers serializers,
     RoomSetListableApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetListableApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Scope where the room is listable.
@@ -44034,17 +43935,17 @@ class _$RoomSetListableRequestApplicationJson_ScopeSerializer
 
   static const Map<RoomSetListableRequestApplicationJson_Scope, Object> _toWire =
       <RoomSetListableRequestApplicationJson_Scope, Object>{
-    RoomSetListableRequestApplicationJson_Scope.$0: 0,
-    RoomSetListableRequestApplicationJson_Scope.$1: 1,
-    RoomSetListableRequestApplicationJson_Scope.$2: 2,
-  };
+        RoomSetListableRequestApplicationJson_Scope.$0: 0,
+        RoomSetListableRequestApplicationJson_Scope.$1: 1,
+        RoomSetListableRequestApplicationJson_Scope.$2: 2,
+      };
 
   static const Map<Object, RoomSetListableRequestApplicationJson_Scope> _fromWire =
       <Object, RoomSetListableRequestApplicationJson_Scope>{
-    0: RoomSetListableRequestApplicationJson_Scope.$0,
-    1: RoomSetListableRequestApplicationJson_Scope.$1,
-    2: RoomSetListableRequestApplicationJson_Scope.$2,
-  };
+        0: RoomSetListableRequestApplicationJson_Scope.$0,
+        1: RoomSetListableRequestApplicationJson_Scope.$1,
+        2: RoomSetListableRequestApplicationJson_Scope.$2,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetListableRequestApplicationJson_Scope];
@@ -44057,16 +43958,14 @@ class _$RoomSetListableRequestApplicationJson_ScopeSerializer
     Serializers serializers,
     RoomSetListableRequestApplicationJson_Scope object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetListableRequestApplicationJson_Scope deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -44302,16 +44201,14 @@ class _$RoomSetPasswordApiVersionSerializer implements PrimitiveSerializer<RoomS
     Serializers serializers,
     RoomSetPasswordApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetPasswordApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -44553,16 +44450,14 @@ class _$RoomSetPermissionsModeSerializer implements PrimitiveSerializer<RoomSetP
     Serializers serializers,
     RoomSetPermissionsMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetPermissionsMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomSetPermissionsApiVersion extends EnumClass {
@@ -44609,16 +44504,14 @@ class _$RoomSetPermissionsApiVersionSerializer implements PrimitiveSerializer<Ro
     Serializers serializers,
     RoomSetPermissionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetPermissionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -44858,16 +44751,14 @@ class _$RoomGetParticipantsApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomGetParticipantsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetParticipantsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomGetParticipantsIncludeStatus extends EnumClass {
@@ -44922,16 +44813,14 @@ class _$RoomGetParticipantsIncludeStatusSerializer implements PrimitiveSerialize
     Serializers serializers,
     RoomGetParticipantsIncludeStatus object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetParticipantsIncludeStatus deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -45241,16 +45130,14 @@ class _$RoomAddParticipantToRoomApiVersionSerializer
     Serializers serializers,
     RoomAddParticipantToRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomAddParticipantToRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Source of the participant.
@@ -45311,25 +45198,25 @@ class _$RoomAddParticipantToRoomRequestApplicationJson_SourceSerializer
 
   static const Map<RoomAddParticipantToRoomRequestApplicationJson_Source, Object> _toWire =
       <RoomAddParticipantToRoomRequestApplicationJson_Source, Object>{
-    RoomAddParticipantToRoomRequestApplicationJson_Source.users: 'users',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.groups: 'groups',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.circles: 'circles',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.emails: 'emails',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers: 'federated_users',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.phones: 'phones',
-    RoomAddParticipantToRoomRequestApplicationJson_Source.teams: 'teams',
-  };
+        RoomAddParticipantToRoomRequestApplicationJson_Source.users: 'users',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.groups: 'groups',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.circles: 'circles',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.emails: 'emails',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers: 'federated_users',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.phones: 'phones',
+        RoomAddParticipantToRoomRequestApplicationJson_Source.teams: 'teams',
+      };
 
   static const Map<Object, RoomAddParticipantToRoomRequestApplicationJson_Source> _fromWire =
       <Object, RoomAddParticipantToRoomRequestApplicationJson_Source>{
-    'users': RoomAddParticipantToRoomRequestApplicationJson_Source.users,
-    'groups': RoomAddParticipantToRoomRequestApplicationJson_Source.groups,
-    'circles': RoomAddParticipantToRoomRequestApplicationJson_Source.circles,
-    'emails': RoomAddParticipantToRoomRequestApplicationJson_Source.emails,
-    'federated_users': RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers,
-    'phones': RoomAddParticipantToRoomRequestApplicationJson_Source.phones,
-    'teams': RoomAddParticipantToRoomRequestApplicationJson_Source.teams,
-  };
+        'users': RoomAddParticipantToRoomRequestApplicationJson_Source.users,
+        'groups': RoomAddParticipantToRoomRequestApplicationJson_Source.groups,
+        'circles': RoomAddParticipantToRoomRequestApplicationJson_Source.circles,
+        'emails': RoomAddParticipantToRoomRequestApplicationJson_Source.emails,
+        'federated_users': RoomAddParticipantToRoomRequestApplicationJson_Source.federatedUsers,
+        'phones': RoomAddParticipantToRoomRequestApplicationJson_Source.phones,
+        'teams': RoomAddParticipantToRoomRequestApplicationJson_Source.teams,
+      };
 
   @override
   Iterable<Type> get types => const [RoomAddParticipantToRoomRequestApplicationJson_Source];
@@ -45342,24 +45229,24 @@ class _$RoomAddParticipantToRoomRequestApplicationJson_SourceSerializer
     Serializers serializers,
     RoomAddParticipantToRoomRequestApplicationJson_Source object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomAddParticipantToRoomRequestApplicationJson_Source deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $RoomAddParticipantToRoomRequestApplicationJsonInterface {
-  static final _$source = _$jsonSerializers.deserialize(
-    'users',
-    specifiedType: const FullType(RoomAddParticipantToRoomRequestApplicationJson_Source),
-  )! as RoomAddParticipantToRoomRequestApplicationJson_Source;
+  static final _$source =
+      _$jsonSerializers.deserialize(
+            'users',
+            specifiedType: const FullType(RoomAddParticipantToRoomRequestApplicationJson_Source),
+          )!
+          as RoomAddParticipantToRoomRequestApplicationJson_Source;
 
   /// New participant.
   String get newParticipant;
@@ -45452,8 +45339,10 @@ sealed class $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface 
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data
     implements
         $RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataInterface,
-        Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
-            RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data,
+          RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data([
     void Function(RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -45517,8 +45406,10 @@ sealed class $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface {
 abstract class RoomAddParticipantToRoomResponseApplicationJson_Ocs
     implements
         $RoomAddParticipantToRoomResponseApplicationJson_OcsInterface,
-        Built<RoomAddParticipantToRoomResponseApplicationJson_Ocs,
-            RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomAddParticipantToRoomResponseApplicationJson_Ocs,
+          RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomAddParticipantToRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomAddParticipantToRoomResponseApplicationJson_Ocs([
     void Function(RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder)? b,
@@ -45667,16 +45558,14 @@ class _$RoomGetBreakoutRoomParticipantsApiVersionSerializer
     Serializers serializers,
     RoomGetBreakoutRoomParticipantsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetBreakoutRoomParticipantsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class RoomGetBreakoutRoomParticipantsIncludeStatus extends EnumClass {
@@ -45715,15 +45604,15 @@ class _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer
 
   static const Map<RoomGetBreakoutRoomParticipantsIncludeStatus, Object> _toWire =
       <RoomGetBreakoutRoomParticipantsIncludeStatus, Object>{
-    RoomGetBreakoutRoomParticipantsIncludeStatus.$0: 0,
-    RoomGetBreakoutRoomParticipantsIncludeStatus.$1: 1,
-  };
+        RoomGetBreakoutRoomParticipantsIncludeStatus.$0: 0,
+        RoomGetBreakoutRoomParticipantsIncludeStatus.$1: 1,
+      };
 
   static const Map<Object, RoomGetBreakoutRoomParticipantsIncludeStatus> _fromWire =
       <Object, RoomGetBreakoutRoomParticipantsIncludeStatus>{
-    0: RoomGetBreakoutRoomParticipantsIncludeStatus.$0,
-    1: RoomGetBreakoutRoomParticipantsIncludeStatus.$1,
-  };
+        0: RoomGetBreakoutRoomParticipantsIncludeStatus.$0,
+        1: RoomGetBreakoutRoomParticipantsIncludeStatus.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomGetBreakoutRoomParticipantsIncludeStatus];
@@ -45736,16 +45625,14 @@ class _$RoomGetBreakoutRoomParticipantsIncludeStatusSerializer
     Serializers serializers,
     RoomGetBreakoutRoomParticipantsIncludeStatus object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetBreakoutRoomParticipantsIncludeStatus deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -45772,8 +45659,10 @@ sealed class $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterfac
 abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs
     implements
         $RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsInterface,
-        Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
-            RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs,
+          RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs([
     void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder)? b,
@@ -45836,8 +45725,10 @@ sealed class $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface {
 abstract class RoomGetBreakoutRoomParticipantsResponseApplicationJson
     implements
         $RoomGetBreakoutRoomParticipantsResponseApplicationJsonInterface,
-        Built<RoomGetBreakoutRoomParticipantsResponseApplicationJson,
-            RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder> {
+        Built<
+          RoomGetBreakoutRoomParticipantsResponseApplicationJson,
+          RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomGetBreakoutRoomParticipantsResponseApplicationJson object using the builder pattern.
   factory RoomGetBreakoutRoomParticipantsResponseApplicationJson([
     void Function(RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder)? b,
@@ -45986,16 +45877,14 @@ class _$RoomRemoveSelfFromRoomApiVersionSerializer implements PrimitiveSerialize
     Serializers serializers,
     RoomRemoveSelfFromRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRemoveSelfFromRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -46022,8 +45911,10 @@ sealed class $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface {
 abstract class RoomRemoveSelfFromRoomResponseApplicationJson_Ocs
     implements
         $RoomRemoveSelfFromRoomResponseApplicationJson_OcsInterface,
-        Built<RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
-            RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomRemoveSelfFromRoomResponseApplicationJson_Ocs,
+          RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomRemoveSelfFromRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveSelfFromRoomResponseApplicationJson_Ocs([
     void Function(RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder)? b,
@@ -46171,16 +46062,14 @@ class _$RoomRemoveAttendeeFromRoomApiVersionSerializer
     Serializers serializers,
     RoomRemoveAttendeeFromRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRemoveAttendeeFromRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -46207,8 +46096,10 @@ sealed class $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface {
 abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs
     implements
         $RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsInterface,
-        Built<RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
-            RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs,
+          RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs([
     void Function(RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder)? b,
@@ -46271,8 +46162,10 @@ sealed class $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface {
 abstract class RoomRemoveAttendeeFromRoomResponseApplicationJson
     implements
         $RoomRemoveAttendeeFromRoomResponseApplicationJsonInterface,
-        Built<RoomRemoveAttendeeFromRoomResponseApplicationJson,
-            RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder> {
+        Built<
+          RoomRemoveAttendeeFromRoomResponseApplicationJson,
+          RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomRemoveAttendeeFromRoomResponseApplicationJson object using the builder pattern.
   factory RoomRemoveAttendeeFromRoomResponseApplicationJson([
     void Function(RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder)? b,
@@ -46357,16 +46250,14 @@ class _$RoomSetAttendeePermissionsApiVersionSerializer
     Serializers serializers,
     RoomSetAttendeePermissionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetAttendeePermissionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Method of updating permissions ('set', 'remove', 'add').
@@ -46411,17 +46302,17 @@ class _$RoomSetAttendeePermissionsRequestApplicationJson_MethodSerializer
 
   static const Map<RoomSetAttendeePermissionsRequestApplicationJson_Method, Object> _toWire =
       <RoomSetAttendeePermissionsRequestApplicationJson_Method, Object>{
-    RoomSetAttendeePermissionsRequestApplicationJson_Method.$set: 'set',
-    RoomSetAttendeePermissionsRequestApplicationJson_Method.remove: 'remove',
-    RoomSetAttendeePermissionsRequestApplicationJson_Method.add: 'add',
-  };
+        RoomSetAttendeePermissionsRequestApplicationJson_Method.$set: 'set',
+        RoomSetAttendeePermissionsRequestApplicationJson_Method.remove: 'remove',
+        RoomSetAttendeePermissionsRequestApplicationJson_Method.add: 'add',
+      };
 
   static const Map<Object, RoomSetAttendeePermissionsRequestApplicationJson_Method> _fromWire =
       <Object, RoomSetAttendeePermissionsRequestApplicationJson_Method>{
-    'set': RoomSetAttendeePermissionsRequestApplicationJson_Method.$set,
-    'remove': RoomSetAttendeePermissionsRequestApplicationJson_Method.remove,
-    'add': RoomSetAttendeePermissionsRequestApplicationJson_Method.add,
-  };
+        'set': RoomSetAttendeePermissionsRequestApplicationJson_Method.$set,
+        'remove': RoomSetAttendeePermissionsRequestApplicationJson_Method.remove,
+        'add': RoomSetAttendeePermissionsRequestApplicationJson_Method.add,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetAttendeePermissionsRequestApplicationJson_Method];
@@ -46434,16 +46325,14 @@ class _$RoomSetAttendeePermissionsRequestApplicationJson_MethodSerializer
     Serializers serializers,
     RoomSetAttendeePermissionsRequestApplicationJson_Method object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetAttendeePermissionsRequestApplicationJson_Method deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -46479,8 +46368,10 @@ sealed class $RoomSetAttendeePermissionsRequestApplicationJsonInterface {
 abstract class RoomSetAttendeePermissionsRequestApplicationJson
     implements
         $RoomSetAttendeePermissionsRequestApplicationJsonInterface,
-        Built<RoomSetAttendeePermissionsRequestApplicationJson,
-            RoomSetAttendeePermissionsRequestApplicationJsonBuilder> {
+        Built<
+          RoomSetAttendeePermissionsRequestApplicationJson,
+          RoomSetAttendeePermissionsRequestApplicationJsonBuilder
+        > {
   /// Creates a new RoomSetAttendeePermissionsRequestApplicationJson object using the builder pattern.
   factory RoomSetAttendeePermissionsRequestApplicationJson([
     void Function(RoomSetAttendeePermissionsRequestApplicationJsonBuilder)? b,
@@ -46544,8 +46435,10 @@ sealed class $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface {
 abstract class RoomSetAttendeePermissionsResponseApplicationJson_Ocs
     implements
         $RoomSetAttendeePermissionsResponseApplicationJson_OcsInterface,
-        Built<RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
-            RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetAttendeePermissionsResponseApplicationJson_Ocs,
+          RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetAttendeePermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetAttendeePermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder)? b,
@@ -46608,8 +46501,10 @@ sealed class $RoomSetAttendeePermissionsResponseApplicationJsonInterface {
 abstract class RoomSetAttendeePermissionsResponseApplicationJson
     implements
         $RoomSetAttendeePermissionsResponseApplicationJsonInterface,
-        Built<RoomSetAttendeePermissionsResponseApplicationJson,
-            RoomSetAttendeePermissionsResponseApplicationJsonBuilder> {
+        Built<
+          RoomSetAttendeePermissionsResponseApplicationJson,
+          RoomSetAttendeePermissionsResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomSetAttendeePermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetAttendeePermissionsResponseApplicationJson([
     void Function(RoomSetAttendeePermissionsResponseApplicationJsonBuilder)? b,
@@ -46682,13 +46577,13 @@ class _$RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatusesSerialize
 
   static const Map<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses, Object> _toWire =
       <RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses, Object>{
-    RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true: true,
-  };
+        RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true: true,
+      };
 
   static const Map<Object, RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses> _fromWire =
       <Object, RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses>{
-    true: RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true,
-  };
+        true: RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.$true,
+      };
 
   @override
   Iterable<Type> get types => const [RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses];
@@ -46701,16 +46596,14 @@ class _$RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatusesSerialize
     Serializers serializers,
     RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -46822,16 +46715,14 @@ class _$RoomSetAllAttendeesPermissionsApiVersionSerializer
     Serializers serializers,
     RoomSetAllAttendeesPermissionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetAllAttendeesPermissionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Method of updating permissions ('set', 'remove', 'add').
@@ -46876,17 +46767,17 @@ class _$RoomSetAllAttendeesPermissionsRequestApplicationJson_MethodSerializer
 
   static const Map<RoomSetAllAttendeesPermissionsRequestApplicationJson_Method, Object> _toWire =
       <RoomSetAllAttendeesPermissionsRequestApplicationJson_Method, Object>{
-    RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.$set: 'set',
-    RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.remove: 'remove',
-    RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.add: 'add',
-  };
+        RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.$set: 'set',
+        RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.remove: 'remove',
+        RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.add: 'add',
+      };
 
   static const Map<Object, RoomSetAllAttendeesPermissionsRequestApplicationJson_Method> _fromWire =
       <Object, RoomSetAllAttendeesPermissionsRequestApplicationJson_Method>{
-    'set': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.$set,
-    'remove': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.remove,
-    'add': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.add,
-  };
+        'set': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.$set,
+        'remove': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.remove,
+        'add': RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.add,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetAllAttendeesPermissionsRequestApplicationJson_Method];
@@ -46899,16 +46790,14 @@ class _$RoomSetAllAttendeesPermissionsRequestApplicationJson_MethodSerializer
     Serializers serializers,
     RoomSetAllAttendeesPermissionsRequestApplicationJson_Method object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetAllAttendeesPermissionsRequestApplicationJson_Method deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -46940,8 +46829,10 @@ sealed class $RoomSetAllAttendeesPermissionsRequestApplicationJsonInterface {
 abstract class RoomSetAllAttendeesPermissionsRequestApplicationJson
     implements
         $RoomSetAllAttendeesPermissionsRequestApplicationJsonInterface,
-        Built<RoomSetAllAttendeesPermissionsRequestApplicationJson,
-            RoomSetAllAttendeesPermissionsRequestApplicationJsonBuilder> {
+        Built<
+          RoomSetAllAttendeesPermissionsRequestApplicationJson,
+          RoomSetAllAttendeesPermissionsRequestApplicationJsonBuilder
+        > {
   /// Creates a new RoomSetAllAttendeesPermissionsRequestApplicationJson object using the builder pattern.
   factory RoomSetAllAttendeesPermissionsRequestApplicationJson([
     void Function(RoomSetAllAttendeesPermissionsRequestApplicationJsonBuilder)? b,
@@ -47005,8 +46896,10 @@ sealed class $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface
 abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs
     implements
         $RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsInterface,
-        Built<RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
-            RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs,
+          RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder)? b,
@@ -47069,8 +46962,10 @@ sealed class $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface {
 abstract class RoomSetAllAttendeesPermissionsResponseApplicationJson
     implements
         $RoomSetAllAttendeesPermissionsResponseApplicationJsonInterface,
-        Built<RoomSetAllAttendeesPermissionsResponseApplicationJson,
-            RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder> {
+        Built<
+          RoomSetAllAttendeesPermissionsResponseApplicationJson,
+          RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomSetAllAttendeesPermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetAllAttendeesPermissionsResponseApplicationJson([
     void Function(RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder)? b,
@@ -47154,16 +47049,14 @@ class _$RoomJoinRoomApiVersionSerializer implements PrimitiveSerializer<RoomJoin
     Serializers serializers,
     RoomJoinRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomJoinRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -47466,16 +47359,14 @@ class _$RoomLeaveRoomApiVersionSerializer implements PrimitiveSerializer<RoomLea
     Serializers serializers,
     RoomLeaveRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomLeaveRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -47649,16 +47540,14 @@ class _$RoomResendInvitationsApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     RoomResendInvitationsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomResendInvitationsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -47751,8 +47640,10 @@ sealed class $RoomResendInvitationsResponseApplicationJson_OcsInterface {
 abstract class RoomResendInvitationsResponseApplicationJson_Ocs
     implements
         $RoomResendInvitationsResponseApplicationJson_OcsInterface,
-        Built<RoomResendInvitationsResponseApplicationJson_Ocs,
-            RoomResendInvitationsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomResendInvitationsResponseApplicationJson_Ocs,
+          RoomResendInvitationsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomResendInvitationsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomResendInvitationsResponseApplicationJson_Ocs([
     void Function(RoomResendInvitationsResponseApplicationJson_OcsBuilder)? b,
@@ -47899,16 +47790,14 @@ class _$RoomSetSessionStateApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomSetSessionStateApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetSessionStateApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// of the room.
@@ -47948,15 +47837,15 @@ class _$RoomSetSessionStateRequestApplicationJson_StateSerializer
 
   static const Map<RoomSetSessionStateRequestApplicationJson_State, Object> _toWire =
       <RoomSetSessionStateRequestApplicationJson_State, Object>{
-    RoomSetSessionStateRequestApplicationJson_State.$0: 0,
-    RoomSetSessionStateRequestApplicationJson_State.$1: 1,
-  };
+        RoomSetSessionStateRequestApplicationJson_State.$0: 0,
+        RoomSetSessionStateRequestApplicationJson_State.$1: 1,
+      };
 
   static const Map<Object, RoomSetSessionStateRequestApplicationJson_State> _fromWire =
       <Object, RoomSetSessionStateRequestApplicationJson_State>{
-    0: RoomSetSessionStateRequestApplicationJson_State.$0,
-    1: RoomSetSessionStateRequestApplicationJson_State.$1,
-  };
+        0: RoomSetSessionStateRequestApplicationJson_State.$0,
+        1: RoomSetSessionStateRequestApplicationJson_State.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetSessionStateRequestApplicationJson_State];
@@ -47969,16 +47858,14 @@ class _$RoomSetSessionStateRequestApplicationJson_StateSerializer
     Serializers serializers,
     RoomSetSessionStateRequestApplicationJson_State object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetSessionStateRequestApplicationJson_State deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -48217,16 +48104,14 @@ class _$RoomPromoteModeratorApiVersionSerializer implements PrimitiveSerializer<
     Serializers serializers,
     RoomPromoteModeratorApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomPromoteModeratorApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -48466,16 +48351,14 @@ class _$RoomDemoteModeratorApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomDemoteModeratorApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomDemoteModeratorApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -48649,16 +48532,14 @@ class _$RoomAddToFavoritesApiVersionSerializer implements PrimitiveSerializer<Ro
     Serializers serializers,
     RoomAddToFavoritesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomAddToFavoritesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -48833,16 +48714,14 @@ class _$RoomRemoveFromFavoritesApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     RoomRemoveFromFavoritesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRemoveFromFavoritesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -48869,8 +48748,10 @@ sealed class $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface {
 abstract class RoomRemoveFromFavoritesResponseApplicationJson_Ocs
     implements
         $RoomRemoveFromFavoritesResponseApplicationJson_OcsInterface,
-        Built<RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
-            RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomRemoveFromFavoritesResponseApplicationJson_Ocs,
+          RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomRemoveFromFavoritesResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRemoveFromFavoritesResponseApplicationJson_Ocs([
     void Function(RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder)? b,
@@ -49019,16 +48900,14 @@ class _$RoomMarkConversationAsImportantApiVersionSerializer
     Serializers serializers,
     RoomMarkConversationAsImportantApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMarkConversationAsImportantApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -49055,8 +48934,10 @@ sealed class $RoomMarkConversationAsImportantResponseApplicationJson_OcsInterfac
 abstract class RoomMarkConversationAsImportantResponseApplicationJson_Ocs
     implements
         $RoomMarkConversationAsImportantResponseApplicationJson_OcsInterface,
-        Built<RoomMarkConversationAsImportantResponseApplicationJson_Ocs,
-            RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomMarkConversationAsImportantResponseApplicationJson_Ocs,
+          RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomMarkConversationAsImportantResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMarkConversationAsImportantResponseApplicationJson_Ocs([
     void Function(RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder)? b,
@@ -49119,8 +49000,10 @@ sealed class $RoomMarkConversationAsImportantResponseApplicationJsonInterface {
 abstract class RoomMarkConversationAsImportantResponseApplicationJson
     implements
         $RoomMarkConversationAsImportantResponseApplicationJsonInterface,
-        Built<RoomMarkConversationAsImportantResponseApplicationJson,
-            RoomMarkConversationAsImportantResponseApplicationJsonBuilder> {
+        Built<
+          RoomMarkConversationAsImportantResponseApplicationJson,
+          RoomMarkConversationAsImportantResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomMarkConversationAsImportantResponseApplicationJson object using the builder pattern.
   factory RoomMarkConversationAsImportantResponseApplicationJson([
     void Function(RoomMarkConversationAsImportantResponseApplicationJsonBuilder)? b,
@@ -49206,16 +49089,14 @@ class _$RoomMarkConversationAsUnimportantApiVersionSerializer
     Serializers serializers,
     RoomMarkConversationAsUnimportantApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMarkConversationAsUnimportantApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -49242,8 +49123,10 @@ sealed class $RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterf
 abstract class RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs
     implements
         $RoomMarkConversationAsUnimportantResponseApplicationJson_OcsInterface,
-        Built<RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs,
-            RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs,
+          RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs([
     void Function(RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder)? b,
@@ -49306,8 +49189,10 @@ sealed class $RoomMarkConversationAsUnimportantResponseApplicationJsonInterface 
 abstract class RoomMarkConversationAsUnimportantResponseApplicationJson
     implements
         $RoomMarkConversationAsUnimportantResponseApplicationJsonInterface,
-        Built<RoomMarkConversationAsUnimportantResponseApplicationJson,
-            RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder> {
+        Built<
+          RoomMarkConversationAsUnimportantResponseApplicationJson,
+          RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomMarkConversationAsUnimportantResponseApplicationJson object using the builder pattern.
   factory RoomMarkConversationAsUnimportantResponseApplicationJson([
     void Function(RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder)? b,
@@ -49393,16 +49278,14 @@ class _$RoomMarkConversationAsSensitiveApiVersionSerializer
     Serializers serializers,
     RoomMarkConversationAsSensitiveApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMarkConversationAsSensitiveApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -49429,8 +49312,10 @@ sealed class $RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterfac
 abstract class RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs
     implements
         $RoomMarkConversationAsSensitiveResponseApplicationJson_OcsInterface,
-        Built<RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs,
-            RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs,
+          RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs([
     void Function(RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder)? b,
@@ -49493,8 +49378,10 @@ sealed class $RoomMarkConversationAsSensitiveResponseApplicationJsonInterface {
 abstract class RoomMarkConversationAsSensitiveResponseApplicationJson
     implements
         $RoomMarkConversationAsSensitiveResponseApplicationJsonInterface,
-        Built<RoomMarkConversationAsSensitiveResponseApplicationJson,
-            RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder> {
+        Built<
+          RoomMarkConversationAsSensitiveResponseApplicationJson,
+          RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomMarkConversationAsSensitiveResponseApplicationJson object using the builder pattern.
   factory RoomMarkConversationAsSensitiveResponseApplicationJson([
     void Function(RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder)? b,
@@ -49580,16 +49467,14 @@ class _$RoomMarkConversationAsInsensitiveApiVersionSerializer
     Serializers serializers,
     RoomMarkConversationAsInsensitiveApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomMarkConversationAsInsensitiveApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -49616,8 +49501,10 @@ sealed class $RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterf
 abstract class RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs
     implements
         $RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsInterface,
-        Built<RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs,
-            RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs,
+          RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs([
     void Function(RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder)? b,
@@ -49680,8 +49567,10 @@ sealed class $RoomMarkConversationAsInsensitiveResponseApplicationJsonInterface 
 abstract class RoomMarkConversationAsInsensitiveResponseApplicationJson
     implements
         $RoomMarkConversationAsInsensitiveResponseApplicationJsonInterface,
-        Built<RoomMarkConversationAsInsensitiveResponseApplicationJson,
-            RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder> {
+        Built<
+          RoomMarkConversationAsInsensitiveResponseApplicationJson,
+          RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomMarkConversationAsInsensitiveResponseApplicationJson object using the builder pattern.
   factory RoomMarkConversationAsInsensitiveResponseApplicationJson([
     void Function(RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder)? b,
@@ -49767,16 +49656,14 @@ class _$RoomSetNotificationLevelApiVersionSerializer
     Serializers serializers,
     RoomSetNotificationLevelApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetNotificationLevelApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -49867,8 +49754,10 @@ sealed class $RoomSetNotificationLevelResponseApplicationJson_OcsInterface {
 abstract class RoomSetNotificationLevelResponseApplicationJson_Ocs
     implements
         $RoomSetNotificationLevelResponseApplicationJson_OcsInterface,
-        Built<RoomSetNotificationLevelResponseApplicationJson_Ocs,
-            RoomSetNotificationLevelResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetNotificationLevelResponseApplicationJson_Ocs,
+          RoomSetNotificationLevelResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetNotificationLevelResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetNotificationLevelResponseApplicationJson_Ocs([
     void Function(RoomSetNotificationLevelResponseApplicationJson_OcsBuilder)? b,
@@ -50017,16 +49906,14 @@ class _$RoomSetNotificationCallsApiVersionSerializer
     Serializers serializers,
     RoomSetNotificationCallsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetNotificationCallsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -50117,8 +50004,10 @@ sealed class $RoomSetNotificationCallsResponseApplicationJson_OcsInterface {
 abstract class RoomSetNotificationCallsResponseApplicationJson_Ocs
     implements
         $RoomSetNotificationCallsResponseApplicationJson_OcsInterface,
-        Built<RoomSetNotificationCallsResponseApplicationJson_Ocs,
-            RoomSetNotificationCallsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetNotificationCallsResponseApplicationJson_Ocs,
+          RoomSetNotificationCallsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetNotificationCallsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetNotificationCallsResponseApplicationJson_Ocs([
     void Function(RoomSetNotificationCallsResponseApplicationJson_OcsBuilder)? b,
@@ -50265,16 +50154,14 @@ class _$RoomSetLobbyApiVersionSerializer implements PrimitiveSerializer<RoomSetL
     Serializers serializers,
     RoomSetLobbyApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetLobbyApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// New state.
@@ -50314,15 +50201,15 @@ class _$RoomSetLobbyRequestApplicationJson_StateSerializer
 
   static const Map<RoomSetLobbyRequestApplicationJson_State, Object> _toWire =
       <RoomSetLobbyRequestApplicationJson_State, Object>{
-    RoomSetLobbyRequestApplicationJson_State.$0: 0,
-    RoomSetLobbyRequestApplicationJson_State.$1: 1,
-  };
+        RoomSetLobbyRequestApplicationJson_State.$0: 0,
+        RoomSetLobbyRequestApplicationJson_State.$1: 1,
+      };
 
   static const Map<Object, RoomSetLobbyRequestApplicationJson_State> _fromWire =
       <Object, RoomSetLobbyRequestApplicationJson_State>{
-    0: RoomSetLobbyRequestApplicationJson_State.$0,
-    1: RoomSetLobbyRequestApplicationJson_State.$1,
-  };
+        0: RoomSetLobbyRequestApplicationJson_State.$0,
+        1: RoomSetLobbyRequestApplicationJson_State.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetLobbyRequestApplicationJson_State];
@@ -50335,16 +50222,14 @@ class _$RoomSetLobbyRequestApplicationJson_StateSerializer
     Serializers serializers,
     RoomSetLobbyRequestApplicationJson_State object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetLobbyRequestApplicationJson_State deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -50584,16 +50469,14 @@ class _$RoomSetsipEnabledApiVersionSerializer implements PrimitiveSerializer<Roo
     Serializers serializers,
     RoomSetsipEnabledApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetsipEnabledApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// New state.
@@ -50637,17 +50520,17 @@ class _$RoomSetsipEnabledRequestApplicationJson_StateSerializer
 
   static const Map<RoomSetsipEnabledRequestApplicationJson_State, Object> _toWire =
       <RoomSetsipEnabledRequestApplicationJson_State, Object>{
-    RoomSetsipEnabledRequestApplicationJson_State.$0: 0,
-    RoomSetsipEnabledRequestApplicationJson_State.$1: 1,
-    RoomSetsipEnabledRequestApplicationJson_State.$2: 2,
-  };
+        RoomSetsipEnabledRequestApplicationJson_State.$0: 0,
+        RoomSetsipEnabledRequestApplicationJson_State.$1: 1,
+        RoomSetsipEnabledRequestApplicationJson_State.$2: 2,
+      };
 
   static const Map<Object, RoomSetsipEnabledRequestApplicationJson_State> _fromWire =
       <Object, RoomSetsipEnabledRequestApplicationJson_State>{
-    0: RoomSetsipEnabledRequestApplicationJson_State.$0,
-    1: RoomSetsipEnabledRequestApplicationJson_State.$1,
-    2: RoomSetsipEnabledRequestApplicationJson_State.$2,
-  };
+        0: RoomSetsipEnabledRequestApplicationJson_State.$0,
+        1: RoomSetsipEnabledRequestApplicationJson_State.$1,
+        2: RoomSetsipEnabledRequestApplicationJson_State.$2,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetsipEnabledRequestApplicationJson_State];
@@ -50660,16 +50543,14 @@ class _$RoomSetsipEnabledRequestApplicationJson_StateSerializer
     Serializers serializers,
     RoomSetsipEnabledRequestApplicationJson_State object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetsipEnabledRequestApplicationJson_State deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -50907,16 +50788,14 @@ class _$RoomSetRecordingConsentApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     RoomSetRecordingConsentApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetRecordingConsentApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -51007,8 +50886,10 @@ sealed class $RoomSetRecordingConsentResponseApplicationJson_OcsInterface {
 abstract class RoomSetRecordingConsentResponseApplicationJson_Ocs
     implements
         $RoomSetRecordingConsentResponseApplicationJson_OcsInterface,
-        Built<RoomSetRecordingConsentResponseApplicationJson_Ocs,
-            RoomSetRecordingConsentResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetRecordingConsentResponseApplicationJson_Ocs,
+          RoomSetRecordingConsentResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetRecordingConsentResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetRecordingConsentResponseApplicationJson_Ocs([
     void Function(RoomSetRecordingConsentResponseApplicationJson_OcsBuilder)? b,
@@ -51157,16 +51038,14 @@ class _$RoomSetMessageExpirationApiVersionSerializer
     Serializers serializers,
     RoomSetMessageExpirationApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetMessageExpirationApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -51263,8 +51142,10 @@ sealed class $RoomSetMessageExpirationResponseApplicationJson_OcsInterface {
 abstract class RoomSetMessageExpirationResponseApplicationJson_Ocs
     implements
         $RoomSetMessageExpirationResponseApplicationJson_OcsInterface,
-        Built<RoomSetMessageExpirationResponseApplicationJson_Ocs,
-            RoomSetMessageExpirationResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetMessageExpirationResponseApplicationJson_Ocs,
+          RoomSetMessageExpirationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetMessageExpirationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetMessageExpirationResponseApplicationJson_Ocs([
     void Function(RoomSetMessageExpirationResponseApplicationJson_OcsBuilder)? b,
@@ -51411,16 +51292,14 @@ class _$RoomGetCapabilitiesApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomGetCapabilitiesApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomGetCapabilitiesApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -51677,15 +51556,15 @@ class _$Capabilities_Config_Conversations_ListStyleSerializer
 
   static const Map<Capabilities_Config_Conversations_ListStyle, Object> _toWire =
       <Capabilities_Config_Conversations_ListStyle, Object>{
-    Capabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
-    Capabilities_Config_Conversations_ListStyle.compact: 'compact',
-  };
+        Capabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+        Capabilities_Config_Conversations_ListStyle.compact: 'compact',
+      };
 
   static const Map<Object, Capabilities_Config_Conversations_ListStyle> _fromWire =
       <Object, Capabilities_Config_Conversations_ListStyle>{
-    'two-lines': Capabilities_Config_Conversations_ListStyle.twoLines,
-    'compact': Capabilities_Config_Conversations_ListStyle.compact,
-  };
+        'two-lines': Capabilities_Config_Conversations_ListStyle.twoLines,
+        'compact': Capabilities_Config_Conversations_ListStyle.compact,
+      };
 
   @override
   Iterable<Type> get types => const [Capabilities_Config_Conversations_ListStyle];
@@ -51698,16 +51577,14 @@ class _$Capabilities_Config_Conversations_ListStyleSerializer
     Serializers serializers,
     Capabilities_Config_Conversations_ListStyle object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Capabilities_Config_Conversations_ListStyle deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -52169,10 +52046,8 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
   }
 }
 
-typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  Capabilities? capabilities,
-});
+typedef RoomGetCapabilitiesResponseApplicationJson_Ocs_Data =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, Capabilities? capabilities});
 
 @BuiltValue(instantiable: false)
 sealed class $RoomGetCapabilitiesResponseApplicationJson_OcsInterface {
@@ -52412,16 +52287,14 @@ class _$RoomSetMentionPermissionsApiVersionSerializer
     Serializers serializers,
     RoomSetMentionPermissionsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetMentionPermissionsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// New mention permissions.
@@ -52463,15 +52336,15 @@ class _$RoomSetMentionPermissionsRequestApplicationJson_MentionPermissionsSerial
 
   static const Map<RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions, Object> _toWire =
       <RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions, Object>{
-    RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$0: 0,
-    RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$1: 1,
-  };
+        RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$0: 0,
+        RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$1: 1,
+      };
 
   static const Map<Object, RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions> _fromWire =
       <Object, RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions>{
-    0: RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$0,
-    1: RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$1,
-  };
+        0: RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$0,
+        1: RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.$1,
+      };
 
   @override
   Iterable<Type> get types => const [RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions];
@@ -52484,16 +52357,14 @@ class _$RoomSetMentionPermissionsRequestApplicationJson_MentionPermissionsSerial
     Serializers serializers,
     RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -52584,8 +52455,10 @@ sealed class $RoomSetMentionPermissionsResponseApplicationJson_OcsInterface {
 abstract class RoomSetMentionPermissionsResponseApplicationJson_Ocs
     implements
         $RoomSetMentionPermissionsResponseApplicationJson_OcsInterface,
-        Built<RoomSetMentionPermissionsResponseApplicationJson_Ocs,
-            RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomSetMentionPermissionsResponseApplicationJson_Ocs,
+          RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomSetMentionPermissionsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomSetMentionPermissionsResponseApplicationJson_Ocs([
     void Function(RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder)? b,
@@ -52648,8 +52521,10 @@ sealed class $RoomSetMentionPermissionsResponseApplicationJsonInterface {
 abstract class RoomSetMentionPermissionsResponseApplicationJson
     implements
         $RoomSetMentionPermissionsResponseApplicationJsonInterface,
-        Built<RoomSetMentionPermissionsResponseApplicationJson,
-            RoomSetMentionPermissionsResponseApplicationJsonBuilder> {
+        Built<
+          RoomSetMentionPermissionsResponseApplicationJson,
+          RoomSetMentionPermissionsResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomSetMentionPermissionsResponseApplicationJson object using the builder pattern.
   factory RoomSetMentionPermissionsResponseApplicationJson([
     void Function(RoomSetMentionPermissionsResponseApplicationJsonBuilder)? b,
@@ -52734,16 +52609,14 @@ class _$RoomArchiveConversationApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     RoomArchiveConversationApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomArchiveConversationApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -52770,8 +52643,10 @@ sealed class $RoomArchiveConversationResponseApplicationJson_OcsInterface {
 abstract class RoomArchiveConversationResponseApplicationJson_Ocs
     implements
         $RoomArchiveConversationResponseApplicationJson_OcsInterface,
-        Built<RoomArchiveConversationResponseApplicationJson_Ocs,
-            RoomArchiveConversationResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomArchiveConversationResponseApplicationJson_Ocs,
+          RoomArchiveConversationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomArchiveConversationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomArchiveConversationResponseApplicationJson_Ocs([
     void Function(RoomArchiveConversationResponseApplicationJson_OcsBuilder)? b,
@@ -52919,16 +52794,14 @@ class _$RoomUnarchiveConversationApiVersionSerializer
     Serializers serializers,
     RoomUnarchiveConversationApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomUnarchiveConversationApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -52955,8 +52828,10 @@ sealed class $RoomUnarchiveConversationResponseApplicationJson_OcsInterface {
 abstract class RoomUnarchiveConversationResponseApplicationJson_Ocs
     implements
         $RoomUnarchiveConversationResponseApplicationJson_OcsInterface,
-        Built<RoomUnarchiveConversationResponseApplicationJson_Ocs,
-            RoomUnarchiveConversationResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomUnarchiveConversationResponseApplicationJson_Ocs,
+          RoomUnarchiveConversationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomUnarchiveConversationResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomUnarchiveConversationResponseApplicationJson_Ocs([
     void Function(RoomUnarchiveConversationResponseApplicationJson_OcsBuilder)? b,
@@ -53019,8 +52894,10 @@ sealed class $RoomUnarchiveConversationResponseApplicationJsonInterface {
 abstract class RoomUnarchiveConversationResponseApplicationJson
     implements
         $RoomUnarchiveConversationResponseApplicationJsonInterface,
-        Built<RoomUnarchiveConversationResponseApplicationJson,
-            RoomUnarchiveConversationResponseApplicationJsonBuilder> {
+        Built<
+          RoomUnarchiveConversationResponseApplicationJson,
+          RoomUnarchiveConversationResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomUnarchiveConversationResponseApplicationJson object using the builder pattern.
   factory RoomUnarchiveConversationResponseApplicationJson([
     void Function(RoomUnarchiveConversationResponseApplicationJsonBuilder)? b,
@@ -53106,16 +52983,14 @@ class _$RoomImportEmailsAsParticipantsApiVersionSerializer
     Serializers serializers,
     RoomImportEmailsAsParticipantsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomImportEmailsAsParticipantsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -53147,8 +53022,10 @@ sealed class $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface {
 abstract class RoomImportEmailsAsParticipantsRequestApplicationJson
     implements
         $RoomImportEmailsAsParticipantsRequestApplicationJsonInterface,
-        Built<RoomImportEmailsAsParticipantsRequestApplicationJson,
-            RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder> {
+        Built<
+          RoomImportEmailsAsParticipantsRequestApplicationJson,
+          RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder
+        > {
   /// Creates a new RoomImportEmailsAsParticipantsRequestApplicationJson object using the builder pattern.
   factory RoomImportEmailsAsParticipantsRequestApplicationJson([
     void Function(RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder)? b,
@@ -53220,8 +53097,10 @@ sealed class $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInte
 abstract class RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data
     implements
         $RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataInterface,
-        Built<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data,
-            RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data,
+          RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data([
     void Function(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -53285,8 +53164,10 @@ sealed class $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface
 abstract class RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs
     implements
         $RoomImportEmailsAsParticipantsResponseApplicationJson_OcsInterface,
-        Built<RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs,
-            RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs,
+          RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs([
     void Function(RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder)? b,
@@ -53349,8 +53230,10 @@ sealed class $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface {
 abstract class RoomImportEmailsAsParticipantsResponseApplicationJson
     implements
         $RoomImportEmailsAsParticipantsResponseApplicationJsonInterface,
-        Built<RoomImportEmailsAsParticipantsResponseApplicationJson,
-            RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder> {
+        Built<
+          RoomImportEmailsAsParticipantsResponseApplicationJson,
+          RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomImportEmailsAsParticipantsResponseApplicationJson object using the builder pattern.
   factory RoomImportEmailsAsParticipantsResponseApplicationJson([
     void Function(RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder)? b,
@@ -53434,16 +53317,14 @@ class _$RoomScheduleMeetingApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomScheduleMeetingApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomScheduleMeetingApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -53697,16 +53578,14 @@ class _$RoomJoinFederatedRoomApiVersionSerializer implements PrimitiveSerializer
     Serializers serializers,
     RoomJoinFederatedRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomJoinFederatedRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -53797,8 +53676,10 @@ sealed class $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface {
 abstract class RoomJoinFederatedRoomResponseApplicationJson_Ocs
     implements
         $RoomJoinFederatedRoomResponseApplicationJson_OcsInterface,
-        Built<RoomJoinFederatedRoomResponseApplicationJson_Ocs,
-            RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomJoinFederatedRoomResponseApplicationJson_Ocs,
+          RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomJoinFederatedRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomJoinFederatedRoomResponseApplicationJson_Ocs([
     void Function(RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder)? b,
@@ -54008,16 +53889,14 @@ class _$RoomLeaveFederatedRoomApiVersionSerializer implements PrimitiveSerialize
     Serializers serializers,
     RoomLeaveFederatedRoomApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomLeaveFederatedRoomApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -54044,8 +53923,10 @@ sealed class $RoomLeaveFederatedRoomResponseApplicationJson_OcsInterface {
 abstract class RoomLeaveFederatedRoomResponseApplicationJson_Ocs
     implements
         $RoomLeaveFederatedRoomResponseApplicationJson_OcsInterface,
-        Built<RoomLeaveFederatedRoomResponseApplicationJson_Ocs,
-            RoomLeaveFederatedRoomResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomLeaveFederatedRoomResponseApplicationJson_Ocs,
+          RoomLeaveFederatedRoomResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomLeaveFederatedRoomResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomLeaveFederatedRoomResponseApplicationJson_Ocs([
     void Function(RoomLeaveFederatedRoomResponseApplicationJson_OcsBuilder)? b,
@@ -54194,16 +54075,14 @@ class _$RoomVerifyDialInPinDeprecatedApiVersionSerializer
     Serializers serializers,
     RoomVerifyDialInPinDeprecatedApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomVerifyDialInPinDeprecatedApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -54230,8 +54109,10 @@ sealed class $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface 
 abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs
     implements
         $RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsInterface,
-        Built<RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs,
-            RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs,
+          RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs([
     void Function(RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder)? b,
@@ -54294,8 +54175,10 @@ sealed class $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface {
 abstract class RoomVerifyDialInPinDeprecatedResponseApplicationJson
     implements
         $RoomVerifyDialInPinDeprecatedResponseApplicationJsonInterface,
-        Built<RoomVerifyDialInPinDeprecatedResponseApplicationJson,
-            RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder> {
+        Built<
+          RoomVerifyDialInPinDeprecatedResponseApplicationJson,
+          RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomVerifyDialInPinDeprecatedResponseApplicationJson object using the builder pattern.
   factory RoomVerifyDialInPinDeprecatedResponseApplicationJson([
     void Function(RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder)? b,
@@ -54379,16 +54262,14 @@ class _$RoomVerifyDialInPinApiVersionSerializer implements PrimitiveSerializer<R
     Serializers serializers,
     RoomVerifyDialInPinApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomVerifyDialInPinApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -54627,16 +54508,14 @@ class _$RoomVerifyDialOutNumberApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     RoomVerifyDialOutNumberApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomVerifyDialOutNumberApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Additional details to verify the validity of the request.
@@ -54666,8 +54545,10 @@ sealed class $RoomVerifyDialOutNumberRequestApplicationJson_OptionsInterface {
 abstract class RoomVerifyDialOutNumberRequestApplicationJson_Options
     implements
         $RoomVerifyDialOutNumberRequestApplicationJson_OptionsInterface,
-        Built<RoomVerifyDialOutNumberRequestApplicationJson_Options,
-            RoomVerifyDialOutNumberRequestApplicationJson_OptionsBuilder> {
+        Built<
+          RoomVerifyDialOutNumberRequestApplicationJson_Options,
+          RoomVerifyDialOutNumberRequestApplicationJson_OptionsBuilder
+        > {
   /// Creates a new RoomVerifyDialOutNumberRequestApplicationJson_Options object using the builder pattern.
   factory RoomVerifyDialOutNumberRequestApplicationJson_Options([
     void Function(RoomVerifyDialOutNumberRequestApplicationJson_OptionsBuilder)? b,
@@ -54709,10 +54590,12 @@ abstract class RoomVerifyDialOutNumberRequestApplicationJson_Options
 
 @BuiltValue(instantiable: false)
 sealed class $RoomVerifyDialOutNumberRequestApplicationJsonInterface {
-  static final _$options = _$jsonSerializers.deserialize(
-    const {},
-    specifiedType: const FullType(RoomVerifyDialOutNumberRequestApplicationJson_Options),
-  )! as RoomVerifyDialOutNumberRequestApplicationJson_Options;
+  static final _$options =
+      _$jsonSerializers.deserialize(
+            const {},
+            specifiedType: const FullType(RoomVerifyDialOutNumberRequestApplicationJson_Options),
+          )!
+          as RoomVerifyDialOutNumberRequestApplicationJson_Options;
 
   /// E164 formatted phone number.
   String get number;
@@ -54806,8 +54689,10 @@ sealed class $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface {
 abstract class RoomVerifyDialOutNumberResponseApplicationJson_Ocs
     implements
         $RoomVerifyDialOutNumberResponseApplicationJson_OcsInterface,
-        Built<RoomVerifyDialOutNumberResponseApplicationJson_Ocs,
-            RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomVerifyDialOutNumberResponseApplicationJson_Ocs,
+          RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomVerifyDialOutNumberResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomVerifyDialOutNumberResponseApplicationJson_Ocs([
     void Function(RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder)? b,
@@ -54954,16 +54839,14 @@ class _$RoomDirectDialInApiVersionSerializer implements PrimitiveSerializer<Room
     Serializers serializers,
     RoomDirectDialInApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomDirectDialInApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -55203,16 +55086,14 @@ class _$RoomCreateGuestByDialInApiVersionSerializer implements PrimitiveSerializ
     Serializers serializers,
     RoomCreateGuestByDialInApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomCreateGuestByDialInApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -55239,8 +55120,10 @@ sealed class $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface {
 abstract class RoomCreateGuestByDialInResponseApplicationJson_Ocs
     implements
         $RoomCreateGuestByDialInResponseApplicationJson_OcsInterface,
-        Built<RoomCreateGuestByDialInResponseApplicationJson_Ocs,
-            RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomCreateGuestByDialInResponseApplicationJson_Ocs,
+          RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomCreateGuestByDialInResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomCreateGuestByDialInResponseApplicationJson_Ocs([
     void Function(RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder)? b,
@@ -55388,16 +55271,14 @@ class _$RoomRejectedDialOutRequestApiVersionSerializer
     Serializers serializers,
     RoomRejectedDialOutRequestApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RoomRejectedDialOutRequestApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -55424,8 +55305,10 @@ sealed class $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface {
 abstract class RoomRejectedDialOutRequestResponseApplicationJson_Ocs
     implements
         $RoomRejectedDialOutRequestResponseApplicationJson_OcsInterface,
-        Built<RoomRejectedDialOutRequestResponseApplicationJson_Ocs,
-            RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder> {
+        Built<
+          RoomRejectedDialOutRequestResponseApplicationJson_Ocs,
+          RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RoomRejectedDialOutRequestResponseApplicationJson_Ocs object using the builder pattern.
   factory RoomRejectedDialOutRequestResponseApplicationJson_Ocs([
     void Function(RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder)? b,
@@ -55488,8 +55371,10 @@ sealed class $RoomRejectedDialOutRequestResponseApplicationJsonInterface {
 abstract class RoomRejectedDialOutRequestResponseApplicationJson
     implements
         $RoomRejectedDialOutRequestResponseApplicationJsonInterface,
-        Built<RoomRejectedDialOutRequestResponseApplicationJson,
-            RoomRejectedDialOutRequestResponseApplicationJsonBuilder> {
+        Built<
+          RoomRejectedDialOutRequestResponseApplicationJson,
+          RoomRejectedDialOutRequestResponseApplicationJsonBuilder
+        > {
   /// Creates a new RoomRejectedDialOutRequestResponseApplicationJson object using the builder pattern.
   factory RoomRejectedDialOutRequestResponseApplicationJson([
     void Function(RoomRejectedDialOutRequestResponseApplicationJsonBuilder)? b,
@@ -55574,16 +55459,14 @@ class _$SettingsSetUserSettingApiVersionSerializer implements PrimitiveSerialize
     Serializers serializers,
     SettingsSetUserSettingApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SettingsSetUserSettingApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Key to update.
@@ -55635,19 +55518,19 @@ class _$SettingsSetUserSettingRequestApplicationJson_KeySerializer
 
   static const Map<SettingsSetUserSettingRequestApplicationJson_Key, Object> _toWire =
       <SettingsSetUserSettingRequestApplicationJson_Key, Object>{
-    SettingsSetUserSettingRequestApplicationJson_Key.attachmentFolder: 'attachment_folder',
-    SettingsSetUserSettingRequestApplicationJson_Key.readStatusPrivacy: 'read_status_privacy',
-    SettingsSetUserSettingRequestApplicationJson_Key.typingPrivacy: 'typing_privacy',
-    SettingsSetUserSettingRequestApplicationJson_Key.playSounds: 'play_sounds',
-  };
+        SettingsSetUserSettingRequestApplicationJson_Key.attachmentFolder: 'attachment_folder',
+        SettingsSetUserSettingRequestApplicationJson_Key.readStatusPrivacy: 'read_status_privacy',
+        SettingsSetUserSettingRequestApplicationJson_Key.typingPrivacy: 'typing_privacy',
+        SettingsSetUserSettingRequestApplicationJson_Key.playSounds: 'play_sounds',
+      };
 
   static const Map<Object, SettingsSetUserSettingRequestApplicationJson_Key> _fromWire =
       <Object, SettingsSetUserSettingRequestApplicationJson_Key>{
-    'attachment_folder': SettingsSetUserSettingRequestApplicationJson_Key.attachmentFolder,
-    'read_status_privacy': SettingsSetUserSettingRequestApplicationJson_Key.readStatusPrivacy,
-    'typing_privacy': SettingsSetUserSettingRequestApplicationJson_Key.typingPrivacy,
-    'play_sounds': SettingsSetUserSettingRequestApplicationJson_Key.playSounds,
-  };
+        'attachment_folder': SettingsSetUserSettingRequestApplicationJson_Key.attachmentFolder,
+        'read_status_privacy': SettingsSetUserSettingRequestApplicationJson_Key.readStatusPrivacy,
+        'typing_privacy': SettingsSetUserSettingRequestApplicationJson_Key.typingPrivacy,
+        'play_sounds': SettingsSetUserSettingRequestApplicationJson_Key.playSounds,
+      };
 
   @override
   Iterable<Type> get types => const [SettingsSetUserSettingRequestApplicationJson_Key];
@@ -55660,16 +55543,14 @@ class _$SettingsSetUserSettingRequestApplicationJson_KeySerializer
     Serializers serializers,
     SettingsSetUserSettingRequestApplicationJson_Key object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SettingsSetUserSettingRequestApplicationJson_Key deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// New value for the key.
@@ -55768,8 +55649,10 @@ sealed class $SettingsSetUserSettingResponseApplicationJson_OcsInterface {
 abstract class SettingsSetUserSettingResponseApplicationJson_Ocs
     implements
         $SettingsSetUserSettingResponseApplicationJson_OcsInterface,
-        Built<SettingsSetUserSettingResponseApplicationJson_Ocs,
-            SettingsSetUserSettingResponseApplicationJson_OcsBuilder> {
+        Built<
+          SettingsSetUserSettingResponseApplicationJson_Ocs,
+          SettingsSetUserSettingResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SettingsSetUserSettingResponseApplicationJson_Ocs object using the builder pattern.
   factory SettingsSetUserSettingResponseApplicationJson_Ocs([
     void Function(SettingsSetUserSettingResponseApplicationJson_OcsBuilder)? b,
@@ -55916,16 +55799,14 @@ class _$BotAdminListBotsApiVersionSerializer implements PrimitiveSerializer<BotA
     Serializers serializers,
     BotAdminListBotsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   BotAdminListBotsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -56170,16 +56051,14 @@ class _$CertificateGetCertificateExpirationApiVersionSerializer
     Serializers serializers,
     CertificateGetCertificateExpirationApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   CertificateGetCertificateExpirationApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -56206,8 +56085,10 @@ sealed class $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Dat
 abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data
     implements
         $CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
-            CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data,
+          CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data([
     void Function(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -56271,8 +56152,10 @@ sealed class $CertificateGetCertificateExpirationResponseApplicationJson_OcsInte
 abstract class CertificateGetCertificateExpirationResponseApplicationJson_Ocs
     implements
         $CertificateGetCertificateExpirationResponseApplicationJson_OcsInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
-            CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder> {
+        Built<
+          CertificateGetCertificateExpirationResponseApplicationJson_Ocs,
+          CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson_Ocs object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson_Ocs([
     void Function(CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder)? b,
@@ -56335,8 +56218,10 @@ sealed class $CertificateGetCertificateExpirationResponseApplicationJsonInterfac
 abstract class CertificateGetCertificateExpirationResponseApplicationJson
     implements
         $CertificateGetCertificateExpirationResponseApplicationJsonInterface,
-        Built<CertificateGetCertificateExpirationResponseApplicationJson,
-            CertificateGetCertificateExpirationResponseApplicationJsonBuilder> {
+        Built<
+          CertificateGetCertificateExpirationResponseApplicationJson,
+          CertificateGetCertificateExpirationResponseApplicationJsonBuilder
+        > {
   /// Creates a new CertificateGetCertificateExpirationResponseApplicationJson object using the builder pattern.
   factory CertificateGetCertificateExpirationResponseApplicationJson([
     void Function(CertificateGetCertificateExpirationResponseApplicationJsonBuilder)? b,
@@ -56421,16 +56306,14 @@ class _$RecordingGetWelcomeMessageApiVersionSerializer
     Serializers serializers,
     RecordingGetWelcomeMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RecordingGetWelcomeMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -56456,8 +56339,10 @@ sealed class $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfac
 abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data
     implements
         $RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+          RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
     void Function(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -56521,8 +56406,10 @@ sealed class $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface {
 abstract class RecordingGetWelcomeMessageResponseApplicationJson_Ocs
     implements
         $RecordingGetWelcomeMessageResponseApplicationJson_OcsInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
-            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          RecordingGetWelcomeMessageResponseApplicationJson_Ocs,
+          RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson_Ocs([
     void Function(RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
@@ -56585,8 +56472,10 @@ sealed class $RecordingGetWelcomeMessageResponseApplicationJsonInterface {
 abstract class RecordingGetWelcomeMessageResponseApplicationJson
     implements
         $RecordingGetWelcomeMessageResponseApplicationJsonInterface,
-        Built<RecordingGetWelcomeMessageResponseApplicationJson,
-            RecordingGetWelcomeMessageResponseApplicationJsonBuilder> {
+        Built<
+          RecordingGetWelcomeMessageResponseApplicationJson,
+          RecordingGetWelcomeMessageResponseApplicationJsonBuilder
+        > {
   /// Creates a new RecordingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
   factory RecordingGetWelcomeMessageResponseApplicationJson([
     void Function(RecordingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
@@ -56671,22 +56560,21 @@ class _$SettingsSetsipSettingsApiVersionSerializer implements PrimitiveSerialize
     Serializers serializers,
     SettingsSetsipSettingsApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SettingsSetsipSettingsApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
 sealed class $SettingsSetsipSettingsRequestApplicationJsonInterface {
-  static final _$sipGroups = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+  static final _$sipGroups =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
 
   static final _$dialInInfo = _$jsonSerializers.deserialize('', specifiedType: const FullType(String))! as String;
 
@@ -56789,8 +56677,10 @@ sealed class $SettingsSetsipSettingsResponseApplicationJson_OcsInterface {
 abstract class SettingsSetsipSettingsResponseApplicationJson_Ocs
     implements
         $SettingsSetsipSettingsResponseApplicationJson_OcsInterface,
-        Built<SettingsSetsipSettingsResponseApplicationJson_Ocs,
-            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder> {
+        Built<
+          SettingsSetsipSettingsResponseApplicationJson_Ocs,
+          SettingsSetsipSettingsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SettingsSetsipSettingsResponseApplicationJson_Ocs object using the builder pattern.
   factory SettingsSetsipSettingsResponseApplicationJson_Ocs([
     void Function(SettingsSetsipSettingsResponseApplicationJson_OcsBuilder)? b,
@@ -56938,16 +56828,14 @@ class _$SignalingGetWelcomeMessageApiVersionSerializer
     Serializers serializers,
     SignalingGetWelcomeMessageApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SignalingGetWelcomeMessageApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -56977,8 +56865,10 @@ sealed class $SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterfac
 abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data
     implements
         $SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataInterface,
-        Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
-            SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data,
+          SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data([
     void Function(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -57042,8 +56932,10 @@ sealed class $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface {
 abstract class SignalingGetWelcomeMessageResponseApplicationJson_Ocs
     implements
         $SignalingGetWelcomeMessageResponseApplicationJson_OcsInterface,
-        Built<SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
-            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder> {
+        Built<
+          SignalingGetWelcomeMessageResponseApplicationJson_Ocs,
+          SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson_Ocs object using the builder pattern.
   factory SignalingGetWelcomeMessageResponseApplicationJson_Ocs([
     void Function(SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder)? b,
@@ -57106,8 +56998,10 @@ sealed class $SignalingGetWelcomeMessageResponseApplicationJsonInterface {
 abstract class SignalingGetWelcomeMessageResponseApplicationJson
     implements
         $SignalingGetWelcomeMessageResponseApplicationJsonInterface,
-        Built<SignalingGetWelcomeMessageResponseApplicationJson,
-            SignalingGetWelcomeMessageResponseApplicationJsonBuilder> {
+        Built<
+          SignalingGetWelcomeMessageResponseApplicationJson,
+          SignalingGetWelcomeMessageResponseApplicationJsonBuilder
+        > {
   /// Creates a new SignalingGetWelcomeMessageResponseApplicationJson object using the builder pattern.
   factory SignalingGetWelcomeMessageResponseApplicationJson([
     void Function(SignalingGetWelcomeMessageResponseApplicationJsonBuilder)? b,
@@ -57191,16 +57085,14 @@ class _$SignalingBackendApiVersionSerializer implements PrimitiveSerializer<Sign
     Serializers serializers,
     SignalingBackendApiVersion object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SignalingBackendApiVersion deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -57227,8 +57119,10 @@ sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface {
 abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Error
     implements
         $SignalingBackendResponseApplicationJson_Ocs_Data_ErrorInterface,
-        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Error,
-            SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder> {
+        Built<
+          SignalingBackendResponseApplicationJson_Ocs_Data_Error,
+          SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder
+        > {
   /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Error object using the builder pattern.
   factory SignalingBackendResponseApplicationJson_Ocs_Data_Error([
     void Function(SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder)? b,
@@ -57293,8 +57187,10 @@ sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface {
 abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Auth
     implements
         $SignalingBackendResponseApplicationJson_Ocs_Data_AuthInterface,
-        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Auth,
-            SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder> {
+        Built<
+          SignalingBackendResponseApplicationJson_Ocs_Data_Auth,
+          SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder
+        > {
   /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Auth object using the builder pattern.
   factory SignalingBackendResponseApplicationJson_Ocs_Data_Auth([
     void Function(SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder)? b,
@@ -57361,8 +57257,10 @@ sealed class $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface {
 abstract class SignalingBackendResponseApplicationJson_Ocs_Data_Room
     implements
         $SignalingBackendResponseApplicationJson_Ocs_Data_RoomInterface,
-        Built<SignalingBackendResponseApplicationJson_Ocs_Data_Room,
-            SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder> {
+        Built<
+          SignalingBackendResponseApplicationJson_Ocs_Data_Room,
+          SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder
+        > {
   /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data_Room object using the builder pattern.
   factory SignalingBackendResponseApplicationJson_Ocs_Data_Room([
     void Function(SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder)? b,
@@ -57428,8 +57326,10 @@ sealed class $SignalingBackendResponseApplicationJson_Ocs_DataInterface {
 abstract class SignalingBackendResponseApplicationJson_Ocs_Data
     implements
         $SignalingBackendResponseApplicationJson_Ocs_DataInterface,
-        Built<SignalingBackendResponseApplicationJson_Ocs_Data,
-            SignalingBackendResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          SignalingBackendResponseApplicationJson_Ocs_Data,
+          SignalingBackendResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new SignalingBackendResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory SignalingBackendResponseApplicationJson_Ocs_Data([
     void Function(SignalingBackendResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -57746,8 +57646,10 @@ sealed class $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface {
 abstract class TempAvatarDeleteAvatarResponseApplicationJson_Ocs
     implements
         $TempAvatarDeleteAvatarResponseApplicationJson_OcsInterface,
-        Built<TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
-            TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder> {
+        Built<
+          TempAvatarDeleteAvatarResponseApplicationJson_Ocs,
+          TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TempAvatarDeleteAvatarResponseApplicationJson_Ocs object using the builder pattern.
   factory TempAvatarDeleteAvatarResponseApplicationJson_Ocs([
     void Function(TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder)? b,
@@ -58072,11 +57974,8 @@ extension $SettingsSetUserSettingRequestApplicationJson_ValueExtension
       $b2c4857c0136baea42828d89c87c757dExtension._fromJson(json);
 }
 
-typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 = ({
-  BaseMessage? baseMessage,
-  BuiltList<Never>? builtListNever,
-  ChatMessage? chatMessage,
-});
+typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 =
+    ({BaseMessage? baseMessage, BuiltList<Never>? builtListNever, ChatMessage? chatMessage});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -58144,8 +58043,9 @@ class _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer implements PrimitiveSerialize
     } catch (_) {}
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+              as BuiltList<Never>;
     } catch (_) {}
     ChatMessage? chatMessage;
     try {
@@ -58226,10 +58126,8 @@ class _$eef5a337590648ee15c9b8f9dd9d6a36Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$4f2be900e5f7182901d856e06271b0e6 = ({
-  BuiltList<Never>? builtListNever,
-  SignalingFederationSettings? signalingFederationSettings,
-});
+typedef _$4f2be900e5f7182901d856e06271b0e6 =
+    ({BuiltList<Never>? builtListNever, SignalingFederationSettings? signalingFederationSettings});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -58289,15 +58187,15 @@ class _$4f2be900e5f7182901d856e06271b0e6Serializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+              as BuiltList<Never>;
     } catch (_) {}
     SignalingFederationSettings? signalingFederationSettings;
     try {
-      signalingFederationSettings = serializers.deserialize(
-        data,
-        specifiedType: const FullType(SignalingFederationSettings),
-      )! as SignalingFederationSettings;
+      signalingFederationSettings =
+          serializers.deserialize(data, specifiedType: const FullType(SignalingFederationSettings))!
+              as SignalingFederationSettings;
     } catch (_) {}
     return (builtListNever: builtListNever, signalingFederationSettings: signalingFederationSettings);
   }
@@ -58363,10 +58261,9 @@ class _$1df642f5035aea3b22543ab331c3fb01Serializer implements PrimitiveSerialize
   }) {
     BuiltList<SignalingSession>? builtListSignalingSession;
     try {
-      builtListSignalingSession = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]),
-      )! as BuiltList<SignalingSession>;
+      builtListSignalingSession =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(SignalingSession)]))!
+              as BuiltList<SignalingSession>;
     } catch (_) {}
     String? string;
     try {
@@ -58436,8 +58333,9 @@ class _$f281c16bc584cda0adb1f4b8d534ee07Serializer implements PrimitiveSerialize
   }) {
     BuiltList<Never>? builtListNever;
     try {
-      builtListNever = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
-          as BuiltList<Never>;
+      builtListNever =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(Never)]))!
+              as BuiltList<Never>;
     } catch (_) {}
     Room? room;
     try {
@@ -58447,10 +58345,8 @@ class _$f281c16bc584cda0adb1f4b8d534ee07Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$eded9c5615e6be3b25806a949699f91f = ({
-  BuiltMap<String, JsonObject>? builtMapStringJsonObject,
-  Capabilities? capabilities,
-});
+typedef _$eded9c5615e6be3b25806a949699f91f =
+    ({BuiltMap<String, JsonObject>? builtMapStringJsonObject, Capabilities? capabilities});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -58513,10 +58409,12 @@ class _$eded9c5615e6be3b25806a949699f91fSerializer implements PrimitiveSerialize
   }) {
     BuiltMap<String, JsonObject>? builtMapStringJsonObject;
     try {
-      builtMapStringJsonObject = serializers.deserialize(
-        data,
-        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-      )! as BuiltMap<String, JsonObject>;
+      builtMapStringJsonObject =
+          serializers.deserialize(
+                data,
+                specifiedType: const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+              )!
+              as BuiltMap<String, JsonObject>;
     } catch (_) {}
     Capabilities? capabilities;
     try {
@@ -58603,2337 +58501,2338 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..add(AvatarGetAvatarApiVersion.serializer)
-      ..add(AvatarGetAvatarDarkTheme.serializer)
-      ..add(AvatarUploadAvatarApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarUploadAvatarResponseApplicationJson),
-        AvatarUploadAvatarResponseApplicationJsonBuilder.new,
-      )
-      ..add(AvatarUploadAvatarResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarUploadAvatarResponseApplicationJson_Ocs),
-        AvatarUploadAvatarResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AvatarUploadAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
-      ..add(Room.serializer)
-      ..add(ActorTypes.serializer)
-      ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
-      ..add(ChatMessage.serializer)
-      ..addBuilderFactory(const FullType(BaseMessage), BaseMessageBuilder.new)
-      ..add(BaseMessage.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        ]),
-        MapBuilder<String, BuiltMap<String, JsonObject>>.new,
-      )
-      ..add(MessageType.serializer)
-      ..add(ChatMessage_Deleted.serializer)
-      ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
-      ..add($bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer)
-      ..add(AvatarDeleteAvatarApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarDeleteAvatarResponseApplicationJson),
-        AvatarDeleteAvatarResponseApplicationJsonBuilder.new,
-      )
-      ..add(AvatarDeleteAvatarResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarDeleteAvatarResponseApplicationJson_Ocs),
-        AvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
-      ..add(AvatarEmojiAvatarApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarEmojiAvatarRequestApplicationJson),
-        AvatarEmojiAvatarRequestApplicationJsonBuilder.new,
-      )
-      ..add(AvatarEmojiAvatarRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarEmojiAvatarResponseApplicationJson),
-        AvatarEmojiAvatarResponseApplicationJsonBuilder.new,
-      )
-      ..add(AvatarEmojiAvatarResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarEmojiAvatarResponseApplicationJson_Ocs),
-        AvatarEmojiAvatarResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AvatarEmojiAvatarResponseApplicationJson_Ocs.serializer)
-      ..add(AvatarGetAvatarDarkApiVersion.serializer)
-      ..add(AvatarGetUserProxyAvatarWithoutRoomSize.serializer)
-      ..add(AvatarGetUserProxyAvatarWithoutRoomApiVersion.serializer)
-      ..add(AvatarGetUserProxyAvatarWithoutRoomDarkTheme.serializer)
-      ..add(AvatarGetUserProxyAvatarDarkWithoutRoomSize.serializer)
-      ..add(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.serializer)
-      ..add(AvatarGetUserProxyAvatarSize.serializer)
-      ..add(AvatarGetUserProxyAvatarApiVersion.serializer)
-      ..add(AvatarGetUserProxyAvatarDarkTheme.serializer)
-      ..add(AvatarGetUserProxyAvatarDarkSize.serializer)
-      ..add(AvatarGetUserProxyAvatarDarkApiVersion.serializer)
-      ..add(BanListBansApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BanListBansResponseApplicationJson),
-        BanListBansResponseApplicationJsonBuilder.new,
-      )
-      ..add(BanListBansResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BanListBansResponseApplicationJson_Ocs),
-        BanListBansResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BanListBansResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Ban), BanBuilder.new)
-      ..add(Ban.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Ban)]), ListBuilder<Ban>.new)
-      ..add(BanBanActorApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BanBanActorRequestApplicationJson),
-        BanBanActorRequestApplicationJsonBuilder.new,
-      )
-      ..add(BanBanActorRequestApplicationJson.serializer)
-      ..add(BanBanActorRequestApplicationJson_ActorType.serializer)
-      ..addBuilderFactory(
-        const FullType(BanBanActorResponseApplicationJson),
-        BanBanActorResponseApplicationJsonBuilder.new,
-      )
-      ..add(BanBanActorResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BanBanActorResponseApplicationJson_Ocs),
-        BanBanActorResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BanBanActorResponseApplicationJson_Ocs.serializer)
-      ..add(BanUnbanActorApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BanUnbanActorResponseApplicationJson),
-        BanUnbanActorResponseApplicationJsonBuilder.new,
-      )
-      ..add(BanUnbanActorResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BanUnbanActorResponseApplicationJson_Ocs),
-        BanUnbanActorResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BanUnbanActorResponseApplicationJson_Ocs.serializer)
-      ..add(BotListBotsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotListBotsResponseApplicationJson),
-        BotListBotsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotListBotsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotListBotsResponseApplicationJson_Ocs),
-        BotListBotsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotListBotsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Bot), BotBuilder.new)
-      ..add(Bot.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Bot)]), ListBuilder<Bot>.new)
-      ..add(BotEnableBotApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotEnableBotResponseApplicationJson),
-        BotEnableBotResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotEnableBotResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotEnableBotResponseApplicationJson_Ocs),
-        BotEnableBotResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotEnableBotResponseApplicationJson_Ocs.serializer)
-      ..add(BotDisableBotApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDisableBotResponseApplicationJson),
-        BotDisableBotResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotDisableBotResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDisableBotResponseApplicationJson_Ocs),
-        BotDisableBotResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
-      ..add(BotSendMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotSendMessageRequestApplicationJson),
-        BotSendMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(BotSendMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotSendMessageResponseApplicationJson),
-        BotSendMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotSendMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotSendMessageResponseApplicationJson_Ocs),
-        BotSendMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotSendMessageResponseApplicationJson_Ocs.serializer)
-      ..add(BotReactApiVersion.serializer)
-      ..addBuilderFactory(const FullType(BotReactRequestApplicationJson), BotReactRequestApplicationJsonBuilder.new)
-      ..add(BotReactRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotReactResponseApplicationJson),
-        BotReactResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotReactResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotReactResponseApplicationJson_Ocs),
-        BotReactResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotReactResponseApplicationJson_Ocs.serializer)
-      ..add(BotDeleteReactionApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDeleteReactionResponseApplicationJson),
-        BotDeleteReactionResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotDeleteReactionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
-        BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson),
-        BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson.serializer)
-      ..add(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Room)]), ListBuilder<Room>.new)
-      ..add(BreakoutRoomRemoveBreakoutRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomBroadcastChatMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomBroadcastChatMessageRequestApplicationJson),
-        BreakoutRoomBroadcastChatMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomBroadcastChatMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
-        BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs),
-        BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomApplyAttendeeMapApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomApplyAttendeeMapRequestApplicationJson),
-        BreakoutRoomApplyAttendeeMapRequestApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomApplyAttendeeMapRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
-        BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs),
-        BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomRequestAssistanceApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
-        BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomRequestAssistanceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs),
-        BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomResetRequestForAssistanceApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs),
-        BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomStartBreakoutRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomStopBreakoutRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs),
-        BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.serializer)
-      ..add(BreakoutRoomSwitchBreakoutRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomSwitchBreakoutRoomRequestApplicationJson),
-        BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomSwitchBreakoutRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs),
-        BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.serializer)
-      ..add(CalendarIntegrationGetDashboardEventsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson),
-        CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder.new,
-      )
-      ..add(CalendarIntegrationGetDashboardEventsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs),
-        CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(DashboardEvent), DashboardEventBuilder.new)
-      ..add(DashboardEvent.serializer)
-      ..addBuilderFactory(const FullType(DashboardEventCalendar), DashboardEventCalendarBuilder.new)
-      ..add(DashboardEventCalendar.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(DashboardEventCalendar)]),
-        ListBuilder<DashboardEventCalendar>.new,
-      )
-      ..addBuilderFactory(const FullType(DashboardEventAttachment), DashboardEventAttachmentBuilder.new)
-      ..add(DashboardEventAttachment.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(DashboardEventAttachment)]),
-        MapBuilder<String, DashboardEventAttachment>.new,
-      )
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(DashboardEvent)]), ListBuilder<DashboardEvent>.new)
-      ..add(CalendarIntegrationGetMutualEventsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson),
-        CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder.new,
-      )
-      ..add(CalendarIntegrationGetMutualEventsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs),
-        CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs.serializer)
-      ..add(CallGetPeersForCallApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallGetPeersForCallResponseApplicationJson),
-        CallGetPeersForCallResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallGetPeersForCallResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallGetPeersForCallResponseApplicationJson_Ocs),
-        CallGetPeersForCallResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallGetPeersForCallResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(CallPeer), CallPeerBuilder.new)
-      ..add(CallPeer.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(CallPeer)]), ListBuilder<CallPeer>.new)
-      ..add(CallUpdateCallFlagsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateCallFlagsRequestApplicationJson),
-        CallUpdateCallFlagsRequestApplicationJsonBuilder.new,
-      )
-      ..add(CallUpdateCallFlagsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateCallFlagsResponseApplicationJson),
-        CallUpdateCallFlagsResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallUpdateCallFlagsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateCallFlagsResponseApplicationJson_Ocs),
-        CallUpdateCallFlagsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
-      ..add(CallJoinCallApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinCallRequestApplicationJson),
-        CallJoinCallRequestApplicationJsonBuilder.new,
-      )
-      ..add(CallJoinCallRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinCallResponseApplicationJson),
-        CallJoinCallResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallJoinCallResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinCallResponseApplicationJson_Ocs),
-        CallJoinCallResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallJoinCallResponseApplicationJson_Ocs.serializer)
-      ..add(CallLeaveCallApiVersion.serializer)
-      ..add(CallLeaveCallAll.serializer)
-      ..addBuilderFactory(
-        const FullType(CallLeaveCallResponseApplicationJson),
-        CallLeaveCallResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallLeaveCallResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallLeaveCallResponseApplicationJson_Ocs),
-        CallLeaveCallResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallLeaveCallResponseApplicationJson_Ocs.serializer)
-      ..add(CallNotificationStateApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallNotificationStateResponseApplicationJson),
-        CallNotificationStateResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallNotificationStateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallNotificationStateResponseApplicationJson_Ocs),
-        CallNotificationStateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallNotificationStateResponseApplicationJson_Ocs.serializer)
-      ..add(CallDownloadParticipantsForCallApiVersion.serializer)
-      ..add(CallDownloadParticipantsForCallFormat.serializer)
-      ..add(CallUpdateFederatedCallFlagsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateFederatedCallFlagsRequestApplicationJson),
-        CallUpdateFederatedCallFlagsRequestApplicationJsonBuilder.new,
-      )
-      ..add(CallUpdateFederatedCallFlagsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson),
-        CallUpdateFederatedCallFlagsResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallUpdateFederatedCallFlagsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs),
-        CallUpdateFederatedCallFlagsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs.serializer)
-      ..add(CallJoinFederatedCallApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinFederatedCallRequestApplicationJson),
-        CallJoinFederatedCallRequestApplicationJsonBuilder.new,
-      )
-      ..add(CallJoinFederatedCallRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinFederatedCallResponseApplicationJson),
-        CallJoinFederatedCallResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallJoinFederatedCallResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallJoinFederatedCallResponseApplicationJson_Ocs),
-        CallJoinFederatedCallResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallJoinFederatedCallResponseApplicationJson_Ocs.serializer)
-      ..add(CallLeaveFederatedCallApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallLeaveFederatedCallResponseApplicationJson),
-        CallLeaveFederatedCallResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallLeaveFederatedCallResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallLeaveFederatedCallResponseApplicationJson_Ocs),
-        CallLeaveFederatedCallResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallLeaveFederatedCallResponseApplicationJson_Ocs.serializer)
-      ..add(CallRingAttendeeApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallRingAttendeeResponseApplicationJson),
-        CallRingAttendeeResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallRingAttendeeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallRingAttendeeResponseApplicationJson_Ocs),
-        CallRingAttendeeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallRingAttendeeResponseApplicationJson_Ocs.serializer)
-      ..add(CallSipDialOutApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CallSipDialOutResponseApplicationJson),
-        CallSipDialOutResponseApplicationJsonBuilder.new,
-      )
-      ..add(CallSipDialOutResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CallSipDialOutResponseApplicationJson_Ocs),
-        CallSipDialOutResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CallSipDialOutResponseApplicationJson_Ocs.serializer)
-      ..add(ChatReceiveMessagesLookIntoFuture.serializer)
-      ..add(ChatReceiveMessagesApiVersion.serializer)
-      ..add(ChatReceiveMessagesSetReadMarker.serializer)
-      ..add(ChatReceiveMessagesIncludeLastKnown.serializer)
-      ..add(ChatReceiveMessagesNoStatusUpdate.serializer)
-      ..add(ChatReceiveMessagesMarkNotificationsAsRead.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatReceiveMessagesResponseApplicationJson),
-        ChatReceiveMessagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatReceiveMessagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatReceiveMessagesResponseApplicationJson_Ocs),
-        ChatReceiveMessagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatReceiveMessagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatMessageWithParent), ChatMessageWithParentBuilder.new)
-      ..add(ChatMessageWithParent.serializer)
-      ..addBuilderFactory(const FullType(DeletedChatMessage), DeletedChatMessageBuilder.new)
-      ..add(DeletedChatMessage.serializer)
-      ..add(DeletedChatMessage_Deleted.serializer)
-      ..add($eef5a337590648ee15c9b8f9dd9d6a36Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
-        ListBuilder<ChatMessageWithParent>.new,
-      )
-      ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
-      ..add(ChatChatReceiveMessagesHeaders.serializer)
-      ..add(ChatSendMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSendMessageRequestApplicationJson),
-        ChatSendMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatSendMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSendMessageResponseApplicationJson),
-        ChatSendMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatSendMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSendMessageResponseApplicationJson_Ocs),
-        ChatSendMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatSendMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
-      ..add(ChatChatSendMessageHeaders.serializer)
-      ..add(ChatClearHistoryApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatClearHistoryResponseApplicationJson),
-        ChatClearHistoryResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatClearHistoryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatClearHistoryResponseApplicationJson_Ocs),
-        ChatClearHistoryResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
-      ..add(ChatChatClearHistoryHeaders.serializer)
-      ..add(ChatSummarizeChatApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSummarizeChatRequestApplicationJson),
-        ChatSummarizeChatRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatSummarizeChatRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSummarizeChatResponseApplicationJson),
-        ChatSummarizeChatResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatSummarizeChatResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSummarizeChatResponseApplicationJson_Ocs),
-        ChatSummarizeChatResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatSummarizeChatResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSummarizeChatResponseApplicationJson_Ocs_Data),
-        ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ChatSummarizeChatResponseApplicationJson_Ocs_Data.serializer)
-      ..add(ChatEditMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatEditMessageRequestApplicationJson),
-        ChatEditMessageRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatEditMessageRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatEditMessageResponseApplicationJson),
-        ChatEditMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatEditMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatEditMessageResponseApplicationJson_Ocs),
-        ChatEditMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatEditMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatEditMessageHeaders), ChatChatEditMessageHeadersBuilder.new)
-      ..add(ChatChatEditMessageHeaders.serializer)
-      ..add(ChatDeleteMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatDeleteMessageResponseApplicationJson),
-        ChatDeleteMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatDeleteMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatDeleteMessageResponseApplicationJson_Ocs),
-        ChatDeleteMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatDeleteMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
-      ..add(ChatChatDeleteMessageHeaders.serializer)
-      ..add(ChatGetMessageContextApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetMessageContextResponseApplicationJson),
-        ChatGetMessageContextResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetMessageContextResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetMessageContextResponseApplicationJson_Ocs),
-        ChatGetMessageContextResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatGetMessageContextResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatChatGetMessageContextHeaders),
-        ChatChatGetMessageContextHeadersBuilder.new,
-      )
-      ..add(ChatChatGetMessageContextHeaders.serializer)
-      ..add(ChatGetReminderApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetReminderResponseApplicationJson),
-        ChatGetReminderResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetReminderResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetReminderResponseApplicationJson_Ocs),
-        ChatGetReminderResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatGetReminderResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatReminder), ChatReminderBuilder.new)
-      ..add(ChatReminder.serializer)
-      ..add(ChatSetReminderApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReminderRequestApplicationJson),
-        ChatSetReminderRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatSetReminderRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReminderResponseApplicationJson),
-        ChatSetReminderResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatSetReminderResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReminderResponseApplicationJson_Ocs),
-        ChatSetReminderResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatSetReminderResponseApplicationJson_Ocs.serializer)
-      ..add(ChatDeleteReminderApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatDeleteReminderResponseApplicationJson),
-        ChatDeleteReminderResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatDeleteReminderResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatDeleteReminderResponseApplicationJson_Ocs),
-        ChatDeleteReminderResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatDeleteReminderResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatDeleteReminderResponseApplicationJson_Ocs_Data),
-        ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ChatDeleteReminderResponseApplicationJson_Ocs_Data.serializer)
-      ..add(ChatGetUpcomingRemindersApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetUpcomingRemindersResponseApplicationJson),
-        ChatGetUpcomingRemindersResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetUpcomingRemindersResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetUpcomingRemindersResponseApplicationJson_Ocs),
-        ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatGetUpcomingRemindersResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatReminderUpcoming), ChatReminderUpcomingBuilder.new)
-      ..add(ChatReminderUpcoming.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ChatReminderUpcoming)]),
-        ListBuilder<ChatReminderUpcoming>.new,
-      )
-      ..add(ChatSetReadMarkerApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReadMarkerRequestApplicationJson),
-        ChatSetReadMarkerRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatSetReadMarkerRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReadMarkerResponseApplicationJson),
-        ChatSetReadMarkerResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatSetReadMarkerResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatSetReadMarkerResponseApplicationJson_Ocs),
-        ChatSetReadMarkerResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatSetReadMarkerResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeadersBuilder.new)
-      ..add(ChatChatSetReadMarkerHeaders.serializer)
-      ..add(ChatMarkUnreadApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatMarkUnreadResponseApplicationJson),
-        ChatMarkUnreadResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatMarkUnreadResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatMarkUnreadResponseApplicationJson_Ocs),
-        ChatMarkUnreadResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatMarkUnreadResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
-      ..add(ChatChatMarkUnreadHeaders.serializer)
-      ..add(ChatMentionsApiVersion.serializer)
-      ..add(ChatMentionsIncludeStatus.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatMentionsResponseApplicationJson),
-        ChatMentionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatMentionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatMentionsResponseApplicationJson_Ocs),
-        ChatMentionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatMentionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ChatMentionSuggestion), ChatMentionSuggestionBuilder.new)
-      ..add(ChatMentionSuggestion.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ChatMentionSuggestion)]),
-        ListBuilder<ChatMentionSuggestion>.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
-        ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs),
-        ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(ChatMessage)]),
-        MapBuilder<String, ChatMessage>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ChatChatGetObjectsSharedInRoomHeaders),
-        ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
-      )
-      ..add(ChatChatGetObjectsSharedInRoomHeaders.serializer)
-      ..add(ChatShareObjectToChatApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatShareObjectToChatRequestApplicationJson),
-        ChatShareObjectToChatRequestApplicationJsonBuilder.new,
-      )
-      ..add(ChatShareObjectToChatRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatShareObjectToChatResponseApplicationJson),
-        ChatShareObjectToChatResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatShareObjectToChatResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs),
-        ChatShareObjectToChatResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatShareObjectToChatResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatChatShareObjectToChatHeaders),
-        ChatChatShareObjectToChatHeadersBuilder.new,
-      )
-      ..add(ChatChatShareObjectToChatHeaders.serializer)
-      ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs),
-        ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(ChatMessage)]),
-        ]),
-        MapBuilder<String, BuiltList<ChatMessage>>.new,
-      )
-      ..add(SignalingGetSettingsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetSettingsResponseApplicationJson),
-        SignalingGetSettingsResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingGetSettingsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
-        SignalingGetSettingsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
-      ..add(SignalingSettings.serializer)
-      ..addBuilderFactory(const FullType(SignalingFederationSettings), SignalingFederationSettingsBuilder.new)
-      ..add(SignalingFederationSettings.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingFederationSettings_HelloAuthParams),
-        SignalingFederationSettings_HelloAuthParamsBuilder.new,
-      )
-      ..add(SignalingFederationSettings_HelloAuthParams.serializer)
-      ..add($4f2be900e5f7182901d856e06271b0e6Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams),
-        SignalingSettings_HelloAuthParamsBuilder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_10),
-        SignalingSettings_HelloAuthParams_10Builder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams_10.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSettings_HelloAuthParams_20),
-        SignalingSettings_HelloAuthParams_20Builder.new,
-      )
-      ..add(SignalingSettings_HelloAuthParams_20.serializer)
-      ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
-      ..add(SignalingSettings_Stunservers.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
-        ListBuilder<SignalingSettings_Stunservers>.new,
-      )
-      ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_TurnserversBuilder.new)
-      ..add(SignalingSettings_Turnservers.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
-        ListBuilder<SignalingSettings_Turnservers>.new,
-      )
-      ..add(FederationAcceptShareApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationAcceptShareResponseApplicationJson),
-        FederationAcceptShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationAcceptShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
-        FederationAcceptShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationAcceptShareResponseApplicationJson_Ocs.serializer)
-      ..add(FederationRejectShareApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationRejectShareResponseApplicationJson),
-        FederationRejectShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationRejectShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationRejectShareResponseApplicationJson_Ocs),
-        FederationRejectShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationRejectShareResponseApplicationJson_Ocs.serializer)
-      ..add(FederationGetSharesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationGetSharesResponseApplicationJson),
-        FederationGetSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(FederationGetSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FederationGetSharesResponseApplicationJson_Ocs),
-        FederationGetSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
-      ..add(FederationInvite.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(FederationInvite)]),
-        ListBuilder<FederationInvite>.new,
-      )
-      ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data),
-        FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.serializer)
-      ..add(FilesIntegrationGetRoomByShareTokenApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data),
-        FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.serializer)
-      ..add(PublicShareAuthCreateRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomRequestApplicationJson),
-        PublicShareAuthCreateRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
-        PublicShareAuthCreateRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
-        PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
-        PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.serializer)
-      ..add(GuestSetDisplayNameApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestSetDisplayNameRequestApplicationJson),
-        GuestSetDisplayNameRequestApplicationJsonBuilder.new,
-      )
-      ..add(GuestSetDisplayNameRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestSetDisplayNameResponseApplicationJson),
-        GuestSetDisplayNameResponseApplicationJsonBuilder.new,
-      )
-      ..add(GuestSetDisplayNameResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestSetDisplayNameResponseApplicationJson_Ocs),
-        GuestSetDisplayNameResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(GuestSetDisplayNameResponseApplicationJson_Ocs.serializer)
-      ..add(HostedSignalingServerRequestTrialApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(HostedSignalingServerRequestTrialRequestApplicationJson),
-        HostedSignalingServerRequestTrialRequestApplicationJsonBuilder.new,
-      )
-      ..add(HostedSignalingServerRequestTrialRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
-        HostedSignalingServerRequestTrialResponseApplicationJsonBuilder.new,
-      )
-      ..add(HostedSignalingServerRequestTrialResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs),
-        HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.serializer)
-      ..add(HostedSignalingServerDeleteAccountApiVersion.serializer)
-      ..add(SignalingPullMessagesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson),
-        SignalingPullMessagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
-        SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
-        SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
-      ..add(SignalingSession.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingSession)]),
-        ListBuilder<SignalingSession>.new,
-      )
-      ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
-        ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
-      )
-      ..add(SignalingSendMessagesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSendMessagesRequestApplicationJson),
-        SignalingSendMessagesRequestApplicationJsonBuilder.new,
-      )
-      ..add(SignalingSendMessagesRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSendMessagesResponseApplicationJson),
-        SignalingSendMessagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingSendMessagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
-        SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
-      ..add(MatterbridgeGetBridgeOfRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
-        MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(MatterbridgeWithProcessState), MatterbridgeWithProcessStateBuilder.new)
-      ..add(MatterbridgeWithProcessState.serializer)
-      ..addBuilderFactory(const FullType(Matterbridge), MatterbridgeBuilder.new)
-      ..add(Matterbridge.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        ]),
-        ListBuilder<BuiltMap<String, JsonObject>>.new,
-      )
-      ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessStateBuilder.new)
-      ..add(MatterbridgeProcessState.serializer)
-      ..add(MatterbridgeEditBridgeOfRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeEditBridgeOfRoomRequestApplicationJson),
-        MatterbridgeEditBridgeOfRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeEditBridgeOfRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
-        MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.serializer)
-      ..add(MatterbridgeDeleteBridgeOfRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs),
-        MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.serializer)
-      ..add(MatterbridgeGetBridgeProcessStateApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
-        MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs),
-        MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.serializer)
-      ..add(MatterbridgeSettingsStopAllBridgesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs),
-        MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.serializer)
-      ..add(MatterbridgeSettingsGetMatterbridgeVersionApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder.new,
-      )
-      ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data),
-        MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.serializer)
-      ..add(PollCreatePollApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollCreatePollRequestApplicationJson),
-        PollCreatePollRequestApplicationJsonBuilder.new,
-      )
-      ..add(PollCreatePollRequestApplicationJson.serializer)
-      ..add(PollCreatePollRequestApplicationJson_ResultMode.serializer)
-      ..addBuilderFactory(
-        const FullType(PollCreatePollResponseApplicationJson),
-        PollCreatePollResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollCreatePollResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollCreatePollResponseApplicationJson_Ocs),
-        PollCreatePollResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollCreatePollResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(PollDraft), PollDraftBuilder.new)
-      ..add(PollDraft.serializer)
-      ..add(PollDraft_ResultMode.serializer)
-      ..add(PollDraft_Status.serializer)
-      ..add(PollUpdateDraftPollApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollUpdateDraftPollRequestApplicationJson),
-        PollUpdateDraftPollRequestApplicationJsonBuilder.new,
-      )
-      ..add(PollUpdateDraftPollRequestApplicationJson.serializer)
-      ..add(PollUpdateDraftPollRequestApplicationJson_ResultMode.serializer)
-      ..addBuilderFactory(
-        const FullType(PollUpdateDraftPollResponseApplicationJson),
-        PollUpdateDraftPollResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollUpdateDraftPollResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollUpdateDraftPollResponseApplicationJson_Ocs),
-        PollUpdateDraftPollResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollUpdateDraftPollResponseApplicationJson_Ocs.serializer)
-      ..add(PollGetAllDraftPollsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollGetAllDraftPollsResponseApplicationJson),
-        PollGetAllDraftPollsResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollGetAllDraftPollsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollGetAllDraftPollsResponseApplicationJson_Ocs),
-        PollGetAllDraftPollsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollGetAllDraftPollsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(PollDraft)]), ListBuilder<PollDraft>.new)
-      ..add(PollShowPollApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollShowPollResponseApplicationJson),
-        PollShowPollResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollShowPollResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollShowPollResponseApplicationJson_Ocs),
-        PollShowPollResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollShowPollResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Poll), PollBuilder.new)
-      ..add(Poll.serializer)
-      ..addBuilderFactory(const FullType(PollVote), PollVoteBuilder.new)
-      ..add(PollVote.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(PollVote)]), ListBuilder<PollVote>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..add(PollVotePollApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollVotePollRequestApplicationJson),
-        PollVotePollRequestApplicationJsonBuilder.new,
-      )
-      ..add(PollVotePollRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollVotePollResponseApplicationJson),
-        PollVotePollResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollVotePollResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollVotePollResponseApplicationJson_Ocs),
-        PollVotePollResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollVotePollResponseApplicationJson_Ocs.serializer)
-      ..add(PollClosePollApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(PollClosePollResponseApplicationJson),
-        PollClosePollResponseApplicationJsonBuilder.new,
-      )
-      ..add(PollClosePollResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(PollClosePollResponseApplicationJson_Ocs),
-        PollClosePollResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(PollClosePollResponseApplicationJson_Ocs.serializer)
-      ..add(ReactionGetReactionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionGetReactionsResponseApplicationJson),
-        ReactionGetReactionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReactionGetReactionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionGetReactionsResponseApplicationJson_Ocs),
-        ReactionGetReactionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReactionGetReactionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Reaction), ReactionBuilder.new)
-      ..add(Reaction.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Reaction)]), ListBuilder<Reaction>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(Reaction)]),
-        ]),
-        MapBuilder<String, BuiltList<Reaction>>.new,
-      )
-      ..add(ReactionReactApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionReactRequestApplicationJson),
-        ReactionReactRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReactionReactRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionReactResponseApplicationJson),
-        ReactionReactResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReactionReactResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionReactResponseApplicationJson_Ocs),
-        ReactionReactResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReactionReactResponseApplicationJson_Ocs.serializer)
-      ..add(ReactionDeleteApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionDeleteResponseApplicationJson),
-        ReactionDeleteResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReactionDeleteResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReactionDeleteResponseApplicationJson_Ocs),
-        ReactionDeleteResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReactionDeleteResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingStartApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStartRequestApplicationJson),
-        RecordingStartRequestApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStartRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStartResponseApplicationJson),
-        RecordingStartResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStartResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStartResponseApplicationJson_Ocs),
-        RecordingStartResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingStartResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingStopApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStopResponseApplicationJson),
-        RecordingStopResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStopResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStopResponseApplicationJson_Ocs),
-        RecordingStopResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingStopResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingNotificationDismissApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingNotificationDismissResponseApplicationJson),
-        RecordingNotificationDismissResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingNotificationDismissResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingNotificationDismissResponseApplicationJson_Ocs),
-        RecordingNotificationDismissResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingNotificationDismissResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingShareToChatApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingShareToChatRequestApplicationJson),
-        RecordingShareToChatRequestApplicationJsonBuilder.new,
-      )
-      ..add(RecordingShareToChatRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingShareToChatResponseApplicationJson),
-        RecordingShareToChatResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingShareToChatResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingShareToChatResponseApplicationJson_Ocs),
-        RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingBackendApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingBackendResponseApplicationJson),
-        RecordingBackendResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingBackendResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingBackendResponseApplicationJson_Ocs),
-        RecordingBackendResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingBackendResponseApplicationJson_Ocs.serializer)
-      ..add(RecordingStoreApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStoreRequestApplicationJson),
-        RecordingStoreRequestApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStoreRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStoreResponseApplicationJson),
-        RecordingStoreResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingStoreResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingStoreResponseApplicationJson_Ocs),
-        RecordingStoreResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
-      ..add(RoomGetRoomsApiVersion.serializer)
-      ..add(RoomGetRoomsNoStatusUpdate.serializer)
-      ..add(RoomGetRoomsIncludeStatus.serializer)
-      ..add(RoomGetRoomsIncludeLastMessage.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetRoomsResponseApplicationJson),
-        RoomGetRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetRoomsResponseApplicationJson_Ocs),
-        RoomGetRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetRoomsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
-      ..add(RoomRoomGetRoomsHeaders.serializer)
-      ..add(RoomCreateRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomCreateRoomRequestApplicationJson),
-        RoomCreateRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomCreateRoomRequestApplicationJson.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_ReadOnly.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_Listable.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_LobbyState.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_SipEnabled.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_RecordingConsent.serializer)
-      ..add(RoomCreateRoomRequestApplicationJson_MentionPermissions.serializer)
-      ..addBuilderFactory(const FullType(InvitationList), InvitationListBuilder.new)
-      ..add(InvitationList.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomCreateRoomResponseApplicationJson),
-        RoomCreateRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomCreateRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomCreateRoomResponseApplicationJson_Ocs),
-        RoomCreateRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomCreateRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomGetListedRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetListedRoomsResponseApplicationJson),
-        RoomGetListedRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetListedRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetListedRoomsResponseApplicationJson_Ocs),
-        RoomGetListedRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetListedRoomsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomGetNoteToSelfConversationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
-        RoomGetNoteToSelfConversationResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetNoteToSelfConversationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs),
-        RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRoomGetNoteToSelfConversationHeaders),
-        RoomRoomGetNoteToSelfConversationHeadersBuilder.new,
-      )
-      ..add(RoomRoomGetNoteToSelfConversationHeaders.serializer)
-      ..add(RoomGetSingleRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetSingleRoomResponseApplicationJson),
-        RoomGetSingleRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetSingleRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs),
-        RoomGetSingleRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
-      ..add(RoomRoomGetSingleRoomHeaders.serializer)
-      ..add(RoomRenameRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRenameRoomRequestApplicationJson),
-        RoomRenameRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomRenameRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRenameRoomResponseApplicationJson),
-        RoomRenameRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRenameRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
-        RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomDeleteRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDeleteRoomResponseApplicationJson),
-        RoomDeleteRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomDeleteRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
-        RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomGetBreakoutRoomsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
-        RoomGetBreakoutRoomsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetBreakoutRoomsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs),
-        RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetBreakoutRoomsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomUnbindRoomFromObjectApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomUnbindRoomFromObjectResponseApplicationJson),
-        RoomUnbindRoomFromObjectResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomUnbindRoomFromObjectResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs),
-        RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMakePublicApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMakePublicRequestApplicationJson),
-        RoomMakePublicRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomMakePublicRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMakePublicResponseApplicationJson),
-        RoomMakePublicResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMakePublicResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMakePublicResponseApplicationJson_Ocs),
-        RoomMakePublicResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMakePublicResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMakePrivateApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMakePrivateResponseApplicationJson),
-        RoomMakePrivateResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMakePrivateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMakePrivateResponseApplicationJson_Ocs),
-        RoomMakePrivateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMakePrivateResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetDescriptionApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetDescriptionRequestApplicationJson),
-        RoomSetDescriptionRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetDescriptionRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetDescriptionResponseApplicationJson),
-        RoomSetDescriptionResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetDescriptionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetDescriptionResponseApplicationJson_Ocs),
-        RoomSetDescriptionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetDescriptionResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetReadOnlyApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetReadOnlyRequestApplicationJson),
-        RoomSetReadOnlyRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetReadOnlyRequestApplicationJson.serializer)
-      ..add(RoomSetReadOnlyRequestApplicationJson_State.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetReadOnlyResponseApplicationJson),
-        RoomSetReadOnlyResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetReadOnlyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetReadOnlyResponseApplicationJson_Ocs),
-        RoomSetReadOnlyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetReadOnlyResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetListableApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetListableRequestApplicationJson),
-        RoomSetListableRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetListableRequestApplicationJson.serializer)
-      ..add(RoomSetListableRequestApplicationJson_Scope.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetListableResponseApplicationJson),
-        RoomSetListableResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetListableResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetListableResponseApplicationJson_Ocs),
-        RoomSetListableResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetListableResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetPasswordApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPasswordRequestApplicationJson),
-        RoomSetPasswordRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetPasswordRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPasswordResponseApplicationJson),
-        RoomSetPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPasswordResponseApplicationJson_Ocs),
-        RoomSetPasswordResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetPasswordResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetPermissionsMode.serializer)
-      ..add(RoomSetPermissionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPermissionsRequestApplicationJson),
-        RoomSetPermissionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetPermissionsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPermissionsResponseApplicationJson),
-        RoomSetPermissionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetPermissionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetPermissionsResponseApplicationJson_Ocs),
-        RoomSetPermissionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomGetParticipantsApiVersion.serializer)
-      ..add(RoomGetParticipantsIncludeStatus.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetParticipantsResponseApplicationJson),
-        RoomGetParticipantsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetParticipantsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetParticipantsResponseApplicationJson_Ocs),
-        RoomGetParticipantsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetParticipantsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Participant), ParticipantBuilder.new)
-      ..add(Participant.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
-      ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
-      ..add(RoomRoomGetParticipantsHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType.nullable(bool)]), HeaderBuilder<bool?>.new)
-      ..add(Header.serializer)
-      ..add(RoomAddParticipantToRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomRequestApplicationJson),
-        RoomAddParticipantToRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomAddParticipantToRoomRequestApplicationJson.serializer)
-      ..add(RoomAddParticipantToRoomRequestApplicationJson_Source.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomResponseApplicationJson),
-        RoomAddParticipantToRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomAddParticipantToRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs),
-        RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
-        RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.serializer)
-      ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
-      ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
-        RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs),
-        RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
-        RoomRoomGetBreakoutRoomParticipantsHeadersBuilder.new,
-      )
-      ..add(RoomRoomGetBreakoutRoomParticipantsHeaders.serializer)
-      ..add(RoomRemoveSelfFromRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
-        RoomRemoveSelfFromRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRemoveSelfFromRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs),
-        RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomRemoveAttendeeFromRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
-        RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs),
-        RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetAttendeePermissionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAttendeePermissionsRequestApplicationJson),
-        RoomSetAttendeePermissionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetAttendeePermissionsRequestApplicationJson.serializer)
-      ..add(RoomSetAttendeePermissionsRequestApplicationJson_Method.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
-        RoomSetAttendeePermissionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetAttendeePermissionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAttendeePermissionsResponseApplicationJson_Ocs),
-        RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRoomSetAttendeePermissionsHeaders),
-        RoomRoomSetAttendeePermissionsHeadersBuilder.new,
-      )
-      ..add(RoomRoomSetAttendeePermissionsHeaders.serializer)
-      ..add(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.serializer)
-      ..addBuilderFactory(
-        const FullType(Header, [
-          FullType.nullable(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses),
-        ]),
-        HeaderBuilder<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses?>.new,
-      )
-      ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAllAttendeesPermissionsRequestApplicationJson),
-        RoomSetAllAttendeesPermissionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetAllAttendeesPermissionsRequestApplicationJson.serializer)
-      ..add(RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
-        RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs),
-        RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomJoinRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinRoomRequestApplicationJson),
-        RoomJoinRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomJoinRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinRoomResponseApplicationJson),
-        RoomJoinRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomJoinRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinRoomResponseApplicationJson_Ocs),
-        RoomJoinRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomJoinRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(RoomRoomJoinRoomHeaders), RoomRoomJoinRoomHeadersBuilder.new)
-      ..add(RoomRoomJoinRoomHeaders.serializer)
-      ..add(RoomLeaveRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomLeaveRoomResponseApplicationJson),
-        RoomLeaveRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomLeaveRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomLeaveRoomResponseApplicationJson_Ocs),
-        RoomLeaveRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomLeaveRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomResendInvitationsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomResendInvitationsRequestApplicationJson),
-        RoomResendInvitationsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomResendInvitationsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomResendInvitationsResponseApplicationJson),
-        RoomResendInvitationsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomResendInvitationsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomResendInvitationsResponseApplicationJson_Ocs),
-        RoomResendInvitationsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomResendInvitationsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetSessionStateApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetSessionStateRequestApplicationJson),
-        RoomSetSessionStateRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetSessionStateRequestApplicationJson.serializer)
-      ..add(RoomSetSessionStateRequestApplicationJson_State.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetSessionStateResponseApplicationJson),
-        RoomSetSessionStateResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetSessionStateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetSessionStateResponseApplicationJson_Ocs),
-        RoomSetSessionStateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetSessionStateResponseApplicationJson_Ocs.serializer)
-      ..add(RoomPromoteModeratorApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomPromoteModeratorRequestApplicationJson),
-        RoomPromoteModeratorRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomPromoteModeratorRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomPromoteModeratorResponseApplicationJson),
-        RoomPromoteModeratorResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomPromoteModeratorResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs),
-        RoomPromoteModeratorResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomPromoteModeratorResponseApplicationJson_Ocs.serializer)
-      ..add(RoomDemoteModeratorApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDemoteModeratorResponseApplicationJson),
-        RoomDemoteModeratorResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomDemoteModeratorResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDemoteModeratorResponseApplicationJson_Ocs),
-        RoomDemoteModeratorResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomDemoteModeratorResponseApplicationJson_Ocs.serializer)
-      ..add(RoomAddToFavoritesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddToFavoritesResponseApplicationJson),
-        RoomAddToFavoritesResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomAddToFavoritesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomAddToFavoritesResponseApplicationJson_Ocs),
-        RoomAddToFavoritesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomAddToFavoritesResponseApplicationJson_Ocs.serializer)
-      ..add(RoomRemoveFromFavoritesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
-        RoomRemoveFromFavoritesResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRemoveFromFavoritesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRemoveFromFavoritesResponseApplicationJson_Ocs),
-        RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRemoveFromFavoritesResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMarkConversationAsImportantApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsImportantResponseApplicationJson),
-        RoomMarkConversationAsImportantResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMarkConversationAsImportantResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsImportantResponseApplicationJson_Ocs),
-        RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMarkConversationAsImportantResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMarkConversationAsUnimportantApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson),
-        RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMarkConversationAsUnimportantResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs),
-        RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMarkConversationAsSensitiveApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson),
-        RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMarkConversationAsSensitiveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs),
-        RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs.serializer)
-      ..add(RoomMarkConversationAsInsensitiveApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson),
-        RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomMarkConversationAsInsensitiveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs),
-        RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetNotificationLevelApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationLevelRequestApplicationJson),
-        RoomSetNotificationLevelRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetNotificationLevelRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationLevelResponseApplicationJson),
-        RoomSetNotificationLevelResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetNotificationLevelResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationLevelResponseApplicationJson_Ocs),
-        RoomSetNotificationLevelResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetNotificationLevelResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetNotificationCallsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationCallsRequestApplicationJson),
-        RoomSetNotificationCallsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetNotificationCallsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationCallsResponseApplicationJson),
-        RoomSetNotificationCallsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetNotificationCallsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetNotificationCallsResponseApplicationJson_Ocs),
-        RoomSetNotificationCallsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetNotificationCallsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetLobbyApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetLobbyRequestApplicationJson),
-        RoomSetLobbyRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetLobbyRequestApplicationJson.serializer)
-      ..add(RoomSetLobbyRequestApplicationJson_State.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetLobbyResponseApplicationJson),
-        RoomSetLobbyResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetLobbyResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetLobbyResponseApplicationJson_Ocs),
-        RoomSetLobbyResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetLobbyResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetsipEnabledApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetsipEnabledRequestApplicationJson),
-        RoomSetsipEnabledRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetsipEnabledRequestApplicationJson.serializer)
-      ..add(RoomSetsipEnabledRequestApplicationJson_State.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetsipEnabledResponseApplicationJson),
-        RoomSetsipEnabledResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetsipEnabledResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetsipEnabledResponseApplicationJson_Ocs),
-        RoomSetsipEnabledResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetsipEnabledResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetRecordingConsentApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetRecordingConsentRequestApplicationJson),
-        RoomSetRecordingConsentRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetRecordingConsentRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetRecordingConsentResponseApplicationJson),
-        RoomSetRecordingConsentResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetRecordingConsentResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetRecordingConsentResponseApplicationJson_Ocs),
-        RoomSetRecordingConsentResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetRecordingConsentResponseApplicationJson_Ocs.serializer)
-      ..add(RoomSetMessageExpirationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMessageExpirationRequestApplicationJson),
-        RoomSetMessageExpirationRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetMessageExpirationRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMessageExpirationResponseApplicationJson),
-        RoomSetMessageExpirationResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetMessageExpirationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMessageExpirationResponseApplicationJson_Ocs),
-        RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
-      ..add($f281c16bc584cda0adb1f4b8d534ee07Extension._serializer)
-      ..add(RoomGetCapabilitiesApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetCapabilitiesResponseApplicationJson),
-        RoomGetCapabilitiesResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomGetCapabilitiesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomGetCapabilitiesResponseApplicationJson_Ocs),
-        RoomGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomGetCapabilitiesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config), Capabilities_ConfigBuilder.new)
-      ..add(Capabilities_Config.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_Config_Attachments),
-        Capabilities_Config_AttachmentsBuilder.new,
-      )
-      ..add(Capabilities_Config_Attachments.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Call), Capabilities_Config_CallBuilder.new)
-      ..add(Capabilities_Config_Call.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Chat), Capabilities_Config_ChatBuilder.new)
-      ..add(Capabilities_Config_Chat.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_Config_Conversations),
-        Capabilities_Config_ConversationsBuilder.new,
-      )
-      ..add(Capabilities_Config_Conversations.serializer)
-      ..add(Capabilities_Config_Conversations_ListStyle.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Federation), Capabilities_Config_FederationBuilder.new)
-      ..add(Capabilities_Config_Federation.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Previews), Capabilities_Config_PreviewsBuilder.new)
-      ..add(Capabilities_Config_Previews.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Config_Signaling), Capabilities_Config_SignalingBuilder.new)
-      ..add(Capabilities_Config_Signaling.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_Config_Experiments),
-        Capabilities_Config_ExperimentsBuilder.new,
-      )
-      ..add(Capabilities_Config_Experiments.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-        MapBuilder<String, BuiltList<String>>.new,
-      )
-      ..add($eded9c5615e6be3b25806a949699f91fExtension._serializer)
-      ..addBuilderFactory(const FullType(RoomRoomGetCapabilitiesHeaders), RoomRoomGetCapabilitiesHeadersBuilder.new)
-      ..add(RoomRoomGetCapabilitiesHeaders.serializer)
-      ..add(RoomSetMentionPermissionsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMentionPermissionsRequestApplicationJson),
-        RoomSetMentionPermissionsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetMentionPermissionsRequestApplicationJson.serializer)
-      ..add(RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMentionPermissionsResponseApplicationJson),
-        RoomSetMentionPermissionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomSetMentionPermissionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomSetMentionPermissionsResponseApplicationJson_Ocs),
-        RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomSetMentionPermissionsResponseApplicationJson_Ocs.serializer)
-      ..add(RoomArchiveConversationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomArchiveConversationResponseApplicationJson),
-        RoomArchiveConversationResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomArchiveConversationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomArchiveConversationResponseApplicationJson_Ocs),
-        RoomArchiveConversationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomArchiveConversationResponseApplicationJson_Ocs.serializer)
-      ..add(RoomUnarchiveConversationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomUnarchiveConversationResponseApplicationJson),
-        RoomUnarchiveConversationResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomUnarchiveConversationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomUnarchiveConversationResponseApplicationJson_Ocs),
-        RoomUnarchiveConversationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomUnarchiveConversationResponseApplicationJson_Ocs.serializer)
-      ..add(RoomImportEmailsAsParticipantsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
-        RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomImportEmailsAsParticipantsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
-        RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs),
-        RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data),
-        RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data.serializer)
-      ..add(RoomScheduleMeetingApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomScheduleMeetingRequestApplicationJson),
-        RoomScheduleMeetingRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomScheduleMeetingRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomScheduleMeetingResponseApplicationJson),
-        RoomScheduleMeetingResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomScheduleMeetingResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomScheduleMeetingResponseApplicationJson_Ocs),
-        RoomScheduleMeetingResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomScheduleMeetingResponseApplicationJson_Ocs.serializer)
-      ..add(RoomJoinFederatedRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinFederatedRoomRequestApplicationJson),
-        RoomJoinFederatedRoomRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomJoinFederatedRoomRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinFederatedRoomResponseApplicationJson),
-        RoomJoinFederatedRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomJoinFederatedRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomJoinFederatedRoomResponseApplicationJson_Ocs),
-        RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomJoinFederatedRoomResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRoomJoinFederatedRoomHeaders),
-        RoomRoomJoinFederatedRoomHeadersBuilder.new,
-      )
-      ..add(RoomRoomJoinFederatedRoomHeaders.serializer)
-      ..add(RoomLeaveFederatedRoomApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomLeaveFederatedRoomResponseApplicationJson),
-        RoomLeaveFederatedRoomResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomLeaveFederatedRoomResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomLeaveFederatedRoomResponseApplicationJson_Ocs),
-        RoomLeaveFederatedRoomResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomLeaveFederatedRoomResponseApplicationJson_Ocs.serializer)
-      ..add(RoomVerifyDialInPinDeprecatedApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
-        RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs),
-        RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.serializer)
-      ..add(RoomVerifyDialInPinApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialInPinRequestApplicationJson),
-        RoomVerifyDialInPinRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomVerifyDialInPinRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialInPinResponseApplicationJson),
-        RoomVerifyDialInPinResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomVerifyDialInPinResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialInPinResponseApplicationJson_Ocs),
-        RoomVerifyDialInPinResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomVerifyDialInPinResponseApplicationJson_Ocs.serializer)
-      ..add(RoomVerifyDialOutNumberApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialOutNumberRequestApplicationJson),
-        RoomVerifyDialOutNumberRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomVerifyDialOutNumberRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialOutNumberRequestApplicationJson_Options),
-        RoomVerifyDialOutNumberRequestApplicationJson_OptionsBuilder.new,
-      )
-      ..add(RoomVerifyDialOutNumberRequestApplicationJson_Options.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialOutNumberResponseApplicationJson),
-        RoomVerifyDialOutNumberResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomVerifyDialOutNumberResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomVerifyDialOutNumberResponseApplicationJson_Ocs),
-        RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomVerifyDialOutNumberResponseApplicationJson_Ocs.serializer)
-      ..add(RoomDirectDialInApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDirectDialInRequestApplicationJson),
-        RoomDirectDialInRequestApplicationJsonBuilder.new,
-      )
-      ..add(RoomDirectDialInRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDirectDialInResponseApplicationJson),
-        RoomDirectDialInResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomDirectDialInResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomDirectDialInResponseApplicationJson_Ocs),
-        RoomDirectDialInResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomDirectDialInResponseApplicationJson_Ocs.serializer)
-      ..add(RoomCreateGuestByDialInApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomCreateGuestByDialInResponseApplicationJson),
-        RoomCreateGuestByDialInResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomCreateGuestByDialInResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomCreateGuestByDialInResponseApplicationJson_Ocs),
-        RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomCreateGuestByDialInResponseApplicationJson_Ocs.serializer)
-      ..add(RoomRejectedDialOutRequestApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
-        RoomRejectedDialOutRequestResponseApplicationJsonBuilder.new,
-      )
-      ..add(RoomRejectedDialOutRequestResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RoomRejectedDialOutRequestResponseApplicationJson_Ocs),
-        RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RoomRejectedDialOutRequestResponseApplicationJson_Ocs.serializer)
-      ..add(SettingsSetUserSettingApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetUserSettingRequestApplicationJson),
-        SettingsSetUserSettingRequestApplicationJsonBuilder.new,
-      )
-      ..add(SettingsSetUserSettingRequestApplicationJson.serializer)
-      ..add(SettingsSetUserSettingRequestApplicationJson_Key.serializer)
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetUserSettingResponseApplicationJson),
-        SettingsSetUserSettingResponseApplicationJsonBuilder.new,
-      )
-      ..add(SettingsSetUserSettingResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs),
-        SettingsSetUserSettingResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SettingsSetUserSettingResponseApplicationJson_Ocs.serializer)
-      ..add(BotAdminListBotsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson),
-        BotAdminListBotsResponseApplicationJsonBuilder.new,
-      )
-      ..add(BotAdminListBotsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
-        BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
-      ..add(BotWithDetails.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
-      ..add(CertificateGetCertificateExpirationApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
-        CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
-        CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
-        CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
-      ..add(RecordingGetWelcomeMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
-        RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
-        RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
-        RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
-      ..add(SettingsSetsipSettingsApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetsipSettingsRequestApplicationJson),
-        SettingsSetsipSettingsRequestApplicationJsonBuilder.new,
-      )
-      ..add(SettingsSetsipSettingsRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetsipSettingsResponseApplicationJson),
-        SettingsSetsipSettingsResponseApplicationJsonBuilder.new,
-      )
-      ..add(SettingsSetsipSettingsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
-        SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
-      ..add(SignalingGetWelcomeMessageApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
-        SignalingGetWelcomeMessageResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingGetWelcomeMessageResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
-        SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
-        SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
-      ..add(SignalingBackendApiVersion.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson),
-        SignalingBackendResponseApplicationJsonBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson_Ocs),
-        SignalingBackendResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data),
-        SignalingBackendResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Error),
-        SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Error.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Auth),
-        SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Auth.serializer)
-      ..addBuilderFactory(
-        const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Room),
-        SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder.new,
-      )
-      ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Room.serializer)
-      ..addBuilderFactory(
-        const FullType(TempAvatarPostAvatarResponseApplicationJson),
-        TempAvatarPostAvatarResponseApplicationJsonBuilder.new,
-      )
-      ..add(TempAvatarPostAvatarResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TempAvatarPostAvatarResponseApplicationJson_Ocs),
-        TempAvatarPostAvatarResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TempAvatarPostAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
-        TempAvatarDeleteAvatarResponseApplicationJsonBuilder.new,
-      )
-      ..add(TempAvatarDeleteAvatarResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TempAvatarDeleteAvatarResponseApplicationJson_Ocs),
-        TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
-      ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(RoomWithInvalidInvitations), RoomWithInvalidInvitationsBuilder.new)
-      ..add(RoomWithInvalidInvitations.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..add(AvatarGetAvatarApiVersion.serializer)
+          ..add(AvatarGetAvatarDarkTheme.serializer)
+          ..add(AvatarUploadAvatarApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarUploadAvatarResponseApplicationJson),
+            AvatarUploadAvatarResponseApplicationJsonBuilder.new,
+          )
+          ..add(AvatarUploadAvatarResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarUploadAvatarResponseApplicationJson_Ocs),
+            AvatarUploadAvatarResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AvatarUploadAvatarResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(Room), RoomBuilder.new)
+          ..add(Room.serializer)
+          ..add(ActorTypes.serializer)
+          ..addBuilderFactory(const FullType(ChatMessage), ChatMessageBuilder.new)
+          ..add(ChatMessage.serializer)
+          ..addBuilderFactory(const FullType(BaseMessage), BaseMessageBuilder.new)
+          ..add(BaseMessage.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ]),
+            MapBuilder<String, BuiltMap<String, JsonObject>>.new,
+          )
+          ..add(MessageType.serializer)
+          ..add(ChatMessage_Deleted.serializer)
+          ..addBuilderFactory(const FullType(BuiltMap, [FullType(String), FullType(int)]), MapBuilder<String, int>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Never)]), ListBuilder<Never>.new)
+          ..add($bed8482b7c93ae2974fa4be6ae42b9b1Extension._serializer)
+          ..add(AvatarDeleteAvatarApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarDeleteAvatarResponseApplicationJson),
+            AvatarDeleteAvatarResponseApplicationJsonBuilder.new,
+          )
+          ..add(AvatarDeleteAvatarResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarDeleteAvatarResponseApplicationJson_Ocs),
+            AvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
+          ..add(AvatarEmojiAvatarApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarEmojiAvatarRequestApplicationJson),
+            AvatarEmojiAvatarRequestApplicationJsonBuilder.new,
+          )
+          ..add(AvatarEmojiAvatarRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarEmojiAvatarResponseApplicationJson),
+            AvatarEmojiAvatarResponseApplicationJsonBuilder.new,
+          )
+          ..add(AvatarEmojiAvatarResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarEmojiAvatarResponseApplicationJson_Ocs),
+            AvatarEmojiAvatarResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AvatarEmojiAvatarResponseApplicationJson_Ocs.serializer)
+          ..add(AvatarGetAvatarDarkApiVersion.serializer)
+          ..add(AvatarGetUserProxyAvatarWithoutRoomSize.serializer)
+          ..add(AvatarGetUserProxyAvatarWithoutRoomApiVersion.serializer)
+          ..add(AvatarGetUserProxyAvatarWithoutRoomDarkTheme.serializer)
+          ..add(AvatarGetUserProxyAvatarDarkWithoutRoomSize.serializer)
+          ..add(AvatarGetUserProxyAvatarDarkWithoutRoomApiVersion.serializer)
+          ..add(AvatarGetUserProxyAvatarSize.serializer)
+          ..add(AvatarGetUserProxyAvatarApiVersion.serializer)
+          ..add(AvatarGetUserProxyAvatarDarkTheme.serializer)
+          ..add(AvatarGetUserProxyAvatarDarkSize.serializer)
+          ..add(AvatarGetUserProxyAvatarDarkApiVersion.serializer)
+          ..add(BanListBansApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BanListBansResponseApplicationJson),
+            BanListBansResponseApplicationJsonBuilder.new,
+          )
+          ..add(BanListBansResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BanListBansResponseApplicationJson_Ocs),
+            BanListBansResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BanListBansResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Ban), BanBuilder.new)
+          ..add(Ban.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Ban)]), ListBuilder<Ban>.new)
+          ..add(BanBanActorApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BanBanActorRequestApplicationJson),
+            BanBanActorRequestApplicationJsonBuilder.new,
+          )
+          ..add(BanBanActorRequestApplicationJson.serializer)
+          ..add(BanBanActorRequestApplicationJson_ActorType.serializer)
+          ..addBuilderFactory(
+            const FullType(BanBanActorResponseApplicationJson),
+            BanBanActorResponseApplicationJsonBuilder.new,
+          )
+          ..add(BanBanActorResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BanBanActorResponseApplicationJson_Ocs),
+            BanBanActorResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BanBanActorResponseApplicationJson_Ocs.serializer)
+          ..add(BanUnbanActorApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BanUnbanActorResponseApplicationJson),
+            BanUnbanActorResponseApplicationJsonBuilder.new,
+          )
+          ..add(BanUnbanActorResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BanUnbanActorResponseApplicationJson_Ocs),
+            BanUnbanActorResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BanUnbanActorResponseApplicationJson_Ocs.serializer)
+          ..add(BotListBotsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotListBotsResponseApplicationJson),
+            BotListBotsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotListBotsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotListBotsResponseApplicationJson_Ocs),
+            BotListBotsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotListBotsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Bot), BotBuilder.new)
+          ..add(Bot.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Bot)]), ListBuilder<Bot>.new)
+          ..add(BotEnableBotApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotEnableBotResponseApplicationJson),
+            BotEnableBotResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotEnableBotResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotEnableBotResponseApplicationJson_Ocs),
+            BotEnableBotResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotEnableBotResponseApplicationJson_Ocs.serializer)
+          ..add(BotDisableBotApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotDisableBotResponseApplicationJson),
+            BotDisableBotResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotDisableBotResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotDisableBotResponseApplicationJson_Ocs),
+            BotDisableBotResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotDisableBotResponseApplicationJson_Ocs.serializer)
+          ..add(BotSendMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotSendMessageRequestApplicationJson),
+            BotSendMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(BotSendMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotSendMessageResponseApplicationJson),
+            BotSendMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotSendMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotSendMessageResponseApplicationJson_Ocs),
+            BotSendMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotSendMessageResponseApplicationJson_Ocs.serializer)
+          ..add(BotReactApiVersion.serializer)
+          ..addBuilderFactory(const FullType(BotReactRequestApplicationJson), BotReactRequestApplicationJsonBuilder.new)
+          ..add(BotReactRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotReactResponseApplicationJson),
+            BotReactResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotReactResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotReactResponseApplicationJson_Ocs),
+            BotReactResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotReactResponseApplicationJson_Ocs.serializer)
+          ..add(BotDeleteReactionApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotDeleteReactionResponseApplicationJson),
+            BotDeleteReactionResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotDeleteReactionResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotDeleteReactionResponseApplicationJson_Ocs),
+            BotDeleteReactionResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotDeleteReactionResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomConfigureBreakoutRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson),
+            BreakoutRoomConfigureBreakoutRoomsRequestApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson.serializer)
+          ..add(BreakoutRoomConfigureBreakoutRoomsRequestApplicationJson_Mode.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson),
+            BreakoutRoomConfigureBreakoutRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs),
+            BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomConfigureBreakoutRoomsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Room)]), ListBuilder<Room>.new)
+          ..add(BreakoutRoomRemoveBreakoutRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson),
+            BreakoutRoomRemoveBreakoutRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs),
+            BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomRemoveBreakoutRoomsResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomBroadcastChatMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomBroadcastChatMessageRequestApplicationJson),
+            BreakoutRoomBroadcastChatMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomBroadcastChatMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson),
+            BreakoutRoomBroadcastChatMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs),
+            BreakoutRoomBroadcastChatMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomBroadcastChatMessageResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomApplyAttendeeMapApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomApplyAttendeeMapRequestApplicationJson),
+            BreakoutRoomApplyAttendeeMapRequestApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomApplyAttendeeMapRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson),
+            BreakoutRoomApplyAttendeeMapResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs),
+            BreakoutRoomApplyAttendeeMapResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomApplyAttendeeMapResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomRequestAssistanceApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson),
+            BreakoutRoomRequestAssistanceResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomRequestAssistanceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs),
+            BreakoutRoomRequestAssistanceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomRequestAssistanceResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomResetRequestForAssistanceApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson),
+            BreakoutRoomResetRequestForAssistanceResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs),
+            BreakoutRoomResetRequestForAssistanceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomResetRequestForAssistanceResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomStartBreakoutRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson),
+            BreakoutRoomStartBreakoutRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs),
+            BreakoutRoomStartBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomStartBreakoutRoomsResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomStopBreakoutRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson),
+            BreakoutRoomStopBreakoutRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs),
+            BreakoutRoomStopBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomStopBreakoutRoomsResponseApplicationJson_Ocs.serializer)
+          ..add(BreakoutRoomSwitchBreakoutRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomSwitchBreakoutRoomRequestApplicationJson),
+            BreakoutRoomSwitchBreakoutRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomSwitchBreakoutRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson),
+            BreakoutRoomSwitchBreakoutRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs),
+            BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BreakoutRoomSwitchBreakoutRoomResponseApplicationJson_Ocs.serializer)
+          ..add(CalendarIntegrationGetDashboardEventsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson),
+            CalendarIntegrationGetDashboardEventsResponseApplicationJsonBuilder.new,
+          )
+          ..add(CalendarIntegrationGetDashboardEventsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs),
+            CalendarIntegrationGetDashboardEventsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CalendarIntegrationGetDashboardEventsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(DashboardEvent), DashboardEventBuilder.new)
+          ..add(DashboardEvent.serializer)
+          ..addBuilderFactory(const FullType(DashboardEventCalendar), DashboardEventCalendarBuilder.new)
+          ..add(DashboardEventCalendar.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(DashboardEventCalendar)]),
+            ListBuilder<DashboardEventCalendar>.new,
+          )
+          ..addBuilderFactory(const FullType(DashboardEventAttachment), DashboardEventAttachmentBuilder.new)
+          ..add(DashboardEventAttachment.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(DashboardEventAttachment)]),
+            MapBuilder<String, DashboardEventAttachment>.new,
+          )
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(DashboardEvent)]), ListBuilder<DashboardEvent>.new)
+          ..add(CalendarIntegrationGetMutualEventsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson),
+            CalendarIntegrationGetMutualEventsResponseApplicationJsonBuilder.new,
+          )
+          ..add(CalendarIntegrationGetMutualEventsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs),
+            CalendarIntegrationGetMutualEventsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CalendarIntegrationGetMutualEventsResponseApplicationJson_Ocs.serializer)
+          ..add(CallGetPeersForCallApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallGetPeersForCallResponseApplicationJson),
+            CallGetPeersForCallResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallGetPeersForCallResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallGetPeersForCallResponseApplicationJson_Ocs),
+            CallGetPeersForCallResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallGetPeersForCallResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(CallPeer), CallPeerBuilder.new)
+          ..add(CallPeer.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(CallPeer)]), ListBuilder<CallPeer>.new)
+          ..add(CallUpdateCallFlagsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateCallFlagsRequestApplicationJson),
+            CallUpdateCallFlagsRequestApplicationJsonBuilder.new,
+          )
+          ..add(CallUpdateCallFlagsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateCallFlagsResponseApplicationJson),
+            CallUpdateCallFlagsResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallUpdateCallFlagsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateCallFlagsResponseApplicationJson_Ocs),
+            CallUpdateCallFlagsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallUpdateCallFlagsResponseApplicationJson_Ocs.serializer)
+          ..add(CallJoinCallApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinCallRequestApplicationJson),
+            CallJoinCallRequestApplicationJsonBuilder.new,
+          )
+          ..add(CallJoinCallRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinCallResponseApplicationJson),
+            CallJoinCallResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallJoinCallResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinCallResponseApplicationJson_Ocs),
+            CallJoinCallResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallJoinCallResponseApplicationJson_Ocs.serializer)
+          ..add(CallLeaveCallApiVersion.serializer)
+          ..add(CallLeaveCallAll.serializer)
+          ..addBuilderFactory(
+            const FullType(CallLeaveCallResponseApplicationJson),
+            CallLeaveCallResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallLeaveCallResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallLeaveCallResponseApplicationJson_Ocs),
+            CallLeaveCallResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallLeaveCallResponseApplicationJson_Ocs.serializer)
+          ..add(CallNotificationStateApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallNotificationStateResponseApplicationJson),
+            CallNotificationStateResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallNotificationStateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallNotificationStateResponseApplicationJson_Ocs),
+            CallNotificationStateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallNotificationStateResponseApplicationJson_Ocs.serializer)
+          ..add(CallDownloadParticipantsForCallApiVersion.serializer)
+          ..add(CallDownloadParticipantsForCallFormat.serializer)
+          ..add(CallUpdateFederatedCallFlagsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateFederatedCallFlagsRequestApplicationJson),
+            CallUpdateFederatedCallFlagsRequestApplicationJsonBuilder.new,
+          )
+          ..add(CallUpdateFederatedCallFlagsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson),
+            CallUpdateFederatedCallFlagsResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallUpdateFederatedCallFlagsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs),
+            CallUpdateFederatedCallFlagsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallUpdateFederatedCallFlagsResponseApplicationJson_Ocs.serializer)
+          ..add(CallJoinFederatedCallApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinFederatedCallRequestApplicationJson),
+            CallJoinFederatedCallRequestApplicationJsonBuilder.new,
+          )
+          ..add(CallJoinFederatedCallRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinFederatedCallResponseApplicationJson),
+            CallJoinFederatedCallResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallJoinFederatedCallResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallJoinFederatedCallResponseApplicationJson_Ocs),
+            CallJoinFederatedCallResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallJoinFederatedCallResponseApplicationJson_Ocs.serializer)
+          ..add(CallLeaveFederatedCallApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallLeaveFederatedCallResponseApplicationJson),
+            CallLeaveFederatedCallResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallLeaveFederatedCallResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallLeaveFederatedCallResponseApplicationJson_Ocs),
+            CallLeaveFederatedCallResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallLeaveFederatedCallResponseApplicationJson_Ocs.serializer)
+          ..add(CallRingAttendeeApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallRingAttendeeResponseApplicationJson),
+            CallRingAttendeeResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallRingAttendeeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallRingAttendeeResponseApplicationJson_Ocs),
+            CallRingAttendeeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallRingAttendeeResponseApplicationJson_Ocs.serializer)
+          ..add(CallSipDialOutApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CallSipDialOutResponseApplicationJson),
+            CallSipDialOutResponseApplicationJsonBuilder.new,
+          )
+          ..add(CallSipDialOutResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CallSipDialOutResponseApplicationJson_Ocs),
+            CallSipDialOutResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CallSipDialOutResponseApplicationJson_Ocs.serializer)
+          ..add(ChatReceiveMessagesLookIntoFuture.serializer)
+          ..add(ChatReceiveMessagesApiVersion.serializer)
+          ..add(ChatReceiveMessagesSetReadMarker.serializer)
+          ..add(ChatReceiveMessagesIncludeLastKnown.serializer)
+          ..add(ChatReceiveMessagesNoStatusUpdate.serializer)
+          ..add(ChatReceiveMessagesMarkNotificationsAsRead.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatReceiveMessagesResponseApplicationJson),
+            ChatReceiveMessagesResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatReceiveMessagesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatReceiveMessagesResponseApplicationJson_Ocs),
+            ChatReceiveMessagesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatReceiveMessagesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatMessageWithParent), ChatMessageWithParentBuilder.new)
+          ..add(ChatMessageWithParent.serializer)
+          ..addBuilderFactory(const FullType(DeletedChatMessage), DeletedChatMessageBuilder.new)
+          ..add(DeletedChatMessage.serializer)
+          ..add(DeletedChatMessage_Deleted.serializer)
+          ..add($eef5a337590648ee15c9b8f9dd9d6a36Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ChatMessageWithParent)]),
+            ListBuilder<ChatMessageWithParent>.new,
+          )
+          ..addBuilderFactory(const FullType(ChatChatReceiveMessagesHeaders), ChatChatReceiveMessagesHeadersBuilder.new)
+          ..add(ChatChatReceiveMessagesHeaders.serializer)
+          ..add(ChatSendMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSendMessageRequestApplicationJson),
+            ChatSendMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatSendMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSendMessageResponseApplicationJson),
+            ChatSendMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatSendMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSendMessageResponseApplicationJson_Ocs),
+            ChatSendMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatSendMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatSendMessageHeaders), ChatChatSendMessageHeadersBuilder.new)
+          ..add(ChatChatSendMessageHeaders.serializer)
+          ..add(ChatClearHistoryApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatClearHistoryResponseApplicationJson),
+            ChatClearHistoryResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatClearHistoryResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatClearHistoryResponseApplicationJson_Ocs),
+            ChatClearHistoryResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatClearHistoryResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatClearHistoryHeaders), ChatChatClearHistoryHeadersBuilder.new)
+          ..add(ChatChatClearHistoryHeaders.serializer)
+          ..add(ChatSummarizeChatApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSummarizeChatRequestApplicationJson),
+            ChatSummarizeChatRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatSummarizeChatRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSummarizeChatResponseApplicationJson),
+            ChatSummarizeChatResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatSummarizeChatResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSummarizeChatResponseApplicationJson_Ocs),
+            ChatSummarizeChatResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatSummarizeChatResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSummarizeChatResponseApplicationJson_Ocs_Data),
+            ChatSummarizeChatResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ChatSummarizeChatResponseApplicationJson_Ocs_Data.serializer)
+          ..add(ChatEditMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatEditMessageRequestApplicationJson),
+            ChatEditMessageRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatEditMessageRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatEditMessageResponseApplicationJson),
+            ChatEditMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatEditMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatEditMessageResponseApplicationJson_Ocs),
+            ChatEditMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatEditMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatEditMessageHeaders), ChatChatEditMessageHeadersBuilder.new)
+          ..add(ChatChatEditMessageHeaders.serializer)
+          ..add(ChatDeleteMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatDeleteMessageResponseApplicationJson),
+            ChatDeleteMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatDeleteMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatDeleteMessageResponseApplicationJson_Ocs),
+            ChatDeleteMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatDeleteMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatDeleteMessageHeaders), ChatChatDeleteMessageHeadersBuilder.new)
+          ..add(ChatChatDeleteMessageHeaders.serializer)
+          ..add(ChatGetMessageContextApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetMessageContextResponseApplicationJson),
+            ChatGetMessageContextResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatGetMessageContextResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetMessageContextResponseApplicationJson_Ocs),
+            ChatGetMessageContextResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatGetMessageContextResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatChatGetMessageContextHeaders),
+            ChatChatGetMessageContextHeadersBuilder.new,
+          )
+          ..add(ChatChatGetMessageContextHeaders.serializer)
+          ..add(ChatGetReminderApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetReminderResponseApplicationJson),
+            ChatGetReminderResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatGetReminderResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetReminderResponseApplicationJson_Ocs),
+            ChatGetReminderResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatGetReminderResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatReminder), ChatReminderBuilder.new)
+          ..add(ChatReminder.serializer)
+          ..add(ChatSetReminderApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReminderRequestApplicationJson),
+            ChatSetReminderRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatSetReminderRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReminderResponseApplicationJson),
+            ChatSetReminderResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatSetReminderResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReminderResponseApplicationJson_Ocs),
+            ChatSetReminderResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatSetReminderResponseApplicationJson_Ocs.serializer)
+          ..add(ChatDeleteReminderApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatDeleteReminderResponseApplicationJson),
+            ChatDeleteReminderResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatDeleteReminderResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatDeleteReminderResponseApplicationJson_Ocs),
+            ChatDeleteReminderResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatDeleteReminderResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatDeleteReminderResponseApplicationJson_Ocs_Data),
+            ChatDeleteReminderResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ChatDeleteReminderResponseApplicationJson_Ocs_Data.serializer)
+          ..add(ChatGetUpcomingRemindersApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetUpcomingRemindersResponseApplicationJson),
+            ChatGetUpcomingRemindersResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatGetUpcomingRemindersResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetUpcomingRemindersResponseApplicationJson_Ocs),
+            ChatGetUpcomingRemindersResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatGetUpcomingRemindersResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatReminderUpcoming), ChatReminderUpcomingBuilder.new)
+          ..add(ChatReminderUpcoming.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ChatReminderUpcoming)]),
+            ListBuilder<ChatReminderUpcoming>.new,
+          )
+          ..add(ChatSetReadMarkerApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReadMarkerRequestApplicationJson),
+            ChatSetReadMarkerRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatSetReadMarkerRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReadMarkerResponseApplicationJson),
+            ChatSetReadMarkerResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatSetReadMarkerResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatSetReadMarkerResponseApplicationJson_Ocs),
+            ChatSetReadMarkerResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatSetReadMarkerResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatSetReadMarkerHeaders), ChatChatSetReadMarkerHeadersBuilder.new)
+          ..add(ChatChatSetReadMarkerHeaders.serializer)
+          ..add(ChatMarkUnreadApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatMarkUnreadResponseApplicationJson),
+            ChatMarkUnreadResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatMarkUnreadResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatMarkUnreadResponseApplicationJson_Ocs),
+            ChatMarkUnreadResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatMarkUnreadResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatChatMarkUnreadHeaders), ChatChatMarkUnreadHeadersBuilder.new)
+          ..add(ChatChatMarkUnreadHeaders.serializer)
+          ..add(ChatMentionsApiVersion.serializer)
+          ..add(ChatMentionsIncludeStatus.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatMentionsResponseApplicationJson),
+            ChatMentionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatMentionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatMentionsResponseApplicationJson_Ocs),
+            ChatMentionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatMentionsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ChatMentionSuggestion), ChatMentionSuggestionBuilder.new)
+          ..add(ChatMentionSuggestion.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ChatMentionSuggestion)]),
+            ListBuilder<ChatMentionSuggestion>.new,
+          )
+          ..add(ChatGetObjectsSharedInRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson),
+            ChatGetObjectsSharedInRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatGetObjectsSharedInRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs),
+            ChatGetObjectsSharedInRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatGetObjectsSharedInRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(ChatMessage)]),
+            MapBuilder<String, ChatMessage>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ChatChatGetObjectsSharedInRoomHeaders),
+            ChatChatGetObjectsSharedInRoomHeadersBuilder.new,
+          )
+          ..add(ChatChatGetObjectsSharedInRoomHeaders.serializer)
+          ..add(ChatShareObjectToChatApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatShareObjectToChatRequestApplicationJson),
+            ChatShareObjectToChatRequestApplicationJsonBuilder.new,
+          )
+          ..add(ChatShareObjectToChatRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatShareObjectToChatResponseApplicationJson),
+            ChatShareObjectToChatResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatShareObjectToChatResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatShareObjectToChatResponseApplicationJson_Ocs),
+            ChatShareObjectToChatResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatShareObjectToChatResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatChatShareObjectToChatHeaders),
+            ChatChatShareObjectToChatHeadersBuilder.new,
+          )
+          ..add(ChatChatShareObjectToChatHeaders.serializer)
+          ..add(ChatGetObjectsSharedInRoomOverviewApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson),
+            ChatGetObjectsSharedInRoomOverviewResponseApplicationJsonBuilder.new,
+          )
+          ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs),
+            ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ChatGetObjectsSharedInRoomOverviewResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ChatMessage)]), ListBuilder<ChatMessage>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(ChatMessage)]),
+            ]),
+            MapBuilder<String, BuiltList<ChatMessage>>.new,
+          )
+          ..add(SignalingGetSettingsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingGetSettingsResponseApplicationJson),
+            SignalingGetSettingsResponseApplicationJsonBuilder.new,
+          )
+          ..add(SignalingGetSettingsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingGetSettingsResponseApplicationJson_Ocs),
+            SignalingGetSettingsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SignalingGetSettingsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(SignalingSettings), SignalingSettingsBuilder.new)
+          ..add(SignalingSettings.serializer)
+          ..addBuilderFactory(const FullType(SignalingFederationSettings), SignalingFederationSettingsBuilder.new)
+          ..add(SignalingFederationSettings.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingFederationSettings_HelloAuthParams),
+            SignalingFederationSettings_HelloAuthParamsBuilder.new,
+          )
+          ..add(SignalingFederationSettings_HelloAuthParams.serializer)
+          ..add($4f2be900e5f7182901d856e06271b0e6Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSettings_HelloAuthParams),
+            SignalingSettings_HelloAuthParamsBuilder.new,
+          )
+          ..add(SignalingSettings_HelloAuthParams.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSettings_HelloAuthParams_10),
+            SignalingSettings_HelloAuthParams_10Builder.new,
+          )
+          ..add(SignalingSettings_HelloAuthParams_10.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSettings_HelloAuthParams_20),
+            SignalingSettings_HelloAuthParams_20Builder.new,
+          )
+          ..add(SignalingSettings_HelloAuthParams_20.serializer)
+          ..addBuilderFactory(const FullType(SignalingSettings_Stunservers), SignalingSettings_StunserversBuilder.new)
+          ..add(SignalingSettings_Stunservers.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(SignalingSettings_Stunservers)]),
+            ListBuilder<SignalingSettings_Stunservers>.new,
+          )
+          ..addBuilderFactory(const FullType(SignalingSettings_Turnservers), SignalingSettings_TurnserversBuilder.new)
+          ..add(SignalingSettings_Turnservers.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(SignalingSettings_Turnservers)]),
+            ListBuilder<SignalingSettings_Turnservers>.new,
+          )
+          ..add(FederationAcceptShareApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationAcceptShareResponseApplicationJson),
+            FederationAcceptShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(FederationAcceptShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationAcceptShareResponseApplicationJson_Ocs),
+            FederationAcceptShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(FederationAcceptShareResponseApplicationJson_Ocs.serializer)
+          ..add(FederationRejectShareApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationRejectShareResponseApplicationJson),
+            FederationRejectShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(FederationRejectShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationRejectShareResponseApplicationJson_Ocs),
+            FederationRejectShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(FederationRejectShareResponseApplicationJson_Ocs.serializer)
+          ..add(FederationGetSharesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationGetSharesResponseApplicationJson),
+            FederationGetSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(FederationGetSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(FederationGetSharesResponseApplicationJson_Ocs),
+            FederationGetSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(FederationGetSharesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(FederationInvite), FederationInviteBuilder.new)
+          ..add(FederationInvite.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(FederationInvite)]),
+            ListBuilder<FederationInvite>.new,
+          )
+          ..add(FilesIntegrationGetRoomByFileIdApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson),
+            FilesIntegrationGetRoomByFileIdResponseApplicationJsonBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs),
+            FilesIntegrationGetRoomByFileIdResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data),
+            FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByFileIdResponseApplicationJson_Ocs_Data.serializer)
+          ..add(FilesIntegrationGetRoomByShareTokenApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson),
+            FilesIntegrationGetRoomByShareTokenResponseApplicationJsonBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs),
+            FilesIntegrationGetRoomByShareTokenResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data),
+            FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(FilesIntegrationGetRoomByShareTokenResponseApplicationJson_Ocs_Data.serializer)
+          ..add(PublicShareAuthCreateRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PublicShareAuthCreateRoomRequestApplicationJson),
+            PublicShareAuthCreateRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(PublicShareAuthCreateRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PublicShareAuthCreateRoomResponseApplicationJson),
+            PublicShareAuthCreateRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(PublicShareAuthCreateRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs),
+            PublicShareAuthCreateRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data),
+            PublicShareAuthCreateRoomResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(PublicShareAuthCreateRoomResponseApplicationJson_Ocs_Data.serializer)
+          ..add(GuestSetDisplayNameApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(GuestSetDisplayNameRequestApplicationJson),
+            GuestSetDisplayNameRequestApplicationJsonBuilder.new,
+          )
+          ..add(GuestSetDisplayNameRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(GuestSetDisplayNameResponseApplicationJson),
+            GuestSetDisplayNameResponseApplicationJsonBuilder.new,
+          )
+          ..add(GuestSetDisplayNameResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(GuestSetDisplayNameResponseApplicationJson_Ocs),
+            GuestSetDisplayNameResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(GuestSetDisplayNameResponseApplicationJson_Ocs.serializer)
+          ..add(HostedSignalingServerRequestTrialApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(HostedSignalingServerRequestTrialRequestApplicationJson),
+            HostedSignalingServerRequestTrialRequestApplicationJsonBuilder.new,
+          )
+          ..add(HostedSignalingServerRequestTrialRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(HostedSignalingServerRequestTrialResponseApplicationJson),
+            HostedSignalingServerRequestTrialResponseApplicationJsonBuilder.new,
+          )
+          ..add(HostedSignalingServerRequestTrialResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs),
+            HostedSignalingServerRequestTrialResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(HostedSignalingServerRequestTrialResponseApplicationJson_Ocs.serializer)
+          ..add(HostedSignalingServerDeleteAccountApiVersion.serializer)
+          ..add(SignalingPullMessagesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingPullMessagesResponseApplicationJson),
+            SignalingPullMessagesResponseApplicationJsonBuilder.new,
+          )
+          ..add(SignalingPullMessagesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingPullMessagesResponseApplicationJson_Ocs),
+            SignalingPullMessagesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SignalingPullMessagesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data),
+            SignalingPullMessagesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(SignalingPullMessagesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(SignalingSession), SignalingSessionBuilder.new)
+          ..add(SignalingSession.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(SignalingSession)]),
+            ListBuilder<SignalingSession>.new,
+          )
+          ..add($1df642f5035aea3b22543ab331c3fb01Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(SignalingPullMessagesResponseApplicationJson_Ocs_Data)]),
+            ListBuilder<SignalingPullMessagesResponseApplicationJson_Ocs_Data>.new,
+          )
+          ..add(SignalingSendMessagesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSendMessagesRequestApplicationJson),
+            SignalingSendMessagesRequestApplicationJsonBuilder.new,
+          )
+          ..add(SignalingSendMessagesRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSendMessagesResponseApplicationJson),
+            SignalingSendMessagesResponseApplicationJsonBuilder.new,
+          )
+          ..add(SignalingSendMessagesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingSendMessagesResponseApplicationJson_Ocs),
+            SignalingSendMessagesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SignalingSendMessagesResponseApplicationJson_Ocs.serializer)
+          ..add(MatterbridgeGetBridgeOfRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson),
+            MatterbridgeGetBridgeOfRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs),
+            MatterbridgeGetBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeGetBridgeOfRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(MatterbridgeWithProcessState), MatterbridgeWithProcessStateBuilder.new)
+          ..add(MatterbridgeWithProcessState.serializer)
+          ..addBuilderFactory(const FullType(Matterbridge), MatterbridgeBuilder.new)
+          ..add(Matterbridge.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ]),
+            ListBuilder<BuiltMap<String, JsonObject>>.new,
+          )
+          ..addBuilderFactory(const FullType(MatterbridgeProcessState), MatterbridgeProcessStateBuilder.new)
+          ..add(MatterbridgeProcessState.serializer)
+          ..add(MatterbridgeEditBridgeOfRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeEditBridgeOfRoomRequestApplicationJson),
+            MatterbridgeEditBridgeOfRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeEditBridgeOfRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson),
+            MatterbridgeEditBridgeOfRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs),
+            MatterbridgeEditBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeEditBridgeOfRoomResponseApplicationJson_Ocs.serializer)
+          ..add(MatterbridgeDeleteBridgeOfRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson),
+            MatterbridgeDeleteBridgeOfRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs),
+            MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeDeleteBridgeOfRoomResponseApplicationJson_Ocs.serializer)
+          ..add(MatterbridgeGetBridgeProcessStateApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson),
+            MatterbridgeGetBridgeProcessStateResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs),
+            MatterbridgeGetBridgeProcessStateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeGetBridgeProcessStateResponseApplicationJson_Ocs.serializer)
+          ..add(MatterbridgeSettingsStopAllBridgesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson),
+            MatterbridgeSettingsStopAllBridgesResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs),
+            MatterbridgeSettingsStopAllBridgesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeSettingsStopAllBridgesResponseApplicationJson_Ocs.serializer)
+          ..add(MatterbridgeSettingsGetMatterbridgeVersionApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson),
+            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJsonBuilder.new,
+          )
+          ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs),
+            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data),
+            MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(MatterbridgeSettingsGetMatterbridgeVersionResponseApplicationJson_Ocs_Data.serializer)
+          ..add(PollCreatePollApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollCreatePollRequestApplicationJson),
+            PollCreatePollRequestApplicationJsonBuilder.new,
+          )
+          ..add(PollCreatePollRequestApplicationJson.serializer)
+          ..add(PollCreatePollRequestApplicationJson_ResultMode.serializer)
+          ..addBuilderFactory(
+            const FullType(PollCreatePollResponseApplicationJson),
+            PollCreatePollResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollCreatePollResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollCreatePollResponseApplicationJson_Ocs),
+            PollCreatePollResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollCreatePollResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(PollDraft), PollDraftBuilder.new)
+          ..add(PollDraft.serializer)
+          ..add(PollDraft_ResultMode.serializer)
+          ..add(PollDraft_Status.serializer)
+          ..add(PollUpdateDraftPollApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollUpdateDraftPollRequestApplicationJson),
+            PollUpdateDraftPollRequestApplicationJsonBuilder.new,
+          )
+          ..add(PollUpdateDraftPollRequestApplicationJson.serializer)
+          ..add(PollUpdateDraftPollRequestApplicationJson_ResultMode.serializer)
+          ..addBuilderFactory(
+            const FullType(PollUpdateDraftPollResponseApplicationJson),
+            PollUpdateDraftPollResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollUpdateDraftPollResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollUpdateDraftPollResponseApplicationJson_Ocs),
+            PollUpdateDraftPollResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollUpdateDraftPollResponseApplicationJson_Ocs.serializer)
+          ..add(PollGetAllDraftPollsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollGetAllDraftPollsResponseApplicationJson),
+            PollGetAllDraftPollsResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollGetAllDraftPollsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollGetAllDraftPollsResponseApplicationJson_Ocs),
+            PollGetAllDraftPollsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollGetAllDraftPollsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(PollDraft)]), ListBuilder<PollDraft>.new)
+          ..add(PollShowPollApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollShowPollResponseApplicationJson),
+            PollShowPollResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollShowPollResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollShowPollResponseApplicationJson_Ocs),
+            PollShowPollResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollShowPollResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Poll), PollBuilder.new)
+          ..add(Poll.serializer)
+          ..addBuilderFactory(const FullType(PollVote), PollVoteBuilder.new)
+          ..add(PollVote.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(PollVote)]), ListBuilder<PollVote>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..add(PollVotePollApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollVotePollRequestApplicationJson),
+            PollVotePollRequestApplicationJsonBuilder.new,
+          )
+          ..add(PollVotePollRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollVotePollResponseApplicationJson),
+            PollVotePollResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollVotePollResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollVotePollResponseApplicationJson_Ocs),
+            PollVotePollResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollVotePollResponseApplicationJson_Ocs.serializer)
+          ..add(PollClosePollApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(PollClosePollResponseApplicationJson),
+            PollClosePollResponseApplicationJsonBuilder.new,
+          )
+          ..add(PollClosePollResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(PollClosePollResponseApplicationJson_Ocs),
+            PollClosePollResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(PollClosePollResponseApplicationJson_Ocs.serializer)
+          ..add(ReactionGetReactionsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionGetReactionsResponseApplicationJson),
+            ReactionGetReactionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReactionGetReactionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionGetReactionsResponseApplicationJson_Ocs),
+            ReactionGetReactionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReactionGetReactionsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Reaction), ReactionBuilder.new)
+          ..add(Reaction.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Reaction)]), ListBuilder<Reaction>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(Reaction)]),
+            ]),
+            MapBuilder<String, BuiltList<Reaction>>.new,
+          )
+          ..add(ReactionReactApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionReactRequestApplicationJson),
+            ReactionReactRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReactionReactRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionReactResponseApplicationJson),
+            ReactionReactResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReactionReactResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionReactResponseApplicationJson_Ocs),
+            ReactionReactResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReactionReactResponseApplicationJson_Ocs.serializer)
+          ..add(ReactionDeleteApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionDeleteResponseApplicationJson),
+            ReactionDeleteResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReactionDeleteResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReactionDeleteResponseApplicationJson_Ocs),
+            ReactionDeleteResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReactionDeleteResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingStartApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStartRequestApplicationJson),
+            RecordingStartRequestApplicationJsonBuilder.new,
+          )
+          ..add(RecordingStartRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStartResponseApplicationJson),
+            RecordingStartResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingStartResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStartResponseApplicationJson_Ocs),
+            RecordingStartResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingStartResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingStopApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStopResponseApplicationJson),
+            RecordingStopResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingStopResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStopResponseApplicationJson_Ocs),
+            RecordingStopResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingStopResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingNotificationDismissApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingNotificationDismissResponseApplicationJson),
+            RecordingNotificationDismissResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingNotificationDismissResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingNotificationDismissResponseApplicationJson_Ocs),
+            RecordingNotificationDismissResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingNotificationDismissResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingShareToChatApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingShareToChatRequestApplicationJson),
+            RecordingShareToChatRequestApplicationJsonBuilder.new,
+          )
+          ..add(RecordingShareToChatRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingShareToChatResponseApplicationJson),
+            RecordingShareToChatResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingShareToChatResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingShareToChatResponseApplicationJson_Ocs),
+            RecordingShareToChatResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingShareToChatResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingBackendApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingBackendResponseApplicationJson),
+            RecordingBackendResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingBackendResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingBackendResponseApplicationJson_Ocs),
+            RecordingBackendResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingBackendResponseApplicationJson_Ocs.serializer)
+          ..add(RecordingStoreApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStoreRequestApplicationJson),
+            RecordingStoreRequestApplicationJsonBuilder.new,
+          )
+          ..add(RecordingStoreRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStoreResponseApplicationJson),
+            RecordingStoreResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingStoreResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingStoreResponseApplicationJson_Ocs),
+            RecordingStoreResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingStoreResponseApplicationJson_Ocs.serializer)
+          ..add(RoomGetRoomsApiVersion.serializer)
+          ..add(RoomGetRoomsNoStatusUpdate.serializer)
+          ..add(RoomGetRoomsIncludeStatus.serializer)
+          ..add(RoomGetRoomsIncludeLastMessage.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetRoomsResponseApplicationJson),
+            RoomGetRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetRoomsResponseApplicationJson_Ocs),
+            RoomGetRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetRoomsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(RoomRoomGetRoomsHeaders), RoomRoomGetRoomsHeadersBuilder.new)
+          ..add(RoomRoomGetRoomsHeaders.serializer)
+          ..add(RoomCreateRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomCreateRoomRequestApplicationJson),
+            RoomCreateRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomCreateRoomRequestApplicationJson.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_ReadOnly.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_Listable.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_LobbyState.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_SipEnabled.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_RecordingConsent.serializer)
+          ..add(RoomCreateRoomRequestApplicationJson_MentionPermissions.serializer)
+          ..addBuilderFactory(const FullType(InvitationList), InvitationListBuilder.new)
+          ..add(InvitationList.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomCreateRoomResponseApplicationJson),
+            RoomCreateRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomCreateRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomCreateRoomResponseApplicationJson_Ocs),
+            RoomCreateRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomCreateRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomGetListedRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetListedRoomsResponseApplicationJson),
+            RoomGetListedRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetListedRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetListedRoomsResponseApplicationJson_Ocs),
+            RoomGetListedRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetListedRoomsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomGetNoteToSelfConversationApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetNoteToSelfConversationResponseApplicationJson),
+            RoomGetNoteToSelfConversationResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetNoteToSelfConversationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs),
+            RoomGetNoteToSelfConversationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetNoteToSelfConversationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRoomGetNoteToSelfConversationHeaders),
+            RoomRoomGetNoteToSelfConversationHeadersBuilder.new,
+          )
+          ..add(RoomRoomGetNoteToSelfConversationHeaders.serializer)
+          ..add(RoomGetSingleRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetSingleRoomResponseApplicationJson),
+            RoomGetSingleRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetSingleRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetSingleRoomResponseApplicationJson_Ocs),
+            RoomGetSingleRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetSingleRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(RoomRoomGetSingleRoomHeaders), RoomRoomGetSingleRoomHeadersBuilder.new)
+          ..add(RoomRoomGetSingleRoomHeaders.serializer)
+          ..add(RoomRenameRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRenameRoomRequestApplicationJson),
+            RoomRenameRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomRenameRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRenameRoomResponseApplicationJson),
+            RoomRenameRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomRenameRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRenameRoomResponseApplicationJson_Ocs),
+            RoomRenameRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomRenameRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomDeleteRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDeleteRoomResponseApplicationJson),
+            RoomDeleteRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomDeleteRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDeleteRoomResponseApplicationJson_Ocs),
+            RoomDeleteRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomDeleteRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomGetBreakoutRoomsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetBreakoutRoomsResponseApplicationJson),
+            RoomGetBreakoutRoomsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetBreakoutRoomsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetBreakoutRoomsResponseApplicationJson_Ocs),
+            RoomGetBreakoutRoomsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetBreakoutRoomsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomUnbindRoomFromObjectApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomUnbindRoomFromObjectResponseApplicationJson),
+            RoomUnbindRoomFromObjectResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomUnbindRoomFromObjectResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs),
+            RoomUnbindRoomFromObjectResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomUnbindRoomFromObjectResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMakePublicApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMakePublicRequestApplicationJson),
+            RoomMakePublicRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomMakePublicRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMakePublicResponseApplicationJson),
+            RoomMakePublicResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMakePublicResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMakePublicResponseApplicationJson_Ocs),
+            RoomMakePublicResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMakePublicResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMakePrivateApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMakePrivateResponseApplicationJson),
+            RoomMakePrivateResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMakePrivateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMakePrivateResponseApplicationJson_Ocs),
+            RoomMakePrivateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMakePrivateResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetDescriptionApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetDescriptionRequestApplicationJson),
+            RoomSetDescriptionRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetDescriptionRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetDescriptionResponseApplicationJson),
+            RoomSetDescriptionResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetDescriptionResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetDescriptionResponseApplicationJson_Ocs),
+            RoomSetDescriptionResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetDescriptionResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetReadOnlyApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetReadOnlyRequestApplicationJson),
+            RoomSetReadOnlyRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetReadOnlyRequestApplicationJson.serializer)
+          ..add(RoomSetReadOnlyRequestApplicationJson_State.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetReadOnlyResponseApplicationJson),
+            RoomSetReadOnlyResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetReadOnlyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetReadOnlyResponseApplicationJson_Ocs),
+            RoomSetReadOnlyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetReadOnlyResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetListableApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetListableRequestApplicationJson),
+            RoomSetListableRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetListableRequestApplicationJson.serializer)
+          ..add(RoomSetListableRequestApplicationJson_Scope.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetListableResponseApplicationJson),
+            RoomSetListableResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetListableResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetListableResponseApplicationJson_Ocs),
+            RoomSetListableResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetListableResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetPasswordApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPasswordRequestApplicationJson),
+            RoomSetPasswordRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetPasswordRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPasswordResponseApplicationJson),
+            RoomSetPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetPasswordResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPasswordResponseApplicationJson_Ocs),
+            RoomSetPasswordResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetPasswordResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetPermissionsMode.serializer)
+          ..add(RoomSetPermissionsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPermissionsRequestApplicationJson),
+            RoomSetPermissionsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetPermissionsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPermissionsResponseApplicationJson),
+            RoomSetPermissionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetPermissionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetPermissionsResponseApplicationJson_Ocs),
+            RoomSetPermissionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetPermissionsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomGetParticipantsApiVersion.serializer)
+          ..add(RoomGetParticipantsIncludeStatus.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetParticipantsResponseApplicationJson),
+            RoomGetParticipantsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetParticipantsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetParticipantsResponseApplicationJson_Ocs),
+            RoomGetParticipantsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetParticipantsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Participant), ParticipantBuilder.new)
+          ..add(Participant.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Participant)]), ListBuilder<Participant>.new)
+          ..addBuilderFactory(const FullType(RoomRoomGetParticipantsHeaders), RoomRoomGetParticipantsHeadersBuilder.new)
+          ..add(RoomRoomGetParticipantsHeaders.serializer)
+          ..addBuilderFactory(const FullType(Header, [FullType.nullable(bool)]), HeaderBuilder<bool?>.new)
+          ..add(Header.serializer)
+          ..add(RoomAddParticipantToRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddParticipantToRoomRequestApplicationJson),
+            RoomAddParticipantToRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomAddParticipantToRoomRequestApplicationJson.serializer)
+          ..add(RoomAddParticipantToRoomRequestApplicationJson_Source.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddParticipantToRoomResponseApplicationJson),
+            RoomAddParticipantToRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomAddParticipantToRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs),
+            RoomAddParticipantToRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data),
+            RoomAddParticipantToRoomResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(RoomAddParticipantToRoomResponseApplicationJson_Ocs_Data.serializer)
+          ..add(RoomGetBreakoutRoomParticipantsApiVersion.serializer)
+          ..add(RoomGetBreakoutRoomParticipantsIncludeStatus.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson),
+            RoomGetBreakoutRoomParticipantsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs),
+            RoomGetBreakoutRoomParticipantsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetBreakoutRoomParticipantsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRoomGetBreakoutRoomParticipantsHeaders),
+            RoomRoomGetBreakoutRoomParticipantsHeadersBuilder.new,
+          )
+          ..add(RoomRoomGetBreakoutRoomParticipantsHeaders.serializer)
+          ..add(RoomRemoveSelfFromRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveSelfFromRoomResponseApplicationJson),
+            RoomRemoveSelfFromRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomRemoveSelfFromRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs),
+            RoomRemoveSelfFromRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomRemoveSelfFromRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomRemoveAttendeeFromRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson),
+            RoomRemoveAttendeeFromRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs),
+            RoomRemoveAttendeeFromRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomRemoveAttendeeFromRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetAttendeePermissionsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAttendeePermissionsRequestApplicationJson),
+            RoomSetAttendeePermissionsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetAttendeePermissionsRequestApplicationJson.serializer)
+          ..add(RoomSetAttendeePermissionsRequestApplicationJson_Method.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAttendeePermissionsResponseApplicationJson),
+            RoomSetAttendeePermissionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetAttendeePermissionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAttendeePermissionsResponseApplicationJson_Ocs),
+            RoomSetAttendeePermissionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetAttendeePermissionsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRoomSetAttendeePermissionsHeaders),
+            RoomRoomSetAttendeePermissionsHeadersBuilder.new,
+          )
+          ..add(RoomRoomSetAttendeePermissionsHeaders.serializer)
+          ..add(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses.serializer)
+          ..addBuilderFactory(
+            const FullType(Header, [
+              FullType.nullable(RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses),
+            ]),
+            HeaderBuilder<RoomRoomSetAttendeePermissionsHeaders_XNextcloudHasUserStatuses?>.new,
+          )
+          ..add(RoomSetAllAttendeesPermissionsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAllAttendeesPermissionsRequestApplicationJson),
+            RoomSetAllAttendeesPermissionsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetAllAttendeesPermissionsRequestApplicationJson.serializer)
+          ..add(RoomSetAllAttendeesPermissionsRequestApplicationJson_Method.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson),
+            RoomSetAllAttendeesPermissionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs),
+            RoomSetAllAttendeesPermissionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetAllAttendeesPermissionsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomJoinRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinRoomRequestApplicationJson),
+            RoomJoinRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomJoinRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinRoomResponseApplicationJson),
+            RoomJoinRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomJoinRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinRoomResponseApplicationJson_Ocs),
+            RoomJoinRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomJoinRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(RoomRoomJoinRoomHeaders), RoomRoomJoinRoomHeadersBuilder.new)
+          ..add(RoomRoomJoinRoomHeaders.serializer)
+          ..add(RoomLeaveRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomLeaveRoomResponseApplicationJson),
+            RoomLeaveRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomLeaveRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomLeaveRoomResponseApplicationJson_Ocs),
+            RoomLeaveRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomLeaveRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomResendInvitationsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomResendInvitationsRequestApplicationJson),
+            RoomResendInvitationsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomResendInvitationsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomResendInvitationsResponseApplicationJson),
+            RoomResendInvitationsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomResendInvitationsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomResendInvitationsResponseApplicationJson_Ocs),
+            RoomResendInvitationsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomResendInvitationsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetSessionStateApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetSessionStateRequestApplicationJson),
+            RoomSetSessionStateRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetSessionStateRequestApplicationJson.serializer)
+          ..add(RoomSetSessionStateRequestApplicationJson_State.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetSessionStateResponseApplicationJson),
+            RoomSetSessionStateResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetSessionStateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetSessionStateResponseApplicationJson_Ocs),
+            RoomSetSessionStateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetSessionStateResponseApplicationJson_Ocs.serializer)
+          ..add(RoomPromoteModeratorApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomPromoteModeratorRequestApplicationJson),
+            RoomPromoteModeratorRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomPromoteModeratorRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomPromoteModeratorResponseApplicationJson),
+            RoomPromoteModeratorResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomPromoteModeratorResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomPromoteModeratorResponseApplicationJson_Ocs),
+            RoomPromoteModeratorResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomPromoteModeratorResponseApplicationJson_Ocs.serializer)
+          ..add(RoomDemoteModeratorApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDemoteModeratorResponseApplicationJson),
+            RoomDemoteModeratorResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomDemoteModeratorResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDemoteModeratorResponseApplicationJson_Ocs),
+            RoomDemoteModeratorResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomDemoteModeratorResponseApplicationJson_Ocs.serializer)
+          ..add(RoomAddToFavoritesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddToFavoritesResponseApplicationJson),
+            RoomAddToFavoritesResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomAddToFavoritesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomAddToFavoritesResponseApplicationJson_Ocs),
+            RoomAddToFavoritesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomAddToFavoritesResponseApplicationJson_Ocs.serializer)
+          ..add(RoomRemoveFromFavoritesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveFromFavoritesResponseApplicationJson),
+            RoomRemoveFromFavoritesResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomRemoveFromFavoritesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRemoveFromFavoritesResponseApplicationJson_Ocs),
+            RoomRemoveFromFavoritesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomRemoveFromFavoritesResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMarkConversationAsImportantApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsImportantResponseApplicationJson),
+            RoomMarkConversationAsImportantResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMarkConversationAsImportantResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsImportantResponseApplicationJson_Ocs),
+            RoomMarkConversationAsImportantResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMarkConversationAsImportantResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMarkConversationAsUnimportantApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson),
+            RoomMarkConversationAsUnimportantResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMarkConversationAsUnimportantResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs),
+            RoomMarkConversationAsUnimportantResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMarkConversationAsUnimportantResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMarkConversationAsSensitiveApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson),
+            RoomMarkConversationAsSensitiveResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMarkConversationAsSensitiveResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs),
+            RoomMarkConversationAsSensitiveResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMarkConversationAsSensitiveResponseApplicationJson_Ocs.serializer)
+          ..add(RoomMarkConversationAsInsensitiveApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson),
+            RoomMarkConversationAsInsensitiveResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomMarkConversationAsInsensitiveResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs),
+            RoomMarkConversationAsInsensitiveResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomMarkConversationAsInsensitiveResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetNotificationLevelApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationLevelRequestApplicationJson),
+            RoomSetNotificationLevelRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetNotificationLevelRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationLevelResponseApplicationJson),
+            RoomSetNotificationLevelResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetNotificationLevelResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationLevelResponseApplicationJson_Ocs),
+            RoomSetNotificationLevelResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetNotificationLevelResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetNotificationCallsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationCallsRequestApplicationJson),
+            RoomSetNotificationCallsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetNotificationCallsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationCallsResponseApplicationJson),
+            RoomSetNotificationCallsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetNotificationCallsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetNotificationCallsResponseApplicationJson_Ocs),
+            RoomSetNotificationCallsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetNotificationCallsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetLobbyApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetLobbyRequestApplicationJson),
+            RoomSetLobbyRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetLobbyRequestApplicationJson.serializer)
+          ..add(RoomSetLobbyRequestApplicationJson_State.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetLobbyResponseApplicationJson),
+            RoomSetLobbyResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetLobbyResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetLobbyResponseApplicationJson_Ocs),
+            RoomSetLobbyResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetLobbyResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetsipEnabledApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetsipEnabledRequestApplicationJson),
+            RoomSetsipEnabledRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetsipEnabledRequestApplicationJson.serializer)
+          ..add(RoomSetsipEnabledRequestApplicationJson_State.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetsipEnabledResponseApplicationJson),
+            RoomSetsipEnabledResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetsipEnabledResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetsipEnabledResponseApplicationJson_Ocs),
+            RoomSetsipEnabledResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetsipEnabledResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetRecordingConsentApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetRecordingConsentRequestApplicationJson),
+            RoomSetRecordingConsentRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetRecordingConsentRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetRecordingConsentResponseApplicationJson),
+            RoomSetRecordingConsentResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetRecordingConsentResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetRecordingConsentResponseApplicationJson_Ocs),
+            RoomSetRecordingConsentResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetRecordingConsentResponseApplicationJson_Ocs.serializer)
+          ..add(RoomSetMessageExpirationApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMessageExpirationRequestApplicationJson),
+            RoomSetMessageExpirationRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetMessageExpirationRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMessageExpirationResponseApplicationJson),
+            RoomSetMessageExpirationResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetMessageExpirationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMessageExpirationResponseApplicationJson_Ocs),
+            RoomSetMessageExpirationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetMessageExpirationResponseApplicationJson_Ocs.serializer)
+          ..add($f281c16bc584cda0adb1f4b8d534ee07Extension._serializer)
+          ..add(RoomGetCapabilitiesApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetCapabilitiesResponseApplicationJson),
+            RoomGetCapabilitiesResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomGetCapabilitiesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomGetCapabilitiesResponseApplicationJson_Ocs),
+            RoomGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomGetCapabilitiesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config), Capabilities_ConfigBuilder.new)
+          ..add(Capabilities_Config.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_Config_Attachments),
+            Capabilities_Config_AttachmentsBuilder.new,
+          )
+          ..add(Capabilities_Config_Attachments.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config_Call), Capabilities_Config_CallBuilder.new)
+          ..add(Capabilities_Config_Call.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config_Chat), Capabilities_Config_ChatBuilder.new)
+          ..add(Capabilities_Config_Chat.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_Config_Conversations),
+            Capabilities_Config_ConversationsBuilder.new,
+          )
+          ..add(Capabilities_Config_Conversations.serializer)
+          ..add(Capabilities_Config_Conversations_ListStyle.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config_Federation), Capabilities_Config_FederationBuilder.new)
+          ..add(Capabilities_Config_Federation.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config_Previews), Capabilities_Config_PreviewsBuilder.new)
+          ..add(Capabilities_Config_Previews.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Config_Signaling), Capabilities_Config_SignalingBuilder.new)
+          ..add(Capabilities_Config_Signaling.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_Config_Experiments),
+            Capabilities_Config_ExperimentsBuilder.new,
+          )
+          ..add(Capabilities_Config_Experiments.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(String)]),
+            ]),
+            MapBuilder<String, BuiltList<String>>.new,
+          )
+          ..add($eded9c5615e6be3b25806a949699f91fExtension._serializer)
+          ..addBuilderFactory(const FullType(RoomRoomGetCapabilitiesHeaders), RoomRoomGetCapabilitiesHeadersBuilder.new)
+          ..add(RoomRoomGetCapabilitiesHeaders.serializer)
+          ..add(RoomSetMentionPermissionsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMentionPermissionsRequestApplicationJson),
+            RoomSetMentionPermissionsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetMentionPermissionsRequestApplicationJson.serializer)
+          ..add(RoomSetMentionPermissionsRequestApplicationJson_MentionPermissions.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMentionPermissionsResponseApplicationJson),
+            RoomSetMentionPermissionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomSetMentionPermissionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomSetMentionPermissionsResponseApplicationJson_Ocs),
+            RoomSetMentionPermissionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomSetMentionPermissionsResponseApplicationJson_Ocs.serializer)
+          ..add(RoomArchiveConversationApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomArchiveConversationResponseApplicationJson),
+            RoomArchiveConversationResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomArchiveConversationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomArchiveConversationResponseApplicationJson_Ocs),
+            RoomArchiveConversationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomArchiveConversationResponseApplicationJson_Ocs.serializer)
+          ..add(RoomUnarchiveConversationApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomUnarchiveConversationResponseApplicationJson),
+            RoomUnarchiveConversationResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomUnarchiveConversationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomUnarchiveConversationResponseApplicationJson_Ocs),
+            RoomUnarchiveConversationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomUnarchiveConversationResponseApplicationJson_Ocs.serializer)
+          ..add(RoomImportEmailsAsParticipantsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomImportEmailsAsParticipantsRequestApplicationJson),
+            RoomImportEmailsAsParticipantsRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomImportEmailsAsParticipantsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson),
+            RoomImportEmailsAsParticipantsResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomImportEmailsAsParticipantsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs),
+            RoomImportEmailsAsParticipantsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data),
+            RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(RoomImportEmailsAsParticipantsResponseApplicationJson_Ocs_Data.serializer)
+          ..add(RoomScheduleMeetingApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomScheduleMeetingRequestApplicationJson),
+            RoomScheduleMeetingRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomScheduleMeetingRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomScheduleMeetingResponseApplicationJson),
+            RoomScheduleMeetingResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomScheduleMeetingResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomScheduleMeetingResponseApplicationJson_Ocs),
+            RoomScheduleMeetingResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomScheduleMeetingResponseApplicationJson_Ocs.serializer)
+          ..add(RoomJoinFederatedRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinFederatedRoomRequestApplicationJson),
+            RoomJoinFederatedRoomRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomJoinFederatedRoomRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinFederatedRoomResponseApplicationJson),
+            RoomJoinFederatedRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomJoinFederatedRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomJoinFederatedRoomResponseApplicationJson_Ocs),
+            RoomJoinFederatedRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomJoinFederatedRoomResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRoomJoinFederatedRoomHeaders),
+            RoomRoomJoinFederatedRoomHeadersBuilder.new,
+          )
+          ..add(RoomRoomJoinFederatedRoomHeaders.serializer)
+          ..add(RoomLeaveFederatedRoomApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomLeaveFederatedRoomResponseApplicationJson),
+            RoomLeaveFederatedRoomResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomLeaveFederatedRoomResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomLeaveFederatedRoomResponseApplicationJson_Ocs),
+            RoomLeaveFederatedRoomResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomLeaveFederatedRoomResponseApplicationJson_Ocs.serializer)
+          ..add(RoomVerifyDialInPinDeprecatedApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson),
+            RoomVerifyDialInPinDeprecatedResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs),
+            RoomVerifyDialInPinDeprecatedResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomVerifyDialInPinDeprecatedResponseApplicationJson_Ocs.serializer)
+          ..add(RoomVerifyDialInPinApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialInPinRequestApplicationJson),
+            RoomVerifyDialInPinRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomVerifyDialInPinRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialInPinResponseApplicationJson),
+            RoomVerifyDialInPinResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomVerifyDialInPinResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialInPinResponseApplicationJson_Ocs),
+            RoomVerifyDialInPinResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomVerifyDialInPinResponseApplicationJson_Ocs.serializer)
+          ..add(RoomVerifyDialOutNumberApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialOutNumberRequestApplicationJson),
+            RoomVerifyDialOutNumberRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomVerifyDialOutNumberRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialOutNumberRequestApplicationJson_Options),
+            RoomVerifyDialOutNumberRequestApplicationJson_OptionsBuilder.new,
+          )
+          ..add(RoomVerifyDialOutNumberRequestApplicationJson_Options.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialOutNumberResponseApplicationJson),
+            RoomVerifyDialOutNumberResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomVerifyDialOutNumberResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomVerifyDialOutNumberResponseApplicationJson_Ocs),
+            RoomVerifyDialOutNumberResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomVerifyDialOutNumberResponseApplicationJson_Ocs.serializer)
+          ..add(RoomDirectDialInApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDirectDialInRequestApplicationJson),
+            RoomDirectDialInRequestApplicationJsonBuilder.new,
+          )
+          ..add(RoomDirectDialInRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDirectDialInResponseApplicationJson),
+            RoomDirectDialInResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomDirectDialInResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomDirectDialInResponseApplicationJson_Ocs),
+            RoomDirectDialInResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomDirectDialInResponseApplicationJson_Ocs.serializer)
+          ..add(RoomCreateGuestByDialInApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomCreateGuestByDialInResponseApplicationJson),
+            RoomCreateGuestByDialInResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomCreateGuestByDialInResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomCreateGuestByDialInResponseApplicationJson_Ocs),
+            RoomCreateGuestByDialInResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomCreateGuestByDialInResponseApplicationJson_Ocs.serializer)
+          ..add(RoomRejectedDialOutRequestApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRejectedDialOutRequestResponseApplicationJson),
+            RoomRejectedDialOutRequestResponseApplicationJsonBuilder.new,
+          )
+          ..add(RoomRejectedDialOutRequestResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RoomRejectedDialOutRequestResponseApplicationJson_Ocs),
+            RoomRejectedDialOutRequestResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RoomRejectedDialOutRequestResponseApplicationJson_Ocs.serializer)
+          ..add(SettingsSetUserSettingApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetUserSettingRequestApplicationJson),
+            SettingsSetUserSettingRequestApplicationJsonBuilder.new,
+          )
+          ..add(SettingsSetUserSettingRequestApplicationJson.serializer)
+          ..add(SettingsSetUserSettingRequestApplicationJson_Key.serializer)
+          ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetUserSettingResponseApplicationJson),
+            SettingsSetUserSettingResponseApplicationJsonBuilder.new,
+          )
+          ..add(SettingsSetUserSettingResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetUserSettingResponseApplicationJson_Ocs),
+            SettingsSetUserSettingResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SettingsSetUserSettingResponseApplicationJson_Ocs.serializer)
+          ..add(BotAdminListBotsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(BotAdminListBotsResponseApplicationJson),
+            BotAdminListBotsResponseApplicationJsonBuilder.new,
+          )
+          ..add(BotAdminListBotsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BotAdminListBotsResponseApplicationJson_Ocs),
+            BotAdminListBotsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(BotAdminListBotsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BotWithDetails), BotWithDetailsBuilder.new)
+          ..add(BotWithDetails.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(BotWithDetails)]), ListBuilder<BotWithDetails>.new)
+          ..add(CertificateGetCertificateExpirationApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(CertificateGetCertificateExpirationResponseApplicationJson),
+            CertificateGetCertificateExpirationResponseApplicationJsonBuilder.new,
+          )
+          ..add(CertificateGetCertificateExpirationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs),
+            CertificateGetCertificateExpirationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data),
+            CertificateGetCertificateExpirationResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(CertificateGetCertificateExpirationResponseApplicationJson_Ocs_Data.serializer)
+          ..add(RecordingGetWelcomeMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingGetWelcomeMessageResponseApplicationJson),
+            RecordingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(RecordingGetWelcomeMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs),
+            RecordingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+            RecordingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(RecordingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
+          ..add(SettingsSetsipSettingsApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetsipSettingsRequestApplicationJson),
+            SettingsSetsipSettingsRequestApplicationJsonBuilder.new,
+          )
+          ..add(SettingsSetsipSettingsRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetsipSettingsResponseApplicationJson),
+            SettingsSetsipSettingsResponseApplicationJsonBuilder.new,
+          )
+          ..add(SettingsSetsipSettingsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SettingsSetsipSettingsResponseApplicationJson_Ocs),
+            SettingsSetsipSettingsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SettingsSetsipSettingsResponseApplicationJson_Ocs.serializer)
+          ..add(SignalingGetWelcomeMessageApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingGetWelcomeMessageResponseApplicationJson),
+            SignalingGetWelcomeMessageResponseApplicationJsonBuilder.new,
+          )
+          ..add(SignalingGetWelcomeMessageResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs),
+            SignalingGetWelcomeMessageResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data),
+            SignalingGetWelcomeMessageResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(SignalingGetWelcomeMessageResponseApplicationJson_Ocs_Data.serializer)
+          ..add(SignalingBackendApiVersion.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson),
+            SignalingBackendResponseApplicationJsonBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson_Ocs),
+            SignalingBackendResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson_Ocs_Data),
+            SignalingBackendResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Error),
+            SignalingBackendResponseApplicationJson_Ocs_Data_ErrorBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Error.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Auth),
+            SignalingBackendResponseApplicationJson_Ocs_Data_AuthBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Auth.serializer)
+          ..addBuilderFactory(
+            const FullType(SignalingBackendResponseApplicationJson_Ocs_Data_Room),
+            SignalingBackendResponseApplicationJson_Ocs_Data_RoomBuilder.new,
+          )
+          ..add(SignalingBackendResponseApplicationJson_Ocs_Data_Room.serializer)
+          ..addBuilderFactory(
+            const FullType(TempAvatarPostAvatarResponseApplicationJson),
+            TempAvatarPostAvatarResponseApplicationJsonBuilder.new,
+          )
+          ..add(TempAvatarPostAvatarResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TempAvatarPostAvatarResponseApplicationJson_Ocs),
+            TempAvatarPostAvatarResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TempAvatarPostAvatarResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TempAvatarDeleteAvatarResponseApplicationJson),
+            TempAvatarDeleteAvatarResponseApplicationJsonBuilder.new,
+          )
+          ..add(TempAvatarDeleteAvatarResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TempAvatarDeleteAvatarResponseApplicationJson_Ocs),
+            TempAvatarDeleteAvatarResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TempAvatarDeleteAvatarResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+          ..add(PublicCapabilities.serializer)
+          ..addBuilderFactory(const FullType(RoomWithInvalidInvitations), RoomWithInvalidInvitationsBuilder.new)
+          ..add(RoomWithInvalidInvitations.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -60941,22 +60840,23 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i8.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$bed8482b7c93ae2974fa4be6ae42b9b1,
-            _$eef5a337590648ee15c9b8f9dd9d6a36,
-            _$4f2be900e5f7182901d856e06271b0e6,
-            _$1df642f5035aea3b22543ab331c3fb01,
-            _$f281c16bc584cda0adb1f4b8d534ee07,
-            _$eded9c5615e6be3b25806a949699f91f,
-            _$b2c4857c0136baea42828d89c87c757d,
-          },
-        ),
-      )
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i8.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$bed8482b7c93ae2974fa4be6ae42b9b1,
+                _$eef5a337590648ee15c9b8f9dd9d6a36,
+                _$4f2be900e5f7182901d856e06271b0e6,
+                _$1df642f5035aea3b22543ab331c3fb01,
+                _$f281c16bc584cda0adb1f4b8d534ee07,
+                _$eded9c5615e6be3b25806a949699f91f,
+                _$b2c4857c0136baea42828d89c87c757d,
+              },
+            ),
+          )
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

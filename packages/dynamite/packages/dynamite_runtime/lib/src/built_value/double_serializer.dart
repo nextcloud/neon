@@ -15,11 +15,7 @@ class DynamiteDoubleSerializer implements PrimitiveSerializer<double> {
   final String wireName = 'double';
 
   @override
-  Object serialize(
-    Serializers serializers,
-    double aDouble, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  Object serialize(Serializers serializers, double aDouble, {FullType specifiedType = FullType.unspecified}) {
     if (aDouble.isNaN) {
       return _nan;
     } else if (aDouble.isInfinite) {
@@ -30,11 +26,7 @@ class DynamiteDoubleSerializer implements PrimitiveSerializer<double> {
   }
 
   @override
-  double deserialize(
-    Serializers serializers,
-    Object serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
+  double deserialize(Serializers serializers, Object serialized, {FullType specifiedType = FullType.unspecified}) {
     if (serialized == _nan) {
       return double.nan;
     } else if (serialized == _negativeInfinity) {

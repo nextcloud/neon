@@ -33,14 +33,7 @@ void main() {
     final image = BehaviorSubject<Result<Uint8List>>();
     final callback = MockCallbackFunction<void>();
 
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: NeonImage(
-          image: image,
-          onRetry: callback.call,
-        ),
-      ),
-    );
+    await tester.pumpWidgetWithAccessibility(TestApp(child: NeonImage(image: image, onRetry: callback.call)));
 
     expect(find.byType(NeonLinearProgressIndicator), findsOne);
 
@@ -93,14 +86,7 @@ void main() {
     final mockRequest = http.Request('GET', Uri());
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: NeonApiImage(
-          getRequest: (_) => mockRequest,
-          etag: null,
-          expires: null,
-          account: account,
-        ),
-      ),
+      TestApp(child: NeonApiImage(getRequest: (_) => mockRequest, etag: null, expires: null, account: account)),
     );
 
     verify(
@@ -133,14 +119,7 @@ void main() {
     RequestManager.instance = mockRequestManager;
 
     final uri = Uri.parse('https://example.com');
-    await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: NeonUriImage(
-          uri: uri,
-          account: account,
-        ),
-      ),
-    );
+    await tester.pumpWidgetWithAccessibility(TestApp(child: NeonUriImage(uri: uri, account: account)));
 
     verify(
       () => mockRequestManager.wrap<Uint8List, Uint8List>(

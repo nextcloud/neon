@@ -8,11 +8,7 @@ import 'package:nextcloud/dashboard.dart' as dashboard;
 /// A single item in the dashboard widget.
 class DashboardWidgetItem extends StatelessWidget {
   /// Creates a new dashboard widget item.
-  const DashboardWidgetItem({
-    required this.item,
-    required this.roundIcon,
-    super.key,
-  });
+  const DashboardWidgetItem({required this.item, required this.roundIcon, super.key});
 
   /// The dashboard widget item to be displayed.
   final dashboard.WidgetItem item;
@@ -26,16 +22,14 @@ class DashboardWidgetItem extends StatelessWidget {
       dimension: largeIconSize,
       child: ClipRRect(
         borderRadius: roundIcon ? BorderRadius.circular(largeIconSize) : BorderRadius.zero,
-        child: item.iconUrl.isNotEmpty
-            ? NeonUriImage(
-                uri: Uri.parse(item.iconUrl),
-                size: const Size.square(largeIconSize),
-                account: NeonProvider.of<Account>(context),
-              )
-            : Icon(
-                AdaptiveIcons.question_mark,
-                color: Theme.of(context).colorScheme.error,
-              ),
+        child:
+            item.iconUrl.isNotEmpty
+                ? NeonUriImage(
+                  uri: Uri.parse(item.iconUrl),
+                  size: const Size.square(largeIconSize),
+                  account: NeonProvider.of<Account>(context),
+                )
+                : Icon(AdaptiveIcons.question_mark, color: Theme.of(context).colorScheme.error),
       ),
     );
 
@@ -62,16 +56,8 @@ class DashboardWidgetItem extends StatelessWidget {
       );
     }
     return ListTile(
-      title: Text(
-        item.title,
-        overflow: TextOverflow.ellipsis,
-        maxLines: 1,
-      ),
-      subtitle: Text(
-        item.subtitle,
-        overflow: TextOverflow.ellipsis,
-        maxLines: 1,
-      ),
+      title: Text(item.title, overflow: TextOverflow.ellipsis, maxLines: 1),
+      subtitle: Text(item.subtitle, overflow: TextOverflow.ellipsis, maxLines: 1),
       leading: leading,
       onTap: item.link.isNotEmpty ? () async => launchUrl(NeonProvider.of<Account>(context), item.link) : null,
     );

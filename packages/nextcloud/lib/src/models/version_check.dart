@@ -6,11 +6,8 @@ import 'package:version/version.dart';
 @immutable
 class VersionCheck {
   /// Creates a new [VersionCheck].
-  const VersionCheck({
-    required this.versions,
-    required this.minimumVersion,
-    bool? isSupportedOverride,
-  }) : _isSupportedOverride = isSupportedOverride;
+  const VersionCheck({required this.versions, required this.minimumVersion, bool? isSupportedOverride})
+    : _isSupportedOverride = isSupportedOverride;
 
   /// Current version of the app.
   final BuiltList<Version>? versions;
@@ -51,9 +48,5 @@ class VersionCheck {
       other._isSupportedOverride == _isSupportedOverride;
 
   @override
-  int get hashCode => Object.hashAll([
-        versions,
-        minimumVersion,
-        _isSupportedOverride,
-      ]);
+  int get hashCode => Object.hashAll([versions, minimumVersion, _isSupportedOverride]);
 }

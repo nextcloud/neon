@@ -15,52 +15,47 @@ class NeonExceptionDetails {
   /// Creates new [NeonExceptionDetails].
   ///
   /// [isUnauthorized] defaults to false.
-  const NeonExceptionDetails({
-    required this.getText,
-    this.isUnauthorized = false,
-  });
+  const NeonExceptionDetails({required this.getText, this.isUnauthorized = false});
 
   /// Creates the details from the given [error].
   factory NeonExceptionDetails.fromError(Object? error) {
     return switch (error) {
-      String() => NeonExceptionDetails(
-          getText: (_) => error,
-        ),
+      String() => NeonExceptionDetails(getText: (_) => error),
       NeonException() => error.details,
       DynamiteStatusCodeException(statusCode: 401) => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
-          isUnauthorized: true,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorCredentialsForAccountNoLongerMatch,
+        isUnauthorized: true,
+      ),
       DynamiteStatusCodeException(statusCode: 429) => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorBruteforceThrottled,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorBruteforceThrottled,
+      ),
       DynamiteStatusCodeException(statusCode: >= 500 && <= 599) => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorServerHadAProblemProcessingYourRequest,
+      ),
       SocketException(:final address) when address != null => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(address.host),
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(address.host),
+      ),
       SocketException() => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+      ),
       ClientException(:final uri) when uri != null => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
+      ),
       ClientException() => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+      ),
       HttpException(:final uri) when uri != null => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServerAt(uri.host),
+      ),
       HttpException() => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorUnableToReachServer,
+      ),
       TimeoutException() => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorConnectionTimedOut,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorConnectionTimedOut,
+      ),
       _ => NeonExceptionDetails(
-          getText: (context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
-        ),
+        getText: (context) => NeonLocalizations.of(context).errorSomethingWentWrongTryAgainLater,
+      ),
     };
   }
 
@@ -93,6 +88,6 @@ class MissingPermissionException extends NeonException {
 
   @override
   NeonExceptionDetails get details => NeonExceptionDetails(
-        getText: (context) => NeonLocalizations.of(context).errorMissingPermission(permission.toString().split('.')[1]),
-      );
+    getText: (context) => NeonLocalizations.of(context).errorMissingPermission(permission.toString().split('.')[1]),
+  );
 }

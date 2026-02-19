@@ -14,10 +14,7 @@ class ImageUtils {
     final viewBoxAttribute =
         (document.xpath('/svg/@viewBox').firstOrNull ?? document.xpath('/svg/@viewbox').firstOrNull)! as XmlAttribute;
     final viewBoxValues = viewBoxAttribute.value.split(' ');
-    final viewBox = <String, String>{
-      'width': viewBoxValues[2],
-      'height': viewBoxValues[3],
-    };
+    final viewBox = <String, String>{'width': viewBoxValues[2], 'height': viewBoxValues[3]};
 
     for (final dimension in ['width', 'height']) {
       final rootDimensionAttribute = document.xpath('/svg/@$dimension').firstOrNull as XmlAttribute?;

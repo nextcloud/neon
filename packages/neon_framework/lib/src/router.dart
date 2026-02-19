@@ -26,17 +26,14 @@ part 'router.g.dart';
 GoRouter buildAppRouter({
   required GlobalKey<NavigatorState> navigatorKey,
   required AccountRepository accountRepository,
-}) =>
-    GoRouter(
-      debugLogDiagnostics: kDebugMode,
-      navigatorKey: navigatorKey,
-      initialLocation: const HomeRoute().location,
-      errorBuilder: (context, state) => RouteNotFoundPage(
-        uri: state.uri,
-      ),
-      redirect: redirect,
-      routes: $appRoutes,
-    );
+}) => GoRouter(
+  debugLogDiagnostics: kDebugMode,
+  navigatorKey: navigatorKey,
+  initialLocation: const HomeRoute().location,
+  errorBuilder: (context, state) => RouteNotFoundPage(uri: state.uri),
+  redirect: redirect,
+  routes: $appRoutes,
+);
 
 /// Handles redirects of the [GoRouter] of [buildAppRouter].
 @visibleForTesting
@@ -60,9 +57,7 @@ String? redirect(BuildContext context, GoRouterState state) {
 @immutable
 class AccountSettingsRoute extends GoRouteData with _$AccountSettingsRoute {
   /// {@macro AppRoutes.AccountSettingsRoute}
-  const AccountSettingsRoute({
-    required this.accountID,
-  });
+  const AccountSettingsRoute({required this.accountID});
 
   /// The id of the account to show the settings for.
   ///
@@ -73,9 +68,7 @@ class AccountSettingsRoute extends GoRouteData with _$AccountSettingsRoute {
   Widget build(BuildContext context, GoRouterState state) {
     final accountRepository = context.read<AccountRepository>();
 
-    return AccountSettingsPage(
-      account: accountRepository.accountByID(accountID)!,
-    );
+    return AccountSettingsPage(account: accountRepository.accountByID(accountID)!);
   }
 }
 
@@ -90,14 +83,8 @@ class AccountSettingsRoute extends GoRouteData with _$AccountSettingsRoute {
       path: 'settings',
       name: 'Settings',
       routes: [
-        TypedGoRoute<AppImplementationSettingsRoute>(
-          path: 'apps/:appid',
-          name: 'AppImplementationSettings',
-        ),
-        TypedGoRoute<AccountSettingsRoute>(
-          path: 'account/:accountID',
-          name: 'AccountSettings',
-        ),
+        TypedGoRoute<AppImplementationSettingsRoute>(path: 'apps/:appid', name: 'AppImplementationSettings'),
+        TypedGoRoute<AccountSettingsRoute>(path: 'account/:accountID', name: 'AccountSettings'),
       ],
     ),
   ],
@@ -122,9 +109,7 @@ class HomeRoute extends GoRouteData with _$HomeRoute {
           throw StateError('User must be logged in to show home page.');
         }
 
-        return HomePage(
-          key: Key(account.id),
-        );
+        return HomePage(key: Key(account.id));
       },
     );
   }
@@ -133,17 +118,11 @@ class HomeRoute extends GoRouteData with _$HomeRoute {
 /// {@template AppRoutes.LoginRoute}
 /// Route for the initial [LoginPage].
 /// {@endtemplate}
-@TypedGoRoute<LoginRoute>(
-  path: '/login',
-  name: 'login',
-)
+@TypedGoRoute<LoginRoute>(path: '/login', name: 'login')
 @immutable
 class LoginRoute extends GoRouteData with _$LoginRoute {
   /// {@macro AppRoutes.LoginRoute}
-  const LoginRoute({
-    this.serverUrl,
-    this.qrCode,
-  });
+  const LoginRoute({this.serverUrl, this.qrCode});
 
   /// The server url if already known.
   ///
@@ -154,10 +133,7 @@ class LoginRoute extends GoRouteData with _$LoginRoute {
   final String? qrCode;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => LoginPage(
-        serverURL: serverUrl,
-        qrCode: qrCode,
-      );
+  Widget build(BuildContext context, GoRouterState state) => LoginPage(serverURL: serverUrl, qrCode: qrCode);
 }
 
 /// {@template AppRoutes.AppImplementationSettingsRoute}
@@ -166,9 +142,7 @@ class LoginRoute extends GoRouteData with _$LoginRoute {
 @immutable
 class AppImplementationSettingsRoute extends GoRouteData with _$AppImplementationSettingsRoute {
   /// {@macro AppRoutes.AppImplementationSettingsRoute}
-  const AppImplementationSettingsRoute({
-    required this.appid,
-  });
+  const AppImplementationSettingsRoute({required this.appid});
 
   /// The id of the app to display the settings for.
   final String appid;
@@ -188,17 +162,13 @@ class AppImplementationSettingsRoute extends GoRouteData with _$AppImplementatio
 @immutable
 class SettingsRoute extends GoRouteData with _$SettingsRoute {
   /// {@macro AppRoutes.SettingsRoute}
-  const SettingsRoute({
-    this.initialCategory,
-  });
+  const SettingsRoute({this.initialCategory});
 
   /// The initial category to show.
   final SettingsCategories? initialCategory;
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return SettingsPage(
-      initialCategory: initialCategory,
-    );
+    return SettingsPage(initialCategory: initialCategory);
   }
 }

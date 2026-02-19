@@ -18,8 +18,11 @@ class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   final String wireName = 'ObjectAnyOf0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ObjectAnyOf0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ObjectAnyOf0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute1-anyOf',
       serializers.serialize(object.attribute1AnyOf, specifiedType: const FullType(String)),
@@ -29,8 +32,11 @@ class _$ObjectAnyOf0Serializer implements StructuredSerializer<ObjectAnyOf0> {
   }
 
   @override
-  ObjectAnyOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ObjectAnyOf0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ObjectAnyOf0Builder();
 
     final iterator = serialized.iterator;
@@ -56,8 +62,11 @@ class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
   final String wireName = 'ObjectAnyOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ObjectAnyOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ObjectAnyOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute2-anyOf',
       serializers.serialize(object.attribute2AnyOf, specifiedType: const FullType(String)),
@@ -67,8 +76,11 @@ class _$ObjectAnyOf1Serializer implements StructuredSerializer<ObjectAnyOf1> {
   }
 
   @override
-  ObjectAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ObjectAnyOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ObjectAnyOf1Builder();
 
     final iterator = serialized.iterator;
@@ -94,8 +106,11 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
   final String wireName = 'MixedAnyOf1';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, MixedAnyOf1 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    MixedAnyOf1 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-anyOf',
       serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
@@ -105,8 +120,11 @@ class _$MixedAnyOf1Serializer implements StructuredSerializer<MixedAnyOf1> {
   }
 
   @override
-  MixedAnyOf1 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  MixedAnyOf1 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = MixedAnyOf1Builder();
 
     final iterator = serialized.iterator;
@@ -132,8 +150,11 @@ class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf
   final String wireName = 'OneObjectAnyOf0';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OneObjectAnyOf0 object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OneObjectAnyOf0 object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'attribute-anyOf',
       serializers.serialize(object.attributeAnyOf, specifiedType: const FullType(String)),
@@ -143,8 +164,11 @@ class _$OneObjectAnyOf0Serializer implements StructuredSerializer<OneObjectAnyOf
   }
 
   @override
-  OneObjectAnyOf0 deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OneObjectAnyOf0 deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OneObjectAnyOf0Builder();
 
     final iterator = serialized.iterator;
@@ -239,7 +263,8 @@ class ObjectAnyOf0Builder implements Builder<ObjectAnyOf0, ObjectAnyOf0Builder>,
 
   _$ObjectAnyOf0 _build() {
     ObjectAnyOf0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ObjectAnyOf0._(
           attribute1AnyOf: BuiltValueNullFieldError.checkNotNull(attribute1AnyOf, r'ObjectAnyOf0', 'attribute1AnyOf'),
         );
@@ -324,7 +349,8 @@ class ObjectAnyOf1Builder implements Builder<ObjectAnyOf1, ObjectAnyOf1Builder>,
 
   _$ObjectAnyOf1 _build() {
     ObjectAnyOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ObjectAnyOf1._(
           attribute2AnyOf: BuiltValueNullFieldError.checkNotNull(attribute2AnyOf, r'ObjectAnyOf1', 'attribute2AnyOf'),
         );
@@ -409,7 +435,8 @@ class MixedAnyOf1Builder implements Builder<MixedAnyOf1, MixedAnyOf1Builder>, $M
 
   _$MixedAnyOf1 _build() {
     MixedAnyOf1._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$MixedAnyOf1._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'MixedAnyOf1', 'attributeAnyOf'),
         );
@@ -495,7 +522,8 @@ class OneObjectAnyOf0Builder
 
   _$OneObjectAnyOf0 _build() {
     OneObjectAnyOf0._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OneObjectAnyOf0._(
           attributeAnyOf: BuiltValueNullFieldError.checkNotNull(attributeAnyOf, r'OneObjectAnyOf0', 'attributeAnyOf'),
         );

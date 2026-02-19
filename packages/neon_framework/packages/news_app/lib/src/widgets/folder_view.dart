@@ -9,11 +9,7 @@ import 'package:news_app/src/widgets/feeds_view.dart';
 import 'package:nextcloud/news.dart' as news;
 
 class NewsFolderView extends StatefulWidget {
-  const NewsFolderView({
-    required this.bloc,
-    required this.folder,
-    super.key,
-  });
+  const NewsFolderView({required this.bloc, required this.folder, super.key});
 
   final NewsBloc bloc;
   final news.Folder folder;
@@ -43,14 +39,15 @@ class _NewsFolderViewState extends State<NewsFolderView> {
           child: DropdownButton(
             isExpanded: true,
             value: viewType,
-            items: options.defaultFolderViewTypeOption.values.keys
-                .map(
-                  (key) => DropdownMenuItem(
-                    value: key,
-                    child: Text(options.defaultFolderViewTypeOption.values[key]!(context)),
-                  ),
-                )
-                .toList(),
+            items:
+                options.defaultFolderViewTypeOption.values.keys
+                    .map(
+                      (key) => DropdownMenuItem(
+                        value: key,
+                        child: Text(options.defaultFolderViewTypeOption.values[key]!(context)),
+                      ),
+                    )
+                    .toList(),
             onChanged: (value) {
               setState(() {
                 viewType = value!;
@@ -59,21 +56,19 @@ class _NewsFolderViewState extends State<NewsFolderView> {
           ),
         ),
         Expanded(
-          child: viewType == DefaultFolderViewType.articles
-              ? NewsArticlesView(
-                  bloc: NewsArticlesBloc(
+          child:
+              viewType == DefaultFolderViewType.articles
+                  ? NewsArticlesView(
+                    bloc: NewsArticlesBloc(
+                      newsBloc: widget.bloc,
+                      options: options,
+                      account: NeonProvider.of<Account>(context),
+                      id: widget.folder.id,
+                      listType: ListType.folder,
+                    ),
                     newsBloc: widget.bloc,
-                    options: options,
-                    account: NeonProvider.of<Account>(context),
-                    id: widget.folder.id,
-                    listType: ListType.folder,
-                  ),
-                  newsBloc: widget.bloc,
-                )
-              : NewsFeedsView(
-                  bloc: widget.bloc,
-                  folderID: widget.folder.id,
-                ),
+                  )
+                  : NewsFeedsView(bloc: widget.bloc, folderID: widget.folder.id),
         ),
       ],
     );

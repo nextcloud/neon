@@ -17,11 +17,7 @@ import 'package:nextcloud/news.dart' as news;
 /// When created a record with `(String url, int? folderId)` will be popped.
 class NewsAddFeedDialog extends StatefulWidget {
   /// Creates a new add feed dialog.
-  const NewsAddFeedDialog({
-    required this.bloc,
-    this.folderID,
-    super.key,
-  });
+  const NewsAddFeedDialog({required this.bloc, this.folderID, super.key});
 
   /// The active client bloc.
   final NewsBloc bloc;
@@ -74,9 +70,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
       child: TextFormField(
         autofocus: true,
         controller: controller,
-        decoration: const InputDecoration(
-          hintText: 'https://...',
-        ),
+        decoration: const InputDecoration(hintText: 'https://...'),
         keyboardType: TextInputType.url,
         validator: (input) => validateHttpUrl(context, input),
         onFieldSubmitted: (_) {
@@ -90,19 +84,10 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
       subject: widget.bloc.folders,
       builder: (context, folders) {
         if (folders.hasError) {
-          return Center(
-            child: NeonError(
-              folders.error,
-              onRetry: widget.bloc.refresh,
-            ),
-          );
+          return Center(child: NeonError(folders.error, onRetry: widget.bloc.refresh));
         }
         if (!folders.hasData) {
-          return Center(
-            child: NeonLinearProgressIndicator(
-              visible: folders.isLoading,
-            ),
-          );
+          return Center(child: NeonLinearProgressIndicator(visible: folders.isLoading));
         }
 
         return NewsFolderSelect(
@@ -120,23 +105,13 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
     return NeonDialog(
       title: Text(NewsLocalizations.of(context).feedAdd),
       content: Material(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            urlField,
-            const SizedBox(height: 8),
-            folderSelector,
-          ],
-        ),
+        child: Column(mainAxisSize: MainAxisSize.min, children: [urlField, const SizedBox(height: 8), folderSelector]),
       ),
       actions: [
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: submit,
-          child: Text(
-            NewsLocalizations.of(context).feedAdd,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NewsLocalizations.of(context).feedAdd, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -146,10 +121,7 @@ class _NewsAddFeedDialogState extends State<NewsAddFeedDialog> {
 /// A dialog for displaying the url of a news feed.
 class NewsFeedShowURLDialog extends StatelessWidget {
   /// Creates a new display url dialog.
-  const NewsFeedShowURLDialog({
-    required this.feed,
-    super.key,
-  });
+  const NewsFeedShowURLDialog({required this.feed, super.key});
 
   /// The feed to display the url for.
   final news.Feed feed;
@@ -163,32 +135,20 @@ class NewsFeedShowURLDialog extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(
-            NeonLocalizations.of(context).actionClose,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).actionClose, textAlign: TextAlign.end),
         ),
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: () async {
-            await Clipboard.setData(
-              ClipboardData(
-                text: feed.url,
-              ),
-            );
+            await Clipboard.setData(ClipboardData(text: feed.url));
             if (context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(NewsLocalizations.of(context).feedCopiedURL),
-                ),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(NewsLocalizations.of(context).feedCopiedURL)));
               Navigator.of(context).pop();
             }
           },
-          child: Text(
-            NewsLocalizations.of(context).feedCopyURL,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NewsLocalizations.of(context).feedCopyURL, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -196,10 +156,7 @@ class NewsFeedShowURLDialog extends StatelessWidget {
 }
 
 class NewsFeedUpdateErrorDialog extends StatelessWidget {
-  const NewsFeedUpdateErrorDialog({
-    required this.feed,
-    super.key,
-  });
+  const NewsFeedUpdateErrorDialog({required this.feed, super.key});
 
   final news.Feed feed;
 
@@ -212,32 +169,20 @@ class NewsFeedUpdateErrorDialog extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(
-            NeonLocalizations.of(context).actionClose,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NeonLocalizations.of(context).actionClose, textAlign: TextAlign.end),
         ),
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: () async {
-            await Clipboard.setData(
-              ClipboardData(
-                text: feed.lastUpdateError!,
-              ),
-            );
+            await Clipboard.setData(ClipboardData(text: feed.lastUpdateError!));
             if (context.mounted) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage),
-                ),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text(NewsLocalizations.of(context).feedCopiedErrorMessage)));
               Navigator.of(context).pop();
             }
           },
-          child: Text(
-            NewsLocalizations.of(context).feedCopyErrorMessage,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NewsLocalizations.of(context).feedCopyErrorMessage, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -249,11 +194,7 @@ class NewsFeedUpdateErrorDialog extends StatelessWidget {
 /// When moved the id of the new folder will be popped.
 class NewsMoveFeedDialog extends StatefulWidget {
   /// Creates a new move feed dialog.
-  const NewsMoveFeedDialog({
-    required this.folders,
-    required this.feed,
-    super.key,
-  });
+  const NewsMoveFeedDialog({required this.folders, required this.feed, super.key});
 
   /// The list of available folders.
   final BuiltList<news.Folder> folders;
@@ -305,10 +246,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: submit,
-          child: Text(
-            NewsLocalizations.of(context).feedMove,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NewsLocalizations.of(context).feedMove, textAlign: TextAlign.end),
         ),
       ],
     );
@@ -322,9 +260,7 @@ class _NewsMoveFeedDialogState extends State<NewsMoveFeedDialog> {
 /// When submitted the folder name will be popped as a `String`.
 class NewsCreateFolderDialog extends StatefulWidget {
   /// Creates a new NeonDialog for creating a folder.
-  const NewsCreateFolderDialog({
-    super.key,
-  });
+  const NewsCreateFolderDialog({super.key});
 
   @override
   State<NewsCreateFolderDialog> createState() => _NewsCreateFolderDialogState();
@@ -351,9 +287,7 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
     final content = Material(
       child: TextFormField(
         controller: controller,
-        decoration: InputDecoration(
-          hintText: NewsLocalizations.of(context).folderCreateName,
-        ),
+        decoration: InputDecoration(hintText: NewsLocalizations.of(context).folderCreateName),
         autofocus: true,
         validator: (input) => validateNotEmpty(context, input),
         onFieldSubmitted: (_) {
@@ -364,18 +298,12 @@ class _NewsCreateFolderDialogState extends State<NewsCreateFolderDialog> {
 
     return NeonDialog(
       title: Text(NewsLocalizations.of(context).folderCreate),
-      content: Form(
-        key: formKey,
-        child: content,
-      ),
+      content: Form(key: formKey, child: content),
       actions: [
         NeonDialogAction(
           isDefaultAction: true,
           onPressed: submit,
-          child: Text(
-            NewsLocalizations.of(context).folderCreate,
-            textAlign: TextAlign.end,
-          ),
+          child: Text(NewsLocalizations.of(context).folderCreate, textAlign: TextAlign.end),
         ),
       ],
     );

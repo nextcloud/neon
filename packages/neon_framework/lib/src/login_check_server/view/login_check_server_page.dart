@@ -6,10 +6,7 @@ import 'package:neon_framework/src/login_check_server/login_check_server.dart';
 
 @internal
 class LoginCheckServerPage extends StatelessWidget {
-  const LoginCheckServerPage({
-    required this.serverURL,
-    super.key,
-  });
+  const LoginCheckServerPage({required this.serverURL, super.key});
 
   /// The url of the server to check.
   final Uri serverURL;
@@ -19,10 +16,10 @@ class LoginCheckServerPage extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         BlocProvider(
-          create: (context) => LoginCheckServerBloc(
-            accountRepository: context.read<AccountRepository>(),
-            serverURL: serverURL,
-          )..add(const LoginCheckServer()),
+          create:
+              (context) =>
+                  LoginCheckServerBloc(accountRepository: context.read<AccountRepository>(), serverURL: serverURL)
+                    ..add(const LoginCheckServer()),
         ),
       ],
       child: const LoginCheckServerView(),

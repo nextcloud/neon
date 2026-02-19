@@ -41,11 +41,7 @@ void main() {
 
     test('Multiple versions', () {
       final check = VersionCheck(
-        versions: BuiltList([
-          Version(0, 9, 9),
-          Version(1, 5, 0),
-          Version(2, 0, 0),
-        ]),
+        versions: BuiltList([Version(0, 9, 9), Version(1, 5, 0), Version(2, 0, 0)]),
         minimumVersion: Version(1, 0, 0),
       );
       expect(check.isSupported, isTrue);

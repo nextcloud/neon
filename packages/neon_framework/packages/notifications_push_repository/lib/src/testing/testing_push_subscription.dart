@@ -10,13 +10,15 @@ PushSubscription createPushSubscription({
   String signature = 'signature',
 }) {
   return PushSubscription(
-    (b) => b
-      ..endpoint = endpoint
-      ..pushDevice.update(
-        (b) => b
-          ..publicKey = publicKey
-          ..deviceIdentifier = deviceIdentifier
-          ..signature = signature,
-      ),
+    (b) =>
+        b
+          ..endpoint = endpoint
+          ..pushDevice.update(
+            (b) =>
+                b
+                  ..publicKey = publicKey
+                  ..deviceIdentifier = deviceIdentifier
+                  ..signature = signature,
+          ),
   );
 }

@@ -8,9 +8,7 @@ void main() {
   presets('server', 'weather_status', (tester) {
     test('Set mode', () async {
       final response = await tester.client.weatherStatus.weatherStatus.setMode(
-        $body: weather_status.WeatherStatusSetModeRequestApplicationJson(
-          (b) => b..mode = 1,
-        ),
+        $body: weather_status.WeatherStatusSetModeRequestApplicationJson((b) => b..mode = 1),
       );
       expect(response.statusCode, 200);
       expect(response.body.ocs.data.success, true);
@@ -18,9 +16,7 @@ void main() {
 
     test('Get location', () async {
       await tester.client.weatherStatus.weatherStatus.setLocation(
-        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-          (b) => b..address = 'Berlin',
-        ),
+        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson((b) => b..address = 'Berlin'),
       );
 
       final response = await tester.client.weatherStatus.weatherStatus.getLocation();
@@ -33,9 +29,7 @@ void main() {
 
     test('Set location', () async {
       var response = await tester.client.weatherStatus.weatherStatus.setLocation(
-        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-          (b) => b..address = 'Hamburg',
-        ),
+        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson((b) => b..address = 'Hamburg'),
       );
       expect(response.statusCode, 200);
       expect(response.body.ocs.data.success, true);
@@ -45,9 +39,10 @@ void main() {
 
       response = await tester.client.weatherStatus.weatherStatus.setLocation(
         $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-          (b) => b
-            ..lat = 52.5170365
-            ..lon = 13.3888599,
+          (b) =>
+              b
+                ..lat = 52.5170365
+                ..lon = 13.3888599,
         ),
       );
       expect(response.statusCode, 200);
@@ -59,23 +54,20 @@ void main() {
 
     test('Use personal address', () async {
       await tester.client.weatherStatus.weatherStatus.setLocation(
-        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-          (b) => b..address = 'Hamburg',
-        ),
+        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson((b) => b..address = 'Hamburg'),
       );
 
       await tester.client.core.appPassword.confirmUserPassword(
-        $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson(
-          (b) => b..password = 'user1',
-        ),
+        $body: core.AppPasswordConfirmUserPasswordRequestApplicationJson((b) => b..password = 'user1'),
       );
 
       await tester.client.provisioningApi.users.editUser(
         userId: 'user1',
         $body: provisioning_api.UsersEditUserRequestApplicationJson(
-          (b) => b
-            ..key = 'address'
-            ..value = 'Berlin',
+          (b) =>
+              b
+                ..key = 'address'
+                ..value = 'Berlin',
         ),
       );
 
@@ -89,9 +81,7 @@ void main() {
 
     test('Get forecast', () async {
       await tester.client.weatherStatus.weatherStatus.setLocation(
-        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson(
-          (b) => b..address = 'Berlin',
-        ),
+        $body: weather_status.WeatherStatusSetLocationRequestApplicationJson((b) => b..address = 'Berlin'),
       );
 
       final response = await tester.client.weatherStatus.weatherStatus.getForecast();
@@ -102,9 +92,7 @@ void main() {
 
     test('Get favorites', () async {
       await tester.client.weatherStatus.weatherStatus.setFavorites(
-        $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson(
-          (b) => b..favorites.replace(['a', 'b']),
-        ),
+        $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson((b) => b..favorites.replace(['a', 'b'])),
       );
 
       final response = await tester.client.weatherStatus.weatherStatus.getFavorites();
@@ -114,9 +102,7 @@ void main() {
 
     test('Set favorites', () async {
       final response = await tester.client.weatherStatus.weatherStatus.setFavorites(
-        $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson(
-          (b) => b..favorites.replace(['a', 'b']),
-        ),
+        $body: weather_status.WeatherStatusSetFavoritesRequestApplicationJson((b) => b..favorites.replace(['a', 'b'])),
       );
       expect(response.statusCode, 200);
       expect(response.body.ocs.data.success, true);

@@ -7,10 +7,7 @@ import 'package:nextcloud/core.dart' as core;
 /// Widget used to render rich object parameters with unknown types.
 class NeonRichObjectFallback extends StatelessWidget {
   /// Creates a new Neon rich object fallback
-  const NeonRichObjectFallback({
-    required this.parameter,
-    super.key,
-  });
+  const NeonRichObjectFallback({required this.parameter, super.key});
 
   /// The parameter to display.
   final core.RichObjectParameter parameter;
@@ -26,12 +23,7 @@ class NeonRichObjectFallback extends StatelessWidget {
       avatar = Padding(
         padding: const EdgeInsets.all(4),
         child: CircleAvatar(
-          child: ClipOval(
-            child: NeonUriImage(
-              uri: Uri.parse(iconUrl),
-              account: NeonProvider.of<Account>(context),
-            ),
-          ),
+          child: ClipOval(child: NeonUriImage(uri: Uri.parse(iconUrl), account: NeonProvider.of<Account>(context))),
         ),
       );
     }

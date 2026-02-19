@@ -6,35 +6,22 @@ import 'package:neon_framework/src/login/login.dart';
 
 void main() {
   final url = Uri.https('serverURL');
-  final credentials = createCredentials(
-    serverURL: Uri.https('credentials_serverURL'),
-  );
-  final account = createAccount(
-    credentials: credentials,
-  );
+  final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
+  final account = createAccount(credentials: credentials);
 
   group('LoginEvent', () {
     group('LoginUseQRCode', () {
       test('supports value equality', () {
-        expect(
-          LoginUseQRCode(),
-          equals(LoginUseQRCode()),
-        );
+        expect(LoginUseQRCode(), equals(LoginUseQRCode()));
       });
 
       test('props are correct', () {
-        expect(
-          LoginUseQRCode().props,
-          equals(<Object?>[]),
-        );
+        expect(LoginUseQRCode().props, equals(<Object?>[]));
       });
 
       group('LoginUrlEntered', () {
         test('supports value equality', () {
-          expect(
-            LoginUrlEntered(url, credentials),
-            equals(LoginUrlEntered(url, credentials)),
-          );
+          expect(LoginUrlEntered(url, credentials), equals(LoginUrlEntered(url, credentials)));
         });
 
         test('props are correct', () {
@@ -50,26 +37,17 @@ void main() {
 
       group('LoginServerChecked', () {
         test('supports value equality', () {
-          expect(
-            LoginServerChecked(),
-            equals(LoginServerChecked()),
-          );
+          expect(LoginServerChecked(), equals(LoginServerChecked()));
         });
 
         test('props are correct', () {
-          expect(
-            LoginServerChecked().props,
-            equals(<Object?>[]),
-          );
+          expect(LoginServerChecked().props, equals(<Object?>[]));
         });
       });
 
       group('LoginCredentialsEntered', () {
         test('supports value equality', () {
-          expect(
-            LoginCredentialsEntered(credentials),
-            equals(LoginCredentialsEntered(credentials)),
-          );
+          expect(LoginCredentialsEntered(credentials), equals(LoginCredentialsEntered(credentials)));
         });
 
         test('props are correct', () {
@@ -84,10 +62,7 @@ void main() {
 
       group('LoginAccountChecked', () {
         test('supports value equality', () {
-          expect(
-            LoginAccountChecked(account),
-            equals(LoginAccountChecked(account)),
-          );
+          expect(LoginAccountChecked(account), equals(LoginAccountChecked(account)));
         });
 
         test('props are correct', () {

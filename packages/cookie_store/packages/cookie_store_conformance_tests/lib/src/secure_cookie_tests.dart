@@ -38,32 +38,16 @@ void secure(FutureOr<CookieStore> Function() cookieStoreFactory) {
       var stored = await cookieStore.loadAll();
       expect(
         toSortedStringList(stored),
-        equals([
-          'not-secure0=value',
-          'not-secure1=value',
-          'secure0=value',
-          'secure1=value',
-        ]),
+        equals(['not-secure0=value', 'not-secure1=value', 'secure0=value', 'secure1=value']),
       );
 
       stored = await cookieStore.loadForRequest(uri);
-      expect(
-        toSortedStringList(stored),
-        equals([
-          'not-secure0=value',
-          'not-secure1=value',
-        ]),
-      );
+      expect(toSortedStringList(stored), equals(['not-secure0=value', 'not-secure1=value']));
 
       stored = await cookieStore.loadForRequest(Uri(scheme: 'ftps', host: 'example.com'));
       expect(
         toSortedStringList(stored),
-        equals([
-          'not-secure0=value',
-          'not-secure1=value',
-          'secure0=value',
-          'secure1=value',
-        ]),
+        equals(['not-secure0=value', 'not-secure1=value', 'secure0=value', 'secure1=value']),
       );
     });
   });

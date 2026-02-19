@@ -9,10 +9,7 @@ class _TestHttpInterceptor implements HttpInterceptor {
   }
 
   @override
-  http.StreamedResponse interceptResponse({
-    required http.StreamedResponse response,
-    required Uri url,
-  }) {
+  http.StreamedResponse interceptResponse({required http.StreamedResponse response, required Uri url}) {
     throw UnimplementedError();
   }
 

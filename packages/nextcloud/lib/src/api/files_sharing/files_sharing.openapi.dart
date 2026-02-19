@@ -40,7 +40,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $DeletedShareapiClient deletedShareapi = $DeletedShareapiClient(this);
 
@@ -232,11 +232,11 @@ class $PublicPreviewClient {
   /// Builds a serializer to parse the response of [$directLink_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $directLink_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a direct link preview for a shared file.
   ///
@@ -310,11 +310,11 @@ class $PublicPreviewClient {
   /// Builds a serializer to parse the response of [$getPreview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a preview for a shared file.
   ///
@@ -774,11 +774,11 @@ class $RemoteClient {
   /// Builds a serializer to parse the response of [$getShare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteGetShareResponseApplicationJson, void> $getShare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RemoteGetShareResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(RemoteGetShareResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get info of a remote share.
   ///
@@ -859,11 +859,11 @@ class $RemoteClient {
   /// Builds a serializer to parse the response of [$unshare_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<RemoteUnshareResponseApplicationJson, void> $unshare_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(RemoteUnshareResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404, 403},
-      );
+    bodyType: const FullType(RemoteUnshareResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 404, 403},
+  );
 
   /// Unshare a remote share.
   ///
@@ -953,11 +953,11 @@ class $ShareInfoClient {
   /// Builds a serializer to parse the response of [$info_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareInfo, void> $info_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(ShareInfo),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(ShareInfo),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the info about a share.
   ///
@@ -1211,19 +1211,20 @@ class $ShareapiClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ShareapiCreateShareRequestApplicationJson(),
-              specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ShareapiCreateShareRequestApplicationJson(),
+                specifiedType: const FullType(ShareapiCreateShareRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -1583,19 +1584,20 @@ class $ShareapiClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ShareapiUpdateShareRequestApplicationJson(),
-              specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ShareapiUpdateShareRequestApplicationJson(),
+                specifiedType: const FullType(ShareapiUpdateShareRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -1780,19 +1782,20 @@ class $ShareapiClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ShareapiSendShareEmailRequestApplicationJson(),
-              specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ShareapiSendShareEmailRequestApplicationJson(),
+                specifiedType: const FullType(ShareapiSendShareEmailRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -2002,12 +2005,12 @@ class $ShareesapiClient {
   /// Builds a serializer to parse the response of [$search_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<ShareesapiSearchResponseApplicationJson, ShareesapiShareesapiSearchHeaders>
-      $search_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
-            headersType: const FullType(ShareesapiShareesapiSearchHeaders),
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $search_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(ShareesapiSearchResponseApplicationJson),
+    headersType: const FullType(ShareesapiShareesapiSearchHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Search for sharees.
   ///
@@ -2539,8 +2542,10 @@ sealed class $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface {
 abstract class DeletedShareapiUndeleteResponseApplicationJson_Ocs
     implements
         $DeletedShareapiUndeleteResponseApplicationJson_OcsInterface,
-        Built<DeletedShareapiUndeleteResponseApplicationJson_Ocs,
-            DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder> {
+        Built<
+          DeletedShareapiUndeleteResponseApplicationJson_Ocs,
+          DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DeletedShareapiUndeleteResponseApplicationJson_Ocs object using the builder pattern.
   factory DeletedShareapiUndeleteResponseApplicationJson_Ocs([
     void Function(DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder)? b,
@@ -2694,16 +2699,14 @@ class _$PublicPreviewGetPreviewASerializer implements PrimitiveSerializer<Public
     Serializers serializers,
     PublicPreviewGetPreviewA object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PublicPreviewGetPreviewA deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PublicPreviewGetPreviewMimeFallback extends EnumClass {
@@ -2745,9 +2748,9 @@ class _$PublicPreviewGetPreviewMimeFallbackSerializer
 
   static const Map<Object, PublicPreviewGetPreviewMimeFallback> _fromWire =
       <Object, PublicPreviewGetPreviewMimeFallback>{
-    0: PublicPreviewGetPreviewMimeFallback.$0,
-    1: PublicPreviewGetPreviewMimeFallback.$1,
-  };
+        0: PublicPreviewGetPreviewMimeFallback.$0,
+        1: PublicPreviewGetPreviewMimeFallback.$1,
+      };
 
   @override
   Iterable<Type> get types => const [PublicPreviewGetPreviewMimeFallback];
@@ -2760,16 +2763,14 @@ class _$PublicPreviewGetPreviewMimeFallbackSerializer
     Serializers serializers,
     PublicPreviewGetPreviewMimeFallback object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PublicPreviewGetPreviewMimeFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -3795,16 +3796,14 @@ class _$Share_HideDownloadSerializer implements PrimitiveSerializer<Share_HideDo
     Serializers serializers,
     Share_HideDownload object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   Share_HideDownload deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class Share_ItemType extends EnumClass {
@@ -3860,8 +3859,7 @@ class _$Share_ItemTypeSerializer implements PrimitiveSerializer<Share_ItemType> 
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class Share_MailSend extends EnumClass {
@@ -3919,8 +3917,7 @@ class _$Share_MailSendSerializer implements PrimitiveSerializer<Share_MailSend> 
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -4272,15 +4269,15 @@ class _$ShareapiCreateShareRequestApplicationJson_PublicUploadSerializer
 
   static const Map<ShareapiCreateShareRequestApplicationJson_PublicUpload, Object> _toWire =
       <ShareapiCreateShareRequestApplicationJson_PublicUpload, Object>{
-    ShareapiCreateShareRequestApplicationJson_PublicUpload.$true: 'true',
-    ShareapiCreateShareRequestApplicationJson_PublicUpload.$false: 'false',
-  };
+        ShareapiCreateShareRequestApplicationJson_PublicUpload.$true: 'true',
+        ShareapiCreateShareRequestApplicationJson_PublicUpload.$false: 'false',
+      };
 
   static const Map<Object, ShareapiCreateShareRequestApplicationJson_PublicUpload> _fromWire =
       <Object, ShareapiCreateShareRequestApplicationJson_PublicUpload>{
-    'true': ShareapiCreateShareRequestApplicationJson_PublicUpload.$true,
-    'false': ShareapiCreateShareRequestApplicationJson_PublicUpload.$false,
-  };
+        'true': ShareapiCreateShareRequestApplicationJson_PublicUpload.$true,
+        'false': ShareapiCreateShareRequestApplicationJson_PublicUpload.$false,
+      };
 
   @override
   Iterable<Type> get types => const [ShareapiCreateShareRequestApplicationJson_PublicUpload];
@@ -4293,16 +4290,14 @@ class _$ShareapiCreateShareRequestApplicationJson_PublicUploadSerializer
     Serializers serializers,
     ShareapiCreateShareRequestApplicationJson_PublicUpload object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ShareapiCreateShareRequestApplicationJson_PublicUpload deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 /// Send a mail to the recipient.
@@ -4344,15 +4339,15 @@ class _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer
 
   static const Map<ShareapiCreateShareRequestApplicationJson_SendMail, Object> _toWire =
       <ShareapiCreateShareRequestApplicationJson_SendMail, Object>{
-    ShareapiCreateShareRequestApplicationJson_SendMail.$false: 'false',
-    ShareapiCreateShareRequestApplicationJson_SendMail.$true: 'true',
-  };
+        ShareapiCreateShareRequestApplicationJson_SendMail.$false: 'false',
+        ShareapiCreateShareRequestApplicationJson_SendMail.$true: 'true',
+      };
 
   static const Map<Object, ShareapiCreateShareRequestApplicationJson_SendMail> _fromWire =
       <Object, ShareapiCreateShareRequestApplicationJson_SendMail>{
-    'false': ShareapiCreateShareRequestApplicationJson_SendMail.$false,
-    'true': ShareapiCreateShareRequestApplicationJson_SendMail.$true,
-  };
+        'false': ShareapiCreateShareRequestApplicationJson_SendMail.$false,
+        'true': ShareapiCreateShareRequestApplicationJson_SendMail.$true,
+      };
 
   @override
   Iterable<Type> get types => const [ShareapiCreateShareRequestApplicationJson_SendMail];
@@ -4365,16 +4360,14 @@ class _$ShareapiCreateShareRequestApplicationJson_SendMailSerializer
     Serializers serializers,
     ShareapiCreateShareRequestApplicationJson_SendMail object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ShareapiCreateShareRequestApplicationJson_SendMail deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -4639,8 +4632,10 @@ sealed class $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface {
 abstract class ShareapiGetInheritedSharesResponseApplicationJson_Ocs
     implements
         $ShareapiGetInheritedSharesResponseApplicationJson_OcsInterface,
-        Built<ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
-            ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder> {
+        Built<
+          ShareapiGetInheritedSharesResponseApplicationJson_Ocs,
+          ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ShareapiGetInheritedSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiGetInheritedSharesResponseApplicationJson_Ocs([
     void Function(ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder)? b,
@@ -4703,8 +4698,10 @@ sealed class $ShareapiGetInheritedSharesResponseApplicationJsonInterface {
 abstract class ShareapiGetInheritedSharesResponseApplicationJson
     implements
         $ShareapiGetInheritedSharesResponseApplicationJsonInterface,
-        Built<ShareapiGetInheritedSharesResponseApplicationJson,
-            ShareapiGetInheritedSharesResponseApplicationJsonBuilder> {
+        Built<
+          ShareapiGetInheritedSharesResponseApplicationJson,
+          ShareapiGetInheritedSharesResponseApplicationJsonBuilder
+        > {
   /// Creates a new ShareapiGetInheritedSharesResponseApplicationJson object using the builder pattern.
   factory ShareapiGetInheritedSharesResponseApplicationJson([
     void Function(ShareapiGetInheritedSharesResponseApplicationJsonBuilder)? b,
@@ -4768,8 +4765,10 @@ sealed class $ShareapiPendingSharesResponseApplicationJson_OcsInterface {
 abstract class ShareapiPendingSharesResponseApplicationJson_Ocs
     implements
         $ShareapiPendingSharesResponseApplicationJson_OcsInterface,
-        Built<ShareapiPendingSharesResponseApplicationJson_Ocs,
-            ShareapiPendingSharesResponseApplicationJson_OcsBuilder> {
+        Built<
+          ShareapiPendingSharesResponseApplicationJson_Ocs,
+          ShareapiPendingSharesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ShareapiPendingSharesResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiPendingSharesResponseApplicationJson_Ocs([
     void Function(ShareapiPendingSharesResponseApplicationJson_OcsBuilder)? b,
@@ -4923,16 +4922,14 @@ class _$ShareapiGetShareIncludeTagsSerializer implements PrimitiveSerializer<Sha
     Serializers serializers,
     ShareapiGetShareIncludeTags object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ShareapiGetShareIncludeTags deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -5502,8 +5499,10 @@ sealed class $ShareapiSendShareEmailResponseApplicationJson_OcsInterface {
 abstract class ShareapiSendShareEmailResponseApplicationJson_Ocs
     implements
         $ShareapiSendShareEmailResponseApplicationJson_OcsInterface,
-        Built<ShareapiSendShareEmailResponseApplicationJson_Ocs,
-            ShareapiSendShareEmailResponseApplicationJson_OcsBuilder> {
+        Built<
+          ShareapiSendShareEmailResponseApplicationJson_Ocs,
+          ShareapiSendShareEmailResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ShareapiSendShareEmailResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiSendShareEmailResponseApplicationJson_Ocs([
     void Function(ShareapiSendShareEmailResponseApplicationJson_OcsBuilder)? b,
@@ -5756,8 +5755,10 @@ sealed class $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface {
 abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs_Data
     implements
         $ShareapiGenerateTokenResponseApplicationJson_Ocs_DataInterface,
-        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
-            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ShareapiGenerateTokenResponseApplicationJson_Ocs_Data,
+          ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ShareapiGenerateTokenResponseApplicationJson_Ocs_Data([
     void Function(ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -5821,8 +5822,10 @@ sealed class $ShareapiGenerateTokenResponseApplicationJson_OcsInterface {
 abstract class ShareapiGenerateTokenResponseApplicationJson_Ocs
     implements
         $ShareapiGenerateTokenResponseApplicationJson_OcsInterface,
-        Built<ShareapiGenerateTokenResponseApplicationJson_Ocs,
-            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder> {
+        Built<
+          ShareapiGenerateTokenResponseApplicationJson_Ocs,
+          ShareapiGenerateTokenResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ShareapiGenerateTokenResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareapiGenerateTokenResponseApplicationJson_Ocs([
     void Function(ShareapiGenerateTokenResponseApplicationJson_OcsBuilder)? b,
@@ -5978,16 +5981,14 @@ class _$ShareesapiSearchLookupSerializer implements PrimitiveSerializer<Shareesa
     Serializers serializers,
     ShareesapiSearchLookup object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ShareesapiSearchLookup deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -7505,8 +7506,10 @@ sealed class $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface {
 abstract class ShareesapiFindRecommendedResponseApplicationJson_Ocs
     implements
         $ShareesapiFindRecommendedResponseApplicationJson_OcsInterface,
-        Built<ShareesapiFindRecommendedResponseApplicationJson_Ocs,
-            ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder> {
+        Built<
+          ShareesapiFindRecommendedResponseApplicationJson_Ocs,
+          ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ShareesapiFindRecommendedResponseApplicationJson_Ocs object using the builder pattern.
   factory ShareesapiFindRecommendedResponseApplicationJson_Ocs([
     void Function(ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder)? b,
@@ -7569,8 +7572,10 @@ sealed class $ShareesapiFindRecommendedResponseApplicationJsonInterface {
 abstract class ShareesapiFindRecommendedResponseApplicationJson
     implements
         $ShareesapiFindRecommendedResponseApplicationJsonInterface,
-        Built<ShareesapiFindRecommendedResponseApplicationJson,
-            ShareesapiFindRecommendedResponseApplicationJsonBuilder> {
+        Built<
+          ShareesapiFindRecommendedResponseApplicationJson,
+          ShareesapiFindRecommendedResponseApplicationJsonBuilder
+        > {
   /// Creates a new ShareesapiFindRecommendedResponseApplicationJson object using the builder pattern.
   factory ShareesapiFindRecommendedResponseApplicationJson([
     void Function(ShareesapiFindRecommendedResponseApplicationJsonBuilder)? b,
@@ -7764,8 +7769,10 @@ sealed class $Capabilities_FilesSharing_Public_ExpireDateInternalInterface {
 abstract class Capabilities_FilesSharing_Public_ExpireDateInternal
     implements
         $Capabilities_FilesSharing_Public_ExpireDateInternalInterface,
-        Built<Capabilities_FilesSharing_Public_ExpireDateInternal,
-            Capabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+        Built<
+          Capabilities_FilesSharing_Public_ExpireDateInternal,
+          Capabilities_FilesSharing_Public_ExpireDateInternalBuilder
+        > {
   /// Creates a new Capabilities_FilesSharing_Public_ExpireDateInternal object using the builder pattern.
   factory Capabilities_FilesSharing_Public_ExpireDateInternal([
     void Function(Capabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
@@ -7830,8 +7837,10 @@ sealed class $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface {
 abstract class Capabilities_FilesSharing_Public_ExpireDateRemote
     implements
         $Capabilities_FilesSharing_Public_ExpireDateRemoteInterface,
-        Built<Capabilities_FilesSharing_Public_ExpireDateRemote,
-            Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+        Built<
+          Capabilities_FilesSharing_Public_ExpireDateRemote,
+          Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+        > {
   /// Creates a new Capabilities_FilesSharing_Public_ExpireDateRemote object using the builder pattern.
   factory Capabilities_FilesSharing_Public_ExpireDateRemote([
     void Function(Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
@@ -8287,8 +8296,10 @@ sealed class $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface 
 abstract class Capabilities_FilesSharing_Federation_ExpireDateSupported
     implements
         $Capabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
-        Built<Capabilities_FilesSharing_Federation_ExpireDateSupported,
-            Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+        Built<
+          Capabilities_FilesSharing_Federation_ExpireDateSupported,
+          Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+        > {
   /// Creates a new Capabilities_FilesSharing_Federation_ExpireDateSupported object using the builder pattern.
   factory Capabilities_FilesSharing_Federation_ExpireDateSupported([
     void Function(Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
@@ -8685,393 +8696,394 @@ class _$07eaa0304017ba8abe7f9f20d6a736f3Serializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(
-        const FullType(DeletedShareapiIndexResponseApplicationJson),
-        DeletedShareapiIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeletedShareapiIndexResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs),
-        DeletedShareapiIndexResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DeletedShareapiIndexResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(const FullType(DeletedShare), DeletedShareBuilder.new)
-      ..add(DeletedShare.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(DeletedShare)]), ListBuilder<DeletedShare>.new)
-      ..addBuilderFactory(
-        const FullType(DeletedShareapiUndeleteResponseApplicationJson),
-        DeletedShareapiUndeleteResponseApplicationJsonBuilder.new,
-      )
-      ..add(DeletedShareapiUndeleteResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs),
-        DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
-      ..add(PublicPreviewGetPreviewA.serializer)
-      ..add(PublicPreviewGetPreviewMimeFallback.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteGetSharesResponseApplicationJson),
-        RemoteGetSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteGetSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteGetSharesResponseApplicationJson_Ocs),
-        RemoteGetSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteGetSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(RemoteShare), RemoteShareBuilder.new)
-      ..add(RemoteShare.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(RemoteShare)]), ListBuilder<RemoteShare>.new)
-      ..addBuilderFactory(
-        const FullType(RemoteGetOpenSharesResponseApplicationJson),
-        RemoteGetOpenSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteGetOpenSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs),
-        RemoteGetOpenSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteGetOpenSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteAcceptShareResponseApplicationJson),
-        RemoteAcceptShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteAcceptShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteAcceptShareResponseApplicationJson_Ocs),
-        RemoteAcceptShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteAcceptShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteDeclineShareResponseApplicationJson),
-        RemoteDeclineShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteDeclineShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteDeclineShareResponseApplicationJson_Ocs),
-        RemoteDeclineShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteDeclineShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteGetShareResponseApplicationJson),
-        RemoteGetShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteGetShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteGetShareResponseApplicationJson_Ocs),
-        RemoteGetShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteGetShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteUnshareResponseApplicationJson),
-        RemoteUnshareResponseApplicationJsonBuilder.new,
-      )
-      ..add(RemoteUnshareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(RemoteUnshareResponseApplicationJson_Ocs),
-        RemoteUnshareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(RemoteUnshareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareInfoInfoRequestApplicationJson),
-        ShareInfoInfoRequestApplicationJsonBuilder.new,
-      )
-      ..add(ShareInfoInfoRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(ShareInfo), ShareInfoBuilder.new)
-      ..add(ShareInfo.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [
-          FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        ]),
-        ListBuilder<BuiltMap<String, JsonObject>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ShareapiGetSharesResponseApplicationJson),
-        ShareapiGetSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiGetSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGetSharesResponseApplicationJson_Ocs),
-        ShareapiGetSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiGetSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
-      ..add(Share.serializer)
-      ..add(Share_HideDownload.serializer)
-      ..add(Share_ItemType.serializer)
-      ..add(Share_MailSend.serializer)
-      ..addBuilderFactory(const FullType(Share_Status), Share_StatusBuilder.new)
-      ..add(Share_Status.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
-      ..addBuilderFactory(
-        const FullType(ShareapiCreateShareRequestApplicationJson),
-        ShareapiCreateShareRequestApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiCreateShareRequestApplicationJson.serializer)
-      ..add(ShareapiCreateShareRequestApplicationJson_PublicUpload.serializer)
-      ..add(ShareapiCreateShareRequestApplicationJson_SendMail.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiCreateShareResponseApplicationJson),
-        ShareapiCreateShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiCreateShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiCreateShareResponseApplicationJson_Ocs),
-        ShareapiCreateShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiCreateShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
-        ShareapiGetInheritedSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiGetInheritedSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs),
-        ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiGetInheritedSharesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiPendingSharesResponseApplicationJson),
-        ShareapiPendingSharesResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiPendingSharesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs),
-        ShareapiPendingSharesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiPendingSharesResponseApplicationJson_Ocs.serializer)
-      ..add(ShareapiGetShareIncludeTags.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGetShareResponseApplicationJson),
-        ShareapiGetShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiGetShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGetShareResponseApplicationJson_Ocs),
-        ShareapiGetShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiGetShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiUpdateShareRequestApplicationJson),
-        ShareapiUpdateShareRequestApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiUpdateShareRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiUpdateShareResponseApplicationJson),
-        ShareapiUpdateShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiUpdateShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs),
-        ShareapiUpdateShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiUpdateShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiDeleteShareResponseApplicationJson),
-        ShareapiDeleteShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiDeleteShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs),
-        ShareapiDeleteShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiDeleteShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiSendShareEmailRequestApplicationJson),
-        ShareapiSendShareEmailRequestApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiSendShareEmailRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiSendShareEmailResponseApplicationJson),
-        ShareapiSendShareEmailResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiSendShareEmailResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs),
-        ShareapiSendShareEmailResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiSendShareEmailResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiAcceptShareResponseApplicationJson),
-        ShareapiAcceptShareResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiAcceptShareResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs),
-        ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGenerateTokenResponseApplicationJson),
-        ShareapiGenerateTokenResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareapiGenerateTokenResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
-        ShareapiGenerateTokenResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
-        ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
-      ..add(ShareesapiSearchLookup.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareesapiSearchResponseApplicationJson),
-        ShareesapiSearchResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareesapiSearchResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareesapiSearchResponseApplicationJson_Ocs),
-        ShareesapiSearchResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareesapiSearchResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ShareesSearchResult), ShareesSearchResultBuilder.new)
-      ..add(ShareesSearchResult.serializer)
-      ..addBuilderFactory(const FullType(ShareesSearchResult_Exact), ShareesSearchResult_ExactBuilder.new)
-      ..add(ShareesSearchResult_Exact.serializer)
-      ..addBuilderFactory(const FullType(ShareeCircle), ShareeCircleBuilder.new)
-      ..add(ShareeCircle.serializer)
-      ..addBuilderFactory(const FullType(Sharee), ShareeBuilder.new)
-      ..add(Sharee.serializer)
-      ..addBuilderFactory(const FullType(ShareeCircle_Value), ShareeCircle_ValueBuilder.new)
-      ..add(ShareeCircle_Value.serializer)
-      ..addBuilderFactory(const FullType(ShareeValue), ShareeValueBuilder.new)
-      ..add(ShareeValue.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeCircle)]), ListBuilder<ShareeCircle>.new)
-      ..addBuilderFactory(const FullType(ShareeEmail), ShareeEmailBuilder.new)
-      ..add(ShareeEmail.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeEmail)]), ListBuilder<ShareeEmail>.new)
-      ..addBuilderFactory(const FullType(ShareeGroup), ShareeGroupBuilder.new)
-      ..add(ShareeGroup.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeGroup)]), ListBuilder<ShareeGroup>.new)
-      ..addBuilderFactory(const FullType(ShareeRemoteGroup), ShareeRemoteGroupBuilder.new)
-      ..add(ShareeRemoteGroup.serializer)
-      ..addBuilderFactory(const FullType(ShareeRemoteGroup_Value), ShareeRemoteGroup_ValueBuilder.new)
-      ..add(ShareeRemoteGroup_Value.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ShareeRemoteGroup)]),
-        ListBuilder<ShareeRemoteGroup>.new,
-      )
-      ..addBuilderFactory(const FullType(ShareeRemote), ShareeRemoteBuilder.new)
-      ..add(ShareeRemote.serializer)
-      ..addBuilderFactory(const FullType(ShareeRemote_Value), ShareeRemote_ValueBuilder.new)
-      ..add(ShareeRemote_Value.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemote)]), ListBuilder<ShareeRemote>.new)
-      ..addBuilderFactory(const FullType(ShareeRoom), ShareeRoomBuilder.new)
-      ..add(ShareeRoom.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRoom)]), ListBuilder<ShareeRoom>.new)
-      ..addBuilderFactory(const FullType(ShareeUser), ShareeUserBuilder.new)
-      ..add(ShareeUser.serializer)
-      ..addBuilderFactory(const FullType(ShareeUser_Status), ShareeUser_StatusBuilder.new)
-      ..add(ShareeUser_Status.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeUser)]), ListBuilder<ShareeUser>.new)
-      ..addBuilderFactory(const FullType(ShareeLookup), ShareeLookupBuilder.new)
-      ..add(ShareeLookup.serializer)
-      ..addBuilderFactory(const FullType(ShareeLookup_Extra), ShareeLookup_ExtraBuilder.new)
-      ..add(ShareeLookup_Extra.serializer)
-      ..addBuilderFactory(const FullType(Lookup), LookupBuilder.new)
-      ..add(Lookup.serializer)
-      ..addBuilderFactory(const FullType(ShareeLookup_Value), ShareeLookup_ValueBuilder.new)
-      ..add(ShareeLookup_Value.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
-      ..addBuilderFactory(
-        const FullType(ShareesapiShareesapiSearchHeaders),
-        ShareesapiShareesapiSearchHeadersBuilder.new,
-      )
-      ..add(ShareesapiShareesapiSearchHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareesapiFindRecommendedResponseApplicationJson),
-        ShareesapiFindRecommendedResponseApplicationJsonBuilder.new,
-      )
-      ..add(ShareesapiFindRecommendedResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs),
-        ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ShareesapiFindRecommendedResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ShareesRecommendedResult), ShareesRecommendedResultBuilder.new)
-      ..add(ShareesRecommendedResult.serializer)
-      ..addBuilderFactory(const FullType(ShareesRecommendedResult_Exact), ShareesRecommendedResult_ExactBuilder.new)
-      ..add(ShareesRecommendedResult_Exact.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
-      ..add(Capabilities_FilesSharing.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Public),
-        Capabilities_FilesSharing_PublicBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Public.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Public_Password),
-        Capabilities_FilesSharing_Public_PasswordBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Public_Password.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Public_ExpireDate),
-        Capabilities_FilesSharing_Public_ExpireDateBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Public_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal),
-        Capabilities_FilesSharing_Public_ExpireDateInternalBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Public_ExpireDateInternal.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote),
-        Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Public_ExpireDateRemote.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_FilesSharing_User), Capabilities_FilesSharing_UserBuilder.new)
-      ..add(Capabilities_FilesSharing_User.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_User_ExpireDate),
-        Capabilities_FilesSharing_User_ExpireDateBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_User_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Group),
-        Capabilities_FilesSharing_GroupBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Group.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Group_ExpireDate),
-        Capabilities_FilesSharing_Group_ExpireDateBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Group_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Federation),
-        Capabilities_FilesSharing_FederationBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Federation.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Federation_ExpireDate),
-        Capabilities_FilesSharing_Federation_ExpireDateBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Federation_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported),
-        Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_FilesSharing_Sharee),
-        Capabilities_FilesSharing_ShareeBuilder.new,
-      )
-      ..add(Capabilities_FilesSharing_Sharee.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(
+            const FullType(DeletedShareapiIndexResponseApplicationJson),
+            DeletedShareapiIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeletedShareapiIndexResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeletedShareapiIndexResponseApplicationJson_Ocs),
+            DeletedShareapiIndexResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DeletedShareapiIndexResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(const FullType(DeletedShare), DeletedShareBuilder.new)
+          ..add(DeletedShare.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(DeletedShare)]), ListBuilder<DeletedShare>.new)
+          ..addBuilderFactory(
+            const FullType(DeletedShareapiUndeleteResponseApplicationJson),
+            DeletedShareapiUndeleteResponseApplicationJsonBuilder.new,
+          )
+          ..add(DeletedShareapiUndeleteResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DeletedShareapiUndeleteResponseApplicationJson_Ocs),
+            DeletedShareapiUndeleteResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DeletedShareapiUndeleteResponseApplicationJson_Ocs.serializer)
+          ..add(PublicPreviewGetPreviewA.serializer)
+          ..add(PublicPreviewGetPreviewMimeFallback.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteGetSharesResponseApplicationJson),
+            RemoteGetSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteGetSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteGetSharesResponseApplicationJson_Ocs),
+            RemoteGetSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteGetSharesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(RemoteShare), RemoteShareBuilder.new)
+          ..add(RemoteShare.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(RemoteShare)]), ListBuilder<RemoteShare>.new)
+          ..addBuilderFactory(
+            const FullType(RemoteGetOpenSharesResponseApplicationJson),
+            RemoteGetOpenSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteGetOpenSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteGetOpenSharesResponseApplicationJson_Ocs),
+            RemoteGetOpenSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteGetOpenSharesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteAcceptShareResponseApplicationJson),
+            RemoteAcceptShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteAcceptShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteAcceptShareResponseApplicationJson_Ocs),
+            RemoteAcceptShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteAcceptShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteDeclineShareResponseApplicationJson),
+            RemoteDeclineShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteDeclineShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteDeclineShareResponseApplicationJson_Ocs),
+            RemoteDeclineShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteDeclineShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteGetShareResponseApplicationJson),
+            RemoteGetShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteGetShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteGetShareResponseApplicationJson_Ocs),
+            RemoteGetShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteGetShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteUnshareResponseApplicationJson),
+            RemoteUnshareResponseApplicationJsonBuilder.new,
+          )
+          ..add(RemoteUnshareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(RemoteUnshareResponseApplicationJson_Ocs),
+            RemoteUnshareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(RemoteUnshareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareInfoInfoRequestApplicationJson),
+            ShareInfoInfoRequestApplicationJsonBuilder.new,
+          )
+          ..add(ShareInfoInfoRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(ShareInfo), ShareInfoBuilder.new)
+          ..add(ShareInfo.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, [
+              FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            ]),
+            ListBuilder<BuiltMap<String, JsonObject>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ShareapiGetSharesResponseApplicationJson),
+            ShareapiGetSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiGetSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGetSharesResponseApplicationJson_Ocs),
+            ShareapiGetSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiGetSharesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Share), ShareBuilder.new)
+          ..add(Share.serializer)
+          ..add(Share_HideDownload.serializer)
+          ..add(Share_ItemType.serializer)
+          ..add(Share_MailSend.serializer)
+          ..addBuilderFactory(const FullType(Share_Status), Share_StatusBuilder.new)
+          ..add(Share_Status.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Share)]), ListBuilder<Share>.new)
+          ..addBuilderFactory(
+            const FullType(ShareapiCreateShareRequestApplicationJson),
+            ShareapiCreateShareRequestApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiCreateShareRequestApplicationJson.serializer)
+          ..add(ShareapiCreateShareRequestApplicationJson_PublicUpload.serializer)
+          ..add(ShareapiCreateShareRequestApplicationJson_SendMail.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiCreateShareResponseApplicationJson),
+            ShareapiCreateShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiCreateShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiCreateShareResponseApplicationJson_Ocs),
+            ShareapiCreateShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiCreateShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGetInheritedSharesResponseApplicationJson),
+            ShareapiGetInheritedSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiGetInheritedSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGetInheritedSharesResponseApplicationJson_Ocs),
+            ShareapiGetInheritedSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiGetInheritedSharesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiPendingSharesResponseApplicationJson),
+            ShareapiPendingSharesResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiPendingSharesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiPendingSharesResponseApplicationJson_Ocs),
+            ShareapiPendingSharesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiPendingSharesResponseApplicationJson_Ocs.serializer)
+          ..add(ShareapiGetShareIncludeTags.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGetShareResponseApplicationJson),
+            ShareapiGetShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiGetShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGetShareResponseApplicationJson_Ocs),
+            ShareapiGetShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiGetShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiUpdateShareRequestApplicationJson),
+            ShareapiUpdateShareRequestApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiUpdateShareRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiUpdateShareResponseApplicationJson),
+            ShareapiUpdateShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiUpdateShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiUpdateShareResponseApplicationJson_Ocs),
+            ShareapiUpdateShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiUpdateShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiDeleteShareResponseApplicationJson),
+            ShareapiDeleteShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiDeleteShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiDeleteShareResponseApplicationJson_Ocs),
+            ShareapiDeleteShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiDeleteShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiSendShareEmailRequestApplicationJson),
+            ShareapiSendShareEmailRequestApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiSendShareEmailRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiSendShareEmailResponseApplicationJson),
+            ShareapiSendShareEmailResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiSendShareEmailResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiSendShareEmailResponseApplicationJson_Ocs),
+            ShareapiSendShareEmailResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiSendShareEmailResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiAcceptShareResponseApplicationJson),
+            ShareapiAcceptShareResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiAcceptShareResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiAcceptShareResponseApplicationJson_Ocs),
+            ShareapiAcceptShareResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiAcceptShareResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGenerateTokenResponseApplicationJson),
+            ShareapiGenerateTokenResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareapiGenerateTokenResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs),
+            ShareapiGenerateTokenResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data),
+            ShareapiGenerateTokenResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ShareapiGenerateTokenResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..add($07eaa0304017ba8abe7f9f20d6a736f3Extension._serializer)
+          ..add(ShareesapiSearchLookup.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareesapiSearchResponseApplicationJson),
+            ShareesapiSearchResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareesapiSearchResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareesapiSearchResponseApplicationJson_Ocs),
+            ShareesapiSearchResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareesapiSearchResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ShareesSearchResult), ShareesSearchResultBuilder.new)
+          ..add(ShareesSearchResult.serializer)
+          ..addBuilderFactory(const FullType(ShareesSearchResult_Exact), ShareesSearchResult_ExactBuilder.new)
+          ..add(ShareesSearchResult_Exact.serializer)
+          ..addBuilderFactory(const FullType(ShareeCircle), ShareeCircleBuilder.new)
+          ..add(ShareeCircle.serializer)
+          ..addBuilderFactory(const FullType(Sharee), ShareeBuilder.new)
+          ..add(Sharee.serializer)
+          ..addBuilderFactory(const FullType(ShareeCircle_Value), ShareeCircle_ValueBuilder.new)
+          ..add(ShareeCircle_Value.serializer)
+          ..addBuilderFactory(const FullType(ShareeValue), ShareeValueBuilder.new)
+          ..add(ShareeValue.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeCircle)]), ListBuilder<ShareeCircle>.new)
+          ..addBuilderFactory(const FullType(ShareeEmail), ShareeEmailBuilder.new)
+          ..add(ShareeEmail.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeEmail)]), ListBuilder<ShareeEmail>.new)
+          ..addBuilderFactory(const FullType(ShareeGroup), ShareeGroupBuilder.new)
+          ..add(ShareeGroup.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeGroup)]), ListBuilder<ShareeGroup>.new)
+          ..addBuilderFactory(const FullType(ShareeRemoteGroup), ShareeRemoteGroupBuilder.new)
+          ..add(ShareeRemoteGroup.serializer)
+          ..addBuilderFactory(const FullType(ShareeRemoteGroup_Value), ShareeRemoteGroup_ValueBuilder.new)
+          ..add(ShareeRemoteGroup_Value.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ShareeRemoteGroup)]),
+            ListBuilder<ShareeRemoteGroup>.new,
+          )
+          ..addBuilderFactory(const FullType(ShareeRemote), ShareeRemoteBuilder.new)
+          ..add(ShareeRemote.serializer)
+          ..addBuilderFactory(const FullType(ShareeRemote_Value), ShareeRemote_ValueBuilder.new)
+          ..add(ShareeRemote_Value.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRemote)]), ListBuilder<ShareeRemote>.new)
+          ..addBuilderFactory(const FullType(ShareeRoom), ShareeRoomBuilder.new)
+          ..add(ShareeRoom.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeRoom)]), ListBuilder<ShareeRoom>.new)
+          ..addBuilderFactory(const FullType(ShareeUser), ShareeUserBuilder.new)
+          ..add(ShareeUser.serializer)
+          ..addBuilderFactory(const FullType(ShareeUser_Status), ShareeUser_StatusBuilder.new)
+          ..add(ShareeUser_Status.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeUser)]), ListBuilder<ShareeUser>.new)
+          ..addBuilderFactory(const FullType(ShareeLookup), ShareeLookupBuilder.new)
+          ..add(ShareeLookup.serializer)
+          ..addBuilderFactory(const FullType(ShareeLookup_Extra), ShareeLookup_ExtraBuilder.new)
+          ..add(ShareeLookup_Extra.serializer)
+          ..addBuilderFactory(const FullType(Lookup), LookupBuilder.new)
+          ..add(Lookup.serializer)
+          ..addBuilderFactory(const FullType(ShareeLookup_Value), ShareeLookup_ValueBuilder.new)
+          ..add(ShareeLookup_Value.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ShareeLookup)]), ListBuilder<ShareeLookup>.new)
+          ..addBuilderFactory(
+            const FullType(ShareesapiShareesapiSearchHeaders),
+            ShareesapiShareesapiSearchHeadersBuilder.new,
+          )
+          ..add(ShareesapiShareesapiSearchHeaders.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareesapiFindRecommendedResponseApplicationJson),
+            ShareesapiFindRecommendedResponseApplicationJsonBuilder.new,
+          )
+          ..add(ShareesapiFindRecommendedResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ShareesapiFindRecommendedResponseApplicationJson_Ocs),
+            ShareesapiFindRecommendedResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ShareesapiFindRecommendedResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ShareesRecommendedResult), ShareesRecommendedResultBuilder.new)
+          ..add(ShareesRecommendedResult.serializer)
+          ..addBuilderFactory(const FullType(ShareesRecommendedResult_Exact), ShareesRecommendedResult_ExactBuilder.new)
+          ..add(ShareesRecommendedResult_Exact.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_FilesSharing), Capabilities_FilesSharingBuilder.new)
+          ..add(Capabilities_FilesSharing.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Public),
+            Capabilities_FilesSharing_PublicBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Public.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Public_Password),
+            Capabilities_FilesSharing_Public_PasswordBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Public_Password.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Public_ExpireDate),
+            Capabilities_FilesSharing_Public_ExpireDateBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Public_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Public_ExpireDateInternal),
+            Capabilities_FilesSharing_Public_ExpireDateInternalBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Public_ExpireDateInternal.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Public_ExpireDateRemote),
+            Capabilities_FilesSharing_Public_ExpireDateRemoteBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Public_ExpireDateRemote.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_FilesSharing_User), Capabilities_FilesSharing_UserBuilder.new)
+          ..add(Capabilities_FilesSharing_User.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_User_ExpireDate),
+            Capabilities_FilesSharing_User_ExpireDateBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_User_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Group),
+            Capabilities_FilesSharing_GroupBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Group.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Group_ExpireDate),
+            Capabilities_FilesSharing_Group_ExpireDateBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Group_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Federation),
+            Capabilities_FilesSharing_FederationBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Federation.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Federation_ExpireDate),
+            Capabilities_FilesSharing_Federation_ExpireDateBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Federation_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Federation_ExpireDateSupported),
+            Capabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_FilesSharing_Sharee),
+            Capabilities_FilesSharing_ShareeBuilder.new,
+          )
+          ..add(Capabilities_FilesSharing_Sharee.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -9079,10 +9091,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin(typesToLeaveAsList: const {_$07eaa0304017ba8abe7f9f20d6a736f3}))
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin(typesToLeaveAsList: const {_$07eaa0304017ba8abe7f9f20d6a736f3}))
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

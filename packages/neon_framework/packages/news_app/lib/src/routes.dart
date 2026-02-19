@@ -6,10 +6,7 @@ import 'package:nextcloud/news.dart' as news;
 
 part 'routes.g.dart';
 
-@TypedGoRoute<NewsAppRoute>(
-  path: '$appsBaseRoutePrefix${news.appID}',
-  name: news.appID,
-)
+@TypedGoRoute<NewsAppRoute>(path: '$appsBaseRoutePrefix${news.appID}', name: news.appID)
 @immutable
 class NewsAppRoute extends NeonBaseAppRoute {
   const NewsAppRoute();

@@ -23,56 +23,48 @@ Account mockUserStatusAccount() {
   int? clearAt;
 
   Response predefinedStatusesResponse() => Response(
-        json.encode({
-          'ocs': {
-            'meta': {'status': '', 'statuscode': 0},
-            'data': [
-              {
-                'id': 'predefined',
-                'icon': 'icon',
-                'message': 'message',
-              },
-            ],
-          },
-        }),
-        200,
-        headers: {'content-type': 'application/json'},
-      );
+    json.encode({
+      'ocs': {
+        'meta': {'status': '', 'statuscode': 0},
+        'data': [
+          {'id': 'predefined', 'icon': 'icon', 'message': 'message'},
+        ],
+      },
+    }),
+    200,
+    headers: {'content-type': 'application/json'},
+  );
 
   Response statusResponse() => Response(
-        json.encode(
-          {
-            'ocs': {
-              'meta': {'status': '', 'statuscode': 0},
-              'data': {
-                'userId': 'test',
-                'messageIsPredefined': messageIsPredefined,
-                'statusIsUserDefined': statusIsUserDefined,
-                'status': status,
-                if (message != null) 'message': message,
-                if (icon != null) 'icon': icon,
-                if (clearAt != null) 'clearAt': clearAt,
-                if (messageId != null) 'messageId': messageId,
-              },
-            },
-          },
-        ),
-        200,
-        headers: {'content-type': 'application/json'},
-      );
+    json.encode({
+      'ocs': {
+        'meta': {'status': '', 'statuscode': 0},
+        'data': {
+          'userId': 'test',
+          'messageIsPredefined': messageIsPredefined,
+          'statusIsUserDefined': statusIsUserDefined,
+          'status': status,
+          if (message != null) 'message': message,
+          if (icon != null) 'icon': icon,
+          if (clearAt != null) 'clearAt': clearAt,
+          if (messageId != null) 'messageId': messageId,
+        },
+      },
+    }),
+    200,
+    headers: {'content-type': 'application/json'},
+  );
 
   Response emptyResponse() => Response(
-        json.encode(
-          {
-            'ocs': {
-              'meta': {'status': '', 'statuscode': 0},
-              'data': <dynamic>[],
-            },
-          },
-        ),
-        200,
-        headers: {'content-type': 'application/json'},
-      );
+    json.encode({
+      'ocs': {
+        'meta': {'status': '', 'statuscode': 0},
+        'data': <dynamic>[],
+      },
+    }),
+    200,
+    headers: {'content-type': 'application/json'},
+  );
 
   return mockServer({
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/predefined_statuses'): {
@@ -119,9 +111,7 @@ Account mockUserStatusAccount() {
         return emptyResponse();
       },
     },
-    RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/statuses/(.*)'): {
-      'get': (match, request) => statusResponse(),
-    },
+    RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/statuses/(.*)'): {'get': (match, request) => statusResponse()},
     RegExp(r'/ocs/v2\.php/apps/user_status/api/v1/heartbeat'): {
       'put': (match, request) {
         final data = json.decode(request.body) as Map<String, dynamic>;
@@ -155,9 +145,7 @@ void main() {
 
   setUp(() {
     account = mockUserStatusAccount();
-    bloc = UserStatusBloc(
-      account: account,
-    );
+    bloc = UserStatusBloc(account: account);
   });
 
   tearDown(() {
@@ -182,10 +170,7 @@ void main() {
   test('Get predefined statuses', () async {
     expect(
       bloc.predefinedStatuses.transformResult((e) => e.single.id),
-      emitsInOrder([
-        Result<String>.loading(),
-        Result.success('predefined'),
-      ]),
+      emitsInOrder([Result<String>.loading(), Result.success('predefined')]),
     );
   });
 
@@ -241,18 +226,11 @@ void main() {
       DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
       tz.UTC,
     );
-    bloc.setPredefinedMessage(
-      id: 'predefined',
-      clearAt: clearAt,
-    );
+    bloc.setPredefinedMessage(id: 'predefined', clearAt: clearAt);
 
     expect(
       bloc.status.transformResult(
-        (e) => (
-          e.message,
-          e.icon,
-          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null,
-        ),
+        (e) => (e.message, e.icon, e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
     );
@@ -263,19 +241,11 @@ void main() {
       DateTime.timestamp().copyWith(millisecond: 0, microsecond: 0).add(const Duration(hours: 1)),
       tz.UTC,
     );
-    bloc.setCustomMessage(
-      message: 'message',
-      icon: 'icon',
-      clearAt: clearAt,
-    );
+    bloc.setCustomMessage(message: 'message', icon: 'icon', clearAt: clearAt);
 
     expect(
       bloc.status.transformResult(
-        (e) => (
-          e.message,
-          e.icon,
-          e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null,
-        ),
+        (e) => (e.message, e.icon, e.clearAt != null ? DateTimeUtils.fromSecondsSinceEpoch(tz.UTC, e.clearAt!) : null),
       ),
       emits(Result.success(('message', 'icon', clearAt))),
     );
@@ -287,11 +257,7 @@ void main() {
       tz.UTC,
     );
     bloc
-      ..setCustomMessage(
-        message: 'message',
-        icon: 'icon',
-        clearAt: clearAt,
-      )
+      ..setCustomMessage(message: 'message', icon: 'icon', clearAt: clearAt)
       ..clearMessage();
 
     expect(

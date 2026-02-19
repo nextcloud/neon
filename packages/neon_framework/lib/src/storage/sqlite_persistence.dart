@@ -57,11 +57,7 @@ final class SQLiteCachedPersistence extends CachedPersistence {
       path = p.join(appDir.path, path);
     }
 
-    database = await openDatabase(
-      path,
-      version: 1,
-      onCreate: onCreate,
-    );
+    database = await openDatabase(path, version: 1, onCreate: onCreate);
 
     await getAll();
   }
@@ -107,10 +103,7 @@ FROM preferences
         cache[key] = _decode(value) as Object;
       }
     } on DatabaseException catch (error) {
-      _log.warning(
-        'Error fetching all values from the SQLite persistence.',
-        error,
-      );
+      _log.warning('Error fetching all values from the SQLite persistence.', error);
     }
   }
 
@@ -126,10 +119,7 @@ WHERE prefix = ?
       );
       cache.clear();
     } on DatabaseException catch (error) {
-      _log.warning(
-        'Error clearing the SQLite persistence.',
-        error,
-      );
+      _log.warning('Error clearing the SQLite persistence.', error);
 
       return false;
     }
@@ -161,10 +151,7 @@ WHERE prefix = ?
         ..clear()
         ..addAll(fromSystem);
     } on DatabaseException catch (error) {
-      _log.warning(
-        'Error reloading the SQLite persistence.',
-        error,
-      );
+      _log.warning('Error reloading the SQLite persistence.', error);
     }
   }
 
@@ -183,10 +170,7 @@ WHERE
 
       cache.remove(key);
     } on DatabaseException catch (error) {
-      _log.warning(
-        'Error removing the value from the SQLite persistence.',
-        error,
-      );
+      _log.warning('Error removing the value from the SQLite persistence.', error);
       return false;
     }
 
@@ -200,33 +184,27 @@ WHERE
     try {
       // UPSERT is only available since SQLite 3.24.0 (June 4, 2018).
       // Using a manual solution from https://stackoverflow.com/a/38463024
-      final batch = _requireDatabase.batch()
-        ..update(
-          'preferences',
-          {
-            'prefix': prefix,
-            'key': key,
-            'value': serialized,
-          },
-          where: 'prefix = ? AND key = ?',
-          whereArgs: [prefix, key],
-        )
-        ..rawInsert(
-          '''
+      final batch =
+          _requireDatabase.batch()
+            ..update(
+              'preferences',
+              {'prefix': prefix, 'key': key, 'value': serialized},
+              where: 'prefix = ? AND key = ?',
+              whereArgs: [prefix, key],
+            )
+            ..rawInsert(
+              '''
 INSERT INTO preferences (prefix, key, value)
 SELECT ?, ?, ?
 WHERE (SELECT changes() = 0)
 ''',
-          [prefix, key, serialized],
-        );
+              [prefix, key, serialized],
+            );
       await batch.commit(noResult: true);
 
       cache[key] = value;
     } on DatabaseException catch (error) {
-      _log.warning(
-        'Error updating the storage value.',
-        error,
-      );
+      _log.warning('Error updating the storage value.', error);
 
       return false;
     }
@@ -235,30 +213,30 @@ WHERE (SELECT changes() = 0)
   }
 
   static dynamic _decode(String source) => json.decode(
-        source,
-        reviver: (key, value) {
-          switch (value) {
-            case List():
-              return BuiltList<dynamic>.from(value);
-            case Map():
-              return BuiltMap<dynamic, dynamic>.from(value);
-            case _:
-              return value;
-          }
-        },
-      );
+    source,
+    reviver: (key, value) {
+      switch (value) {
+        case List():
+          return BuiltList<dynamic>.from(value);
+        case Map():
+          return BuiltMap<dynamic, dynamic>.from(value);
+        case _:
+          return value;
+      }
+    },
+  );
 
   static String _encode(dynamic object) => json.encode(
-        object,
-        toEncodable: (nonEncodable) {
-          switch (nonEncodable) {
-            case BuiltList():
-              return nonEncodable.toList();
-            case BuiltMap():
-              return nonEncodable.toMap();
-            case _:
-              return nonEncodable;
-          }
-        },
-      );
+    object,
+    toEncodable: (nonEncodable) {
+      switch (nonEncodable) {
+        case BuiltList():
+          return nonEncodable.toList();
+        case BuiltMap():
+          return nonEncodable.toMap();
+        case _:
+          return nonEncodable;
+      }
+    },
+  );
 }

@@ -27,10 +27,7 @@ abstract class TestTargetFactory<T extends TestTargetInstance> {
 
     if (url != null || dir != null) {
       // Fail hard if the variables are not properly set to avoid a fallback to docker.
-      return LocalFactory(
-        dir: dir!,
-        url: Uri.parse(url!),
-      );
+      return LocalFactory(dir: dir!, url: Uri.parse(url!));
     }
 
     return DockerContainerFactory();
@@ -64,9 +61,7 @@ abstract class TestTargetInstance {
   /// Creates a new [NextcloudClient] for a given [username].
   ///
   /// It is expected that the password of the user matches the its [username].
-  Future<NextcloudClient> createClient({
-    String? username = 'user1',
-  }) async {
+  Future<NextcloudClient> createClient({String? username = 'user1'}) async {
     String? appPassword;
     if (username != null) {
       appPassword = await createAppPassword(username);
@@ -75,9 +70,7 @@ abstract class TestTargetInstance {
     final httpClient = InterceptorHttpClient(
       baseClient: http.Client(),
       interceptors: BuiltList([
-        CookieStoreInterceptor(
-          cookieStore: CookieStore(),
-        ),
+        CookieStoreInterceptor(cookieStore: CookieStore()),
         const FixtureInterceptor(appendFixture: appendFixture),
       ]),
     );

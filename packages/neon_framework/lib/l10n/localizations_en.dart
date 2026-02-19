@@ -16,21 +16,18 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String appImplementationName(String app) {
-    String _temp0 = intl.Intl.selectLogic(
-      app,
-      {
-        'nextcloud': 'Nextcloud',
-        'core': 'Server',
-        'dashboard': 'Dashboard',
-        'files': 'Files',
-        'news': 'News',
-        'notes': 'Notes',
-        'notifications': 'Notifications',
-        'spreed': 'Talk',
-        'talk': 'Talk',
-        'other': '',
-      },
-    );
+    String _temp0 = intl.Intl.selectLogic(app, {
+      'nextcloud': 'Nextcloud',
+      'core': 'Server',
+      'dashboard': 'Dashboard',
+      'files': 'Files',
+      'news': 'News',
+      'notes': 'Notes',
+      'notifications': 'Notifications',
+      'spreed': 'Talk',
+      'talk': 'Talk',
+      'other': '',
+    });
     return '$_temp0';
   }
 
@@ -396,73 +393,29 @@ class NeonLocalizationsEn extends NeonLocalizations {
 
   @override
   String relativeTimeMinutes(int time, String abbreviation) {
-    String _temp0 = intl.Intl.pluralLogic(
-      time,
-      locale: localeName,
-      other: 'minutes',
-      one: 'minute',
-    );
-    String _temp1 = intl.Intl.selectLogic(
-      abbreviation,
-      {
-        'true': 'm',
-        'other': ' $_temp0',
-      },
-    );
+    String _temp0 = intl.Intl.pluralLogic(time, locale: localeName, other: 'minutes', one: 'minute');
+    String _temp1 = intl.Intl.selectLogic(abbreviation, {'true': 'm', 'other': ' $_temp0'});
     return '$time$_temp1';
   }
 
   @override
   String relativeTimeHours(int time, String abbreviation) {
-    String _temp0 = intl.Intl.pluralLogic(
-      time,
-      locale: localeName,
-      other: 'hours',
-      one: 'hour',
-    );
-    String _temp1 = intl.Intl.selectLogic(
-      abbreviation,
-      {
-        'true': 'h',
-        'other': ' $_temp0',
-      },
-    );
+    String _temp0 = intl.Intl.pluralLogic(time, locale: localeName, other: 'hours', one: 'hour');
+    String _temp1 = intl.Intl.selectLogic(abbreviation, {'true': 'h', 'other': ' $_temp0'});
     return '$time$_temp1';
   }
 
   @override
   String relativeTimeDays(int time, String abbreviation) {
-    String _temp0 = intl.Intl.pluralLogic(
-      time,
-      locale: localeName,
-      other: 'days',
-      one: 'day',
-    );
-    String _temp1 = intl.Intl.selectLogic(
-      abbreviation,
-      {
-        'true': 'd',
-        'other': ' $_temp0',
-      },
-    );
+    String _temp0 = intl.Intl.pluralLogic(time, locale: localeName, other: 'days', one: 'day');
+    String _temp1 = intl.Intl.selectLogic(abbreviation, {'true': 'd', 'other': ' $_temp0'});
     return '$time$_temp1';
   }
 
   @override
   String relativeTimeYears(int time, String abbreviation) {
-    String _temp0 = intl.Intl.pluralLogic(
-      time,
-      locale: localeName,
-      other: 'years',
-      one: 'year',
-    );
-    String _temp1 = intl.Intl.selectLogic(
-      abbreviation,
-      {
-        'true': 'y',
-        'other': ' $_temp0',
-      },
-    );
+    String _temp0 = intl.Intl.pluralLogic(time, locale: localeName, other: 'years', one: 'year');
+    String _temp1 = intl.Intl.selectLogic(abbreviation, {'true': 'y', 'other': ' $_temp0'});
     return '$time$_temp1';
   }
 

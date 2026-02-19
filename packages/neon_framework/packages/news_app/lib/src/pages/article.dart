@@ -23,8 +23,8 @@ class NewsArticlePage extends StatefulWidget {
     this.bodyData,
     this.url,
     super.key,
-  })  : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView'),
-        assert(!useWebView || url != null, 'url has to be set when using a WebView');
+  }) : assert(useWebView || bodyData != null, 'bodyData has to be set when not using a WebView'),
+       assert(!useWebView || url != null, 'url has to be set when using a WebView');
 
   final NewsArticleBloc bloc;
   final NewsArticlesBloc articlesBloc;
@@ -57,27 +57,28 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
     });
 
     if (widget.useWebView) {
-      _webviewController = WebViewController()
-        // ignore: discarded_futures
-        ..setJavaScriptMode(JavaScriptMode.unrestricted)
-        // ignore: discarded_futures
-        ..setNavigationDelegate(
-          NavigationDelegate(
-            onPageStarted: (_) {
-              setState(() {
-                loading = true;
-              });
-            },
-            onPageFinished: (_) async {
-              setState(() {
-                loading = false;
-              });
-              await _startMarkAsReadTimer();
-            },
-          ),
-        )
-        // ignore: discarded_futures
-        ..loadRequest(Uri.parse(widget.url!));
+      _webviewController =
+          WebViewController()
+            // ignore: discarded_futures
+            ..setJavaScriptMode(JavaScriptMode.unrestricted)
+            // ignore: discarded_futures
+            ..setNavigationDelegate(
+              NavigationDelegate(
+                onPageStarted: (_) {
+                  setState(() {
+                    loading = true;
+                  });
+                },
+                onPageFinished: (_) async {
+                  setState(() {
+                    loading = false;
+                  });
+                  await _startMarkAsReadTimer();
+                },
+              ),
+            )
+            // ignore: discarded_futures
+            ..loadRequest(Uri.parse(widget.url!));
     } else {
       unawaited(_startMarkAsReadTimer());
     }
@@ -141,13 +142,7 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
           actions: [
-            if (loading)
-              const SizedBox.square(
-                dimension: 24,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                ),
-              ),
+            if (loading) const SizedBox.square(dimension: 24, child: CircularProgressIndicator(strokeWidth: 2)),
             StreamBuilder(
               stream: widget.bloc.starred,
               builder: (context, starredSnapshot) {
@@ -178,9 +173,10 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
                       widget.bloc.markArticleAsUnread();
                     }
                   },
-                  tooltip: unread
-                      ? NewsLocalizations.of(context).articleMarkRead
-                      : NewsLocalizations.of(context).articleMarkUnread,
+                  tooltip:
+                      unread
+                          ? NewsLocalizations.of(context).articleMarkRead
+                          : NewsLocalizations.of(context).articleMarkUnread,
                   icon: Icon(unread ? AdaptiveIcons.email : AdaptiveIcons.email_mark_as_unread),
                 );
               },
@@ -206,21 +202,20 @@ class _NewsArticlePageState extends State<NewsArticlePage> {
           ],
         ),
         body: SafeArea(
-          child: widget.useWebView
-              ? WebViewWidget(
-                  controller: _webviewController!,
-                )
-              : SingleChildScrollView(
-                  padding: const EdgeInsets.all(10),
-                  child: Html(
-                    data: widget.bodyData,
-                    onLinkTap: (url, attributes, element) async {
-                      if (url != null) {
-                        await launchUrl(NeonProvider.of<Account>(context), url);
-                      }
-                    },
+          child:
+              widget.useWebView
+                  ? WebViewWidget(controller: _webviewController!)
+                  : SingleChildScrollView(
+                    padding: const EdgeInsets.all(10),
+                    child: Html(
+                      data: widget.bodyData,
+                      onLinkTap: (url, attributes, element) async {
+                        if (url != null) {
+                          await launchUrl(NeonProvider.of<Account>(context), url);
+                        }
+                      },
+                    ),
                   ),
-                ),
         ),
       ),
     );

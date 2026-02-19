@@ -72,11 +72,7 @@ void main() {
 
     storage = _AccountStorageMock();
 
-    repository = AccountRepository(
-      userAgent: 'userAgent',
-      httpClient: _FakeClient(),
-      storage: storage,
-    );
+    repository = AccountRepository(userAgent: 'userAgent', httpClient: _FakeClient(), storage: storage);
   });
 
   final credentialsList = BuiltList<Credentials>([
@@ -94,44 +90,27 @@ void main() {
     }),
   ]);
 
-  final accountsList = List.generate(credentialsList.length, (i) {
-    return createAccount(credentials: credentialsList[i]);
-  }).toBuiltList();
+  final accountsList =
+      List.generate(credentialsList.length, (i) {
+        return createAccount(credentials: credentialsList[i]);
+      }).toBuiltList();
 
   group('AccountRepository', () {
     test('failure equality', () {
-      expect(
-        FetchStatusFailure(credentialsList),
-        equals(FetchStatusFailure(credentialsList)),
-      );
+      expect(FetchStatusFailure(credentialsList), equals(FetchStatusFailure(credentialsList)));
 
-      expect(
-        InitLoginFailure(credentialsList),
-        equals(InitLoginFailure(credentialsList)),
-      );
+      expect(InitLoginFailure(credentialsList), equals(InitLoginFailure(credentialsList)));
 
-      expect(
-        PollLoginFailure(credentialsList),
-        equals(PollLoginFailure(credentialsList)),
-      );
+      expect(PollLoginFailure(credentialsList), equals(PollLoginFailure(credentialsList)));
 
-      expect(
-        FetchAccountFailure(credentialsList),
-        equals(FetchAccountFailure(credentialsList)),
-      );
+      expect(FetchAccountFailure(credentialsList), equals(FetchAccountFailure(credentialsList)));
 
-      expect(
-        DeleteCredentialsFailure(credentialsList),
-        equals(DeleteCredentialsFailure(credentialsList)),
-      );
+      expect(DeleteCredentialsFailure(credentialsList), equals(DeleteCredentialsFailure(credentialsList)));
     });
 
     group('accounts', () {
       test('emits empty user map before initialized', () {
-        expect(
-          repository.accounts,
-          emits((accounts: BuiltList<Account>(), active: null)),
-        );
+        expect(repository.accounts, emits((accounts: BuiltList<Account>(), active: null)));
       });
     });
 
@@ -163,15 +142,9 @@ void main() {
         isTrue,
       );
 
-      expect(
-        AccountRepository.isLogInQRCode(url: '/user:JohnDoe&password:super_secret&server:example.com'),
-        isTrue,
-      );
+      expect(AccountRepository.isLogInQRCode(url: '/user:JohnDoe&password:super_secret&server:example.com'), isTrue);
 
-      expect(
-        AccountRepository.isLogInQRCode(url: 'invalid'),
-        isFalse,
-      );
+      expect(AccountRepository.isLogInQRCode(url: 'invalid'), isFalse);
     });
 
     group('loadAccounts', () {
@@ -276,10 +249,7 @@ void main() {
       test('prefers last active account over initial account', () async {
         when(() => storage.readCredentials()).thenAnswer((_) async => credentialsList);
         when(() => storage.readLastAccount()).thenAnswer((_) async => credentialsList[1].id);
-        await repository.loadAccounts(
-          rememberLastUsedAccount: true,
-          initialAccount: credentialsList.first.id,
-        );
+        await repository.loadAccounts(rememberLastUsedAccount: true, initialAccount: credentialsList.first.id);
 
         await expectLater(
           repository.accounts,
@@ -300,10 +270,7 @@ void main() {
         when(() => coreClient.getStatus()).thenAnswer((_) async => mockResponse);
         when(() => mockResponse.body).thenReturn(_FakeStatus());
 
-        await expectLater(
-          repository.getServerStatus(Uri()),
-          completion(isA<core.Status>()),
-        );
+        await expectLater(repository.getServerStatus(Uri()), completion(isA<core.Status>()));
 
         verify(() => coreClient.getStatus()).called(1);
       });
@@ -335,10 +302,7 @@ void main() {
           );
         });
 
-        await expectLater(
-          repository.loginFlowInit(Uri()),
-          completion(equals((Uri.https('login_url'), 'token'))),
-        );
+        await expectLater(repository.loginFlowInit(Uri()), completion(equals((Uri.https('login_url'), 'token'))));
 
         verify(() => clientFlowLoginV2.init()).called(1);
       });
@@ -395,13 +359,11 @@ void main() {
       });
 
       test('returns null when for 404 response credentials', () async {
-        when(() => clientFlowLoginV2.poll($body: any(named: r'$body')))
-            .thenThrow(DynamiteStatusCodeException(http.Response('', 404)));
+        when(
+          () => clientFlowLoginV2.poll($body: any(named: r'$body')),
+        ).thenThrow(DynamiteStatusCodeException(http.Response('', 404)));
 
-        await expectLater(
-          repository.loginFlowPoll(Uri(), 'token'),
-          completion(isNull),
-        );
+        await expectLater(repository.loginFlowPoll(Uri(), 'token'), completion(isNull));
 
         verify(
           () => clientFlowLoginV2.poll(
@@ -471,9 +433,7 @@ void main() {
         when(() => storage.saveLastAccount(any())).thenAnswer((_) async => {});
       });
 
-      final account = createAccount(
-        credentials: credentialsList.first,
-      );
+      final account = createAccount(credentials: credentialsList.first);
 
       test('adds account and sets active', () async {
         await repository.logIn(account);
@@ -525,10 +485,7 @@ void main() {
       test('tries to remove invalid  account', () async {
         when(() => appPassword.deleteAppPassword()).thenThrow(http.ClientException(''));
 
-        await expectLater(
-          repository.logOut('invalid'),
-          completes,
-        );
+        await expectLater(repository.logOut('invalid'), completes);
 
         verifyNever(() => appPassword.deleteAppPassword());
         verifyNever(() => storage.saveLastAccount(any()));
@@ -560,10 +517,7 @@ void main() {
 
     group('deleteAccount', () {
       test('unimplemented', () async {
-        expect(
-          repository.deleteAccount(),
-          throwsUnimplementedError,
-        );
+        expect(repository.deleteAccount(), throwsUnimplementedError);
       });
     });
 
@@ -576,10 +530,7 @@ void main() {
       });
 
       test('throws StateError for unregistered account ids', () async {
-        await expectLater(
-          repository.switchAccount('invalid'),
-          throwsArgumentError,
-        );
+        await expectLater(repository.switchAccount('invalid'), throwsArgumentError);
       });
 
       test('emits and saves active account ', () async {

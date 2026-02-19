@@ -10,9 +10,7 @@ import 'package:meta/meta.dart';
 final class LoginQRcode with EquatableMixin {
   /// Creates a new LoginQRcode object.
   @visibleForTesting
-  const LoginQRcode({
-    required this.credentials,
-  });
+  const LoginQRcode({required this.credentials});
 
   /// The server credentials.
   final Credentials credentials;

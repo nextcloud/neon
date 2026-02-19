@@ -47,19 +47,8 @@ void main() {
 
     Widget buildSubject() {
       return TestApp(
-        appThemes: const [
-          NeonTheme(
-            branding: Branding(
-              name: 'neon',
-              logo: Placeholder(),
-            ),
-          ),
-        ],
-        providers: [
-          RepositoryProvider<AccountRepository>.value(
-            value: accountRepository,
-          ),
-        ],
+        appThemes: const [NeonTheme(branding: Branding(name: 'neon', logo: Placeholder()))],
+        providers: [RepositoryProvider<AccountRepository>.value(value: accountRepository)],
         child: LoginCheckServerPage(serverURL: serverURL),
       );
     }
@@ -78,9 +67,7 @@ void main() {
 
     setUp(() {
       loginCheckServerBloc = _MockLoginCheckServerBloc();
-      when(() => loginCheckServerBloc.state).thenReturn(
-        LoginCheckServerState(serverURL: serverURL),
-      );
+      when(() => loginCheckServerBloc.state).thenReturn(LoginCheckServerState(serverURL: serverURL));
 
       loginBloc = _MockLoginBloc();
     });
@@ -88,9 +75,7 @@ void main() {
     Widget buildSubject() {
       return TestApp(
         providers: [
-          RepositoryProvider<LoginCheckServerBloc>.value(
-            value: loginCheckServerBloc,
-          ),
+          RepositoryProvider<LoginCheckServerBloc>.value(value: loginCheckServerBloc),
           BlocProvider<LoginBloc>.value(value: loginBloc),
         ],
         child: const LoginCheckServerView(),
@@ -98,208 +83,106 @@ void main() {
     }
 
     group('version NeonValidationTile', () {
-      testWidgets(
-        'is rendered with loading state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              maintenanceModeState: const MaintenanceModeStateCanceled(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byType(CircularProgressIndicator),
-            findsOneWidget,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginServerVersion),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with loading state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, maintenanceModeState: const MaintenanceModeStateCanceled()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(find.text(NeonLocalizationsEn().loginServerVersion), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with success state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              serverVersionState: const ServerVersionStateSuccess(
-                serverVersion: '28.0.0',
-              ),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.check_circle),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginServerVersionSupported('28.0.0')),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with success state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(
+            serverURL: serverURL,
+            serverVersionState: const ServerVersionStateSuccess(serverVersion: '28.0.0'),
+          ),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.check_circle), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginServerVersionSupported('28.0.0')), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with failure state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              serverVersionState: const ServerVersionStateFailure(
-                serverVersion: '15.0.0',
-              ),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.error_outline),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginServerVersionUnsupported('15.0.0')),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with failure state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(
+            serverURL: serverURL,
+            serverVersionState: const ServerVersionStateFailure(serverVersion: '15.0.0'),
+          ),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.error_outline), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginServerVersionUnsupported('15.0.0')), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with canceled state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              serverVersionState: const ServerVersionStateCanceled(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.cancel_outlined),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginServerVersion),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with canceled state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, serverVersionState: const ServerVersionStateCanceled()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.cancel_outlined), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginServerVersion), findsOneWidget);
+      });
     });
 
     group('server status NeonValidationTile', () {
-      testWidgets(
-        'is rendered with loading state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              serverVersionState: const ServerVersionStateCanceled(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byType(CircularProgressIndicator),
-            findsOneWidget,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginMaintenanceMode),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with loading state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, serverVersionState: const ServerVersionStateCanceled()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byType(CircularProgressIndicator), findsOneWidget);
+        expect(find.text(NeonLocalizationsEn().loginMaintenanceMode), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with success state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              maintenanceModeState: const MaintenanceModeStateSuccess(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.check_circle),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginMaintenanceModeDisabled),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with success state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, maintenanceModeState: const MaintenanceModeStateSuccess()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.check_circle), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginMaintenanceModeDisabled), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with failed state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              maintenanceModeState: const MaintenanceModeStateFailure(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.error_outline),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginMaintenanceModeEnabled),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with failed state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, maintenanceModeState: const MaintenanceModeStateFailure()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.error_outline), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginMaintenanceModeEnabled), findsOneWidget);
+      });
 
-      testWidgets(
-        'is rendered with canceled state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              maintenanceModeState: const MaintenanceModeStateCanceled(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          expect(
-            find.byIcon(AdaptiveIcons.cancel_outlined),
-            findsOne,
-          );
-          expect(
-            find.text(NeonLocalizationsEn().loginMaintenanceMode),
-            findsOneWidget,
-          );
-        },
-      );
+      testWidgets('is rendered with canceled state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(serverURL: serverURL, maintenanceModeState: const MaintenanceModeStateCanceled()),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        expect(find.byIcon(AdaptiveIcons.cancel_outlined), findsOne);
+        expect(find.text(NeonLocalizationsEn().loginMaintenanceMode), findsOneWidget);
+      });
     });
 
     group('Action button', () {
-      testWidgets(
-        'is retry for non success state',
-        (tester) async {
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          await tester.tap(find.text(NeonLocalizationsEn().actionRetry));
-          verify(() => loginCheckServerBloc.add(const LoginCheckServer())).called(1);
-        },
-      );
+      testWidgets('is retry for non success state', (tester) async {
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        await tester.tap(find.text(NeonLocalizationsEn().actionRetry));
+        verify(() => loginCheckServerBloc.add(const LoginCheckServer())).called(1);
+      });
 
-      testWidgets(
-        'is continue for success state',
-        (tester) async {
-          when(() => loginCheckServerBloc.state).thenReturn(
-            LoginCheckServerState(
-              serverURL: serverURL,
-              serverVersionState: const ServerVersionStateSuccess(
-                serverVersion: '28.0.0',
-              ),
-              maintenanceModeState: const MaintenanceModeStateSuccess(),
-            ),
-          );
-          await tester.pumpWidgetWithAccessibility(buildSubject());
-          await tester.tap(find.text(NeonLocalizationsEn().actionContinue));
-          verify(() => loginBloc.add(const LoginServerChecked())).called(1);
-        },
-      );
+      testWidgets('is continue for success state', (tester) async {
+        when(() => loginCheckServerBloc.state).thenReturn(
+          LoginCheckServerState(
+            serverURL: serverURL,
+            serverVersionState: const ServerVersionStateSuccess(serverVersion: '28.0.0'),
+            maintenanceModeState: const MaintenanceModeStateSuccess(),
+          ),
+        );
+        await tester.pumpWidgetWithAccessibility(buildSubject());
+        await tester.tap(find.text(NeonLocalizationsEn().actionContinue));
+        verify(() => loginBloc.add(const LoginServerChecked())).called(1);
+      });
     });
   });
 }

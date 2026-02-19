@@ -3,10 +3,7 @@ import 'package:version/version.dart';
 
 @internal
 class ServerRelease implements Comparable<ServerRelease> {
-  ServerRelease({
-    required this.version,
-    required this.dockerImageDigest,
-  });
+  ServerRelease({required this.version, required this.dockerImageDigest});
 
   final Version version;
 

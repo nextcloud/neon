@@ -67,12 +67,8 @@ void main() {
       'size': 'int',
       'tags': 'WebDavOcTags',
     },
-    'ocm': {
-      'share-permissions': 'String',
-    },
-    'ocs': {
-      'share-permissions': 'int',
-    },
+    'ocm': {'share-permissions': 'String'},
+    'ocs': {'share-permissions': 'int'},
   };
 
   final valueProps = <String>[];
@@ -133,23 +129,9 @@ void main() {
       '',
       "part 'props.g.dart';",
       '',
-      ...generateClass(
-        'WebDavPropWithoutValues',
-        'prop',
-        'namespaceDav',
-        findProps,
-        variables,
-        isPropfind: true,
-      ),
+      ...generateClass('WebDavPropWithoutValues', 'prop', 'namespaceDav', findProps, variables, isPropfind: true),
       '',
-      ...generateClass(
-        'WebDavProp',
-        'prop',
-        'namespaceDav',
-        valueProps,
-        variables,
-        isPropfind: false,
-      ),
+      ...generateClass('WebDavProp', 'prop', 'namespaceDav', valueProps, variables, isPropfind: false),
       '',
       ...generateClass(
         'WebDavOcFilterRules',
@@ -171,26 +153,25 @@ List<String> generateClass(
   List<String> props,
   List<String> variables, {
   required bool isPropfind,
-}) =>
-    [
-      '@immutable',
-      '@annotation.XmlSerializable(createMixin: true)',
-      "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
-      'class $name with _\$${name}XmlSerializableMixin {',
-      '  const $name({',
-      ...variables.map((variable) => '    this.$variable,'),
-      '  });',
-      '',
-      if (isPropfind) ...[
-        '  const $name.fromBools({',
-        ...variables.map((variable) => '    bool $variable = false,'),
-        '  })  : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(',\n        ')};',
-        '',
-      ],
-      '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',
-      ...props.map((prop) => '\n  $prop'),
-      '}',
-    ];
+}) => [
+  '@immutable',
+  '@annotation.XmlSerializable(createMixin: true)',
+  "@annotation.XmlRootElement(name: '$elementName', namespace: $namespace)",
+  'class $name with _\$${name}XmlSerializableMixin {',
+  '  const $name({',
+  ...variables.map((variable) => '    this.$variable,'),
+  '  });',
+  '',
+  if (isPropfind) ...[
+    '  const $name.fromBools({',
+    ...variables.map((variable) => '    bool $variable = false,'),
+    '  })  : ${variables.map((variable) => '$variable = $variable ? const [null] : null').join(',\n        ')};',
+    '',
+  ],
+  '  factory $name.fromXmlElement(XmlElement element) => _\$${name}FromXmlElement(element);',
+  ...props.map((prop) => '\n  $prop'),
+  '}',
+];
 
 String convertNamespace(String namespacePrefix) {
   switch (namespacePrefix) {

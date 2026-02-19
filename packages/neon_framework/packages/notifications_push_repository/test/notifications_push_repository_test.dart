@@ -41,12 +41,7 @@ class _HttpClientMock extends Mock implements http.Client {
   @override
   Future<http.StreamedResponse> send(http.BaseRequest request) async {
     final body = await request.finalize().toBytes();
-    return _callback(
-      request.method.toUpperCase(),
-      request.url,
-      BuiltMap(request.headers),
-      body,
-    );
+    return _callback(request.method.toUpperCase(), request.url, BuiltMap(request.headers), body);
   }
 }
 
@@ -77,12 +72,10 @@ void main() {
       accountsSubject = BehaviorSubject();
       accountRepository = _AccountRepositoryMock();
       when(() => accountRepository.accounts).thenAnswer((_) => accountsSubject.map((e) => (active: null, accounts: e)));
-      when(() => accountRepository.accountByID(any())).thenAnswer(
-        (invocation) {
-          final accountID = invocation.positionalArguments[0] as String;
-          return accountsSubject.value.singleWhereOrNull((account) => account.id == accountID);
-        },
-      );
+      when(() => accountRepository.accountByID(any())).thenAnswer((invocation) {
+        final accountID = invocation.positionalArguments[0] as String;
+        return accountsSubject.value.singleWhereOrNull((account) => account.id == accountID);
+      });
 
       storage = _StorageMock();
 
@@ -189,12 +182,7 @@ void main() {
       unifiedPushOnMessage!(PushMessage(Uint8List(0), true), 'test');
       verify(
         () => onMessageCallback(
-          any(
-            that: predicate<PushMessage>(
-              (pushMessage) => pushMessage.content.equals(Uint8List(0)),
-              'content',
-            ),
-          ),
+          any(that: predicate<PushMessage>((pushMessage) => pushMessage.content.equals(Uint8List(0)), 'content')),
           'test',
         ),
       ).called(1);
@@ -230,29 +218,29 @@ void main() {
 
         when(() => storage.saveDevicePrivateKey(any())).thenAnswer((invocation) async {});
         final subscription = PushSubscription(
-          (b) => b
-            ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
-            ..pushDevice.update(
-              (b) => b
-                ..publicKey = 'publicKey'
-                ..deviceIdentifier = 'deviceIdentifier'
-                ..signature = 'signature',
-            ),
+          (b) =>
+              b
+                ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
+                ..pushDevice.update(
+                  (b) =>
+                      b
+                        ..publicKey = 'publicKey'
+                        ..deviceIdentifier = 'deviceIdentifier'
+                        ..signature = 'signature',
+                ),
         );
         var subscriptions = BuiltMap<String, PushSubscription>({account.id: subscription});
         when(() => storage.readSubscriptions()).thenAnswer((_) async => subscriptions);
         when(() => storage.updateSubscription(any(), any())).thenAnswer((invocation) async {
-          subscriptions = subscriptions.rebuild(
-            (b) {
-              final key = invocation.positionalArguments[0] as String;
-              final subscription = invocation.positionalArguments[1] as PushSubscription;
-              if (subscription.endpoint == null && subscription.pushDevice == null) {
-                b.remove(key);
-              } else {
-                b[key] = subscription;
-              }
-            },
-          );
+          subscriptions = subscriptions.rebuild((b) {
+            final key = invocation.positionalArguments[0] as String;
+            final subscription = invocation.positionalArguments[1] as PushSubscription;
+            if (subscription.endpoint == null && subscription.pushDevice == null) {
+              b.remove(key);
+            } else {
+              b[key] = subscription;
+            }
+          });
         });
 
         accountsSubject.add(BuiltList([account]));
@@ -270,23 +258,16 @@ void main() {
           (_) => http.StreamedResponse(
             Stream.value(
               utf8.encode(
-                json.encode(
-                  {
-                    'ocs': {
-                      'meta': {
-                        'status': '',
-                        'statuscode': 0,
-                      },
-                      'data': <dynamic, dynamic>{},
-                    },
+                json.encode({
+                  'ocs': {
+                    'meta': {'status': '', 'statuscode': 0},
+                    'data': <dynamic, dynamic>{},
                   },
-                ),
+                }),
               ),
             ),
             200,
-            headers: {
-              'content-type': 'application/json; charset=utf-8',
-            },
+            headers: {'content-type': 'application/json; charset=utf-8'},
           ),
         );
 
@@ -308,14 +289,12 @@ void main() {
           () => httpRequest(
             'DELETE',
             Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-            BuiltMap(
-              {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer user1',
-                'OCS-APIRequest': 'true',
-                'user-agent': 'neon',
-              },
-            ),
+            BuiltMap({
+              'Accept': 'application/json',
+              'Authorization': 'Bearer user1',
+              'OCS-APIRequest': 'true',
+              'user-agent': 'neon',
+            }),
             Uint8List(0),
           ),
         ).called(1);
@@ -352,14 +331,12 @@ void main() {
           () => httpRequest(
             'DELETE',
             Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-            BuiltMap(
-              {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer user1',
-                'OCS-APIRequest': 'true',
-                'user-agent': 'neon',
-              },
-            ),
+            BuiltMap({
+              'Accept': 'application/json',
+              'Authorization': 'Bearer user1',
+              'OCS-APIRequest': 'true',
+              'user-agent': 'neon',
+            }),
             Uint8List(0),
           ),
         ).called(1);
@@ -398,9 +375,7 @@ void main() {
         when(() => unifiedPushPlatform.unregister(any())).thenAnswer((_) async {});
 
         when(() => storage.saveDevicePrivateKey(any())).thenAnswer((_) async {});
-        final subscription = PushSubscription(
-          (b) => b..endpoint = 'endpoint',
-        );
+        final subscription = PushSubscription((b) => b..endpoint = 'endpoint');
         when(() => storage.readSubscriptions()).thenAnswer((_) async => BuiltMap({'1': subscription}));
         when(() => storage.updateSubscription(any(), any())).thenAnswer((_) async {});
 
@@ -425,13 +400,15 @@ void main() {
 
         when(() => storage.saveDevicePrivateKey(any())).thenAnswer((_) async {});
         final subscription = PushSubscription(
-          (b) => b
-            ..pushDevice.update(
-              (b) => b
-                ..publicKey = 'publicKey'
-                ..deviceIdentifier = 'deviceIdentifier'
-                ..signature = 'signature',
-            ),
+          (b) =>
+              b
+                ..pushDevice.update(
+                  (b) =>
+                      b
+                        ..publicKey = 'publicKey'
+                        ..deviceIdentifier = 'deviceIdentifier'
+                        ..signature = 'signature',
+                ),
         );
         when(() => storage.readSubscriptions()).thenAnswer((_) async => BuiltMap({'1': subscription}));
         when(() => storage.updateSubscription(any(), any())).thenAnswer((_) async {});
@@ -456,14 +433,16 @@ void main() {
 
         when(() => storage.saveDevicePrivateKey(any())).thenAnswer((_) async {});
         final subscription = PushSubscription(
-          (b) => b
-            ..endpoint = 'endpoint'
-            ..pushDevice.update(
-              (b) => b
-                ..publicKey = 'publicKey'
-                ..deviceIdentifier = 'deviceIdentifier'
-                ..signature = 'signature',
-            ),
+          (b) =>
+              b
+                ..endpoint = 'endpoint'
+                ..pushDevice.update(
+                  (b) =>
+                      b
+                        ..publicKey = 'publicKey'
+                        ..deviceIdentifier = 'deviceIdentifier'
+                        ..signature = 'signature',
+                ),
         );
         when(() => storage.readSubscriptions()).thenAnswer((_) async => BuiltMap({'1': subscription}));
         when(() => storage.updateSubscription(any(), any())).thenAnswer((_) async {});
@@ -539,27 +518,20 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': {
-                            'publicKey': 'publicKey',
-                            'deviceIdentifier': 'deviceIdentifier',
-                            'signature': 'signature',
-                          },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': {
+                          'publicKey': 'publicKey',
+                          'deviceIdentifier': 'deviceIdentifier',
+                          'signature': 'signature',
                         },
                       },
-                    ),
+                    }),
                   ),
                 ),
                 201,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
 
@@ -580,22 +552,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -603,14 +574,16 @@ void main() {
             ).called(1);
             verifyNever(() => httpRequest(any(), any(), any(), any()));
             final expectedSubscription = PushSubscription(
-              (b) => b
-                ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
-                ..pushDevice.update(
-                  (b) => b
-                    ..publicKey = 'publicKey'
-                    ..deviceIdentifier = 'deviceIdentifier'
-                    ..signature = 'signature',
-                ),
+              (b) =>
+                  b
+                    ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
+                    ..pushDevice.update(
+                      (b) =>
+                          b
+                            ..publicKey = 'publicKey'
+                            ..deviceIdentifier = 'deviceIdentifier'
+                            ..signature = 'signature',
+                    ),
             );
             verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
             verifyNever(() => storage.updateSubscription(any(), any()));
@@ -643,22 +616,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -688,29 +660,29 @@ void main() {
             );
 
             subscription = PushSubscription(
-              (b) => b
-                ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
-                ..pushDevice.update(
-                  (b) => b
-                    ..publicKey = 'publicKey'
-                    ..deviceIdentifier = 'deviceIdentifier'
-                    ..signature = 'signature',
-                ),
+              (b) =>
+                  b
+                    ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
+                    ..pushDevice.update(
+                      (b) =>
+                          b
+                            ..publicKey = 'publicKey'
+                            ..deviceIdentifier = 'deviceIdentifier'
+                            ..signature = 'signature',
+                    ),
             );
             var subscriptions = BuiltMap<String, PushSubscription>({account.id: subscription});
             when(() => storage.readSubscriptions()).thenAnswer((_) async => subscriptions);
             when(() => storage.updateSubscription(any(), any())).thenAnswer((invocation) async {
-              subscriptions = subscriptions.rebuild(
-                (b) {
-                  final key = invocation.positionalArguments[0] as String;
-                  final subscription = invocation.positionalArguments[1] as PushSubscription;
-                  if (subscription.endpoint == null && subscription.pushDevice == null) {
-                    b.remove(key);
-                  } else {
-                    b[key] = subscription;
-                  }
-                },
-              );
+              subscriptions = subscriptions.rebuild((b) {
+                final key = invocation.positionalArguments[0] as String;
+                final subscription = invocation.positionalArguments[1] as PushSubscription;
+                if (subscription.endpoint == null && subscription.pushDevice == null) {
+                  b.remove(key);
+                } else {
+                  b[key] = subscription;
+                }
+              });
             });
           });
 
@@ -726,27 +698,20 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': {
-                            'publicKey': 'new-publicKey',
-                            'deviceIdentifier': 'new-deviceIdentifier',
-                            'signature': 'new-signature',
-                          },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': {
+                          'publicKey': 'new-publicKey',
+                          'deviceIdentifier': 'new-deviceIdentifier',
+                          'signature': 'new-signature',
                         },
                       },
-                    ),
+                    }),
                   ),
                 ),
                 201,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
 
@@ -770,22 +735,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user2',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user2',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -793,14 +757,16 @@ void main() {
             ).called(1);
             verifyNever(() => httpRequest(any(), any(), any(), any()));
             final expectedSubscription = PushSubscription(
-              (b) => b
-                ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
-                ..pushDevice.update(
-                  (b) => b
-                    ..publicKey = 'new-publicKey'
-                    ..deviceIdentifier = 'new-deviceIdentifier'
-                    ..signature = 'new-signature',
-                ),
+              (b) =>
+                  b
+                    ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
+                    ..pushDevice.update(
+                      (b) =>
+                          b
+                            ..publicKey = 'new-publicKey'
+                            ..deviceIdentifier = 'new-deviceIdentifier'
+                            ..signature = 'new-signature',
+                    ),
             );
             verify(() => storage.updateSubscription(newAccount.id, expectedSubscription)).called(1);
             verifyNever(() => storage.updateSubscription(any(), any()));
@@ -836,22 +802,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user2',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user2',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -870,29 +835,29 @@ void main() {
       group('Updates and removes subscriptions for accounts', () {
         setUp(() {
           final subscription = PushSubscription(
-            (b) => b
-              ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
-              ..pushDevice.update(
-                (b) => b
-                  ..publicKey = 'publicKey'
-                  ..deviceIdentifier = 'deviceIdentifier'
-                  ..signature = 'signature',
-              ),
+            (b) =>
+                b
+                  ..endpoint = 'https://cloud.example.com:8443/nextcloud/unifiedpush'
+                  ..pushDevice.update(
+                    (b) =>
+                        b
+                          ..publicKey = 'publicKey'
+                          ..deviceIdentifier = 'deviceIdentifier'
+                          ..signature = 'signature',
+                  ),
           );
           var subscriptions = BuiltMap<String, PushSubscription>({account.id: subscription});
           when(() => storage.readSubscriptions()).thenAnswer((_) async => subscriptions);
           when(() => storage.updateSubscription(any(), any())).thenAnswer((invocation) async {
-            subscriptions = subscriptions.rebuild(
-              (b) {
-                final key = invocation.positionalArguments[0] as String;
-                final subscription = invocation.positionalArguments[1] as PushSubscription;
-                if (subscription.endpoint == null && subscription.pushDevice == null) {
-                  b.remove(key);
-                } else {
-                  b[key] = subscription;
-                }
-              },
-            );
+            subscriptions = subscriptions.rebuild((b) {
+              final key = invocation.positionalArguments[0] as String;
+              final subscription = invocation.positionalArguments[1] as PushSubscription;
+              if (subscription.endpoint == null && subscription.pushDevice == null) {
+                b.remove(key);
+              } else {
+                b[key] = subscription;
+              }
+            });
           });
         });
 
@@ -909,23 +874,16 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': <dynamic, dynamic>{},
-                        },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': <dynamic, dynamic>{},
                       },
-                    ),
+                    }),
                   ),
                 ),
                 200,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
 
@@ -947,14 +905,12 @@ void main() {
               () => httpRequest(
                 'DELETE',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'user-agent': 'neon',
+                }),
                 Uint8List(0),
               ),
             ).called(1);
@@ -991,14 +947,12 @@ void main() {
               () => httpRequest(
                 'DELETE',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'user-agent': 'neon',
+                }),
                 Uint8List(0),
               ),
             ).called(1);
@@ -1021,23 +975,16 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': <dynamic, dynamic>{},
-                        },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': <dynamic, dynamic>{},
                       },
-                    ),
+                    }),
                   ),
                 ),
                 200,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
             when(
@@ -1051,27 +998,20 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': {
-                            'publicKey': 'new-publicKey',
-                            'deviceIdentifier': 'new-deviceIdentifier',
-                            'signature': 'new-signature',
-                          },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': {
+                          'publicKey': 'new-publicKey',
+                          'deviceIdentifier': 'new-deviceIdentifier',
+                          'signature': 'new-signature',
                         },
                       },
-                    ),
+                    }),
                   ),
                 ),
                 201,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
 
@@ -1098,14 +1038,12 @@ void main() {
               () => httpRequest(
                 'DELETE',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'user-agent': 'neon',
+                }),
                 Uint8List(0),
               ),
             ).called(1);
@@ -1118,22 +1056,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -1141,14 +1078,16 @@ void main() {
             ).called(1);
             verifyNever(() => httpRequest(any(), any(), any(), any()));
             final expectedSubscription = PushSubscription(
-              (b) => b
-                ..endpoint = endpoint.toString()
-                ..pushDevice.update(
-                  (b) => b
-                    ..publicKey = 'new-publicKey'
-                    ..deviceIdentifier = 'new-deviceIdentifier'
-                    ..signature = 'new-signature',
-                ),
+              (b) =>
+                  b
+                    ..endpoint = endpoint.toString()
+                    ..pushDevice.update(
+                      (b) =>
+                          b
+                            ..publicKey = 'new-publicKey'
+                            ..deviceIdentifier = 'new-deviceIdentifier'
+                            ..signature = 'new-signature',
+                    ),
             );
             verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
             verifyNever(() => storage.updateSubscription(any(), any()));
@@ -1175,27 +1114,20 @@ void main() {
                 (_) => http.StreamedResponse(
                   Stream.value(
                     utf8.encode(
-                      json.encode(
-                        {
-                          'ocs': {
-                            'meta': {
-                              'status': '',
-                              'statuscode': 0,
-                            },
-                            'data': {
-                              'publicKey': 'new-publicKey',
-                              'deviceIdentifier': 'new-deviceIdentifier',
-                              'signature': 'new-signature',
-                            },
+                      json.encode({
+                        'ocs': {
+                          'meta': {'status': '', 'statuscode': 0},
+                          'data': {
+                            'publicKey': 'new-publicKey',
+                            'deviceIdentifier': 'new-deviceIdentifier',
+                            'signature': 'new-signature',
                           },
                         },
-                      ),
+                      }),
                     ),
                   ),
                   201,
-                  headers: {
-                    'content-type': 'application/json; charset=utf-8',
-                  },
+                  headers: {'content-type': 'application/json; charset=utf-8'},
                 ),
               );
 
@@ -1222,14 +1154,12 @@ void main() {
                 () => httpRequest(
                   'DELETE',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  }),
                   Uint8List(0),
                 ),
               ).called(1);
@@ -1242,22 +1172,21 @@ void main() {
                 () => httpRequest(
                   'POST',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'user-agent': 'neon',
+                  }),
                   utf8.encode(
                     json.encode(
                       notifications.PushRegisterDeviceRequestApplicationJson(
-                        (b) => b
-                          ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                          ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                          ..proxyServer = '$endpoint#',
+                        (b) =>
+                            b
+                              ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                              ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                              ..proxyServer = '$endpoint#',
                       ),
                     ),
                   ),
@@ -1265,14 +1194,16 @@ void main() {
               ).called(1);
               verifyNever(() => httpRequest(any(), any(), any(), any()));
               final expectedSubscription = PushSubscription(
-                (b) => b
-                  ..endpoint = endpoint.toString()
-                  ..pushDevice.update(
-                    (b) => b
-                      ..publicKey = 'new-publicKey'
-                      ..deviceIdentifier = 'new-deviceIdentifier'
-                      ..signature = 'new-signature',
-                  ),
+                (b) =>
+                    b
+                      ..endpoint = endpoint.toString()
+                      ..pushDevice.update(
+                        (b) =>
+                            b
+                              ..publicKey = 'new-publicKey'
+                              ..deviceIdentifier = 'new-deviceIdentifier'
+                              ..signature = 'new-signature',
+                      ),
               );
               verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
               verifyNever(() => storage.updateSubscription(any(), any()));
@@ -1290,23 +1221,16 @@ void main() {
                 (_) => http.StreamedResponse(
                   Stream.value(
                     utf8.encode(
-                      json.encode(
-                        {
-                          'ocs': {
-                            'meta': {
-                              'status': '',
-                              'statuscode': 0,
-                            },
-                            'data': <dynamic, dynamic>{},
-                          },
+                      json.encode({
+                        'ocs': {
+                          'meta': {'status': '', 'statuscode': 0},
+                          'data': <dynamic, dynamic>{},
                         },
-                      ),
+                      }),
                     ),
                   ),
                   200,
-                  headers: {
-                    'content-type': 'application/json; charset=utf-8',
-                  },
+                  headers: {'content-type': 'application/json; charset=utf-8'},
                 ),
               );
               when(
@@ -1341,14 +1265,12 @@ void main() {
                 () => httpRequest(
                   'DELETE',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  }),
                   Uint8List(0),
                 ),
               ).called(1);
@@ -1361,31 +1283,28 @@ void main() {
                 () => httpRequest(
                   'POST',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'user-agent': 'neon',
+                  }),
                   utf8.encode(
                     json.encode(
                       notifications.PushRegisterDeviceRequestApplicationJson(
-                        (b) => b
-                          ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                          ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                          ..proxyServer = '$endpoint#',
+                        (b) =>
+                            b
+                              ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                              ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                              ..proxyServer = '$endpoint#',
                       ),
                     ),
                   ),
                 ),
               ).called(1);
               verifyNever(() => httpRequest(any(), any(), any(), any()));
-              final expectedSubscription = PushSubscription(
-                (b) => b.endpoint = endpoint.toString(),
-              );
+              final expectedSubscription = PushSubscription((b) => b.endpoint = endpoint.toString());
               verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
               verifyNever(() => storage.updateSubscription(any(), any()));
             });
@@ -1405,23 +1324,16 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': <dynamic, dynamic>{},
-                        },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': <dynamic, dynamic>{},
                       },
-                    ),
+                    }),
                   ),
                 ),
                 200,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
             when(
@@ -1435,27 +1347,20 @@ void main() {
               (_) => http.StreamedResponse(
                 Stream.value(
                   utf8.encode(
-                    json.encode(
-                      {
-                        'ocs': {
-                          'meta': {
-                            'status': '',
-                            'statuscode': 0,
-                          },
-                          'data': {
-                            'publicKey': 'new-publicKey',
-                            'deviceIdentifier': 'new-deviceIdentifier',
-                            'signature': 'new-signature',
-                          },
+                    json.encode({
+                      'ocs': {
+                        'meta': {'status': '', 'statuscode': 0},
+                        'data': {
+                          'publicKey': 'new-publicKey',
+                          'deviceIdentifier': 'new-deviceIdentifier',
+                          'signature': 'new-signature',
                         },
                       },
-                    ),
+                    }),
                   ),
                 ),
                 201,
-                headers: {
-                  'content-type': 'application/json; charset=utf-8',
-                },
+                headers: {'content-type': 'application/json; charset=utf-8'},
               ),
             );
 
@@ -1475,14 +1380,12 @@ void main() {
               () => httpRequest(
                 'DELETE',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'user-agent': 'neon',
+                }),
                 Uint8List(0),
               ),
             ).called(1);
@@ -1491,22 +1394,21 @@ void main() {
               () => httpRequest(
                 'POST',
                 Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                BuiltMap(
-                  {
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer user1',
-                    'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
-                    'user-agent': 'neon',
-                  },
-                ),
+                BuiltMap({
+                  'Accept': 'application/json',
+                  'Authorization': 'Bearer user1',
+                  'OCS-APIRequest': 'true',
+                  'Content-Type': 'application/json; charset=utf-8',
+                  'user-agent': 'neon',
+                }),
                 utf8.encode(
                   json.encode(
                     notifications.PushRegisterDeviceRequestApplicationJson(
-                      (b) => b
-                        ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                        ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                        ..proxyServer = '$endpoint#',
+                      (b) =>
+                          b
+                            ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                            ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                            ..proxyServer = '$endpoint#',
                     ),
                   ),
                 ),
@@ -1514,14 +1416,16 @@ void main() {
             ).called(1);
             verifyNever(() => httpRequest(any(), any(), any(), any()));
             final expectedSubscription = PushSubscription(
-              (b) => b
-                ..endpoint = endpoint.toString()
-                ..pushDevice.update(
-                  (b) => b
-                    ..publicKey = 'new-publicKey'
-                    ..deviceIdentifier = 'new-deviceIdentifier'
-                    ..signature = 'new-signature',
-                ),
+              (b) =>
+                  b
+                    ..endpoint = endpoint.toString()
+                    ..pushDevice.update(
+                      (b) =>
+                          b
+                            ..publicKey = 'new-publicKey'
+                            ..deviceIdentifier = 'new-deviceIdentifier'
+                            ..signature = 'new-signature',
+                    ),
             );
             verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
             verifyNever(() => storage.updateSubscription(any(), any()));
@@ -1548,27 +1452,20 @@ void main() {
                 (_) => http.StreamedResponse(
                   Stream.value(
                     utf8.encode(
-                      json.encode(
-                        {
-                          'ocs': {
-                            'meta': {
-                              'status': '',
-                              'statuscode': 0,
-                            },
-                            'data': {
-                              'publicKey': 'new-publicKey',
-                              'deviceIdentifier': 'new-deviceIdentifier',
-                              'signature': 'new-signature',
-                            },
+                      json.encode({
+                        'ocs': {
+                          'meta': {'status': '', 'statuscode': 0},
+                          'data': {
+                            'publicKey': 'new-publicKey',
+                            'deviceIdentifier': 'new-deviceIdentifier',
+                            'signature': 'new-signature',
                           },
                         },
-                      ),
+                      }),
                     ),
                   ),
                   201,
-                  headers: {
-                    'content-type': 'application/json; charset=utf-8',
-                  },
+                  headers: {'content-type': 'application/json; charset=utf-8'},
                 ),
               );
 
@@ -1588,14 +1485,12 @@ void main() {
                 () => httpRequest(
                   'DELETE',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  }),
                   Uint8List(0),
                 ),
               ).called(1);
@@ -1603,22 +1498,21 @@ void main() {
                 () => httpRequest(
                   'POST',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'user-agent': 'neon',
+                  }),
                   utf8.encode(
                     json.encode(
                       notifications.PushRegisterDeviceRequestApplicationJson(
-                        (b) => b
-                          ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                          ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                          ..proxyServer = '$endpoint#',
+                        (b) =>
+                            b
+                              ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                              ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                              ..proxyServer = '$endpoint#',
                       ),
                     ),
                   ),
@@ -1626,14 +1520,16 @@ void main() {
               ).called(1);
               verifyNever(() => httpRequest(any(), any(), any(), any()));
               final expectedSubscription = PushSubscription(
-                (b) => b
-                  ..endpoint = endpoint.toString()
-                  ..pushDevice.update(
-                    (b) => b
-                      ..publicKey = 'new-publicKey'
-                      ..deviceIdentifier = 'new-deviceIdentifier'
-                      ..signature = 'new-signature',
-                  ),
+                (b) =>
+                    b
+                      ..endpoint = endpoint.toString()
+                      ..pushDevice.update(
+                        (b) =>
+                            b
+                              ..publicKey = 'new-publicKey'
+                              ..deviceIdentifier = 'new-deviceIdentifier'
+                              ..signature = 'new-signature',
+                      ),
               );
               verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
               verifyNever(() => storage.updateSubscription(any(), any()));
@@ -1651,23 +1547,16 @@ void main() {
                 (_) => http.StreamedResponse(
                   Stream.value(
                     utf8.encode(
-                      json.encode(
-                        {
-                          'ocs': {
-                            'meta': {
-                              'status': '',
-                              'statuscode': 0,
-                            },
-                            'data': <dynamic, dynamic>{},
-                          },
+                      json.encode({
+                        'ocs': {
+                          'meta': {'status': '', 'statuscode': 0},
+                          'data': <dynamic, dynamic>{},
                         },
-                      ),
+                      }),
                     ),
                   ),
                   200,
-                  headers: {
-                    'content-type': 'application/json; charset=utf-8',
-                  },
+                  headers: {'content-type': 'application/json; charset=utf-8'},
                 ),
               );
               when(
@@ -1695,14 +1584,12 @@ void main() {
                 () => httpRequest(
                   'DELETE',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'user-agent': 'neon',
+                  }),
                   Uint8List(0),
                 ),
               ).called(1);
@@ -1710,31 +1597,28 @@ void main() {
                 () => httpRequest(
                   'POST',
                   Uri.parse('https://cloud.example.com:8443/nextcloud/ocs/v2.php/apps/notifications/api/v2/push'),
-                  BuiltMap(
-                    {
-                      'Accept': 'application/json',
-                      'Authorization': 'Bearer user1',
-                      'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
-                      'user-agent': 'neon',
-                    },
-                  ),
+                  BuiltMap({
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer user1',
+                    'OCS-APIRequest': 'true',
+                    'Content-Type': 'application/json; charset=utf-8',
+                    'user-agent': 'neon',
+                  }),
                   utf8.encode(
                     json.encode(
                       notifications.PushRegisterDeviceRequestApplicationJson(
-                        (b) => b
-                          ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
-                          ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
-                          ..proxyServer = '$endpoint#',
+                        (b) =>
+                            b
+                              ..pushTokenHash = notifications.generatePushTokenHash(endpoint.toString())
+                              ..devicePublicKey = privateKey.publicKey.toFormattedPEM()
+                              ..proxyServer = '$endpoint#',
                       ),
                     ),
                   ),
                 ),
               ).called(1);
               verifyNever(() => httpRequest(any(), any(), any(), any()));
-              final expectedSubscription = PushSubscription(
-                (b) => b.endpoint = endpoint.toString(),
-              );
+              final expectedSubscription = PushSubscription((b) => b.endpoint = endpoint.toString());
               verify(() => storage.updateSubscription(account.id, expectedSubscription)).called(1);
               verifyNever(() => storage.updateSubscription(any(), any()));
             });

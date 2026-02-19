@@ -2,11 +2,7 @@ part of 'type_result.dart';
 
 @immutable
 class TypeResultBase extends TypeResult {
-  TypeResultBase(
-    super.className, {
-    super.nullable,
-    super.isTypeDef,
-  });
+  TypeResultBase(super.className, {super.nullable, super.isTypeDef});
 
   @override
   String? get _builderFactory => null;
@@ -15,11 +11,7 @@ class TypeResultBase extends TypeResult {
   String? get _serializer => null;
 
   @override
-  String encode(
-    String object, {
-    bool onlyChildren = false,
-    String? mimeType,
-  }) {
+  String encode(String object, {bool onlyChildren = false, String? mimeType}) {
     switch (mimeType) {
       case null:
       case 'application/json':

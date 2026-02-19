@@ -183,10 +183,7 @@ void main() {
           expect(request.bodyBytes.length, 0);
           expect(request.headers, equals({'Accept': 'application/json'}));
           expect(request.method, equalsIgnoringCase('get'));
-          expect(
-            request.url,
-            equals(Uri.parse('example.com/headers')),
-          );
+          expect(request.url, equals(Uri.parse('example.com/headers')));
 
           return Response('{}', 200, headers: {'content-type': 'application/json'});
         }),
@@ -220,10 +217,7 @@ void main() {
             }),
           );
           expect(request.method, equalsIgnoringCase('get'));
-          expect(
-            request.url,
-            equals(Uri.parse('example.com/headers')),
-          );
+          expect(request.url, equals(Uri.parse('example.com/headers')));
 
           return Response('{}', 200, headers: {'content-type': 'application/json'});
         }),
@@ -242,11 +236,7 @@ void main() {
           JsonObject(false),
           JsonObject(r'Value$'),
         ]),
-        arrayString: BuiltList<String>([
-          'Value1',
-          'Value2',
-          r'Value$',
-        ]),
+        arrayString: BuiltList<String>(['Value1', 'Value2', r'Value$']),
         $bool: false,
         string: r'$String',
         stringBinary: utf8.encode('StringValue'),

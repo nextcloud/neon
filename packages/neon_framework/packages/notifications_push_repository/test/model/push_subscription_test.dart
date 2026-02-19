@@ -5,55 +5,36 @@ void main() {
   group('PushSubscription', () {
     group('constructor', () {
       test('works correctly', () {
-        expect(
-          createPushSubscription,
-          returnsNormally,
-        );
+        expect(createPushSubscription, returnsNormally);
       });
     });
 
     test('supports value equality', () {
-      expect(
-        createPushSubscription(),
-        equals(createPushSubscription()),
-      );
+      expect(createPushSubscription(), equals(createPushSubscription()));
 
-      expect(
-        createPushSubscription().hashCode,
-        equals(createPushSubscription().hashCode),
-      );
+      expect(createPushSubscription().hashCode, equals(createPushSubscription().hashCode));
 
-      expect(
-        createPushSubscription(),
-        isNot(
-          equals(
-            createPushSubscription(
-              endpoint: '',
-            ),
-          ),
-        ),
-      );
+      expect(createPushSubscription(), isNot(equals(createPushSubscription(endpoint: ''))));
     });
 
     group('rebuild', () {
       test('returns the same object if not attributes are changed', () {
-        expect(
-          createPushSubscription().rebuild((_) {}),
-          equals(createPushSubscription()),
-        );
+        expect(createPushSubscription().rebuild((_) {}), equals(createPushSubscription()));
       });
 
       test('replaces every attribute', () {
         expect(
           createPushSubscription().rebuild(
-            (b) => b
-              ..endpoint = 'new-endpoint'
-              ..pushDevice.update(
-                (b) => b
-                  ..publicKey = 'new-publicKey'
-                  ..deviceIdentifier = 'new-deviceIdentifier'
-                  ..signature = 'new-signature',
-              ),
+            (b) =>
+                b
+                  ..endpoint = 'new-endpoint'
+                  ..pushDevice.update(
+                    (b) =>
+                        b
+                          ..publicKey = 'new-publicKey'
+                          ..deviceIdentifier = 'new-deviceIdentifier'
+                          ..signature = 'new-signature',
+                  ),
           ),
           equals(
             createPushSubscription(

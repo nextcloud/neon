@@ -27,42 +27,21 @@ class FilePreview extends StatelessWidget {
 
     Widget child;
     if (details.isDirectory) {
-      child = Icon(
-        AdaptiveIcons.folder,
-        color: color,
-        size: size.shortestSide,
-      );
+      child = Icon(AdaptiveIcons.folder, color: color, size: size.shortestSide);
     } else {
-      child = FilePreviewImage(
-        file: details,
-        size: size,
-        account: NeonProvider.of<Account>(context),
-      );
+      child = FilePreviewImage(file: details, size: size, account: NeonProvider.of<Account>(context));
     }
 
-    return SizedBox.fromSize(
-      size: size,
-      child: child,
-    );
+    return SizedBox.fromSize(size: size, child: child);
   }
 }
 
 class FilePreviewImage extends NeonApiImage {
-  factory FilePreviewImage({
-    required FileDetails file,
-    required Size size,
-    required Account account,
-  }) {
+  factory FilePreviewImage({required FileDetails file, required Size size, required Account account}) {
     final width = size.width.toInt();
     final height = size.height.toInt();
 
-    return FilePreviewImage._(
-      file: file,
-      size: size,
-      width: width,
-      height: height,
-      account: account,
-    );
+    return FilePreviewImage._(file: file, size: size, width: width, height: height, account: account);
   }
 
   FilePreviewImage._({
@@ -72,15 +51,16 @@ class FilePreviewImage extends NeonApiImage {
     required int height,
     required super.account,
   }) : super(
-          getRequest: (client) => client.core.preview.$getPreview_Request(
-            file: file.uri.path,
-            x: width,
-            y: height,
-            mimeFallback: core.PreviewGetPreviewMimeFallback.$1,
-          ),
-          etag: file.etag,
-          expires: null,
-          isSvgHint: file.mimeType?.contains('svg') ?? false,
-          blurHash: file.blurHash,
-        );
+         getRequest:
+             (client) => client.core.preview.$getPreview_Request(
+               file: file.uri.path,
+               x: width,
+               y: height,
+               mimeFallback: core.PreviewGetPreviewMimeFallback.$1,
+             ),
+         etag: file.etag,
+         expires: null,
+         isSvgHint: file.mimeType?.contains('svg') ?? false,
+         blurHash: file.blurHash,
+       );
 }

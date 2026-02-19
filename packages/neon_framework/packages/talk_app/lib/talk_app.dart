@@ -41,9 +41,7 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
   late final TalkOptions options = TalkOptions(storage);
 
   @override
-  TalkBloc buildBloc(Account account) => TalkBloc(
-        account: account,
-      );
+  TalkBloc buildBloc(Account account) => TalkBloc(account: account);
 
   @override
   final Widget page = const TalkMainPage();
@@ -58,9 +56,6 @@ class TalkApp extends AppImplementation<TalkBloc, TalkOptions> {
   BehaviorSubject<int> getUnreadCounter(TalkBloc bloc) => bloc.unreadCounter;
 
   @override
-  VersionCheck getVersionCheck(
-    Account account,
-    core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities,
-  ) =>
+  VersionCheck getVersionCheck(Account account, core.OcsGetCapabilitiesResponseApplicationJson_Ocs_Data capabilities) =>
       account.client.spreed.getVersionCheck(capabilities);
 }

@@ -23,15 +23,16 @@ part 'json_schema.g.dart';
   NullSchema,
   JsonSchemaType,
 ])
-final Serializers serializers = (_$serializers.toBuilder()
-      ..add(JsonSchema.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-        MapBuilder<String, BuiltList<String>>.new,
-      )
-      ..addPlugin(StandardJsonPlugin())
-      ..addPlugin(const SchemaPlugin()))
-    .build();
+final Serializers serializers =
+    (_$serializers.toBuilder()
+          ..add(JsonSchema.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(String)]),
+            ]),
+            MapBuilder<String, BuiltList<String>>.new,
+          )
+          ..addPlugin(StandardJsonPlugin())
+          ..addPlugin(const SchemaPlugin()))
+        .build();

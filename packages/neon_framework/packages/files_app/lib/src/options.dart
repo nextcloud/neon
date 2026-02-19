@@ -6,9 +6,7 @@ import 'package:neon_framework/storage.dart';
 
 class FilesOptions extends AppImplementationOptions {
   FilesOptions(super.storage) {
-    super.categories = [
-      generalCategory,
-    ];
+    super.categories = [generalCategory];
     super.options = [
       filesSortPropertyOption,
       filesSortBoxOrderOption,
@@ -20,9 +18,7 @@ class FilesOptions extends AppImplementationOptions {
     ];
   }
 
-  final generalCategory = OptionsCategory(
-    name: (context) => FilesLocalizations.of(context).general,
-  );
+  final generalCategory = OptionsCategory(name: (context) => FilesLocalizations.of(context).general);
 
   late final filesSortPropertyOption = SelectOption<FilesSortProperty>(
     storage: super.storage,
@@ -61,9 +57,7 @@ class FilesOptions extends AppImplementationOptions {
     label: (context) => FilesLocalizations.of(context).optionsUploadQueueParallelism,
     defaultValue: 4,
     values: {
-      for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (_) => i.toString(),
-      },
+      for (var i = 1; i <= 16; i = i * 2) ...{i: (_) => i.toString()},
     },
   );
 
@@ -74,25 +68,13 @@ class FilesOptions extends AppImplementationOptions {
     label: (context) => FilesLocalizations.of(context).optionsDownloadQueueParallelism,
     defaultValue: 4,
     values: {
-      for (var i = 1; i <= 16; i = i * 2) ...{
-        i: (_) => i.toString(),
-      },
+      for (var i = 1; i <= 16; i = i * 2) ...{i: (_) => i.toString()},
     },
   );
 
   late final _sizeWarningValues = <int?, LabelBuilder>{
     null: (context) => FilesLocalizations.of(context).optionsSizeWarningDisabled,
-    for (var i in [
-      1,
-      10,
-      100,
-      1024,
-      2 * 2024,
-      6 * 1024,
-      10 * 1024,
-    ]) ...{
-      _mb(i): (_) => filesize(_mb(i)),
-    },
+    for (var i in [1, 10, 100, 1024, 2 * 2024, 6 * 1024, 10 * 1024]) ...{_mb(i): (_) => filesize(_mb(i))},
   };
 
   int _mb(int i) => i * 1024 * 1024;
@@ -132,9 +114,4 @@ enum FilesOptionKeys implements Storable {
   final String value;
 }
 
-enum FilesSortProperty {
-  name,
-  modifiedDate,
-  size,
-  isFolder,
-}
+enum FilesSortProperty { name, modifiedDate, size, isFolder }

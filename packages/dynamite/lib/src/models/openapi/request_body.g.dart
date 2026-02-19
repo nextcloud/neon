@@ -15,12 +15,17 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
   final String wireName = 'RequestBody';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RequestBody object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RequestBody object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'content',
-      serializers.serialize(object.content,
-          specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])),
+      serializers.serialize(
+        object.content,
+        specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]),
+      ),
       'required',
       serializers.serialize(object.required, specifiedType: const FullType(bool)),
     ];
@@ -35,8 +40,11 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
   }
 
   @override
-  RequestBody deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RequestBody deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RequestBodyBuilder();
 
     final iterator = serialized.iterator;
@@ -49,8 +57,12 @@ class _$RequestBodySerializer implements StructuredSerializer<RequestBody> {
           result.description = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
           break;
         case 'content':
-          result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+          result.content.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]),
+            )!,
+          );
           break;
         case 'required':
           result.required = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -155,11 +167,13 @@ class RequestBodyBuilder implements Builder<RequestBody, RequestBodyBuilder> {
     RequestBody._defaults(this);
     _$RequestBody _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$RequestBody._(
-              description: description,
-              content: content.build(),
-              required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'));
+            description: description,
+            content: content.build(),
+            required: BuiltValueNullFieldError.checkNotNull(required, r'RequestBody', 'required'),
+          );
     } catch (_) {
       late String _$failedField;
       try {

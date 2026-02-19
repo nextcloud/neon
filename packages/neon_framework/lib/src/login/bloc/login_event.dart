@@ -33,10 +33,7 @@ final class LoginUrlEntered extends LoginEvent {
   final Credentials? credentials;
 
   @override
-  List<Object?> get props => [
-        serverURL,
-        credentials,
-      ];
+  List<Object?> get props => [serverURL, credentials];
 }
 
 /// {@template login_server_checked}
@@ -60,9 +57,7 @@ final class LoginCredentialsEntered extends LoginEvent {
   final Credentials credentials;
 
   @override
-  List<Object?> get props => [
-        credentials,
-      ];
+  List<Object?> get props => [credentials];
 }
 
 /// {@template login_account_checked}
@@ -78,7 +73,5 @@ final class LoginAccountChecked extends LoginEvent {
   final Account account;
 
   @override
-  List<Object?> get props => [
-        account,
-      ];
+  List<Object?> get props => [account];
 }

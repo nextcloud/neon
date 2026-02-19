@@ -19,48 +19,53 @@ class MockOnReferenceClickedCallback extends Mock {
 void main() {
   group('buildRichTextSpan', () {
     test('Preview without newlines', () {
-      var span = buildRichTextSpan(
-        account: MockAccount(),
-        text: '123\n456',
-        isMarkdown: false,
-        parameters: BuiltMap(),
-        references: BuiltList(),
-        textStyle: const TextStyle(),
-        onReferenceClicked: (_) {},
-      ).children!.single as TextSpan;
+      var span =
+          buildRichTextSpan(
+                account: MockAccount(),
+                text: '123\n456',
+                isMarkdown: false,
+                parameters: BuiltMap(),
+                references: BuiltList(),
+                textStyle: const TextStyle(),
+                onReferenceClicked: (_) {},
+              ).children!.single
+              as TextSpan;
       expect(span.text, '123\n456');
 
-      span = buildRichTextSpan(
-        account: MockAccount(),
-        text: '123\n456',
-        isMarkdown: false,
-        parameters: BuiltMap(),
-        references: BuiltList(),
-        textStyle: const TextStyle(),
-        onReferenceClicked: (_) {},
-        isPreview: true,
-      ).children!.single as TextSpan;
+      span =
+          buildRichTextSpan(
+                account: MockAccount(),
+                text: '123\n456',
+                isMarkdown: false,
+                parameters: BuiltMap(),
+                references: BuiltList(),
+                textStyle: const TextStyle(),
+                onReferenceClicked: (_) {},
+                isPreview: true,
+              ).children!.single
+              as TextSpan;
       expect(span.text, '123 456');
     });
 
     group('Unused parameters', () {
       for (final type in core.RichObjectParameter_Type.values) {
         test(type, () {
-          final spans = buildRichTextSpan(
-            account: MockAccount(),
-            text: 'test',
-            isMarkdown: false,
-            parameters: BuiltMap({
-              type.value: BuiltMap<String, JsonObject>({
-                'type': JsonObject(type.value),
-                'id': JsonObject(1),
-                'name': JsonObject(''),
-              }),
-            }),
-            references: BuiltList(),
-            textStyle: const TextStyle(),
-            onReferenceClicked: (_) {},
-          ).children!;
+          final spans =
+              buildRichTextSpan(
+                account: MockAccount(),
+                text: 'test',
+                isMarkdown: false,
+                parameters: BuiltMap({
+                  type.value: BuiltMap<String, JsonObject>({
+                    'type': JsonObject(type.value),
+                    'id': JsonObject(1),
+                    'name': JsonObject(''),
+                  }),
+                }),
+                references: BuiltList(),
+                textStyle: const TextStyle(),
+                onReferenceClicked: (_) {},
+              ).children!;
           if (type == core.RichObjectParameter_Type.file) {
             expect(spans, hasLength(3));
             expect((spans[0] as WidgetSpan).child, isA<NeonRichObjectFile>());
@@ -74,26 +79,27 @@ void main() {
     });
 
     test('Used parameters', () {
-      final spans = buildRichTextSpan(
-        account: MockAccount(),
-        text: '123 {actor1} 456 {actor2} 789',
-        isMarkdown: false,
-        parameters: BuiltMap({
-          'actor1': BuiltMap<String, JsonObject>({
-            'type': JsonObject('user'),
-            'id': JsonObject(''),
-            'name': JsonObject(''),
-          }),
-          'actor2': BuiltMap<String, JsonObject>({
-            'type': JsonObject('user'),
-            'id': JsonObject(''),
-            'name': JsonObject(''),
-          }),
-        }),
-        references: BuiltList(),
-        textStyle: const TextStyle(),
-        onReferenceClicked: (_) {},
-      ).children!;
+      final spans =
+          buildRichTextSpan(
+            account: MockAccount(),
+            text: '123 {actor1} 456 {actor2} 789',
+            isMarkdown: false,
+            parameters: BuiltMap({
+              'actor1': BuiltMap<String, JsonObject>({
+                'type': JsonObject('user'),
+                'id': JsonObject(''),
+                'name': JsonObject(''),
+              }),
+              'actor2': BuiltMap<String, JsonObject>({
+                'type': JsonObject('user'),
+                'id': JsonObject(''),
+                'name': JsonObject(''),
+              }),
+            }),
+            references: BuiltList(),
+            textStyle: const TextStyle(),
+            onReferenceClicked: (_) {},
+          ).children!;
       expect(spans, hasLength(5));
       expect((spans[0] as TextSpan).text, '123 ');
       expect((spans[1] as WidgetSpan).child, isA<NeonRichObjectMention>());
@@ -105,15 +111,16 @@ void main() {
     test('References', () {
       final callback = MockOnReferenceClickedCallback();
 
-      final spans = buildRichTextSpan(
-        account: MockAccount(),
-        text: 'a 123 b 456 c',
-        isMarkdown: false,
-        parameters: BuiltMap(),
-        references: BuiltList(['123', '456']),
-        textStyle: const TextStyle(),
-        onReferenceClicked: callback.call,
-      ).children!;
+      final spans =
+          buildRichTextSpan(
+            account: MockAccount(),
+            text: 'a 123 b 456 c',
+            isMarkdown: false,
+            parameters: BuiltMap(),
+            references: BuiltList(['123', '456']),
+            textStyle: const TextStyle(),
+            onReferenceClicked: callback.call,
+          ).children!;
       expect(spans, hasLength(5));
 
       expect((spans[0] as TextSpan).text, 'a ');
@@ -134,21 +141,22 @@ void main() {
     });
 
     test('Skip empty parts', () {
-      final spans = buildRichTextSpan(
-        account: MockAccount(),
-        text: '{actor}',
-        isMarkdown: false,
-        parameters: BuiltMap({
-          'actor': BuiltMap<String, JsonObject>({
-            'type': JsonObject(core.RichObjectParameter_Type.user.name),
-            'id': JsonObject(''),
-            'name': JsonObject(''),
-          }),
-        }),
-        references: BuiltList(),
-        textStyle: const TextStyle(),
-        onReferenceClicked: (_) {},
-      ).children!;
+      final spans =
+          buildRichTextSpan(
+            account: MockAccount(),
+            text: '{actor}',
+            isMarkdown: false,
+            parameters: BuiltMap({
+              'actor': BuiltMap<String, JsonObject>({
+                'type': JsonObject(core.RichObjectParameter_Type.user.name),
+                'id': JsonObject(''),
+                'name': JsonObject(''),
+              }),
+            }),
+            references: BuiltList(),
+            textStyle: const TextStyle(),
+            onReferenceClicked: (_) {},
+          ).children!;
       expect(spans, hasLength(1));
       expect((spans[0] as WidgetSpan).child, isA<NeonRichObjectMention>());
     });
@@ -181,19 +189,13 @@ void main() {
         testWidgets(name, (tester) async {
           await tester.pumpWidgetWithAccessibility(
             MaterialApp(
-              theme: ThemeData(
-                fontFamily: defaultFontFamily,
-              ),
+              theme: ThemeData(fontFamily: defaultFontFamily),
               home: Scaffold(
                 body: RichText(
                   text: buildRichTextSpan(
                     account: MockAccount(),
                     text: text,
-                    textStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontFamily: defaultFontFamily,
-                    ),
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 15, fontFamily: defaultFontFamily),
                     parameters: parameters ?? BuiltMap(),
                     references: BuiltList(),
                     onReferenceClicked: onReferenceClicked ?? (_) {},
@@ -215,20 +217,14 @@ void main() {
 
       // These features are not tested in the nextcloud-vue library, but they do work...
       group('custom', () {
-        testMarkdown(
-          'subscript',
-          'text[^first]\n[^first]: footnote',
-        );
+        testMarkdown('subscript', 'text[^first]\n[^first]: footnote');
 
-        testMarkdown(
-          'nested lists',
-          '''
+        testMarkdown('nested lists', '''
 - a
   - b
     - c
 - d
-  - e''',
-        );
+  - e''');
 
         // Use a data URI to avoid loading an image over the network
         testMarkdown(
@@ -284,65 +280,38 @@ void main() {
       // https://github.com/nextcloud-libraries/nextcloud-vue/blob/master/cypress/component/richtext.cy.ts
       group('nextcloud-vue', () {
         group('normal text', () {
-          testMarkdown(
-            'XML-like text (escaped and unescaped)',
-            '<span>text&lt;/span&gt;',
-          );
+          testMarkdown('XML-like text (escaped and unescaped)', '<span>text&lt;/span&gt;');
         });
 
         group('headings', () {
-          testMarkdown(
-            'heading (with hash (#) syntax divided with space from text)',
-            '''
+          testMarkdown('heading (with hash (#) syntax divided with space from text)', '''
 # heading 1
 ## heading 2
 ### heading 3
 #### heading 4
 ##### heading 5
-###### heading 6''',
-          );
+###### heading 6''');
 
-          testMarkdown(
-            'ignored heading (with hash (#) syntax padded to the text)',
-            '#heading',
-          );
+          testMarkdown('ignored heading (with hash (#) syntax padded to the text)', '#heading');
 
-          testMarkdown(
-            'heading 1 (with equal (=) syntax on the next line)',
-            'heading 1\n==',
-          );
+          testMarkdown('heading 1 (with equal (=) syntax on the next line)', 'heading 1\n==');
 
-          testMarkdown(
-            'heading 2 (with dash (-) syntax on the next line)',
-            'heading 2\n--',
-          );
+          testMarkdown('heading 2 (with dash (-) syntax on the next line)', 'heading 2\n--');
         });
 
         group('bold text', () {
-          testMarkdown(
-            'bold text (single with asterisk syntax)',
-            '**bold asterisk**',
-          );
+          testMarkdown('bold text (single with asterisk syntax)', '**bold asterisk**');
 
-          testMarkdown(
-            'bold text (single with underscore syntax)',
-            '__bold underscore__',
-          );
+          testMarkdown('bold text (single with underscore syntax)', '__bold underscore__');
 
           testMarkdown(
             'bold text (several in line with different syntax)',
             'normal text __bold underscore__ normal text **bold asterisk** normal text',
           );
 
-          testMarkdown(
-            'bold text (between normal texts with asterisk syntax)',
-            'text**bold**text',
-          );
+          testMarkdown('bold text (between normal texts with asterisk syntax)', 'text**bold**text');
 
-          testMarkdown(
-            'ignored bold text (between normal texts with underscore syntax)',
-            'text__bold__text',
-          );
+          testMarkdown('ignored bold text (between normal texts with underscore syntax)', 'text__bold__text');
 
           testMarkdown(
             'normal text (between bold texts with asterisk syntax)',
@@ -351,30 +320,18 @@ void main() {
         });
 
         group('italic text', () {
-          testMarkdown(
-            'italic text (single with asterisk syntax)',
-            '*italic asterisk*',
-          );
+          testMarkdown('italic text (single with asterisk syntax)', '*italic asterisk*');
 
-          testMarkdown(
-            'italic text (single with underscore syntax)',
-            '_italic underscore_',
-          );
+          testMarkdown('italic text (single with underscore syntax)', '_italic underscore_');
 
           testMarkdown(
             'italic text (several in line with different syntax)',
             'normal text _italic underscore_ normal text *italic asterisk* normal text',
           );
 
-          testMarkdown(
-            'italic text (between normal texts with asterisk syntax)',
-            'text*italic*text',
-          );
+          testMarkdown('italic text (between normal texts with asterisk syntax)', 'text*italic*text');
 
-          testMarkdown(
-            'ignored italic text (between normal texts with underscore syntax)',
-            'text_italic_text',
-          );
+          testMarkdown('ignored italic text (between normal texts with underscore syntax)', 'text_italic_text');
 
           testMarkdown(
             'normal text (between italic texts with asterisk syntax)',
@@ -383,15 +340,9 @@ void main() {
         });
 
         group('strikethrough text', () {
-          testMarkdown(
-            'strikethrough text (with single tilda syntax)',
-            '~strikethrough single~',
-          );
+          testMarkdown('strikethrough text (with single tilda syntax)', '~strikethrough single~');
 
-          testMarkdown(
-            'strikethrough text (with double tilda syntax)',
-            '~~strikethrough double~~',
-          );
+          testMarkdown('strikethrough text (with double tilda syntax)', '~~strikethrough double~~');
 
           testMarkdown(
             'strikethrough text (several in line with different syntax)',
@@ -405,15 +356,9 @@ void main() {
         });
 
         group('inline code', () {
-          testMarkdown(
-            'inline code (single with backticks syntax)',
-            'normal text `inline code` normal text',
-          );
+          testMarkdown('inline code (single with backticks syntax)', 'normal text `inline code` normal text');
 
-          testMarkdown(
-            'inline code (single with double backticks syntax)',
-            'normal text ``inline code`` normal text',
-          );
+          testMarkdown('inline code (single with double backticks syntax)', 'normal text ``inline code`` normal text');
 
           testMarkdown(
             'inline code (single with triple backticks syntax)',
@@ -425,10 +370,7 @@ void main() {
             'normal text `inline code 1`normal text ``inline code 2`` normal text',
           );
 
-          testMarkdown(
-            'inline code (between normal texts)',
-            'text`inline code`text',
-          );
+          testMarkdown('inline code (between normal texts)', 'text`inline code`text');
 
           testMarkdown(
             'inline code (with ignored bold, italic, XML-like syntax)',
@@ -437,30 +379,15 @@ void main() {
         });
 
         group('multiline code', () {
-          testMarkdown(
-            'multiline code (with triple backticks syntax)',
-            '```\nmultiline code\n```',
-          );
+          testMarkdown('multiline code (with triple backticks syntax)', '```\nmultiline code\n```');
 
-          testMarkdown(
-            'multiline code (ignored info)',
-            '```vue\nmultiline code\n```',
-          );
+          testMarkdown('multiline code (ignored info)', '```vue\nmultiline code\n```');
 
-          testMarkdown(
-            'empty multiline code',
-            '``````',
-          );
+          testMarkdown('empty multiline code', '``````');
 
-          testMarkdown(
-            'empty multiline code (with new line)',
-            '```\n```',
-          );
+          testMarkdown('empty multiline code (with new line)', '```\n```');
 
-          testMarkdown(
-            'multiline code (with several lines)',
-            '```\nline 1\nline 2\nline 3\n```',
-          );
+          testMarkdown('multiline code (with several lines)', '```\nline 1\nline 2\nline 3\n```');
 
           testMarkdown(
             'multiline code (with ignored bold, italic, inline code, XML-like syntax)',
@@ -469,76 +396,46 @@ void main() {
         });
 
         group('blockquote', () {
-          testMarkdown(
-            'blockquote (with greater then (>) syntax - normal)',
-            '> blockquote',
-          );
+          testMarkdown('blockquote (with greater then (>) syntax - normal)', '> blockquote');
 
-          testMarkdown(
-            'blockquote (with greater then (&gt;) syntax - escaped)',
-            '&gt; blockquote',
-          );
+          testMarkdown('blockquote (with greater then (&gt;) syntax - escaped)', '&gt; blockquote');
 
           testMarkdown(
             'blockquote (with bold, italic text, inline code)',
             '> blockquote **bold text** _italic text_ `inline code`',
           );
 
-          testMarkdown(
-            'blockquote (with several lines)',
-            '> line 1\nline 2\n line 3',
-          );
+          testMarkdown('blockquote (with several lines)', '> line 1\nline 2\n line 3');
 
-          testMarkdown(
-            'blockquote (divided from normal text)',
-            'normal text\n> line 1\nline 2\n\nnormal text',
-          );
+          testMarkdown('blockquote (divided from normal text)', 'normal text\n> line 1\nline 2\n\nnormal text');
 
-          testMarkdown(
-            'blockquote (with several paragraphs)',
-            '> line 1\n>\n> line 3',
-          );
+          testMarkdown('blockquote (with several paragraphs)', '> line 1\n>\n> line 3');
 
-          testMarkdown(
-            'blockquote (with nested blockquote)',
-            '> blockquote\n>\n>> nested blockquote',
-          );
+          testMarkdown('blockquote (with nested blockquote)', '> blockquote\n>\n>> nested blockquote');
         });
 
         group('lists', () {
-          testMarkdown(
-            'ordered list (with number + `.` syntax divided with space from text)',
-            '''
+          testMarkdown('ordered list (with number + `.` syntax divided with space from text)', '''
 1. item 1
 2. item 2
-3. item 3''',
-          );
+3. item 3''');
 
-          testMarkdown(
-            'unordered list (with unite syntax divided with space from text)',
-            '''
+          testMarkdown('unordered list (with unite syntax divided with space from text)', '''
 * item 1
 * item 2
-* item 3''',
-          );
+* item 3''');
 
-          testMarkdown(
-            'unordered lists (with different syntax divided with space from text)',
-            '''
+          testMarkdown('unordered lists (with different syntax divided with space from text)', '''
 * item 1
 + item 2
-- item 3''',
-          );
+- item 3''');
         });
 
         group('task lists', () {
-          testMarkdown(
-            'task list (with `- [ ]` and `- [x]` syntax divided with space from text)',
-            '''
+          testMarkdown('task list (with `- [ ]` and `- [x]` syntax divided with space from text)', '''
 - [ ] item 1
 - [x] item 2
-- [ ] item 3''',
-          );
+- [ ] item 3''');
         });
 
         group('tables', () {
@@ -549,10 +446,7 @@ void main() {
         });
 
         group('dividers', () {
-          testMarkdown(
-            'dividers (with different syntax)',
-            '***\n---\n___',
-          );
+          testMarkdown('dividers (with different syntax)', '***\n---\n___');
         });
       });
     });

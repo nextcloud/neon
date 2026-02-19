@@ -71,10 +71,7 @@ class TestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme.test(
-      platform: platform,
-      appThemes: appThemes,
-    );
+    final theme = AppTheme.test(platform: platform, appThemes: appThemes);
 
     var child = this.child;
     if (wrapMaterial && platform != TargetPlatform.iOS && platform != TargetPlatform.macOS) {
@@ -82,34 +79,20 @@ class TestApp extends StatelessWidget {
     }
 
     if (router != null && child != null) {
-      child = InheritedGoRouter(
-        goRouter: router!,
-        child: child,
-      );
+      child = InheritedGoRouter(goRouter: router!, child: child);
     }
 
     final app = MaterialApp(
       theme: theme.lightTheme,
-      localizationsDelegates: [
-        ...NeonLocalizations.localizationsDelegates,
-        ...?localizationsDelegates,
-      ],
-      supportedLocales: [
-        ...NeonLocalizations.supportedLocales,
-        ...?supportedLocales,
-      ],
+      localizationsDelegates: [...NeonLocalizations.localizationsDelegates, ...?localizationsDelegates],
+      supportedLocales: [...NeonLocalizations.supportedLocales, ...?supportedLocales],
       locale: locale,
-      navigatorObservers: [
-        if (navigatorObserver != null) navigatorObserver!,
-      ],
+      navigatorObservers: [if (navigatorObserver != null) navigatorObserver!],
       home: child,
     );
 
     if (providers.isNotEmpty) {
-      return MultiProvider(
-        providers: providers,
-        child: app,
-      );
+      return MultiProvider(providers: providers, child: app);
     }
 
     return app;

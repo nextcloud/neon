@@ -57,11 +57,7 @@ abstract class InteractiveBloc extends Bloc {
   /// callback falling back to [this.refresh] if not supplied. Any errors will
   /// be forwarded to [addError].
   @protected
-  Future<void> wrapAction(
-    AsyncCallback action, {
-    bool disableTimeout = false,
-    AsyncCallback? refresh,
-  }) async {
+  Future<void> wrapAction(AsyncCallback action, {bool disableTimeout = false, AsyncCallback? refresh}) async {
     try {
       if (disableTimeout) {
         await action();
@@ -71,11 +67,7 @@ abstract class InteractiveBloc extends Bloc {
 
       await (refresh ?? this.refresh)();
     } on Exception catch (error, stackTrace) {
-      log.info(
-        'An Exception has occurred executing an action.',
-        error,
-        stackTrace,
-      );
+      log.info('An Exception has occurred executing an action.', error, stackTrace);
 
       addError(error);
     }

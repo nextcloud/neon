@@ -15,11 +15,7 @@ enum StorageKey implements Storable {
   final String value;
 }
 
-enum SelectValues {
-  first,
-  second,
-  third,
-}
+enum SelectValues { first, second, third }
 
 void main() {
   final storage = MockStorage();
@@ -36,12 +32,7 @@ void main() {
 
   group('OptionSettingsTile', () {
     testWidgets('ToggleOption', (tester) async {
-      final option = ToggleOption(
-        storage: storage,
-        key: key,
-        label: (_) => 'label',
-        defaultValue: true,
-      );
+      final option = ToggleOption(storage: storage, key: key, label: (_) => 'label', defaultValue: true);
 
       final widget = TestApp(child: OptionSettingsTile(option: option));
       await tester.pumpWidgetWithAccessibility(widget);

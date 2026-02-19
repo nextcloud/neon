@@ -8,9 +8,7 @@ import 'package:meta/meta.dart';
 @internal
 final class BaseHeaderInterceptor implements HttpInterceptor {
   /// Creates a new base header interceptor.
-  const BaseHeaderInterceptor({
-    this.baseHeaders,
-  });
+  const BaseHeaderInterceptor({this.baseHeaders});
 
   /// The base headers added to each request.
   final Map<String, String>? baseHeaders;

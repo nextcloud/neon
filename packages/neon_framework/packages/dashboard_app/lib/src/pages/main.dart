@@ -19,9 +19,7 @@ import 'package:nextcloud/user_status.dart' as user_status;
 /// Displays the whole dashboard page layout.
 class DashboardMainPage extends StatelessWidget {
   /// Creates a new dashboard main page.
-  const DashboardMainPage({
-    super.key,
-  });
+  const DashboardMainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,139 +28,116 @@ class DashboardMainPage extends StatelessWidget {
     return NeonCustomBackground(
       child: ResultBuilder.behaviorSubject(
         subject: bloc.widgets,
-        builder: (context, widgetsResult) => ResultBuilder.behaviorSubject(
-          subject: bloc.items,
-          builder: (context, itemsResult) {
-            final children = <Widget>[
-              _buildStatuses(
-                userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
-                weatherStatusBloc: NeonProvider.of<WeatherStatusBloc>(context),
-              ),
-            ];
+        builder:
+            (context, widgetsResult) => ResultBuilder.behaviorSubject(
+              subject: bloc.items,
+              builder: (context, itemsResult) {
+                final children = <Widget>[
+                  _buildStatuses(
+                    userStatusBloc: NeonProvider.of<UserStatusBloc>(context),
+                    weatherStatusBloc: NeonProvider.of<WeatherStatusBloc>(context),
+                  ),
+                ];
 
-            var minHeight = 504.0;
-            if (widgetsResult.hasData) {
-              final widgets = <Widget>[];
-              for (final widget in widgetsResult.requireData) {
-                final items = buildWidgetItems(
-                  context: context,
-                  widget: widget,
-                  items: itemsResult.data?[widget.id],
-                ).toList();
+                var minHeight = 504.0;
+                if (widgetsResult.hasData) {
+                  final widgets = <Widget>[];
+                  for (final widget in widgetsResult.requireData) {
+                    final items =
+                        buildWidgetItems(
+                          context: context,
+                          widget: widget,
+                          items: itemsResult.data?[widget.id],
+                        ).toList();
 
-                final height = items.map((i) => i.height!).reduce((a, b) => a + b);
-                minHeight = max(minHeight, height);
+                    final height = items.map((i) => i.height!).reduce((a, b) => a + b);
+                    minHeight = max(minHeight, height);
 
-                widgets.add(
-                  DashboardWidget(
-                    widget: widget,
-                    children: items,
+                    widgets.add(DashboardWidget(widget: widget, children: items));
+                  }
+
+                  children.add(
+                    Wrap(
+                      alignment: WrapAlignment.center,
+                      spacing: 8,
+                      runSpacing: 8,
+                      children:
+                          widgets.map((widget) => SizedBox(width: 320, height: minHeight + 24, child: widget)).toList(),
+                    ),
+                  );
+                } else {
+                  children.add(SizedBox(height: minHeight));
+                }
+
+                return Center(
+                  child: NeonListView.custom(
+                    scrollKey: 'dashboard',
+                    isLoading: widgetsResult.isLoading || itemsResult.isLoading,
+                    error: widgetsResult.error ?? itemsResult.error,
+                    onRefresh: bloc.refresh,
+                    slivers: [
+                      SliverFillRemaining(
+                        hasScrollBody: false,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          spacing: 40,
+                          children: children,
+                        ),
+                      ),
+                    ],
                   ),
                 );
-              }
-
-              children.add(
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: widgets
-                      .map(
-                        (widget) => SizedBox(
-                          width: 320,
-                          height: minHeight + 24,
-                          child: widget,
-                        ),
-                      )
-                      .toList(),
-                ),
-              );
-            } else {
-              children.add(
-                SizedBox(
-                  height: minHeight,
-                ),
-              );
-            }
-
-            return Center(
-              child: NeonListView.custom(
-                scrollKey: 'dashboard',
-                isLoading: widgetsResult.isLoading || itemsResult.isLoading,
-                error: widgetsResult.error ?? itemsResult.error,
-                onRefresh: bloc.refresh,
-                slivers: [
-                  SliverFillRemaining(
-                    hasScrollBody: false,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      spacing: 40,
-                      children: children,
-                    ),
-                  ),
-                ],
-              ),
-            );
-          },
-        ),
+              },
+            ),
       ),
     );
   }
 
-  Widget _buildStatuses({
-    required UserStatusBloc userStatusBloc,
-    required WeatherStatusBloc weatherStatusBloc,
-  }) =>
-      Wrap(
-        alignment: WrapAlignment.center,
-        spacing: 8,
-        runSpacing: 8,
-        children: <Widget>[
-          ResultBuilder.behaviorSubject(
-            subject: userStatusBloc.status,
-            builder: (context, statusResult) {
-              final status = statusResult.data;
+  Widget _buildStatuses({required UserStatusBloc userStatusBloc, required WeatherStatusBloc weatherStatusBloc}) => Wrap(
+    alignment: WrapAlignment.center,
+    spacing: 8,
+    runSpacing: 8,
+    children: <Widget>[
+      ResultBuilder.behaviorSubject(
+        subject: userStatusBloc.status,
+        builder: (context, statusResult) {
+          final status = statusResult.data;
 
-              final label = StringBuffer();
-              if (status?.icon == null && status?.message == null) {
-                label.write(DashboardLocalizations.of(context).setUserStatus);
-              } else {
-                if (status?.icon != null) {
-                  label.write(status!.icon);
-                }
-                if (status?.icon != null && status?.message != null) {
-                  label.write(' ');
-                }
-                if (status?.message != null) {
-                  label.write(status!.message);
-                }
-              }
+          final label = StringBuffer();
+          if (status?.icon == null && status?.message == null) {
+            label.write(DashboardLocalizations.of(context).setUserStatus);
+          } else {
+            if (status?.icon != null) {
+              label.write(status!.icon);
+            }
+            if (status?.icon != null && status?.message != null) {
+              label.write(' ');
+            }
+            if (status?.message != null) {
+              label.write(status!.message);
+            }
+          }
 
-              var statusIcon = status?.status ?? user_status.$Type.online;
-              if (statusIcon == user_status.$Type.offline) {
-                statusIcon = user_status.$Type.invisible;
-              }
+          var statusIcon = status?.status ?? user_status.$Type.online;
+          if (statusIcon == user_status.$Type.offline) {
+            statusIcon = user_status.$Type.invisible;
+          }
 
-              return _buildStatus(
-                context: context,
-                icon: NeonUserStatusIcon(
-                  type: statusIcon,
-                  size: 20,
-                ),
-                label: Text(label.toString()),
-                onPressed: () async {
-                  await showDialog<void>(
-                    context: context,
-                    builder: (context) => const NeonUserStatusDialog(),
-                  );
-                },
-              );
+          return _buildStatus(
+            context: context,
+            icon: NeonUserStatusIcon(type: statusIcon, size: 20),
+            label: Text(label.toString()),
+            onPressed: () async {
+              await showDialog<void>(context: context, builder: (context) => const NeonUserStatusDialog());
             },
-          ),
-          StreamBuilder(
-            stream: weatherStatusBloc.isSupported,
-            builder: (context, weatherStatusSupportedSnapshot) => ResultBuilder.behaviorSubject(
+          );
+        },
+      ),
+      StreamBuilder(
+        stream: weatherStatusBloc.isSupported,
+        builder:
+            (context, weatherStatusSupportedSnapshot) => ResultBuilder.behaviorSubject(
               subject: weatherStatusBloc.forecasts,
               builder: (context, forecastsResult) {
                 if (weatherStatusSupportedSnapshot.hasData && !weatherStatusSupportedSnapshot.requireData) {
@@ -172,9 +147,10 @@ class DashboardMainPage extends StatelessWidget {
                 Future<void> onWeatherStatusPressed() async {
                   final location = await showDialog<String>(
                     context: context,
-                    builder: (context) => DashboardSetWeatherLocationDialog(
-                      currentAddress: weatherStatusBloc.location.valueOrNull?.data?.address,
-                    ),
+                    builder:
+                        (context) => DashboardSetWeatherLocationDialog(
+                          currentAddress: weatherStatusBloc.location.valueOrNull?.data?.address,
+                        ),
                   );
                   if (location != null) {
                     weatherStatusBloc.setLocation(location);
@@ -185,52 +161,45 @@ class DashboardMainPage extends StatelessWidget {
                 if (forecasts != null) {
                   final weatherCode = forecasts.first.data.next1Hours.summary.symbolCode;
                   final temperature = forecasts.first.data.instant.details.airTemperature;
-                  final description = DashboardLocalizations.of(context).weather(
-                    weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''),
-                  );
+                  final description = DashboardLocalizations.of(
+                    context,
+                  ).weather(weatherCode.replaceAll(RegExp(r'_(day|night)$'), ''));
 
                   return _buildStatus(
                     context: context,
-                    icon: NeonServerIcon(
-                      icon: weatherCode,
-                    ),
+                    icon: NeonServerIcon(icon: weatherCode),
                     label: Text('$temperature °C $description'),
                     onPressed: onWeatherStatusPressed,
                   );
                 } else {
                   return _buildStatus(
                     context: context,
-                    icon: const NeonServerIcon(
-                      icon: 'fair_day',
-                    ),
+                    icon: const NeonServerIcon(icon: 'fair_day'),
                     label: Text(DashboardLocalizations.of(context).locationSet),
                     onPressed: onWeatherStatusPressed,
                   );
                 }
               },
             ),
-          ),
-        ],
-      );
+      ),
+    ],
+  );
 
   Widget _buildStatus({
     required BuildContext context,
     required Widget icon,
     required Widget label,
     required VoidCallback onPressed,
-  }) =>
-      ActionChip(
-        avatar: icon,
-        label: label,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(50),
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
-          ),
-        ),
-        padding: const EdgeInsets.all(15),
-        onPressed: onPressed,
-      );
+  }) => ActionChip(
+    avatar: icon,
+    label: label,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(50),
+      side: BorderSide(color: Theme.of(context).colorScheme.primary),
+    ),
+    padding: const EdgeInsets.all(15),
+    onPressed: onPressed,
+  );
 
   /// Builds the list of messages, [items] and buttons for a [widget].
   @visibleForTesting
@@ -243,26 +212,13 @@ class DashboardMainPage extends StatelessWidget {
       height: 64,
       child: DryIntrinsicHeight(
         child: ListTile(
-          title: Text(
-            widget.title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          leading: SizedBox.square(
-            dimension: largeIconSize,
-            child: _buildWidgetIcon(
-              context: context,
-              widget: widget,
-            ),
-          ),
+          title: Text(widget.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+          leading: SizedBox.square(dimension: largeIconSize, child: _buildWidgetIcon(context: context, widget: widget)),
         ),
       ),
     );
 
-    yield const SizedBox(
-      height: 20,
-    );
+    yield const SizedBox(height: 20);
 
     final emptyContentMessage = _buildMessage(items?.emptyContentMessage);
     final halfEmptyContentMessage = _buildMessage(items?.halfEmptyContentMessage);
@@ -278,19 +234,12 @@ class DashboardMainPage extends StatelessWidget {
       for (final item in items!.items) {
         yield SizedBox(
           height: 64,
-          child: DryIntrinsicHeight(
-            child: DashboardWidgetItem(
-              item: item,
-              roundIcon: widget.itemIconsRound,
-            ),
-          ),
+          child: DryIntrinsicHeight(child: DashboardWidgetItem(item: item, roundIcon: widget.itemIconsRound)),
         );
       }
     }
 
-    yield const SizedBox(
-      height: 20,
-    );
+    yield const SizedBox(height: 20);
 
     if (widget.buttons != null) {
       for (final button in widget.buttons!) {
@@ -298,19 +247,14 @@ class DashboardMainPage extends StatelessWidget {
           height: 56,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 4),
-            child: DashboardWidgetButton(
-              button: button,
-            ),
+            child: DashboardWidgetButton(button: button),
           ),
         );
       }
     }
   }
 
-  static Widget _buildWidgetIcon({
-    required BuildContext context,
-    required dashboard.Widget widget,
-  }) {
+  static Widget _buildWidgetIcon({required BuildContext context, required dashboard.Widget widget}) {
     final colorFilter = ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn);
 
     if (widget.iconUrl.isNotEmpty) {
@@ -323,18 +267,10 @@ class DashboardMainPage extends StatelessWidget {
     }
 
     if (widget.iconClass.isNotEmpty) {
-      return NeonServerIcon(
-        icon: widget.iconClass,
-        colorFilter: colorFilter,
-        size: largeIconSize,
-      );
+      return NeonServerIcon(icon: widget.iconClass, colorFilter: colorFilter, size: largeIconSize);
     }
 
-    return Icon(
-      AdaptiveIcons.question_mark,
-      color: Theme.of(context).colorScheme.primary,
-      size: largeIconSize,
-    );
+    return Icon(AdaptiveIcons.question_mark, color: Theme.of(context).colorScheme.primary, size: largeIconSize);
   }
 
   static SizedBox? _buildMessage(String? message) {
@@ -344,17 +280,7 @@ class DashboardMainPage extends StatelessWidget {
 
     return SizedBox(
       height: 60,
-      child: Center(
-        child: Column(
-          children: [
-            Icon(
-              AdaptiveIcons.check,
-              size: largeIconSize,
-            ),
-            Text(message),
-          ],
-        ),
-      ),
+      child: Center(child: Column(children: [Icon(AdaptiveIcons.check, size: largeIconSize), Text(message)])),
     );
   }
 }

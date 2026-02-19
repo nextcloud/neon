@@ -33,11 +33,7 @@ if unsure about the logging level to use.
   static const String _debugPrint = 'debugPrint';
 
   @override
-  void run(
-    CustomLintResolver resolver,
-    ErrorReporter reporter,
-    CustomLintContext context,
-  ) {
+  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addInvocationExpression((node) {
       final element = node.function;
       if (element case Identifier(:final name) when name.startsWith(_debugPrint)) {

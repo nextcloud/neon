@@ -12,17 +12,12 @@ part 'login_flow_v2_state.dart';
 
 @internal
 class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
-  LoginFlowV2Bloc({
-    required AccountRepository accountRepository,
-    required Uri serverURL,
-  })  : _accountRepository = accountRepository,
-        super(LoginFlowV2StateInitial(serverURL: serverURL)) {
+  LoginFlowV2Bloc({required AccountRepository accountRepository, required Uri serverURL})
+    : _accountRepository = accountRepository,
+      super(LoginFlowV2StateInitial(serverURL: serverURL)) {
     on<LoginFlowV2Init>(_onLoginFlowV2Init);
     on<LoginFlowV2OpenPage>(_onLoginFlowV2OpenPage);
-    on<_LoginFlowV2Poll>(
-      _onLoginFlowV2Poll,
-      transformer: droppable(),
-    );
+    on<_LoginFlowV2Poll>(_onLoginFlowV2Poll, transformer: droppable());
   }
 
   final AccountRepository _accountRepository;
@@ -35,13 +30,7 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
     try {
       final (loginUrl, token) = await _accountRepository.loginFlowInit(state.serverURL);
 
-      emit(
-        LoginFlowV2StatePolling(
-          serverURL: state.serverURL,
-          loginEndpoint: loginUrl,
-          token: token,
-        ),
-      );
+      emit(LoginFlowV2StatePolling(serverURL: state.serverURL, loginEndpoint: loginUrl, token: token));
 
       add(const LoginFlowV2OpenPage());
       _pollTimer = Timer.periodic(const Duration(seconds: 1), (_) {
@@ -58,10 +47,7 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
       return;
     }
 
-    await launchUrl(
-      state.loginEndpoint,
-      mode: LaunchMode.externalApplication,
-    );
+    await launchUrl(state.loginEndpoint, mode: LaunchMode.externalApplication);
   }
 
   Future<void> _onLoginFlowV2Poll(_LoginFlowV2Poll event, Emitter<LoginFlowV2State> emit) async {
@@ -71,26 +57,14 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
     }
 
     try {
-      final credentials = await _accountRepository.loginFlowPoll(
-        state.serverURL,
-        state.token,
-      );
+      final credentials = await _accountRepository.loginFlowPoll(state.serverURL, state.token);
 
       if (credentials != null) {
         _pollTimer?.cancel();
-        emit(
-          LoginFlowV2StateSuccess(
-            serverURL: state.serverURL,
-            credentials: credentials,
-          ),
-        );
+        emit(LoginFlowV2StateSuccess(serverURL: state.serverURL, credentials: credentials));
       }
     } on PollLoginFailure catch (error, stackTrace) {
-      emit(
-        LoginFlowV2StateInitial(
-          serverURL: state.serverURL,
-        ),
-      );
+      emit(LoginFlowV2StateInitial(serverURL: state.serverURL));
       addError(error.error, stackTrace);
     }
   }

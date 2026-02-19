@@ -28,10 +28,11 @@ void main() {
       });
 
       test('renameCategory', () async {
-        final recipe = cookbook.RecipeBuilder()
-          ..name = 'My super cool recipe'
-          ..dateCreated = DateTime.utc(2023).toIso8601String()
-          ..recipeCategory = 'Test';
+        final recipe =
+            cookbook.RecipeBuilder()
+              ..name = 'My super cool recipe'
+              ..dateCreated = DateTime.utc(2023).toIso8601String()
+              ..recipeCategory = 'Test';
         final createResponse = await tester.client.cookbook.recipes.newRecipe($body: recipe.build());
         addTearDown(() async {
           closeFixture();
@@ -51,18 +52,20 @@ void main() {
     });
 
     group('misc', () {
-      final expectedConfig = cookbook.ConfigBuilder()
-        ..folder = '/Recipes'
-        ..updateInterval = 5
-        ..printImage = true
-        ..visibleInfoBlocks.update(
-          (b) => b
-            ..preparationTime = true
-            ..cookingTime = true
-            ..totalTime = true
-            ..nutritionInformation = true
-            ..tools = true,
-        );
+      final expectedConfig =
+          cookbook.ConfigBuilder()
+            ..folder = '/Recipes'
+            ..updateInterval = 5
+            ..printImage = true
+            ..visibleInfoBlocks.update(
+              (b) =>
+                  b
+                    ..preparationTime = true
+                    ..cookingTime = true
+                    ..totalTime = true
+                    ..nutritionInformation = true
+                    ..tools = true,
+            );
 
       test('getConfig', () async {
         final response = await tester.client.cookbook.misc.getConfig();
@@ -112,9 +115,7 @@ void main() {
       test('getImage', () async {
         final recipes = await tester.client.cookbook.recipes.listRecipes();
         final recipeWithoutImage = recipes.body.firstWhere((stub) => stub.name == 'Recipe Without an image');
-        final response = await tester.client.cookbook.recipes.getImage(
-          id: recipeWithoutImage.id,
-        );
+        final response = await tester.client.cookbook.recipes.getImage(id: recipeWithoutImage.id);
 
         expect(response.body, isNotNull);
 
@@ -134,9 +135,10 @@ void main() {
       });
 
       test('newRecipe and deleteRecipe', () async {
-        final recipe = cookbook.RecipeBuilder()
-          ..name = 'My super cool recipe'
-          ..dateCreated = DateTime.utc(2023).toIso8601String();
+        final recipe =
+            cookbook.RecipeBuilder()
+              ..name = 'My super cool recipe'
+              ..dateCreated = DateTime.utc(2023).toIso8601String();
         final createResponse = await tester.client.cookbook.recipes.newRecipe($body: recipe.build());
         expect(createResponse.body, isNotNull);
 
@@ -148,9 +150,7 @@ void main() {
         final recipes = await tester.client.cookbook.recipes.listRecipes();
 
         for (final recipe in recipes.body) {
-          final response = await tester.client.cookbook.recipes.recipeDetails(
-            id: recipe.id,
-          );
+          final response = await tester.client.cookbook.recipes.recipeDetails(id: recipe.id);
 
           expect(response.body, isNotNull);
         }
@@ -163,9 +163,10 @@ void main() {
       });
 
       test('updateRecipe', () async {
-        final recipe = cookbook.RecipeBuilder()
-          ..name = 'My super cool recipe'
-          ..dateCreated = DateTime.utc(2023).toIso8601String();
+        final recipe =
+            cookbook.RecipeBuilder()
+              ..name = 'My super cool recipe'
+              ..dateCreated = DateTime.utc(2023).toIso8601String();
         final createResponse = await tester.client.cookbook.recipes.newRecipe($body: recipe.build());
         addTearDown(() async {
           closeFixture();
@@ -176,8 +177,10 @@ void main() {
         recipe
           ..id = createResponse.body.toString()
           ..name = 'My updated super cool recipe';
-        final updateResponse = await tester.client.cookbook.recipes
-            .updateRecipe(id: createResponse.body.toString(), $body: recipe.build());
+        final updateResponse = await tester.client.cookbook.recipes.updateRecipe(
+          id: createResponse.body.toString(),
+          $body: recipe.build(),
+        );
         expect(updateResponse.body, isNotNull);
       });
     });

@@ -36,8 +36,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   final String wireName = 'OCSMeta';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, OCSMeta object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    OCSMeta object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'status',
       serializers.serialize(object.status, specifiedType: const FullType(String)),
@@ -67,8 +70,11 @@ class _$OCSMetaSerializer implements StructuredSerializer<OCSMeta> {
   }
 
   @override
-  OCSMeta deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  OCSMeta deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = OCSMetaBuilder();
 
     final iterator = serialized.iterator;
@@ -104,25 +110,28 @@ class _$ApiGenerateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ApiGenerateResponseApplicationJson_Ocs_Data,
-    _$ApiGenerateResponseApplicationJson_Ocs_Data
+    _$ApiGenerateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ApiGenerateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGenerateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'password',
-      serializers.serialize(object.password, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiGenerateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['password', serializers.serialize(object.password, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  ApiGenerateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiGenerateResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiGenerateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -149,8 +158,11 @@ class _$ApiGenerateResponseApplicationJson_OcsSerializer
   final String wireName = 'ApiGenerateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGenerateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiGenerateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -162,8 +174,11 @@ class _$ApiGenerateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiGenerateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiGenerateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiGenerateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -176,9 +191,10 @@ class _$ApiGenerateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiGenerateResponseApplicationJson_Ocs_Data))!
-              as ApiGenerateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ApiGenerateResponseApplicationJson_Ocs_Data))!
+                as ApiGenerateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -195,8 +211,11 @@ class _$ApiGenerateResponseApplicationJsonSerializer
   final String wireName = 'ApiGenerateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiGenerateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiGenerateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiGenerateResponseApplicationJson_Ocs)),
@@ -206,8 +225,11 @@ class _$ApiGenerateResponseApplicationJsonSerializer
   }
 
   @override
-  ApiGenerateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiGenerateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiGenerateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -218,8 +240,9 @@ class _$ApiGenerateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiGenerateResponseApplicationJson_Ocs))!
-                  as ApiGenerateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiGenerateResponseApplicationJson_Ocs))!
+                as ApiGenerateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -235,19 +258,22 @@ class _$ApiValidateRequestApplicationJsonSerializer implements StructuredSeriali
   final String wireName = 'ApiValidateRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiValidateRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'password',
-      serializers.serialize(object.password, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiValidateRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['password', serializers.serialize(object.password, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  ApiValidateRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiValidateRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiValidateRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -271,18 +297,18 @@ class _$ApiValidateResponseApplicationJson_Ocs_DataSerializer
   @override
   final Iterable<Type> types = const [
     ApiValidateResponseApplicationJson_Ocs_Data,
-    _$ApiValidateResponseApplicationJson_Ocs_Data
+    _$ApiValidateResponseApplicationJson_Ocs_Data,
   ];
   @override
   final String wireName = 'ApiValidateResponseApplicationJson_Ocs_Data';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiValidateResponseApplicationJson_Ocs_Data object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'passed',
-      serializers.serialize(object.passed, specifiedType: const FullType(bool)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiValidateResponseApplicationJson_Ocs_Data object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['passed', serializers.serialize(object.passed, specifiedType: const FullType(bool))];
     Object? value;
     value = object.reason;
     if (value != null) {
@@ -294,8 +320,11 @@ class _$ApiValidateResponseApplicationJson_Ocs_DataSerializer
   }
 
   @override
-  ApiValidateResponseApplicationJson_Ocs_Data deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiValidateResponseApplicationJson_Ocs_Data deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiValidateResponseApplicationJson_Ocs_DataBuilder();
 
     final iterator = serialized.iterator;
@@ -325,8 +354,11 @@ class _$ApiValidateResponseApplicationJson_OcsSerializer
   final String wireName = 'ApiValidateResponseApplicationJson_Ocs';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiValidateResponseApplicationJson_Ocs object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiValidateResponseApplicationJson_Ocs object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'meta',
       serializers.serialize(object.meta, specifiedType: const FullType(OCSMeta)),
@@ -338,8 +370,11 @@ class _$ApiValidateResponseApplicationJson_OcsSerializer
   }
 
   @override
-  ApiValidateResponseApplicationJson_Ocs deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiValidateResponseApplicationJson_Ocs deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiValidateResponseApplicationJson_OcsBuilder();
 
     final iterator = serialized.iterator;
@@ -352,9 +387,10 @@ class _$ApiValidateResponseApplicationJson_OcsSerializer
           result.meta.replace(serializers.deserialize(value, specifiedType: const FullType(OCSMeta))! as OCSMeta);
           break;
         case 'data':
-          result.data.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(ApiValidateResponseApplicationJson_Ocs_Data))!
-              as ApiValidateResponseApplicationJson_Ocs_Data);
+          result.data.replace(
+            serializers.deserialize(value, specifiedType: const FullType(ApiValidateResponseApplicationJson_Ocs_Data))!
+                as ApiValidateResponseApplicationJson_Ocs_Data,
+          );
           break;
       }
     }
@@ -371,8 +407,11 @@ class _$ApiValidateResponseApplicationJsonSerializer
   final String wireName = 'ApiValidateResponseApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, ApiValidateResponseApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    ApiValidateResponseApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'ocs',
       serializers.serialize(object.ocs, specifiedType: const FullType(ApiValidateResponseApplicationJson_Ocs)),
@@ -382,8 +421,11 @@ class _$ApiValidateResponseApplicationJsonSerializer
   }
 
   @override
-  ApiValidateResponseApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  ApiValidateResponseApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ApiValidateResponseApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -394,8 +436,9 @@ class _$ApiValidateResponseApplicationJsonSerializer
       switch (key) {
         case 'ocs':
           result.ocs.replace(
-              serializers.deserialize(value, specifiedType: const FullType(ApiValidateResponseApplicationJson_Ocs))!
-                  as ApiValidateResponseApplicationJson_Ocs);
+            serializers.deserialize(value, specifiedType: const FullType(ApiValidateResponseApplicationJson_Ocs))!
+                as ApiValidateResponseApplicationJson_Ocs,
+          );
           break;
       }
     }
@@ -411,8 +454,11 @@ class _$Capabilities_PasswordPolicy_ApiSerializer implements StructuredSerialize
   final String wireName = 'Capabilities_PasswordPolicy_Api';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_PasswordPolicy_Api object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_PasswordPolicy_Api object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'generate',
       serializers.serialize(object.generate, specifiedType: const FullType(String)),
@@ -424,8 +470,11 @@ class _$Capabilities_PasswordPolicy_ApiSerializer implements StructuredSerialize
   }
 
   @override
-  Capabilities_PasswordPolicy_Api deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_PasswordPolicy_Api deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_PasswordPolicy_ApiBuilder();
 
     final iterator = serialized.iterator;
@@ -455,8 +504,11 @@ class _$Capabilities_PasswordPolicy_PoliciesSerializer
   final String wireName = 'Capabilities_PasswordPolicy_Policies';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_PasswordPolicy_Policies object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_PasswordPolicy_Policies object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'minLength',
       serializers.serialize(object.minLength, specifiedType: const FullType(int)),
@@ -476,8 +528,11 @@ class _$Capabilities_PasswordPolicy_PoliciesSerializer
   }
 
   @override
-  Capabilities_PasswordPolicy_Policies deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_PasswordPolicy_Policies deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_PasswordPolicy_PoliciesBuilder();
 
     final iterator = serialized.iterator;
@@ -521,15 +576,22 @@ class _$Capabilities_PasswordPolicySerializer implements StructuredSerializer<Ca
   final String wireName = 'Capabilities_PasswordPolicy';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities_PasswordPolicy object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities_PasswordPolicy object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'api',
       serializers.serialize(object.api, specifiedType: const FullType(Capabilities_PasswordPolicy_Api)),
       'policies',
-      serializers.serialize(object.policies,
-          specifiedType: const FullType(
-              BuiltMap, const [const FullType(String), const FullType(Capabilities_PasswordPolicy_Policies)])),
+      serializers.serialize(
+        object.policies,
+        specifiedType: const FullType(BuiltMap, const [
+          const FullType(String),
+          const FullType(Capabilities_PasswordPolicy_Policies),
+        ]),
+      ),
       'minLength',
       serializers.serialize(object.minLength, specifiedType: const FullType(int)),
       'enforceNonCommonPassword',
@@ -546,8 +608,11 @@ class _$Capabilities_PasswordPolicySerializer implements StructuredSerializer<Ca
   }
 
   @override
-  Capabilities_PasswordPolicy deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities_PasswordPolicy deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = Capabilities_PasswordPolicyBuilder();
 
     final iterator = serialized.iterator;
@@ -557,13 +622,21 @@ class _$Capabilities_PasswordPolicySerializer implements StructuredSerializer<Ca
       final Object? value = iterator.current;
       switch (key) {
         case 'api':
-          result.api.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_PasswordPolicy_Api))! as Capabilities_PasswordPolicy_Api);
+          result.api.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_PasswordPolicy_Api))!
+                as Capabilities_PasswordPolicy_Api,
+          );
           break;
         case 'policies':
-          result.policies.replace(serializers.deserialize(value,
-              specifiedType: const FullType(
-                  BuiltMap, const [const FullType(String), const FullType(Capabilities_PasswordPolicy_Policies)]))!);
+          result.policies.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(Capabilities_PasswordPolicy_Policies),
+              ]),
+            )!,
+          );
           break;
         case 'minLength':
           result.minLength = serializers.deserialize(value, specifiedType: const FullType(int))! as int;
@@ -597,8 +670,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   final String wireName = 'Capabilities';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Capabilities object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Capabilities object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'password_policy',
       serializers.serialize(object.passwordPolicy, specifiedType: const FullType(Capabilities_PasswordPolicy)),
@@ -608,8 +684,11 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
   }
 
   @override
-  Capabilities deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Capabilities deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CapabilitiesBuilder();
 
     final iterator = serialized.iterator;
@@ -619,8 +698,10 @@ class _$CapabilitiesSerializer implements StructuredSerializer<Capabilities> {
       final Object? value = iterator.current;
       switch (key) {
         case 'password_policy':
-          result.passwordPolicy.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Capabilities_PasswordPolicy))! as Capabilities_PasswordPolicy);
+          result.passwordPolicy.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Capabilities_PasswordPolicy))!
+                as Capabilities_PasswordPolicy,
+          );
           break;
       }
     }
@@ -663,7 +744,7 @@ class _$OCSMeta extends OCSMeta {
   factory _$OCSMeta([void Function(OCSMetaBuilder)? updates]) => (OCSMetaBuilder()..update(updates))._build();
 
   _$OCSMeta._({required this.status, required this.statuscode, this.message, this.totalitems, this.itemsperpage})
-      : super._();
+    : super._();
   @override
   OCSMeta rebuild(void Function(OCSMetaBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -760,7 +841,8 @@ class OCSMetaBuilder implements Builder<OCSMeta, OCSMetaBuilder>, $OCSMetaInterf
 
   _$OCSMeta _build() {
     OCSMeta._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$OCSMeta._(
           status: BuiltValueNullFieldError.checkNotNull(status, r'OCSMeta', 'status'),
           statuscode: BuiltValueNullFieldError.checkNotNull(statuscode, r'OCSMeta', 'statuscode'),
@@ -784,15 +866,15 @@ class _$ApiGenerateResponseApplicationJson_Ocs_Data extends ApiGenerateResponseA
   @override
   final String password;
 
-  factory _$ApiGenerateResponseApplicationJson_Ocs_Data(
-          [void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ApiGenerateResponseApplicationJson_Ocs_Data([
+    void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ApiGenerateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ApiGenerateResponseApplicationJson_Ocs_Data._({required this.password}) : super._();
   @override
   ApiGenerateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiGenerateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiGenerateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -814,8 +896,8 @@ class _$ApiGenerateResponseApplicationJson_Ocs_Data extends ApiGenerateResponseA
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ApiGenerateResponseApplicationJson_Ocs_Data')..add('password', password))
-        .toString();
+    return (newBuiltValueToStringHelper(r'ApiGenerateResponseApplicationJson_Ocs_Data')
+      ..add('password', password)).toString();
   }
 }
 
@@ -857,10 +939,14 @@ class ApiGenerateResponseApplicationJson_Ocs_DataBuilder
 
   _$ApiGenerateResponseApplicationJson_Ocs_Data _build() {
     ApiGenerateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiGenerateResponseApplicationJson_Ocs_Data._(
           password: BuiltValueNullFieldError.checkNotNull(
-              password, r'ApiGenerateResponseApplicationJson_Ocs_Data', 'password'),
+            password,
+            r'ApiGenerateResponseApplicationJson_Ocs_Data',
+            'password',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -883,15 +969,15 @@ class _$ApiGenerateResponseApplicationJson_Ocs extends ApiGenerateResponseApplic
   @override
   final ApiGenerateResponseApplicationJson_Ocs_Data data;
 
-  factory _$ApiGenerateResponseApplicationJson_Ocs(
-          [void Function(ApiGenerateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiGenerateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiGenerateResponseApplicationJson_Ocs([
+    void Function(ApiGenerateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiGenerateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiGenerateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiGenerateResponseApplicationJson_Ocs rebuild(
-          void Function(ApiGenerateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiGenerateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiGenerateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -967,11 +1053,7 @@ class ApiGenerateResponseApplicationJson_OcsBuilder
     ApiGenerateResponseApplicationJson_Ocs._validate(this);
     _$ApiGenerateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiGenerateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiGenerateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1072,10 +1154,7 @@ class ApiGenerateResponseApplicationJsonBuilder
     ApiGenerateResponseApplicationJson._validate(this);
     _$ApiGenerateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiGenerateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiGenerateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1171,7 +1250,8 @@ class ApiValidateRequestApplicationJsonBuilder
 
   _$ApiValidateRequestApplicationJson _build() {
     ApiValidateRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiValidateRequestApplicationJson._(
           password: BuiltValueNullFieldError.checkNotNull(password, r'ApiValidateRequestApplicationJson', 'password'),
         );
@@ -1196,15 +1276,15 @@ class _$ApiValidateResponseApplicationJson_Ocs_Data extends ApiValidateResponseA
   @override
   final String? reason;
 
-  factory _$ApiValidateResponseApplicationJson_Ocs_Data(
-          [void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder)? updates]) =>
-      (ApiValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
+  factory _$ApiValidateResponseApplicationJson_Ocs_Data([
+    void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder)? updates,
+  ]) => (ApiValidateResponseApplicationJson_Ocs_DataBuilder()..update(updates))._build();
 
   _$ApiValidateResponseApplicationJson_Ocs_Data._({required this.passed, this.reason}) : super._();
   @override
   ApiValidateResponseApplicationJson_Ocs_Data rebuild(
-          void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiValidateResponseApplicationJson_Ocs_DataBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiValidateResponseApplicationJson_Ocs_DataBuilder toBuilder() =>
@@ -1277,10 +1357,14 @@ class ApiValidateResponseApplicationJson_Ocs_DataBuilder
 
   _$ApiValidateResponseApplicationJson_Ocs_Data _build() {
     ApiValidateResponseApplicationJson_Ocs_Data._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$ApiValidateResponseApplicationJson_Ocs_Data._(
-          passed:
-              BuiltValueNullFieldError.checkNotNull(passed, r'ApiValidateResponseApplicationJson_Ocs_Data', 'passed'),
+          passed: BuiltValueNullFieldError.checkNotNull(
+            passed,
+            r'ApiValidateResponseApplicationJson_Ocs_Data',
+            'passed',
+          ),
           reason: reason,
         );
     replace(_$result);
@@ -1304,15 +1388,15 @@ class _$ApiValidateResponseApplicationJson_Ocs extends ApiValidateResponseApplic
   @override
   final ApiValidateResponseApplicationJson_Ocs_Data data;
 
-  factory _$ApiValidateResponseApplicationJson_Ocs(
-          [void Function(ApiValidateResponseApplicationJson_OcsBuilder)? updates]) =>
-      (ApiValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
+  factory _$ApiValidateResponseApplicationJson_Ocs([
+    void Function(ApiValidateResponseApplicationJson_OcsBuilder)? updates,
+  ]) => (ApiValidateResponseApplicationJson_OcsBuilder()..update(updates))._build();
 
   _$ApiValidateResponseApplicationJson_Ocs._({required this.meta, required this.data}) : super._();
   @override
   ApiValidateResponseApplicationJson_Ocs rebuild(
-          void Function(ApiValidateResponseApplicationJson_OcsBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ApiValidateResponseApplicationJson_OcsBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ApiValidateResponseApplicationJson_OcsBuilder toBuilder() =>
@@ -1388,11 +1472,7 @@ class ApiValidateResponseApplicationJson_OcsBuilder
     ApiValidateResponseApplicationJson_Ocs._validate(this);
     _$ApiValidateResponseApplicationJson_Ocs _$result;
     try {
-      _$result = _$v ??
-          _$ApiValidateResponseApplicationJson_Ocs._(
-            meta: meta.build(),
-            data: data.build(),
-          );
+      _$result = _$v ?? _$ApiValidateResponseApplicationJson_Ocs._(meta: meta.build(), data: data.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1493,10 +1573,7 @@ class ApiValidateResponseApplicationJsonBuilder
     ApiValidateResponseApplicationJson._validate(this);
     _$ApiValidateResponseApplicationJson _$result;
     try {
-      _$result = _$v ??
-          _$ApiValidateResponseApplicationJson._(
-            ocs: ocs.build(),
-          );
+      _$result = _$v ?? _$ApiValidateResponseApplicationJson._(ocs: ocs.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1606,7 +1683,8 @@ class Capabilities_PasswordPolicy_ApiBuilder
 
   _$Capabilities_PasswordPolicy_Api _build() {
     Capabilities_PasswordPolicy_Api._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_PasswordPolicy_Api._(
           generate: BuiltValueNullFieldError.checkNotNull(generate, r'Capabilities_PasswordPolicy_Api', 'generate'),
           validate: BuiltValueNullFieldError.checkNotNull(validate, r'Capabilities_PasswordPolicy_Api', 'validate'),
@@ -1652,18 +1730,18 @@ class _$Capabilities_PasswordPolicy_Policies extends Capabilities_PasswordPolicy
   @override
   final bool enforceUpperLowerCase;
 
-  factory _$Capabilities_PasswordPolicy_Policies(
-          [void Function(Capabilities_PasswordPolicy_PoliciesBuilder)? updates]) =>
-      (Capabilities_PasswordPolicy_PoliciesBuilder()..update(updates))._build();
+  factory _$Capabilities_PasswordPolicy_Policies([
+    void Function(Capabilities_PasswordPolicy_PoliciesBuilder)? updates,
+  ]) => (Capabilities_PasswordPolicy_PoliciesBuilder()..update(updates))._build();
 
-  _$Capabilities_PasswordPolicy_Policies._(
-      {required this.minLength,
-      required this.enforceHaveIBeenPwned,
-      required this.enforceNonCommonPassword,
-      required this.enforceNumericCharacters,
-      required this.enforceSpecialCharacters,
-      required this.enforceUpperLowerCase})
-      : super._();
+  _$Capabilities_PasswordPolicy_Policies._({
+    required this.minLength,
+    required this.enforceHaveIBeenPwned,
+    required this.enforceNonCommonPassword,
+    required this.enforceNumericCharacters,
+    required this.enforceSpecialCharacters,
+    required this.enforceUpperLowerCase,
+  }) : super._();
   @override
   Capabilities_PasswordPolicy_Policies rebuild(void Function(Capabilities_PasswordPolicy_PoliciesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1778,20 +1856,39 @@ class Capabilities_PasswordPolicy_PoliciesBuilder
 
   _$Capabilities_PasswordPolicy_Policies _build() {
     Capabilities_PasswordPolicy_Policies._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Capabilities_PasswordPolicy_Policies._(
-          minLength:
-              BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy_Policies', 'minLength'),
+          minLength: BuiltValueNullFieldError.checkNotNull(
+            minLength,
+            r'Capabilities_PasswordPolicy_Policies',
+            'minLength',
+          ),
           enforceHaveIBeenPwned: BuiltValueNullFieldError.checkNotNull(
-              enforceHaveIBeenPwned, r'Capabilities_PasswordPolicy_Policies', 'enforceHaveIBeenPwned'),
+            enforceHaveIBeenPwned,
+            r'Capabilities_PasswordPolicy_Policies',
+            'enforceHaveIBeenPwned',
+          ),
           enforceNonCommonPassword: BuiltValueNullFieldError.checkNotNull(
-              enforceNonCommonPassword, r'Capabilities_PasswordPolicy_Policies', 'enforceNonCommonPassword'),
+            enforceNonCommonPassword,
+            r'Capabilities_PasswordPolicy_Policies',
+            'enforceNonCommonPassword',
+          ),
           enforceNumericCharacters: BuiltValueNullFieldError.checkNotNull(
-              enforceNumericCharacters, r'Capabilities_PasswordPolicy_Policies', 'enforceNumericCharacters'),
+            enforceNumericCharacters,
+            r'Capabilities_PasswordPolicy_Policies',
+            'enforceNumericCharacters',
+          ),
           enforceSpecialCharacters: BuiltValueNullFieldError.checkNotNull(
-              enforceSpecialCharacters, r'Capabilities_PasswordPolicy_Policies', 'enforceSpecialCharacters'),
+            enforceSpecialCharacters,
+            r'Capabilities_PasswordPolicy_Policies',
+            'enforceSpecialCharacters',
+          ),
           enforceUpperLowerCase: BuiltValueNullFieldError.checkNotNull(
-              enforceUpperLowerCase, r'Capabilities_PasswordPolicy_Policies', 'enforceUpperLowerCase'),
+            enforceUpperLowerCase,
+            r'Capabilities_PasswordPolicy_Policies',
+            'enforceUpperLowerCase',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1842,15 +1939,15 @@ class _$Capabilities_PasswordPolicy extends Capabilities_PasswordPolicy {
   factory _$Capabilities_PasswordPolicy([void Function(Capabilities_PasswordPolicyBuilder)? updates]) =>
       (Capabilities_PasswordPolicyBuilder()..update(updates))._build();
 
-  _$Capabilities_PasswordPolicy._(
-      {required this.api,
-      required this.policies,
-      required this.minLength,
-      required this.enforceNonCommonPassword,
-      required this.enforceNumericCharacters,
-      required this.enforceSpecialCharacters,
-      required this.enforceUpperLowerCase})
-      : super._();
+  _$Capabilities_PasswordPolicy._({
+    required this.api,
+    required this.policies,
+    required this.minLength,
+    required this.enforceNonCommonPassword,
+    required this.enforceNumericCharacters,
+    required this.enforceSpecialCharacters,
+    required this.enforceUpperLowerCase,
+  }) : super._();
   @override
   Capabilities_PasswordPolicy rebuild(void Function(Capabilities_PasswordPolicyBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1975,19 +2072,32 @@ class Capabilities_PasswordPolicyBuilder
     Capabilities_PasswordPolicy._validate(this);
     _$Capabilities_PasswordPolicy _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Capabilities_PasswordPolicy._(
             api: api.build(),
             policies: policies.build(),
             minLength: BuiltValueNullFieldError.checkNotNull(minLength, r'Capabilities_PasswordPolicy', 'minLength'),
             enforceNonCommonPassword: BuiltValueNullFieldError.checkNotNull(
-                enforceNonCommonPassword, r'Capabilities_PasswordPolicy', 'enforceNonCommonPassword'),
+              enforceNonCommonPassword,
+              r'Capabilities_PasswordPolicy',
+              'enforceNonCommonPassword',
+            ),
             enforceNumericCharacters: BuiltValueNullFieldError.checkNotNull(
-                enforceNumericCharacters, r'Capabilities_PasswordPolicy', 'enforceNumericCharacters'),
+              enforceNumericCharacters,
+              r'Capabilities_PasswordPolicy',
+              'enforceNumericCharacters',
+            ),
             enforceSpecialCharacters: BuiltValueNullFieldError.checkNotNull(
-                enforceSpecialCharacters, r'Capabilities_PasswordPolicy', 'enforceSpecialCharacters'),
+              enforceSpecialCharacters,
+              r'Capabilities_PasswordPolicy',
+              'enforceSpecialCharacters',
+            ),
             enforceUpperLowerCase: BuiltValueNullFieldError.checkNotNull(
-                enforceUpperLowerCase, r'Capabilities_PasswordPolicy', 'enforceUpperLowerCase'),
+              enforceUpperLowerCase,
+              r'Capabilities_PasswordPolicy',
+              'enforceUpperLowerCase',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -2086,10 +2196,7 @@ class CapabilitiesBuilder implements Builder<Capabilities, CapabilitiesBuilder>,
     Capabilities._validate(this);
     _$Capabilities _$result;
     try {
-      _$result = _$v ??
-          _$Capabilities._(
-            passwordPolicy: passwordPolicy.build(),
-          );
+      _$result = _$v ?? _$Capabilities._(passwordPolicy: passwordPolicy.build());
     } catch (_) {
       late String _$failedField;
       try {

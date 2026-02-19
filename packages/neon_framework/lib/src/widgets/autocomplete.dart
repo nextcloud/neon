@@ -41,7 +41,8 @@ class NeonAutocomplete extends StatefulWidget {
     BuildContext context,
     core.AutocompleteResult result,
     void Function(core.AutocompleteResult) onSelected,
-  ) resultBuilder;
+  )
+  resultBuilder;
 
   /// Called when the user selects a result.
   final void Function(core.AutocompleteResult result) onSelected;
@@ -72,17 +73,18 @@ class _NeonAutocompleteState extends State<NeonAutocomplete> {
     final account = NeonProvider.of<Account>(context);
 
     return Autocomplete<core.AutocompleteResult>(
-      fieldViewBuilder: (context, controller, focusNode, onFieldSubmitted) => TextFormField(
-        key: _textFieldKey,
-        controller: controller,
-        focusNode: focusNode,
-        validator: widget.validator,
-        decoration: widget.decoration,
-        onFieldSubmitted: (value) {
-          onFieldSubmitted();
-          widget.onFieldSubmitted?.call(value);
-        },
-      ),
+      fieldViewBuilder:
+          (context, controller, focusNode, onFieldSubmitted) => TextFormField(
+            key: _textFieldKey,
+            controller: controller,
+            focusNode: focusNode,
+            validator: widget.validator,
+            decoration: widget.decoration,
+            onFieldSubmitted: (value) {
+              onFieldSubmitted();
+              widget.onFieldSubmitted?.call(value);
+            },
+          ),
       optionsBuilder: (text) async {
         if (text.text.isEmpty) {
           return [];
@@ -108,36 +110,27 @@ class _NeonAutocompleteState extends State<NeonAutocomplete> {
           padding: EdgeInsets.zero,
           shrinkWrap: true,
           itemCount: results.length,
-          itemBuilder: (context, index) => Builder(
-            builder: (context) {
-              final highlight = AutocompleteHighlightedOption.of(context) == index;
-              if (highlight) {
-                SchedulerBinding.instance.addPostFrameCallback(
-                  (_) async => Scrollable.ensureVisible(context, alignment: 0.5),
-                );
-              }
+          itemBuilder:
+              (context, index) => Builder(
+                builder: (context) {
+                  final highlight = AutocompleteHighlightedOption.of(context) == index;
+                  if (highlight) {
+                    SchedulerBinding.instance.addPostFrameCallback(
+                      (_) async => Scrollable.ensureVisible(context, alignment: 0.5),
+                    );
+                  }
 
-              return Container(
-                color: highlight ? Theme.of(context).focusColor : null,
-                child: widget.resultBuilder(
-                  context,
-                  results.elementAt(index),
-                  onSelected,
-                ),
-              );
-            },
-          ),
+                  return Container(
+                    color: highlight ? Theme.of(context).focusColor : null,
+                    child: widget.resultBuilder(context, results.elementAt(index), onSelected),
+                  );
+                },
+              ),
         );
 
         return Align(
           alignment: Alignment.topLeft,
-          child: SizedBox(
-            width: width,
-            child: Material(
-              elevation: 4,
-              child: body,
-            ),
-          ),
+          child: SizedBox(width: width, child: Material(elevation: 4, child: body)),
         );
       },
       onSelected: widget.onSelected,

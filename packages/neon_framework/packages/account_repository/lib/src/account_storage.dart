@@ -6,10 +6,7 @@ part of 'account_repository.dart';
 @immutable
 class AccountStorage {
   /// {@macro account_repository_storage}
-  const AccountStorage({
-    required this.accountsPersistence,
-    required this.lastAccountPersistence,
-  });
+  const AccountStorage({required this.accountsPersistence, required this.lastAccountPersistence});
 
   /// The store for the account list.
   final SingleValueStore accountsPersistence;

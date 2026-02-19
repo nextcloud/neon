@@ -39,9 +39,10 @@ void main() {
       });
 
       test('RequestCache', () async {
-        final request = http.Request('GET', Uri(host: 'example.com'))
-          ..headers.addAll({'a': 'b'})
-          ..body = 'c';
+        final request =
+            http.Request('GET', Uri(host: 'example.com'))
+              ..headers.addAll({'a': 'b'})
+              ..body = 'c';
 
         var result = await cache.get(account, request);
         expect(result, isNull);
@@ -125,11 +126,9 @@ void main() {
         await SQLiteCachedPersistence.getAll();
         expect(
           SQLiteCachedPersistence.globalCache,
-          equals(
-            {
-              '': {'key': 'value'},
-            },
-          ),
+          equals({
+            '': {'key': 'value'},
+          }),
         );
       });
 
@@ -142,12 +141,10 @@ void main() {
         await SQLiteCachedPersistence().reload();
         expect(
           SQLiteCachedPersistence.globalCache,
-          equals(
-            {
-              '': {'key': 'value'},
-              'garbage': {'key2': 'value2'},
-            },
-          ),
+          equals({
+            '': {'key': 'value'},
+            'garbage': {'key2': 'value2'},
+          }),
         );
       });
 
@@ -158,23 +155,19 @@ void main() {
         await SQLiteCachedPersistence().remove('key');
         expect(
           SQLiteCachedPersistence.globalCache,
-          equals(
-            {
-              '': {},
-              'prefix': {'pKey': 'pValue'},
-            },
-          ),
+          equals({
+            '': {},
+            'prefix': {'pKey': 'pValue'},
+          }),
         );
 
         await SQLiteCachedPersistence().reload();
         expect(
           SQLiteCachedPersistence.globalCache,
-          equals(
-            {
-              '': {},
-              'prefix': {'pKey': 'pValue'},
-            },
-          ),
+          equals({
+            '': {},
+            'prefix': {'pKey': 'pValue'},
+          }),
         );
       });
 
@@ -290,10 +283,7 @@ void main() {
             ];
 
             await cookieStore.saveFromResponse(uri, cookies);
-            expect(
-              await cookieStore.loadForRequest(uri),
-              element.$2,
-            );
+            expect(await cookieStore.loadForRequest(uri), element.$2);
           });
         }
       });

@@ -75,25 +75,25 @@ final class DeleteCredentialsFailure extends AccountFailure {
 /// {@endtemplate}
 class AccountRepository {
   /// {@macro account_repository}
-  AccountRepository({
-    required String userAgent,
-    required http.Client httpClient,
-    required AccountStorage storage,
-  })  : _userAgent = userAgent,
-        _httpClient = httpClient,
-        _storage = storage;
+  AccountRepository({required String userAgent, required http.Client httpClient, required AccountStorage storage})
+    : _userAgent = userAgent,
+      _httpClient = httpClient,
+      _storage = storage;
 
   final String _userAgent;
   final http.Client _httpClient;
   final AccountStorage _storage;
 
-  final BehaviorSubject<({String? active, BuiltMap<String, Account> accounts})> _accounts =
-      BehaviorSubject.seeded((active: null, accounts: BuiltMap()));
+  final BehaviorSubject<({String? active, BuiltMap<String, Account> accounts})> _accounts = BehaviorSubject.seeded((
+    active: null,
+    accounts: BuiltMap(),
+  ));
 
   /// A stream of account information.
   ///
   /// The initial state of the stream will be `(active: null, accounts: BuiltMap())`.
-  Stream<({Account? active, BuiltList<Account> accounts})> get accounts => _accounts.stream.map((e) {
+  Stream<({Account? active, BuiltList<Account> accounts})> get accounts =>
+      _accounts.stream.map((e) {
         final active = e.accounts[e.active];
         final accounts = e.accounts.values.toBuiltList();
 
@@ -120,21 +120,14 @@ class AccountRepository {
   /// If specified [rememberLastUsedAccount] takes precedence over [initialAccount].
   /// If the stored or provided initial account are not in the list of stored credentials
   /// they are silently ignored and the default of `first account in the list` is used.
-  Future<void> loadAccounts({
-    String? initialAccount,
-    bool rememberLastUsedAccount = false,
-  }) async {
+  Future<void> loadAccounts({String? initialAccount, bool rememberLastUsedAccount = false}) async {
     final stored = await _storage.readCredentials();
     final accounts = BuiltMap<String, Account>.build((b) {
       for (final credentials in stored) {
         b[credentials.id] = Account((b) {
           b
             ..credentials.replace(credentials)
-            ..client = buildClient(
-              httpClient: _httpClient,
-              userAgent: _userAgent,
-              credentials: credentials,
-            );
+            ..client = buildClient(httpClient: _httpClient, userAgent: _userAgent, credentials: credentials);
         });
       }
     });
@@ -148,23 +141,14 @@ class AccountRepository {
       active = accounts.keys.firstOrNull;
     }
 
-    _accounts.add(
-      (
-        active: active,
-        accounts: accounts,
-      ),
-    );
+    _accounts.add((active: active, accounts: accounts));
   }
 
   /// Fetches the status of the server.
   ///
   /// May throw a [FetchStatusFailure].
   Future<core.Status> getServerStatus(Uri serverURL) async {
-    final client = buildUnauthenticatedClient(
-      httpClient: _httpClient,
-      userAgent: _userAgent,
-      serverURL: serverURL,
-    );
+    final client = buildUnauthenticatedClient(httpClient: _httpClient, userAgent: _userAgent, serverURL: serverURL);
 
     try {
       final response = await client.authentication.core.getStatus();
@@ -178,11 +162,7 @@ class AccountRepository {
   ///
   /// May throw a [InitLoginFailure].
   Future<(Uri loginUrl, String token)> loginFlowInit(Uri serverURL) async {
-    final client = buildUnauthenticatedClient(
-      httpClient: _httpClient,
-      userAgent: _userAgent,
-      serverURL: serverURL,
-    );
+    final client = buildUnauthenticatedClient(httpClient: _httpClient, userAgent: _userAgent, serverURL: serverURL);
 
     try {
       final initResponse = await client.authentication.clientFlowLoginV2.init();
@@ -201,11 +181,7 @@ class AccountRepository {
   /// Throws a [PollLoginFailure] when polling the endpoint fails. The flow must be initialized
   /// again if a failure occurs.
   Future<Credentials?> loginFlowPoll(Uri serverURL, String token) async {
-    final client = buildUnauthenticatedClient(
-      httpClient: _httpClient,
-      userAgent: _userAgent,
-      serverURL: serverURL,
-    );
+    final client = buildUnauthenticatedClient(httpClient: _httpClient, userAgent: _userAgent, serverURL: serverURL);
 
     final body = core.ClientFlowLoginV2PollRequestApplicationJson((b) {
       b.token = token;
@@ -234,11 +210,7 @@ class AccountRepository {
   ///
   /// May throw a [FetchAccountFailure].
   Future<Account> getAccount(Credentials credentials) async {
-    final client = buildClient(
-      credentials: credentials,
-      userAgent: _userAgent,
-      httpClient: _httpClient,
-    );
+    final client = buildClient(credentials: credentials, userAgent: _userAgent, httpClient: _httpClient);
 
     try {
       final response = await client.authentication.users.getCurrentUser();

@@ -7,20 +7,14 @@ void main() {
     group('LoginFlowV2StateInitial', () {
       test('supports value comparison', () {
         expect(
-          LoginFlowV2StateInitial(
-            serverURL: Uri.https('serverURL'),
-          ),
-          LoginFlowV2StateInitial(
-            serverURL: Uri.https('serverURL'),
-          ),
+          LoginFlowV2StateInitial(serverURL: Uri.https('serverURL')),
+          LoginFlowV2StateInitial(serverURL: Uri.https('serverURL')),
         );
       });
 
       test('props are correct', () {
         expect(
-          LoginFlowV2StateInitial(
-            serverURL: Uri.https('serverURL'),
-          ).props,
+          LoginFlowV2StateInitial(serverURL: Uri.https('serverURL')).props,
           equals(<Object?>[
             Uri.https('serverURL'), // serverURL
           ]),
@@ -63,23 +57,14 @@ void main() {
     group('LoginFlowV2StatePolling', () {
       test('supports value comparison', () {
         expect(
-          LoginFlowV2StateSuccess(
-            serverURL: Uri.https('serverURL'),
-            credentials: createCredentials(),
-          ),
-          LoginFlowV2StateSuccess(
-            serverURL: Uri.https('serverURL'),
-            credentials: createCredentials(),
-          ),
+          LoginFlowV2StateSuccess(serverURL: Uri.https('serverURL'), credentials: createCredentials()),
+          LoginFlowV2StateSuccess(serverURL: Uri.https('serverURL'), credentials: createCredentials()),
         );
       });
 
       test('props are correct', () {
         expect(
-          LoginFlowV2StateSuccess(
-            serverURL: Uri.https('serverURL'),
-            credentials: createCredentials(),
-          ).props,
+          LoginFlowV2StateSuccess(serverURL: Uri.https('serverURL'), credentials: createCredentials()).props,
           equals(<Object?>[
             Uri.https('serverURL'), // serverURL
             createCredentials(), // credentials

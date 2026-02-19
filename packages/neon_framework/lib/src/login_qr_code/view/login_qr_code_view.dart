@@ -16,11 +16,9 @@ class LoginQrCodeView extends StatelessWidget {
     return BlocListener<LoginQrCodeBloc, LoginQrCodeState>(
       listener: (context, state) {
         if (state.invalid) {
-          ScaffoldMessenger.maybeOf(context)?.showSnackBar(
-            SnackBar(
-              content: Text(NeonLocalizations.of(context).errorInvalidQRcode),
-            ),
-          );
+          ScaffoldMessenger.maybeOf(
+            context,
+          )?.showSnackBar(SnackBar(content: Text(NeonLocalizations.of(context).errorInvalidQRcode)));
         }
 
         final credentials = state.credentials;

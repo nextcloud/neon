@@ -17,11 +17,7 @@ Use 'pumpWidgetWithAccessibility' instead to perform automatic accessibility gui
   static const String _pumpWidget = 'pumpWidget';
 
   @override
-  void run(
-    CustomLintResolver resolver,
-    ErrorReporter reporter,
-    CustomLintContext context,
-  ) {
+  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {
     context.registry.addInvocationExpression((node) {
       if (node.function.toSource() == _pumpWidget) {
         reporter.atToken(node.beginToken, _code);

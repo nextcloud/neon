@@ -40,7 +40,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $ApiClient api = $ApiClient(this);
 
@@ -64,11 +64,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$getThumbnail_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getThumbnail_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Gets a thumbnail of the specified file.
   ///
@@ -157,11 +157,11 @@ class $ApiClient {
   /// Builds a serializer to parse the response of [$getFolderTree_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<BuiltList<FolderTree>, void> $getFolderTree_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(BuiltList, [FullType(FolderTree)]),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(BuiltList, [FullType(FolderTree)]),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns the folder tree of the user.
   ///
@@ -352,11 +352,11 @@ class $DirectEditingClient {
   /// Builds a serializer to parse the response of [$info_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DirectEditingInfoResponseApplicationJson, void> $info_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(DirectEditingInfoResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the direct editing capabilities.
   ///
@@ -520,11 +520,11 @@ class $DirectEditingClient {
   /// Builds a serializer to parse the response of [$open_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<DirectEditingOpenResponseApplicationJson, void> $open_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(DirectEditingOpenResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Open a file for direct editing.
   ///
@@ -884,11 +884,11 @@ class $TemplateClient {
   /// Builds a serializer to parse the response of [$list_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TemplateListResponseApplicationJson, void> $list_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TemplateListResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TemplateListResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// List the available templates.
   ///
@@ -1044,11 +1044,11 @@ class $TemplateClient {
   /// Builds a serializer to parse the response of [$create_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TemplateCreateResponseApplicationJson, void> $create_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TemplateCreateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TemplateCreateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a template.
   ///
@@ -1127,11 +1127,11 @@ class $TemplateClient {
   /// Builds a serializer to parse the response of [$path_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TemplatePathResponseApplicationJson, void> $path_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TemplatePathResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TemplatePathResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Initialize the template directory.
   ///
@@ -1174,16 +1174,17 @@ class $TemplateClient {
     _request.headers['OCS-APIRequest'] = const _i4.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize($body, specifiedType: const FullType(TemplatePathRequestApplicationJson)),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              TemplatePathRequestApplicationJson(),
-              specifiedType: const FullType(TemplatePathRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize($body, specifiedType: const FullType(TemplatePathRequestApplicationJson)),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                TemplatePathRequestApplicationJson(),
+                specifiedType: const FullType(TemplatePathRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -1698,8 +1699,10 @@ sealed class $ConversionApiConvertResponseApplicationJson_Ocs_DataInterface {
 abstract class ConversionApiConvertResponseApplicationJson_Ocs_Data
     implements
         $ConversionApiConvertResponseApplicationJson_Ocs_DataInterface,
-        Built<ConversionApiConvertResponseApplicationJson_Ocs_Data,
-            ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ConversionApiConvertResponseApplicationJson_Ocs_Data,
+          ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ConversionApiConvertResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ConversionApiConvertResponseApplicationJson_Ocs_Data([
     void Function(ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -1893,8 +1896,10 @@ sealed class $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors
     implements
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsInterface,
-        Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
-            DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder> {
+        Built<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors,
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder
+        > {
   /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder)? b,
@@ -1963,8 +1968,10 @@ sealed class $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterfac
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators
     implements
         $DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsInterface,
-        Built<DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
-            DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder> {
+        Built<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators,
+          DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder
+        > {
   /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder)? b,
@@ -2028,8 +2035,10 @@ sealed class $DirectEditingInfoResponseApplicationJson_Ocs_DataInterface {
 abstract class DirectEditingInfoResponseApplicationJson_Ocs_Data
     implements
         $DirectEditingInfoResponseApplicationJson_Ocs_DataInterface,
-        Built<DirectEditingInfoResponseApplicationJson_Ocs_Data,
-            DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DirectEditingInfoResponseApplicationJson_Ocs_Data,
+          DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DirectEditingInfoResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingInfoResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -2224,8 +2233,10 @@ sealed class $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesIn
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates
     implements
         $DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesInterface,
-        Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
-            DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder> {
+        Built<
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates,
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder
+        > {
   /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates([
     void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder)? b,
@@ -2288,8 +2299,10 @@ sealed class $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface {
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs_Data
     implements
         $DirectEditingTemplatesResponseApplicationJson_Ocs_DataInterface,
-        Built<DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
-            DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DirectEditingTemplatesResponseApplicationJson_Ocs_Data,
+          DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -2353,8 +2366,10 @@ sealed class $DirectEditingTemplatesResponseApplicationJson_OcsInterface {
 abstract class DirectEditingTemplatesResponseApplicationJson_Ocs
     implements
         $DirectEditingTemplatesResponseApplicationJson_OcsInterface,
-        Built<DirectEditingTemplatesResponseApplicationJson_Ocs,
-            DirectEditingTemplatesResponseApplicationJson_OcsBuilder> {
+        Built<
+          DirectEditingTemplatesResponseApplicationJson_Ocs,
+          DirectEditingTemplatesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new DirectEditingTemplatesResponseApplicationJson_Ocs object using the builder pattern.
   factory DirectEditingTemplatesResponseApplicationJson_Ocs([
     void Function(DirectEditingTemplatesResponseApplicationJson_OcsBuilder)? b,
@@ -2549,8 +2564,10 @@ sealed class $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface {
 abstract class DirectEditingOpenResponseApplicationJson_Ocs_Data
     implements
         $DirectEditingOpenResponseApplicationJson_Ocs_DataInterface,
-        Built<DirectEditingOpenResponseApplicationJson_Ocs_Data,
-            DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DirectEditingOpenResponseApplicationJson_Ocs_Data,
+          DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DirectEditingOpenResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingOpenResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -2813,8 +2830,10 @@ sealed class $DirectEditingCreateResponseApplicationJson_Ocs_DataInterface {
 abstract class DirectEditingCreateResponseApplicationJson_Ocs_Data
     implements
         $DirectEditingCreateResponseApplicationJson_Ocs_DataInterface,
-        Built<DirectEditingCreateResponseApplicationJson_Ocs_Data,
-            DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          DirectEditingCreateResponseApplicationJson_Ocs_Data,
+          DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new DirectEditingCreateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory DirectEditingCreateResponseApplicationJson_Ocs_Data([
     void Function(DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -3071,8 +3090,10 @@ sealed class $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface {
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs_Data
     implements
         $OpenLocalEditorCreateResponseApplicationJson_Ocs_DataInterface,
-        Built<OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
-            OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          OpenLocalEditorCreateResponseApplicationJson_Ocs_Data,
+          OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new OpenLocalEditorCreateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs_Data([
     void Function(OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -3136,8 +3157,10 @@ sealed class $OpenLocalEditorCreateResponseApplicationJson_OcsInterface {
 abstract class OpenLocalEditorCreateResponseApplicationJson_Ocs
     implements
         $OpenLocalEditorCreateResponseApplicationJson_OcsInterface,
-        Built<OpenLocalEditorCreateResponseApplicationJson_Ocs,
-            OpenLocalEditorCreateResponseApplicationJson_OcsBuilder> {
+        Built<
+          OpenLocalEditorCreateResponseApplicationJson_Ocs,
+          OpenLocalEditorCreateResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OpenLocalEditorCreateResponseApplicationJson_Ocs object using the builder pattern.
   factory OpenLocalEditorCreateResponseApplicationJson_Ocs([
     void Function(OpenLocalEditorCreateResponseApplicationJson_OcsBuilder)? b,
@@ -3330,8 +3353,10 @@ sealed class $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface {
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs_Data
     implements
         $OpenLocalEditorValidateResponseApplicationJson_Ocs_DataInterface,
-        Built<OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
-            OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          OpenLocalEditorValidateResponseApplicationJson_Ocs_Data,
+          OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new OpenLocalEditorValidateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs_Data([
     void Function(OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -3395,8 +3420,10 @@ sealed class $OpenLocalEditorValidateResponseApplicationJson_OcsInterface {
 abstract class OpenLocalEditorValidateResponseApplicationJson_Ocs
     implements
         $OpenLocalEditorValidateResponseApplicationJson_OcsInterface,
-        Built<OpenLocalEditorValidateResponseApplicationJson_Ocs,
-            OpenLocalEditorValidateResponseApplicationJson_OcsBuilder> {
+        Built<
+          OpenLocalEditorValidateResponseApplicationJson_Ocs,
+          OpenLocalEditorValidateResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new OpenLocalEditorValidateResponseApplicationJson_Ocs object using the builder pattern.
   factory OpenLocalEditorValidateResponseApplicationJson_Ocs([
     void Function(OpenLocalEditorValidateResponseApplicationJson_OcsBuilder)? b,
@@ -3906,8 +3933,10 @@ sealed class $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface {
 abstract class TemplateListTemplateFieldsResponseApplicationJson_Ocs
     implements
         $TemplateListTemplateFieldsResponseApplicationJson_OcsInterface,
-        Built<TemplateListTemplateFieldsResponseApplicationJson_Ocs,
-            TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder> {
+        Built<
+          TemplateListTemplateFieldsResponseApplicationJson_Ocs,
+          TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TemplateListTemplateFieldsResponseApplicationJson_Ocs object using the builder pattern.
   factory TemplateListTemplateFieldsResponseApplicationJson_Ocs([
     void Function(TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder)? b,
@@ -3970,8 +3999,10 @@ sealed class $TemplateListTemplateFieldsResponseApplicationJsonInterface {
 abstract class TemplateListTemplateFieldsResponseApplicationJson
     implements
         $TemplateListTemplateFieldsResponseApplicationJsonInterface,
-        Built<TemplateListTemplateFieldsResponseApplicationJson,
-            TemplateListTemplateFieldsResponseApplicationJsonBuilder> {
+        Built<
+          TemplateListTemplateFieldsResponseApplicationJson,
+          TemplateListTemplateFieldsResponseApplicationJsonBuilder
+        > {
   /// Creates a new TemplateListTemplateFieldsResponseApplicationJson object using the builder pattern.
   factory TemplateListTemplateFieldsResponseApplicationJson([
     void Function(TemplateListTemplateFieldsResponseApplicationJsonBuilder)? b,
@@ -4640,8 +4671,10 @@ sealed class $TransferOwnershipTransferResponseApplicationJson_OcsInterface {
 abstract class TransferOwnershipTransferResponseApplicationJson_Ocs
     implements
         $TransferOwnershipTransferResponseApplicationJson_OcsInterface,
-        Built<TransferOwnershipTransferResponseApplicationJson_Ocs,
-            TransferOwnershipTransferResponseApplicationJson_OcsBuilder> {
+        Built<
+          TransferOwnershipTransferResponseApplicationJson_Ocs,
+          TransferOwnershipTransferResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TransferOwnershipTransferResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipTransferResponseApplicationJson_Ocs([
     void Function(TransferOwnershipTransferResponseApplicationJson_OcsBuilder)? b,
@@ -4704,8 +4737,10 @@ sealed class $TransferOwnershipTransferResponseApplicationJsonInterface {
 abstract class TransferOwnershipTransferResponseApplicationJson
     implements
         $TransferOwnershipTransferResponseApplicationJsonInterface,
-        Built<TransferOwnershipTransferResponseApplicationJson,
-            TransferOwnershipTransferResponseApplicationJsonBuilder> {
+        Built<
+          TransferOwnershipTransferResponseApplicationJson,
+          TransferOwnershipTransferResponseApplicationJsonBuilder
+        > {
   /// Creates a new TransferOwnershipTransferResponseApplicationJson object using the builder pattern.
   factory TransferOwnershipTransferResponseApplicationJson([
     void Function(TransferOwnershipTransferResponseApplicationJsonBuilder)? b,
@@ -4769,8 +4804,10 @@ sealed class $TransferOwnershipAcceptResponseApplicationJson_OcsInterface {
 abstract class TransferOwnershipAcceptResponseApplicationJson_Ocs
     implements
         $TransferOwnershipAcceptResponseApplicationJson_OcsInterface,
-        Built<TransferOwnershipAcceptResponseApplicationJson_Ocs,
-            TransferOwnershipAcceptResponseApplicationJson_OcsBuilder> {
+        Built<
+          TransferOwnershipAcceptResponseApplicationJson_Ocs,
+          TransferOwnershipAcceptResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TransferOwnershipAcceptResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipAcceptResponseApplicationJson_Ocs([
     void Function(TransferOwnershipAcceptResponseApplicationJson_OcsBuilder)? b,
@@ -4897,8 +4934,10 @@ sealed class $TransferOwnershipRejectResponseApplicationJson_OcsInterface {
 abstract class TransferOwnershipRejectResponseApplicationJson_Ocs
     implements
         $TransferOwnershipRejectResponseApplicationJson_OcsInterface,
-        Built<TransferOwnershipRejectResponseApplicationJson_Ocs,
-            TransferOwnershipRejectResponseApplicationJson_OcsBuilder> {
+        Built<
+          TransferOwnershipRejectResponseApplicationJson_Ocs,
+          TransferOwnershipRejectResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TransferOwnershipRejectResponseApplicationJson_Ocs object using the builder pattern.
   factory TransferOwnershipRejectResponseApplicationJson_Ocs([
     void Function(TransferOwnershipRejectResponseApplicationJson_OcsBuilder)? b,
@@ -5327,321 +5366,322 @@ abstract class Capabilities implements $CapabilitiesInterface, Built<Capabilitie
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(FolderTree), FolderTreeBuilder.new)
-      ..add(FolderTree.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(FolderTree)]), ListBuilder<FolderTree>.new)
-      ..addBuilderFactory(
-        const FullType(ConversionApiConvertRequestApplicationJson),
-        ConversionApiConvertRequestApplicationJsonBuilder.new,
-      )
-      ..add(ConversionApiConvertRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConversionApiConvertResponseApplicationJson),
-        ConversionApiConvertResponseApplicationJsonBuilder.new,
-      )
-      ..add(ConversionApiConvertResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ConversionApiConvertResponseApplicationJson_Ocs),
-        ConversionApiConvertResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ConversionApiConvertResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data),
-        ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ConversionApiConvertResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingInfoResponseApplicationJson),
-        DirectEditingInfoResponseApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingInfoResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingInfoResponseApplicationJson_Ocs),
-        DirectEditingInfoResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DirectEditingInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data),
-        DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder.new,
-      )
-      ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
-        ]),
-        MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
-        DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder.new,
-      )
-      ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
-        ]),
-        MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DirectEditingTemplatesResponseApplicationJson),
-        DirectEditingTemplatesResponseApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingTemplatesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs),
-        DirectEditingTemplatesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DirectEditingTemplatesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data),
-        DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
-        DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder.new,
-      )
-      ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
-        ]),
-        MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(DirectEditingOpenRequestApplicationJson),
-        DirectEditingOpenRequestApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingOpenRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingOpenResponseApplicationJson),
-        DirectEditingOpenResponseApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingOpenResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingOpenResponseApplicationJson_Ocs),
-        DirectEditingOpenResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DirectEditingOpenResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data),
-        DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DirectEditingOpenResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingCreateRequestApplicationJson),
-        DirectEditingCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingCreateResponseApplicationJson),
-        DirectEditingCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(DirectEditingCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingCreateResponseApplicationJson_Ocs),
-        DirectEditingCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(DirectEditingCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data),
-        DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(DirectEditingCreateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorCreateRequestApplicationJson),
-        OpenLocalEditorCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(OpenLocalEditorCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorCreateResponseApplicationJson),
-        OpenLocalEditorCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(OpenLocalEditorCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs),
-        OpenLocalEditorCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data),
-        OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorValidateRequestApplicationJson),
-        OpenLocalEditorValidateRequestApplicationJsonBuilder.new,
-      )
-      ..add(OpenLocalEditorValidateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorValidateResponseApplicationJson),
-        OpenLocalEditorValidateResponseApplicationJsonBuilder.new,
-      )
-      ..add(OpenLocalEditorValidateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs),
-        OpenLocalEditorValidateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data),
-        OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateListResponseApplicationJson),
-        TemplateListResponseApplicationJsonBuilder.new,
-      )
-      ..add(TemplateListResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateListResponseApplicationJson_Ocs),
-        TemplateListResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TemplateListResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateFileCreatorWithTemplates),
-        TemplateFileCreatorWithTemplatesBuilder.new,
-      )
-      ..add(TemplateFileCreatorWithTemplates.serializer)
-      ..addBuilderFactory(const FullType(TemplateFileCreator), TemplateFileCreatorBuilder.new)
-      ..add(TemplateFileCreator.serializer)
-      ..addBuilderFactory(const FullType(Template), TemplateBuilder.new)
-      ..add(Template.serializer)
-      ..addBuilderFactory(const FullType(TemplateField), TemplateFieldBuilder.new)
-      ..add(TemplateField.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(TemplateField)]), ListBuilder<TemplateField>.new)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Template)]), ListBuilder<Template>.new)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TemplateFileCreatorWithTemplates)]),
-        ListBuilder<TemplateFileCreatorWithTemplates>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TemplateListTemplateFieldsResponseApplicationJson),
-        TemplateListTemplateFieldsResponseApplicationJsonBuilder.new,
-      )
-      ..add(TemplateListTemplateFieldsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs),
-        TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TemplateListTemplateFieldsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TemplateField)]),
-        MapBuilder<String, TemplateField>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TemplateCreateRequestApplicationJson),
-        TemplateCreateRequestApplicationJsonBuilder.new,
-      )
-      ..add(TemplateCreateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateCreateResponseApplicationJson),
-        TemplateCreateResponseApplicationJsonBuilder.new,
-      )
-      ..add(TemplateCreateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplateCreateResponseApplicationJson_Ocs),
-        TemplateCreateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TemplateCreateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(TemplateFile), TemplateFileBuilder.new)
-      ..add(TemplateFile.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplatePathRequestApplicationJson),
-        TemplatePathRequestApplicationJsonBuilder.new,
-      )
-      ..add(TemplatePathRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplatePathResponseApplicationJson),
-        TemplatePathResponseApplicationJsonBuilder.new,
-      )
-      ..add(TemplatePathResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplatePathResponseApplicationJson_Ocs),
-        TemplatePathResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TemplatePathResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TemplatePathResponseApplicationJson_Ocs_Data),
-        TemplatePathResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TemplatePathResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TemplateFileCreator)]),
-        ListBuilder<TemplateFileCreator>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipTransferRequestApplicationJson),
-        TransferOwnershipTransferRequestApplicationJsonBuilder.new,
-      )
-      ..add(TransferOwnershipTransferRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipTransferResponseApplicationJson),
-        TransferOwnershipTransferResponseApplicationJsonBuilder.new,
-      )
-      ..add(TransferOwnershipTransferResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs),
-        TransferOwnershipTransferResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TransferOwnershipTransferResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipAcceptResponseApplicationJson),
-        TransferOwnershipAcceptResponseApplicationJsonBuilder.new,
-      )
-      ..add(TransferOwnershipAcceptResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs),
-        TransferOwnershipAcceptResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TransferOwnershipAcceptResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipRejectResponseApplicationJson),
-        TransferOwnershipRejectResponseApplicationJsonBuilder.new,
-      )
-      ..add(TransferOwnershipRejectResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs),
-        TransferOwnershipRejectResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TransferOwnershipRejectResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
-      ..add(Capabilities_Files.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_Files_ChunkedUpload),
-        Capabilities_Files_ChunkedUploadBuilder.new,
-      )
-      ..add(Capabilities_Files_ChunkedUpload.serializer)
-      ..addBuilderFactory(
-        const FullType(Capabilities_Files_FileConversions),
-        Capabilities_Files_FileConversionsBuilder.new,
-      )
-      ..add(Capabilities_Files_FileConversions.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(Capabilities_Files_FileConversions)]),
-        ListBuilder<Capabilities_Files_FileConversions>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(Capabilities_Files_DirectEditing),
-        Capabilities_Files_DirectEditingBuilder.new,
-      )
-      ..add(Capabilities_Files_DirectEditing.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(FolderTree), FolderTreeBuilder.new)
+          ..add(FolderTree.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(FolderTree)]), ListBuilder<FolderTree>.new)
+          ..addBuilderFactory(
+            const FullType(ConversionApiConvertRequestApplicationJson),
+            ConversionApiConvertRequestApplicationJsonBuilder.new,
+          )
+          ..add(ConversionApiConvertRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConversionApiConvertResponseApplicationJson),
+            ConversionApiConvertResponseApplicationJsonBuilder.new,
+          )
+          ..add(ConversionApiConvertResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ConversionApiConvertResponseApplicationJson_Ocs),
+            ConversionApiConvertResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ConversionApiConvertResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(ConversionApiConvertResponseApplicationJson_Ocs_Data),
+            ConversionApiConvertResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ConversionApiConvertResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingInfoResponseApplicationJson),
+            DirectEditingInfoResponseApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingInfoResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingInfoResponseApplicationJson_Ocs),
+            DirectEditingInfoResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DirectEditingInfoResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data),
+            DirectEditingInfoResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
+            DirectEditingInfoResponseApplicationJson_Ocs_Data_EditorsBuilder.new,
+          )
+          ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors),
+            ]),
+            MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Editors>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
+            DirectEditingInfoResponseApplicationJson_Ocs_Data_CreatorsBuilder.new,
+          )
+          ..add(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators),
+            ]),
+            MapBuilder<String, DirectEditingInfoResponseApplicationJson_Ocs_Data_Creators>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DirectEditingTemplatesResponseApplicationJson),
+            DirectEditingTemplatesResponseApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingTemplatesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs),
+            DirectEditingTemplatesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DirectEditingTemplatesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data),
+            DirectEditingTemplatesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
+            DirectEditingTemplatesResponseApplicationJson_Ocs_Data_TemplatesBuilder.new,
+          )
+          ..add(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates),
+            ]),
+            MapBuilder<String, DirectEditingTemplatesResponseApplicationJson_Ocs_Data_Templates>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(DirectEditingOpenRequestApplicationJson),
+            DirectEditingOpenRequestApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingOpenRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingOpenResponseApplicationJson),
+            DirectEditingOpenResponseApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingOpenResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingOpenResponseApplicationJson_Ocs),
+            DirectEditingOpenResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DirectEditingOpenResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingOpenResponseApplicationJson_Ocs_Data),
+            DirectEditingOpenResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DirectEditingOpenResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingCreateRequestApplicationJson),
+            DirectEditingCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingCreateResponseApplicationJson),
+            DirectEditingCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(DirectEditingCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingCreateResponseApplicationJson_Ocs),
+            DirectEditingCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(DirectEditingCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(DirectEditingCreateResponseApplicationJson_Ocs_Data),
+            DirectEditingCreateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(DirectEditingCreateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorCreateRequestApplicationJson),
+            OpenLocalEditorCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(OpenLocalEditorCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorCreateResponseApplicationJson),
+            OpenLocalEditorCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(OpenLocalEditorCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs),
+            OpenLocalEditorCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data),
+            OpenLocalEditorCreateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(OpenLocalEditorCreateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorValidateRequestApplicationJson),
+            OpenLocalEditorValidateRequestApplicationJsonBuilder.new,
+          )
+          ..add(OpenLocalEditorValidateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorValidateResponseApplicationJson),
+            OpenLocalEditorValidateResponseApplicationJsonBuilder.new,
+          )
+          ..add(OpenLocalEditorValidateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs),
+            OpenLocalEditorValidateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data),
+            OpenLocalEditorValidateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(OpenLocalEditorValidateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateListResponseApplicationJson),
+            TemplateListResponseApplicationJsonBuilder.new,
+          )
+          ..add(TemplateListResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateListResponseApplicationJson_Ocs),
+            TemplateListResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TemplateListResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateFileCreatorWithTemplates),
+            TemplateFileCreatorWithTemplatesBuilder.new,
+          )
+          ..add(TemplateFileCreatorWithTemplates.serializer)
+          ..addBuilderFactory(const FullType(TemplateFileCreator), TemplateFileCreatorBuilder.new)
+          ..add(TemplateFileCreator.serializer)
+          ..addBuilderFactory(const FullType(Template), TemplateBuilder.new)
+          ..add(Template.serializer)
+          ..addBuilderFactory(const FullType(TemplateField), TemplateFieldBuilder.new)
+          ..add(TemplateField.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(TemplateField)]), ListBuilder<TemplateField>.new)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Template)]), ListBuilder<Template>.new)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TemplateFileCreatorWithTemplates)]),
+            ListBuilder<TemplateFileCreatorWithTemplates>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TemplateListTemplateFieldsResponseApplicationJson),
+            TemplateListTemplateFieldsResponseApplicationJsonBuilder.new,
+          )
+          ..add(TemplateListTemplateFieldsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateListTemplateFieldsResponseApplicationJson_Ocs),
+            TemplateListTemplateFieldsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TemplateListTemplateFieldsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TemplateField)]),
+            MapBuilder<String, TemplateField>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TemplateCreateRequestApplicationJson),
+            TemplateCreateRequestApplicationJsonBuilder.new,
+          )
+          ..add(TemplateCreateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateCreateResponseApplicationJson),
+            TemplateCreateResponseApplicationJsonBuilder.new,
+          )
+          ..add(TemplateCreateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplateCreateResponseApplicationJson_Ocs),
+            TemplateCreateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TemplateCreateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(TemplateFile), TemplateFileBuilder.new)
+          ..add(TemplateFile.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplatePathRequestApplicationJson),
+            TemplatePathRequestApplicationJsonBuilder.new,
+          )
+          ..add(TemplatePathRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplatePathResponseApplicationJson),
+            TemplatePathResponseApplicationJsonBuilder.new,
+          )
+          ..add(TemplatePathResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplatePathResponseApplicationJson_Ocs),
+            TemplatePathResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TemplatePathResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TemplatePathResponseApplicationJson_Ocs_Data),
+            TemplatePathResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TemplatePathResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TemplateFileCreator)]),
+            ListBuilder<TemplateFileCreator>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipTransferRequestApplicationJson),
+            TransferOwnershipTransferRequestApplicationJsonBuilder.new,
+          )
+          ..add(TransferOwnershipTransferRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipTransferResponseApplicationJson),
+            TransferOwnershipTransferResponseApplicationJsonBuilder.new,
+          )
+          ..add(TransferOwnershipTransferResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipTransferResponseApplicationJson_Ocs),
+            TransferOwnershipTransferResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TransferOwnershipTransferResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipAcceptResponseApplicationJson),
+            TransferOwnershipAcceptResponseApplicationJsonBuilder.new,
+          )
+          ..add(TransferOwnershipAcceptResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipAcceptResponseApplicationJson_Ocs),
+            TransferOwnershipAcceptResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TransferOwnershipAcceptResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipRejectResponseApplicationJson),
+            TransferOwnershipRejectResponseApplicationJsonBuilder.new,
+          )
+          ..add(TransferOwnershipRejectResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TransferOwnershipRejectResponseApplicationJson_Ocs),
+            TransferOwnershipRejectResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TransferOwnershipRejectResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Files), Capabilities_FilesBuilder.new)
+          ..add(Capabilities_Files.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_Files_ChunkedUpload),
+            Capabilities_Files_ChunkedUploadBuilder.new,
+          )
+          ..add(Capabilities_Files_ChunkedUpload.serializer)
+          ..addBuilderFactory(
+            const FullType(Capabilities_Files_FileConversions),
+            Capabilities_Files_FileConversionsBuilder.new,
+          )
+          ..add(Capabilities_Files_FileConversions.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(Capabilities_Files_FileConversions)]),
+            ListBuilder<Capabilities_Files_FileConversions>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(Capabilities_Files_DirectEditing),
+            Capabilities_Files_DirectEditingBuilder.new,
+          )
+          ..add(Capabilities_Files_DirectEditing.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -5649,10 +5689,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin(typesToLeaveAsList: const {}))
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin(typesToLeaveAsList: const {}))
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

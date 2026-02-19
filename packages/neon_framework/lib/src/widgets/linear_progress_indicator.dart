@@ -30,12 +30,7 @@ class NeonLinearProgressIndicator extends StatelessWidget {
     return Container(
       margin: margin,
       constraints: BoxConstraints.tight(const Size.fromHeight(3)),
-      child: visible
-          ? LinearProgressIndicator(
-              color: color,
-              backgroundColor: backgroundColor,
-            )
-          : null,
+      child: visible ? LinearProgressIndicator(color: color, backgroundColor: backgroundColor) : null,
     );
   }
 }

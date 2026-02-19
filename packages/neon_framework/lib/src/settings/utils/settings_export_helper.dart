@@ -24,9 +24,7 @@ import 'package:neon_framework/src/utils/findable.dart';
 @immutable
 class SettingsExportHelper {
   /// Creates a new settings exporter for the given [exportables].
-  const SettingsExportHelper({
-    required this.exportables,
-  });
+  const SettingsExportHelper({required this.exportables});
 
   /// Collections of elements to export.
   final Set<Exportable> exportables;
@@ -89,10 +87,8 @@ class AppImplementationsExporter implements Exportable {
   static final _key = StorageKeys.apps.value;
 
   @override
-  MapEntry<String, Object?> export() => MapEntry(
-        _key,
-        Map.fromEntries(appImplementations.map((app) => app.options.export())),
-      );
+  MapEntry<String, Object?> export() =>
+      MapEntry(_key, Map.fromEntries(appImplementations.map((app) => app.options.export())));
 
   @override
   void import(Map<String, Object?> data) {

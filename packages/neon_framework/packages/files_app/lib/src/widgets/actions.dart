@@ -9,10 +9,7 @@ import 'package:neon_framework/utils.dart';
 import 'package:nextcloud/webdav.dart' as webdav;
 
 class FileActions extends StatelessWidget {
-  const FileActions({
-    required this.details,
-    super.key,
-  });
+  const FileActions({required this.details, super.key});
 
   final FileDetails details;
 
@@ -28,23 +25,19 @@ class FileActions extends StatelessWidget {
           bloc.addFavorite(details.uri);
         }
       case FilesFileAction.details:
-        await Navigator.of(context).push(
-          MaterialPageRoute<void>(
-            builder: (context) => FilesDetailsPage(
-              bloc: bloc,
-              details: details,
-            ),
-          ),
-        );
+        await Navigator.of(
+          context,
+        ).push(MaterialPageRoute<void>(builder: (context) => FilesDetailsPage(bloc: bloc, details: details)));
       case FilesFileAction.rename:
         if (!context.mounted) {
           return;
         }
         final result = await showRenameDialog(
           context: context,
-          title: details.isDirectory
-              ? FilesLocalizations.of(context).folderRename
-              : FilesLocalizations.of(context).fileRename,
+          title:
+              details.isDirectory
+                  ? FilesLocalizations.of(context).folderRename
+                  : FilesLocalizations.of(context).fileRename,
           initialValue: details.name,
         );
         if (result != null) {
@@ -82,53 +75,28 @@ class FileActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
-      itemBuilder: (context) => [
-        if (!details.isDirectory && NeonPlatform.instance.canUseSharing)
-          PopupMenuItem(
-            value: FilesFileAction.share,
-            child: Text(FilesLocalizations.of(context).actionShare),
-          ),
-        if (details.isFavorite != null)
-          PopupMenuItem(
-            value: FilesFileAction.toggleFavorite,
-            child: Text(
-              details.isFavorite!
-                  ? FilesLocalizations.of(context).removeFromFavorites
-                  : FilesLocalizations.of(context).addToFavorites,
-            ),
-          ),
-        PopupMenuItem(
-          value: FilesFileAction.details,
-          child: Text(FilesLocalizations.of(context).details),
-        ),
-        PopupMenuItem(
-          value: FilesFileAction.rename,
-          child: Text(FilesLocalizations.of(context).actionRename),
-        ),
-        PopupMenuItem(
-          value: FilesFileAction.move,
-          child: Text(FilesLocalizations.of(context).actionMove),
-        ),
-        PopupMenuItem(
-          value: FilesFileAction.copy,
-          child: Text(FilesLocalizations.of(context).actionCopy),
-        ),
-        PopupMenuItem(
-          value: FilesFileAction.delete,
-          child: Text(FilesLocalizations.of(context).actionDelete),
-        ),
-      ],
+      itemBuilder:
+          (context) => [
+            if (!details.isDirectory && NeonPlatform.instance.canUseSharing)
+              PopupMenuItem(value: FilesFileAction.share, child: Text(FilesLocalizations.of(context).actionShare)),
+            if (details.isFavorite != null)
+              PopupMenuItem(
+                value: FilesFileAction.toggleFavorite,
+                child: Text(
+                  details.isFavorite!
+                      ? FilesLocalizations.of(context).removeFromFavorites
+                      : FilesLocalizations.of(context).addToFavorites,
+                ),
+              ),
+            PopupMenuItem(value: FilesFileAction.details, child: Text(FilesLocalizations.of(context).details)),
+            PopupMenuItem(value: FilesFileAction.rename, child: Text(FilesLocalizations.of(context).actionRename)),
+            PopupMenuItem(value: FilesFileAction.move, child: Text(FilesLocalizations.of(context).actionMove)),
+            PopupMenuItem(value: FilesFileAction.copy, child: Text(FilesLocalizations.of(context).actionCopy)),
+            PopupMenuItem(value: FilesFileAction.delete, child: Text(FilesLocalizations.of(context).actionDelete)),
+          ],
       onSelected: (action) async => onSelected(context, action),
     );
   }
 }
 
-enum FilesFileAction {
-  share,
-  toggleFavorite,
-  details,
-  rename,
-  move,
-  copy,
-  delete,
-}
+enum FilesFileAction { share, toggleFavorite, details, rename, move, copy, delete }

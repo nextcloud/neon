@@ -72,13 +72,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkReactionsOverviewDialog(
-          chatMessage: chatMessage,
-        ),
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc), Provider<Account>.value(value: account)],
+        child: TalkReactionsOverviewDialog(chatMessage: chatMessage),
       ),
     );
     await tester.pumpAndSettle();

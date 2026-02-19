@@ -36,36 +36,21 @@ void main() {
 
     group('constructor', () {
       test('works correctly', () {
-        expect(
-          createDecryptedSubject,
-          returnsNormally,
-        );
+        expect(createDecryptedSubject, returnsNormally);
       });
     });
 
     test('supports value equality', () {
-      expect(
-        createDecryptedSubject(),
-        equalsBuilt(createDecryptedSubject()),
-      );
+      expect(createDecryptedSubject(), equalsBuilt(createDecryptedSubject()));
 
-      expect(
-        createDecryptedSubject().hashCode,
-        equals(createDecryptedSubject().hashCode),
-      );
+      expect(createDecryptedSubject().hashCode, equals(createDecryptedSubject().hashCode));
 
-      expect(
-        createDecryptedSubject(),
-        isNot(equalsBuilt(createDecryptedSubject(deleteAll: true))),
-      );
+      expect(createDecryptedSubject(), isNot(equalsBuilt(createDecryptedSubject(deleteAll: true))));
     });
 
     group('rebuild', () {
       test('returns the same object if not attributes are changed', () {
-        expect(
-          createDecryptedSubject().rebuild((_) {}),
-          equalsBuilt(createDecryptedSubject()),
-        );
+        expect(createDecryptedSubject().rebuild((_) {}), equalsBuilt(createDecryptedSubject()));
       });
 
       test('replaces every attribute', () {

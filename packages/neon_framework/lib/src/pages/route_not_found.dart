@@ -5,10 +5,7 @@ import 'package:neon_framework/src/router.dart';
 
 @internal
 class RouteNotFoundPage extends StatelessWidget {
-  const RouteNotFoundPage({
-    required this.uri,
-    super.key,
-  });
+  const RouteNotFoundPage({required this.uri, super.key});
 
   final Uri uri;
 
@@ -22,11 +19,7 @@ class RouteNotFoundPage extends StatelessWidget {
           },
         ),
       ),
-      body: SafeArea(
-        child: Center(
-          child: Text(NeonLocalizations.of(context).errorRouteNotFound(uri.toString())),
-        ),
-      ),
+      body: SafeArea(child: Center(child: Text(NeonLocalizations.of(context).errorRouteNotFound(uri.toString())))),
     );
   }
 }

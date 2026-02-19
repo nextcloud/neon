@@ -21,18 +21,11 @@ void main() {
       accountRepository = _MockAccountRepository();
     });
 
-    final credentials = createCredentials(
-      serverURL: Uri.https('credentials_serverURL'),
-    );
-    final account = createAccount(
-      credentials: credentials,
-    );
+    final credentials = createCredentials(serverURL: Uri.https('credentials_serverURL'));
+    final account = createAccount(credentials: credentials);
 
     LoginCheckAccountBloc buildBloc() {
-      return LoginCheckAccountBloc(
-        credentials: credentials,
-        accountRepository: accountRepository,
-      );
+      return LoginCheckAccountBloc(credentials: credentials, accountRepository: accountRepository);
     }
 
     group('constructor', () {
@@ -41,10 +34,7 @@ void main() {
       });
 
       test('has correct initial state', () {
-        expect(
-          buildBloc().state,
-          equals(LoginCheckAccountStateLoading(credentials: credentials)),
-        );
+        expect(buildBloc().state, equals(LoginCheckAccountStateLoading(credentials: credentials)));
       });
     });
 
@@ -53,18 +43,14 @@ void main() {
         'emits new state with loading and success validations',
         build: buildBloc,
         setUp: () async {
-          when(() => accountRepository.getAccount(any())).thenAnswer(
-            (_) async => account,
-          );
+          when(() => accountRepository.getAccount(any())).thenAnswer((_) async => account);
         },
         act: (bloc) => bloc.add(const LoginCheckAccount()),
-        expect: () => [
-          LoginCheckAccountStateLoading(credentials: credentials),
-          LoginCheckAccountStateSuccess(
-            credentials: credentials,
-            account: account,
-          ),
-        ],
+        expect:
+            () => [
+              LoginCheckAccountStateLoading(credentials: credentials),
+              LoginCheckAccountStateSuccess(credentials: credentials, account: account),
+            ],
         verify: (bloc) async {
           verify(() => accountRepository.getAccount(credentials)).called(1);
         },
@@ -77,15 +63,12 @@ void main() {
           when(() => accountRepository.getAccount(any())).thenThrow(FetchAccountFailure(credentials));
         },
         act: (bloc) => bloc.add(const LoginCheckAccount()),
-        expect: () => [
-          LoginCheckAccountStateLoading(credentials: credentials),
-          LoginCheckAccountStateFailure(
-            credentials: credentials,
-          ),
-        ],
-        errors: () => <Matcher>[
-          equals(credentials),
-        ],
+        expect:
+            () => [
+              LoginCheckAccountStateLoading(credentials: credentials),
+              LoginCheckAccountStateFailure(credentials: credentials),
+            ],
+        errors: () => <Matcher>[equals(credentials)],
         verify: (bloc) async {
           verify(() => accountRepository.getAccount(credentials)).called(1);
         },

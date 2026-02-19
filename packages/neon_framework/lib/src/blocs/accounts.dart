@@ -86,10 +86,8 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   ///
   /// The last state will be loaded from storage and all necessary listeners
   /// will be set up.
-  _AccountsBloc({
-    required this.allAppImplementations,
-    required AccountRepository accountRepository,
-  }) : _accountRepository = accountRepository {
+  _AccountsBloc({required this.allAppImplementations, required AccountRepository accountRepository})
+    : _accountRepository = accountRepository {
     accountRepository.accounts.listen((event) {
       accounts.add(event.accounts);
 
@@ -156,11 +154,7 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
     try {
       await _accountRepository.logOut(account.id);
     } on DeleteCredentialsFailure catch (error, stackTrace) {
-      log.info(
-        'Error deleting the app password.',
-        error,
-        stackTrace,
-      );
+      log.info('Error deleting the app password.', error, stackTrace);
     }
   }
 
@@ -178,12 +172,12 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
   }
 
   @override
-  AccountOptions getOptionsFor(Account account) => accountsOptions[account] ??= AccountOptions(
-        NeonStorage().settingsStore(StorageKeys.accountOptions, account.id),
-      );
+  AccountOptions getOptionsFor(Account account) =>
+      accountsOptions[account] ??= AccountOptions(NeonStorage().settingsStore(StorageKeys.accountOptions, account.id));
 
   @override
-  AppsBloc getAppsBlocFor(Account account) => appsBlocs[account] ??= AppsBloc(
+  AppsBloc getAppsBlocFor(Account account) =>
+      appsBlocs[account] ??= AppsBloc(
         capabilitiesSubject: getCapabilitiesBlocFor(account).capabilities,
         account: account,
         accountOptions: getOptionsFor(account),
@@ -191,40 +185,37 @@ class _AccountsBloc extends Bloc implements AccountsBloc {
       );
 
   @override
-  CapabilitiesBloc getCapabilitiesBlocFor(Account account) => capabilitiesBlocs[account] ??= CapabilitiesBloc(
-        account: account,
-      );
+  CapabilitiesBloc getCapabilitiesBlocFor(Account account) =>
+      capabilitiesBlocs[account] ??= CapabilitiesBloc(account: account);
 
   @override
-  UserDetailsBloc getUserDetailsBlocFor(Account account) => userDetailsBlocs[account] ??= UserDetailsBloc(
-        account: account,
-      );
+  UserDetailsBloc getUserDetailsBlocFor(Account account) =>
+      userDetailsBlocs[account] ??= UserDetailsBloc(account: account);
 
   @override
-  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(
-        account: account,
-      );
+  UserStatusBloc getUserStatusBlocFor(Account account) => userStatusBlocs[account] ??= UserStatusBloc(account: account);
 
   @override
-  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) => unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
+  UnifiedSearchBloc getUnifiedSearchBlocFor(Account account) =>
+      unifiedSearchBlocs[account] ??= UnifiedSearchBloc(
         activeAppSubject: getAppsBlocFor(account).activeApp,
         account: account,
       );
 
   @override
-  WeatherStatusBloc getWeatherStatusBlocFor(Account account) => weatherStatusBlocs[account] ??= WeatherStatusBloc(
+  WeatherStatusBloc getWeatherStatusBlocFor(Account account) =>
+      weatherStatusBlocs[account] ??= WeatherStatusBloc(
         capabilities: getCapabilitiesBlocFor(account).capabilities,
         account: account,
       );
 
   @override
   MaintenanceModeBloc getMaintenanceModeBlocFor(Account account) =>
-      maintenanceModeBlocs[account] ??= MaintenanceModeBloc(
-        account: account,
-      );
+      maintenanceModeBlocs[account] ??= MaintenanceModeBloc(account: account);
 
   @override
-  ReferencesBloc getReferencesBlocFor(Account account) => referencesBlocs[account] ??= ReferencesBloc(
+  ReferencesBloc getReferencesBlocFor(Account account) =>
+      referencesBlocs[account] ??= ReferencesBloc(
         account: account,
         capabilities: getCapabilitiesBlocFor(account).capabilities,
       );

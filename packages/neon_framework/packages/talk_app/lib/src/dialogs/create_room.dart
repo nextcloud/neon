@@ -9,20 +9,14 @@ import 'package:nextcloud/user_status.dart' as user_status;
 import 'package:talk_app/l10n/localizations.dart';
 
 /// The data that will be returned when the [TalkCreateRoomDialog] is closed.
-typedef TalkCreateRoomDetails = ({
-  spreed.RoomType type,
-  String? roomName,
-  core.AutocompleteResult? invite,
-});
+typedef TalkCreateRoomDetails = ({spreed.RoomType type, String? roomName, core.AutocompleteResult? invite});
 
 /// Dialog for creating a new room.
 ///
 /// Room types can be [spreed.RoomType.oneToOne], [spreed.RoomType.group] or [spreed.RoomType.public].
 class TalkCreateRoomDialog extends StatefulWidget {
   /// Creates a new Talk create room dialog.
-  const TalkCreateRoomDialog({
-    super.key,
-  });
+  const TalkCreateRoomDialog({super.key});
 
   @override
   State<TalkCreateRoomDialog> createState() => _TalkCreateRoomDialogState();
@@ -50,13 +44,11 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
       final type = selectedType!;
       final isPublic = type == spreed.RoomType.public;
 
-      Navigator.of(context).pop<TalkCreateRoomDetails>(
-        (
-          type: type,
-          roomName: isPublic ? controller.text : null,
-          invite: !isPublic ? selectedResult : null,
-        ),
-      );
+      Navigator.of(context).pop<TalkCreateRoomDetails>((
+        type: type,
+        roomName: isPublic ? controller.text : null,
+        invite: !isPublic ? selectedResult : null,
+      ));
     }
   }
 
@@ -73,11 +65,7 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
-        for (final type in [
-          spreed.RoomType.oneToOne,
-          spreed.RoomType.group,
-          spreed.RoomType.public,
-        ])
+        for (final type in [spreed.RoomType.oneToOne, spreed.RoomType.group, spreed.RoomType.public])
           RadioListTile.adaptive(
             title: Text(TalkLocalizations.of(context).roomType(type.name)),
             secondary: Icon(
@@ -98,16 +86,14 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
         switch (selectedType) {
           spreed.RoomType.oneToOne || spreed.RoomType.group => buildAutocomplete(),
           spreed.RoomType.public => TextFormField(
-              controller: controller,
-              focusNode: focusNode,
-              validator: (input) => validateNotEmpty(context, input),
-              decoration: InputDecoration(
-                hintText: TalkLocalizations.of(context).roomCreateRoomName,
-              ),
-              onFieldSubmitted: (_) {
-                submit();
-              },
-            ),
+            controller: controller,
+            focusNode: focusNode,
+            validator: (input) => validateNotEmpty(context, input),
+            decoration: InputDecoration(hintText: TalkLocalizations.of(context).roomCreateRoomName),
+            onFieldSubmitted: (_) {
+              submit();
+            },
+          ),
           null => const SizedBox(),
           _ => throw StateError('$selectedType is not a valid type'), // coverage:ignore-line
         },
@@ -116,10 +102,7 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
 
     return NeonDialog(
       title: Text(TalkLocalizations.of(context).roomCreate),
-      content: Form(
-        key: formKey,
-        child: body,
-      ),
+      content: Form(key: formKey, child: body),
       actions: [
         NeonDialogAction(
           onPressed: selectedType == null ? null : submit,
@@ -144,9 +127,10 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
       shareTypes: shareTypes,
       validator: (input) => validateNotEmpty(context, input),
       decoration: InputDecoration(
-        hintText: selectedType == spreed.RoomType.oneToOne
-            ? TalkLocalizations.of(context).roomCreateUserName
-            : TalkLocalizations.of(context).roomCreateGroupName,
+        hintText:
+            selectedType == spreed.RoomType.oneToOne
+                ? TalkLocalizations.of(context).roomCreateUserName
+                : TalkLocalizations.of(context).roomCreateGroupName,
       ),
       onFieldSubmitted: (_) {
         submit();
@@ -168,25 +152,23 @@ class _TalkCreateRoomDialogState extends State<TalkCreateRoomDialog> {
     final status = result.status.autocompleteResultStatus0;
     final icon = switch (result.source) {
       'users' => NeonUserAvatar(
-          username: result.id,
-          account: NeonProvider.of<Account>(context),
-          userStatus: status != null
-              ? user_status.Public(
-                  (b) => b
-                    ..userId = result.id
-                    ..message = status.message
-                    ..icon = status.icon
-                    ..clearAt = status.clearAt
-                    ..status = user_status.$Type.valueOf(status.status),
+        username: result.id,
+        account: NeonProvider.of<Account>(context),
+        userStatus:
+            status != null
+                ? user_status.Public(
+                  (b) =>
+                      b
+                        ..userId = result.id
+                        ..message = status.message
+                        ..icon = status.icon
+                        ..clearAt = status.clearAt
+                        ..status = user_status.$Type.valueOf(status.status),
                 )
-              : null,
-        ),
-      'groups' => CircleAvatar(
-          child: Icon(
-            AdaptiveIcons.group,
-          ),
-        ),
-      _ => throw UnimplementedError('Autocomplete source ${result.source} has no icon') // coverage:ignore-line
+                : null,
+      ),
+      'groups' => CircleAvatar(child: Icon(AdaptiveIcons.group)),
+      _ => throw UnimplementedError('Autocomplete source ${result.source} has no icon'), // coverage:ignore-line
     };
 
     return ListTile(

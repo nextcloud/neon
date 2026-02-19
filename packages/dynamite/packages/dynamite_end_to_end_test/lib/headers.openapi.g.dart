@@ -18,8 +18,11 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   final String wireName = 'GetHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GetHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GetHeaders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.myHeader;
@@ -32,8 +35,11 @@ class _$GetHeadersSerializer implements StructuredSerializer<GetHeaders> {
   }
 
   @override
-  GetHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GetHeaders deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GetHeadersBuilder();
 
     final iterator = serialized.iterator;
@@ -59,8 +65,11 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
   final String wireName = 'WithContentOperationIdHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, WithContentOperationIdHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    WithContentOperationIdHeaders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.myHeader;
@@ -73,8 +82,11 @@ class _$WithContentOperationIdHeadersSerializer implements StructuredSerializer<
   }
 
   @override
-  WithContentOperationIdHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  WithContentOperationIdHeaders deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = WithContentOperationIdHeadersBuilder();
 
     final iterator = serialized.iterator;
@@ -100,8 +112,11 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
   final String wireName = 'GetWithContentHeaders';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GetWithContentHeaders object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    GetWithContentHeaders object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.myHeader;
@@ -114,8 +129,11 @@ class _$GetWithContentHeadersSerializer implements StructuredSerializer<GetWithC
   }
 
   @override
-  GetWithContentHeaders deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  GetWithContentHeaders deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = GetWithContentHeadersBuilder();
 
     final iterator = serialized.iterator;
@@ -209,10 +227,7 @@ class GetHeadersBuilder implements Builder<GetHeaders, GetHeadersBuilder>, $GetH
 
   _$GetHeaders _build() {
     GetHeaders._validate(this);
-    final _$result = _$v ??
-        _$GetHeaders._(
-          myHeader: myHeader,
-        );
+    final _$result = _$v ?? _$GetHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
   }
@@ -298,10 +313,7 @@ class WithContentOperationIdHeadersBuilder
 
   _$WithContentOperationIdHeaders _build() {
     WithContentOperationIdHeaders._validate(this);
-    final _$result = _$v ??
-        _$WithContentOperationIdHeaders._(
-          myHeader: myHeader,
-        );
+    final _$result = _$v ?? _$WithContentOperationIdHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
   }
@@ -385,10 +397,7 @@ class GetWithContentHeadersBuilder
 
   _$GetWithContentHeaders _build() {
     GetWithContentHeaders._validate(this);
-    final _$result = _$v ??
-        _$GetWithContentHeaders._(
-          myHeader: myHeader,
-        );
+    final _$result = _$v ?? _$GetWithContentHeaders._(myHeader: myHeader);
     replace(_$result);
     return _$result;
   }

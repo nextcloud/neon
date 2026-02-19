@@ -13,10 +13,9 @@ Future<bool> showDeleteFeedDialog(BuildContext context, news.Feed feed) async {
 
   final result = await showAdaptiveDialog<bool>(
     context: context,
-    builder: (context) => NeonConfirmationDialog(
-      title: NewsLocalizations.of(context).actionDeleteTitle,
-      content: Text(content),
-    ),
+    builder:
+        (context) =>
+            NeonConfirmationDialog(title: NewsLocalizations.of(context).actionDeleteTitle, content: Text(content)),
   );
 
   return result ?? false;
@@ -25,29 +24,20 @@ Future<bool> showDeleteFeedDialog(BuildContext context, news.Feed feed) async {
 /// Displays a [NewsCreateFolderDialog] for creating a new folder.
 ///
 /// Returns a future with the folder name split by `/`.
-Future<String?> showFolderCreateDialog({
-  required BuildContext context,
-}) =>
-    showAdaptiveDialog<String>(
-      context: context,
-      builder: (context) => const NewsCreateFolderDialog(),
-    );
+Future<String?> showFolderCreateDialog({required BuildContext context}) =>
+    showAdaptiveDialog<String>(context: context, builder: (context) => const NewsCreateFolderDialog());
 
 /// Displays a [NeonConfirmationDialog] for deleting a folder.
 ///
 /// Returns a future whether the action has been accepted.
-Future<bool> showFolderDeleteDialog({
-  required BuildContext context,
-  required String folderName,
-}) async {
+Future<bool> showFolderDeleteDialog({required BuildContext context, required String folderName}) async {
   final content = NewsLocalizations.of(context).folderDeleteConfirm(folderName);
 
   final result = await showAdaptiveDialog<bool>(
     context: context,
-    builder: (context) => NeonConfirmationDialog(
-      title: NewsLocalizations.of(context).actionDeleteTitle,
-      content: Text(content),
-    ),
+    builder:
+        (context) =>
+            NeonConfirmationDialog(title: NewsLocalizations.of(context).actionDeleteTitle, content: Text(content)),
   );
 
   return result ?? false;
@@ -56,12 +46,5 @@ Future<bool> showFolderDeleteDialog({
 /// Displays a `NeonRenameDialog` for renaming a folder.
 ///
 /// Returns a future with the new name of name.
-Future<String?> showFolderRenameDialog({
-  required BuildContext context,
-  required String folderName,
-}) async =>
-    showRenameDialog(
-      context: context,
-      title: NewsLocalizations.of(context).folderRename,
-      initialValue: folderName,
-    );
+Future<String?> showFolderRenameDialog({required BuildContext context, required String folderName}) async =>
+    showRenameDialog(context: context, title: NewsLocalizations.of(context).folderRename, initialValue: folderName);

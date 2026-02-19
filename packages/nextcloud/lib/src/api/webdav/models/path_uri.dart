@@ -6,11 +6,7 @@ import 'package:meta/meta.dart';
 @immutable
 class PathUri {
   /// Creates a new path URI.
-  const PathUri({
-    required this.isAbsolute,
-    required this.isDirectory,
-    required this.pathSegments,
-  });
+  const PathUri({required this.isAbsolute, required this.isDirectory, required this.pathSegments});
 
   /// Creates a new `PathUri` object by parsing a [path] string.
   ///
@@ -18,11 +14,7 @@ class PathUri {
   factory PathUri.parse(String path) {
     final parts = path.split('/');
     if (parts.length == 1 && parts.single.isEmpty) {
-      return PathUri(
-        isAbsolute: false,
-        isDirectory: true,
-        pathSegments: BuiltList(),
-      );
+      return PathUri(isAbsolute: false, isDirectory: true, pathSegments: BuiltList());
     }
     return PathUri(
       isAbsolute: parts.first.isEmpty,
@@ -32,11 +24,7 @@ class PathUri {
   }
 
   /// Creates a new empty path URI representing the current working directory.
-  factory PathUri.cwd() => PathUri(
-        isAbsolute: false,
-        isDirectory: true,
-        pathSegments: BuiltList(),
-      );
+  factory PathUri.cwd() => PathUri(isAbsolute: false, isDirectory: true, pathSegments: BuiltList());
 
   /// Whether the path is an absolute path.
   ///
@@ -109,13 +97,15 @@ class PathUri {
     return PathUri(
       isAbsolute: isAbsolute,
       isDirectory: isDirectory,
-      pathSegments: pathSegments.isNotEmpty
-          ? pathSegments.rebuild(
-              (b) => b
-                ..removeLast()
-                ..add(name),
-            )
-          : BuiltList(),
+      pathSegments:
+          pathSegments.isNotEmpty
+              ? pathSegments.rebuild(
+                (b) =>
+                    b
+                      ..removeLast()
+                      ..add(name),
+              )
+              : BuiltList(),
     );
   }
 
@@ -127,11 +117,7 @@ class PathUri {
       pathSegments == other.pathSegments;
 
   @override
-  int get hashCode => Object.hashAll([
-        isAbsolute,
-        isDirectory,
-        pathSegments,
-      ]);
+  int get hashCode => Object.hashAll([isAbsolute, isDirectory, pathSegments]);
 
   @override
   String toString() => path;

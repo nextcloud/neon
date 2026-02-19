@@ -16,12 +16,9 @@ abstract class DynamiteClient {
   /// If [httpClient] is not provided a default one will be created.
   /// The [baseURL] will be normalized, removing any trailing `/`.
   /// It is an error if the [baseURL] contains any query parameters.
-  DynamiteClient(
-    Uri baseURL, {
-    http.Client? httpClient,
-    this.authentications,
-  })  : httpClient = httpClient ?? http.Client(),
-        baseURL = baseURL.normalizeEmptyPath() {
+  DynamiteClient(Uri baseURL, {http.Client? httpClient, this.authentications})
+    : httpClient = httpClient ?? http.Client(),
+      baseURL = baseURL.normalizeEmptyPath() {
     if (baseURL.queryParametersAll.isNotEmpty) {
       throw ArgumentError.value(baseURL, 'baseURL', 'MUST NOT contain query parameters.');
     }

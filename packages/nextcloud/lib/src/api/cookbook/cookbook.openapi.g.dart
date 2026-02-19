@@ -52,8 +52,11 @@ class _$CategoryInformationSerializer implements StructuredSerializer<CategoryIn
   final String wireName = 'CategoryInformation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CategoryInformation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    CategoryInformation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -65,8 +68,11 @@ class _$CategoryInformationSerializer implements StructuredSerializer<CategoryIn
   }
 
   @override
-  CategoryInformation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  CategoryInformation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CategoryInformationBuilder();
 
     final iterator = serialized.iterator;
@@ -95,8 +101,11 @@ class _$CategorySerializer implements StructuredSerializer<Category> {
   final String wireName = 'Category';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Category object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Category object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -108,8 +117,11 @@ class _$CategorySerializer implements StructuredSerializer<Category> {
   }
 
   @override
-  Category deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Category deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = CategoryBuilder();
 
     final iterator = serialized.iterator;
@@ -138,8 +150,11 @@ class _$RecipeStubInformationSerializer implements StructuredSerializer<RecipeSt
   final String wireName = 'RecipeStubInformation';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RecipeStubInformation object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RecipeStubInformation object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -163,8 +178,11 @@ class _$RecipeStubInformationSerializer implements StructuredSerializer<RecipeSt
   }
 
   @override
-  RecipeStubInformation deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RecipeStubInformation deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RecipeStubInformationBuilder();
 
     final iterator = serialized.iterator;
@@ -205,8 +223,11 @@ class _$RecipeStubSerializer implements StructuredSerializer<RecipeStub> {
   final String wireName = 'RecipeStub';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RecipeStub object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RecipeStub object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'recipe_id',
       serializers.serialize(object.recipeId, specifiedType: const FullType(int)),
@@ -234,8 +255,11 @@ class _$RecipeStubSerializer implements StructuredSerializer<RecipeStub> {
   }
 
   @override
-  RecipeStub deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RecipeStub deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RecipeStubBuilder();
 
     final iterator = serialized.iterator;
@@ -283,19 +307,22 @@ class _$RenameCategoryRequestApplicationJsonSerializer
   final String wireName = 'RenameCategoryRequestApplicationJson';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, RenameCategoryRequestApplicationJson object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    RenameCategoryRequestApplicationJson object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['name', serializers.serialize(object.name, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  RenameCategoryRequestApplicationJson deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  RenameCategoryRequestApplicationJson deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RenameCategoryRequestApplicationJsonBuilder();
 
     final iterator = serialized.iterator;
@@ -321,8 +348,11 @@ class _$APIVersionSerializer implements StructuredSerializer<APIVersion> {
   final String wireName = 'APIVersion';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, APIVersion object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    APIVersion object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'epoch',
       serializers.serialize(object.epoch, specifiedType: const FullType(int)),
@@ -336,8 +366,11 @@ class _$APIVersionSerializer implements StructuredSerializer<APIVersion> {
   }
 
   @override
-  APIVersion deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  APIVersion deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = APIVersionBuilder();
 
     final iterator = serialized.iterator;
@@ -369,8 +402,11 @@ class _$VersionSerializer implements StructuredSerializer<Version> {
   final String wireName = 'Version';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Version object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Version object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.cookbookVersion;
@@ -378,7 +414,8 @@ class _$VersionSerializer implements StructuredSerializer<Version> {
       result
         ..add('cookbook_version')
         ..add(
-            serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])));
+          serializers.serialize(value, specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)])),
+        );
     }
     value = object.apiVersion;
     if (value != null) {
@@ -390,8 +427,11 @@ class _$VersionSerializer implements StructuredSerializer<Version> {
   }
 
   @override
-  Version deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Version deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = VersionBuilder();
 
     final iterator = serialized.iterator;
@@ -401,12 +441,18 @@ class _$VersionSerializer implements StructuredSerializer<Version> {
       final Object? value = iterator.current;
       switch (key) {
         case 'cookbook_version':
-          result.cookbookVersion.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]))! as BuiltList<Object?>);
+          result.cookbookVersion.replace(
+            serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(BuiltList, const [const FullType(JsonObject)]),
+                )!
+                as BuiltList<Object?>,
+          );
           break;
         case 'api_version':
-          result.apiVersion
-              .replace(serializers.deserialize(value, specifiedType: const FullType(APIVersion))! as APIVersion);
+          result.apiVersion.replace(
+            serializers.deserialize(value, specifiedType: const FullType(APIVersion))! as APIVersion,
+          );
           break;
       }
     }
@@ -422,8 +468,11 @@ class _$VisibleInfoBlocksSerializer implements StructuredSerializer<VisibleInfoB
   final String wireName = 'VisibleInfoBlocks';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, VisibleInfoBlocks object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    VisibleInfoBlocks object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.preparationTime;
@@ -460,8 +509,11 @@ class _$VisibleInfoBlocksSerializer implements StructuredSerializer<VisibleInfoB
   }
 
   @override
-  VisibleInfoBlocks deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  VisibleInfoBlocks deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = VisibleInfoBlocksBuilder();
 
     final iterator = serialized.iterator;
@@ -530,8 +582,11 @@ class _$ConfigSerializer implements StructuredSerializer<Config> {
   }
 
   @override
-  Config deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Config deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ConfigBuilder();
 
     final iterator = serialized.iterator;
@@ -551,7 +606,8 @@ class _$ConfigSerializer implements StructuredSerializer<Config> {
           break;
         case 'visibleInfoBlocks':
           result.visibleInfoBlocks.replace(
-              serializers.deserialize(value, specifiedType: const FullType(VisibleInfoBlocks))! as VisibleInfoBlocks);
+            serializers.deserialize(value, specifiedType: const FullType(VisibleInfoBlocks))! as VisibleInfoBlocks,
+          );
           break;
       }
     }
@@ -568,17 +624,17 @@ class _$UrlSerializer implements StructuredSerializer<Url> {
 
   @override
   Iterable<Object?> serialize(Serializers serializers, Url object, {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      'url',
-      serializers.serialize(object.url, specifiedType: const FullType(String)),
-    ];
+    final result = <Object?>['url', serializers.serialize(object.url, specifiedType: const FullType(String))];
 
     return result;
   }
 
   @override
-  Url deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Url deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = UrlBuilder();
 
     final iterator = serialized.iterator;
@@ -604,12 +660,12 @@ class _$NutritionSerializer implements StructuredSerializer<Nutrition> {
   final String wireName = 'Nutrition';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Nutrition object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object?>[
-      '@type',
-      serializers.serialize(object.type, specifiedType: const FullType(String)),
-    ];
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Nutrition object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
+    final result = <Object?>['@type', serializers.serialize(object.type, specifiedType: const FullType(String))];
     Object? value;
     value = object.calories;
     if (value != null) {
@@ -687,8 +743,11 @@ class _$NutritionSerializer implements StructuredSerializer<Nutrition> {
   }
 
   @override
-  Nutrition deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Nutrition deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = NutritionBuilder();
 
     final iterator = serialized.iterator;
@@ -768,11 +827,15 @@ class _$RecipeSerializer implements StructuredSerializer<Recipe> {
       'tool',
       serializers.serialize(object.tool, specifiedType: const FullType(BuiltList, const [const FullType(String)])),
       'recipeIngredient',
-      serializers.serialize(object.recipeIngredient,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.recipeIngredient,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'recipeInstructions',
-      serializers.serialize(object.recipeInstructions,
-          specifiedType: const FullType(BuiltList, const [const FullType(String)])),
+      serializers.serialize(
+        object.recipeInstructions,
+        specifiedType: const FullType(BuiltList, const [const FullType(String)]),
+      ),
       'nutrition',
       serializers.serialize(object.nutrition, specifiedType: const FullType(Nutrition)),
       'name',
@@ -821,8 +884,11 @@ class _$RecipeSerializer implements StructuredSerializer<Recipe> {
   }
 
   @override
-  Recipe deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Recipe deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = RecipeBuilder();
 
     final iterator = serialized.iterator;
@@ -862,20 +928,27 @@ class _$RecipeSerializer implements StructuredSerializer<Recipe> {
           result.recipeCategory = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'tool':
-          result.tool.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.tool.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'recipeIngredient':
-          result.recipeIngredient.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.recipeIngredient.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'recipeInstructions':
-          result.recipeInstructions.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(String)]))! as BuiltList<Object?>);
+          result.recipeInstructions.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(String)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'nutrition':
-          result.nutrition
-              .replace(serializers.deserialize(value, specifiedType: const FullType(Nutrition))! as Nutrition);
+          result.nutrition.replace(
+            serializers.deserialize(value, specifiedType: const FullType(Nutrition))! as Nutrition,
+          );
           break;
         case 'name':
           result.name = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
@@ -909,8 +982,11 @@ class _$KeywordSerializer implements StructuredSerializer<Keyword> {
   final String wireName = 'Keyword';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Keyword object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Keyword object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -922,8 +998,11 @@ class _$KeywordSerializer implements StructuredSerializer<Keyword> {
   }
 
   @override
-  Keyword deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Keyword deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = KeywordBuilder();
 
     final iterator = serialized.iterator;
@@ -977,8 +1056,11 @@ class _$ErrorSerializer implements StructuredSerializer<Error> {
   }
 
   @override
-  Error deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Error deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ErrorBuilder();
 
     final iterator = serialized.iterator;
@@ -1095,7 +1177,8 @@ class CategoryInformationBuilder
 
   _$CategoryInformation _build() {
     CategoryInformation._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$CategoryInformation._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'CategoryInformation', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'CategoryInformation', 'recipeCount'),
@@ -1194,7 +1277,8 @@ class CategoryBuilder implements Builder<Category, CategoryBuilder>, $CategoryIn
 
   _$Category _build() {
     Category._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Category._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'Category', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Category', 'recipeCount'),
@@ -1243,14 +1327,14 @@ class _$RecipeStubInformation extends RecipeStubInformation {
   factory _$RecipeStubInformation([void Function(RecipeStubInformationBuilder)? updates]) =>
       (RecipeStubInformationBuilder()..update(updates))._build();
 
-  _$RecipeStubInformation._(
-      {required this.name,
-      required this.keywords,
-      required this.dateCreated,
-      this.dateModified,
-      required this.imageUrl,
-      required this.imagePlaceholderUrl})
-      : super._();
+  _$RecipeStubInformation._({
+    required this.name,
+    required this.keywords,
+    required this.dateCreated,
+    this.dateModified,
+    required this.imageUrl,
+    required this.imagePlaceholderUrl,
+  }) : super._();
   @override
   RecipeStubInformation rebuild(void Function(RecipeStubInformationBuilder) updates) =>
       (toBuilder()..update(updates)).build();
@@ -1357,7 +1441,8 @@ class RecipeStubInformationBuilder
 
   _$RecipeStubInformation _build() {
     RecipeStubInformation._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$RecipeStubInformation._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'RecipeStubInformation', 'name'),
           keywords: BuiltValueNullFieldError.checkNotNull(keywords, r'RecipeStubInformation', 'keywords'),
@@ -1365,7 +1450,10 @@ class RecipeStubInformationBuilder
           dateModified: dateModified,
           imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStubInformation', 'imageUrl'),
           imagePlaceholderUrl: BuiltValueNullFieldError.checkNotNull(
-              imagePlaceholderUrl, r'RecipeStubInformation', 'imagePlaceholderUrl'),
+            imagePlaceholderUrl,
+            r'RecipeStubInformation',
+            'imagePlaceholderUrl',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1420,16 +1508,16 @@ class _$RecipeStub extends RecipeStub {
 
   factory _$RecipeStub([void Function(RecipeStubBuilder)? updates]) => (RecipeStubBuilder()..update(updates))._build();
 
-  _$RecipeStub._(
-      {required this.recipeId,
-      required this.id,
-      required this.name,
-      required this.keywords,
-      required this.dateCreated,
-      this.dateModified,
-      required this.imageUrl,
-      required this.imagePlaceholderUrl})
-      : super._();
+  _$RecipeStub._({
+    required this.recipeId,
+    required this.id,
+    required this.name,
+    required this.keywords,
+    required this.dateCreated,
+    this.dateModified,
+    required this.imageUrl,
+    required this.imagePlaceholderUrl,
+  }) : super._();
   @override
   RecipeStub rebuild(void Function(RecipeStubBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -1550,7 +1638,8 @@ class RecipeStubBuilder implements Builder<RecipeStub, RecipeStubBuilder>, $Reci
 
   _$RecipeStub _build() {
     RecipeStub._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$RecipeStub._(
           recipeId: BuiltValueNullFieldError.checkNotNull(recipeId, r'RecipeStub', 'recipeId'),
           id: BuiltValueNullFieldError.checkNotNull(id, r'RecipeStub', 'id'),
@@ -1559,8 +1648,11 @@ class RecipeStubBuilder implements Builder<RecipeStub, RecipeStubBuilder>, $Reci
           dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'RecipeStub', 'dateCreated'),
           dateModified: dateModified,
           imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'RecipeStub', 'imageUrl'),
-          imagePlaceholderUrl:
-              BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'RecipeStub', 'imagePlaceholderUrl'),
+          imagePlaceholderUrl: BuiltValueNullFieldError.checkNotNull(
+            imagePlaceholderUrl,
+            r'RecipeStub',
+            'imagePlaceholderUrl',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -1578,9 +1670,9 @@ class _$RenameCategoryRequestApplicationJson extends RenameCategoryRequestApplic
   @override
   final String name;
 
-  factory _$RenameCategoryRequestApplicationJson(
-          [void Function(RenameCategoryRequestApplicationJsonBuilder)? updates]) =>
-      (RenameCategoryRequestApplicationJsonBuilder()..update(updates))._build();
+  factory _$RenameCategoryRequestApplicationJson([
+    void Function(RenameCategoryRequestApplicationJsonBuilder)? updates,
+  ]) => (RenameCategoryRequestApplicationJsonBuilder()..update(updates))._build();
 
   _$RenameCategoryRequestApplicationJson._({required this.name}) : super._();
   @override
@@ -1649,7 +1741,8 @@ class RenameCategoryRequestApplicationJsonBuilder
 
   _$RenameCategoryRequestApplicationJson _build() {
     RenameCategoryRequestApplicationJson._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$RenameCategoryRequestApplicationJson._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'RenameCategoryRequestApplicationJson', 'name'),
         );
@@ -1759,7 +1852,8 @@ class APIVersionBuilder implements Builder<APIVersion, APIVersionBuilder>, $APIV
 
   _$APIVersion _build() {
     APIVersion._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$APIVersion._(
           epoch: BuiltValueNullFieldError.checkNotNull(epoch, r'APIVersion', 'epoch'),
           major: BuiltValueNullFieldError.checkNotNull(major, r'APIVersion', 'major'),
@@ -1861,11 +1955,7 @@ class VersionBuilder implements Builder<Version, VersionBuilder>, $VersionInterf
     Version._validate(this);
     _$Version _$result;
     try {
-      _$result = _$v ??
-          _$Version._(
-            cookbookVersion: _cookbookVersion?.build(),
-            apiVersion: _apiVersion?.build(),
-          );
+      _$result = _$v ?? _$Version._(cookbookVersion: _cookbookVersion?.build(), apiVersion: _apiVersion?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -1918,7 +2008,7 @@ class _$VisibleInfoBlocks extends VisibleInfoBlocks {
       (VisibleInfoBlocksBuilder()..update(updates))._build();
 
   _$VisibleInfoBlocks._({this.preparationTime, this.cookingTime, this.totalTime, this.nutritionInformation, this.tools})
-      : super._();
+    : super._();
   @override
   VisibleInfoBlocks rebuild(void Function(VisibleInfoBlocksBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2016,7 +2106,8 @@ class VisibleInfoBlocksBuilder
 
   _$VisibleInfoBlocks _build() {
     VisibleInfoBlocks._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$VisibleInfoBlocks._(
           preparationTime: preparationTime,
           cookingTime: cookingTime,
@@ -2149,7 +2240,8 @@ class ConfigBuilder implements Builder<Config, ConfigBuilder>, $ConfigInterfaceB
     Config._validate(this);
     _$Config _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Config._(
             folder: folder,
             updateInterval: updateInterval,
@@ -2246,10 +2338,7 @@ class UrlBuilder implements Builder<Url, UrlBuilder>, $UrlInterfaceBuilder {
 
   _$Url _build() {
     Url._validate(this);
-    final _$result = _$v ??
-        _$Url._(
-          url: BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url'),
-        );
+    final _$result = _$v ?? _$Url._(url: BuiltValueNullFieldError.checkNotNull(url, r'Url', 'url'));
     replace(_$result);
     return _$result;
   }
@@ -2328,21 +2417,21 @@ class _$Nutrition extends Nutrition {
 
   factory _$Nutrition([void Function(NutritionBuilder)? updates]) => (NutritionBuilder()..update(updates))._build();
 
-  _$Nutrition._(
-      {required this.type,
-      this.calories,
-      this.carbohydrateContent,
-      this.cholesterolContent,
-      this.fatContent,
-      this.fiberContent,
-      this.proteinContent,
-      this.saturatedFatContent,
-      this.servingSize,
-      this.sodiumContent,
-      this.sugarContent,
-      this.transFatContent,
-      this.unsaturatedFatContent})
-      : super._();
+  _$Nutrition._({
+    required this.type,
+    this.calories,
+    this.carbohydrateContent,
+    this.cholesterolContent,
+    this.fatContent,
+    this.fiberContent,
+    this.proteinContent,
+    this.saturatedFatContent,
+    this.servingSize,
+    this.sodiumContent,
+    this.sugarContent,
+    this.transFatContent,
+    this.unsaturatedFatContent,
+  }) : super._();
   @override
   Nutrition rebuild(void Function(NutritionBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2504,7 +2593,8 @@ class NutritionBuilder implements Builder<Nutrition, NutritionBuilder>, $Nutriti
 
   _$Nutrition _build() {
     Nutrition._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Nutrition._(
           type: BuiltValueNullFieldError.checkNotNull(type, r'Nutrition', 'type'),
           calories: calories,
@@ -2633,28 +2723,28 @@ class _$Recipe extends Recipe {
 
   factory _$Recipe([void Function(RecipeBuilder)? updates]) => (RecipeBuilder()..update(updates))._build();
 
-  _$Recipe._(
-      {required this.type,
-      this.id,
-      this.prepTime,
-      this.cookTime,
-      this.totalTime,
-      required this.description,
-      required this.url,
-      required this.image,
-      required this.recipeYield,
-      required this.recipeCategory,
-      required this.tool,
-      required this.recipeIngredient,
-      required this.recipeInstructions,
-      required this.nutrition,
-      required this.name,
-      required this.keywords,
-      required this.dateCreated,
-      this.dateModified,
-      required this.imageUrl,
-      required this.imagePlaceholderUrl})
-      : super._();
+  _$Recipe._({
+    required this.type,
+    this.id,
+    this.prepTime,
+    this.cookTime,
+    this.totalTime,
+    required this.description,
+    required this.url,
+    required this.image,
+    required this.recipeYield,
+    required this.recipeCategory,
+    required this.tool,
+    required this.recipeIngredient,
+    required this.recipeInstructions,
+    required this.nutrition,
+    required this.name,
+    required this.keywords,
+    required this.dateCreated,
+    this.dateModified,
+    required this.imageUrl,
+    required this.imagePlaceholderUrl,
+  }) : super._();
   @override
   Recipe rebuild(void Function(RecipeBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -2874,7 +2964,8 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
     Recipe._validate(this);
     _$Recipe _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Recipe._(
             type: BuiltValueNullFieldError.checkNotNull(type, r'Recipe', 'type'),
             id: id,
@@ -2895,8 +2986,11 @@ class RecipeBuilder implements Builder<Recipe, RecipeBuilder>, $RecipeInterfaceB
             dateCreated: BuiltValueNullFieldError.checkNotNull(dateCreated, r'Recipe', 'dateCreated'),
             dateModified: dateModified,
             imageUrl: BuiltValueNullFieldError.checkNotNull(imageUrl, r'Recipe', 'imageUrl'),
-            imagePlaceholderUrl:
-                BuiltValueNullFieldError.checkNotNull(imagePlaceholderUrl, r'Recipe', 'imagePlaceholderUrl'),
+            imagePlaceholderUrl: BuiltValueNullFieldError.checkNotNull(
+              imagePlaceholderUrl,
+              r'Recipe',
+              'imagePlaceholderUrl',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -3008,7 +3102,8 @@ class KeywordBuilder implements Builder<Keyword, KeywordBuilder>, $KeywordInterf
 
   _$Keyword _build() {
     Keyword._validate(this);
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         _$Keyword._(
           name: BuiltValueNullFieldError.checkNotNull(name, r'Keyword', 'name'),
           recipeCount: BuiltValueNullFieldError.checkNotNull(recipeCount, r'Keyword', 'recipeCount'),
@@ -3119,12 +3214,7 @@ class ErrorBuilder implements Builder<Error, ErrorBuilder>, $ErrorInterfaceBuild
 
   _$Error _build() {
     Error._validate(this);
-    final _$result = _$v ??
-        _$Error._(
-          msg: msg,
-          file: file,
-          line: line,
-        );
+    final _$result = _$v ?? _$Error._(msg: msg, file: file, line: line);
     replace(_$result);
     return _$result;
   }

@@ -10,11 +10,7 @@ import 'package:notifications_app/src/widgets/action.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 class NotificationsNotification extends StatelessWidget {
-  const NotificationsNotification({
-    required this.notification,
-    required this.onDelete,
-    super.key,
-  });
+  const NotificationsNotification({required this.notification, required this.onDelete, super.key});
 
   final notifications.Notification notification;
 
@@ -22,37 +18,36 @@ class NotificationsNotification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final subject = notification.subjectRichParameters!.isNotEmpty
-        ? Text.rich(
-            buildRichTextSpan(
-              account: NeonProvider.of<Account>(context),
-              text: notification.subjectRich!,
-              isMarkdown: false,
-              parameters: notification.subjectRichParameters!,
-              references: BuiltList(),
-              textStyle: Theme.of(context).textTheme.bodyLarge!,
-              onReferenceClicked: (_) {},
-            ),
-          )
-        : Text(notification.subject);
+    final subject =
+        notification.subjectRichParameters!.isNotEmpty
+            ? Text.rich(
+              buildRichTextSpan(
+                account: NeonProvider.of<Account>(context),
+                text: notification.subjectRich!,
+                isMarkdown: false,
+                parameters: notification.subjectRichParameters!,
+                references: BuiltList(),
+                textStyle: Theme.of(context).textTheme.bodyLarge!,
+                onReferenceClicked: (_) {},
+              ),
+            )
+            : Text(notification.subject);
 
-    final message = notification.messageRichParameters!.isNotEmpty
-        ? Text.rich(
-            buildRichTextSpan(
-              account: NeonProvider.of<Account>(context),
-              text: notification.messageRich!,
-              isMarkdown: false,
-              parameters: notification.messageRichParameters!,
-              references: BuiltList(),
-              textStyle: Theme.of(context).textTheme.bodyMedium!,
-              onReferenceClicked: (_) {},
-            ),
-            overflow: TextOverflow.ellipsis,
-          )
-        : Text(
-            notification.message,
-            overflow: TextOverflow.ellipsis,
-          );
+    final message =
+        notification.messageRichParameters!.isNotEmpty
+            ? Text.rich(
+              buildRichTextSpan(
+                account: NeonProvider.of<Account>(context),
+                text: notification.messageRich!,
+                isMarkdown: false,
+                parameters: notification.messageRichParameters!,
+                references: BuiltList(),
+                textStyle: Theme.of(context).textTheme.bodyMedium!,
+                onReferenceClicked: (_) {},
+              ),
+              overflow: TextOverflow.ellipsis,
+            )
+            : Text(notification.message, overflow: TextOverflow.ellipsis);
 
     return Dismissible(
       key: Key(notification.notificationId.toString()),
@@ -69,34 +64,24 @@ class NotificationsNotification extends StatelessWidget {
           spacing: 5,
           children: [
             if (notification.message.isNotEmpty) message,
-            RelativeTime(
-              date: tz.TZDateTime.parse(tz.UTC, notification.datetime),
-            ),
+            RelativeTime(date: tz.TZDateTime.parse(tz.UTC, notification.datetime)),
             if (notification.actions.isNotEmpty)
-              Row(
-                children: notification.actions
-                    .map(
-                      (action) => NotificationsAction(
-                        action: action,
-                      ),
-                    )
-                    .toList(),
-              ),
+              Row(children: notification.actions.map((action) => NotificationsAction(action: action)).toList()),
           ],
         ),
-        leading: notification.icon!.isNotEmpty
-            ? NeonUriImage(
-                account: NeonProvider.of<Account>(context),
-                uri: Uri.parse(notification.icon!),
-                size: const Size.square(largeIconSize),
-                svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
-              )
-            : const SizedBox.square(
-                dimension: largeIconSize,
-              ),
-        onTap: notification.link.isNotEmpty
-            ? () async => launchUrl(NeonProvider.of<Account>(context), notification.link)
-            : null,
+        leading:
+            notification.icon!.isNotEmpty
+                ? NeonUriImage(
+                  account: NeonProvider.of<Account>(context),
+                  uri: Uri.parse(notification.icon!),
+                  size: const Size.square(largeIconSize),
+                  svgColorFilter: ColorFilter.mode(Theme.of(context).colorScheme.primary, BlendMode.srcIn),
+                )
+                : const SizedBox.square(dimension: largeIconSize),
+        onTap:
+            notification.link.isNotEmpty
+                ? () async => launchUrl(NeonProvider.of<Account>(context), notification.link)
+                : null,
       ),
     );
   }

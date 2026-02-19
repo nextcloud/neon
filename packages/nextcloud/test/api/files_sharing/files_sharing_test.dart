@@ -23,10 +23,11 @@ void main() {
       test('createShare', () async {
         final response = await tester.client.filesSharing.shareapi.createShare(
           $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
-            (b) => b
-              ..path = '/create-share.png'
-              ..shareType = core.ShareType.user.index
-              ..shareWith = 'user2',
+            (b) =>
+                b
+                  ..path = '/create-share.png'
+                  ..shareType = core.ShareType.user.index
+                  ..shareWith = 'user2',
           ),
         );
         expect(response.statusCode, 200);
@@ -66,10 +67,11 @@ void main() {
       test('getShares', () async {
         await tester.client.filesSharing.shareapi.createShare(
           $body: files_sharing.ShareapiCreateShareRequestApplicationJson(
-            (b) => b
-              ..path = '/create-share.png'
-              ..shareType = core.ShareType.user.index
-              ..shareWith = 'user2',
+            (b) =>
+                b
+                  ..path = '/create-share.png'
+                  ..shareType = core.ShareType.user.index
+                  ..shareWith = 'user2',
           ),
         );
 

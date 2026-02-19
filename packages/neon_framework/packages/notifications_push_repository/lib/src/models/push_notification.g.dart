@@ -15,8 +15,11 @@ class _$PushNotificationSerializer implements StructuredSerializer<PushNotificat
   final String wireName = 'PushNotification';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, PushNotification object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    PushNotification object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'accountID',
       serializers.serialize(object.accountID, specifiedType: const FullType(String)),
@@ -32,8 +35,11 @@ class _$PushNotificationSerializer implements StructuredSerializer<PushNotificat
   }
 
   @override
-  PushNotification deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  PushNotification deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = PushNotificationBuilder();
 
     final iterator = serialized.iterator;
@@ -52,8 +58,10 @@ class _$PushNotificationSerializer implements StructuredSerializer<PushNotificat
           result.type = serializers.deserialize(value, specifiedType: const FullType(String))! as String;
           break;
         case 'subject':
-          result.subject.replace(serializers.deserialize(value,
-              specifiedType: const FullType(notifications.DecryptedSubject))! as notifications.DecryptedSubject);
+          result.subject.replace(
+            serializers.deserialize(value, specifiedType: const FullType(notifications.DecryptedSubject))!
+                as notifications.DecryptedSubject,
+          );
           break;
       }
     }
@@ -76,7 +84,7 @@ class _$PushNotification extends PushNotification {
       (PushNotificationBuilder()..update(updates))._build();
 
   _$PushNotification._({required this.accountID, required this.priority, required this.type, required this.subject})
-      : super._() {
+    : super._() {
     BuiltValueNullFieldError.checkNotNull(accountID, r'PushNotification', 'accountID');
     BuiltValueNullFieldError.checkNotNull(priority, r'PushNotification', 'priority');
     BuiltValueNullFieldError.checkNotNull(type, r'PushNotification', 'type');
@@ -171,12 +179,14 @@ class PushNotificationBuilder implements Builder<PushNotification, PushNotificat
   _$PushNotification _build() {
     _$PushNotification _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$PushNotification._(
-              accountID: BuiltValueNullFieldError.checkNotNull(accountID, r'PushNotification', 'accountID'),
-              priority: BuiltValueNullFieldError.checkNotNull(priority, r'PushNotification', 'priority'),
-              type: BuiltValueNullFieldError.checkNotNull(type, r'PushNotification', 'type'),
-              subject: subject.build());
+            accountID: BuiltValueNullFieldError.checkNotNull(accountID, r'PushNotification', 'accountID'),
+            priority: BuiltValueNullFieldError.checkNotNull(priority, r'PushNotification', 'priority'),
+            type: BuiltValueNullFieldError.checkNotNull(type, r'PushNotification', 'type'),
+            subject: subject.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {

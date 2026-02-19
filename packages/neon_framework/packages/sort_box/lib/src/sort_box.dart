@@ -15,10 +15,7 @@ class SortBox<T extends Enum, R> {
   /// Constructs a new SortBox.
   ///
   /// A *Box* is a record of a property and how to order it.
-  const SortBox({
-    required this.properties,
-    required this.boxes,
-  });
+  const SortBox({required this.properties, required this.boxes});
 
   /// A mapping of all values [T] to their [ComparableGetter].
   final Map<T, ComparableGetter<R>> properties;
@@ -36,20 +33,12 @@ class SortBox<T extends Enum, R> {
   ///
   /// See:
   ///   * [sortListBuilder] to sort a `ListBuilder` of a `BuiltList`
-  void sortList(
-    List<R> input,
-    Box<T> box, [
-    Set<Box<T>>? presort,
-  ]) {
+  void sortList(List<R> input, Box<T> box, [Set<Box<T>>? presort]) {
     if (input.length <= 1) {
       return;
     }
 
-    final boxes = {
-      ...?presort,
-      box,
-      ...?this.boxes[box.property],
-    };
+    final boxes = {...?presort, box, ...?this.boxes[box.property]};
 
     input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
   }
@@ -62,30 +51,18 @@ class SortBox<T extends Enum, R> {
   ///
   /// See:
   ///   * [sortList] to sort a `List`
-  void sortListBuilder(
-    ListBuilder<R> input,
-    Box<T> box, [
-    Set<Box<T>>? presort,
-  ]) {
+  void sortListBuilder(ListBuilder<R> input, Box<T> box, [Set<Box<T>>? presort]) {
     if (input.length <= 1) {
       return;
     }
 
-    final boxes = {
-      ...?presort,
-      box,
-      ...?this.boxes[box.property],
-    };
+    final boxes = {...?presort, box, ...?this.boxes[box.property]};
 
     input.sort((item1, item2) => _compare(item1, item2, boxes.iterator..moveNext()));
   }
 
   /// Iteratively compares two elements [item1] and [item2] according to the current box in [iterator].
-  int _compare(
-    R item1,
-    R item2,
-    Iterator<Box<T>> iterator,
-  ) {
+  int _compare(R item1, R item2, Iterator<Box<T>> iterator) {
     final box = iterator.current;
     final comparableGetter = properties[box.property]!;
 

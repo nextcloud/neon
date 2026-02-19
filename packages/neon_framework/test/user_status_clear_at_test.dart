@@ -9,29 +9,23 @@ void main() {
 
   final clearAts = <user_status.ClearAt, (String, DateTime?)>{
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
-    ): (
-      localizations.userStatusClearAtToday,
-      DateTime.utc(2024, 1, 2),
-    ),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.endOf
+            ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.day),
+    ): (localizations.userStatusClearAtToday, DateTime.utc(2024, 1, 2)),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.endOf
-        ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
-    ): (
-      localizations.userStatusClearAtThisWeek,
-      DateTime.utc(2024, 1, 8),
-    ),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.endOf
+            ..time = ($int: null, clearAtTimeType: user_status.ClearAtTimeType.week),
+    ): (localizations.userStatusClearAtThisWeek, DateTime.utc(2024, 1, 8)),
     user_status.ClearAt(
-      (b) => b
-        ..type = user_status.ClearAt_Type.period
-        ..time = ($int: 120, clearAtTimeType: null),
-    ): (
-      localizations.relativeTimeMinutes(2, 'false'),
-      DateTime.utc(2024, 1, 1, 0, 2),
-    ),
+      (b) =>
+          b
+            ..type = user_status.ClearAt_Type.period
+            ..time = ($int: 120, clearAtTimeType: null),
+    ): (localizations.relativeTimeMinutes(2, 'false'), DateTime.utc(2024, 1, 1, 0, 2)),
   };
 
   test('Format relative', () {

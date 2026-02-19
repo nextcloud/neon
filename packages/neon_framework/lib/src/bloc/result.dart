@@ -21,15 +21,8 @@ class Result<T> {
   ///   * [Result.loading], for a Result in the loading state.
   ///   * [Result.success], for a Result in the success state.
   ///   * [Result.error], for a Result in the error state.
-  Result(
-    this.data,
-    this.error, {
-    required this.isLoading,
-    required this.isCached,
-  }) : assert(
-          T != Never,
-          'Result() called without specifying the data type. Call Result<T>() instead',
-        );
+  Result(this.data, this.error, {required this.isLoading, required this.isCached})
+    : assert(T != Never, 'Result() called without specifying the data type. Call Result<T>() instead');
 
   /// Creates a new Result in the loading state.
   ///
@@ -38,14 +31,11 @@ class Result<T> {
   ///   * [Result.success], for a Result in the success state.
   ///   * [Result.error], for a Result in the error state.
   Result.loading()
-      : data = null,
-        error = null,
-        isLoading = true,
-        isCached = false,
-        assert(
-          T != Never,
-          'Result.loading() called without specifying the data type. Call Result<T>.loading() instead',
-        );
+    : data = null,
+      error = null,
+      isLoading = true,
+      isCached = false,
+      assert(T != Never, 'Result.loading() called without specifying the data type. Call Result<T>.loading() instead');
 
   /// Creates a new Result in the success state.
   ///
@@ -54,13 +44,10 @@ class Result<T> {
   ///   * [Result.loading], for a Result in the loading state.
   ///   * [Result.error], for a Result in the error state.
   Result.success(this.data)
-      : error = null,
-        isLoading = false,
-        isCached = false,
-        assert(
-          T != Never,
-          'Result.success() called without specifying the data type. Call Result<T>.success() instead',
-        );
+    : error = null,
+      isLoading = false,
+      isCached = false,
+      assert(T != Never, 'Result.success() called without specifying the data type. Call Result<T>.success() instead');
 
   /// Creates a new Result in the error state.
   ///
@@ -69,13 +56,10 @@ class Result<T> {
   ///   * [Result.loading], for a Result in the loading state.
   ///   * [Result.success], for a Result in the success state.
   Result.error(this.error)
-      : data = null,
-        isLoading = false,
-        isCached = false,
-        assert(
-          T != Never,
-          'Result.error() called without specifying the data type. Call Result<T>.error() instead',
-        );
+    : data = null,
+      isLoading = false,
+      isCached = false,
+      assert(T != Never, 'Result.error() called without specifying the data type. Call Result<T>.error() instead');
 
   /// The latest data received by the data fetching computation.
   ///
@@ -104,29 +88,19 @@ class Result<T> {
   /// Transforms the subtype of the Result by applying [callback].
   ///
   /// If the result has no data `callback` will not be called.
-  Result<R> transform<R>(R? Function(T data) callback) => Result(
-        hasData ? callback(data as T) : null,
-        error,
-        isLoading: isLoading,
-        isCached: isCached,
-      );
+  Result<R> transform<R>(R? Function(T data) callback) =>
+      Result(hasData ? callback(data as T) : null, error, isLoading: isLoading, isCached: isCached);
 
   /// Copies this Result in a loading state.
   Result<T> asLoading() => copyWith(isLoading: true);
 
   /// Copies this Result and optionally replaces the [data], [error], [isLoading] and [isCached].
-  Result<T> copyWith({
-    T? data,
-    Object? error,
-    bool? isLoading,
-    bool? isCached,
-  }) =>
-      Result(
-        data ?? this.data,
-        error ?? this.error,
-        isLoading: isLoading ?? this.isLoading,
-        isCached: isCached ?? this.isCached,
-      );
+  Result<T> copyWith({T? data, Object? error, bool? isLoading, bool? isCached}) => Result(
+    data ?? this.data,
+    error ?? this.error,
+    isLoading: isLoading ?? this.isLoading,
+    isCached: isCached ?? this.isCached,
+  );
 
   /// Returns whether this snapshot contains a non-null [error] value.
   ///
@@ -198,22 +172,14 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
   /// See also:
   ///   * [ResultBuilder.behaviorSubject] for automatically setting the initial
   ///     data from a [BehaviorSubject].
-  const ResultBuilder({
-    required this.builder,
-    this.initialData,
-    super.stream,
-    super.key,
-  });
+  const ResultBuilder({required this.builder, this.initialData, super.stream, super.key});
 
   /// Creates a new result stream builder for a [BehaviorSubject].
   ///
   /// The [initialData] will be set to the current value of the subject.
-  ResultBuilder.behaviorSubject({
-    required this.builder,
-    BehaviorSubject<Result<T>>? subject,
-    super.key,
-  })  : initialData = subject?.valueOrNull,
-        super(stream: subject);
+  ResultBuilder.behaviorSubject({required this.builder, BehaviorSubject<Result<T>>? subject, super.key})
+    : initialData = subject?.valueOrNull,
+      super(stream: subject);
 
   /// Builder function called with the current [Result] value.
   ///
@@ -250,19 +216,11 @@ class ResultBuilder<T> extends StreamBuilderBase<Result<T>, Result<T>> {
       return current;
     }
 
-    return Result(
-      current.data,
-      error,
-      isLoading: false,
-      isCached: false,
-    );
+    return Result(current.data, error, isLoading: false, isCached: false);
   }
 
   @override
   Widget build(BuildContext context, Result<T> currentSummary) {
-    return builder(
-      context,
-      currentSummary,
-    );
+    return builder(context, currentSummary);
   }
 }

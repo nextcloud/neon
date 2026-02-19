@@ -57,14 +57,15 @@ class _TalkMainPageState extends State<TalkMainPage> {
     return Scaffold(
       body: ResultBuilder.behaviorSubject(
         subject: bloc.rooms,
-        builder: (context, rooms) => NeonListView(
-          scrollKey: 'talk-rooms',
-          isLoading: rooms.isLoading,
-          error: rooms.error,
-          onRefresh: bloc.refresh,
-          itemCount: rooms.data?.length ?? 0,
-          itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
-        ),
+        builder:
+            (context, rooms) => NeonListView(
+              scrollKey: 'talk-rooms',
+              isLoading: rooms.isLoading,
+              error: rooms.error,
+              onRefresh: bloc.refresh,
+              itemCount: rooms.data?.length ?? 0,
+              itemBuilder: (context, index) => buildRoom(rooms.requireData[index]),
+            ),
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: TalkLocalizations.of(context).roomsCreateNew,
@@ -77,11 +78,7 @@ class _TalkMainPageState extends State<TalkMainPage> {
             return;
           }
 
-          bloc.createRoom(
-            result.type,
-            result.roomName,
-            result.invite,
-          );
+          bloc.createRoom(result.type, result.roomName, result.invite);
         },
         child: const Icon(Icons.add),
       ),
@@ -101,16 +98,11 @@ class _TalkMainPageState extends State<TalkMainPage> {
       );
 
       if (room.unreadMessages > 0) {
-        trailing = TalkUnreadIndicator(
-          room: room,
-        );
+        trailing = TalkUnreadIndicator(room: room);
       } else if (account.username == lastChatMessage.actorId) {
         trailing = Padding(
           padding: const EdgeInsets.symmetric(vertical: 4),
-          child: TalkReadIndicator(
-            chatMessage: lastChatMessage,
-            lastCommonRead: room.lastCommonReadMessage,
-          ),
+          child: TalkReadIndicator(chatMessage: lastChatMessage, lastCommonRead: room.lastCommonReadMessage),
         );
       }
 
@@ -118,56 +110,31 @@ class _TalkMainPageState extends State<TalkMainPage> {
 
       final time = Tooltip(
         message: DateFormat.yMd().add_jm().format(timestamp),
-        child: RelativeTime(
-          date: timestamp,
-          includeSign: false,
-          abbreviation: true,
-        ),
+        child: RelativeTime(date: timestamp, includeSign: false, abbreviation: true),
       );
 
       if (trailing != null) {
-        trailing = Column(
-          children: [
-            time,
-            Expanded(
-              child: trailing,
-            ),
-          ],
-        );
+        trailing = Column(children: [time, Expanded(child: trailing)]);
       } else {
-        trailing = Align(
-          alignment: Alignment.topCenter,
-          child: time,
-        );
+        trailing = Align(alignment: Alignment.topCenter, child: time);
       }
 
-      trailing = SizedBox(
-        width: 40,
-        child: trailing,
-      );
+      trailing = SizedBox(width: 40, child: trailing);
     }
 
     return ListTile(
-      leading: TalkRoomAvatar(
-        room: room,
-      ),
-      title: Text(
-        room.displayName,
-        overflow: TextOverflow.ellipsis,
-      ),
+      leading: TalkRoomAvatar(room: room),
+      title: Text(room.displayName, overflow: TextOverflow.ellipsis),
       subtitle: subtitle,
       trailing: trailing,
       onTap: () async {
         await Navigator.of(context).push(
           MaterialPageRoute<void>(
-            builder: (context) => NeonProvider(
-              create: (_) => TalkRoomBloc(
-                talkBloc: bloc,
-                account: account,
-                room: room,
-              ),
-              child: const TalkRoomPage(),
-            ),
+            builder:
+                (context) => NeonProvider(
+                  create: (_) => TalkRoomBloc(talkBloc: bloc, account: account, room: room),
+                  child: const TalkRoomPage(),
+                ),
           ),
         );
       },

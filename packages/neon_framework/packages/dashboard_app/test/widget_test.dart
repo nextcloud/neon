@@ -15,11 +15,11 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher_platform_interface/url_launcher_platform_interface.dart';
 
 Widget wrapWidget(Widget child) => TestApp(
-      localizationsDelegates: DashboardLocalizations.localizationsDelegates,
-      supportedLocales: DashboardLocalizations.supportedLocales,
-      providers: [Provider<Account>.value(value: MockAccount())],
-      child: child,
-    );
+  localizationsDelegates: DashboardLocalizations.localizationsDelegates,
+  supportedLocales: DashboardLocalizations.supportedLocales,
+  providers: [Provider<Account>.value(value: MockAccount())],
+  child: child,
+);
 
 void main() {
   late MockUrlLauncher urlLauncher;
@@ -40,44 +40,30 @@ void main() {
 
   group('Widget item', () {
     final item = dashboard.WidgetItem(
-      (b) => b
-        ..title = 'Widget item title'
-        ..subtitle = 'Widget item subtitle'
-        ..link = '/link'
-        ..iconUrl = '/iconUrl'
-        ..overlayIconUrl = '/overlayIconUrl'
-        ..sinceId = '',
+      (b) =>
+          b
+            ..title = 'Widget item title'
+            ..subtitle = 'Widget item subtitle'
+            ..link = '/link'
+            ..iconUrl = '/iconUrl'
+            ..overlayIconUrl = '/overlayIconUrl'
+            ..sinceId = '',
     );
 
     testWidgets('Everything filled', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetItem(
-            item: item,
-            roundIcon: true,
-          ),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(wrapWidget(DashboardWidgetItem(item: item, roundIcon: true)));
 
       expect(find.text('Widget item title'), findsOneWidget);
       expect(find.text('Widget item subtitle'), findsOneWidget);
       expect(find.byType(InkWell), findsOneWidget);
       expect(
         tester.widget(find.byType(InkWell)),
-        isA<InkWell>().having(
-          (a) => a.onTap,
-          'onTap is not null',
-          isNotNull,
-        ),
+        isA<InkWell>().having((a) => a.onTap, 'onTap is not null', isNotNull),
       );
       expect(find.byType(ClipRRect), findsOneWidget);
       expect(
         tester.widget(find.byType(ClipRRect)),
-        isA<ClipRRect>().having(
-          (a) => a.borderRadius,
-          'borderRadius is correct',
-          BorderRadius.circular(largeIconSize),
-        ),
+        isA<ClipRRect>().having((a) => a.borderRadius, 'borderRadius is correct', BorderRadius.circular(largeIconSize)),
       );
       expect(find.byType(NeonUriImage), findsNWidgets(2));
 
@@ -88,22 +74,11 @@ void main() {
     });
 
     testWidgets('Not round', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetItem(
-            item: item,
-            roundIcon: false,
-          ),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(wrapWidget(DashboardWidgetItem(item: item, roundIcon: false)));
 
       expect(
         tester.widget(find.byType(ClipRRect)),
-        isA<ClipRRect>().having(
-          (a) => a.borderRadius,
-          'borderRadius is zero',
-          BorderRadius.zero,
-        ),
+        isA<ClipRRect>().having((a) => a.borderRadius, 'borderRadius is zero', BorderRadius.zero),
       );
 
       await expectLater(find.byType(DashboardWidgetItem), matchesGoldenFile('goldens/widget_item_not_round.png'));
@@ -111,32 +86,15 @@ void main() {
 
     testWidgets('Without link', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetItem(
-            item: item.rebuild((b) => b..link = ''),
-            roundIcon: true,
-          ),
-        ),
+        wrapWidget(DashboardWidgetItem(item: item.rebuild((b) => b..link = ''), roundIcon: true)),
       );
 
-      expect(
-        tester.widget(find.byType(InkWell)),
-        isA<InkWell>().having(
-          (a) => a.onTap,
-          'onTap is null',
-          isNull,
-        ),
-      );
+      expect(tester.widget(find.byType(InkWell)), isA<InkWell>().having((a) => a.onTap, 'onTap is null', isNull));
     });
 
     testWidgets('Without overlayIconUrl', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetItem(
-            item: item.rebuild((b) => b..overlayIconUrl = ''),
-            roundIcon: true,
-          ),
-        ),
+        wrapWidget(DashboardWidgetItem(item: item.rebuild((b) => b..overlayIconUrl = ''), roundIcon: true)),
       );
 
       expect(find.byType(NeonUriImage), findsOneWidget);
@@ -144,12 +102,7 @@ void main() {
 
     testWidgets('Without iconUrl', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetItem(
-            item: item.rebuild((b) => b..iconUrl = ''),
-            roundIcon: true,
-          ),
-        ),
+        wrapWidget(DashboardWidgetItem(item: item.rebuild((b) => b..iconUrl = ''), roundIcon: true)),
       );
 
       expect(find.byType(NeonUriImage), findsOneWidget);
@@ -159,33 +112,22 @@ void main() {
 
   group('Widget button', () {
     final button = dashboard.Widget_Buttons(
-      (b) => b
-        ..type = 'new'
-        ..text = 'Button'
-        ..link = '/link',
+      (b) =>
+          b
+            ..type = 'new'
+            ..text = 'Button'
+            ..link = '/link',
     );
 
     testWidgets('Opens link', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetButton(
-            button: button,
-          ),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(wrapWidget(DashboardWidgetButton(button: button)));
 
       await tester.tap(find.byType(DashboardWidgetButton));
       verify(() => urlLauncher.launchUrl('https://cloud.example.com:8443/link', any())).called(1);
     });
 
     testWidgets('New', (tester) async {
-      await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetButton(
-            button: button,
-          ),
-        ),
-      );
+      await tester.pumpWidgetWithAccessibility(wrapWidget(DashboardWidgetButton(button: button)));
 
       expect(find.byIcon(AdaptiveIcons.add), findsOneWidget);
       expect(find.text('Button'), findsOneWidget);
@@ -195,11 +137,7 @@ void main() {
 
     testWidgets('More', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetButton(
-            button: button.rebuild((b) => b.type = 'more'),
-          ),
-        ),
+        wrapWidget(DashboardWidgetButton(button: button.rebuild((b) => b.type = 'more'))),
       );
 
       expect(find.byIcon(Icons.more_outlined), findsOneWidget);
@@ -210,11 +148,7 @@ void main() {
 
     testWidgets('Setup', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetButton(
-            button: button.rebuild((b) => b.type = 'setup'),
-          ),
-        ),
+        wrapWidget(DashboardWidgetButton(button: button.rebuild((b) => b.type = 'setup'))),
       );
 
       expect(find.byIcon(Icons.launch), findsOneWidget);
@@ -225,11 +159,7 @@ void main() {
 
     testWidgets('Invalid', (tester) async {
       await tester.pumpWidgetWithAccessibility(
-        wrapWidget(
-          DashboardWidgetButton(
-            button: button.rebuild((b) => b.type = 'test'),
-          ),
-        ),
+        wrapWidget(DashboardWidgetButton(button: button.rebuild((b) => b.type = 'test'))),
       );
 
       expect(find.byType(Icon), findsNothing);
@@ -241,52 +171,53 @@ void main() {
 
   group('Widget', () {
     final item = dashboard.WidgetItem(
-      (b) => b
-        ..title = 'Widget item title'
-        ..subtitle = 'Widget item subtitle'
-        ..link = '/link'
-        ..iconUrl = '/iconUrl'
-        ..overlayIconUrl = '/overlayIconUrl'
-        ..sinceId = '',
+      (b) =>
+          b
+            ..title = 'Widget item title'
+            ..subtitle = 'Widget item subtitle'
+            ..link = '/link'
+            ..iconUrl = '/iconUrl'
+            ..overlayIconUrl = '/overlayIconUrl'
+            ..sinceId = '',
     );
     final items = dashboard.WidgetItems(
-      (b) => b
-        ..items.replace([item])
-        ..emptyContentMessage = ''
-        ..halfEmptyContentMessage = '',
+      (b) =>
+          b
+            ..items.replace([item])
+            ..emptyContentMessage = ''
+            ..halfEmptyContentMessage = '',
     );
     final button = dashboard.Widget_Buttons(
-      (b) => b
-        ..type = 'new'
-        ..text = 'Button'
-        ..link = '/link',
+      (b) =>
+          b
+            ..type = 'new'
+            ..text = 'Button'
+            ..link = '/link',
     );
     final widget = dashboard.Widget(
-      (b) => b
-        ..id = 'id'
-        ..title = 'Widget title'
-        ..order = 0
-        ..iconClass = ''
-        ..iconUrl = '/iconUrl'
-        ..widgetUrl = '/widgetUrl'
-        ..itemIconsRound = true
-        ..itemApiVersions.replace([1, 2])
-        ..reloadInterval = 0
-        ..buttons.replace([button]),
+      (b) =>
+          b
+            ..id = 'id'
+            ..title = 'Widget title'
+            ..order = 0
+            ..iconClass = ''
+            ..iconUrl = '/iconUrl'
+            ..widgetUrl = '/widgetUrl'
+            ..itemIconsRound = true
+            ..itemApiVersions.replace([1, 2])
+            ..reloadInterval = 0
+            ..buttons.replace([button]),
     );
 
     testWidgets('Everything filled', (tester) async {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widget,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widget,
-                items: items,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widget,
+                  children: DashboardMainPage.buildWidgetItems(context: context, widget: widget, items: items).toList(),
+                ),
           ),
         ),
       );
@@ -295,20 +226,12 @@ void main() {
       expect(find.byType(InkWell), findsNWidgets(4));
       expect(
         tester.widget(find.byType(InkWell).first),
-        isA<InkWell>().having(
-          (a) => a.onTap,
-          'onTap is not null',
-          isNotNull,
-        ),
+        isA<InkWell>().having((a) => a.onTap, 'onTap is not null', isNotNull),
       );
       expect(find.byType(ClipRRect), findsOneWidget);
       expect(
         tester.widget(find.byType(ClipRRect)),
-        isA<ClipRRect>().having(
-          (a) => a.borderRadius,
-          'borderRadius is correct',
-          BorderRadius.circular(largeIconSize),
-        ),
+        isA<ClipRRect>().having((a) => a.borderRadius, 'borderRadius is correct', BorderRadius.circular(largeIconSize)),
       );
       expect(find.byType(NeonUriImage), findsNWidgets(3));
       expect(find.byType(DashboardWidgetItem), findsOneWidget);
@@ -324,26 +247,21 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widgetEmptyURL,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widgetEmptyURL,
-                items: items,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widgetEmptyURL,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widgetEmptyURL,
+                        items: items,
+                      ).toList(),
+                ),
           ),
         ),
       );
 
-      expect(
-        tester.widget(find.byType(InkWell).first),
-        isA<InkWell>().having(
-          (a) => a.onTap,
-          'onTap is null',
-          isNull,
-        ),
-      );
+      expect(tester.widget(find.byType(InkWell).first), isA<InkWell>().having((a) => a.onTap, 'onTap is null', isNull));
     });
 
     testWidgets('Not round', (tester) async {
@@ -351,25 +269,23 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widgetNotRound,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widgetNotRound,
-                items: items,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widgetNotRound,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widgetNotRound,
+                        items: items,
+                      ).toList(),
+                ),
           ),
         ),
       );
 
       expect(
         tester.widget(find.byType(ClipRRect)),
-        isA<ClipRRect>().having(
-          (a) => a.borderRadius,
-          'borderRadius is zero',
-          BorderRadius.zero,
-        ),
+        isA<ClipRRect>().having((a) => a.borderRadius, 'borderRadius is zero', BorderRadius.zero),
       );
 
       await expectLater(find.byType(DashboardWidget), matchesGoldenFile('goldens/widget_not_round.png'));
@@ -379,14 +295,16 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widget,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widget,
-                items: items.rebuild((b) => b.halfEmptyContentMessage = 'Half empty'),
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widget,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widget,
+                        items: items.rebuild((b) => b.halfEmptyContentMessage = 'Half empty'),
+                      ).toList(),
+                ),
           ),
         ),
       );
@@ -401,14 +319,16 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widget,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widget,
-                items: items.rebuild((b) => b.emptyContentMessage = 'Empty'),
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widget,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widget,
+                        items: items.rebuild((b) => b.emptyContentMessage = 'Empty'),
+                      ).toList(),
+                ),
           ),
         ),
       );
@@ -423,18 +343,21 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widget,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widget,
-                items: items.rebuild(
-                  (b) => b
-                    ..halfEmptyContentMessage = 'Half empty'
-                    ..emptyContentMessage = 'Empty',
+            builder:
+                (context) => DashboardWidget(
+                  widget: widget,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widget,
+                        items: items.rebuild(
+                          (b) =>
+                              b
+                                ..halfEmptyContentMessage = 'Half empty'
+                                ..emptyContentMessage = 'Empty',
+                        ),
+                      ).toList(),
                 ),
-              ).toList(),
-            ),
           ),
         ),
       );
@@ -453,14 +376,11 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widget,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widget,
-                items: null,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widget,
+                  children: DashboardMainPage.buildWidgetItems(context: context, widget: widget, items: null).toList(),
+                ),
           ),
         ),
       );
@@ -476,14 +396,16 @@ void main() {
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widgetWithoutButtons,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widgetWithoutButtons,
-                items: null,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widgetWithoutButtons,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widgetWithoutButtons,
+                        items: null,
+                      ).toList(),
+                ),
           ),
         ),
       );
@@ -494,20 +416,20 @@ void main() {
     });
 
     testWidgets('With multiple buttons', (tester) async {
-      final widgetWithMultipleButtons = widget.rebuild(
-        (b) => b.buttons.replace([button, button]),
-      );
+      final widgetWithMultipleButtons = widget.rebuild((b) => b.buttons.replace([button, button]));
       await tester.pumpWidgetWithAccessibility(
         wrapWidget(
           Builder(
-            builder: (context) => DashboardWidget(
-              widget: widgetWithMultipleButtons,
-              children: DashboardMainPage.buildWidgetItems(
-                context: context,
-                widget: widgetWithMultipleButtons,
-                items: null,
-              ).toList(),
-            ),
+            builder:
+                (context) => DashboardWidget(
+                  widget: widgetWithMultipleButtons,
+                  children:
+                      DashboardMainPage.buildWidgetItems(
+                        context: context,
+                        widget: widgetWithMultipleButtons,
+                        items: null,
+                      ).toList(),
+                ),
           ),
         ),
       );

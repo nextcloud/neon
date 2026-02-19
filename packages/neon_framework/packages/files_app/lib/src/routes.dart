@@ -6,10 +6,7 @@ import 'package:nextcloud/files.dart' as files;
 
 part 'routes.g.dart';
 
-@TypedGoRoute<FilesAppRoute>(
-  path: '$appsBaseRoutePrefix${files.appID}',
-  name: files.appID,
-)
+@TypedGoRoute<FilesAppRoute>(path: '$appsBaseRoutePrefix${files.appID}', name: files.appID)
 @immutable
 class FilesAppRoute extends NeonBaseAppRoute {
   const FilesAppRoute();

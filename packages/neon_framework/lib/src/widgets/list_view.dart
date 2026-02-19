@@ -19,12 +19,7 @@ class NeonListView extends StatefulWidget {
     this.topScrollingChildren,
     this.reverse = false,
     super.key,
-  }) : slivers = [
-          SliverList.builder(
-            itemCount: itemCount,
-            itemBuilder: itemBuilder,
-          ),
-        ];
+  }) : slivers = [SliverList.builder(itemCount: itemCount, itemBuilder: itemBuilder)];
 
   /// Creates a Neon list view with custom slivers.
   const NeonListView.custom({
@@ -93,17 +88,11 @@ class _NeonListViewState extends State<NeonListView> {
           SliverToBoxAdapter(
             child: NeonLinearProgressIndicator(
               visible: widget.isLoading,
-              margin: const EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 5,
-              ),
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             ),
           ),
           SliverToBoxAdapter(
-            child: NeonError(
-              widget.error,
-              onRetry: () async => _refreshIndicatorKey.currentState!.show(),
-            ),
+            child: NeonError(widget.error, onRetry: () async => _refreshIndicatorKey.currentState!.show()),
           ),
           if (widget.topScrollingChildren != null)
             SliverList.builder(
@@ -120,11 +109,6 @@ class _NeonListViewState extends State<NeonListView> {
     final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
     final padding = hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero;
 
-    return widget.slivers.map(
-      (sliver) => SliverPadding(
-        padding: padding,
-        sliver: sliver,
-      ),
-    );
+    return widget.slivers.map((sliver) => SliverPadding(padding: padding, sliver: sliver));
   }
 }

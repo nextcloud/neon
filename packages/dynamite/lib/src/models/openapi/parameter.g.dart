@@ -83,8 +83,11 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
   final String wireName = 'Parameter';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, Parameter object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    Parameter object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
@@ -116,15 +119,22 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
     if (value != null) {
       result
         ..add('content')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)])));
+        ..add(
+          serializers.serialize(
+            value,
+            specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]),
+          ),
+        );
     }
     return result;
   }
 
   @override
-  Parameter deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  Parameter deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = ParameterBuilder();
 
     final iterator = serialized.iterator;
@@ -149,8 +159,12 @@ class _$ParameterSerializer implements StructuredSerializer<Parameter> {
           result.$schema = serializers.deserialize(value, specifiedType: const FullType(JsonSchema)) as JsonSchema?;
           break;
         case 'content':
-          result.content.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]))!);
+          result.content.replace(
+            serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltMap, [FullType(String), FullType(MediaType)]),
+            )!,
+          );
           break;
         case 'explode':
           result.explode = serializers.deserialize(value, specifiedType: const FullType(bool))! as bool;
@@ -180,9 +194,11 @@ class _$ParameterTypeSerializer implements PrimitiveSerializer<ParameterType> {
       object.name;
 
   @override
-  ParameterType deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ParameterType.valueOf(serialized as String);
+  ParameterType deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => ParameterType.valueOf(serialized as String);
 }
 
 class _$ParameterStyleSerializer implements PrimitiveSerializer<ParameterStyle> {
@@ -196,9 +212,11 @@ class _$ParameterStyleSerializer implements PrimitiveSerializer<ParameterStyle> 
       object.name;
 
   @override
-  ParameterStyle deserialize(Serializers serializers, Object serialized,
-          {FullType specifiedType = FullType.unspecified}) =>
-      ParameterStyle.valueOf(serialized as String);
+  ParameterStyle deserialize(
+    Serializers serializers,
+    Object serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) => ParameterStyle.valueOf(serialized as String);
 }
 
 class _$Parameter extends Parameter {
@@ -226,17 +244,17 @@ class _$Parameter extends Parameter {
 
   factory _$Parameter([void Function(ParameterBuilder)? updates]) => (ParameterBuilder()..update(updates))._build();
 
-  _$Parameter._(
-      {required this.name,
-      required this.$in,
-      this.description,
-      required this.required,
-      this.$schema,
-      this.content,
-      required this.explode,
-      required this.allowReserved,
-      required this.style})
-      : super._() {
+  _$Parameter._({
+    required this.name,
+    required this.$in,
+    this.description,
+    required this.required,
+    this.$schema,
+    this.content,
+    required this.explode,
+    required this.allowReserved,
+    required this.style,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name');
     BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in');
     BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required');
@@ -384,17 +402,19 @@ class ParameterBuilder implements Builder<Parameter, ParameterBuilder> {
     Parameter._defaults(this);
     _$Parameter _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$Parameter._(
-              name: BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name'),
-              $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
-              description: description,
-              required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
-              $schema: $schema,
-              content: _content?.build(),
-              explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
-              allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
-              style: BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style'));
+            name: BuiltValueNullFieldError.checkNotNull(name, r'Parameter', 'name'),
+            $in: BuiltValueNullFieldError.checkNotNull($in, r'Parameter', '\$in'),
+            description: description,
+            required: BuiltValueNullFieldError.checkNotNull(required, r'Parameter', 'required'),
+            $schema: $schema,
+            content: _content?.build(),
+            explode: BuiltValueNullFieldError.checkNotNull(explode, r'Parameter', 'explode'),
+            allowReserved: BuiltValueNullFieldError.checkNotNull(allowReserved, r'Parameter', 'allowReserved'),
+            style: BuiltValueNullFieldError.checkNotNull(style, r'Parameter', 'style'),
+          );
     } catch (_) {
       late String _$failedField;
       try {

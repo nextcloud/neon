@@ -31,9 +31,7 @@ class DashboardApp extends AppImplementation<DashboardBloc, DashboardOptions> {
   late final DashboardOptions options = DashboardOptions(storage);
 
   @override
-  DashboardBloc buildBloc(Account account) => DashboardBloc(
-        account: account,
-      );
+  DashboardBloc buildBloc(Account account) => DashboardBloc(account: account);
 
   @override
   final Widget page = const DashboardMainPage();

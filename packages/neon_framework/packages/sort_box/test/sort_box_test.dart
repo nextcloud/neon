@@ -2,18 +2,10 @@ import 'package:built_collection/built_collection.dart';
 import 'package:sort_box/sort_box.dart';
 import 'package:test/test.dart';
 
-enum FruitSort {
-  alphabetical,
-  count,
-  price,
-}
+enum FruitSort { alphabetical, count, price }
 
 class Fruit {
-  const Fruit(
-    this.name,
-    this.count, [
-    this.price,
-  ]);
+  const Fruit(this.name, this.count, [this.price]);
 
   final String name;
   final int count;
@@ -31,12 +23,8 @@ void main() {
       FruitSort.price: (fruit) => fruit.price!,
     },
     boxes: const {
-      FruitSort.alphabetical: {
-        (property: FruitSort.count, order: SortBoxOrder.ascending),
-      },
-      FruitSort.count: {
-        (property: FruitSort.alphabetical, order: SortBoxOrder.ascending),
-      },
+      FruitSort.alphabetical: {(property: FruitSort.count, order: SortBoxOrder.ascending)},
+      FruitSort.count: {(property: FruitSort.alphabetical, order: SortBoxOrder.ascending)},
       FruitSort.price: {
         (property: FruitSort.alphabetical, order: SortBoxOrder.descending),
         (property: FruitSort.count, order: SortBoxOrder.ascending),

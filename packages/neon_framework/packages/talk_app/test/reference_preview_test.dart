@@ -27,12 +27,7 @@ void main() {
 
   testWidgets('Loading', (tester) async {
     await tester.pumpWidgetWithAccessibility(
-      const TestApp(
-        child: TalkReferencePreview(
-          url: '/link',
-          openGraphObject: null,
-        ),
-      ),
+      const TestApp(child: TalkReferencePreview(url: '/link', openGraphObject: null)),
     );
 
     expect(find.byType(CircularProgressIndicator), findsOne);
@@ -47,13 +42,8 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkReferencePreview(
-          url: '/link',
-          openGraphObject: openGraphObject,
-        ),
+        providers: [Provider<Account>.value(value: account)],
+        child: TalkReferencePreview(url: '/link', openGraphObject: openGraphObject),
       ),
     );
 
@@ -73,13 +63,8 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkReferencePreview(
-          url: '/link',
-          openGraphObject: openGraphObject,
-        ),
+        providers: [Provider<Account>.value(value: account)],
+        child: TalkReferencePreview(url: '/link', openGraphObject: openGraphObject),
       ),
     );
 
@@ -97,13 +82,8 @@ void main() {
 
     await tester.pumpWidgetWithAccessibility(
       TestApp(
-        providers: [
-          Provider<Account>.value(value: account),
-        ],
-        child: TalkReferencePreview(
-          url: '/link',
-          openGraphObject: openGraphObject,
-        ),
+        providers: [Provider<Account>.value(value: account)],
+        child: TalkReferencePreview(url: '/link', openGraphObject: openGraphObject),
       ),
     );
 
@@ -120,12 +100,7 @@ void main() {
     when(() => openGraphObject.description).thenReturn('description');
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: TalkReferencePreview(
-          url: '/link',
-          openGraphObject: openGraphObject,
-        ),
-      ),
+      TestApp(child: TalkReferencePreview(url: '/link', openGraphObject: openGraphObject)),
     );
 
     expect(find.byType(NeonUriImage), findsNothing);

@@ -12,12 +12,7 @@ void main() {
     when(() => chatMessage.id).thenReturn(1);
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: TalkReadIndicator(
-          chatMessage: chatMessage,
-          lastCommonRead: 0,
-        ),
-      ),
+      TestApp(child: TalkReadIndicator(chatMessage: chatMessage, lastCommonRead: 0)),
     );
     expect(find.byIcon(MdiIcons.check), findsOne);
   });
@@ -27,12 +22,7 @@ void main() {
     when(() => chatMessage.id).thenReturn(1);
 
     await tester.pumpWidgetWithAccessibility(
-      TestApp(
-        child: TalkReadIndicator(
-          chatMessage: chatMessage,
-          lastCommonRead: 1,
-        ),
-      ),
+      TestApp(child: TalkReadIndicator(chatMessage: chatMessage, lastCommonRead: 1)),
     );
     expect(find.byIcon(MdiIcons.checkAll), findsOne);
   });

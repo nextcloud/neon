@@ -14,10 +14,7 @@ InlineSpan buildRichObjectParameter({
   required bool isPreview,
 }) {
   if (isPreview) {
-    return TextSpan(
-      text: parameter.name,
-      style: textStyle,
-    );
+    return TextSpan(text: parameter.name, style: textStyle);
   }
 
   return WidgetSpan(
@@ -26,19 +23,10 @@ InlineSpan buildRichObjectParameter({
       core.RichObjectParameter_Type.user ||
       core.RichObjectParameter_Type.call ||
       core.RichObjectParameter_Type.guest ||
-      core.RichObjectParameter_Type.userGroup =>
-        NeonRichObjectMention(
-          parameter: parameter,
-        ),
-      core.RichObjectParameter_Type.file => NeonRichObjectFile(
-          parameter: parameter,
-        ),
-      core.RichObjectParameter_Type.deckCard => NeonRichObjectDeckCard(
-          parameter: parameter,
-        ),
-      _ => NeonRichObjectFallback(
-          parameter: parameter,
-        ),
+      core.RichObjectParameter_Type.userGroup => NeonRichObjectMention(parameter: parameter),
+      core.RichObjectParameter_Type.file => NeonRichObjectFile(parameter: parameter),
+      core.RichObjectParameter_Type.deckCard => NeonRichObjectDeckCard(parameter: parameter),
+      _ => NeonRichObjectFallback(parameter: parameter),
     },
   );
 }

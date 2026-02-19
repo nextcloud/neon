@@ -15,8 +15,11 @@ class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubj
   final String wireName = 'DecryptedSubject';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, DecryptedSubject object,
-      {FullType specifiedType = FullType.unspecified}) {
+  Iterable<Object?> serialize(
+    Serializers serializers,
+    DecryptedSubject object, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = <Object?>[];
     Object? value;
     value = object.nid;
@@ -77,8 +80,11 @@ class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubj
   }
 
   @override
-  DecryptedSubject deserialize(Serializers serializers, Iterable<Object?> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
+  DecryptedSubject deserialize(
+    Serializers serializers,
+    Iterable<Object?> serialized, {
+    FullType specifiedType = FullType.unspecified,
+  }) {
     final result = DecryptedSubjectBuilder();
 
     final iterator = serialized.iterator;
@@ -91,8 +97,10 @@ class _$DecryptedSubjectSerializer implements StructuredSerializer<DecryptedSubj
           result.nid = serializers.deserialize(value, specifiedType: const FullType(int)) as int?;
           break;
         case 'nids':
-          result.nids.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [const FullType(int)]))! as BuiltList<Object?>);
+          result.nids.replace(
+            serializers.deserialize(value, specifiedType: const FullType(BuiltList, const [const FullType(int)]))!
+                as BuiltList<Object?>,
+          );
           break;
         case 'app':
           result.app = serializers.deserialize(value, specifiedType: const FullType(String)) as String?;
@@ -145,17 +153,17 @@ class _$DecryptedSubject extends DecryptedSubject {
   factory _$DecryptedSubject([void Function(DecryptedSubjectBuilder)? updates]) =>
       (DecryptedSubjectBuilder()..update(updates))._build();
 
-  _$DecryptedSubject._(
-      {this.nid,
-      this.nids,
-      this.app,
-      this.subject,
-      this.type,
-      this.id,
-      this.delete,
-      this.deleteMultiple,
-      this.deleteAll})
-      : super._();
+  _$DecryptedSubject._({
+    this.nid,
+    this.nids,
+    this.app,
+    this.subject,
+    this.type,
+    this.id,
+    this.delete,
+    this.deleteMultiple,
+    this.deleteAll,
+  }) : super._();
   @override
   DecryptedSubject rebuild(void Function(DecryptedSubjectBuilder) updates) => (toBuilder()..update(updates)).build();
 
@@ -283,7 +291,8 @@ class DecryptedSubjectBuilder implements Builder<DecryptedSubject, DecryptedSubj
   _$DecryptedSubject _build() {
     _$DecryptedSubject _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           _$DecryptedSubject._(
             nid: nid,
             nids: _nids?.build(),

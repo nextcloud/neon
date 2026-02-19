@@ -6,10 +6,7 @@ import 'package:notifications_app/src/pages/main.dart';
 
 part 'routes.g.dart';
 
-@TypedGoRoute<NotificationsAppRoute>(
-  path: '$appsBaseRoutePrefix${notifications.appID}',
-  name: notifications.appID,
-)
+@TypedGoRoute<NotificationsAppRoute>(path: '$appsBaseRoutePrefix${notifications.appID}', name: notifications.appID)
 @immutable
 class NotificationsAppRoute extends NeonBaseAppRoute {
   const NotificationsAppRoute();

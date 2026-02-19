@@ -41,7 +41,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $AppPasswordClient appPassword = $AppPasswordClient(this);
 
@@ -99,11 +99,11 @@ class $Client extends _i1.DynamiteClient {
   /// Builds a serializer to parse the response of [$getStatus_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Status, void> $getStatus_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Status),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Status),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a `DynamiteRequest` backing the [getStatus] operation.
   /// Throws a `DynamiteApiException` if the API call does not return an expected status code.
@@ -398,12 +398,12 @@ class $AppPasswordClient {
   /// Builds a serializer to parse the response of [$confirmUserPassword_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<AppPasswordConfirmUserPasswordResponseApplicationJson, void>
-      $confirmUserPassword_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $confirmUserPassword_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Confirm the user password.
   ///
@@ -497,11 +497,11 @@ class $AutoCompleteClient {
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<AutoCompleteGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(AutoCompleteGetResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(AutoCompleteGetResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Autocomplete a query.
   ///
@@ -742,11 +742,11 @@ class $AvatarClient {
   /// Builds a serializer to parse the response of [$getAvatar_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, AvatarAvatarGetAvatarHeaders> $getAvatar_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: const FullType(AvatarAvatarGetAvatarHeaders),
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 201},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: const FullType(AvatarAvatarGetAvatarHeaders),
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 201},
+  );
 
   /// Get the avatar.
   ///
@@ -849,11 +849,11 @@ class $ClientFlowLoginV2Client {
   /// Builds a serializer to parse the response of [$poll_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<LoginFlowV2Credentials, void> $poll_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(LoginFlowV2Credentials),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(LoginFlowV2Credentials),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Poll the login flow credentials.
   ///
@@ -919,11 +919,11 @@ class $ClientFlowLoginV2Client {
   /// Builds a serializer to parse the response of [$init_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<LoginFlowV2, void> $init_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(LoginFlowV2),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(LoginFlowV2),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Init a login flow.
   ///
@@ -988,12 +988,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$listCollection_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesListCollectionResponseApplicationJson, void>
-      $listCollection_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $listCollection_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a collection.
   ///
@@ -1078,12 +1078,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$renameCollection_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesRenameCollectionResponseApplicationJson, void>
-      $renameCollection_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $renameCollection_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Rename a collection.
   ///
@@ -1282,12 +1282,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$removeResource_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesRemoveResourceResponseApplicationJson, void>
-      $removeResource_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $removeResource_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Remove a resource from a collection.
   ///
@@ -1396,12 +1396,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$searchCollections_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesSearchCollectionsResponseApplicationJson, void>
-      $searchCollections_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $searchCollections_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Search for collections.
   ///
@@ -1486,12 +1486,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$getCollectionsByResource_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>
-      $getCollectionsByResource_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getCollectionsByResource_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get collections by resource.
   ///
@@ -1569,7 +1569,7 @@ class $CollaborationResourcesClient {
   ///  * [$getCollectionsByResource_Request] for the request send by this method.
   ///  * [$getCollectionsByResource_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson, void>>
-      getCollectionsByResource({required String resourceType, required String resourceId, bool? oCSAPIRequest}) async {
+  getCollectionsByResource({required String resourceType, required String resourceId, bool? oCSAPIRequest}) async {
     final _request = $getCollectionsByResource_Request(
       resourceType: resourceType,
       resourceId: resourceId,
@@ -1587,12 +1587,12 @@ class $CollaborationResourcesClient {
   /// Builds a serializer to parse the response of [$createCollectionOnResource_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>
-      $createCollectionOnResource_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $createCollectionOnResource_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Create a collection for a resource.
   ///
@@ -1682,7 +1682,7 @@ class $CollaborationResourcesClient {
   ///  * [$createCollectionOnResource_Request] for the request send by this method.
   ///  * [$createCollectionOnResource_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson, void>>
-      createCollectionOnResource({
+  createCollectionOnResource({
     required String baseResourceType,
     required String baseResourceId,
     required CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson $body,
@@ -1713,11 +1713,11 @@ class $CsrfTokenClient {
   /// Builds a serializer to parse the response of [$index_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<CsrfTokenIndexResponseApplicationJson, void> $index_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(CsrfTokenIndexResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(CsrfTokenIndexResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns a new CSRF token.
   ///
@@ -1976,11 +1976,11 @@ class $HoverCardClient {
   /// Builds a serializer to parse the response of [$getUser_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<HoverCardGetUserResponseApplicationJson, void> $getUser_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(HoverCardGetUserResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(HoverCardGetUserResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the account details for a hovercard.
   ///
@@ -2240,12 +2240,12 @@ class $NavigationClient {
   /// Builds a serializer to parse the response of [$getSettingsNavigation_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<NavigationGetSettingsNavigationResponseApplicationJson, void>
-      $getSettingsNavigation_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getSettingsNavigation_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the settings navigation.
   ///
@@ -2496,11 +2496,11 @@ class $PreviewClient {
   /// Builds a serializer to parse the response of [$getPreview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreview_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a preview by file path.
   ///
@@ -2644,11 +2644,11 @@ class $PreviewClient {
   /// Builds a serializer to parse the response of [$getPreviewByFileId_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getPreviewByFileId_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a preview by file ID.
   ///
@@ -3075,11 +3075,11 @@ class $ReferenceClient {
   /// Builds a serializer to parse the response of [$preview_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $preview_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a preview for a reference.
   ///
@@ -3815,19 +3815,20 @@ class $ReferenceApiClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(ReferenceApiTouchProviderRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              ReferenceApiTouchProviderRequestApplicationJson(),
-              specifiedType: const FullType(ReferenceApiTouchProviderRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(ReferenceApiTouchProviderRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                ReferenceApiTouchProviderRequestApplicationJson(),
+                specifiedType: const FullType(ReferenceApiTouchProviderRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -4413,11 +4414,11 @@ class $TaskProcessingApiClient {
   /// Builds a serializer to parse the response of [$getFileContents_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getFileContents_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns the contents of a file referenced in a task.
   ///
@@ -4596,11 +4597,11 @@ class $TaskProcessingApiClient {
   /// Builds a serializer to parse the response of [$getFileContentsExApp_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getFileContentsExApp_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns the contents of a file referenced in a task(ExApp route version).
   ///
@@ -4695,12 +4696,12 @@ class $TaskProcessingApiClient {
   /// Builds a serializer to parse the response of [$setFileContentsExApp_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>
-      $setFileContentsExApp_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {201},
-          );
+  $setFileContentsExApp_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {201},
+  );
 
   /// Upload a file so it can be referenced in a task result (ExApp route version).
   ///
@@ -4777,10 +4778,7 @@ class $TaskProcessingApiClient {
   ///  * [$setFileContentsExApp_Request] for the request send by this method.
   ///  * [$setFileContentsExApp_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TaskProcessingApiSetFileContentsExAppResponseApplicationJson, void>>
-      setFileContentsExApp({
-    required int taskId,
-    bool? oCSAPIRequest,
-  }) async {
+  setFileContentsExApp({required int taskId, bool? oCSAPIRequest}) async {
     final _request = $setFileContentsExApp_Request(taskId: taskId, oCSAPIRequest: oCSAPIRequest);
     final _streamedResponse = await _rootClient.httpClient.send(_request);
     final _response = await _i3.Response.fromStream(_streamedResponse);
@@ -4960,19 +4958,20 @@ class $TaskProcessingApiClient {
     _request.headers['OCS-APIRequest'] = const _i5.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              TaskProcessingApiSetResultRequestApplicationJson(),
-              specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                TaskProcessingApiSetResultRequestApplicationJson(),
+                specifiedType: const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -5013,12 +5012,12 @@ class $TaskProcessingApiClient {
   /// Builds a serializer to parse the response of [$getNextScheduledTask_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>
-      $getNextScheduledTask_Serializer() => _i1.DynamiteSerializer(
-            bodyType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
-            headersType: null,
-            serializers: _$jsonSerializers,
-            validStatuses: const {200},
-          );
+  $getNextScheduledTask_Serializer() => _i1.DynamiteSerializer(
+    bodyType: const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Returns the next scheduled task for the taskTypeId.
   ///
@@ -5108,7 +5107,7 @@ class $TaskProcessingApiClient {
   ///  * [$getNextScheduledTask_Request] for the request send by this method.
   ///  * [$getNextScheduledTask_Serializer] for a converter to parse the `Response` from an executed request.
   Future<_i1.DynamiteResponse<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson, void>>
-      getNextScheduledTask({
+  getNextScheduledTask({
     required BuiltList<String> providerIds,
     required BuiltList<String> taskTypeIds,
     bool? oCSAPIRequest,
@@ -6098,11 +6097,11 @@ class $TextToImageApiClient {
   /// Builds a serializer to parse the response of [$getImage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// This endpoint allows downloading the resulting image of a task.
   ///
@@ -6458,11 +6457,11 @@ class $TwoFactorApiClient {
   /// Builds a serializer to parse the response of [$state_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<TwoFactorApiStateResponseApplicationJson, void> $state_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(TwoFactorApiStateResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(TwoFactorApiStateResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get two factor authentication provider states.
   ///
@@ -6964,11 +6963,11 @@ class $WhatsNewClient {
   /// Builds a serializer to parse the response of [$$get_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WhatsNewGetResponseApplicationJson, void> $$get_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WhatsNewGetResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WhatsNewGetResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the changes.
   ///
@@ -7040,11 +7039,11 @@ class $WhatsNewClient {
   /// Builds a serializer to parse the response of [$dismiss_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WhatsNewDismissResponseApplicationJson, void> $dismiss_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WhatsNewDismissResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WhatsNewDismissResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Dismiss the changes.
   ///
@@ -7130,11 +7129,11 @@ class $WipeClient {
   /// Builds a serializer to parse the response of [$checkWipe_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<WipeCheckWipeResponseApplicationJson, void> $checkWipe_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(WipeCheckWipeResponseApplicationJson),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(WipeCheckWipeResponseApplicationJson),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Check if the device should be wiped.
   ///
@@ -7200,11 +7199,11 @@ class $WipeClient {
   /// Builds a serializer to parse the response of [$wipeDone_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<JsonObject, void> $wipeDone_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(JsonObject),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200, 404},
-      );
+    bodyType: const FullType(JsonObject),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200, 404},
+  );
 
   /// Finish the wipe.
   ///
@@ -7408,8 +7407,10 @@ sealed class $AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface
 abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data
     implements
         $AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataInterface,
-        Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
-            AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data,
+          AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data([
     void Function(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -7473,8 +7474,10 @@ sealed class $AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface {
 abstract class AppPasswordGetAppPasswordResponseApplicationJson_Ocs
     implements
         $AppPasswordGetAppPasswordResponseApplicationJson_OcsInterface,
-        Built<AppPasswordGetAppPasswordResponseApplicationJson_Ocs,
-            AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder> {
+        Built<
+          AppPasswordGetAppPasswordResponseApplicationJson_Ocs,
+          AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new AppPasswordGetAppPasswordResponseApplicationJson_Ocs object using the builder pattern.
   factory AppPasswordGetAppPasswordResponseApplicationJson_Ocs([
     void Function(AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder)? b,
@@ -7537,8 +7540,10 @@ sealed class $AppPasswordGetAppPasswordResponseApplicationJsonInterface {
 abstract class AppPasswordGetAppPasswordResponseApplicationJson
     implements
         $AppPasswordGetAppPasswordResponseApplicationJsonInterface,
-        Built<AppPasswordGetAppPasswordResponseApplicationJson,
-            AppPasswordGetAppPasswordResponseApplicationJsonBuilder> {
+        Built<
+          AppPasswordGetAppPasswordResponseApplicationJson,
+          AppPasswordGetAppPasswordResponseApplicationJsonBuilder
+        > {
   /// Creates a new AppPasswordGetAppPasswordResponseApplicationJson object using the builder pattern.
   factory AppPasswordGetAppPasswordResponseApplicationJson([
     void Function(AppPasswordGetAppPasswordResponseApplicationJsonBuilder)? b,
@@ -7602,8 +7607,10 @@ sealed class $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface {
 abstract class AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs
     implements
         $AppPasswordDeleteAppPasswordResponseApplicationJson_OcsInterface,
-        Built<AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
-            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder> {
+        Built<
+          AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs,
+          AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs object using the builder pattern.
   factory AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs([
     void Function(AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder)? b,
@@ -7666,8 +7673,10 @@ sealed class $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface {
 abstract class AppPasswordDeleteAppPasswordResponseApplicationJson
     implements
         $AppPasswordDeleteAppPasswordResponseApplicationJsonInterface,
-        Built<AppPasswordDeleteAppPasswordResponseApplicationJson,
-            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder> {
+        Built<
+          AppPasswordDeleteAppPasswordResponseApplicationJson,
+          AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder
+        > {
   /// Creates a new AppPasswordDeleteAppPasswordResponseApplicationJson object using the builder pattern.
   factory AppPasswordDeleteAppPasswordResponseApplicationJson([
     void Function(AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder)? b,
@@ -7730,8 +7739,10 @@ sealed class $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterf
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data
     implements
         $AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataInterface,
-        Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
-            AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data,
+          AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data([
     void Function(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -7795,8 +7806,10 @@ sealed class $AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface {
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson_Ocs
     implements
         $AppPasswordRotateAppPasswordResponseApplicationJson_OcsInterface,
-        Built<AppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
-            AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder> {
+        Built<
+          AppPasswordRotateAppPasswordResponseApplicationJson_Ocs,
+          AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new AppPasswordRotateAppPasswordResponseApplicationJson_Ocs object using the builder pattern.
   factory AppPasswordRotateAppPasswordResponseApplicationJson_Ocs([
     void Function(AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder)? b,
@@ -7859,8 +7872,10 @@ sealed class $AppPasswordRotateAppPasswordResponseApplicationJsonInterface {
 abstract class AppPasswordRotateAppPasswordResponseApplicationJson
     implements
         $AppPasswordRotateAppPasswordResponseApplicationJsonInterface,
-        Built<AppPasswordRotateAppPasswordResponseApplicationJson,
-            AppPasswordRotateAppPasswordResponseApplicationJsonBuilder> {
+        Built<
+          AppPasswordRotateAppPasswordResponseApplicationJson,
+          AppPasswordRotateAppPasswordResponseApplicationJsonBuilder
+        > {
   /// Creates a new AppPasswordRotateAppPasswordResponseApplicationJson object using the builder pattern.
   factory AppPasswordRotateAppPasswordResponseApplicationJson([
     void Function(AppPasswordRotateAppPasswordResponseApplicationJsonBuilder)? b,
@@ -7924,8 +7939,10 @@ sealed class $AppPasswordConfirmUserPasswordRequestApplicationJsonInterface {
 abstract class AppPasswordConfirmUserPasswordRequestApplicationJson
     implements
         $AppPasswordConfirmUserPasswordRequestApplicationJsonInterface,
-        Built<AppPasswordConfirmUserPasswordRequestApplicationJson,
-            AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder> {
+        Built<
+          AppPasswordConfirmUserPasswordRequestApplicationJson,
+          AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder
+        > {
   /// Creates a new AppPasswordConfirmUserPasswordRequestApplicationJson object using the builder pattern.
   factory AppPasswordConfirmUserPasswordRequestApplicationJson([
     void Function(AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder)? b,
@@ -7988,8 +8005,10 @@ sealed class $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInte
 abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data
     implements
         $AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataInterface,
-        Built<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data,
-            AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data,
+          AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data([
     void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -8053,8 +8072,10 @@ sealed class $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface
 abstract class AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs
     implements
         $AppPasswordConfirmUserPasswordResponseApplicationJson_OcsInterface,
-        Built<AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs,
-            AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder> {
+        Built<
+          AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs,
+          AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs object using the builder pattern.
   factory AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs([
     void Function(AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder)? b,
@@ -8117,8 +8138,10 @@ sealed class $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface {
 abstract class AppPasswordConfirmUserPasswordResponseApplicationJson
     implements
         $AppPasswordConfirmUserPasswordResponseApplicationJsonInterface,
-        Built<AppPasswordConfirmUserPasswordResponseApplicationJson,
-            AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder> {
+        Built<
+          AppPasswordConfirmUserPasswordResponseApplicationJson,
+          AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder
+        > {
   /// Creates a new AppPasswordConfirmUserPasswordResponseApplicationJson object using the builder pattern.
   factory AppPasswordConfirmUserPasswordResponseApplicationJson([
     void Function(AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder)? b,
@@ -8463,16 +8486,14 @@ class _$AvatarGetAvatarDarkSizeSerializer implements PrimitiveSerializer<AvatarG
     Serializers serializers,
     AvatarGetAvatarDarkSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarDarkSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetAvatarDarkGuestFallback extends EnumClass {
@@ -8527,16 +8548,14 @@ class _$AvatarGetAvatarDarkGuestFallbackSerializer implements PrimitiveSerialize
     Serializers serializers,
     AvatarGetAvatarDarkGuestFallback object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarDarkGuestFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -8652,16 +8671,14 @@ class _$AvatarGetAvatarSizeSerializer implements PrimitiveSerializer<AvatarGetAv
     Serializers serializers,
     AvatarGetAvatarSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class AvatarGetAvatarGuestFallback extends EnumClass {
@@ -8715,16 +8732,14 @@ class _$AvatarGetAvatarGuestFallbackSerializer implements PrimitiveSerializer<Av
     Serializers serializers,
     AvatarGetAvatarGuestFallback object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   AvatarGetAvatarGuestFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -9215,8 +9230,10 @@ sealed class $CollaborationResourcesListCollectionResponseApplicationJson_OcsInt
 abstract class CollaborationResourcesListCollectionResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesListCollectionResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesListCollectionResponseApplicationJson_Ocs,
-            CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesListCollectionResponseApplicationJson_Ocs,
+          CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesListCollectionResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesListCollectionResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder)? b,
@@ -9279,8 +9296,10 @@ sealed class $CollaborationResourcesListCollectionResponseApplicationJsonInterfa
 abstract class CollaborationResourcesListCollectionResponseApplicationJson
     implements
         $CollaborationResourcesListCollectionResponseApplicationJsonInterface,
-        Built<CollaborationResourcesListCollectionResponseApplicationJson,
-            CollaborationResourcesListCollectionResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesListCollectionResponseApplicationJson,
+          CollaborationResourcesListCollectionResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesListCollectionResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesListCollectionResponseApplicationJson([
     void Function(CollaborationResourcesListCollectionResponseApplicationJsonBuilder)? b,
@@ -9344,8 +9363,10 @@ sealed class $CollaborationResourcesRenameCollectionRequestApplicationJsonInterf
 abstract class CollaborationResourcesRenameCollectionRequestApplicationJson
     implements
         $CollaborationResourcesRenameCollectionRequestApplicationJsonInterface,
-        Built<CollaborationResourcesRenameCollectionRequestApplicationJson,
-            CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesRenameCollectionRequestApplicationJson,
+          CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesRenameCollectionRequestApplicationJson object using the builder pattern.
   factory CollaborationResourcesRenameCollectionRequestApplicationJson([
     void Function(CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder)? b,
@@ -9409,8 +9430,10 @@ sealed class $CollaborationResourcesRenameCollectionResponseApplicationJson_OcsI
 abstract class CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesRenameCollectionResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
-            CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs,
+          CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder)? b,
@@ -9473,8 +9496,10 @@ sealed class $CollaborationResourcesRenameCollectionResponseApplicationJsonInter
 abstract class CollaborationResourcesRenameCollectionResponseApplicationJson
     implements
         $CollaborationResourcesRenameCollectionResponseApplicationJsonInterface,
-        Built<CollaborationResourcesRenameCollectionResponseApplicationJson,
-            CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesRenameCollectionResponseApplicationJson,
+          CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesRenameCollectionResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesRenameCollectionResponseApplicationJson([
     void Function(CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder)? b,
@@ -9541,8 +9566,10 @@ sealed class $CollaborationResourcesAddResourceRequestApplicationJsonInterface {
 abstract class CollaborationResourcesAddResourceRequestApplicationJson
     implements
         $CollaborationResourcesAddResourceRequestApplicationJsonInterface,
-        Built<CollaborationResourcesAddResourceRequestApplicationJson,
-            CollaborationResourcesAddResourceRequestApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesAddResourceRequestApplicationJson,
+          CollaborationResourcesAddResourceRequestApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesAddResourceRequestApplicationJson object using the builder pattern.
   factory CollaborationResourcesAddResourceRequestApplicationJson([
     void Function(CollaborationResourcesAddResourceRequestApplicationJsonBuilder)? b,
@@ -9606,8 +9633,10 @@ sealed class $CollaborationResourcesAddResourceResponseApplicationJson_OcsInterf
 abstract class CollaborationResourcesAddResourceResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesAddResourceResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesAddResourceResponseApplicationJson_Ocs,
-            CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesAddResourceResponseApplicationJson_Ocs,
+          CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesAddResourceResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesAddResourceResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder)? b,
@@ -9670,8 +9699,10 @@ sealed class $CollaborationResourcesAddResourceResponseApplicationJsonInterface 
 abstract class CollaborationResourcesAddResourceResponseApplicationJson
     implements
         $CollaborationResourcesAddResourceResponseApplicationJsonInterface,
-        Built<CollaborationResourcesAddResourceResponseApplicationJson,
-            CollaborationResourcesAddResourceResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesAddResourceResponseApplicationJson,
+          CollaborationResourcesAddResourceResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesAddResourceResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesAddResourceResponseApplicationJson([
     void Function(CollaborationResourcesAddResourceResponseApplicationJsonBuilder)? b,
@@ -9735,8 +9766,10 @@ sealed class $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInt
 abstract class CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesRemoveResourceResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
-            CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs,
+          CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder)? b,
@@ -9799,8 +9832,10 @@ sealed class $CollaborationResourcesRemoveResourceResponseApplicationJsonInterfa
 abstract class CollaborationResourcesRemoveResourceResponseApplicationJson
     implements
         $CollaborationResourcesRemoveResourceResponseApplicationJsonInterface,
-        Built<CollaborationResourcesRemoveResourceResponseApplicationJson,
-            CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesRemoveResourceResponseApplicationJson,
+          CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesRemoveResourceResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesRemoveResourceResponseApplicationJson([
     void Function(CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder)? b,
@@ -9864,8 +9899,10 @@ sealed class $CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
 abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
-            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs,
+          CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder)? b,
@@ -9928,8 +9965,10 @@ sealed class $CollaborationResourcesSearchCollectionsResponseApplicationJsonInte
 abstract class CollaborationResourcesSearchCollectionsResponseApplicationJson
     implements
         $CollaborationResourcesSearchCollectionsResponseApplicationJsonInterface,
-        Built<CollaborationResourcesSearchCollectionsResponseApplicationJson,
-            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesSearchCollectionsResponseApplicationJson,
+          CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesSearchCollectionsResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesSearchCollectionsResponseApplicationJson([
     void Function(CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder)? b,
@@ -9993,8 +10032,10 @@ sealed class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJ
 abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
-            CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs,
+          CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder)? b,
@@ -10010,8 +10051,7 @@ abstract class CollaborationResourcesGetCollectionsByResourceResponseApplication
   // coverage:ignore-start
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -10059,8 +10099,10 @@ sealed class $CollaborationResourcesGetCollectionsByResourceResponseApplicationJ
 abstract class CollaborationResourcesGetCollectionsByResourceResponseApplicationJson
     implements
         $CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonInterface,
-        Built<CollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
-            CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesGetCollectionsByResourceResponseApplicationJson,
+          CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesGetCollectionsByResourceResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesGetCollectionsByResourceResponseApplicationJson([
     void Function(CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder)? b,
@@ -10124,8 +10166,10 @@ sealed class $CollaborationResourcesCreateCollectionOnResourceRequestApplication
 abstract class CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson
     implements
         $CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonInterface,
-        Built<CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson,
-            CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson,
+          CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson object using the builder pattern.
   factory CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson([
     void Function(CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuilder)? b,
@@ -10193,8 +10237,10 @@ sealed class $CollaborationResourcesCreateCollectionOnResourceResponseApplicatio
 abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs
     implements
         $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsInterface,
-        Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
-            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder> {
+        Built<
+          CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs,
+          CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs object using the builder pattern.
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs([
     void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder)? b,
@@ -10210,8 +10256,7 @@ abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicati
   // coverage:ignore-start
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -10259,8 +10304,10 @@ sealed class $CollaborationResourcesCreateCollectionOnResourceResponseApplicatio
 abstract class CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson
     implements
         $CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonInterface,
-        Built<CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
-            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder> {
+        Built<
+          CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson,
+          CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder
+        > {
   /// Creates a new CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson object using the builder pattern.
   factory CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson([
     void Function(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder)? b,
@@ -10413,16 +10460,14 @@ class _$GuestAvatarGetAvatarSizeSerializer implements PrimitiveSerializer<GuestA
     Serializers serializers,
     GuestAvatarGetAvatarSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   GuestAvatarGetAvatarSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class GuestAvatarGetAvatarDarkTheme extends EnumClass {
@@ -10476,16 +10521,14 @@ class _$GuestAvatarGetAvatarDarkThemeSerializer implements PrimitiveSerializer<G
     Serializers serializers,
     GuestAvatarGetAvatarDarkTheme object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   GuestAvatarGetAvatarDarkTheme deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -10602,16 +10645,14 @@ class _$GuestAvatarGetAvatarDarkSizeSerializer implements PrimitiveSerializer<Gu
     Serializers serializers,
     GuestAvatarGetAvatarDarkSize object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   GuestAvatarGetAvatarDarkSize deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -10760,8 +10801,10 @@ sealed class $HoverCardGetUserResponseApplicationJson_Ocs_DataInterface {
 abstract class HoverCardGetUserResponseApplicationJson_Ocs_Data
     implements
         $HoverCardGetUserResponseApplicationJson_Ocs_DataInterface,
-        Built<HoverCardGetUserResponseApplicationJson_Ocs_Data,
-            HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          HoverCardGetUserResponseApplicationJson_Ocs_Data,
+          HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new HoverCardGetUserResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory HoverCardGetUserResponseApplicationJson_Ocs_Data([
     void Function(HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -11093,9 +11136,9 @@ class _$NavigationGetAppsNavigationAbsoluteSerializer
 
   static const Map<Object, NavigationGetAppsNavigationAbsolute> _fromWire =
       <Object, NavigationGetAppsNavigationAbsolute>{
-    0: NavigationGetAppsNavigationAbsolute.$0,
-    1: NavigationGetAppsNavigationAbsolute.$1,
-  };
+        0: NavigationGetAppsNavigationAbsolute.$0,
+        1: NavigationGetAppsNavigationAbsolute.$1,
+      };
 
   @override
   Iterable<Type> get types => const [NavigationGetAppsNavigationAbsolute];
@@ -11108,16 +11151,14 @@ class _$NavigationGetAppsNavigationAbsoluteSerializer
     Serializers serializers,
     NavigationGetAppsNavigationAbsolute object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   NavigationGetAppsNavigationAbsolute deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -11209,8 +11250,10 @@ sealed class $NavigationGetAppsNavigationResponseApplicationJson_OcsInterface {
 abstract class NavigationGetAppsNavigationResponseApplicationJson_Ocs
     implements
         $NavigationGetAppsNavigationResponseApplicationJson_OcsInterface,
-        Built<NavigationGetAppsNavigationResponseApplicationJson_Ocs,
-            NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder> {
+        Built<
+          NavigationGetAppsNavigationResponseApplicationJson_Ocs,
+          NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new NavigationGetAppsNavigationResponseApplicationJson_Ocs object using the builder pattern.
   factory NavigationGetAppsNavigationResponseApplicationJson_Ocs([
     void Function(NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder)? b,
@@ -11273,8 +11316,10 @@ sealed class $NavigationGetAppsNavigationResponseApplicationJsonInterface {
 abstract class NavigationGetAppsNavigationResponseApplicationJson
     implements
         $NavigationGetAppsNavigationResponseApplicationJsonInterface,
-        Built<NavigationGetAppsNavigationResponseApplicationJson,
-            NavigationGetAppsNavigationResponseApplicationJsonBuilder> {
+        Built<
+          NavigationGetAppsNavigationResponseApplicationJson,
+          NavigationGetAppsNavigationResponseApplicationJsonBuilder
+        > {
   /// Creates a new NavigationGetAppsNavigationResponseApplicationJson object using the builder pattern.
   factory NavigationGetAppsNavigationResponseApplicationJson([
     void Function(NavigationGetAppsNavigationResponseApplicationJsonBuilder)? b,
@@ -11350,15 +11395,15 @@ class _$NavigationGetSettingsNavigationAbsoluteSerializer
 
   static const Map<NavigationGetSettingsNavigationAbsolute, Object> _toWire =
       <NavigationGetSettingsNavigationAbsolute, Object>{
-    NavigationGetSettingsNavigationAbsolute.$0: 0,
-    NavigationGetSettingsNavigationAbsolute.$1: 1,
-  };
+        NavigationGetSettingsNavigationAbsolute.$0: 0,
+        NavigationGetSettingsNavigationAbsolute.$1: 1,
+      };
 
   static const Map<Object, NavigationGetSettingsNavigationAbsolute> _fromWire =
       <Object, NavigationGetSettingsNavigationAbsolute>{
-    0: NavigationGetSettingsNavigationAbsolute.$0,
-    1: NavigationGetSettingsNavigationAbsolute.$1,
-  };
+        0: NavigationGetSettingsNavigationAbsolute.$0,
+        1: NavigationGetSettingsNavigationAbsolute.$1,
+      };
 
   @override
   Iterable<Type> get types => const [NavigationGetSettingsNavigationAbsolute];
@@ -11371,16 +11416,14 @@ class _$NavigationGetSettingsNavigationAbsoluteSerializer
     Serializers serializers,
     NavigationGetSettingsNavigationAbsolute object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   NavigationGetSettingsNavigationAbsolute deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -11407,8 +11450,10 @@ sealed class $NavigationGetSettingsNavigationResponseApplicationJson_OcsInterfac
 abstract class NavigationGetSettingsNavigationResponseApplicationJson_Ocs
     implements
         $NavigationGetSettingsNavigationResponseApplicationJson_OcsInterface,
-        Built<NavigationGetSettingsNavigationResponseApplicationJson_Ocs,
-            NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder> {
+        Built<
+          NavigationGetSettingsNavigationResponseApplicationJson_Ocs,
+          NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new NavigationGetSettingsNavigationResponseApplicationJson_Ocs object using the builder pattern.
   factory NavigationGetSettingsNavigationResponseApplicationJson_Ocs([
     void Function(NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder)? b,
@@ -11471,8 +11516,10 @@ sealed class $NavigationGetSettingsNavigationResponseApplicationJsonInterface {
 abstract class NavigationGetSettingsNavigationResponseApplicationJson
     implements
         $NavigationGetSettingsNavigationResponseApplicationJsonInterface,
-        Built<NavigationGetSettingsNavigationResponseApplicationJson,
-            NavigationGetSettingsNavigationResponseApplicationJsonBuilder> {
+        Built<
+          NavigationGetSettingsNavigationResponseApplicationJson,
+          NavigationGetSettingsNavigationResponseApplicationJsonBuilder
+        > {
   /// Creates a new NavigationGetSettingsNavigationResponseApplicationJson object using the builder pattern.
   factory NavigationGetSettingsNavigationResponseApplicationJson([
     void Function(NavigationGetSettingsNavigationResponseApplicationJsonBuilder)? b,
@@ -11535,8 +11582,10 @@ sealed class $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterfa
 abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols
     implements
         $OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsInterface,
-        Built<OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
-            OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder> {
+        Built<
+          OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols,
+          OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder
+        > {
   /// Creates a new OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols object using the builder pattern.
   factory OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols([
     void Function(OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder)? b,
@@ -11601,8 +11650,10 @@ sealed class $OcmDiscoveryResponseApplicationJson_ResourceTypesInterface {
 abstract class OcmDiscoveryResponseApplicationJson_ResourceTypes
     implements
         $OcmDiscoveryResponseApplicationJson_ResourceTypesInterface,
-        Built<OcmDiscoveryResponseApplicationJson_ResourceTypes,
-            OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder> {
+        Built<
+          OcmDiscoveryResponseApplicationJson_ResourceTypes,
+          OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder
+        > {
   /// Creates a new OcmDiscoveryResponseApplicationJson_ResourceTypes object using the builder pattern.
   factory OcmDiscoveryResponseApplicationJson_ResourceTypes([
     void Function(OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder)? b,
@@ -11740,13 +11791,13 @@ class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
 
   static const Map<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object> _toWire =
       <OcmOcmDiscoveryHeaders_XNextcloudOcmProviders, Object>{
-    OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true: true,
-  };
+        OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true: true,
+      };
 
   static const Map<Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders> _fromWire =
       <Object, OcmOcmDiscoveryHeaders_XNextcloudOcmProviders>{
-    true: OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true,
-  };
+        true: OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.$true,
+      };
 
   @override
   Iterable<Type> get types => const [OcmOcmDiscoveryHeaders_XNextcloudOcmProviders];
@@ -11759,16 +11810,14 @@ class _$OcmOcmDiscoveryHeaders_XNextcloudOcmProvidersSerializer
     Serializers serializers,
     OcmOcmDiscoveryHeaders_XNextcloudOcmProviders object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   OcmOcmDiscoveryHeaders_XNextcloudOcmProviders deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -11856,8 +11905,10 @@ sealed class $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterfac
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version
     implements
         $OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionInterface,
-        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
-            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder> {
+        Built<
+          OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version,
+          OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder
+        > {
   /// Creates a new OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version object using the builder pattern.
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version([
     void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder)? b,
@@ -12899,8 +12950,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Public_PasswordInterface {
 abstract class FilesSharingCapabilities_FilesSharing_Public_Password
     implements
         $FilesSharingCapabilities_FilesSharing_Public_PasswordInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Public_Password,
-            FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Public_Password,
+          FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Public_Password object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Public_Password([
     void Function(FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder)? b,
@@ -12965,8 +13018,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface {
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDate
     implements
         $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDate,
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Public_ExpireDate object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDate([
     void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder)? b,
@@ -13031,8 +13086,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInt
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal
     implements
         $FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal,
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal([
     void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder)? b,
@@ -13097,8 +13154,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInter
 abstract class FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote
     implements
         $FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
-            FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote,
+          FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote([
     void Function(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder)? b,
@@ -13240,8 +13299,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface {
 abstract class FilesSharingCapabilities_FilesSharing_User_ExpireDate
     implements
         $FilesSharingCapabilities_FilesSharing_User_ExpireDateInterface,
-        Built<FilesSharingCapabilities_FilesSharing_User_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_User_ExpireDate,
+          FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_User_ExpireDate object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_User_ExpireDate([
     void Function(FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder)? b,
@@ -13370,8 +13431,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface {
 abstract class FilesSharingCapabilities_FilesSharing_Group_ExpireDate
     implements
         $FilesSharingCapabilities_FilesSharing_Group_ExpireDateInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Group_ExpireDate,
+          FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Group_ExpireDate object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Group_ExpireDate([
     void Function(FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder)? b,
@@ -13499,8 +13562,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterfa
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDate
     implements
         $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
-            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Federation_ExpireDate,
+          FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Federation_ExpireDate object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDate([
     void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder)? b,
@@ -13563,8 +13628,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupport
 abstract class FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported
     implements
         $FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
-            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported,
+          FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported([
     void Function(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder)? b,
@@ -13632,8 +13699,10 @@ sealed class $FilesSharingCapabilities_FilesSharing_FederationInterface {
 abstract class FilesSharingCapabilities_FilesSharing_Federation
     implements
         $FilesSharingCapabilities_FilesSharing_FederationInterface,
-        Built<FilesSharingCapabilities_FilesSharing_Federation,
-            FilesSharingCapabilities_FilesSharing_FederationBuilder> {
+        Built<
+          FilesSharingCapabilities_FilesSharing_Federation,
+          FilesSharingCapabilities_FilesSharing_FederationBuilder
+        > {
   /// Creates a new FilesSharingCapabilities_FilesSharing_Federation object using the builder pattern.
   factory FilesSharingCapabilities_FilesSharing_Federation([
     void Function(FilesSharingCapabilities_FilesSharing_FederationBuilder)? b,
@@ -14325,8 +14394,10 @@ sealed class $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface {
 abstract class PasswordPolicyCapabilities_PasswordPolicy_Policies
     implements
         $PasswordPolicyCapabilities_PasswordPolicy_PoliciesInterface,
-        Built<PasswordPolicyCapabilities_PasswordPolicy_Policies,
-            PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder> {
+        Built<
+          PasswordPolicyCapabilities_PasswordPolicy_Policies,
+          PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder
+        > {
   /// Creates a new PasswordPolicyCapabilities_PasswordPolicy_Policies object using the builder pattern.
   factory PasswordPolicyCapabilities_PasswordPolicy_Policies([
     void Function(PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder)? b,
@@ -14649,8 +14720,10 @@ sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropIn
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop
     implements
         $SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
-            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder> {
+        Built<
+          SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop,
+          SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder
+        > {
   /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop object using the builder pattern.
   factory SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop([
     void Function(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder)? b,
@@ -14714,8 +14787,10 @@ sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_Password
     implements
         $SharebymailCapabilities_FilesSharing_Sharebymail_PasswordInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_Password,
-            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder> {
+        Built<
+          SharebymailCapabilities_FilesSharing_Sharebymail_Password,
+          SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder
+        > {
   /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_Password object using the builder pattern.
   factory SharebymailCapabilities_FilesSharing_Sharebymail_Password([
     void Function(SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder)? b,
@@ -14779,8 +14854,10 @@ sealed class $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterfa
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate
     implements
         $SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
-            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder> {
+        Built<
+          SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate,
+          SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder
+        > {
   /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate object using the builder pattern.
   factory SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate([
     void Function(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder)? b,
@@ -14850,8 +14927,10 @@ sealed class $SharebymailCapabilities_FilesSharing_SharebymailInterface {
 abstract class SharebymailCapabilities_FilesSharing_Sharebymail
     implements
         $SharebymailCapabilities_FilesSharing_SharebymailInterface,
-        Built<SharebymailCapabilities_FilesSharing_Sharebymail,
-            SharebymailCapabilities_FilesSharing_SharebymailBuilder> {
+        Built<
+          SharebymailCapabilities_FilesSharing_Sharebymail,
+          SharebymailCapabilities_FilesSharing_SharebymailBuilder
+        > {
   /// Creates a new SharebymailCapabilities_FilesSharing_Sharebymail object using the builder pattern.
   factory SharebymailCapabilities_FilesSharing_Sharebymail([
     void Function(SharebymailCapabilities_FilesSharing_SharebymailBuilder)? b,
@@ -15276,15 +15355,15 @@ class _$SpreedCapabilities_Config_Conversations_ListStyleSerializer
 
   static const Map<SpreedCapabilities_Config_Conversations_ListStyle, Object> _toWire =
       <SpreedCapabilities_Config_Conversations_ListStyle, Object>{
-    SpreedCapabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
-    SpreedCapabilities_Config_Conversations_ListStyle.compact: 'compact',
-  };
+        SpreedCapabilities_Config_Conversations_ListStyle.twoLines: 'two-lines',
+        SpreedCapabilities_Config_Conversations_ListStyle.compact: 'compact',
+      };
 
   static const Map<Object, SpreedCapabilities_Config_Conversations_ListStyle> _fromWire =
       <Object, SpreedCapabilities_Config_Conversations_ListStyle>{
-    'two-lines': SpreedCapabilities_Config_Conversations_ListStyle.twoLines,
-    'compact': SpreedCapabilities_Config_Conversations_ListStyle.compact,
-  };
+        'two-lines': SpreedCapabilities_Config_Conversations_ListStyle.twoLines,
+        'compact': SpreedCapabilities_Config_Conversations_ListStyle.compact,
+      };
 
   @override
   Iterable<Type> get types => const [SpreedCapabilities_Config_Conversations_ListStyle];
@@ -15297,16 +15376,14 @@ class _$SpreedCapabilities_Config_Conversations_ListStyleSerializer
     Serializers serializers,
     SpreedCapabilities_Config_Conversations_ListStyle object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SpreedCapabilities_Config_Conversations_ListStyle deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -15879,16 +15956,14 @@ class _$SystemtagsCapabilities_Systemtags_EnabledSerializer
     Serializers serializers,
     SystemtagsCapabilities_Systemtags_Enabled object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   SystemtagsCapabilities_Systemtags_Enabled deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16159,13 +16234,13 @@ class _$TermsOfServicePublicCapabilities_TermsOfService_EnabledSerializer
 
   static const Map<TermsOfServicePublicCapabilities_TermsOfService_Enabled, Object> _toWire =
       <TermsOfServicePublicCapabilities_TermsOfService_Enabled, Object>{
-    TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true: true,
-  };
+        TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true: true,
+      };
 
   static const Map<Object, TermsOfServicePublicCapabilities_TermsOfService_Enabled> _fromWire =
       <Object, TermsOfServicePublicCapabilities_TermsOfService_Enabled>{
-    true: TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true,
-  };
+        true: TermsOfServicePublicCapabilities_TermsOfService_Enabled.$true,
+      };
 
   @override
   Iterable<Type> get types => const [TermsOfServicePublicCapabilities_TermsOfService_Enabled];
@@ -16178,16 +16253,14 @@ class _$TermsOfServicePublicCapabilities_TermsOfService_EnabledSerializer
     Serializers serializers,
     TermsOfServicePublicCapabilities_TermsOfService_Enabled object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   TermsOfServicePublicCapabilities_TermsOfService_Enabled deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -16808,30 +16881,31 @@ abstract class NotesCapabilities
   }
 }
 
-typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities = ({
-  CommentsCapabilities? commentsCapabilities,
-  CoreCapabilities? coreCapabilities,
-  CorePublicCapabilities? corePublicCapabilities,
-  DavCapabilities? davCapabilities,
-  DropAccountCapabilities? dropAccountCapabilities,
-  FilesCapabilities? filesCapabilities,
-  FilesSharingCapabilities? filesSharingCapabilities,
-  FilesTrashbinCapabilities? filesTrashbinCapabilities,
-  FilesVersionsCapabilities? filesVersionsCapabilities,
-  NotesCapabilities? notesCapabilities,
-  NotificationsCapabilities? notificationsCapabilities,
-  PasswordPolicyCapabilities? passwordPolicyCapabilities,
-  ProvisioningApiCapabilities? provisioningApiCapabilities,
-  SharebymailCapabilities? sharebymailCapabilities,
-  SpreedCapabilities? spreedCapabilities,
-  SpreedPublicCapabilities? spreedPublicCapabilities,
-  SystemtagsCapabilities? systemtagsCapabilities,
-  TablesCapabilities? tablesCapabilities,
-  TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
-  ThemingPublicCapabilities? themingPublicCapabilities,
-  UserStatusCapabilities? userStatusCapabilities,
-  WeatherStatusCapabilities? weatherStatusCapabilities,
-});
+typedef OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Capabilities =
+    ({
+      CommentsCapabilities? commentsCapabilities,
+      CoreCapabilities? coreCapabilities,
+      CorePublicCapabilities? corePublicCapabilities,
+      DavCapabilities? davCapabilities,
+      DropAccountCapabilities? dropAccountCapabilities,
+      FilesCapabilities? filesCapabilities,
+      FilesSharingCapabilities? filesSharingCapabilities,
+      FilesTrashbinCapabilities? filesTrashbinCapabilities,
+      FilesVersionsCapabilities? filesVersionsCapabilities,
+      NotesCapabilities? notesCapabilities,
+      NotificationsCapabilities? notificationsCapabilities,
+      PasswordPolicyCapabilities? passwordPolicyCapabilities,
+      ProvisioningApiCapabilities? provisioningApiCapabilities,
+      SharebymailCapabilities? sharebymailCapabilities,
+      SpreedCapabilities? spreedCapabilities,
+      SpreedPublicCapabilities? spreedPublicCapabilities,
+      SystemtagsCapabilities? systemtagsCapabilities,
+      TablesCapabilities? tablesCapabilities,
+      TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
+      ThemingPublicCapabilities? themingPublicCapabilities,
+      UserStatusCapabilities? userStatusCapabilities,
+      WeatherStatusCapabilities? weatherStatusCapabilities,
+    });
 
 @BuiltValue(instantiable: false)
 sealed class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
@@ -16859,8 +16933,10 @@ sealed class $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface {
 abstract class OcsGetCapabilitiesResponseApplicationJson_Ocs_Data
     implements
         $OcsGetCapabilitiesResponseApplicationJson_Ocs_DataInterface,
-        Built<OcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
-            OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          OcsGetCapabilitiesResponseApplicationJson_Ocs_Data,
+          OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new OcsGetCapabilitiesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory OcsGetCapabilitiesResponseApplicationJson_Ocs_Data([
     void Function(OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -17078,16 +17154,14 @@ class _$PreviewGetPreviewASerializer implements PrimitiveSerializer<PreviewGetPr
     Serializers serializers,
     PreviewGetPreviewA object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewA deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewForceIcon extends EnumClass {
@@ -17141,16 +17215,14 @@ class _$PreviewGetPreviewForceIconSerializer implements PrimitiveSerializer<Prev
     Serializers serializers,
     PreviewGetPreviewForceIcon object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewForceIcon deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewMode extends EnumClass {
@@ -17202,16 +17274,14 @@ class _$PreviewGetPreviewModeSerializer implements PrimitiveSerializer<PreviewGe
     Serializers serializers,
     PreviewGetPreviewMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewMimeFallback extends EnumClass {
@@ -17265,16 +17335,14 @@ class _$PreviewGetPreviewMimeFallbackSerializer implements PrimitiveSerializer<P
     Serializers serializers,
     PreviewGetPreviewMimeFallback object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewMimeFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewByFileIdA extends EnumClass {
@@ -17328,16 +17396,14 @@ class _$PreviewGetPreviewByFileIdASerializer implements PrimitiveSerializer<Prev
     Serializers serializers,
     PreviewGetPreviewByFileIdA object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewByFileIdA deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewByFileIdForceIcon extends EnumClass {
@@ -17393,16 +17459,14 @@ class _$PreviewGetPreviewByFileIdForceIconSerializer
     Serializers serializers,
     PreviewGetPreviewByFileIdForceIcon object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewByFileIdForceIcon deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewByFileIdMode extends EnumClass {
@@ -17454,16 +17518,14 @@ class _$PreviewGetPreviewByFileIdModeSerializer implements PrimitiveSerializer<P
     Serializers serializers,
     PreviewGetPreviewByFileIdMode object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewByFileIdMode deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class PreviewGetPreviewByFileIdMimeFallback extends EnumClass {
@@ -17501,15 +17563,15 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
 
   static const Map<PreviewGetPreviewByFileIdMimeFallback, Object> _toWire =
       <PreviewGetPreviewByFileIdMimeFallback, Object>{
-    PreviewGetPreviewByFileIdMimeFallback.$0: 0,
-    PreviewGetPreviewByFileIdMimeFallback.$1: 1,
-  };
+        PreviewGetPreviewByFileIdMimeFallback.$0: 0,
+        PreviewGetPreviewByFileIdMimeFallback.$1: 1,
+      };
 
   static const Map<Object, PreviewGetPreviewByFileIdMimeFallback> _fromWire =
       <Object, PreviewGetPreviewByFileIdMimeFallback>{
-    0: PreviewGetPreviewByFileIdMimeFallback.$0,
-    1: PreviewGetPreviewByFileIdMimeFallback.$1,
-  };
+        0: PreviewGetPreviewByFileIdMimeFallback.$0,
+        1: PreviewGetPreviewByFileIdMimeFallback.$1,
+      };
 
   @override
   Iterable<Type> get types => const [PreviewGetPreviewByFileIdMimeFallback];
@@ -17522,16 +17584,14 @@ class _$PreviewGetPreviewByFileIdMimeFallbackSerializer
     Serializers serializers,
     PreviewGetPreviewByFileIdMimeFallback object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   PreviewGetPreviewByFileIdMimeFallback deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -17802,8 +17862,10 @@ sealed class $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface {
 abstract class ProfileApiGetProfileFieldsResponseApplicationJson_Ocs
     implements
         $ProfileApiGetProfileFieldsResponseApplicationJson_OcsInterface,
-        Built<ProfileApiGetProfileFieldsResponseApplicationJson_Ocs,
-            ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder> {
+        Built<
+          ProfileApiGetProfileFieldsResponseApplicationJson_Ocs,
+          ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ProfileApiGetProfileFieldsResponseApplicationJson_Ocs object using the builder pattern.
   factory ProfileApiGetProfileFieldsResponseApplicationJson_Ocs([
     void Function(ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder)? b,
@@ -17866,8 +17928,10 @@ sealed class $ProfileApiGetProfileFieldsResponseApplicationJsonInterface {
 abstract class ProfileApiGetProfileFieldsResponseApplicationJson
     implements
         $ProfileApiGetProfileFieldsResponseApplicationJsonInterface,
-        Built<ProfileApiGetProfileFieldsResponseApplicationJson,
-            ProfileApiGetProfileFieldsResponseApplicationJsonBuilder> {
+        Built<
+          ProfileApiGetProfileFieldsResponseApplicationJson,
+          ProfileApiGetProfileFieldsResponseApplicationJsonBuilder
+        > {
   /// Creates a new ProfileApiGetProfileFieldsResponseApplicationJson object using the builder pattern.
   factory ProfileApiGetProfileFieldsResponseApplicationJson([
     void Function(ProfileApiGetProfileFieldsResponseApplicationJsonBuilder)? b,
@@ -17998,8 +18062,10 @@ sealed class $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface {
 abstract class ProfileApiSetVisibilityResponseApplicationJson_Ocs
     implements
         $ProfileApiSetVisibilityResponseApplicationJson_OcsInterface,
-        Built<ProfileApiSetVisibilityResponseApplicationJson_Ocs,
-            ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder> {
+        Built<
+          ProfileApiSetVisibilityResponseApplicationJson_Ocs,
+          ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ProfileApiSetVisibilityResponseApplicationJson_Ocs object using the builder pattern.
   factory ProfileApiSetVisibilityResponseApplicationJson_Ocs([
     void Function(ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder)? b,
@@ -18260,8 +18326,10 @@ sealed class $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface {
 abstract class ReferenceApiExtractResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiExtractResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiExtractResponseApplicationJson_Ocs_Data,
-            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiExtractResponseApplicationJson_Ocs_Data,
+          ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiExtractResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiExtractResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -18532,8 +18600,10 @@ sealed class $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface
 abstract class ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data,
-            ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data,
+          ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -18597,8 +18667,10 @@ sealed class $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiExtractPublicResponseApplicationJson_Ocs
     implements
         $ReferenceApiExtractPublicResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiExtractPublicResponseApplicationJson_Ocs,
-            ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiExtractPublicResponseApplicationJson_Ocs,
+          ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiExtractPublicResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiExtractPublicResponseApplicationJson_Ocs([
     void Function(ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder)? b,
@@ -18661,8 +18733,10 @@ sealed class $ReferenceApiExtractPublicResponseApplicationJsonInterface {
 abstract class ReferenceApiExtractPublicResponseApplicationJson
     implements
         $ReferenceApiExtractPublicResponseApplicationJsonInterface,
-        Built<ReferenceApiExtractPublicResponseApplicationJson,
-            ReferenceApiExtractPublicResponseApplicationJsonBuilder> {
+        Built<
+          ReferenceApiExtractPublicResponseApplicationJson,
+          ReferenceApiExtractPublicResponseApplicationJsonBuilder
+        > {
   /// Creates a new ReferenceApiExtractPublicResponseApplicationJson object using the builder pattern.
   factory ReferenceApiExtractPublicResponseApplicationJson([
     void Function(ReferenceApiExtractPublicResponseApplicationJsonBuilder)? b,
@@ -18725,8 +18799,10 @@ sealed class $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface {
 abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiResolveOneResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
-            ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiResolveOneResponseApplicationJson_Ocs_Data,
+          ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiResolveOneResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiResolveOneResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -18790,8 +18866,10 @@ sealed class $ReferenceApiResolveOneResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiResolveOneResponseApplicationJson_Ocs
     implements
         $ReferenceApiResolveOneResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiResolveOneResponseApplicationJson_Ocs,
-            ReferenceApiResolveOneResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiResolveOneResponseApplicationJson_Ocs,
+          ReferenceApiResolveOneResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiResolveOneResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiResolveOneResponseApplicationJson_Ocs([
     void Function(ReferenceApiResolveOneResponseApplicationJson_OcsBuilder)? b,
@@ -18989,8 +19067,10 @@ sealed class $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface {
 abstract class ReferenceApiResolveResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiResolveResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiResolveResponseApplicationJson_Ocs_Data,
-            ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiResolveResponseApplicationJson_Ocs_Data,
+          ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiResolveResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiResolveResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -19180,8 +19260,10 @@ sealed class $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterf
 abstract class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data,
-            ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data,
+          ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -19245,8 +19327,10 @@ sealed class $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiResolveOnePublicResponseApplicationJson_Ocs
     implements
         $ReferenceApiResolveOnePublicResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiResolveOnePublicResponseApplicationJson_Ocs,
-            ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiResolveOnePublicResponseApplicationJson_Ocs,
+          ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiResolveOnePublicResponseApplicationJson_Ocs([
     void Function(ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder)? b,
@@ -19309,8 +19393,10 @@ sealed class $ReferenceApiResolveOnePublicResponseApplicationJsonInterface {
 abstract class ReferenceApiResolveOnePublicResponseApplicationJson
     implements
         $ReferenceApiResolveOnePublicResponseApplicationJsonInterface,
-        Built<ReferenceApiResolveOnePublicResponseApplicationJson,
-            ReferenceApiResolveOnePublicResponseApplicationJsonBuilder> {
+        Built<
+          ReferenceApiResolveOnePublicResponseApplicationJson,
+          ReferenceApiResolveOnePublicResponseApplicationJsonBuilder
+        > {
   /// Creates a new ReferenceApiResolveOnePublicResponseApplicationJson object using the builder pattern.
   factory ReferenceApiResolveOnePublicResponseApplicationJson([
     void Function(ReferenceApiResolveOnePublicResponseApplicationJsonBuilder)? b,
@@ -19448,8 +19534,10 @@ sealed class $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface
 abstract class ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data,
-            ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data,
+          ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -19513,8 +19601,10 @@ sealed class $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiResolvePublicResponseApplicationJson_Ocs
     implements
         $ReferenceApiResolvePublicResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiResolvePublicResponseApplicationJson_Ocs,
-            ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiResolvePublicResponseApplicationJson_Ocs,
+          ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiResolvePublicResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiResolvePublicResponseApplicationJson_Ocs([
     void Function(ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder)? b,
@@ -19577,8 +19667,10 @@ sealed class $ReferenceApiResolvePublicResponseApplicationJsonInterface {
 abstract class ReferenceApiResolvePublicResponseApplicationJson
     implements
         $ReferenceApiResolvePublicResponseApplicationJsonInterface,
-        Built<ReferenceApiResolvePublicResponseApplicationJson,
-            ReferenceApiResolvePublicResponseApplicationJsonBuilder> {
+        Built<
+          ReferenceApiResolvePublicResponseApplicationJson,
+          ReferenceApiResolvePublicResponseApplicationJsonBuilder
+        > {
   /// Creates a new ReferenceApiResolvePublicResponseApplicationJson object using the builder pattern.
   factory ReferenceApiResolvePublicResponseApplicationJson([
     void Function(ReferenceApiResolvePublicResponseApplicationJsonBuilder)? b,
@@ -19703,8 +19795,10 @@ sealed class $ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs
     implements
         $ReferenceApiGetProvidersInfoResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
-            ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs,
+          ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs([
     void Function(ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder)? b,
@@ -19767,8 +19861,10 @@ sealed class $ReferenceApiGetProvidersInfoResponseApplicationJsonInterface {
 abstract class ReferenceApiGetProvidersInfoResponseApplicationJson
     implements
         $ReferenceApiGetProvidersInfoResponseApplicationJsonInterface,
-        Built<ReferenceApiGetProvidersInfoResponseApplicationJson,
-            ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder> {
+        Built<
+          ReferenceApiGetProvidersInfoResponseApplicationJson,
+          ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder
+        > {
   /// Creates a new ReferenceApiGetProvidersInfoResponseApplicationJson object using the builder pattern.
   factory ReferenceApiGetProvidersInfoResponseApplicationJson([
     void Function(ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder)? b,
@@ -19895,8 +19991,10 @@ sealed class $ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface
 abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data
     implements
         $ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataInterface,
-        Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
-            ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data,
+          ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data([
     void Function(ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -19960,8 +20058,10 @@ sealed class $ReferenceApiTouchProviderResponseApplicationJson_OcsInterface {
 abstract class ReferenceApiTouchProviderResponseApplicationJson_Ocs
     implements
         $ReferenceApiTouchProviderResponseApplicationJson_OcsInterface,
-        Built<ReferenceApiTouchProviderResponseApplicationJson_Ocs,
-            ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder> {
+        Built<
+          ReferenceApiTouchProviderResponseApplicationJson_Ocs,
+          ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new ReferenceApiTouchProviderResponseApplicationJson_Ocs object using the builder pattern.
   factory ReferenceApiTouchProviderResponseApplicationJson_Ocs([
     void Function(ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder)? b,
@@ -20024,8 +20124,10 @@ sealed class $ReferenceApiTouchProviderResponseApplicationJsonInterface {
 abstract class ReferenceApiTouchProviderResponseApplicationJson
     implements
         $ReferenceApiTouchProviderResponseApplicationJsonInterface,
-        Built<ReferenceApiTouchProviderResponseApplicationJson,
-            ReferenceApiTouchProviderResponseApplicationJsonBuilder> {
+        Built<
+          ReferenceApiTouchProviderResponseApplicationJson,
+          ReferenceApiTouchProviderResponseApplicationJsonBuilder
+        > {
   /// Creates a new ReferenceApiTouchProviderResponseApplicationJson object using the builder pattern.
   factory ReferenceApiTouchProviderResponseApplicationJson([
     void Function(ReferenceApiTouchProviderResponseApplicationJsonBuilder)? b,
@@ -20182,16 +20284,14 @@ class _$TaskProcessingShape_TypeSerializer implements PrimitiveSerializer<TaskPr
     Serializers serializers,
     TaskProcessingShape_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   TaskProcessingShape_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -20342,8 +20442,10 @@ sealed class $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface {
 abstract class TaskProcessingTaskType_OptionalInputShapeEnumValues
     implements
         $TaskProcessingTaskType_OptionalInputShapeEnumValuesInterface,
-        Built<TaskProcessingTaskType_OptionalInputShapeEnumValues,
-            TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder> {
+        Built<
+          TaskProcessingTaskType_OptionalInputShapeEnumValues,
+          TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder
+        > {
   /// Creates a new TaskProcessingTaskType_OptionalInputShapeEnumValues object using the builder pattern.
   factory TaskProcessingTaskType_OptionalInputShapeEnumValues([
     void Function(TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder)? b,
@@ -20473,8 +20575,10 @@ sealed class $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface {
 abstract class TaskProcessingTaskType_OptionalOutputShapeEnumValues
     implements
         $TaskProcessingTaskType_OptionalOutputShapeEnumValuesInterface,
-        Built<TaskProcessingTaskType_OptionalOutputShapeEnumValues,
-            TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder> {
+        Built<
+          TaskProcessingTaskType_OptionalOutputShapeEnumValues,
+          TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder
+        > {
   /// Creates a new TaskProcessingTaskType_OptionalOutputShapeEnumValues object using the builder pattern.
   factory TaskProcessingTaskType_OptionalOutputShapeEnumValues([
     void Function(TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder)? b,
@@ -20604,8 +20708,10 @@ sealed class $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfac
 abstract class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -20669,8 +20775,10 @@ sealed class $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiTaskTypesResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiTaskTypesResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiTaskTypesResponseApplicationJson_Ocs,
-            TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiTaskTypesResponseApplicationJson_Ocs,
+          TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiTaskTypesResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
@@ -20733,8 +20841,10 @@ sealed class $TaskProcessingApiTaskTypesResponseApplicationJsonInterface {
 abstract class TaskProcessingApiTaskTypesResponseApplicationJson
     implements
         $TaskProcessingApiTaskTypesResponseApplicationJsonInterface,
-        Built<TaskProcessingApiTaskTypesResponseApplicationJson,
-            TaskProcessingApiTaskTypesResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiTaskTypesResponseApplicationJson,
+          TaskProcessingApiTaskTypesResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiTaskTypesResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiTaskTypesResponseApplicationJson([
     void Function(TaskProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
@@ -20933,24 +21043,18 @@ class _$TaskProcessingTask_StatusSerializer implements PrimitiveSerializer<TaskP
     Serializers serializers,
     TaskProcessingTask_Status object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   TaskProcessingTask_Status deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
-typedef TaskProcessingIO = ({
-  BuiltList<num>? builtListNum,
-  BuiltList<String>? builtListString,
-  num? $num,
-  String? string,
-});
+typedef TaskProcessingIO =
+    ({BuiltList<num>? builtListNum, BuiltList<String>? builtListString, num? $num, String? string});
 
 @BuiltValue(instantiable: false)
 sealed class $TaskProcessingTaskInterface {
@@ -21044,8 +21148,10 @@ sealed class $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface
 abstract class TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -21109,8 +21215,10 @@ sealed class $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiScheduleResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiScheduleResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiScheduleResponseApplicationJson_Ocs,
-            TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiScheduleResponseApplicationJson_Ocs,
+          TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiScheduleResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiScheduleResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
@@ -21173,8 +21281,10 @@ sealed class $TaskProcessingApiScheduleResponseApplicationJsonInterface {
 abstract class TaskProcessingApiScheduleResponseApplicationJson
     implements
         $TaskProcessingApiScheduleResponseApplicationJsonInterface,
-        Built<TaskProcessingApiScheduleResponseApplicationJson,
-            TaskProcessingApiScheduleResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiScheduleResponseApplicationJson,
+          TaskProcessingApiScheduleResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiScheduleResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiScheduleResponseApplicationJson([
     void Function(TaskProcessingApiScheduleResponseApplicationJsonBuilder)? b,
@@ -21237,8 +21347,10 @@ sealed class $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface 
 abstract class TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -21302,8 +21414,10 @@ sealed class $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiGetTaskResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiGetTaskResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiGetTaskResponseApplicationJson_Ocs,
-            TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiGetTaskResponseApplicationJson_Ocs,
+          TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiGetTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiGetTaskResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
@@ -21430,8 +21544,10 @@ sealed class $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiDeleteTaskResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs,
-            TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+          TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
@@ -21494,8 +21610,10 @@ sealed class $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface {
 abstract class TaskProcessingApiDeleteTaskResponseApplicationJson
     implements
         $TaskProcessingApiDeleteTaskResponseApplicationJsonInterface,
-        Built<TaskProcessingApiDeleteTaskResponseApplicationJson,
-            TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiDeleteTaskResponseApplicationJson,
+          TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiDeleteTaskResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiDeleteTaskResponseApplicationJson([
     void Function(TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
@@ -21558,8 +21676,10 @@ sealed class $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInt
 abstract class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -21623,8 +21743,10 @@ sealed class $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterfac
 abstract class TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiListTasksByAppResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs,
-            TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+          TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
@@ -21687,8 +21809,10 @@ sealed class $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface {
 abstract class TaskProcessingApiListTasksByAppResponseApplicationJson
     implements
         $TaskProcessingApiListTasksByAppResponseApplicationJsonInterface,
-        Built<TaskProcessingApiListTasksByAppResponseApplicationJson,
-            TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiListTasksByAppResponseApplicationJson,
+          TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksByAppResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiListTasksByAppResponseApplicationJson([
     void Function(TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
@@ -21751,8 +21875,10 @@ sealed class $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterfac
 abstract class TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -21816,8 +21942,10 @@ sealed class $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiListTasksResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiListTasksResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiListTasksResponseApplicationJson_Ocs,
-            TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiListTasksResponseApplicationJson_Ocs,
+          TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiListTasksResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder)? b,
@@ -21880,8 +22008,10 @@ sealed class $TaskProcessingApiListTasksResponseApplicationJsonInterface {
 abstract class TaskProcessingApiListTasksResponseApplicationJson
     implements
         $TaskProcessingApiListTasksResponseApplicationJsonInterface,
-        Built<TaskProcessingApiListTasksResponseApplicationJson,
-            TaskProcessingApiListTasksResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiListTasksResponseApplicationJson,
+          TaskProcessingApiListTasksResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiListTasksResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiListTasksResponseApplicationJson([
     void Function(TaskProcessingApiListTasksResponseApplicationJsonBuilder)? b,
@@ -21944,8 +22074,10 @@ sealed class $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterfa
 abstract class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -22009,8 +22141,10 @@ sealed class $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiCancelTaskResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiCancelTaskResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiCancelTaskResponseApplicationJson_Ocs,
-            TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiCancelTaskResponseApplicationJson_Ocs,
+          TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiCancelTaskResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder)? b,
@@ -22073,8 +22207,10 @@ sealed class $TaskProcessingApiCancelTaskResponseApplicationJsonInterface {
 abstract class TaskProcessingApiCancelTaskResponseApplicationJson
     implements
         $TaskProcessingApiCancelTaskResponseApplicationJsonInterface,
-        Built<TaskProcessingApiCancelTaskResponseApplicationJson,
-            TaskProcessingApiCancelTaskResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiCancelTaskResponseApplicationJson,
+          TaskProcessingApiCancelTaskResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiCancelTaskResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiCancelTaskResponseApplicationJson([
     void Function(TaskProcessingApiCancelTaskResponseApplicationJsonBuilder)? b,
@@ -22137,8 +22273,10 @@ sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_D
 abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -22202,8 +22340,10 @@ sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsIn
 abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs,
-            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs,
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder)? b,
@@ -22266,8 +22406,10 @@ sealed class $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterf
 abstract class TaskProcessingApiSetFileContentsExAppResponseApplicationJson
     implements
         $TaskProcessingApiSetFileContentsExAppResponseApplicationJsonInterface,
-        Built<TaskProcessingApiSetFileContentsExAppResponseApplicationJson,
-            TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJson,
+          TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiSetFileContentsExAppResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiSetFileContentsExAppResponseApplicationJson([
     void Function(TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder)? b,
@@ -22331,8 +22473,10 @@ sealed class $TaskProcessingApiSetProgressRequestApplicationJsonInterface {
 abstract class TaskProcessingApiSetProgressRequestApplicationJson
     implements
         $TaskProcessingApiSetProgressRequestApplicationJsonInterface,
-        Built<TaskProcessingApiSetProgressRequestApplicationJson,
-            TaskProcessingApiSetProgressRequestApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiSetProgressRequestApplicationJson,
+          TaskProcessingApiSetProgressRequestApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiSetProgressRequestApplicationJson object using the builder pattern.
   factory TaskProcessingApiSetProgressRequestApplicationJson([
     void Function(TaskProcessingApiSetProgressRequestApplicationJsonBuilder)? b,
@@ -22395,8 +22539,10 @@ sealed class $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterf
 abstract class TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -22460,8 +22606,10 @@ sealed class $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiSetProgressResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiSetProgressResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiSetProgressResponseApplicationJson_Ocs,
-            TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiSetProgressResponseApplicationJson_Ocs,
+          TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiSetProgressResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder)? b,
@@ -22524,8 +22672,10 @@ sealed class $TaskProcessingApiSetProgressResponseApplicationJsonInterface {
 abstract class TaskProcessingApiSetProgressResponseApplicationJson
     implements
         $TaskProcessingApiSetProgressResponseApplicationJsonInterface,
-        Built<TaskProcessingApiSetProgressResponseApplicationJson,
-            TaskProcessingApiSetProgressResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiSetProgressResponseApplicationJson,
+          TaskProcessingApiSetProgressResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiSetProgressResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiSetProgressResponseApplicationJson([
     void Function(TaskProcessingApiSetProgressResponseApplicationJsonBuilder)? b,
@@ -22592,8 +22742,10 @@ sealed class $TaskProcessingApiSetResultRequestApplicationJsonInterface {
 abstract class TaskProcessingApiSetResultRequestApplicationJson
     implements
         $TaskProcessingApiSetResultRequestApplicationJsonInterface,
-        Built<TaskProcessingApiSetResultRequestApplicationJson,
-            TaskProcessingApiSetResultRequestApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiSetResultRequestApplicationJson,
+          TaskProcessingApiSetResultRequestApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiSetResultRequestApplicationJson object using the builder pattern.
   factory TaskProcessingApiSetResultRequestApplicationJson([
     void Function(TaskProcessingApiSetResultRequestApplicationJsonBuilder)? b,
@@ -22656,8 +22808,10 @@ sealed class $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterfac
 abstract class TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -22721,8 +22875,10 @@ sealed class $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface {
 abstract class TaskProcessingApiSetResultResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiSetResultResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiSetResultResponseApplicationJson_Ocs,
-            TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiSetResultResponseApplicationJson_Ocs,
+          TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiSetResultResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiSetResultResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder)? b,
@@ -22785,8 +22941,10 @@ sealed class $TaskProcessingApiSetResultResponseApplicationJsonInterface {
 abstract class TaskProcessingApiSetResultResponseApplicationJson
     implements
         $TaskProcessingApiSetResultResponseApplicationJsonInterface,
-        Built<TaskProcessingApiSetResultResponseApplicationJson,
-            TaskProcessingApiSetResultResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiSetResultResponseApplicationJson,
+          TaskProcessingApiSetResultResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiSetResultResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiSetResultResponseApplicationJson([
     void Function(TaskProcessingApiSetResultResponseApplicationJsonBuilder)? b,
@@ -22836,7 +22994,7 @@ sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_D
   /// [updates] is a function that takes a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder].
   $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface rebuild(
     void Function($TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder)
-        updates,
+    updates,
   );
 
   /// Converts the instance to a builder [$TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterfaceBuilder].
@@ -22854,8 +23012,10 @@ sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_D
 abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider
     implements
         $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderInterface,
-        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider,
-            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder> {
+        Built<
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider,
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder
+        > {
   /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider object using the builder pattern.
   factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider([
     void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder)? b,
@@ -22871,8 +23031,7 @@ abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_
   // coverage:ignore-start
   factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.fromJson(
     Map<String, dynamic> json,
-  ) =>
-      _$jsonSerializers.deserializeWith(serializer, json)!;
+  ) => _$jsonSerializers.deserializeWith(serializer, json)!;
   // coverage:ignore-end
 
   /// Parses this object into a json like map.
@@ -22921,8 +23080,10 @@ sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_D
 abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data
     implements
         $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data,
-            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data,
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data([
     void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -22986,8 +23147,10 @@ sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsIn
 abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs
     implements
         $TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsInterface,
-        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs,
-            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs,
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs([
     void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder)? b,
@@ -23050,8 +23213,10 @@ sealed class $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterf
 abstract class TaskProcessingApiGetNextScheduledTaskResponseApplicationJson
     implements
         $TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonInterface,
-        Built<TaskProcessingApiGetNextScheduledTaskResponseApplicationJson,
-            TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder> {
+        Built<
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJson,
+          TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder
+        > {
   /// Creates a new TaskProcessingApiGetNextScheduledTaskResponseApplicationJson object using the builder pattern.
   factory TaskProcessingApiGetNextScheduledTaskResponseApplicationJson([
     void Function(TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder)? b,
@@ -23173,8 +23338,10 @@ sealed class $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface {
 abstract class TeamsApiResolveOneResponseApplicationJson_Ocs_Data
     implements
         $TeamsApiResolveOneResponseApplicationJson_Ocs_DataInterface,
-        Built<TeamsApiResolveOneResponseApplicationJson_Ocs_Data,
-            TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TeamsApiResolveOneResponseApplicationJson_Ocs_Data,
+          TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TeamsApiResolveOneResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TeamsApiResolveOneResponseApplicationJson_Ocs_Data([
     void Function(TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -23420,8 +23587,10 @@ sealed class $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface {
 abstract class TeamsApiListTeamsResponseApplicationJson_Ocs_Data
     implements
         $TeamsApiListTeamsResponseApplicationJson_Ocs_DataInterface,
-        Built<TeamsApiListTeamsResponseApplicationJson_Ocs_Data,
-            TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TeamsApiListTeamsResponseApplicationJson_Ocs_Data,
+          TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TeamsApiListTeamsResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TeamsApiListTeamsResponseApplicationJson_Ocs_Data([
     void Function(TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -23613,8 +23782,10 @@ sealed class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesIn
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types
     implements
         $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesInterface,
-        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
-            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder> {
+        Built<
+          TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types,
+          TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder
+        > {
   /// Creates a new TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types object using the builder pattern.
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types([
     void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder)? b,
@@ -23677,8 +23848,10 @@ sealed class $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterfac
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data
     implements
         $TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataInterface,
-        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
-            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data,
+          TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data([
     void Function(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -23742,8 +23915,10 @@ sealed class $TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface {
 abstract class TextProcessingApiTaskTypesResponseApplicationJson_Ocs
     implements
         $TextProcessingApiTaskTypesResponseApplicationJson_OcsInterface,
-        Built<TextProcessingApiTaskTypesResponseApplicationJson_Ocs,
-            TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextProcessingApiTaskTypesResponseApplicationJson_Ocs,
+          TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextProcessingApiTaskTypesResponseApplicationJson_Ocs object using the builder pattern.
   factory TextProcessingApiTaskTypesResponseApplicationJson_Ocs([
     void Function(TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder)? b,
@@ -23806,8 +23981,10 @@ sealed class $TextProcessingApiTaskTypesResponseApplicationJsonInterface {
 abstract class TextProcessingApiTaskTypesResponseApplicationJson
     implements
         $TextProcessingApiTaskTypesResponseApplicationJsonInterface,
-        Built<TextProcessingApiTaskTypesResponseApplicationJson,
-            TextProcessingApiTaskTypesResponseApplicationJsonBuilder> {
+        Built<
+          TextProcessingApiTaskTypesResponseApplicationJson,
+          TextProcessingApiTaskTypesResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextProcessingApiTaskTypesResponseApplicationJson object using the builder pattern.
   factory TextProcessingApiTaskTypesResponseApplicationJson([
     void Function(TextProcessingApiTaskTypesResponseApplicationJsonBuilder)? b,
@@ -23994,16 +24171,14 @@ class _$TextProcessingTask_StatusSerializer implements PrimitiveSerializer<TextP
     Serializers serializers,
     TextProcessingTask_Status object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   TextProcessingTask_Status deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -24093,8 +24268,10 @@ sealed class $TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface
 abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs_Data
     implements
         $TextProcessingApiScheduleResponseApplicationJson_Ocs_DataInterface,
-        Built<TextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
-            TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextProcessingApiScheduleResponseApplicationJson_Ocs_Data,
+          TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextProcessingApiScheduleResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextProcessingApiScheduleResponseApplicationJson_Ocs_Data([
     void Function(TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -24158,8 +24335,10 @@ sealed class $TextProcessingApiScheduleResponseApplicationJson_OcsInterface {
 abstract class TextProcessingApiScheduleResponseApplicationJson_Ocs
     implements
         $TextProcessingApiScheduleResponseApplicationJson_OcsInterface,
-        Built<TextProcessingApiScheduleResponseApplicationJson_Ocs,
-            TextProcessingApiScheduleResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextProcessingApiScheduleResponseApplicationJson_Ocs,
+          TextProcessingApiScheduleResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextProcessingApiScheduleResponseApplicationJson_Ocs object using the builder pattern.
   factory TextProcessingApiScheduleResponseApplicationJson_Ocs([
     void Function(TextProcessingApiScheduleResponseApplicationJson_OcsBuilder)? b,
@@ -24222,8 +24401,10 @@ sealed class $TextProcessingApiScheduleResponseApplicationJsonInterface {
 abstract class TextProcessingApiScheduleResponseApplicationJson
     implements
         $TextProcessingApiScheduleResponseApplicationJsonInterface,
-        Built<TextProcessingApiScheduleResponseApplicationJson,
-            TextProcessingApiScheduleResponseApplicationJsonBuilder> {
+        Built<
+          TextProcessingApiScheduleResponseApplicationJson,
+          TextProcessingApiScheduleResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextProcessingApiScheduleResponseApplicationJson object using the builder pattern.
   factory TextProcessingApiScheduleResponseApplicationJson([
     void Function(TextProcessingApiScheduleResponseApplicationJsonBuilder)? b,
@@ -24286,8 +24467,10 @@ sealed class $TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface 
 abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data
     implements
         $TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
-            TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data,
+          TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data([
     void Function(TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -24351,8 +24534,10 @@ sealed class $TextProcessingApiGetTaskResponseApplicationJson_OcsInterface {
 abstract class TextProcessingApiGetTaskResponseApplicationJson_Ocs
     implements
         $TextProcessingApiGetTaskResponseApplicationJson_OcsInterface,
-        Built<TextProcessingApiGetTaskResponseApplicationJson_Ocs,
-            TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextProcessingApiGetTaskResponseApplicationJson_Ocs,
+          TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextProcessingApiGetTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TextProcessingApiGetTaskResponseApplicationJson_Ocs([
     void Function(TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder)? b,
@@ -24478,8 +24663,10 @@ sealed class $TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterfa
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data
     implements
         $TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
-            TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data,
+          TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data([
     void Function(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -24543,8 +24730,10 @@ sealed class $TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface {
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson_Ocs
     implements
         $TextProcessingApiDeleteTaskResponseApplicationJson_OcsInterface,
-        Built<TextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
-            TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextProcessingApiDeleteTaskResponseApplicationJson_Ocs,
+          TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextProcessingApiDeleteTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TextProcessingApiDeleteTaskResponseApplicationJson_Ocs([
     void Function(TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
@@ -24607,8 +24796,10 @@ sealed class $TextProcessingApiDeleteTaskResponseApplicationJsonInterface {
 abstract class TextProcessingApiDeleteTaskResponseApplicationJson
     implements
         $TextProcessingApiDeleteTaskResponseApplicationJsonInterface,
-        Built<TextProcessingApiDeleteTaskResponseApplicationJson,
-            TextProcessingApiDeleteTaskResponseApplicationJsonBuilder> {
+        Built<
+          TextProcessingApiDeleteTaskResponseApplicationJson,
+          TextProcessingApiDeleteTaskResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextProcessingApiDeleteTaskResponseApplicationJson object using the builder pattern.
   factory TextProcessingApiDeleteTaskResponseApplicationJson([
     void Function(TextProcessingApiDeleteTaskResponseApplicationJsonBuilder)? b,
@@ -24671,8 +24862,10 @@ sealed class $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInt
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data
     implements
         $TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
-        Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
-            TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data,
+          TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data([
     void Function(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -24736,8 +24929,10 @@ sealed class $TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterfac
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson_Ocs
     implements
         $TextProcessingApiListTasksByAppResponseApplicationJson_OcsInterface,
-        Built<TextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
-            TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextProcessingApiListTasksByAppResponseApplicationJson_Ocs,
+          TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextProcessingApiListTasksByAppResponseApplicationJson_Ocs object using the builder pattern.
   factory TextProcessingApiListTasksByAppResponseApplicationJson_Ocs([
     void Function(TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
@@ -24800,8 +24995,10 @@ sealed class $TextProcessingApiListTasksByAppResponseApplicationJsonInterface {
 abstract class TextProcessingApiListTasksByAppResponseApplicationJson
     implements
         $TextProcessingApiListTasksByAppResponseApplicationJsonInterface,
-        Built<TextProcessingApiListTasksByAppResponseApplicationJson,
-            TextProcessingApiListTasksByAppResponseApplicationJsonBuilder> {
+        Built<
+          TextProcessingApiListTasksByAppResponseApplicationJson,
+          TextProcessingApiListTasksByAppResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextProcessingApiListTasksByAppResponseApplicationJson object using the builder pattern.
   factory TextProcessingApiListTasksByAppResponseApplicationJson([
     void Function(TextProcessingApiListTasksByAppResponseApplicationJsonBuilder)? b,
@@ -24864,8 +25061,10 @@ sealed class $TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface
 abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data
     implements
         $TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataInterface,
-        Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
-            TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data,
+          TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data([
     void Function(TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -24929,8 +25128,10 @@ sealed class $TextToImageApiIsAvailableResponseApplicationJson_OcsInterface {
 abstract class TextToImageApiIsAvailableResponseApplicationJson_Ocs
     implements
         $TextToImageApiIsAvailableResponseApplicationJson_OcsInterface,
-        Built<TextToImageApiIsAvailableResponseApplicationJson_Ocs,
-            TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextToImageApiIsAvailableResponseApplicationJson_Ocs,
+          TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextToImageApiIsAvailableResponseApplicationJson_Ocs object using the builder pattern.
   factory TextToImageApiIsAvailableResponseApplicationJson_Ocs([
     void Function(TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder)? b,
@@ -24993,8 +25194,10 @@ sealed class $TextToImageApiIsAvailableResponseApplicationJsonInterface {
 abstract class TextToImageApiIsAvailableResponseApplicationJson
     implements
         $TextToImageApiIsAvailableResponseApplicationJsonInterface,
-        Built<TextToImageApiIsAvailableResponseApplicationJson,
-            TextToImageApiIsAvailableResponseApplicationJsonBuilder> {
+        Built<
+          TextToImageApiIsAvailableResponseApplicationJson,
+          TextToImageApiIsAvailableResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextToImageApiIsAvailableResponseApplicationJson object using the builder pattern.
   factory TextToImageApiIsAvailableResponseApplicationJson([
     void Function(TextToImageApiIsAvailableResponseApplicationJsonBuilder)? b,
@@ -25184,16 +25387,14 @@ class _$TextToImageTask_StatusSerializer implements PrimitiveSerializer<TextToIm
     Serializers serializers,
     TextToImageTask_Status object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   TextToImageTask_Status deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -25280,8 +25481,10 @@ sealed class $TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface {
 abstract class TextToImageApiScheduleResponseApplicationJson_Ocs_Data
     implements
         $TextToImageApiScheduleResponseApplicationJson_Ocs_DataInterface,
-        Built<TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
-            TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextToImageApiScheduleResponseApplicationJson_Ocs_Data,
+          TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextToImageApiScheduleResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextToImageApiScheduleResponseApplicationJson_Ocs_Data([
     void Function(TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -25345,8 +25548,10 @@ sealed class $TextToImageApiScheduleResponseApplicationJson_OcsInterface {
 abstract class TextToImageApiScheduleResponseApplicationJson_Ocs
     implements
         $TextToImageApiScheduleResponseApplicationJson_OcsInterface,
-        Built<TextToImageApiScheduleResponseApplicationJson_Ocs,
-            TextToImageApiScheduleResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextToImageApiScheduleResponseApplicationJson_Ocs,
+          TextToImageApiScheduleResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextToImageApiScheduleResponseApplicationJson_Ocs object using the builder pattern.
   factory TextToImageApiScheduleResponseApplicationJson_Ocs([
     void Function(TextToImageApiScheduleResponseApplicationJson_OcsBuilder)? b,
@@ -25472,8 +25677,10 @@ sealed class $TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface {
 abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs_Data
     implements
         $TextToImageApiGetTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
-            TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextToImageApiGetTaskResponseApplicationJson_Ocs_Data,
+          TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextToImageApiGetTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextToImageApiGetTaskResponseApplicationJson_Ocs_Data([
     void Function(TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -25537,8 +25744,10 @@ sealed class $TextToImageApiGetTaskResponseApplicationJson_OcsInterface {
 abstract class TextToImageApiGetTaskResponseApplicationJson_Ocs
     implements
         $TextToImageApiGetTaskResponseApplicationJson_OcsInterface,
-        Built<TextToImageApiGetTaskResponseApplicationJson_Ocs,
-            TextToImageApiGetTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextToImageApiGetTaskResponseApplicationJson_Ocs,
+          TextToImageApiGetTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextToImageApiGetTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TextToImageApiGetTaskResponseApplicationJson_Ocs([
     void Function(TextToImageApiGetTaskResponseApplicationJson_OcsBuilder)? b,
@@ -25664,8 +25873,10 @@ sealed class $TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface 
 abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data
     implements
         $TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataInterface,
-        Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
-            TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data,
+          TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data([
     void Function(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -25729,8 +25940,10 @@ sealed class $TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface {
 abstract class TextToImageApiDeleteTaskResponseApplicationJson_Ocs
     implements
         $TextToImageApiDeleteTaskResponseApplicationJson_OcsInterface,
-        Built<TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
-            TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextToImageApiDeleteTaskResponseApplicationJson_Ocs,
+          TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextToImageApiDeleteTaskResponseApplicationJson_Ocs object using the builder pattern.
   factory TextToImageApiDeleteTaskResponseApplicationJson_Ocs([
     void Function(TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder)? b,
@@ -25856,8 +26069,10 @@ sealed class $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterf
 abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data
     implements
         $TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataInterface,
-        Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
-            TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data,
+          TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data([
     void Function(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -25921,8 +26136,10 @@ sealed class $TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface {
 abstract class TextToImageApiListTasksByAppResponseApplicationJson_Ocs
     implements
         $TextToImageApiListTasksByAppResponseApplicationJson_OcsInterface,
-        Built<TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
-            TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder> {
+        Built<
+          TextToImageApiListTasksByAppResponseApplicationJson_Ocs,
+          TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TextToImageApiListTasksByAppResponseApplicationJson_Ocs object using the builder pattern.
   factory TextToImageApiListTasksByAppResponseApplicationJson_Ocs([
     void Function(TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder)? b,
@@ -25985,8 +26202,10 @@ sealed class $TextToImageApiListTasksByAppResponseApplicationJsonInterface {
 abstract class TextToImageApiListTasksByAppResponseApplicationJson
     implements
         $TextToImageApiListTasksByAppResponseApplicationJsonInterface,
-        Built<TextToImageApiListTasksByAppResponseApplicationJson,
-            TextToImageApiListTasksByAppResponseApplicationJsonBuilder> {
+        Built<
+          TextToImageApiListTasksByAppResponseApplicationJson,
+          TextToImageApiListTasksByAppResponseApplicationJsonBuilder
+        > {
   /// Creates a new TextToImageApiListTasksByAppResponseApplicationJson object using the builder pattern.
   factory TextToImageApiListTasksByAppResponseApplicationJson([
     void Function(TextToImageApiListTasksByAppResponseApplicationJsonBuilder)? b,
@@ -26052,8 +26271,10 @@ sealed class $TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesI
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages
     implements
         $TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesInterface,
-        Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
-            TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder> {
+        Built<
+          TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages,
+          TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder
+        > {
   /// Creates a new TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages object using the builder pattern.
   factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages([
     void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder)? b,
@@ -26117,8 +26338,10 @@ sealed class $TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface {
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs_Data
     implements
         $TranslationApiLanguagesResponseApplicationJson_Ocs_DataInterface,
-        Built<TranslationApiLanguagesResponseApplicationJson_Ocs_Data,
-            TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TranslationApiLanguagesResponseApplicationJson_Ocs_Data,
+          TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TranslationApiLanguagesResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TranslationApiLanguagesResponseApplicationJson_Ocs_Data([
     void Function(TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -26182,8 +26405,10 @@ sealed class $TranslationApiLanguagesResponseApplicationJson_OcsInterface {
 abstract class TranslationApiLanguagesResponseApplicationJson_Ocs
     implements
         $TranslationApiLanguagesResponseApplicationJson_OcsInterface,
-        Built<TranslationApiLanguagesResponseApplicationJson_Ocs,
-            TranslationApiLanguagesResponseApplicationJson_OcsBuilder> {
+        Built<
+          TranslationApiLanguagesResponseApplicationJson_Ocs,
+          TranslationApiLanguagesResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TranslationApiLanguagesResponseApplicationJson_Ocs object using the builder pattern.
   factory TranslationApiLanguagesResponseApplicationJson_Ocs([
     void Function(TranslationApiLanguagesResponseApplicationJson_OcsBuilder)? b,
@@ -26380,8 +26605,10 @@ sealed class $TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface {
 abstract class TranslationApiTranslateResponseApplicationJson_Ocs_Data
     implements
         $TranslationApiTranslateResponseApplicationJson_Ocs_DataInterface,
-        Built<TranslationApiTranslateResponseApplicationJson_Ocs_Data,
-            TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder> {
+        Built<
+          TranslationApiTranslateResponseApplicationJson_Ocs_Data,
+          TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder
+        > {
   /// Creates a new TranslationApiTranslateResponseApplicationJson_Ocs_Data object using the builder pattern.
   factory TranslationApiTranslateResponseApplicationJson_Ocs_Data([
     void Function(TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder)? b,
@@ -26445,8 +26672,10 @@ sealed class $TranslationApiTranslateResponseApplicationJson_OcsInterface {
 abstract class TranslationApiTranslateResponseApplicationJson_Ocs
     implements
         $TranslationApiTranslateResponseApplicationJson_OcsInterface,
-        Built<TranslationApiTranslateResponseApplicationJson_Ocs,
-            TranslationApiTranslateResponseApplicationJson_OcsBuilder> {
+        Built<
+          TranslationApiTranslateResponseApplicationJson_Ocs,
+          TranslationApiTranslateResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new TranslationApiTranslateResponseApplicationJson_Ocs object using the builder pattern.
   factory TranslationApiTranslateResponseApplicationJson_Ocs([
     void Function(TranslationApiTranslateResponseApplicationJson_OcsBuilder)? b,
@@ -26678,8 +26907,9 @@ abstract class TwoFactorApiStateResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $TwoFactorApiEnableRequestApplicationJsonInterface {
-  static final _$providers = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+  static final _$providers =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
 
   /// system user identifier.
   String get user;
@@ -26878,8 +27108,9 @@ abstract class TwoFactorApiEnableResponseApplicationJson
 
 @BuiltValue(instantiable: false)
 sealed class $TwoFactorApiDisableRequestApplicationJsonInterface {
-  static final _$providers = _$jsonSerializers
-      .deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))! as BuiltList<String>;
+  static final _$providers =
+      _$jsonSerializers.deserialize(const [], specifiedType: const FullType(BuiltList, [FullType(String)]))!
+          as BuiltList<String>;
 
   /// system user identifier.
   String get user;
@@ -27163,8 +27394,10 @@ sealed class $UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface {
 abstract class UnifiedSearchGetProvidersResponseApplicationJson_Ocs
     implements
         $UnifiedSearchGetProvidersResponseApplicationJson_OcsInterface,
-        Built<UnifiedSearchGetProvidersResponseApplicationJson_Ocs,
-            UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder> {
+        Built<
+          UnifiedSearchGetProvidersResponseApplicationJson_Ocs,
+          UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UnifiedSearchGetProvidersResponseApplicationJson_Ocs object using the builder pattern.
   factory UnifiedSearchGetProvidersResponseApplicationJson_Ocs([
     void Function(UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder)? b,
@@ -27227,8 +27460,10 @@ sealed class $UnifiedSearchGetProvidersResponseApplicationJsonInterface {
 abstract class UnifiedSearchGetProvidersResponseApplicationJson
     implements
         $UnifiedSearchGetProvidersResponseApplicationJsonInterface,
-        Built<UnifiedSearchGetProvidersResponseApplicationJson,
-            UnifiedSearchGetProvidersResponseApplicationJsonBuilder> {
+        Built<
+          UnifiedSearchGetProvidersResponseApplicationJson,
+          UnifiedSearchGetProvidersResponseApplicationJsonBuilder
+        > {
   /// Creates a new UnifiedSearchGetProvidersResponseApplicationJson object using the builder pattern.
   factory UnifiedSearchGetProvidersResponseApplicationJson([
     void Function(UnifiedSearchGetProvidersResponseApplicationJsonBuilder)? b,
@@ -27546,8 +27781,10 @@ sealed class $WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface {
 abstract class WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew
     implements
         $WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewInterface,
-        Built<WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
-            WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder> {
+        Built<
+          WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew,
+          WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder
+        > {
   /// Creates a new WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew object using the builder pattern.
   factory WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew([
     void Function(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder)? b,
@@ -28556,16 +28793,14 @@ class _$RichObjectParameter_TypeSerializer implements PrimitiveSerializer<RichOb
     Serializers serializers,
     RichObjectParameter_Type object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   RichObjectParameter_Type deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -28863,10 +29098,9 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
   }) {
     AutocompleteResult_Status0? autocompleteResultStatus0;
     try {
-      autocompleteResultStatus0 = serializers.deserialize(
-        data,
-        specifiedType: const FullType(AutocompleteResult_Status0),
-      )! as AutocompleteResult_Status0;
+      autocompleteResultStatus0 =
+          serializers.deserialize(data, specifiedType: const FullType(AutocompleteResult_Status0))!
+              as AutocompleteResult_Status0;
     } catch (_) {}
     String? string;
     try {
@@ -28876,82 +29110,83 @@ class _$87e48e5649cd72b4d2947aaaea13ccd8Serializer implements PrimitiveSerialize
   }
 }
 
-typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 = ({
-  CommentsCapabilities? commentsCapabilities,
-  CoreCapabilities? coreCapabilities,
-  CorePublicCapabilities? corePublicCapabilities,
-  DavCapabilities? davCapabilities,
-  DropAccountCapabilities? dropAccountCapabilities,
-  FilesCapabilities? filesCapabilities,
-  FilesSharingCapabilities? filesSharingCapabilities,
-  FilesTrashbinCapabilities? filesTrashbinCapabilities,
-  FilesVersionsCapabilities? filesVersionsCapabilities,
-  NotesCapabilities? notesCapabilities,
-  NotificationsCapabilities? notificationsCapabilities,
-  PasswordPolicyCapabilities? passwordPolicyCapabilities,
-  ProvisioningApiCapabilities? provisioningApiCapabilities,
-  SharebymailCapabilities? sharebymailCapabilities,
-  SpreedCapabilities? spreedCapabilities,
-  SpreedPublicCapabilities? spreedPublicCapabilities,
-  SystemtagsCapabilities? systemtagsCapabilities,
-  TablesCapabilities? tablesCapabilities,
-  TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
-  ThemingPublicCapabilities? themingPublicCapabilities,
-  UserStatusCapabilities? userStatusCapabilities,
-  WeatherStatusCapabilities? weatherStatusCapabilities,
-});
+typedef _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 =
+    ({
+      CommentsCapabilities? commentsCapabilities,
+      CoreCapabilities? coreCapabilities,
+      CorePublicCapabilities? corePublicCapabilities,
+      DavCapabilities? davCapabilities,
+      DropAccountCapabilities? dropAccountCapabilities,
+      FilesCapabilities? filesCapabilities,
+      FilesSharingCapabilities? filesSharingCapabilities,
+      FilesTrashbinCapabilities? filesTrashbinCapabilities,
+      FilesVersionsCapabilities? filesVersionsCapabilities,
+      NotesCapabilities? notesCapabilities,
+      NotificationsCapabilities? notificationsCapabilities,
+      PasswordPolicyCapabilities? passwordPolicyCapabilities,
+      ProvisioningApiCapabilities? provisioningApiCapabilities,
+      SharebymailCapabilities? sharebymailCapabilities,
+      SpreedCapabilities? spreedCapabilities,
+      SpreedPublicCapabilities? spreedPublicCapabilities,
+      SystemtagsCapabilities? systemtagsCapabilities,
+      TablesCapabilities? tablesCapabilities,
+      TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities,
+      ThemingPublicCapabilities? themingPublicCapabilities,
+      UserStatusCapabilities? userStatusCapabilities,
+      WeatherStatusCapabilities? weatherStatusCapabilities,
+    });
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
 extension $d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension on _$d133a6ea76c2cb6bb2f7f6f4c3fdf958 {
   List<dynamic> get _values => [
-        commentsCapabilities,
-        coreCapabilities,
-        corePublicCapabilities,
-        davCapabilities,
-        dropAccountCapabilities,
-        filesCapabilities,
-        filesSharingCapabilities,
-        filesTrashbinCapabilities,
-        filesVersionsCapabilities,
-        notesCapabilities,
-        notificationsCapabilities,
-        passwordPolicyCapabilities,
-        provisioningApiCapabilities,
-        sharebymailCapabilities,
-        spreedCapabilities,
-        spreedPublicCapabilities,
-        systemtagsCapabilities,
-        tablesCapabilities,
-        termsOfServicePublicCapabilities,
-        themingPublicCapabilities,
-        userStatusCapabilities,
-        weatherStatusCapabilities,
-      ];
+    commentsCapabilities,
+    coreCapabilities,
+    corePublicCapabilities,
+    davCapabilities,
+    dropAccountCapabilities,
+    filesCapabilities,
+    filesSharingCapabilities,
+    filesTrashbinCapabilities,
+    filesVersionsCapabilities,
+    notesCapabilities,
+    notificationsCapabilities,
+    passwordPolicyCapabilities,
+    provisioningApiCapabilities,
+    sharebymailCapabilities,
+    spreedCapabilities,
+    spreedPublicCapabilities,
+    systemtagsCapabilities,
+    tablesCapabilities,
+    termsOfServicePublicCapabilities,
+    themingPublicCapabilities,
+    userStatusCapabilities,
+    weatherStatusCapabilities,
+  ];
   List<String> get _names => const [
-        'commentsCapabilities',
-        'coreCapabilities',
-        'corePublicCapabilities',
-        'davCapabilities',
-        'dropAccountCapabilities',
-        'filesCapabilities',
-        'filesSharingCapabilities',
-        'filesTrashbinCapabilities',
-        'filesVersionsCapabilities',
-        'notesCapabilities',
-        'notificationsCapabilities',
-        'passwordPolicyCapabilities',
-        'provisioningApiCapabilities',
-        'sharebymailCapabilities',
-        'spreedCapabilities',
-        'spreedPublicCapabilities',
-        'systemtagsCapabilities',
-        'tablesCapabilities',
-        'termsOfServicePublicCapabilities',
-        'themingPublicCapabilities',
-        'userStatusCapabilities',
-        'weatherStatusCapabilities',
-      ];
+    'commentsCapabilities',
+    'coreCapabilities',
+    'corePublicCapabilities',
+    'davCapabilities',
+    'dropAccountCapabilities',
+    'filesCapabilities',
+    'filesSharingCapabilities',
+    'filesTrashbinCapabilities',
+    'filesVersionsCapabilities',
+    'notesCapabilities',
+    'notificationsCapabilities',
+    'passwordPolicyCapabilities',
+    'provisioningApiCapabilities',
+    'sharebymailCapabilities',
+    'spreedCapabilities',
+    'spreedPublicCapabilities',
+    'systemtagsCapabilities',
+    'tablesCapabilities',
+    'termsOfServicePublicCapabilities',
+    'themingPublicCapabilities',
+    'userStatusCapabilities',
+    'weatherStatusCapabilities',
+  ];
 
   /// {@macro Dynamite.validateOneOf}
   void validateOneOf() => _i5.validateOneOf(_values, _names);
@@ -29095,8 +29330,9 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     CorePublicCapabilities? corePublicCapabilities;
     try {
-      corePublicCapabilities = serializers.deserialize(data, specifiedType: const FullType(CorePublicCapabilities))!
-          as CorePublicCapabilities;
+      corePublicCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(CorePublicCapabilities))!
+              as CorePublicCapabilities;
     } catch (_) {}
     DavCapabilities? davCapabilities;
     try {
@@ -29105,8 +29341,9 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     DropAccountCapabilities? dropAccountCapabilities;
     try {
-      dropAccountCapabilities = serializers.deserialize(data, specifiedType: const FullType(DropAccountCapabilities))!
-          as DropAccountCapabilities;
+      dropAccountCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(DropAccountCapabilities))!
+              as DropAccountCapabilities;
     } catch (_) {}
     FilesCapabilities? filesCapabilities;
     try {
@@ -29115,22 +29352,21 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     FilesSharingCapabilities? filesSharingCapabilities;
     try {
-      filesSharingCapabilities = serializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
-          as FilesSharingCapabilities;
+      filesSharingCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(FilesSharingCapabilities))!
+              as FilesSharingCapabilities;
     } catch (_) {}
     FilesTrashbinCapabilities? filesTrashbinCapabilities;
     try {
-      filesTrashbinCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesTrashbinCapabilities),
-      )! as FilesTrashbinCapabilities;
+      filesTrashbinCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(FilesTrashbinCapabilities))!
+              as FilesTrashbinCapabilities;
     } catch (_) {}
     FilesVersionsCapabilities? filesVersionsCapabilities;
     try {
-      filesVersionsCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(FilesVersionsCapabilities),
-      )! as FilesVersionsCapabilities;
+      filesVersionsCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(FilesVersionsCapabilities))!
+              as FilesVersionsCapabilities;
     } catch (_) {}
     NotesCapabilities? notesCapabilities;
     try {
@@ -29139,29 +29375,27 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     NotificationsCapabilities? notificationsCapabilities;
     try {
-      notificationsCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(NotificationsCapabilities),
-      )! as NotificationsCapabilities;
+      notificationsCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(NotificationsCapabilities))!
+              as NotificationsCapabilities;
     } catch (_) {}
     PasswordPolicyCapabilities? passwordPolicyCapabilities;
     try {
-      passwordPolicyCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(PasswordPolicyCapabilities),
-      )! as PasswordPolicyCapabilities;
+      passwordPolicyCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(PasswordPolicyCapabilities))!
+              as PasswordPolicyCapabilities;
     } catch (_) {}
     ProvisioningApiCapabilities? provisioningApiCapabilities;
     try {
-      provisioningApiCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ProvisioningApiCapabilities),
-      )! as ProvisioningApiCapabilities;
+      provisioningApiCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(ProvisioningApiCapabilities))!
+              as ProvisioningApiCapabilities;
     } catch (_) {}
     SharebymailCapabilities? sharebymailCapabilities;
     try {
-      sharebymailCapabilities = serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
-          as SharebymailCapabilities;
+      sharebymailCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(SharebymailCapabilities))!
+              as SharebymailCapabilities;
     } catch (_) {}
     SpreedCapabilities? spreedCapabilities;
     try {
@@ -29170,13 +29404,15 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     SpreedPublicCapabilities? spreedPublicCapabilities;
     try {
-      spreedPublicCapabilities = serializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities))!
-          as SpreedPublicCapabilities;
+      spreedPublicCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(SpreedPublicCapabilities))!
+              as SpreedPublicCapabilities;
     } catch (_) {}
     SystemtagsCapabilities? systemtagsCapabilities;
     try {
-      systemtagsCapabilities = serializers.deserialize(data, specifiedType: const FullType(SystemtagsCapabilities))!
-          as SystemtagsCapabilities;
+      systemtagsCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(SystemtagsCapabilities))!
+              as SystemtagsCapabilities;
     } catch (_) {}
     TablesCapabilities? tablesCapabilities;
     try {
@@ -29185,29 +29421,27 @@ class _$d133a6ea76c2cb6bb2f7f6f4c3fdf958Serializer implements PrimitiveSerialize
     } catch (_) {}
     TermsOfServicePublicCapabilities? termsOfServicePublicCapabilities;
     try {
-      termsOfServicePublicCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(TermsOfServicePublicCapabilities),
-      )! as TermsOfServicePublicCapabilities;
+      termsOfServicePublicCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(TermsOfServicePublicCapabilities))!
+              as TermsOfServicePublicCapabilities;
     } catch (_) {}
     ThemingPublicCapabilities? themingPublicCapabilities;
     try {
-      themingPublicCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(ThemingPublicCapabilities),
-      )! as ThemingPublicCapabilities;
+      themingPublicCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(ThemingPublicCapabilities))!
+              as ThemingPublicCapabilities;
     } catch (_) {}
     UserStatusCapabilities? userStatusCapabilities;
     try {
-      userStatusCapabilities = serializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
-          as UserStatusCapabilities;
+      userStatusCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(UserStatusCapabilities))!
+              as UserStatusCapabilities;
     } catch (_) {}
     WeatherStatusCapabilities? weatherStatusCapabilities;
     try {
-      weatherStatusCapabilities = serializers.deserialize(
-        data,
-        specifiedType: const FullType(WeatherStatusCapabilities),
-      )! as WeatherStatusCapabilities;
+      weatherStatusCapabilities =
+          serializers.deserialize(data, specifiedType: const FullType(WeatherStatusCapabilities))!
+              as WeatherStatusCapabilities;
     } catch (_) {}
     return (
       commentsCapabilities: commentsCapabilities,
@@ -29306,12 +29540,8 @@ class _$b6d67dc2a96424d2f407f8e51557f3deSerializer implements PrimitiveSerialize
   }
 }
 
-typedef _$17b504aaa197cb55522acb1f128f183a = ({
-  BuiltList<num>? builtListNum,
-  BuiltList<String>? builtListString,
-  num? $num,
-  String? string,
-});
+typedef _$17b504aaa197cb55522acb1f128f183a =
+    ({BuiltList<num>? builtListNum, BuiltList<String>? builtListString, num? $num, String? string});
 
 /// @nodoc
 // ignore: library_private_types_in_public_api
@@ -29384,8 +29614,9 @@ class _$17b504aaa197cb55522acb1f128f183aSerializer implements PrimitiveSerialize
     } catch (_) {}
     BuiltList<String>? builtListString;
     try {
-      builtListString = serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
-          as BuiltList<String>;
+      builtListString =
+          serializers.deserialize(data, specifiedType: const FullType(BuiltList, [FullType(String)]))!
+              as BuiltList<String>;
     } catch (_) {}
     num? $num;
     try {
@@ -29476,1515 +29707,1516 @@ class _$b2c4857c0136baea42828d89c87c757dSerializer implements PrimitiveSerialize
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..addBuilderFactory(const FullType(Status), StatusBuilder.new)
-      ..add(Status.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
-        AppPasswordGetAppPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppPasswordGetAppPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data),
-        AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
-        AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
-        AppPasswordRotateAppPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppPasswordRotateAppPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs),
-        AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data),
-        AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordConfirmUserPasswordRequestApplicationJson),
-        AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder.new,
-      )
-      ..add(AppPasswordConfirmUserPasswordRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
-        AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs),
-        AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data),
-        AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
-      ..addBuilderFactory(
-        const FullType(AutoCompleteGetResponseApplicationJson),
-        AutoCompleteGetResponseApplicationJsonBuilder.new,
-      )
-      ..add(AutoCompleteGetResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(AutoCompleteGetResponseApplicationJson_Ocs),
-        AutoCompleteGetResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(AutoCompleteGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResultBuilder.new)
-      ..add(AutocompleteResult.serializer)
-      ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0Builder.new)
-      ..add(AutocompleteResult_Status0.serializer)
-      ..add($87e48e5649cd72b4d2947aaaea13ccd8Extension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(AutocompleteResult)]),
-        ListBuilder<AutocompleteResult>.new,
-      )
-      ..add(AvatarGetAvatarDarkSize.serializer)
-      ..add(AvatarGetAvatarDarkGuestFallback.serializer)
-      ..addBuilderFactory(
-        const FullType(AvatarAvatarGetAvatarDarkHeaders),
-        AvatarAvatarGetAvatarDarkHeadersBuilder.new,
-      )
-      ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(const FullType(Header, [FullType.nullable(int)]), HeaderBuilder<int?>.new)
-      ..add(Header.serializer)
-      ..add(AvatarGetAvatarSize.serializer)
-      ..add(AvatarGetAvatarGuestFallback.serializer)
-      ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
-      ..add(AvatarAvatarGetAvatarHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(ClientFlowLoginV2PollRequestApplicationJson),
-        ClientFlowLoginV2PollRequestApplicationJsonBuilder.new,
-      )
-      ..add(ClientFlowLoginV2PollRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2CredentialsBuilder.new)
-      ..add(LoginFlowV2Credentials.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2), LoginFlowV2Builder.new)
-      ..add(LoginFlowV2.serializer)
-      ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_PollBuilder.new)
-      ..add(LoginFlowV2_Poll.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
-        CollaborationResourcesListCollectionResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
-        CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(Collection), CollectionBuilder.new)
-      ..add(Collection.serializer)
-      ..addBuilderFactory(const FullType(Resource), ResourceBuilder.new)
-      ..add(Resource.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
-        MapBuilder<String, JsonObject?>.new,
-      )
-      ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObjectBuilder.new)
-      ..add(OpenGraphObject.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Resource)]), ListBuilder<Resource>.new)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesRenameCollectionRequestApplicationJson),
-        CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesRenameCollectionRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
-        CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesRenameCollectionResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs),
-        CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesAddResourceRequestApplicationJson),
-        CollaborationResourcesAddResourceRequestApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesAddResourceRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
-        CollaborationResourcesAddResourceResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesAddResourceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesAddResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
-        CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesRemoveResourceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
-        CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
-        CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
-        CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson),
-        CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
-        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder.new,
-      )
-      ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs),
-        CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(CsrfTokenIndexResponseApplicationJson),
-        CsrfTokenIndexResponseApplicationJsonBuilder.new,
-      )
-      ..add(CsrfTokenIndexResponseApplicationJson.serializer)
-      ..add(GuestAvatarGetAvatarSize.serializer)
-      ..add(GuestAvatarGetAvatarDarkTheme.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestAvatarGuestAvatarGetAvatarHeaders),
-        GuestAvatarGuestAvatarGetAvatarHeadersBuilder.new,
-      )
-      ..add(GuestAvatarGuestAvatarGetAvatarHeaders.serializer)
-      ..add(GuestAvatarGetAvatarDarkSize.serializer)
-      ..addBuilderFactory(
-        const FullType(GuestAvatarGuestAvatarGetAvatarDarkHeaders),
-        GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder.new,
-      )
-      ..add(GuestAvatarGuestAvatarGetAvatarDarkHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(HoverCardGetUserResponseApplicationJson),
-        HoverCardGetUserResponseApplicationJsonBuilder.new,
-      )
-      ..add(HoverCardGetUserResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(HoverCardGetUserResponseApplicationJson_Ocs),
-        HoverCardGetUserResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(HoverCardGetUserResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(HoverCardGetUserResponseApplicationJson_Ocs_Data),
-        HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(HoverCardGetUserResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(ContactsAction), ContactsActionBuilder.new)
-      ..add(ContactsAction.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
-      ..addBuilderFactory(
-        const FullType(LoginConfirmPasswordRequestApplicationJson),
-        LoginConfirmPasswordRequestApplicationJsonBuilder.new,
-      )
-      ..add(LoginConfirmPasswordRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(LoginConfirmPasswordResponseApplicationJson),
-        LoginConfirmPasswordResponseApplicationJsonBuilder.new,
-      )
-      ..add(LoginConfirmPasswordResponseApplicationJson.serializer)
-      ..add(NavigationGetAppsNavigationAbsolute.serializer)
-      ..addBuilderFactory(
-        const FullType(NavigationGetAppsNavigationResponseApplicationJson),
-        NavigationGetAppsNavigationResponseApplicationJsonBuilder.new,
-      )
-      ..add(NavigationGetAppsNavigationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(NavigationGetAppsNavigationResponseApplicationJson_Ocs),
-        NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
-      ..add(NavigationEntry.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
-      ..add(NavigationGetSettingsNavigationAbsolute.serializer)
-      ..addBuilderFactory(
-        const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
-        NavigationGetSettingsNavigationResponseApplicationJsonBuilder.new,
-      )
-      ..add(NavigationGetSettingsNavigationResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(NavigationGetSettingsNavigationResponseApplicationJson_Ocs),
-        NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(OcmDiscoveryResponseApplicationJson),
-        OcmDiscoveryResponseApplicationJsonBuilder.new,
-      )
-      ..add(OcmDiscoveryResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes),
-        OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder.new,
-      )
-      ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
-      ..addBuilderFactory(
-        const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
-        OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder.new,
-      )
-      ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes)]),
-        ListBuilder<OcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
-      )
-      ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
-      ..add(OcmOcmDiscoveryHeaders.serializer)
-      ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
-      ..addBuilderFactory(
-        const FullType(Header, [FullType.nullable(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
-        HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(OcsGetCapabilitiesResponseApplicationJson),
-        OcsGetCapabilitiesResponseApplicationJsonBuilder.new,
-      )
-      ..add(OcsGetCapabilitiesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs),
-        OcsGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version),
-        OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder.new,
-      )
-      ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
-      ..addBuilderFactory(const FullType(CoreCapabilities), CoreCapabilitiesBuilder.new)
-      ..add(CoreCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CoreCapabilities_Core), CoreCapabilities_CoreBuilder.new)
-      ..add(CoreCapabilities_Core.serializer)
-      ..addBuilderFactory(const FullType(CorePublicCapabilities), CorePublicCapabilitiesBuilder.new)
-      ..add(CorePublicCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(CorePublicCapabilities_Bruteforce),
-        CorePublicCapabilities_BruteforceBuilder.new,
-      )
-      ..add(CorePublicCapabilities_Bruteforce.serializer)
-      ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilitiesBuilder.new)
-      ..add(CommentsCapabilities.serializer)
-      ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_FilesBuilder.new)
-      ..add(CommentsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilitiesBuilder.new)
-      ..add(DavCapabilities.serializer)
-      ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_DavBuilder.new)
-      ..add(DavCapabilities_Dav.serializer)
-      ..addBuilderFactory(const FullType(DropAccountCapabilities), DropAccountCapabilitiesBuilder.new)
-      ..add(DropAccountCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(DropAccountCapabilities_DropAccount),
-        DropAccountCapabilities_DropAccountBuilder.new,
-      )
-      ..add(DropAccountCapabilities_DropAccount.serializer)
-      ..addBuilderFactory(
-        const FullType(DropAccountCapabilities_DropAccount_Delay),
-        DropAccountCapabilities_DropAccount_DelayBuilder.new,
-      )
-      ..add(DropAccountCapabilities_DropAccount_Delay.serializer)
-      ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilitiesBuilder.new)
-      ..add(FilesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_FilesBuilder.new)
-      ..add(FilesCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
-      ..addBuilderFactory(
-        const FullType(FilesCapabilities_Files_ChunkedUpload),
-        FilesCapabilities_Files_ChunkedUploadBuilder.new,
-      )
-      ..add(FilesCapabilities_Files_ChunkedUpload.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesCapabilities_Files_FileConversions),
-        FilesCapabilities_Files_FileConversionsBuilder.new,
-      )
-      ..add(FilesCapabilities_Files_FileConversions.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)]),
-        ListBuilder<FilesCapabilities_Files_FileConversions>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(FilesCapabilities_Files_DirectEditing),
-        FilesCapabilities_Files_DirectEditingBuilder.new,
-      )
-      ..add(FilesCapabilities_Files_DirectEditing.serializer)
-      ..addBuilderFactory(const FullType(FilesSharingCapabilities), FilesSharingCapabilitiesBuilder.new)
-      ..add(FilesSharingCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing),
-        FilesSharingCapabilities_FilesSharingBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Public),
-        FilesSharingCapabilities_FilesSharing_PublicBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Public.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Public_Password),
-        FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Public_Password.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
-        FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_User),
-        FilesSharingCapabilities_FilesSharing_UserBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_User.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Group),
-        FilesSharingCapabilities_FilesSharing_GroupBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Group.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Federation),
-        FilesSharingCapabilities_FilesSharing_FederationBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Federation.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
-        FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesSharingCapabilities_FilesSharing_Sharee),
-        FilesSharingCapabilities_FilesSharing_ShareeBuilder.new,
-      )
-      ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer)
-      ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilitiesBuilder.new)
-      ..add(FilesTrashbinCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesTrashbinCapabilities_Files),
-        FilesTrashbinCapabilities_FilesBuilder.new,
-      )
-      ..add(FilesTrashbinCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilitiesBuilder.new)
-      ..add(FilesVersionsCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(FilesVersionsCapabilities_Files),
-        FilesVersionsCapabilities_FilesBuilder.new,
-      )
-      ..add(FilesVersionsCapabilities_Files.serializer)
-      ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
-      ..add(NotificationsCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(NotificationsCapabilities_Notifications),
-        NotificationsCapabilities_NotificationsBuilder.new,
-      )
-      ..add(NotificationsCapabilities_Notifications.serializer)
-      ..addBuilderFactory(const FullType(PasswordPolicyCapabilities), PasswordPolicyCapabilitiesBuilder.new)
-      ..add(PasswordPolicyCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(PasswordPolicyCapabilities_PasswordPolicy),
-        PasswordPolicyCapabilities_PasswordPolicyBuilder.new,
-      )
-      ..add(PasswordPolicyCapabilities_PasswordPolicy.serializer)
-      ..addBuilderFactory(
-        const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api),
-        PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder.new,
-      )
-      ..add(PasswordPolicyCapabilities_PasswordPolicy_Api.serializer)
-      ..addBuilderFactory(
-        const FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies),
-        PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder.new,
-      )
-      ..add(PasswordPolicyCapabilities_PasswordPolicy_Policies.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies)]),
-        MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>.new,
-      )
-      ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilitiesBuilder.new)
-      ..add(ProvisioningApiCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(ProvisioningApiCapabilities_ProvisioningApi),
-        ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
-      )
-      ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
-      ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
-      ..add(SharebymailCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing),
-        SharebymailCapabilities_FilesSharingBuilder.new,
-      )
-      ..add(SharebymailCapabilities_FilesSharing.serializer)
-      ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
-        SharebymailCapabilities_FilesSharing_SharebymailBuilder.new,
-      )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
-      ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
-        SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
-      )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
-      ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
-        SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
-      )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
-      ..addBuilderFactory(
-        const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
-        SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
-      )
-      ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
-      ..addBuilderFactory(const FullType(SpreedCapabilities), SpreedCapabilitiesBuilder.new)
-      ..add(SpreedCapabilities.serializer)
-      ..addBuilderFactory(const FullType(SpreedCapabilities_Config), SpreedCapabilities_ConfigBuilder.new)
-      ..add(SpreedCapabilities_Config.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Attachments),
-        SpreedCapabilities_Config_AttachmentsBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Attachments.serializer)
-      ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Call), SpreedCapabilities_Config_CallBuilder.new)
-      ..add(SpreedCapabilities_Config_Call.serializer)
-      ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Chat), SpreedCapabilities_Config_ChatBuilder.new)
-      ..add(SpreedCapabilities_Config_Chat.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Conversations),
-        SpreedCapabilities_Config_ConversationsBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Conversations.serializer)
-      ..add(SpreedCapabilities_Config_Conversations_ListStyle.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Federation),
-        SpreedCapabilities_Config_FederationBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Federation.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Previews),
-        SpreedCapabilities_Config_PreviewsBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Previews.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Signaling),
-        SpreedCapabilities_Config_SignalingBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Signaling.serializer)
-      ..addBuilderFactory(
-        const FullType(SpreedCapabilities_Config_Experiments),
-        SpreedCapabilities_Config_ExperimentsBuilder.new,
-      )
-      ..add(SpreedCapabilities_Config_Experiments.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(String)]),
-        ]),
-        MapBuilder<String, BuiltList<String>>.new,
-      )
-      ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
-      ..add(SpreedPublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
-      ..add(SystemtagsCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(SystemtagsCapabilities_Systemtags),
-        SystemtagsCapabilities_SystemtagsBuilder.new,
-      )
-      ..add(SystemtagsCapabilities_Systemtags.serializer)
-      ..add(SystemtagsCapabilities_Systemtags_Enabled.serializer)
-      ..addBuilderFactory(const FullType(TablesCapabilities), TablesCapabilitiesBuilder.new)
-      ..add(TablesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(TablesCapabilities_Tables), TablesCapabilities_TablesBuilder.new)
-      ..add(TablesCapabilities_Tables.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsOfServicePublicCapabilities),
-        TermsOfServicePublicCapabilitiesBuilder.new,
-      )
-      ..add(TermsOfServicePublicCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(TermsOfServicePublicCapabilities_TermsOfService),
-        TermsOfServicePublicCapabilities_TermsOfServiceBuilder.new,
-      )
-      ..add(TermsOfServicePublicCapabilities_TermsOfService.serializer)
-      ..add(TermsOfServicePublicCapabilities_TermsOfService_Enabled.serializer)
-      ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
-      ..add(ThemingPublicCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(ThemingPublicCapabilities_Theming),
-        ThemingPublicCapabilities_ThemingBuilder.new,
-      )
-      ..add(ThemingPublicCapabilities_Theming.serializer)
-      ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilitiesBuilder.new)
-      ..add(UserStatusCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(UserStatusCapabilities_UserStatus),
-        UserStatusCapabilities_UserStatusBuilder.new,
-      )
-      ..add(UserStatusCapabilities_UserStatus.serializer)
-      ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilitiesBuilder.new)
-      ..add(WeatherStatusCapabilities.serializer)
-      ..addBuilderFactory(
-        const FullType(WeatherStatusCapabilities_WeatherStatus),
-        WeatherStatusCapabilities_WeatherStatusBuilder.new,
-      )
-      ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilitiesBuilder.new)
-      ..add(NotesCapabilities.serializer)
-      ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
-      ..add(NotesCapabilities_Notes.serializer)
-      ..add($d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer)
-      ..add(PreviewGetPreviewA.serializer)
-      ..add(PreviewGetPreviewForceIcon.serializer)
-      ..add(PreviewGetPreviewMode.serializer)
-      ..add(PreviewGetPreviewMimeFallback.serializer)
-      ..add(PreviewGetPreviewByFileIdA.serializer)
-      ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
-      ..add(PreviewGetPreviewByFileIdMode.serializer)
-      ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
-      ..addBuilderFactory(
-        const FullType(PreviewPreviewGetMimeIconUrlHeaders),
-        PreviewPreviewGetMimeIconUrlHeadersBuilder.new,
-      )
-      ..add(PreviewPreviewGetMimeIconUrlHeaders.serializer)
-      ..addBuilderFactory(
-        const FullType(ProfileApiGetProfileFieldsResponseApplicationJson),
-        ProfileApiGetProfileFieldsResponseApplicationJsonBuilder.new,
-      )
-      ..add(ProfileApiGetProfileFieldsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs),
-        ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ProfileData), ProfileDataBuilder.new)
-      ..add(ProfileData.serializer)
-      ..addBuilderFactory(const FullType(ProfileFields), ProfileFieldsBuilder.new)
-      ..add(ProfileFields.serializer)
-      ..addBuilderFactory(const FullType(ProfileAction), ProfileActionBuilder.new)
-      ..add(ProfileAction.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(ProfileAction)]), ListBuilder<ProfileAction>.new)
-      ..addBuilderFactory(
-        const FullType(ProfileApiSetVisibilityRequestApplicationJson),
-        ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
-      )
-      ..add(ProfileApiSetVisibilityRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ProfileApiSetVisibilityResponseApplicationJson),
-        ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
-      )
-      ..add(ProfileApiSetVisibilityResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ProfileApiSetVisibilityResponseApplicationJson_Ocs),
-        ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractRequestApplicationJson),
-        ReferenceApiExtractRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiExtractRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractResponseApplicationJson),
-        ReferenceApiExtractResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiExtractResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractResponseApplicationJson_Ocs),
-        ReferenceApiExtractResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiExtractResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data),
-        ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
-      ..add(Reference.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]),
-        MapBuilder<String, Reference?>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractPublicRequestApplicationJson),
-        ReferenceApiExtractPublicRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiExtractPublicRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractPublicResponseApplicationJson),
-        ReferenceApiExtractPublicResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiExtractPublicResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs),
-        ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data),
-        ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson),
-        ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
-        ReferenceApiResolveOneResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveRequestApplicationJson),
-        ReferenceApiResolveRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson),
-        ReferenceApiResolveResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
-        ReferenceApiResolveResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson),
-        ReferenceApiResolveOnePublicResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolveOnePublicResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs),
-        ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolvePublicRequestApplicationJson),
-        ReferenceApiResolvePublicRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolvePublicRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolvePublicResponseApplicationJson),
-        ReferenceApiResolvePublicResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiResolvePublicResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs),
-        ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data),
-        ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
-        ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiGetProvidersInfoResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs),
-        ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProviderBuilder.new)
-      ..add(ReferenceProvider.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ReferenceProvider)]),
-        ListBuilder<ReferenceProvider>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(ReferenceApiTouchProviderRequestApplicationJson),
-        ReferenceApiTouchProviderRequestApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiTouchProviderRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiTouchProviderResponseApplicationJson),
-        ReferenceApiTouchProviderResponseApplicationJsonBuilder.new,
-      )
-      ..add(ReferenceApiTouchProviderResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs),
-        ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data),
-        ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson),
-        TaskProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiTaskTypesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs),
-        TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TaskProcessingTaskType), TaskProcessingTaskTypeBuilder.new)
-      ..add(TaskProcessingTaskType.serializer)
-      ..addBuilderFactory(const FullType(TaskProcessingShape), TaskProcessingShapeBuilder.new)
-      ..add(TaskProcessingShape.serializer)
-      ..add(TaskProcessingShape_Type.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]),
-        MapBuilder<String, TaskProcessingShape>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingTaskType_InputShapeEnumValues),
-        TaskProcessingTaskType_InputShapeEnumValuesBuilder.new,
-      )
-      ..add(TaskProcessingTaskType_InputShapeEnumValues.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
-        ListBuilder<TaskProcessingTaskType_InputShapeEnumValues>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
-        ]),
-        MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
-      )
-      ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)]),
-        MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues),
-        TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder.new,
-      )
-      ..add(TaskProcessingTaskType_OptionalInputShapeEnumValues.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
-        ListBuilder<TaskProcessingTaskType_OptionalInputShapeEnumValues>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
-        ]),
-        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]),
-        MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingTaskType_OutputShapeEnumValues),
-        TaskProcessingTaskType_OutputShapeEnumValuesBuilder.new,
-      )
-      ..add(TaskProcessingTaskType_OutputShapeEnumValues.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
-        ListBuilder<TaskProcessingTaskType_OutputShapeEnumValues>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
-        ]),
-        MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues),
-        TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder.new,
-      )
-      ..add(TaskProcessingTaskType_OptionalOutputShapeEnumValues.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
-        ListBuilder<TaskProcessingTaskType_OptionalOutputShapeEnumValues>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [
-          FullType(String),
-          FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
-        ]),
-        MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]),
-        MapBuilder<String, TaskProcessingTaskType>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiScheduleRequestApplicationJson),
-        TaskProcessingApiScheduleRequestApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiScheduleRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
-        MapBuilder<String, JsonObject>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiScheduleResponseApplicationJson),
-        TaskProcessingApiScheduleResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiScheduleResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs),
-        TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TaskProcessingTask), TaskProcessingTaskBuilder.new)
-      ..add(TaskProcessingTask.serializer)
-      ..add(TaskProcessingTask_Status.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(num)]), ListBuilder<num>.new)
-      ..add($17b504aaa197cb55522acb1f128f183aExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)]),
-        MapBuilder<String, TaskProcessingIO>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetTaskResponseApplicationJson),
-        TaskProcessingApiGetTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiGetTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs),
-        TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson),
-        TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiDeleteTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs),
-        TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson),
-        TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs),
-        TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TaskProcessingTask)]),
-        ListBuilder<TaskProcessingTask>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksResponseApplicationJson),
-        TaskProcessingApiListTasksResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs),
-        TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson),
-        TaskProcessingApiCancelTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiCancelTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs),
-        TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
-        TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs),
-        TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetProgressRequestApplicationJson),
-        TaskProcessingApiSetProgressRequestApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiSetProgressRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetProgressResponseApplicationJson),
-        TaskProcessingApiSetProgressResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiSetProgressResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs),
-        TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetResultRequestApplicationJson),
-        TaskProcessingApiSetResultRequestApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiSetResultRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetResultResponseApplicationJson),
-        TaskProcessingApiSetResultResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiSetResultResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs),
-        TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
-        TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs),
-        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data),
-        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider),
-        TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder.new,
-      )
-      ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.serializer)
-      ..addBuilderFactory(
-        const FullType(TeamsApiResolveOneResponseApplicationJson),
-        TeamsApiResolveOneResponseApplicationJsonBuilder.new,
-      )
-      ..add(TeamsApiResolveOneResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs),
-        TeamsApiResolveOneResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TeamsApiResolveOneResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs_Data),
-        TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TeamsApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TeamResource), TeamResourceBuilder.new)
-      ..add(TeamResource.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(TeamResource)]), ListBuilder<TeamResource>.new)
-      ..addBuilderFactory(
-        const FullType(TeamsApiListTeamsResponseApplicationJson),
-        TeamsApiListTeamsResponseApplicationJsonBuilder.new,
-      )
-      ..add(TeamsApiListTeamsResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs),
-        TeamsApiListTeamsResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TeamsApiListTeamsResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs_Data),
-        TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TeamsApiListTeamsResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(Team), TeamBuilder.new)
-      ..add(Team.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(Team)]), ListBuilder<Team>.new)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
-        TextProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiTaskTypesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs),
-        TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
-        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types),
-        TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder.new,
-      )
-      ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)]),
-        ListBuilder<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiScheduleRequestApplicationJson),
-        TextProcessingApiScheduleRequestApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiScheduleRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiScheduleResponseApplicationJson),
-        TextProcessingApiScheduleResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiScheduleResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs),
-        TextProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data),
-        TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTaskBuilder.new)
-      ..add(TextProcessingTask.serializer)
-      ..add(TextProcessingTask_Status.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiGetTaskResponseApplicationJson),
-        TextProcessingApiGetTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiGetTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs),
-        TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
-        TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
-        TextProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiDeleteTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs),
-        TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data),
-        TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
-        TextProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextProcessingApiListTasksByAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs),
-        TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TextProcessingTask)]),
-        ListBuilder<TextProcessingTask>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TextToImageApiIsAvailableResponseApplicationJson),
-        TextToImageApiIsAvailableResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiIsAvailableResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs),
-        TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data),
-        TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiScheduleRequestApplicationJson),
-        TextToImageApiScheduleRequestApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiScheduleRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiScheduleResponseApplicationJson),
-        TextToImageApiScheduleResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiScheduleResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs),
-        TextToImageApiScheduleResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextToImageApiScheduleResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data),
-        TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextToImageApiScheduleResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTaskBuilder.new)
-      ..add(TextToImageTask.serializer)
-      ..add(TextToImageTask_Status.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiGetTaskResponseApplicationJson),
-        TextToImageApiGetTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiGetTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs),
-        TextToImageApiGetTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data),
-        TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
-        TextToImageApiDeleteTaskResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiDeleteTaskResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs),
-        TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data),
-        TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
-        TextToImageApiListTasksByAppResponseApplicationJsonBuilder.new,
-      )
-      ..add(TextToImageApiListTasksByAppResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs),
-        TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data),
-        TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(const FullType(BuiltList, [FullType(TextToImageTask)]), ListBuilder<TextToImageTask>.new)
-      ..addBuilderFactory(
-        const FullType(TranslationApiLanguagesResponseApplicationJson),
-        TranslationApiLanguagesResponseApplicationJsonBuilder.new,
-      )
-      ..add(TranslationApiLanguagesResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs),
-        TranslationApiLanguagesResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data),
-        TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages),
-        TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder.new,
-      )
-      ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)]),
-        ListBuilder<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TranslationApiTranslateRequestApplicationJson),
-        TranslationApiTranslateRequestApplicationJsonBuilder.new,
-      )
-      ..add(TranslationApiTranslateRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiTranslateResponseApplicationJson),
-        TranslationApiTranslateResponseApplicationJsonBuilder.new,
-      )
-      ..add(TranslationApiTranslateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiTranslateResponseApplicationJson_Ocs),
-        TranslationApiTranslateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TranslationApiTranslateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TranslationApiTranslateResponseApplicationJson_Ocs_Data),
-        TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiStateResponseApplicationJson),
-        TwoFactorApiStateResponseApplicationJsonBuilder.new,
-      )
-      ..add(TwoFactorApiStateResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiStateResponseApplicationJson_Ocs),
-        TwoFactorApiStateResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TwoFactorApiStateResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(bool)]),
-        MapBuilder<String, bool>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiEnableRequestApplicationJson),
-        TwoFactorApiEnableRequestApplicationJsonBuilder.new,
-      )
-      ..add(TwoFactorApiEnableRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiEnableResponseApplicationJson),
-        TwoFactorApiEnableResponseApplicationJsonBuilder.new,
-      )
-      ..add(TwoFactorApiEnableResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs),
-        TwoFactorApiEnableResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TwoFactorApiEnableResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiDisableRequestApplicationJson),
-        TwoFactorApiDisableRequestApplicationJsonBuilder.new,
-      )
-      ..add(TwoFactorApiDisableRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiDisableResponseApplicationJson),
-        TwoFactorApiDisableResponseApplicationJsonBuilder.new,
-      )
-      ..add(TwoFactorApiDisableResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs),
-        TwoFactorApiDisableResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(TwoFactorApiDisableResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
-        UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
-      )
-      ..add(UnifiedSearchGetProvidersResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedSearchGetProvidersResponseApplicationJson_Ocs),
-        UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UnifiedSearchGetProvidersResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProviderBuilder.new)
-      ..add(UnifiedSearchProvider.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltMap, [FullType(String), FullType(String)]),
-        MapBuilder<String, String>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
-        ListBuilder<UnifiedSearchProvider>.new,
-      )
-      ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedSearchSearchResponseApplicationJson),
-        UnifiedSearchSearchResponseApplicationJsonBuilder.new,
-      )
-      ..add(UnifiedSearchSearchResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UnifiedSearchSearchResponseApplicationJson_Ocs),
-        UnifiedSearchSearchResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UnifiedSearchSearchResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchResult), UnifiedSearchResultBuilder.new)
-      ..add(UnifiedSearchResult.serializer)
-      ..addBuilderFactory(const FullType(UnifiedSearchResultEntry), UnifiedSearchResultEntryBuilder.new)
-      ..add(UnifiedSearchResultEntry.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]),
-        ListBuilder<UnifiedSearchResultEntry>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(WhatsNewGetResponseApplicationJson),
-        WhatsNewGetResponseApplicationJsonBuilder.new,
-      )
-      ..add(WhatsNewGetResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewGetResponseApplicationJson_Ocs),
-        WhatsNewGetResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WhatsNewGetResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data),
-        WhatsNewGetResponseApplicationJson_Ocs_DataBuilder.new,
-      )
-      ..add(WhatsNewGetResponseApplicationJson_Ocs_Data.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew),
-        WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder.new,
-      )
-      ..add(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewDismissRequestApplicationJson),
-        WhatsNewDismissRequestApplicationJsonBuilder.new,
-      )
-      ..add(WhatsNewDismissRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewDismissResponseApplicationJson),
-        WhatsNewDismissResponseApplicationJsonBuilder.new,
-      )
-      ..add(WhatsNewDismissResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WhatsNewDismissResponseApplicationJson_Ocs),
-        WhatsNewDismissResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(WhatsNewDismissResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(
-        const FullType(WipeCheckWipeRequestApplicationJson),
-        WipeCheckWipeRequestApplicationJsonBuilder.new,
-      )
-      ..add(WipeCheckWipeRequestApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WipeCheckWipeResponseApplicationJson),
-        WipeCheckWipeResponseApplicationJsonBuilder.new,
-      )
-      ..add(WipeCheckWipeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(WipeWipeDoneRequestApplicationJson),
-        WipeWipeDoneRequestApplicationJsonBuilder.new,
-      )
-      ..add(WipeWipeDoneRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
-      ..add(Capabilities.serializer)
-      ..addBuilderFactory(const FullType(Capabilities_Core), Capabilities_CoreBuilder.new)
-      ..add(Capabilities_Core.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
-      ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities_Bruteforce), PublicCapabilities_BruteforceBuilder.new)
-      ..add(PublicCapabilities_Bruteforce.serializer)
-      ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
-      ..add(RichObjectParameter.serializer)
-      ..add(RichObjectParameter_Type.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..addBuilderFactory(const FullType(Status), StatusBuilder.new)
+          ..add(Status.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordGetAppPasswordResponseApplicationJson),
+            AppPasswordGetAppPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(AppPasswordGetAppPasswordResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs),
+            AppPasswordGetAppPasswordResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data),
+            AppPasswordGetAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(AppPasswordGetAppPasswordResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson),
+            AppPasswordDeleteAppPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(AppPasswordDeleteAppPasswordResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs),
+            AppPasswordDeleteAppPasswordResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AppPasswordDeleteAppPasswordResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordRotateAppPasswordResponseApplicationJson),
+            AppPasswordRotateAppPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(AppPasswordRotateAppPasswordResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs),
+            AppPasswordRotateAppPasswordResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data),
+            AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(AppPasswordRotateAppPasswordResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordConfirmUserPasswordRequestApplicationJson),
+            AppPasswordConfirmUserPasswordRequestApplicationJsonBuilder.new,
+          )
+          ..add(AppPasswordConfirmUserPasswordRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson),
+            AppPasswordConfirmUserPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(AppPasswordConfirmUserPasswordResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs),
+            AppPasswordConfirmUserPasswordResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data),
+            AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(AppPasswordConfirmUserPasswordResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(int)]), ListBuilder<int>.new)
+          ..addBuilderFactory(
+            const FullType(AutoCompleteGetResponseApplicationJson),
+            AutoCompleteGetResponseApplicationJsonBuilder.new,
+          )
+          ..add(AutoCompleteGetResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(AutoCompleteGetResponseApplicationJson_Ocs),
+            AutoCompleteGetResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(AutoCompleteGetResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(AutocompleteResult), AutocompleteResultBuilder.new)
+          ..add(AutocompleteResult.serializer)
+          ..addBuilderFactory(const FullType(AutocompleteResult_Status0), AutocompleteResult_Status0Builder.new)
+          ..add(AutocompleteResult_Status0.serializer)
+          ..add($87e48e5649cd72b4d2947aaaea13ccd8Extension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(AutocompleteResult)]),
+            ListBuilder<AutocompleteResult>.new,
+          )
+          ..add(AvatarGetAvatarDarkSize.serializer)
+          ..add(AvatarGetAvatarDarkGuestFallback.serializer)
+          ..addBuilderFactory(
+            const FullType(AvatarAvatarGetAvatarDarkHeaders),
+            AvatarAvatarGetAvatarDarkHeadersBuilder.new,
+          )
+          ..add(AvatarAvatarGetAvatarDarkHeaders.serializer)
+          ..addBuilderFactory(const FullType(Header, [FullType.nullable(int)]), HeaderBuilder<int?>.new)
+          ..add(Header.serializer)
+          ..add(AvatarGetAvatarSize.serializer)
+          ..add(AvatarGetAvatarGuestFallback.serializer)
+          ..addBuilderFactory(const FullType(AvatarAvatarGetAvatarHeaders), AvatarAvatarGetAvatarHeadersBuilder.new)
+          ..add(AvatarAvatarGetAvatarHeaders.serializer)
+          ..addBuilderFactory(
+            const FullType(ClientFlowLoginV2PollRequestApplicationJson),
+            ClientFlowLoginV2PollRequestApplicationJsonBuilder.new,
+          )
+          ..add(ClientFlowLoginV2PollRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(LoginFlowV2Credentials), LoginFlowV2CredentialsBuilder.new)
+          ..add(LoginFlowV2Credentials.serializer)
+          ..addBuilderFactory(const FullType(LoginFlowV2), LoginFlowV2Builder.new)
+          ..add(LoginFlowV2.serializer)
+          ..addBuilderFactory(const FullType(LoginFlowV2_Poll), LoginFlowV2_PollBuilder.new)
+          ..add(LoginFlowV2_Poll.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesListCollectionResponseApplicationJson),
+            CollaborationResourcesListCollectionResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesListCollectionResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesListCollectionResponseApplicationJson_Ocs),
+            CollaborationResourcesListCollectionResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesListCollectionResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(Collection), CollectionBuilder.new)
+          ..add(Collection.serializer)
+          ..addBuilderFactory(const FullType(Resource), ResourceBuilder.new)
+          ..add(Resource.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType.nullable(JsonObject)]),
+            MapBuilder<String, JsonObject?>.new,
+          )
+          ..addBuilderFactory(const FullType(OpenGraphObject), OpenGraphObjectBuilder.new)
+          ..add(OpenGraphObject.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Resource)]), ListBuilder<Resource>.new)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesRenameCollectionRequestApplicationJson),
+            CollaborationResourcesRenameCollectionRequestApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesRenameCollectionRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson),
+            CollaborationResourcesRenameCollectionResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesRenameCollectionResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs),
+            CollaborationResourcesRenameCollectionResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesRenameCollectionResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesAddResourceRequestApplicationJson),
+            CollaborationResourcesAddResourceRequestApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesAddResourceRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesAddResourceResponseApplicationJson),
+            CollaborationResourcesAddResourceResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesAddResourceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesAddResourceResponseApplicationJson_Ocs),
+            CollaborationResourcesAddResourceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesAddResourceResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson),
+            CollaborationResourcesRemoveResourceResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesRemoveResourceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs),
+            CollaborationResourcesRemoveResourceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesRemoveResourceResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson),
+            CollaborationResourcesSearchCollectionsResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs),
+            CollaborationResourcesSearchCollectionsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesSearchCollectionsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Collection)]), ListBuilder<Collection>.new)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson),
+            CollaborationResourcesGetCollectionsByResourceResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs),
+            CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesGetCollectionsByResourceResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson),
+            CollaborationResourcesCreateCollectionOnResourceRequestApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesCreateCollectionOnResourceRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson),
+            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJsonBuilder.new,
+          )
+          ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs),
+            CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(CollaborationResourcesCreateCollectionOnResourceResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(CsrfTokenIndexResponseApplicationJson),
+            CsrfTokenIndexResponseApplicationJsonBuilder.new,
+          )
+          ..add(CsrfTokenIndexResponseApplicationJson.serializer)
+          ..add(GuestAvatarGetAvatarSize.serializer)
+          ..add(GuestAvatarGetAvatarDarkTheme.serializer)
+          ..addBuilderFactory(
+            const FullType(GuestAvatarGuestAvatarGetAvatarHeaders),
+            GuestAvatarGuestAvatarGetAvatarHeadersBuilder.new,
+          )
+          ..add(GuestAvatarGuestAvatarGetAvatarHeaders.serializer)
+          ..add(GuestAvatarGetAvatarDarkSize.serializer)
+          ..addBuilderFactory(
+            const FullType(GuestAvatarGuestAvatarGetAvatarDarkHeaders),
+            GuestAvatarGuestAvatarGetAvatarDarkHeadersBuilder.new,
+          )
+          ..add(GuestAvatarGuestAvatarGetAvatarDarkHeaders.serializer)
+          ..addBuilderFactory(
+            const FullType(HoverCardGetUserResponseApplicationJson),
+            HoverCardGetUserResponseApplicationJsonBuilder.new,
+          )
+          ..add(HoverCardGetUserResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(HoverCardGetUserResponseApplicationJson_Ocs),
+            HoverCardGetUserResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(HoverCardGetUserResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(HoverCardGetUserResponseApplicationJson_Ocs_Data),
+            HoverCardGetUserResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(HoverCardGetUserResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(ContactsAction), ContactsActionBuilder.new)
+          ..add(ContactsAction.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ContactsAction)]), ListBuilder<ContactsAction>.new)
+          ..addBuilderFactory(
+            const FullType(LoginConfirmPasswordRequestApplicationJson),
+            LoginConfirmPasswordRequestApplicationJsonBuilder.new,
+          )
+          ..add(LoginConfirmPasswordRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(LoginConfirmPasswordResponseApplicationJson),
+            LoginConfirmPasswordResponseApplicationJsonBuilder.new,
+          )
+          ..add(LoginConfirmPasswordResponseApplicationJson.serializer)
+          ..add(NavigationGetAppsNavigationAbsolute.serializer)
+          ..addBuilderFactory(
+            const FullType(NavigationGetAppsNavigationResponseApplicationJson),
+            NavigationGetAppsNavigationResponseApplicationJsonBuilder.new,
+          )
+          ..add(NavigationGetAppsNavigationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(NavigationGetAppsNavigationResponseApplicationJson_Ocs),
+            NavigationGetAppsNavigationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(NavigationGetAppsNavigationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(NavigationEntry), NavigationEntryBuilder.new)
+          ..add(NavigationEntry.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(NavigationEntry)]), ListBuilder<NavigationEntry>.new)
+          ..add(NavigationGetSettingsNavigationAbsolute.serializer)
+          ..addBuilderFactory(
+            const FullType(NavigationGetSettingsNavigationResponseApplicationJson),
+            NavigationGetSettingsNavigationResponseApplicationJsonBuilder.new,
+          )
+          ..add(NavigationGetSettingsNavigationResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(NavigationGetSettingsNavigationResponseApplicationJson_Ocs),
+            NavigationGetSettingsNavigationResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(NavigationGetSettingsNavigationResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(OcmDiscoveryResponseApplicationJson),
+            OcmDiscoveryResponseApplicationJsonBuilder.new,
+          )
+          ..add(OcmDiscoveryResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes),
+            OcmDiscoveryResponseApplicationJson_ResourceTypesBuilder.new,
+          )
+          ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(String)]), ListBuilder<String>.new)
+          ..addBuilderFactory(
+            const FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols),
+            OcmDiscoveryResponseApplicationJson_ResourceTypes_ProtocolsBuilder.new,
+          )
+          ..add(OcmDiscoveryResponseApplicationJson_ResourceTypes_Protocols.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(OcmDiscoveryResponseApplicationJson_ResourceTypes)]),
+            ListBuilder<OcmDiscoveryResponseApplicationJson_ResourceTypes>.new,
+          )
+          ..addBuilderFactory(const FullType(OcmOcmDiscoveryHeaders), OcmOcmDiscoveryHeadersBuilder.new)
+          ..add(OcmOcmDiscoveryHeaders.serializer)
+          ..add(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders.serializer)
+          ..addBuilderFactory(
+            const FullType(Header, [FullType.nullable(OcmOcmDiscoveryHeaders_XNextcloudOcmProviders)]),
+            HeaderBuilder<OcmOcmDiscoveryHeaders_XNextcloudOcmProviders?>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(OcsGetCapabilitiesResponseApplicationJson),
+            OcsGetCapabilitiesResponseApplicationJsonBuilder.new,
+          )
+          ..add(OcsGetCapabilitiesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs),
+            OcsGetCapabilitiesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data),
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version),
+            OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_VersionBuilder.new,
+          )
+          ..add(OcsGetCapabilitiesResponseApplicationJson_Ocs_Data_Version.serializer)
+          ..addBuilderFactory(const FullType(CoreCapabilities), CoreCapabilitiesBuilder.new)
+          ..add(CoreCapabilities.serializer)
+          ..addBuilderFactory(const FullType(CoreCapabilities_Core), CoreCapabilities_CoreBuilder.new)
+          ..add(CoreCapabilities_Core.serializer)
+          ..addBuilderFactory(const FullType(CorePublicCapabilities), CorePublicCapabilitiesBuilder.new)
+          ..add(CorePublicCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(CorePublicCapabilities_Bruteforce),
+            CorePublicCapabilities_BruteforceBuilder.new,
+          )
+          ..add(CorePublicCapabilities_Bruteforce.serializer)
+          ..addBuilderFactory(const FullType(CommentsCapabilities), CommentsCapabilitiesBuilder.new)
+          ..add(CommentsCapabilities.serializer)
+          ..addBuilderFactory(const FullType(CommentsCapabilities_Files), CommentsCapabilities_FilesBuilder.new)
+          ..add(CommentsCapabilities_Files.serializer)
+          ..addBuilderFactory(const FullType(DavCapabilities), DavCapabilitiesBuilder.new)
+          ..add(DavCapabilities.serializer)
+          ..addBuilderFactory(const FullType(DavCapabilities_Dav), DavCapabilities_DavBuilder.new)
+          ..add(DavCapabilities_Dav.serializer)
+          ..addBuilderFactory(const FullType(DropAccountCapabilities), DropAccountCapabilitiesBuilder.new)
+          ..add(DropAccountCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(DropAccountCapabilities_DropAccount),
+            DropAccountCapabilities_DropAccountBuilder.new,
+          )
+          ..add(DropAccountCapabilities_DropAccount.serializer)
+          ..addBuilderFactory(
+            const FullType(DropAccountCapabilities_DropAccount_Delay),
+            DropAccountCapabilities_DropAccount_DelayBuilder.new,
+          )
+          ..add(DropAccountCapabilities_DropAccount_Delay.serializer)
+          ..addBuilderFactory(const FullType(FilesCapabilities), FilesCapabilitiesBuilder.new)
+          ..add(FilesCapabilities.serializer)
+          ..addBuilderFactory(const FullType(FilesCapabilities_Files), FilesCapabilities_FilesBuilder.new)
+          ..add(FilesCapabilities_Files.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(JsonObject)]), ListBuilder<JsonObject>.new)
+          ..addBuilderFactory(
+            const FullType(FilesCapabilities_Files_ChunkedUpload),
+            FilesCapabilities_Files_ChunkedUploadBuilder.new,
+          )
+          ..add(FilesCapabilities_Files_ChunkedUpload.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesCapabilities_Files_FileConversions),
+            FilesCapabilities_Files_FileConversionsBuilder.new,
+          )
+          ..add(FilesCapabilities_Files_FileConversions.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(FilesCapabilities_Files_FileConversions)]),
+            ListBuilder<FilesCapabilities_Files_FileConversions>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(FilesCapabilities_Files_DirectEditing),
+            FilesCapabilities_Files_DirectEditingBuilder.new,
+          )
+          ..add(FilesCapabilities_Files_DirectEditing.serializer)
+          ..addBuilderFactory(const FullType(FilesSharingCapabilities), FilesSharingCapabilitiesBuilder.new)
+          ..add(FilesSharingCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing),
+            FilesSharingCapabilities_FilesSharingBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Public),
+            FilesSharingCapabilities_FilesSharing_PublicBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Public.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Public_Password),
+            FilesSharingCapabilities_FilesSharing_Public_PasswordBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Public_Password.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDate),
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal),
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternalBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateInternal.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote),
+            FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemoteBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Public_ExpireDateRemote.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_User),
+            FilesSharingCapabilities_FilesSharing_UserBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_User.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_User_ExpireDate),
+            FilesSharingCapabilities_FilesSharing_User_ExpireDateBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_User_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Group),
+            FilesSharingCapabilities_FilesSharing_GroupBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Group.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Group_ExpireDate),
+            FilesSharingCapabilities_FilesSharing_Group_ExpireDateBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Group_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Federation),
+            FilesSharingCapabilities_FilesSharing_FederationBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Federation.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate),
+            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDate.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported),
+            FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupportedBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Federation_ExpireDateSupported.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesSharingCapabilities_FilesSharing_Sharee),
+            FilesSharingCapabilities_FilesSharing_ShareeBuilder.new,
+          )
+          ..add(FilesSharingCapabilities_FilesSharing_Sharee.serializer)
+          ..addBuilderFactory(const FullType(FilesTrashbinCapabilities), FilesTrashbinCapabilitiesBuilder.new)
+          ..add(FilesTrashbinCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesTrashbinCapabilities_Files),
+            FilesTrashbinCapabilities_FilesBuilder.new,
+          )
+          ..add(FilesTrashbinCapabilities_Files.serializer)
+          ..addBuilderFactory(const FullType(FilesVersionsCapabilities), FilesVersionsCapabilitiesBuilder.new)
+          ..add(FilesVersionsCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(FilesVersionsCapabilities_Files),
+            FilesVersionsCapabilities_FilesBuilder.new,
+          )
+          ..add(FilesVersionsCapabilities_Files.serializer)
+          ..addBuilderFactory(const FullType(NotificationsCapabilities), NotificationsCapabilitiesBuilder.new)
+          ..add(NotificationsCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(NotificationsCapabilities_Notifications),
+            NotificationsCapabilities_NotificationsBuilder.new,
+          )
+          ..add(NotificationsCapabilities_Notifications.serializer)
+          ..addBuilderFactory(const FullType(PasswordPolicyCapabilities), PasswordPolicyCapabilitiesBuilder.new)
+          ..add(PasswordPolicyCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(PasswordPolicyCapabilities_PasswordPolicy),
+            PasswordPolicyCapabilities_PasswordPolicyBuilder.new,
+          )
+          ..add(PasswordPolicyCapabilities_PasswordPolicy.serializer)
+          ..addBuilderFactory(
+            const FullType(PasswordPolicyCapabilities_PasswordPolicy_Api),
+            PasswordPolicyCapabilities_PasswordPolicy_ApiBuilder.new,
+          )
+          ..add(PasswordPolicyCapabilities_PasswordPolicy_Api.serializer)
+          ..addBuilderFactory(
+            const FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies),
+            PasswordPolicyCapabilities_PasswordPolicy_PoliciesBuilder.new,
+          )
+          ..add(PasswordPolicyCapabilities_PasswordPolicy_Policies.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(PasswordPolicyCapabilities_PasswordPolicy_Policies)]),
+            MapBuilder<String, PasswordPolicyCapabilities_PasswordPolicy_Policies>.new,
+          )
+          ..addBuilderFactory(const FullType(ProvisioningApiCapabilities), ProvisioningApiCapabilitiesBuilder.new)
+          ..add(ProvisioningApiCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(ProvisioningApiCapabilities_ProvisioningApi),
+            ProvisioningApiCapabilities_ProvisioningApiBuilder.new,
+          )
+          ..add(ProvisioningApiCapabilities_ProvisioningApi.serializer)
+          ..addBuilderFactory(const FullType(SharebymailCapabilities), SharebymailCapabilitiesBuilder.new)
+          ..add(SharebymailCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(SharebymailCapabilities_FilesSharing),
+            SharebymailCapabilities_FilesSharingBuilder.new,
+          )
+          ..add(SharebymailCapabilities_FilesSharing.serializer)
+          ..addBuilderFactory(
+            const FullType(SharebymailCapabilities_FilesSharing_Sharebymail),
+            SharebymailCapabilities_FilesSharing_SharebymailBuilder.new,
+          )
+          ..add(SharebymailCapabilities_FilesSharing_Sharebymail.serializer)
+          ..addBuilderFactory(
+            const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop),
+            SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDropBuilder.new,
+          )
+          ..add(SharebymailCapabilities_FilesSharing_Sharebymail_UploadFilesDrop.serializer)
+          ..addBuilderFactory(
+            const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_Password),
+            SharebymailCapabilities_FilesSharing_Sharebymail_PasswordBuilder.new,
+          )
+          ..add(SharebymailCapabilities_FilesSharing_Sharebymail_Password.serializer)
+          ..addBuilderFactory(
+            const FullType(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate),
+            SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDateBuilder.new,
+          )
+          ..add(SharebymailCapabilities_FilesSharing_Sharebymail_ExpireDate.serializer)
+          ..addBuilderFactory(const FullType(SpreedCapabilities), SpreedCapabilitiesBuilder.new)
+          ..add(SpreedCapabilities.serializer)
+          ..addBuilderFactory(const FullType(SpreedCapabilities_Config), SpreedCapabilities_ConfigBuilder.new)
+          ..add(SpreedCapabilities_Config.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Attachments),
+            SpreedCapabilities_Config_AttachmentsBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Attachments.serializer)
+          ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Call), SpreedCapabilities_Config_CallBuilder.new)
+          ..add(SpreedCapabilities_Config_Call.serializer)
+          ..addBuilderFactory(const FullType(SpreedCapabilities_Config_Chat), SpreedCapabilities_Config_ChatBuilder.new)
+          ..add(SpreedCapabilities_Config_Chat.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Conversations),
+            SpreedCapabilities_Config_ConversationsBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Conversations.serializer)
+          ..add(SpreedCapabilities_Config_Conversations_ListStyle.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Federation),
+            SpreedCapabilities_Config_FederationBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Federation.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Previews),
+            SpreedCapabilities_Config_PreviewsBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Previews.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Signaling),
+            SpreedCapabilities_Config_SignalingBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Signaling.serializer)
+          ..addBuilderFactory(
+            const FullType(SpreedCapabilities_Config_Experiments),
+            SpreedCapabilities_Config_ExperimentsBuilder.new,
+          )
+          ..add(SpreedCapabilities_Config_Experiments.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(String)]),
+            ]),
+            MapBuilder<String, BuiltList<String>>.new,
+          )
+          ..addBuilderFactory(const FullType(SpreedPublicCapabilities), SpreedPublicCapabilitiesBuilder.new)
+          ..add(SpreedPublicCapabilities.serializer)
+          ..addBuilderFactory(const FullType(SystemtagsCapabilities), SystemtagsCapabilitiesBuilder.new)
+          ..add(SystemtagsCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(SystemtagsCapabilities_Systemtags),
+            SystemtagsCapabilities_SystemtagsBuilder.new,
+          )
+          ..add(SystemtagsCapabilities_Systemtags.serializer)
+          ..add(SystemtagsCapabilities_Systemtags_Enabled.serializer)
+          ..addBuilderFactory(const FullType(TablesCapabilities), TablesCapabilitiesBuilder.new)
+          ..add(TablesCapabilities.serializer)
+          ..addBuilderFactory(const FullType(TablesCapabilities_Tables), TablesCapabilities_TablesBuilder.new)
+          ..add(TablesCapabilities_Tables.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsOfServicePublicCapabilities),
+            TermsOfServicePublicCapabilitiesBuilder.new,
+          )
+          ..add(TermsOfServicePublicCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(TermsOfServicePublicCapabilities_TermsOfService),
+            TermsOfServicePublicCapabilities_TermsOfServiceBuilder.new,
+          )
+          ..add(TermsOfServicePublicCapabilities_TermsOfService.serializer)
+          ..add(TermsOfServicePublicCapabilities_TermsOfService_Enabled.serializer)
+          ..addBuilderFactory(const FullType(ThemingPublicCapabilities), ThemingPublicCapabilitiesBuilder.new)
+          ..add(ThemingPublicCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(ThemingPublicCapabilities_Theming),
+            ThemingPublicCapabilities_ThemingBuilder.new,
+          )
+          ..add(ThemingPublicCapabilities_Theming.serializer)
+          ..addBuilderFactory(const FullType(UserStatusCapabilities), UserStatusCapabilitiesBuilder.new)
+          ..add(UserStatusCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(UserStatusCapabilities_UserStatus),
+            UserStatusCapabilities_UserStatusBuilder.new,
+          )
+          ..add(UserStatusCapabilities_UserStatus.serializer)
+          ..addBuilderFactory(const FullType(WeatherStatusCapabilities), WeatherStatusCapabilitiesBuilder.new)
+          ..add(WeatherStatusCapabilities.serializer)
+          ..addBuilderFactory(
+            const FullType(WeatherStatusCapabilities_WeatherStatus),
+            WeatherStatusCapabilities_WeatherStatusBuilder.new,
+          )
+          ..add(WeatherStatusCapabilities_WeatherStatus.serializer)
+          ..addBuilderFactory(const FullType(NotesCapabilities), NotesCapabilitiesBuilder.new)
+          ..add(NotesCapabilities.serializer)
+          ..addBuilderFactory(const FullType(NotesCapabilities_Notes), NotesCapabilities_NotesBuilder.new)
+          ..add(NotesCapabilities_Notes.serializer)
+          ..add($d133a6ea76c2cb6bb2f7f6f4c3fdf958Extension._serializer)
+          ..add(PreviewGetPreviewA.serializer)
+          ..add(PreviewGetPreviewForceIcon.serializer)
+          ..add(PreviewGetPreviewMode.serializer)
+          ..add(PreviewGetPreviewMimeFallback.serializer)
+          ..add(PreviewGetPreviewByFileIdA.serializer)
+          ..add(PreviewGetPreviewByFileIdForceIcon.serializer)
+          ..add(PreviewGetPreviewByFileIdMode.serializer)
+          ..add(PreviewGetPreviewByFileIdMimeFallback.serializer)
+          ..addBuilderFactory(
+            const FullType(PreviewPreviewGetMimeIconUrlHeaders),
+            PreviewPreviewGetMimeIconUrlHeadersBuilder.new,
+          )
+          ..add(PreviewPreviewGetMimeIconUrlHeaders.serializer)
+          ..addBuilderFactory(
+            const FullType(ProfileApiGetProfileFieldsResponseApplicationJson),
+            ProfileApiGetProfileFieldsResponseApplicationJsonBuilder.new,
+          )
+          ..add(ProfileApiGetProfileFieldsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs),
+            ProfileApiGetProfileFieldsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ProfileApiGetProfileFieldsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ProfileData), ProfileDataBuilder.new)
+          ..add(ProfileData.serializer)
+          ..addBuilderFactory(const FullType(ProfileFields), ProfileFieldsBuilder.new)
+          ..add(ProfileFields.serializer)
+          ..addBuilderFactory(const FullType(ProfileAction), ProfileActionBuilder.new)
+          ..add(ProfileAction.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(ProfileAction)]), ListBuilder<ProfileAction>.new)
+          ..addBuilderFactory(
+            const FullType(ProfileApiSetVisibilityRequestApplicationJson),
+            ProfileApiSetVisibilityRequestApplicationJsonBuilder.new,
+          )
+          ..add(ProfileApiSetVisibilityRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ProfileApiSetVisibilityResponseApplicationJson),
+            ProfileApiSetVisibilityResponseApplicationJsonBuilder.new,
+          )
+          ..add(ProfileApiSetVisibilityResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ProfileApiSetVisibilityResponseApplicationJson_Ocs),
+            ProfileApiSetVisibilityResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ProfileApiSetVisibilityResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractRequestApplicationJson),
+            ReferenceApiExtractRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiExtractRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractResponseApplicationJson),
+            ReferenceApiExtractResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiExtractResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractResponseApplicationJson_Ocs),
+            ReferenceApiExtractResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiExtractResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractResponseApplicationJson_Ocs_Data),
+            ReferenceApiExtractResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiExtractResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(Reference), ReferenceBuilder.new)
+          ..add(Reference.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType.nullable(Reference)]),
+            MapBuilder<String, Reference?>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractPublicRequestApplicationJson),
+            ReferenceApiExtractPublicRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiExtractPublicRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractPublicResponseApplicationJson),
+            ReferenceApiExtractPublicResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiExtractPublicResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs),
+            ReferenceApiExtractPublicResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data),
+            ReferenceApiExtractPublicResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiExtractPublicResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOneResponseApplicationJson),
+            ReferenceApiResolveOneResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolveOneResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs),
+            ReferenceApiResolveOneResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data),
+            ReferenceApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveRequestApplicationJson),
+            ReferenceApiResolveRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolveRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveResponseApplicationJson),
+            ReferenceApiResolveResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolveResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveResponseApplicationJson_Ocs),
+            ReferenceApiResolveResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiResolveResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveResponseApplicationJson_Ocs_Data),
+            ReferenceApiResolveResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiResolveResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOnePublicResponseApplicationJson),
+            ReferenceApiResolveOnePublicResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolveOnePublicResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs),
+            ReferenceApiResolveOnePublicResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data),
+            ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiResolveOnePublicResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolvePublicRequestApplicationJson),
+            ReferenceApiResolvePublicRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolvePublicRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolvePublicResponseApplicationJson),
+            ReferenceApiResolvePublicResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiResolvePublicResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs),
+            ReferenceApiResolvePublicResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data),
+            ReferenceApiResolvePublicResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiResolvePublicResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson),
+            ReferenceApiGetProvidersInfoResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiGetProvidersInfoResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs),
+            ReferenceApiGetProvidersInfoResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiGetProvidersInfoResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(ReferenceProvider), ReferenceProviderBuilder.new)
+          ..add(ReferenceProvider.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ReferenceProvider)]),
+            ListBuilder<ReferenceProvider>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(ReferenceApiTouchProviderRequestApplicationJson),
+            ReferenceApiTouchProviderRequestApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiTouchProviderRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiTouchProviderResponseApplicationJson),
+            ReferenceApiTouchProviderResponseApplicationJsonBuilder.new,
+          )
+          ..add(ReferenceApiTouchProviderResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs),
+            ReferenceApiTouchProviderResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data),
+            ReferenceApiTouchProviderResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(ReferenceApiTouchProviderResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiTaskTypesResponseApplicationJson),
+            TaskProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiTaskTypesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs),
+            TaskProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(TaskProcessingTaskType), TaskProcessingTaskTypeBuilder.new)
+          ..add(TaskProcessingTaskType.serializer)
+          ..addBuilderFactory(const FullType(TaskProcessingShape), TaskProcessingShapeBuilder.new)
+          ..add(TaskProcessingShape.serializer)
+          ..add(TaskProcessingShape_Type.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingShape)]),
+            MapBuilder<String, TaskProcessingShape>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingTaskType_InputShapeEnumValues),
+            TaskProcessingTaskType_InputShapeEnumValuesBuilder.new,
+          )
+          ..add(TaskProcessingTaskType_InputShapeEnumValues.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
+            ListBuilder<TaskProcessingTaskType_InputShapeEnumValues>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(TaskProcessingTaskType_InputShapeEnumValues)]),
+            ]),
+            MapBuilder<String, BuiltList<TaskProcessingTaskType_InputShapeEnumValues>>.new,
+          )
+          ..add($b6d67dc2a96424d2f407f8e51557f3deExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_InputShapeDefaults)]),
+            MapBuilder<String, TaskProcessingTaskType_InputShapeDefaults>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues),
+            TaskProcessingTaskType_OptionalInputShapeEnumValuesBuilder.new,
+          )
+          ..add(TaskProcessingTaskType_OptionalInputShapeEnumValues.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
+            ListBuilder<TaskProcessingTaskType_OptionalInputShapeEnumValues>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalInputShapeEnumValues)]),
+            ]),
+            MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalInputShapeEnumValues>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType_OptionalInputShapeDefaults)]),
+            MapBuilder<String, TaskProcessingTaskType_OptionalInputShapeDefaults>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingTaskType_OutputShapeEnumValues),
+            TaskProcessingTaskType_OutputShapeEnumValuesBuilder.new,
+          )
+          ..add(TaskProcessingTaskType_OutputShapeEnumValues.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
+            ListBuilder<TaskProcessingTaskType_OutputShapeEnumValues>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(TaskProcessingTaskType_OutputShapeEnumValues)]),
+            ]),
+            MapBuilder<String, BuiltList<TaskProcessingTaskType_OutputShapeEnumValues>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues),
+            TaskProcessingTaskType_OptionalOutputShapeEnumValuesBuilder.new,
+          )
+          ..add(TaskProcessingTaskType_OptionalOutputShapeEnumValues.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
+            ListBuilder<TaskProcessingTaskType_OptionalOutputShapeEnumValues>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [
+              FullType(String),
+              FullType(BuiltList, [FullType(TaskProcessingTaskType_OptionalOutputShapeEnumValues)]),
+            ]),
+            MapBuilder<String, BuiltList<TaskProcessingTaskType_OptionalOutputShapeEnumValues>>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingTaskType)]),
+            MapBuilder<String, TaskProcessingTaskType>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiScheduleRequestApplicationJson),
+            TaskProcessingApiScheduleRequestApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiScheduleRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(JsonObject)]),
+            MapBuilder<String, JsonObject>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiScheduleResponseApplicationJson),
+            TaskProcessingApiScheduleResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiScheduleResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs),
+            TaskProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(TaskProcessingTask), TaskProcessingTaskBuilder.new)
+          ..add(TaskProcessingTask.serializer)
+          ..add(TaskProcessingTask_Status.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(num)]), ListBuilder<num>.new)
+          ..add($17b504aaa197cb55522acb1f128f183aExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(TaskProcessingIO)]),
+            MapBuilder<String, TaskProcessingIO>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetTaskResponseApplicationJson),
+            TaskProcessingApiGetTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiGetTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs),
+            TaskProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson),
+            TaskProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiDeleteTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs),
+            TaskProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson),
+            TaskProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksByAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs),
+            TaskProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TaskProcessingTask)]),
+            ListBuilder<TaskProcessingTask>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksResponseApplicationJson),
+            TaskProcessingApiListTasksResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs),
+            TaskProcessingApiListTasksResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiListTasksResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiListTasksResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiCancelTaskResponseApplicationJson),
+            TaskProcessingApiCancelTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiCancelTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs),
+            TaskProcessingApiCancelTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiCancelTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson),
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs),
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiSetFileContentsExAppResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetProgressRequestApplicationJson),
+            TaskProcessingApiSetProgressRequestApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiSetProgressRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetProgressResponseApplicationJson),
+            TaskProcessingApiSetProgressResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiSetProgressResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs),
+            TaskProcessingApiSetProgressResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiSetProgressResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiSetProgressResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetResultRequestApplicationJson),
+            TaskProcessingApiSetResultRequestApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiSetResultRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetResultResponseApplicationJson),
+            TaskProcessingApiSetResultResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiSetResultResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs),
+            TaskProcessingApiSetResultResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiSetResultResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiSetResultResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson),
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs),
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data),
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider),
+            TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_ProviderBuilder.new,
+          )
+          ..add(TaskProcessingApiGetNextScheduledTaskResponseApplicationJson_Ocs_Data_Provider.serializer)
+          ..addBuilderFactory(
+            const FullType(TeamsApiResolveOneResponseApplicationJson),
+            TeamsApiResolveOneResponseApplicationJsonBuilder.new,
+          )
+          ..add(TeamsApiResolveOneResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs),
+            TeamsApiResolveOneResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TeamsApiResolveOneResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TeamsApiResolveOneResponseApplicationJson_Ocs_Data),
+            TeamsApiResolveOneResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TeamsApiResolveOneResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(TeamResource), TeamResourceBuilder.new)
+          ..add(TeamResource.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(TeamResource)]), ListBuilder<TeamResource>.new)
+          ..addBuilderFactory(
+            const FullType(TeamsApiListTeamsResponseApplicationJson),
+            TeamsApiListTeamsResponseApplicationJsonBuilder.new,
+          )
+          ..add(TeamsApiListTeamsResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs),
+            TeamsApiListTeamsResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TeamsApiListTeamsResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TeamsApiListTeamsResponseApplicationJson_Ocs_Data),
+            TeamsApiListTeamsResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TeamsApiListTeamsResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(Team), TeamBuilder.new)
+          ..add(Team.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(Team)]), ListBuilder<Team>.new)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiTaskTypesResponseApplicationJson),
+            TextProcessingApiTaskTypesResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiTaskTypesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs),
+            TextProcessingApiTaskTypesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data),
+            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types),
+            TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_TypesBuilder.new,
+          )
+          ..add(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types)]),
+            ListBuilder<TextProcessingApiTaskTypesResponseApplicationJson_Ocs_Data_Types>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiScheduleRequestApplicationJson),
+            TextProcessingApiScheduleRequestApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiScheduleRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiScheduleResponseApplicationJson),
+            TextProcessingApiScheduleResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiScheduleResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs),
+            TextProcessingApiScheduleResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data),
+            TextProcessingApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextProcessingApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(TextProcessingTask), TextProcessingTaskBuilder.new)
+          ..add(TextProcessingTask.serializer)
+          ..add(TextProcessingTask_Status.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiGetTaskResponseApplicationJson),
+            TextProcessingApiGetTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiGetTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs),
+            TextProcessingApiGetTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data),
+            TextProcessingApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextProcessingApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiDeleteTaskResponseApplicationJson),
+            TextProcessingApiDeleteTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiDeleteTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs),
+            TextProcessingApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data),
+            TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextProcessingApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiListTasksByAppResponseApplicationJson),
+            TextProcessingApiListTasksByAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextProcessingApiListTasksByAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs),
+            TextProcessingApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data),
+            TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextProcessingApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TextProcessingTask)]),
+            ListBuilder<TextProcessingTask>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TextToImageApiIsAvailableResponseApplicationJson),
+            TextToImageApiIsAvailableResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiIsAvailableResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs),
+            TextToImageApiIsAvailableResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data),
+            TextToImageApiIsAvailableResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextToImageApiIsAvailableResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiScheduleRequestApplicationJson),
+            TextToImageApiScheduleRequestApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiScheduleRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiScheduleResponseApplicationJson),
+            TextToImageApiScheduleResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiScheduleResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs),
+            TextToImageApiScheduleResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextToImageApiScheduleResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiScheduleResponseApplicationJson_Ocs_Data),
+            TextToImageApiScheduleResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextToImageApiScheduleResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(TextToImageTask), TextToImageTaskBuilder.new)
+          ..add(TextToImageTask.serializer)
+          ..add(TextToImageTask_Status.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiGetTaskResponseApplicationJson),
+            TextToImageApiGetTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiGetTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs),
+            TextToImageApiGetTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data),
+            TextToImageApiGetTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextToImageApiGetTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiDeleteTaskResponseApplicationJson),
+            TextToImageApiDeleteTaskResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiDeleteTaskResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs),
+            TextToImageApiDeleteTaskResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data),
+            TextToImageApiDeleteTaskResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextToImageApiDeleteTaskResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiListTasksByAppResponseApplicationJson),
+            TextToImageApiListTasksByAppResponseApplicationJsonBuilder.new,
+          )
+          ..add(TextToImageApiListTasksByAppResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs),
+            TextToImageApiListTasksByAppResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data),
+            TextToImageApiListTasksByAppResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TextToImageApiListTasksByAppResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(const FullType(BuiltList, [FullType(TextToImageTask)]), ListBuilder<TextToImageTask>.new)
+          ..addBuilderFactory(
+            const FullType(TranslationApiLanguagesResponseApplicationJson),
+            TranslationApiLanguagesResponseApplicationJsonBuilder.new,
+          )
+          ..add(TranslationApiLanguagesResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs),
+            TranslationApiLanguagesResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TranslationApiLanguagesResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data),
+            TranslationApiLanguagesResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages),
+            TranslationApiLanguagesResponseApplicationJson_Ocs_Data_LanguagesBuilder.new,
+          )
+          ..add(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages)]),
+            ListBuilder<TranslationApiLanguagesResponseApplicationJson_Ocs_Data_Languages>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TranslationApiTranslateRequestApplicationJson),
+            TranslationApiTranslateRequestApplicationJsonBuilder.new,
+          )
+          ..add(TranslationApiTranslateRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiTranslateResponseApplicationJson),
+            TranslationApiTranslateResponseApplicationJsonBuilder.new,
+          )
+          ..add(TranslationApiTranslateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiTranslateResponseApplicationJson_Ocs),
+            TranslationApiTranslateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TranslationApiTranslateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TranslationApiTranslateResponseApplicationJson_Ocs_Data),
+            TranslationApiTranslateResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(TranslationApiTranslateResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiStateResponseApplicationJson),
+            TwoFactorApiStateResponseApplicationJsonBuilder.new,
+          )
+          ..add(TwoFactorApiStateResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiStateResponseApplicationJson_Ocs),
+            TwoFactorApiStateResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TwoFactorApiStateResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(bool)]),
+            MapBuilder<String, bool>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiEnableRequestApplicationJson),
+            TwoFactorApiEnableRequestApplicationJsonBuilder.new,
+          )
+          ..add(TwoFactorApiEnableRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiEnableResponseApplicationJson),
+            TwoFactorApiEnableResponseApplicationJsonBuilder.new,
+          )
+          ..add(TwoFactorApiEnableResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiEnableResponseApplicationJson_Ocs),
+            TwoFactorApiEnableResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TwoFactorApiEnableResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiDisableRequestApplicationJson),
+            TwoFactorApiDisableRequestApplicationJsonBuilder.new,
+          )
+          ..add(TwoFactorApiDisableRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiDisableResponseApplicationJson),
+            TwoFactorApiDisableResponseApplicationJsonBuilder.new,
+          )
+          ..add(TwoFactorApiDisableResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(TwoFactorApiDisableResponseApplicationJson_Ocs),
+            TwoFactorApiDisableResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(TwoFactorApiDisableResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedSearchGetProvidersResponseApplicationJson),
+            UnifiedSearchGetProvidersResponseApplicationJsonBuilder.new,
+          )
+          ..add(UnifiedSearchGetProvidersResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedSearchGetProvidersResponseApplicationJson_Ocs),
+            UnifiedSearchGetProvidersResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UnifiedSearchGetProvidersResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(UnifiedSearchProvider), UnifiedSearchProviderBuilder.new)
+          ..add(UnifiedSearchProvider.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltMap, [FullType(String), FullType(String)]),
+            MapBuilder<String, String>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(UnifiedSearchProvider)]),
+            ListBuilder<UnifiedSearchProvider>.new,
+          )
+          ..add($b2c4857c0136baea42828d89c87c757dExtension._serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedSearchSearchResponseApplicationJson),
+            UnifiedSearchSearchResponseApplicationJsonBuilder.new,
+          )
+          ..add(UnifiedSearchSearchResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UnifiedSearchSearchResponseApplicationJson_Ocs),
+            UnifiedSearchSearchResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UnifiedSearchSearchResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(UnifiedSearchResult), UnifiedSearchResultBuilder.new)
+          ..add(UnifiedSearchResult.serializer)
+          ..addBuilderFactory(const FullType(UnifiedSearchResultEntry), UnifiedSearchResultEntryBuilder.new)
+          ..add(UnifiedSearchResultEntry.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(UnifiedSearchResultEntry)]),
+            ListBuilder<UnifiedSearchResultEntry>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(WhatsNewGetResponseApplicationJson),
+            WhatsNewGetResponseApplicationJsonBuilder.new,
+          )
+          ..add(WhatsNewGetResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewGetResponseApplicationJson_Ocs),
+            WhatsNewGetResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WhatsNewGetResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data),
+            WhatsNewGetResponseApplicationJson_Ocs_DataBuilder.new,
+          )
+          ..add(WhatsNewGetResponseApplicationJson_Ocs_Data.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew),
+            WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNewBuilder.new,
+          )
+          ..add(WhatsNewGetResponseApplicationJson_Ocs_Data_WhatsNew.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewDismissRequestApplicationJson),
+            WhatsNewDismissRequestApplicationJsonBuilder.new,
+          )
+          ..add(WhatsNewDismissRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewDismissResponseApplicationJson),
+            WhatsNewDismissResponseApplicationJsonBuilder.new,
+          )
+          ..add(WhatsNewDismissResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WhatsNewDismissResponseApplicationJson_Ocs),
+            WhatsNewDismissResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(WhatsNewDismissResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(
+            const FullType(WipeCheckWipeRequestApplicationJson),
+            WipeCheckWipeRequestApplicationJsonBuilder.new,
+          )
+          ..add(WipeCheckWipeRequestApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WipeCheckWipeResponseApplicationJson),
+            WipeCheckWipeResponseApplicationJsonBuilder.new,
+          )
+          ..add(WipeCheckWipeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(WipeWipeDoneRequestApplicationJson),
+            WipeWipeDoneRequestApplicationJsonBuilder.new,
+          )
+          ..add(WipeWipeDoneRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(Capabilities), CapabilitiesBuilder.new)
+          ..add(Capabilities.serializer)
+          ..addBuilderFactory(const FullType(Capabilities_Core), Capabilities_CoreBuilder.new)
+          ..add(Capabilities_Core.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+          ..add(PublicCapabilities.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities_Bruteforce), PublicCapabilities_BruteforceBuilder.new)
+          ..add(PublicCapabilities_Bruteforce.serializer)
+          ..addBuilderFactory(const FullType(RichObjectParameter), RichObjectParameterBuilder.new)
+          ..add(RichObjectParameter.serializer)
+          ..add(RichObjectParameter_Type.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -30992,20 +31224,21 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(
-        _i8.StandardJsonPlugin(
-          typesToLeaveAsList: const {
-            _$87e48e5649cd72b4d2947aaaea13ccd8,
-            _$d133a6ea76c2cb6bb2f7f6f4c3fdf958,
-            _$b6d67dc2a96424d2f407f8e51557f3de,
-            _$17b504aaa197cb55522acb1f128f183a,
-            _$b2c4857c0136baea42828d89c87c757d,
-          },
-        ),
-      )
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(
+            _i8.StandardJsonPlugin(
+              typesToLeaveAsList: const {
+                _$87e48e5649cd72b4d2947aaaea13ccd8,
+                _$d133a6ea76c2cb6bb2f7f6f4c3fdf958,
+                _$b6d67dc2a96424d2f407f8e51557f3de,
+                _$17b504aaa197cb55522acb1f128f183a,
+                _$b2c4857c0136baea42828d89c87c757d,
+              },
+            ),
+          )
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

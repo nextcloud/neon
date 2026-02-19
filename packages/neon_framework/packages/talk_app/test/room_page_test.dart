@@ -50,8 +50,9 @@ void main() {
     bloc = MockRoomBloc();
     when(() => bloc.errors).thenAnswer((_) => StreamController<Object>().stream);
     when(() => bloc.room).thenAnswer((_) => BehaviorSubject.seeded(Result.success(room)));
-    when(() => bloc.messages)
-        .thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>())));
+    when(
+      () => bloc.messages,
+    ).thenAnswer((_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>())));
     when(() => bloc.lastCommonRead).thenAnswer((_) => BehaviorSubject.seeded(0));
     when(() => bloc.replyTo).thenAnswer((_) => BehaviorSubject.seeded(null));
     when(() => bloc.editing).thenAnswer((_) => BehaviorSubject.seeded(null));
@@ -68,12 +69,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        appThemes: const [
-          TalkTheme(),
-        ],
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
+        appThemes: const [TalkTheme()],
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
         child: const TalkRoomPage(),
       ),
     );
@@ -89,12 +86,8 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        appThemes: const [
-          TalkTheme(),
-        ],
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
+        appThemes: const [TalkTheme()],
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
         child: const TalkRoomPage(),
       ),
     );
@@ -153,13 +146,7 @@ void main() {
 
     when(() => bloc.messages).thenAnswer(
       (_) => BehaviorSubject.seeded(
-        Result.success(
-          BuiltList<spreed.ChatMessageWithParent>([
-            chatMessage3,
-            chatMessage2,
-            chatMessage1,
-          ]),
-        ),
+        Result.success(BuiltList<spreed.ChatMessageWithParent>([chatMessage3, chatMessage2, chatMessage1])),
       ),
     );
 
@@ -171,9 +158,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        appThemes: const [
-          TalkTheme(),
-        ],
+        appThemes: const [TalkTheme()],
         providers: [
           Provider<Account>.value(value: account),
           NeonProvider<TalkRoomBloc>.value(value: bloc),
@@ -211,9 +196,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
         child: const TalkRoomPage(),
       ),
     );
@@ -229,9 +212,7 @@ void main() {
       TestApp(
         localizationsDelegates: TalkLocalizations.localizationsDelegates,
         supportedLocales: TalkLocalizations.supportedLocales,
-        providers: [
-          NeonProvider<TalkRoomBloc>.value(value: bloc),
-        ],
+        providers: [NeonProvider<TalkRoomBloc>.value(value: bloc)],
         child: const TalkRoomPage(),
       ),
     );
@@ -258,13 +239,7 @@ void main() {
       when(() => chatMessage.markdown).thenReturn(false);
 
       when(() => bloc.messages).thenAnswer(
-        (_) => BehaviorSubject.seeded(
-          Result.success(
-            BuiltList<spreed.ChatMessageWithParent>([
-              chatMessage,
-            ]),
-          ),
-        ),
+        (_) => BehaviorSubject.seeded(Result.success(BuiltList<spreed.ChatMessageWithParent>([chatMessage]))),
       );
 
       when(() => bloc.reactions).thenAnswer((_) => BehaviorSubject.seeded(BuiltMap()));
@@ -277,9 +252,7 @@ void main() {
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
-          appThemes: const [
-            TalkTheme(),
-          ],
+          appThemes: const [TalkTheme()],
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: bloc),
@@ -305,9 +278,7 @@ void main() {
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
-          appThemes: const [
-            TalkTheme(),
-          ],
+          appThemes: const [TalkTheme()],
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: bloc),
@@ -329,9 +300,7 @@ void main() {
         TestApp(
           localizationsDelegates: TalkLocalizations.localizationsDelegates,
           supportedLocales: TalkLocalizations.supportedLocales,
-          appThemes: const [
-            TalkTheme(),
-          ],
+          appThemes: const [TalkTheme()],
           providers: [
             Provider<Account>.value(value: account),
             NeonProvider<TalkRoomBloc>.value(value: bloc),

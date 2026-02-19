@@ -2,11 +2,8 @@ part of 'type_result.dart';
 
 @immutable
 abstract class TypeResultSomeOf extends TypeResult {
-  TypeResultSomeOf(
-    super.className, {
-    required this.subTypes,
-    super.nullable,
-  }) : assert(subTypes.isNotEmpty, 'Must have at least one subType');
+  TypeResultSomeOf(super.className, {required this.subTypes, super.nullable})
+    : assert(subTypes.isNotEmpty, 'Must have at least one subType');
 
   @protected
   final BuiltSet<TypeResult> subTypes;
@@ -43,10 +40,7 @@ abstract class TypeResultSomeOf extends TypeResult {
       return '$dartType $dartName';
     });
 
-    return TypeResultBase(
-      '({${record.join(',')}})',
-      nullable: nullable,
-    );
+    return TypeResultBase('({${record.join(',')}})', nullable: nullable);
   }
 
   late final String typeName = '\$${md5.convert(utf8.encode(_typeName))}';
@@ -96,9 +90,9 @@ abstract class TypeResultSomeOf extends TypeResult {
   }
 
   bool _isNumber(TypeResult type) => switch (type.className) {
-        'int' || 'double' || 'num' => true,
-        _ => false,
-      };
+    'int' || 'double' || 'num' => true,
+    _ => false,
+  };
 
   @override
   bool operator ==(Object other) =>
@@ -112,11 +106,7 @@ abstract class TypeResultSomeOf extends TypeResult {
 }
 
 class TypeResultAnyOf extends TypeResultSomeOf {
-  TypeResultAnyOf(
-    super.className, {
-    required super.subTypes,
-    super.nullable,
-  });
+  TypeResultAnyOf(super.className, {required super.subTypes, super.nullable});
 
   @override
   String deserialize(String object, [String? serializerName]) =>
@@ -134,11 +124,7 @@ class TypeResultAnyOf extends TypeResultSomeOf {
 }
 
 class TypeResultOneOf extends TypeResultSomeOf {
-  TypeResultOneOf(
-    super.className, {
-    required super.subTypes,
-    super.nullable,
-  });
+  TypeResultOneOf(super.className, {required super.subTypes, super.nullable});
 
   @override
   String deserialize(String object, [String? serializerName]) =>

@@ -40,7 +40,7 @@ class $Client extends _i1.DynamiteClient {
 
   /// Creates a new [$Client] from another [client].
   $Client.fromClient(_i1.DynamiteClient client)
-      : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
+    : super(client.baseURL, httpClient: client.httpClient, authentications: client.authentications);
 
   late final $IconClient icon = $IconClient(this);
 
@@ -60,11 +60,11 @@ class $IconClient {
   /// Builds a serializer to parse the response of [$getFavicon_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getFavicon_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Return a 32x32 favicon as png.
   ///
@@ -137,11 +137,11 @@ class $IconClient {
   /// Builds a serializer to parse the response of [$getTouchIcon_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getTouchIcon_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Return a 512x512 icon for touch devices.
   ///
@@ -214,11 +214,11 @@ class $IconClient {
   /// Builds a serializer to parse the response of [$getThemedIcon_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getThemedIcon_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get a themed icon.
   ///
@@ -305,11 +305,11 @@ class $ThemingClient {
   /// Builds a serializer to parse the response of [$getThemeStylesheet_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<String, void> $getThemeStylesheet_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(String),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(String),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the CSS stylesheet for a theme.
   ///
@@ -404,11 +404,11 @@ class $ThemingClient {
   /// Builds a serializer to parse the response of [$getImage_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getImage_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get an image.
   ///
@@ -569,11 +569,11 @@ class $UserThemeClient {
   /// Builds a serializer to parse the response of [$getBackground_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Uint8List, void> $getBackground_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Uint8List),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Uint8List),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Get the background image.
   ///
@@ -645,11 +645,11 @@ class $UserThemeClient {
   /// Builds a serializer to parse the response of [$setBackground_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Background, void> $setBackground_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Background),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Background),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Set the background.
   ///
@@ -702,19 +702,20 @@ class $UserThemeClient {
     _request.headers['OCS-APIRequest'] = const _i6.HeaderEncoder().convert(__oCSAPIRequest);
 
     _request.headers['Content-Type'] = 'application/json';
-    _request.body = $body != null
-        ? json.encode(
-            _$jsonSerializers.serialize(
-              $body,
-              specifiedType: const FullType(UserThemeSetBackgroundRequestApplicationJson),
-            ),
-          )
-        : json.encode(
-            _$jsonSerializers.serialize(
-              UserThemeSetBackgroundRequestApplicationJson(),
-              specifiedType: const FullType(UserThemeSetBackgroundRequestApplicationJson),
-            ),
-          );
+    _request.body =
+        $body != null
+            ? json.encode(
+              _$jsonSerializers.serialize(
+                $body,
+                specifiedType: const FullType(UserThemeSetBackgroundRequestApplicationJson),
+              ),
+            )
+            : json.encode(
+              _$jsonSerializers.serialize(
+                UserThemeSetBackgroundRequestApplicationJson(),
+                specifiedType: const FullType(UserThemeSetBackgroundRequestApplicationJson),
+              ),
+            );
     return _request;
   }
 
@@ -751,11 +752,11 @@ class $UserThemeClient {
   /// Builds a serializer to parse the response of [$deleteBackground_Request].
   @_i2.experimental
   _i1.DynamiteSerializer<Background, void> $deleteBackground_Serializer() => _i1.DynamiteSerializer(
-        bodyType: const FullType(Background),
-        headersType: null,
-        serializers: _$jsonSerializers,
-        validStatuses: const {200},
-      );
+    bodyType: const FullType(Background),
+    headersType: null,
+    serializers: _$jsonSerializers,
+    validStatuses: const {200},
+  );
 
   /// Delete the background.
   ///
@@ -1051,16 +1052,14 @@ class _$ThemingGetThemeStylesheetPlainSerializer implements PrimitiveSerializer<
     Serializers serializers,
     ThemingGetThemeStylesheetPlain object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ThemingGetThemeStylesheetPlain deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ThemingGetThemeStylesheetWithCustomCss extends EnumClass {
@@ -1098,15 +1097,15 @@ class _$ThemingGetThemeStylesheetWithCustomCssSerializer
 
   static const Map<ThemingGetThemeStylesheetWithCustomCss, Object> _toWire =
       <ThemingGetThemeStylesheetWithCustomCss, Object>{
-    ThemingGetThemeStylesheetWithCustomCss.$0: 0,
-    ThemingGetThemeStylesheetWithCustomCss.$1: 1,
-  };
+        ThemingGetThemeStylesheetWithCustomCss.$0: 0,
+        ThemingGetThemeStylesheetWithCustomCss.$1: 1,
+      };
 
   static const Map<Object, ThemingGetThemeStylesheetWithCustomCss> _fromWire =
       <Object, ThemingGetThemeStylesheetWithCustomCss>{
-    0: ThemingGetThemeStylesheetWithCustomCss.$0,
-    1: ThemingGetThemeStylesheetWithCustomCss.$1,
-  };
+        0: ThemingGetThemeStylesheetWithCustomCss.$0,
+        1: ThemingGetThemeStylesheetWithCustomCss.$1,
+      };
 
   @override
   Iterable<Type> get types => const [ThemingGetThemeStylesheetWithCustomCss];
@@ -1119,16 +1118,14 @@ class _$ThemingGetThemeStylesheetWithCustomCssSerializer
     Serializers serializers,
     ThemingGetThemeStylesheetWithCustomCss object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ThemingGetThemeStylesheetWithCustomCss deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 class ThemingGetImageUseSvg extends EnumClass {
@@ -1182,16 +1179,14 @@ class _$ThemingGetImageUseSvgSerializer implements PrimitiveSerializer<ThemingGe
     Serializers serializers,
     ThemingGetImageUseSvg object, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _toWire[object]!;
+  }) => _toWire[object]!;
 
   @override
   ThemingGetImageUseSvg deserialize(
     Serializers serializers,
     Object serialized, {
     FullType specifiedType = FullType.unspecified,
-  }) =>
-      _fromWire[serialized]!;
+  }) => _fromWire[serialized]!;
 }
 
 @BuiltValue(instantiable: false)
@@ -1673,8 +1668,10 @@ sealed class $UserThemeDisableThemeResponseApplicationJson_OcsInterface {
 abstract class UserThemeDisableThemeResponseApplicationJson_Ocs
     implements
         $UserThemeDisableThemeResponseApplicationJson_OcsInterface,
-        Built<UserThemeDisableThemeResponseApplicationJson_Ocs,
-            UserThemeDisableThemeResponseApplicationJson_OcsBuilder> {
+        Built<
+          UserThemeDisableThemeResponseApplicationJson_Ocs,
+          UserThemeDisableThemeResponseApplicationJson_OcsBuilder
+        > {
   /// Creates a new UserThemeDisableThemeResponseApplicationJson_Ocs object using the builder pattern.
   factory UserThemeDisableThemeResponseApplicationJson_Ocs([
     void Function(UserThemeDisableThemeResponseApplicationJson_OcsBuilder)? b,
@@ -1920,58 +1917,59 @@ abstract class PublicCapabilities
 /// See: [$jsonSerializers] for serializing into json.
 @_i2.visibleForTesting
 final Serializers $serializers = _$serializers;
-final Serializers _$serializers = (Serializers().toBuilder()
-      ..add(ThemingGetThemeStylesheetPlain.serializer)
-      ..add(ThemingGetThemeStylesheetWithCustomCss.serializer)
-      ..add(ThemingGetImageUseSvg.serializer)
-      ..addBuilderFactory(
-        const FullType(ThemingGetManifestResponseApplicationJson),
-        ThemingGetManifestResponseApplicationJsonBuilder.new,
-      )
-      ..add(ThemingGetManifestResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(ThemingGetManifestResponseApplicationJson_Icons),
-        ThemingGetManifestResponseApplicationJson_IconsBuilder.new,
-      )
-      ..add(ThemingGetManifestResponseApplicationJson_Icons.serializer)
-      ..addBuilderFactory(
-        const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
-        ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>.new,
-      )
-      ..addBuilderFactory(
-        const FullType(UserThemeSetBackgroundRequestApplicationJson),
-        UserThemeSetBackgroundRequestApplicationJsonBuilder.new,
-      )
-      ..add(UserThemeSetBackgroundRequestApplicationJson.serializer)
-      ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
-      ..add(Background.serializer)
-      ..addBuilderFactory(
-        const FullType(UserThemeEnableThemeResponseApplicationJson),
-        UserThemeEnableThemeResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserThemeEnableThemeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserThemeEnableThemeResponseApplicationJson_Ocs),
-        UserThemeEnableThemeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserThemeEnableThemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
-      ..add(OCSMeta.serializer)
-      ..addBuilderFactory(
-        const FullType(UserThemeDisableThemeResponseApplicationJson),
-        UserThemeDisableThemeResponseApplicationJsonBuilder.new,
-      )
-      ..add(UserThemeDisableThemeResponseApplicationJson.serializer)
-      ..addBuilderFactory(
-        const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs),
-        UserThemeDisableThemeResponseApplicationJson_OcsBuilder.new,
-      )
-      ..add(UserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
-      ..add(PublicCapabilities.serializer)
-      ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_ThemingBuilder.new)
-      ..add(PublicCapabilities_Theming.serializer))
-    .build();
+final Serializers _$serializers =
+    (Serializers().toBuilder()
+          ..add(ThemingGetThemeStylesheetPlain.serializer)
+          ..add(ThemingGetThemeStylesheetWithCustomCss.serializer)
+          ..add(ThemingGetImageUseSvg.serializer)
+          ..addBuilderFactory(
+            const FullType(ThemingGetManifestResponseApplicationJson),
+            ThemingGetManifestResponseApplicationJsonBuilder.new,
+          )
+          ..add(ThemingGetManifestResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(ThemingGetManifestResponseApplicationJson_Icons),
+            ThemingGetManifestResponseApplicationJson_IconsBuilder.new,
+          )
+          ..add(ThemingGetManifestResponseApplicationJson_Icons.serializer)
+          ..addBuilderFactory(
+            const FullType(BuiltList, [FullType(ThemingGetManifestResponseApplicationJson_Icons)]),
+            ListBuilder<ThemingGetManifestResponseApplicationJson_Icons>.new,
+          )
+          ..addBuilderFactory(
+            const FullType(UserThemeSetBackgroundRequestApplicationJson),
+            UserThemeSetBackgroundRequestApplicationJsonBuilder.new,
+          )
+          ..add(UserThemeSetBackgroundRequestApplicationJson.serializer)
+          ..addBuilderFactory(const FullType(Background), BackgroundBuilder.new)
+          ..add(Background.serializer)
+          ..addBuilderFactory(
+            const FullType(UserThemeEnableThemeResponseApplicationJson),
+            UserThemeEnableThemeResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserThemeEnableThemeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserThemeEnableThemeResponseApplicationJson_Ocs),
+            UserThemeEnableThemeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserThemeEnableThemeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(OCSMeta), OCSMetaBuilder.new)
+          ..add(OCSMeta.serializer)
+          ..addBuilderFactory(
+            const FullType(UserThemeDisableThemeResponseApplicationJson),
+            UserThemeDisableThemeResponseApplicationJsonBuilder.new,
+          )
+          ..add(UserThemeDisableThemeResponseApplicationJson.serializer)
+          ..addBuilderFactory(
+            const FullType(UserThemeDisableThemeResponseApplicationJson_Ocs),
+            UserThemeDisableThemeResponseApplicationJson_OcsBuilder.new,
+          )
+          ..add(UserThemeDisableThemeResponseApplicationJson_Ocs.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities), PublicCapabilitiesBuilder.new)
+          ..add(PublicCapabilities.serializer)
+          ..addBuilderFactory(const FullType(PublicCapabilities_Theming), PublicCapabilities_ThemingBuilder.new)
+          ..add(PublicCapabilities_Theming.serializer))
+        .build();
 
 /// Serializer for all values in this library.
 ///
@@ -1979,10 +1977,11 @@ final Serializers _$serializers = (Serializers().toBuilder()
 /// See: [$serializers] for serializing into the `built_value` wire format.
 @_i2.visibleForTesting
 final Serializers $jsonSerializers = _$jsonSerializers;
-final Serializers _$jsonSerializers = (_$serializers.toBuilder()
-      ..add(_i7.DynamiteDoubleSerializer())
-      ..addPlugin(_i8.StandardJsonPlugin())
-      ..addPlugin(const _i7.HeaderPlugin())
-      ..addPlugin(const _i7.ContentStringPlugin()))
-    .build();
+final Serializers _$jsonSerializers =
+    (_$serializers.toBuilder()
+          ..add(_i7.DynamiteDoubleSerializer())
+          ..addPlugin(_i8.StandardJsonPlugin())
+          ..addPlugin(const _i7.HeaderPlugin())
+          ..addPlugin(const _i7.ContentStringPlugin()))
+        .build();
 // coverage:ignore-end

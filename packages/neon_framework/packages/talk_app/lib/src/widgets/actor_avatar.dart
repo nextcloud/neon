@@ -10,11 +10,7 @@ import 'package:nextcloud/spreed.dart' as spreed;
 /// In case the [actorType] is [spreed.ActorTypes.users] the user avatar will be shown, otherwise an appropriate icon is displayed.
 class TalkActorAvatar extends StatelessWidget {
   /// Creates a new Talk actor avatar.
-  const TalkActorAvatar({
-    required this.actorId,
-    required this.actorType,
-    super.key,
-  });
+  const TalkActorAvatar({required this.actorId, required this.actorType, super.key});
 
   /// The ID of the actor.
   final String actorId;
@@ -25,22 +21,11 @@ class TalkActorAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return switch (actorType) {
-      spreed.ActorTypes.users => NeonUserAvatar(
-          username: actorId,
-          account: NeonProvider.of<Account>(context),
-        ),
-      spreed.ActorTypes.groups || spreed.ActorTypes.circles => CircleAvatar(
-          child: Icon(AdaptiveIcons.group),
-        ),
-      spreed.ActorTypes.emails => CircleAvatar(
-          child: Icon(AdaptiveIcons.email),
-        ),
-      spreed.ActorTypes.bots => CircleAvatar(
-          child: Icon(AdaptiveIcons.automation),
-        ),
-      _ => CircleAvatar(
-          child: Icon(AdaptiveIcons.person),
-        ),
+      spreed.ActorTypes.users => NeonUserAvatar(username: actorId, account: NeonProvider.of<Account>(context)),
+      spreed.ActorTypes.groups || spreed.ActorTypes.circles => CircleAvatar(child: Icon(AdaptiveIcons.group)),
+      spreed.ActorTypes.emails => CircleAvatar(child: Icon(AdaptiveIcons.email)),
+      spreed.ActorTypes.bots => CircleAvatar(child: Icon(AdaptiveIcons.automation)),
+      _ => CircleAvatar(child: Icon(AdaptiveIcons.person)),
     };
   }
 }

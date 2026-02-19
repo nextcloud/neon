@@ -12,10 +12,7 @@ import 'package:nextcloud/user_status.dart' as user_status;
 /// [spreed.RoomType.oneToOne] the user avatar will be shown, otherwise an appropriate icon is displayed.
 class TalkRoomAvatar extends StatelessWidget {
   /// Creates a new Talk room avatar.
-  const TalkRoomAvatar({
-    required this.room,
-    super.key,
-  });
+  const TalkRoomAvatar({required this.room, super.key});
 
   /// The room to display the avatar for.
   final spreed.Room room;
@@ -33,14 +30,11 @@ class TalkRoomAvatar extends StatelessWidget {
             account: account,
             etag: room.avatarVersion,
             expires: null,
-            getRequest: (client) => switch (brightness) {
-              Brightness.dark => client.spreed.avatar.$getAvatarDark_Request(
-                  token: room.token,
-                ),
-              Brightness.light => client.spreed.avatar.$getAvatar_Request(
-                  token: room.token,
-                ),
-            },
+            getRequest:
+                (client) => switch (brightness) {
+                  Brightness.dark => client.spreed.avatar.$getAvatarDark_Request(token: room.token),
+                  Brightness.light => client.spreed.avatar.$getAvatar_Request(token: room.token),
+                },
           ),
         ),
       );
@@ -48,19 +42,21 @@ class TalkRoomAvatar extends StatelessWidget {
 
     return switch (spreed.RoomType.fromValue(room.type)) {
       spreed.RoomType.oneToOne => NeonUserAvatar(
-          username: room.name,
-          account: NeonProvider.of<Account>(context),
-          userStatus: room.status != null
-              ? user_status.Public(
-                  (b) => b
-                    ..userId = room.name
-                    ..message = room.statusMessage
-                    ..icon = room.statusIcon
-                    ..clearAt = room.statusClearAt
-                    ..status = user_status.$Type.valueOf(room.status!),
+        username: room.name,
+        account: NeonProvider.of<Account>(context),
+        userStatus:
+            room.status != null
+                ? user_status.Public(
+                  (b) =>
+                      b
+                        ..userId = room.name
+                        ..message = room.statusMessage
+                        ..icon = room.statusIcon
+                        ..clearAt = room.statusClearAt
+                        ..status = user_status.$Type.valueOf(room.status!),
                 )
-              : null,
-        ),
+                : null,
+      ),
       spreed.RoomType.group => _buildIconAvatar(AdaptiveIcons.group),
       // coverage:ignore-start
       spreed.RoomType.public => _buildIconAvatar(AdaptiveIcons.link),
@@ -71,9 +67,5 @@ class TalkRoomAvatar extends StatelessWidget {
     };
   }
 
-  Widget _buildIconAvatar(IconData icon) => CircleAvatar(
-        child: Icon(
-          icon,
-        ),
-      );
+  Widget _buildIconAvatar(IconData icon) => CircleAvatar(child: Icon(icon));
 }

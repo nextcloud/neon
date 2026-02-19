@@ -6,10 +6,7 @@ import 'package:neon_framework/widgets.dart';
 /// Dialog for setting the weather location.
 class DashboardSetWeatherLocationDialog extends StatefulWidget {
   /// Create a new dialog for setting the weather location.
-  const DashboardSetWeatherLocationDialog({
-    required this.currentAddress,
-    super.key,
-  });
+  const DashboardSetWeatherLocationDialog({required this.currentAddress, super.key});
 
   /// The current weather address.
   final String? currentAddress;
@@ -46,9 +43,7 @@ class _DashboardSetWeatherLocationDialogState extends State<DashboardSetWeatherL
       content: TextField(
         controller: controller,
         keyboardType: TextInputType.streetAddress,
-        decoration: InputDecoration(
-          hintText: DashboardLocalizations.of(context).address,
-        ),
+        decoration: InputDecoration(hintText: DashboardLocalizations.of(context).address),
         onSubmitted: (_) {
           submit();
         },

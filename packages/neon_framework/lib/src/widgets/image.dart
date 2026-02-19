@@ -131,22 +131,14 @@ class NeonImage extends StatelessWidget {
           return _buildError(context, imageResult.error);
         }
 
-        return SizedBox(
-          width: size?.width,
-          child: const NeonLinearProgressIndicator(),
-        );
+        return SizedBox(width: size?.width, child: const NeonLinearProgressIndicator());
       },
     );
   }
 
   Widget _buildError(BuildContext context, Object? error) =>
       errorBuilder?.call(context, error) ??
-      NeonError(
-        error,
-        onRetry: onRetry,
-        type: NeonErrorType.iconOnly,
-        iconSize: size?.shortestSide,
-      );
+      NeonError(error, onRetry: onRetry, type: NeonErrorType.iconOnly, iconSize: size?.shortestSide);
 }
 
 /// A widget painting an Image fetched from the Nextcloud API.
@@ -348,10 +340,7 @@ class _NeonUriImageState extends State<NeonUriImage> {
     await RequestManager.instance.wrap(
       account: widget.account,
       getCacheHeaders: () async {
-        final response = await widget.account.client.head(
-          completedUri,
-          headers: headers,
-        );
+        final response = await widget.account.client.head(completedUri, headers: headers);
 
         return response.headers;
       },

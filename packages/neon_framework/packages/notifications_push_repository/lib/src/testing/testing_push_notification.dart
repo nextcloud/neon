@@ -15,19 +15,21 @@ PushNotification createPushNotification({
   bool deleteAll = false,
 }) {
   return PushNotification(
-    (b) => b
-      ..accountID = accountID
-      ..priority = priority
-      ..type = type
-      ..subject.update(
-        (b) => b
-          ..nid = nid
-          ..app = app
-          ..subject = subject
+    (b) =>
+        b
+          ..accountID = accountID
+          ..priority = priority
           ..type = type
-          ..id = id
-          ..delete = delete
-          ..deleteAll = deleteAll,
-      ),
+          ..subject.update(
+            (b) =>
+                b
+                  ..nid = nid
+                  ..app = app
+                  ..subject = subject
+                  ..type = type
+                  ..id = id
+                  ..delete = delete
+                  ..deleteAll = deleteAll,
+          ),
   );
 }

@@ -12,10 +12,7 @@ import 'package:talk_app/src/widgets/actor_avatar.dart';
 /// Dialog that displays all reactions of all users for a particular chat message.
 class TalkReactionsOverviewDialog extends StatefulWidget {
   /// Creates a new [TalkReactionsOverviewDialog].
-  const TalkReactionsOverviewDialog({
-    required this.chatMessage,
-    super.key,
-  });
+  const TalkReactionsOverviewDialog({required this.chatMessage, super.key});
 
   /// The chat message to show reactions for.
   final spreed.$ChatMessageInterface chatMessage;
@@ -46,13 +43,8 @@ class _TalkReactionsOverviewDialogState extends State<TalkReactionsOverviewDialo
         child: Scaffold(
           appBar: TabBar(
             tabs: [
-              Tab(
-                child: Text('${localizations.reactionsAll} ${widget.chatMessage.reactions.values.sum}'),
-              ),
-              for (final entry in widget.chatMessage.reactions.entries)
-                Tab(
-                  child: Text('${entry.key} ${entry.value}'),
-                ),
+              Tab(child: Text('${localizations.reactionsAll} ${widget.chatMessage.reactions.values.sum}')),
+              for (final entry in widget.chatMessage.reactions.entries) Tab(child: Text('${entry.key} ${entry.value}')),
             ],
           ),
           body: StreamBuilder(
@@ -77,21 +69,13 @@ class _TalkReactionsOverviewDialogState extends State<TalkReactionsOverviewDialo
               for (final emoji in widget.chatMessage.reactions.keys) {
                 final reactions = allReactions?[emoji];
                 if (reactions != null) {
-                  children.add(
-                    ListView(
-                      children: [
-                        for (final reaction in reactions) buildReaction(emoji, reaction),
-                      ],
-                    ),
-                  );
+                  children.add(ListView(children: [for (final reaction in reactions) buildReaction(emoji, reaction)]));
                 } else {
                   children.add(const CircularProgressIndicator());
                 }
               }
 
-              return TabBarView(
-                children: children,
-              );
+              return TabBarView(children: children);
             },
           ),
         ),
@@ -101,21 +85,10 @@ class _TalkReactionsOverviewDialogState extends State<TalkReactionsOverviewDialo
 
   Widget buildReaction(String emoji, spreed.$ReactionInterface reaction) {
     return ListTile(
-      leading: TalkActorAvatar(
-        actorId: reaction.actorId,
-        actorType: reaction.actorType,
-      ),
-      title: Text(
-        reaction.actorDisplayName,
-        overflow: TextOverflow.ellipsis,
-      ),
+      leading: TalkActorAvatar(actorId: reaction.actorId, actorType: reaction.actorType),
+      title: Text(reaction.actorDisplayName, overflow: TextOverflow.ellipsis),
       subtitle: Text(DateFormat.yMd().add_jm().format(reaction.parsedTimestamp)),
-      trailing: Text(
-        emoji,
-        style: const TextStyle(
-          fontSize: 20,
-        ),
-      ),
+      trailing: Text(emoji, style: const TextStyle(fontSize: 20)),
     );
   }
 }
