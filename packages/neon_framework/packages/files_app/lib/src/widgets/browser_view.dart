@@ -127,10 +127,11 @@ class _FilesBrowserViewState extends State<FilesBrowserView> {
   }
 
   Future<bool> handleFileInNeon(List<webdav.WebDavFile> sorted, webdav.WebDavFile file) async {
-    final mimeHandler = NeonProvider.of<AppsBloc>(context).mimeTypeHandler(file.mimeType);
-
-    if (mimeHandler != null) {
-      await mimeHandler.handle(context, MimeContext(file: file, files: sorted));
+    final capability = NeonProvider.of<AppsBloc>(context).handleAppCapability(context, ImageViewerCapability.fromFile(file: file, files: sorted));
+    // If capability is null, either the file is not an image, or ther is no handler for the capability. 
+    // In both cases we should return false to allow the default behavior of opening the file in Neon.
+    if (capability != null) {
+      await capability;
       return true;
     }
     return false;

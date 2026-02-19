@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meta/meta.dart';
 import 'package:neon_framework/l10n/localizations.dart';
 import 'package:neon_framework/models.dart';
+import 'package:neon_framework/settings.dart';
 import 'package:neon_framework/src/bloc/bloc.dart';
 import 'package:neon_framework/src/models/account_cache.dart';
 import 'package:neon_framework/src/models/disposable.dart';
@@ -195,6 +196,7 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
   @override
   int get hashCode => id.hashCode;
 
-  /// If the app provides handling for a specific MIME type, it can return a handler to force file handling in Neon instead of system apps.
-  MimeHandler? mimeTypeHandler(String mimeType) => null;
+  /// If the app provides handling for a specific [AppCapability], it can return a handler allowing Neon to make use of it.
+  /// For example, this photos app provides a handler for the [ImageViewerCapability] which allows Neon to display images in the photos app instead of the system app.
+  AppCapabilityHandler? appCapabilityHandler(AppCapability capability) => null;
 }

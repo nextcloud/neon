@@ -57,9 +57,9 @@ abstract class AppsBloc implements InteractiveBloc {
   /// Returns the active [Bloc] for every registered [AppImplementation] wrapped in a Provider.
   List<Provider<Bloc>> get appBlocProviders;
 
-  /// Returns a handler for the given MIME type if any of the active [AppImplementation]s provides one.
-  /// Current implementation will pick first available handler. Multiple handler for same MIME type are not yet supported.
-  MimeHandler? mimeTypeHandler(String? mimeType);
+  /// Returns a handler for a given [AppCapability] if any of the active [AppImplementation]s provides one.
+  /// Current implementation will pick first available handler. Multiple handler for same [AppCapability] are not yet supported.
+  AppCapabilityHandler? findAppCapabilityHandler(AppCapability capability);
 }
 
 /// Implementation of [AppsBloc].
@@ -288,12 +288,11 @@ class _AppsBloc extends InteractiveBloc implements AppsBloc {
   List<Provider<Bloc>> get appBlocProviders =>
       allAppImplementations.map((appImplementation) => appImplementation.blocProvider).toList();
   // coverage:ignore-end
-
+  
   @override
-  MimeHandler? mimeTypeHandler(String? mimeType) => mimeType == null
-      ? null
-      : appImplementations.valueOrNull?.data
-          ?.map((app) => app.mimeTypeHandler(mimeType))
+  AppCapabilityHandler? findAppCapabilityHandler(AppCapability capability) =>
+      appImplementations.valueOrNull?.data
+          ?.map((app) => app.appCapabilityHandler(capability))
           .whereNot((handler) => handler == null)
           .firstOrNull;
 }

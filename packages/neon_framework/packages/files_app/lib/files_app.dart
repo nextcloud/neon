@@ -5,6 +5,7 @@ library;
 
 import 'package:files_app/l10n/localizations.dart';
 import 'package:files_app/src/blocs/files.dart';
+import 'package:files_app/src/handlers/handlers.dart';
 import 'package:files_app/src/options.dart';
 import 'package:files_app/src/pages/main.dart';
 import 'package:files_app/src/routes.dart';
@@ -39,4 +40,12 @@ class FilesApp extends AppImplementation<FilesBloc, FilesOptions> {
 
   @override
   final RouteBase route = $filesAppRoute;
+
+  @override
+  AppCapabilityHandler? appCapabilityHandler(AppCapability capability) {
+    if (capability is DirectorySelectionCapability) {
+      return DirectorySelectionCapabilityHandler();
+    }
+    return null;
+  }
 }

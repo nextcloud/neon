@@ -220,10 +220,10 @@ class _CategoryViewState extends State<CategoryView> {
       }
     }
 
-    final mimeHandler = NeonProvider.of<AppsBloc>(context).mimeTypeHandler(file.mimeType);
+    final capability = NeonProvider.of<AppsBloc>(context).handleAppCapability(context, ImageViewerCapability.fromFile(file: file, files: sorted));
 
-    if (mimeHandler != null) {
-      await mimeHandler.handle(context, MimeContext(file: file, files: sorted));
+    if (capability != null) {
+      await capability;
     }
   }
 }

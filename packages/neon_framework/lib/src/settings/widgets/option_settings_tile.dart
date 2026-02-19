@@ -1,15 +1,15 @@
-import 'package:files_app/src/blocs/files.dart';
-import 'package:files_app/src/widgets/dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:neon_framework/models.dart';
 import 'package:neon_framework/settings.dart';
+import 'package:neon_framework/src/blocs/apps.dart';
 import 'package:neon_framework/src/settings/models/option.dart';
 import 'package:neon_framework/src/settings/widgets/settings_tile.dart';
 import 'package:neon_framework/src/theme/dialog.dart';
+import 'package:neon_framework/src/utils/app_capability_extension.dart';
 import 'package:neon_framework/src/widgets/adaptive_widgets/list_tile.dart';
 import 'package:neon_framework/utils.dart';
-import 'package:nextcloud/webdav.dart' as webdav;
 
 @internal
 class OptionSettingsTile extends InputSettingsTile {
@@ -254,6 +254,7 @@ class PathUriSettingsTile extends InputSettingsTile<PathUriOption> {
 
   @override
   Widget build(BuildContext context) {
+    final appsBloc = NeonProvider.of<AppsBloc>(context);
     return ValueListenableBuilder(
       valueListenable: option,
       builder: (context, value, child) => AdaptiveListTile.additionalInfo(
@@ -261,16 +262,10 @@ class PathUriSettingsTile extends InputSettingsTile<PathUriOption> {
         title: child!,
         additionalInfo: Text(value.toString()),
         onTap: () async {
-          final result = await showDialog<webdav.PathUri>(
-            context: context,
-            builder: (context) => FilesChooseFolderDialog(
-              bloc: NeonProvider.of<FilesBloc>(context),
-              uri: value,
-            ),
-          );
-
-          if (result != null) {
-            option.value = result;
+          final capability = await appsBloc.handleAppCapability(context, DirectorySelectionCapability(option.value));
+          
+          if (capability?.result != null) {
+            option.value = capability!.result!;
           }
         },
       ),
