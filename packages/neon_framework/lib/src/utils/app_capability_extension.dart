@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neon_framework/blocs.dart';
-import 'package:neon_framework/src/models/capabilities.dart';
+import 'package:neon_framework/src/models/app_capabilities.dart';
 
 /// Extension on [AppsBloc] for easier handling of app capabilities in the UI layer.
 extension AppCapabilityExtension on AppsBloc {

@@ -9,8 +9,8 @@
 library;
 
 export 'package:account_repository/account_repository.dart' show Account;
+export 'package:neon_framework/src/models/app_capabilities.dart';
 export 'package:neon_framework/src/models/app_implementation.dart';
-export 'package:neon_framework/src/models/capabilities.dart';
 export 'package:neon_framework/src/models/label_builder.dart';
 export 'package:neon_framework/src/models/mime.dart';
 export 'package:neon_framework/src/models/notifications_interface.dart';
