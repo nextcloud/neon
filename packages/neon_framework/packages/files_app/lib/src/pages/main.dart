@@ -49,7 +49,8 @@ class _FilesMainPageState extends State<FilesMainPage> {
     return BackButtonListener(
       onBackButtonPressed: () async {
         final parent = uri.parent;
-        if (parent != null) {
+        final canPop = ModalRoute.of(context)?.isCurrent ?? true;
+        if (canPop && parent != null) {
           setState(() {
             uri = parent;
           });
