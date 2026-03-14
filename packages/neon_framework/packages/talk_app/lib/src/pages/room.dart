@@ -171,12 +171,14 @@ class _TalkRoomPageState extends State<TalkRoomPage> {
                 isLoading: messagesResult.isLoading,
                 error: messagesResult.error,
                 onRefresh: bloc.refresh,
-                sliver: SliverPadding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
+                slivers: [
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    sliver: sliver,
                   ),
-                  sliver: sliver,
-                ),
+                ],
               );
             },
           ),
