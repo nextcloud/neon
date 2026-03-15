@@ -245,12 +245,12 @@ void main() {
         final reference = response.body.ocs.data.references['https://example.com']!;
         expect(reference.richObjectType, 'open-graph');
         expect(reference.richObject['id']!.asString, 'https://example.com');
-        expect(reference.richObject['name']!.asString, 'Example Domain');
+        expect(reference.richObject['name']!.asString, 'https://example.com');
         expect(reference.richObject['description'], null);
         expect(reference.richObject['thumb'], null);
         expect(reference.richObject['link']!.asString, 'https://example.com');
         expect(reference.openGraphObject.id, 'https://example.com');
-        expect(reference.openGraphObject.name, 'Example Domain');
+        expect(reference.openGraphObject.name, 'https://example.com');
         expect(reference.openGraphObject.link, 'https://example.com');
         expect(reference.accessible, true);
       });
@@ -274,12 +274,12 @@ void main() {
           final reference = response.body.ocs.data.references[domain]!;
           expect(reference.richObjectType, 'open-graph');
           expect(reference.richObject['id']!.asString, domain);
-          expect(reference.richObject['name']!.asString, 'Example Domain');
+          expect(reference.richObject['name']!.asString, domain);
           expect(reference.richObject['description'], null);
           expect(reference.richObject['thumb'], null);
           expect(reference.richObject['link']!.asString, domain);
           expect(reference.openGraphObject.id, domain);
-          expect(reference.openGraphObject.name, 'Example Domain');
+          expect(reference.openGraphObject.name, domain);
           expect(reference.openGraphObject.link, domain);
           expect(reference.accessible, true);
         }
@@ -306,12 +306,12 @@ ghi
           final reference = response.body.ocs.data.references[domain]!;
           expect(reference.richObjectType, 'open-graph');
           expect(reference.richObject['id']!.asString, domain);
-          expect(reference.richObject['name']!.asString, 'Example Domain');
+          expect(reference.richObject['name']!.asString, domain);
           expect(reference.richObject['description'], null);
           expect(reference.richObject['thumb'], null);
           expect(reference.richObject['link']!.asString, domain);
           expect(reference.openGraphObject.id, domain);
-          expect(reference.openGraphObject.name, 'Example Domain');
+          expect(reference.openGraphObject.name, domain);
           expect(reference.openGraphObject.link, domain);
           expect(reference.accessible, true);
         }
