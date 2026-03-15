@@ -91,15 +91,17 @@ class DashboardMainPage extends StatelessWidget {
                 isLoading: widgetsResult.isLoading || itemsResult.isLoading,
                 error: widgetsResult.error ?? itemsResult.error,
                 onRefresh: bloc.refresh,
-                sliver: SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.min,
-                    spacing: 40,
-                    children: children,
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      spacing: 40,
+                      children: children,
+                    ),
                   ),
-                ),
+                ],
               ),
             );
           },

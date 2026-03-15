@@ -6,7 +6,7 @@ import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
 ///
 /// A Neon list view handles fixed header items, refreshing and displaying
 /// loading and error information.
-class NeonListView extends StatelessWidget {
+class NeonListView extends StatefulWidget {
   /// Creates a new Neon list view.
   NeonListView({
     required this.isLoading,
@@ -19,17 +19,19 @@ class NeonListView extends StatelessWidget {
     this.topScrollingChildren,
     this.reverse = false,
     super.key,
-  }) : sliver = SliverList.builder(
-          itemCount: itemCount,
-          itemBuilder: itemBuilder,
-        );
+  }) : slivers = [
+          SliverList.builder(
+            itemCount: itemCount,
+            itemBuilder: itemBuilder,
+          ),
+        ];
 
-  /// Creates a Neon list view with a custom child model.
+  /// Creates a Neon list view with custom slivers.
   const NeonListView.custom({
     required this.isLoading,
     required this.error,
     required this.onRefresh,
-    required this.sliver,
+    required this.slivers,
     required this.scrollKey,
     this.topFixedChildren,
     this.topScrollingChildren,
@@ -62,29 +64,35 @@ class NeonListView extends StatelessWidget {
   final bool reverse;
 
   /// The sliver controlling the main scrollable area.
-  final Widget sliver;
+  final List<Widget> slivers;
+
+  @override
+  State<NeonListView> createState() => _NeonListViewState();
+}
+
+class _NeonListViewState extends State<NeonListView> {
+  // GlobalKey requires the widget to be stateful, otherwise it gets recreated on every build and we lose the reference.
+  // This in turn leads to the view being unnecessarily repainted at the end of a request.
+  final _refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
 
   @override
   Widget build(BuildContext context) {
-    final refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
-    final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
-
     return RefreshIndicator.adaptive(
-      key: refreshIndicatorKey,
-      onRefresh: onRefresh,
+      key: _refreshIndicatorKey,
+      onRefresh: widget.onRefresh,
       child: CustomScrollView(
-        reverse: reverse,
-        key: PageStorageKey<String>(scrollKey),
+        reverse: widget.reverse,
+        key: PageStorageKey<String>(widget.scrollKey),
         primary: true,
         slivers: [
-          if (topFixedChildren != null)
+          if (widget.topFixedChildren != null)
             SliverList.builder(
-              itemCount: topFixedChildren!.length,
-              itemBuilder: (context, index) => topFixedChildren![index],
+              itemCount: widget.topFixedChildren!.length,
+              itemBuilder: (context, index) => widget.topFixedChildren![index],
             ),
           SliverToBoxAdapter(
             child: NeonLinearProgressIndicator(
-              visible: isLoading,
+              visible: widget.isLoading,
               margin: const EdgeInsets.symmetric(
                 horizontal: 10,
                 vertical: 5,
@@ -93,20 +101,29 @@ class NeonListView extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: NeonError(
-              error,
-              onRetry: () async => refreshIndicatorKey.currentState!.show(),
+              widget.error,
+              onRetry: () async => _refreshIndicatorKey.currentState!.show(),
             ),
           ),
-          if (topScrollingChildren != null)
+          if (widget.topScrollingChildren != null)
             SliverList.builder(
-              itemCount: topScrollingChildren!.length,
-              itemBuilder: (context, index) => topScrollingChildren![index],
+              itemCount: widget.topScrollingChildren!.length,
+              itemBuilder: (context, index) => widget.topScrollingChildren![index],
             ),
-          SliverPadding(
-            padding: hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero,
-            sliver: sliver,
-          ),
+          ..._buildPaddedSlivers(),
         ],
+      ),
+    );
+  }
+
+  Iterable<Widget> _buildPaddedSlivers() {
+    final hasFloatingActionButton = Scaffold.maybeOf(context)?.hasFloatingActionButton ?? false;
+    final padding = hasFloatingActionButton ? const EdgeInsets.only(bottom: 88) : EdgeInsets.zero;
+
+    return widget.slivers.map(
+      (sliver) => SliverPadding(
+        padding: padding,
+        sliver: sliver,
       ),
     );
   }
