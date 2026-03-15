@@ -7,16 +7,14 @@ function image_tag() {
 }
 
 function cache_build_args() {
-    tag="$1"
+    tag="$(echo "$1" | cut -d ":" -f 1)"
 
     build_args=(
       "--load"
-      "--cache-from" "type=inline"
-      "--cache-to" "type=inline,mode=max"
-      "--cache-from" "type=registry,ref=$tag"
+      "--cache-from" "$tag"
     )
     if [ -v PUSH_IMAGES ]; then
-      build_args+=("--cache-to" "type=registry,ref=$tag,mode=max")
+      build_args+=("--cache-to" "$tag")
     fi
 
     echo "${build_args[*]}"
