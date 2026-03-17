@@ -6,9 +6,9 @@ WORKDIR /usr/src/nextcloud
 ADD pre.sh /tmp
 RUN /tmp/pre.sh
 
-RUN (sh /entrypoint.sh php -S 0.0.0.0:80 &) && \
-    until curl -s -o /dev/null http://localhost/status.php; do true; done && \
-    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost/ocs/v2.php/cloud/user; done
+RUN (sh /entrypoint.sh php -S 0.0.0.0:8080 &) && \
+    until curl -s -o /dev/null http://localhost:8080/status.php; do true; done && \
+    for user in admin user1 user2; do curl -u "$user:$user" -H "ocs-apirequest: true" -s -o /dev/null http://localhost:8080/ocs/v2.php/cloud/user; done
 
 COPY static /usr/src/nextcloud/static
 COPY assets/Recipes /usr/src/nextcloud/data/admin/files/Recipes
