@@ -656,10 +656,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_material_design_icons
-      sha256: ffb0be14d206cb4cd8501ce738bdfc5654130cb5f70911905694a2c1ee9f05b1
+      sha256: "16bd35790b4eaa64c1b7c08622619530a939aee890327b6aeb2907997dfbc894"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.7447"
+    version: "3.0.0+7447"
   flutter_native_splash:
     dependency: transitive
     description:
