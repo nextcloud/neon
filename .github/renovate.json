@@ -17,6 +17,10 @@
   },
   "packageRules": [
     {
+      "matchDatasources": ["dart"],
+      "versioning": "npm"
+    },
+    {
       "matchManagers": ["pub"],
       "matchDatasources": ["dart-version", "flutter-version"],
       "matchUpdateTypes": [
