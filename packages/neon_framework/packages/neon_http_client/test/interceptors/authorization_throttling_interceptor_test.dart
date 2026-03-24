@@ -6,7 +6,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:test/test.dart';
 
 final jsonHeaders = <String, String>{
-  'content-type': 'application/json; charset=utf-8',
+  'content-type': 'application/json',
 };
 
 final userNotLoggedInBody = JsonUtf8Encoder().convert(

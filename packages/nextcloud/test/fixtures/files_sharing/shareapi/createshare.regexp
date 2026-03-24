@@ -1,6 +1,6 @@
 POST http://localhost/ocs/v2\.php/apps/files_sharing/api/v1/shares
 accept: application/json
 authorization: Bearer mock
-content-type: application/json; charset=utf-8
+content-type: application/json
 ocs-apirequest: true
 \{"shareType":0,"password":"","note":"","label":"","path":"/create-share\.png","shareWith":"user2"\}

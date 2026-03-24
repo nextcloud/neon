@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:built_value/serializer.dart';
 import 'package:dynamite_runtime/http_client.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 
@@ -85,18 +84,18 @@ final class ResponseConverter<B, H> with Converter<http.Response, DynamiteRespon
     final headers = _deserialize<H>(rawHeaders, serializer.serializers, serializer.headersType);
 
     final contentType = rawHeaders['content-type'];
-    MediaType? mediaType;
+    http.MediaType? mediaType;
     if (contentType != null) {
       try {
-        mediaType = MediaType.parse(contentType);
+        mediaType = http.MediaType.parse(contentType);
       } on FormatException catch (error, stackTrace) {
         _logger.warning('Could not parse $contentType', error, stackTrace);
       }
     }
 
     final body = switch (mediaType) {
-      MediaType(type: 'text') || MediaType(type: 'application', subtype: 'javascript') => input.body,
-      MediaType(type: 'application', subtype: 'json') => _deserialize<B>(
+      http.MediaType(type: 'text') || http.MediaType(type: 'application', subtype: 'javascript') => input.body,
+      http.MediaType(type: 'application', subtype: 'json') => _deserialize<B>(
           json.decode(input.body),
           serializer.serializers,
           serializer.bodyType,

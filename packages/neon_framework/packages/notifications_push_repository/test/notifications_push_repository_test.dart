@@ -285,7 +285,7 @@ void main() {
             ),
             200,
             headers: {
-              'content-type': 'application/json; charset=utf-8',
+              'content-type': 'application/json',
             },
           ),
         );
@@ -558,7 +558,7 @@ void main() {
                 ),
                 201,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -585,7 +585,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user1',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -648,7 +648,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user1',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -745,7 +745,7 @@ void main() {
                 ),
                 201,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -775,7 +775,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user2',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -841,7 +841,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user2',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -924,7 +924,7 @@ void main() {
                 ),
                 200,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -1036,7 +1036,7 @@ void main() {
                 ),
                 200,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -1070,7 +1070,7 @@ void main() {
                 ),
                 201,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -1123,7 +1123,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user1',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -1194,7 +1194,7 @@ void main() {
                   ),
                   201,
                   headers: {
-                    'content-type': 'application/json; charset=utf-8',
+                    'content-type': 'application/json',
                   },
                 ),
               );
@@ -1247,7 +1247,7 @@ void main() {
                       'Accept': 'application/json',
                       'Authorization': 'Bearer user1',
                       'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
+                      'Content-Type': 'application/json',
                       'user-agent': 'neon',
                     },
                   ),
@@ -1305,7 +1305,7 @@ void main() {
                   ),
                   200,
                   headers: {
-                    'content-type': 'application/json; charset=utf-8',
+                    'content-type': 'application/json',
                   },
                 ),
               );
@@ -1366,7 +1366,7 @@ void main() {
                       'Accept': 'application/json',
                       'Authorization': 'Bearer user1',
                       'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
+                      'Content-Type': 'application/json',
                       'user-agent': 'neon',
                     },
                   ),
@@ -1420,7 +1420,7 @@ void main() {
                 ),
                 200,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -1454,7 +1454,7 @@ void main() {
                 ),
                 201,
                 headers: {
-                  'content-type': 'application/json; charset=utf-8',
+                  'content-type': 'application/json',
                 },
               ),
             );
@@ -1496,7 +1496,7 @@ void main() {
                     'Accept': 'application/json',
                     'Authorization': 'Bearer user1',
                     'OCS-APIRequest': 'true',
-                    'Content-Type': 'application/json; charset=utf-8',
+                    'Content-Type': 'application/json',
                     'user-agent': 'neon',
                   },
                 ),
@@ -1567,7 +1567,7 @@ void main() {
                   ),
                   201,
                   headers: {
-                    'content-type': 'application/json; charset=utf-8',
+                    'content-type': 'application/json',
                   },
                 ),
               );
@@ -1608,7 +1608,7 @@ void main() {
                       'Accept': 'application/json',
                       'Authorization': 'Bearer user1',
                       'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
+                      'Content-Type': 'application/json',
                       'user-agent': 'neon',
                     },
                   ),
@@ -1666,7 +1666,7 @@ void main() {
                   ),
                   200,
                   headers: {
-                    'content-type': 'application/json; charset=utf-8',
+                    'content-type': 'application/json',
                   },
                 ),
               );
@@ -1715,7 +1715,7 @@ void main() {
                       'Accept': 'application/json',
                       'Authorization': 'Bearer user1',
                       'OCS-APIRequest': 'true',
-                      'Content-Type': 'application/json; charset=utf-8',
+                      'Content-Type': 'application/json',
                       'user-agent': 'neon',
                     },
                   ),
