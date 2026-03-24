@@ -36,7 +36,7 @@ dependencies:
   flutter_local_notifications: ^19.0.0
   flutter_localizations:
     sdk: flutter
-  flutter_material_design_icons: 3.0.0+7447
+  flutter_material_design_icons: ^3.0.0+7447
   flutter_native_splash: ^2.0.0
   flutter_svg: ^2.0.0
   flutter_zxing: ^2.0.0

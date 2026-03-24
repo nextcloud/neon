@@ -13,7 +13,7 @@ dependencies:
   built_value: ^8.9.0
   flutter:
     sdk: flutter
-  flutter_material_design_icons: 3.0.0+7447
+  flutter_material_design_icons: ^3.0.0+7447
   intersperse: ^2.0.0
   markdown: ^7.3.0
   meta: ^1.0.0
