@@ -1664,10 +1664,10 @@ packages:
     dependency: transitive
     description:
       name: string_normalizer
-      sha256: b126264f375f57d59d9a8b759e3c34ec7d0df321a2ef21f9709a847b5f0fa0db
+      sha256: "4bc0b4edafe1517fafa79e9e6e163ea078205bcb9399d069377df6bbd6f7c57d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5"
+    version: "0.4.0"
   string_scanner:
     dependency: transitive
     description:
