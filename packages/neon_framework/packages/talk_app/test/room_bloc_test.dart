@@ -133,7 +133,7 @@ Account mockTalkAccount() {
             }),
             200,
             headers: {
-              'content-type': 'application/json; charset=utf-8',
+              'content-type': 'application/json',
               'x-chat-last-common-read': '0',
             },
           );
@@ -219,7 +219,7 @@ Account mockTalkAccount() {
           }),
           200,
           headers: {
-            'content-type': 'application/json; charset=utf-8',
+            'content-type': 'application/json',
           },
         );
       },
@@ -250,7 +250,7 @@ Account mockTalkAccount() {
           }),
           200,
           headers: {
-            'content-type': 'application/json; charset=utf-8',
+            'content-type': 'application/json',
           },
         );
       },
@@ -278,7 +278,7 @@ Account mockTalkAccount() {
             }),
             200,
             headers: {
-              'content-type': 'application/json; charset=utf-8',
+              'content-type': 'application/json',
             },
           ),
     },

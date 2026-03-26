@@ -778,16 +778,16 @@ packages:
     dependency: transitive
     description:
       name: http
-      sha256: bb2ce4590bc2667c96f318d68cac1b5a7987ec819351d32b1c987239a815e007
+      sha256: "87721a4a50b19c7f1d49001e51409bddc46303966ce89a65af4f4e6004896412"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.0"
+    version: "1.6.0"
   http_client_conformance_tests:
     dependency: transitive
     description:
       path: "pkgs/http_client_conformance_tests"
-      ref: "531d3e587c3214ad07bed1f52fac3f01112bc1ed"
-      resolved-ref: "531d3e587c3214ad07bed1f52fac3f01112bc1ed"
+      ref: "907782f5a792e7a5b0ed92f118c0ad91f3ecde51"
+      resolved-ref: "907782f5a792e7a5b0ed92f118c0ad91f3ecde51"
       url: "https://github.com/dart-lang/http"
     source: git
     version: "0.0.0"

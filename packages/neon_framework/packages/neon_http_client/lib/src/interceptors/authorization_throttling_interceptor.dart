@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart';
-import 'package:http_parser/http_parser.dart';
 import 'package:interceptor_http_client/interceptor_http_client.dart';
 import 'package:meta/meta.dart';
 import 'package:nextcloud/nextcloud.dart';
