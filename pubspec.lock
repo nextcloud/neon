@@ -1760,10 +1760,10 @@ packages:
     dependency: transitive
     description:
       name: unifiedpush_platform_interface
-      sha256: bb49d2748211520e35e0374ab816faa8a2c635267e71909d334ad868d532eba5
+      sha256: "5aa3eefc2699e4d8db6d723f0cfdfb56ac850487549a0b3b83574f4a89f33aab"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.0"
   universal_io:
     dependency: transitive
     description:
