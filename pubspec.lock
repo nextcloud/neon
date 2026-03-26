@@ -437,11 +437,11 @@ packages:
     dependency: transitive
     description:
       path: "packages/dynamic_color"
-      ref: faeecdf6c6b748af308c8eece8b3681c8cb6fbd8
-      resolved-ref: faeecdf6c6b748af308c8eece8b3681c8cb6fbd8
+      ref: "94075d7ab7cdbe0b0749ed1cba049acb5f294f1f"
+      resolved-ref: "94075d7ab7cdbe0b0749ed1cba049acb5f294f1f"
       url: "https://github.com/provokateurin/flutter-packages"
     source: git
-    version: "1.7.0"
+    version: "1.8.1"
   equatable:
     dependency: transitive
     description:
