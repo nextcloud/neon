@@ -25,7 +25,7 @@ dependencies:
       path: packages/dynamic_color
       # dynamic_color/flutter_test
       ref: 94075d7ab7cdbe0b0749ed1cba049acb5f294f1f
-  dynamite_runtime: ^0.5.0+1
+  dynamite_runtime: ^0.6.0
   equatable: ^2.0.0
   file_picker: ^10.0.0
   filesize: ^2.0.0
@@ -48,7 +48,7 @@ dependencies:
   meta: ^1.0.0
   neon_http_client:
     path: packages/neon_http_client
-  nextcloud: ^8.1.0
+  nextcloud: ^9.0.0
   notifications_push_repository:
     path: packages/notifications_push_repository
   package_info_plus: ^8.0.0

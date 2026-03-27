@@ -10,7 +10,7 @@ dependencies:
   built_collection: ^5.0.0
   built_value: ^8.9.0
   collection: ^1.0.0
-  dynamite_runtime: ^0.1.0
+  dynamite_runtime: ^0.6.0
   http: ^1.2.0
   meta: ^1.0.0
   uri: ^1.0.0

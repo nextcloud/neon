@@ -3,6 +3,83 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-03-27
+
+### Changes
+
+---
+
+Packages with breaking changes:
+
+ - [`dynamite` - `v0.6.0`](#dynamite---v060)
+ - [`dynamite_runtime` - `v0.6.0`](#dynamite_runtime---v060)
+ - [`nextcloud` - `v9.0.0`](#nextcloud---v900)
+
+Packages with other changes:
+
+ - There are no other changes in this release.
+
+---
+
+#### `dynamite` - `v0.6.0`
+
+ - **FIX**(deps): update dependency dart_style to v3. ([c1e30751](https://github.com/nextcloud/neon/commit/c1e30751208095e7cfe66bc56d8dc522f61be2e5))
+ - **BREAKING** **BUILD**: Migrate to pub workspace. ([b1a31fb9](https://github.com/nextcloud/neon/commit/b1a31fb984ad1b2e2302349cd80efdb36fb643ba))
+
+#### `dynamite_runtime` - `v0.6.0`
+
+ - **BREAKING** **BUILD**: Migrate to pub workspace. ([b1a31fb9](https://github.com/nextcloud/neon/commit/b1a31fb984ad1b2e2302349cd80efdb36fb643ba))
+
+#### `nextcloud` - `v9.0.0`
+
+ - **REFACTOR**(tool): Use configured openapi-extractor version per repo. ([57f6d955](https://github.com/nextcloud/neon/commit/57f6d95547e08e2265c2c4741006ec30b8e855f6))
+ - **FIX**(deps): update dependency timezone to ^0.10.0. ([f5275f54](https://github.com/nextcloud/neon/commit/f5275f54576bb3cb43991162c5ec67888ae2832d))
+ - **FIX**(tool,nextcloud_test_presets): Adjust port for podman rootless. ([ec9db1f7](https://github.com/nextcloud/neon/commit/ec9db1f7fa1f2b6d67e2908e7dd06838dcd89cac))
+ - **FIX**(nextcloud_test_presets): Fix error in installation process. ([f06706ef](https://github.com/nextcloud/neon/commit/f06706ef5a9c588f78c248067494c61a76920956))
+ - **FIX**(deps): update dependency timezone to ^0.10.1. ([b750027a](https://github.com/nextcloud/neon/commit/b750027a222d799cdb8d0b7662bb3f2f9ad014bb))
+ - **FIX**(nextcloud_test_presets): Fix error in installation process". ([bddedeb6](https://github.com/nextcloud/neon/commit/bddedeb6c567962dc45414bfcc7578a0b1cd5b6f))
+ - **FIX**(nextcloud_test_presets): Stop force installing news app. ([eb09a44b](https://github.com/nextcloud/neon/commit/eb09a44b45397f31e5a3e417d303e6a31fb28aa7))
+ - **FIX**(nextcloud): Add missing nids and delete-multiple fields to DecryptedSubject. ([c4be1b23](https://github.com/nextcloud/neon/commit/c4be1b2328c1e788dfb162e4a0db3eec69255306))
+ - **FIX**(deps): Fix lower dependency constraint bounds. ([d82c0893](https://github.com/nextcloud/neon/commit/d82c0893a92b3da8ed0dcc2266a8bf8e9eb26a09))
+ - **FIX**(deps): update dependency dart_style to v3. ([c1e30751](https://github.com/nextcloud/neon/commit/c1e30751208095e7cfe66bc56d8dc522f61be2e5))
+ - **FIX**(nextcloud_test): Use host network for docker containers. ([03887130](https://github.com/nextcloud/neon/commit/03887130bf90e5e37d46e11f6fbb33f2155834fb))
+ - **FIX**(nextcloud_test_presets): Override 31 releases for cookbook and uppush. ([172da60c](https://github.com/nextcloud/neon/commit/172da60cc51cc65e7e88da7a982d475a188eb1ef))
+ - **FIX**(nextcloud_test_presets): Manually override releases. ([b7b02239](https://github.com/nextcloud/neon/commit/b7b0223972b1af65e8a65a09489643cc0dea27aa))
+ - **FIX**(nextcloud_test): Handle port already used with retries. ([eecfc5f3](https://github.com/nextcloud/neon/commit/eecfc5f30e91009a29add4d2ca2b72a05e85417d))
+ - **FIX**(nextcloud_test): Really handle docker container port already being allocated. ([deec18b7](https://github.com/nextcloud/neon/commit/deec18b7d61c772a3982b4c20495684327f63d3b))
+ - **FIX**(nextcloud_test_presets): Correctly handle stable release over higher version number preference. ([0765809d](https://github.com/nextcloud/neon/commit/0765809d993563bfbd74db1a11ab2dc1886934e5))
+ - **FEAT**(nextcloud): Add support for tables 0.9.9. ([f5f78d7e](https://github.com/nextcloud/neon/commit/f5f78d7e3249042d568234bcdad36815506764e6))
+ - **FEAT**(nextcloud): Add support for server 31.0.9. ([fb7d39b9](https://github.com/nextcloud/neon/commit/fb7d39b963304f7b0987655a443d3efc55c159ec))
+ - **FEAT**(nextcloud): Add support for server 31.0.8. ([36a17b52](https://github.com/nextcloud/neon/commit/36a17b5226cb6cd5c3390e1038a28822ff020f52))
+ - **FEAT**(nextcloud): Add support for tables 0.9.5. ([f50954a1](https://github.com/nextcloud/neon/commit/f50954a113d91f3954bb34979db494087fc98d3e))
+ - **FEAT**(nextcloud): Add support for server 31.0.7. ([1647b30b](https://github.com/nextcloud/neon/commit/1647b30b867ed470d9bfabc3e79dfcb5ae6f5aaa))
+ - **FEAT**(nextcloud): Add support for spreed 21.1.0. ([68c3cfa5](https://github.com/nextcloud/neon/commit/68c3cfa54f447e9e9504570ee15332c061328db8))
+ - **FEAT**(nextcloud): Support server 31.0.6. ([3b98bc54](https://github.com/nextcloud/neon/commit/3b98bc542431eb9ae31ccafffaa53726929aee44))
+ - **FEAT**(nextcloud): Support server 31.0.5. ([24f7fe96](https://github.com/nextcloud/neon/commit/24f7fe966f435a5211aac7ef8859c628222f8133))
+ - **FEAT**(nextcloud): Add support for spreed v21.0.4. ([75ad4728](https://github.com/nextcloud/neon/commit/75ad4728fd6bbf98e0e3ccbba9adece23577d9da))
+ - **FEAT**(nextcloud): Add support for spreed 21.1.9. ([3fda647b](https://github.com/nextcloud/neon/commit/3fda647b915d28d77fcb3731f09d24f3cfad2047))
+ - **FEAT**(nextcloud_test_presets): Add terms_of_service presets. ([719a11ae](https://github.com/nextcloud/neon/commit/719a11aed9330fd8fe9fb15971882eb4ab731047))
+ - **FEAT**(nextcloud_test): Export NextcloudTester. ([51d87041](https://github.com/nextcloud/neon/commit/51d87041efc9c254a1bc679b8846fa38117acce7))
+ - **FEAT**(nextcloud_test): Add Matcher for checking all WebDAV props are parsed. ([b07cbe15](https://github.com/nextcloud/neon/commit/b07cbe15250383cd82cd226776777acd2d9e9132))
+ - **FEAT**(nextcloud): Support spreed 21.0.2. ([7d9e00df](https://github.com/nextcloud/neon/commit/7d9e00dfb077e21dba0de38e8c19b9df189c74bf))
+ - **FEAT**(nextcloud): Support server 31.0.3. ([1d78a893](https://github.com/nextcloud/neon/commit/1d78a893a012f90b9ac8dad44495a28a80d9b77c))
+ - **FEAT**(nextcloud): Add support for terms_of_service. ([c82b910e](https://github.com/nextcloud/neon/commit/c82b910e761b74440827f753702b37623c54b83a))
+ - **FEAT**(nextcloud): Add support for password_policy. ([b10d42d4](https://github.com/nextcloud/neon/commit/b10d42d4900ed2bbfb3d3cd53ba33dc70c99734d))
+ - **FEAT**(nextcloud): Add support for terms_of_service 4.6.1. ([43ba35dc](https://github.com/nextcloud/neon/commit/43ba35dc21e9aa1c903810cc746c418f8313022e))
+ - **FEAT**(nextcloud): Add support for tables 0.9.4. ([bff405e7](https://github.com/nextcloud/neon/commit/bff405e70bfeb1745a1db06e352c68d51c060d57))
+ - **DOCS**(nextcloud): Adjust support policy. ([0395d588](https://github.com/nextcloud/neon/commit/0395d588d759a8a4e641d82727d696389dcd5acd))
+ - **BREAKING** **REFACTOR**(nextcloud): Remove WebDAV CSRF workarounds. ([6c040f74](https://github.com/nextcloud/neon/commit/6c040f740edc90abeec43ca3c97ca1b1157a29c8))
+ - **BREAKING** **FEAT**(nextcloud): Support notifications 31. ([ec94d357](https://github.com/nextcloud/neon/commit/ec94d3579b37d38d2235e64693d4c07fba454520))
+ - **BREAKING** **FEAT**(nextcloud): Support spreed 21. ([4273ef28](https://github.com/nextcloud/neon/commit/4273ef28ed85678d1954cfc06d59a7786f6a5242))
+ - **BREAKING** **FEAT**(nextcloud): Support tables 0.9. ([d39e48b3](https://github.com/nextcloud/neon/commit/d39e48b3b339c9074363ed3d23ab38a5301e56a7))
+ - **BREAKING** **FEAT**(nextcloud): Add support for spreed 21.0.1. ([1aad9666](https://github.com/nextcloud/neon/commit/1aad9666364dce80c5c1c2818681ba75655e4f65))
+ - **BREAKING** **FEAT**(nextcloud): Add support for server 31.0.1. ([abfac873](https://github.com/nextcloud/neon/commit/abfac873cf770f8e6c45d287b9bdc52e3d1f3290))
+ - **BREAKING** **FEAT**(nextcloud): Support server 31. ([31b80d35](https://github.com/nextcloud/neon/commit/31b80d35535abe0a72adf6347f087512e17f9f95))
+ - **BREAKING** **CHORE**(nextcloud): Remove server 28 and spreed 18 support. ([df5c8e86](https://github.com/nextcloud/neon/commit/df5c8e86729bcbd5ea043103d25d1535425b393d))
+ - **BREAKING** **CHORE**(nextcloud): Remove server 29 and spreed 19 support. ([97702c69](https://github.com/nextcloud/neon/commit/97702c6998db3ae56e4b78393b38b3059aa78ec1))
+ - **BREAKING** **BUILD**: Migrate to pub workspace. ([b1a31fb9](https://github.com/nextcloud/neon/commit/b1a31fb984ad1b2e2302349cd80efdb36fb643ba))
+
+
 ## 2024-10-19
 
 ### Changes

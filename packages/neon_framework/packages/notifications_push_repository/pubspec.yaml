@@ -20,7 +20,7 @@ dependencies:
   meta: ^1.0.0
   neon_framework:
     path: ../..
-  nextcloud: ^8.1.0
+  nextcloud: ^9.0.0
   rxdart: ^0.28.0
   unifiedpush: ^6.0.1
   unifiedpush_android: ^3.0.0

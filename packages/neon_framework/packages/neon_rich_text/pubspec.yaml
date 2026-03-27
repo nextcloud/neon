@@ -19,7 +19,7 @@ dependencies:
   meta: ^1.0.0
   neon_framework:
     path: ../..
-  nextcloud: ^8.1.0
+  nextcloud: ^9.0.0
 
 dev_dependencies:
   custom_lint: ^0.7.6
