@@ -11,6 +11,7 @@ import 'package:logging/logging.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/app.dart';
 import 'package:neon_framework/src/blocs/accounts.dart';
+import 'package:neon_framework/src/blocs/blur.dart';
 import 'package:neon_framework/src/blocs/first_launch.dart';
 import 'package:neon_framework/src/blocs/next_push.dart';
 import 'package:neon_framework/src/blocs/push_notifications.dart';
@@ -120,6 +121,8 @@ Future<void> runNeon({
     globalOptions: globalOptions,
   );
 
+  final blurBloc = BlurBloc();
+
   runApp(
     MultiProvider(
       providers: [
@@ -128,6 +131,7 @@ Future<void> runNeon({
         NeonProvider<AccountsBloc>.value(value: accountsBloc),
         NeonProvider<FirstLaunchBloc>.value(value: firstLaunchBloc),
         NeonProvider<NextPushBloc>.value(value: nextPushBloc),
+        NeonProvider<BlurBloc>.value(value: blurBloc),
         Provider<BuiltSet<AppImplementation>>(
           create: (_) => appImplementations,
           dispose: (_, appImplementations) => appImplementations.disposeAll(),

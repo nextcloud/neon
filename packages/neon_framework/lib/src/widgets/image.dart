@@ -1,16 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
+import 'package:neon_framework/src/blocs/blur.dart';
 import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
+import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
@@ -108,22 +110,17 @@ class NeonImage extends StatelessWidget {
             // If the data is not UTF-8
           }
 
-          return Image.memory(
-            data,
-            height: size?.height,
-            width: size?.width,
-            fit: fit ?? BoxFit.contain,
-            gaplessPlayback: true,
-            errorBuilder: (context, error, stacktrace) => _buildError(context, error),
-          );
-        }
-
-        if (blurHash != null) {
-          return BlurHash(
-            hash: blurHash!,
-            imageFit: fit ?? BoxFit.cover,
-            decodingHeight: size?.height.toInt() ?? 32,
-            decodingWidth: size?.width.toInt() ?? 32,
+          return _buildImageWithBlur(
+            context,
+            child: Image.memory(
+              data,
+              height: size?.height,
+              width: size?.width,
+              fit: fit ?? BoxFit.contain,
+              gaplessPlayback: true,
+              errorBuilder: (context, error, stacktrace) => _buildError(context, error),
+            ),
+            isLoading: imageResult.isLoading,
           );
         }
 
@@ -131,9 +128,47 @@ class NeonImage extends StatelessWidget {
           return _buildError(context, imageResult.error);
         }
 
+        return _buildBlur(context, isLoading: imageResult.isLoading);
+      },
+    );
+  }
+
+  /// Replacing the blurhash with the actual image leads to UI flickering when scrolling very fast.
+  /// To mitigate this, we keep the blurhash underneath the actual image.
+  Widget _buildImageWithBlur(BuildContext context, {required Widget child, bool isLoading = true}) => Stack(
+        fit: StackFit.passthrough,
+        children: [
+          _buildBlur(context, isLoading: isLoading),
+          child,
+        ],
+      );
+
+  Widget _buildBlur(BuildContext context, {bool isLoading = true}) {
+    final blurBloc = NeonProvider.of<BlurBloc>(context);
+    return FutureBuilder<ui.Image>(
+      // Key is important to ensure that we can move it without cost in the widget tree.
+      key: ValueKey(blurHash),
+      // We are not caching the blurHash result because we do not want to take care of cleanup in here.
+      // If pre-caching is required, the encapsulating widget should take care of it and also of the cleanup.
+      future: blurHash != null
+          ? blurBloc.getBlurHash(
+              blurHash!,
+              size ?? const Size.square(32),
+              cache: false,
+            )
+          : null,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return RawImage(
+            image: snapshot.data,
+          );
+        }
+
         return SizedBox(
           width: size?.width,
-          child: const NeonLinearProgressIndicator(),
+          child: NeonLinearProgressIndicator(
+            visible: isLoading,
+          ),
         );
       },
     );
