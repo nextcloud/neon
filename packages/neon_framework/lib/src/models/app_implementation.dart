@@ -194,4 +194,8 @@ abstract class AppImplementation<T extends Bloc, R extends AppImplementationOpti
 
   @override
   int get hashCode => id.hashCode;
+
+  /// If the app provides handling for a specific [AppCapability], it can return a handler allowing Neon to make use of it.
+  /// For example, this photos app provides a handler for the [ImageViewerCapability] which allows Neon to display images in the photos app instead of the system app.
+  AppCapabilityHandler? appCapabilityHandler(AppCapability capability) => null;
 }
