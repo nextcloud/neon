@@ -224,7 +224,7 @@ class $SigningClient {
         bodyType: const FullType(SigningSignTermsPublicResponseApplicationJson),
         headersType: null,
         serializers: _$jsonSerializers,
-        validStatuses: const {200},
+        validStatuses: const {200, 406},
       );
 
   /// As a guest sign the terms.
@@ -237,6 +237,7 @@ class $SigningClient {
   ///
   /// Status codes:
   ///   * 200: Signed successfully
+  ///   * 406: The user is already authenticated and therefore not allowed to sign the terms through this endpoint
   ///
   /// See:
   ///  * [signTermsPublic] for a method executing this request and parsing the response.
@@ -284,6 +285,7 @@ class $SigningClient {
   ///
   /// Status codes:
   ///   * 200: Signed successfully
+  ///   * 406: The user is already authenticated and therefore not allowed to sign the terms through this endpoint
   ///
   /// See:
   ///  * [$signTermsPublic_Request] for the request send by this method.
