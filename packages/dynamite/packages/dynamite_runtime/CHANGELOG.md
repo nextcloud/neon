@@ -1,3 +1,9 @@
+## 0.6.0
+
+> Note: This release has breaking changes.
+
+ - **BREAKING** **BUILD**: Migrate to pub workspace. ([b1a31fb9](https://github.com/nextcloud/neon/commit/b1a31fb984ad1b2e2302349cd80efdb36fb643ba))
+
 ## 0.5.0+1
 
  - **REFACTOR**: change package file structure. ([6696e6ea](https://github.com/nextcloud/neon/commit/6696e6ead1751462e233afb5eab22a458e0c9e73))

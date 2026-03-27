@@ -19,7 +19,7 @@ dependencies:
     path: ../..
   neon_http_client:
     path: ../neon_http_client
-  nextcloud: ^8.1.0
+  nextcloud: ^9.0.0
   rxdart: ^0.28.0
 
 dev_dependencies:
