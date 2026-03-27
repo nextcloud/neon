@@ -1047,6 +1047,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.0"
+  nextcloud:
+    dependency: transitive
+    description:
+      name: nextcloud
+      sha256: "2d1c03d14f5e0bd1fe4f2d17d8d49f8a67113563740c334ee753a945e162bec5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.0"
   node_preamble:
     dependency: transitive
     description:
@@ -1391,14 +1399,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
-  recase:
-    dependency: transitive
-    description:
-      name: recase
-      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.0"
   rfc_6901:
     dependency: transitive
     description:
@@ -2020,14 +2020,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
-  xml_serializable:
-    dependency: transitive
-    description:
-      name: xml_serializable
-      sha256: "07ee623f4d55f710d88cf1ebb38fb8512562bdab95950b4630daf3d85aa18608"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.4"
   yaml:
     dependency: transitive
     description:

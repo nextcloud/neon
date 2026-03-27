@@ -1,6 +1,0 @@
-PUT http://localhost/ocs/v2\.php/apps/weather_status/api/v1/favorites
-accept: application/json
-authorization: Bearer mock
-content-type: application/json
-ocs-apirequest: true
-\{"favorites":\["a","b"\]\}
