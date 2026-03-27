@@ -1,9 +1,0 @@
-PUT http://localhost/remote\.php/webdav/test/delete\.txt
-authorization: Bearer mock
-content-length: 0
-content-type: application/xml
-ocs-apirequest: true
-DELETE http://localhost/remote\.php/webdav/test/delete\.txt
-authorization: Bearer mock
-content-type: application/xml
-ocs-apirequest: true

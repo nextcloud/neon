@@ -83,13 +83,6 @@
       "matchPackageNames": ["/^unifiedpush/"]
     },
     {
-      "groupName": "xml_serializable",
-      "matchPackageNames": [
-        "xml_annotation",
-        "xml_serializable"
-      ]
-    },
-    {
       "groupName": "test",
       "matchPackageNames": [
         "test",
