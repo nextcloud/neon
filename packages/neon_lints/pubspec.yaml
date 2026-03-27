@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   analyzer: ^7.3.0
-  analyzer_plugin: ^0.13.0
+  analyzer_plugin: ^0.14.7
   custom_lint_builder: ^0.7.0
 
 dev_dependencies:
