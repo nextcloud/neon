@@ -4644,6 +4644,7 @@ class $ChatClient {
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 100;
+    _i4.checkNumber(__limit, 'limit', maximum: 200, minimum: 1);
     _parameters['limit'] = __limit;
 
     var __lastKnownMessageId = _$jsonSerializers.serialize(lastKnownMessageId, specifiedType: const FullType(int));
@@ -5442,7 +5443,7 @@ class $ChatClient {
 
     var __limit = _$jsonSerializers.serialize(limit, specifiedType: const FullType(int));
     __limit ??= 50;
-    _i4.checkNumber(__limit, 'limit', maximum: 100, minimum: 1);
+    _i4.checkNumber(__limit, 'limit', maximum: 100, minimum: 0);
     _parameters['limit'] = __limit;
 
     final _path = _i5.UriTemplate(
