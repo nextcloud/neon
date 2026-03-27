@@ -1,6 +1,0 @@
-PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/user_status/status
-accept: application/json
-authorization: Bearer mock
-content-type: application/json
-ocs-apirequest: true
-\{"statusType":"online"\}

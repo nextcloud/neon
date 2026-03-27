@@ -1,3 +1,0 @@
-GET http://localhost/index\.php/apps/cookbook/api/v1/tags/Desserts
-accept: application/json
-authorization: Basic mock

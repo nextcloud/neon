@@ -1,6 +1,0 @@
-POST http://localhost/ocs/v2\.php/apps/notifications/api/v2/admin_notifications/admin
-accept: application/json
-authorization: Bearer mock
-content-type: application/json
-ocs-apirequest: true
-\{"shortMessage":"123","longMessage":"456"\}

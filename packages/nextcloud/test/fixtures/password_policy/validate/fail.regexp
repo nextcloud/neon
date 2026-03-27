@@ -1,6 +1,0 @@
-POST http://localhost/ocs/v2\.php/apps/password_policy/api/v1/validate
-accept: application/json
-authorization: Bearer mock
-content-type: application/json
-ocs-apirequest: true
-\{"password":"12345678"\}
