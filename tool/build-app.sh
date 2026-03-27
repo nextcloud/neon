@@ -1,7 +1,20 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 cd "$(dirname "$0")/.."
-source tool/common.sh
+
+function cache_build_args() {
+    tag="$(echo "$1" | cut -d ":" -f 1)"
+
+    build_args=(
+      "--load"
+      "--cache-from" "$tag"
+    )
+    if [ -v PUSH_IMAGES ]; then
+      build_args+=("--cache-to" "$tag")
+    fi
+
+    echo "${build_args[*]}"
+}
 
 function get_mount_paths_dir() {
   dir="$1"

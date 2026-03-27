@@ -1,6 +1,0 @@
-PUT http://localhost/ocs/v2\.php/apps/user_status/api/v1/heartbeat
-accept: application/json
-authorization: Bearer mock
-content-type: application/json
-ocs-apirequest: true
-\{"status":"online"\}

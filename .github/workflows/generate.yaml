@@ -23,7 +23,6 @@ jobs:
               - external/**
               - tool/**
               - packages/dynamite/**
-              - packages/nextcloud/**
               - .fvmrc
 
   dart:
@@ -54,37 +53,4 @@ jobs:
       - name: Generate dynamite petstore example
         run: |
           ./tool/generate-dynamite-petstore-example.sh
-          git --no-pager diff --exit-code
-
-      - name: Generate nextcloud
-        run: |
-          ./tool/generate-nextcloud.sh
-          git --no-pager diff --exit-code
-
-  openapi:
-    name: OpenAPI
-    runs-on: ubuntu-24.04
-    needs: changes
-    if: needs.changes.outputs.src != 'false'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
-        with:
-          fetch-depth: 0
-      - name: Submodules
-        run: git submodule update --init --depth 0
-
-      - name: Install php
-        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
-        with:
-          php-version: "8.1"
-          tools: composer
-
-      # Use https://github.com/kislyuk/yq
-      - name: Install yq
-        run: pip install yq --break-system-packages
-
-      - name: Generate specs
-        run: |
-          ./tool/generate-specs.sh
           git --no-pager diff --exit-code
