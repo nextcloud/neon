@@ -81,6 +81,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [index] for a method executing this request and parsing the response.
@@ -119,6 +120,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$index_Request] for the request send by this method.
@@ -151,6 +153,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createTable] for a method executing this request and parsing the response.
@@ -193,6 +196,7 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createTable_Request] for the request send by this method.
@@ -230,6 +234,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [getTable] for a method executing this request and parsing the response.
@@ -277,6 +282,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$getTable_Request] for the request send by this method.
@@ -314,6 +320,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateTable] for a method executing this request and parsing the response.
@@ -372,6 +379,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateTable_Request] for the request send by this method.
@@ -412,6 +420,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteTable] for a method executing this request and parsing the response.
@@ -459,6 +468,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteTable_Request] for the request send by this method.
@@ -496,6 +506,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [showScheme] for a method executing this request and parsing the response.
@@ -543,6 +554,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$showScheme_Request] for the request send by this method.
@@ -580,6 +592,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexViews] for a method executing this request and parsing the response.
@@ -627,6 +640,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexViews_Request] for the request send by this method.
@@ -664,6 +678,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createView] for a method executing this request and parsing the response.
@@ -715,6 +730,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createView_Request] for the request send by this method.
@@ -755,6 +771,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [getView] for a method executing this request and parsing the response.
@@ -802,6 +819,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$getView_Request] for the request send by this method.
@@ -840,6 +858,7 @@ class $Api1Client {
   ///   * 404: Not found
   ///   * 400: Invalid data
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateView] for a method executing this request and parsing the response.
@@ -892,6 +911,7 @@ class $Api1Client {
   ///   * 404: Not found
   ///   * 400: Invalid data
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateView_Request] for the request send by this method.
@@ -932,6 +952,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteView] for a method executing this request and parsing the response.
@@ -979,6 +1000,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteView_Request] for the request send by this method.
@@ -1013,9 +1035,9 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Share returned
-  ///   * 403: No permissions
   ///   * 500
-  ///   * 404: Not found
+  ///   * 404: Not found/No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [getShare] for a method executing this request and parsing the response.
@@ -1060,9 +1082,9 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Share returned
-  ///   * 403: No permissions
   ///   * 500
-  ///   * 404: Not found
+  ///   * 404: Not found/No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$getShare_Request] for the request send by this method.
@@ -1100,6 +1122,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateSharePermissions] for a method executing this request and parsing the response.
@@ -1157,6 +1180,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateSharePermissions_Request] for the request send by this method.
@@ -1197,6 +1221,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteShare] for a method executing this request and parsing the response.
@@ -1244,6 +1269,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteShare_Request] for the request send by this method.
@@ -1278,7 +1304,10 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Shares returned
+  ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexViewShares] for a method executing this request and parsing the response.
@@ -1323,7 +1352,10 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Shares returned
+  ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexViewShares_Request] for the request send by this method.
@@ -1358,7 +1390,10 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Shares returned
+  ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexTableShares] for a method executing this request and parsing the response.
@@ -1403,7 +1438,10 @@ class $Api1Client {
   ///
   /// Status codes:
   ///   * 200: Shares returned
+  ///   * 403: No permissions
+  ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexTableShares_Request] for the request send by this method.
@@ -1441,6 +1479,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createTableShare] for a method executing this request and parsing the response.
@@ -1495,6 +1534,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createTableShare_Request] for the request send by this method.
@@ -1532,6 +1572,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createShare] for a method executing this request and parsing the response.
@@ -1576,6 +1617,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createShare_Request] for the request send by this method.
@@ -1614,6 +1656,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Share not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateShareDisplayMode] for a method executing this request and parsing the response.
@@ -1672,6 +1715,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Share not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateShareDisplayMode_Request] for the request send by this method.
@@ -1713,6 +1757,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexTableColumns] for a method executing this request and parsing the response.
@@ -1766,6 +1811,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexTableColumns_Request] for the request send by this method.
@@ -1803,6 +1849,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createTableColumn] for a method executing this request and parsing the response.
@@ -1857,6 +1904,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createTableColumn_Request] for the request send by this method.
@@ -1897,6 +1945,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexViewColumns] for a method executing this request and parsing the response.
@@ -1944,6 +1993,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexViewColumns_Request] for the request send by this method.
@@ -1978,6 +2028,8 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 400: Invalid arguments
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createColumn] for a method executing this request and parsing the response.
@@ -2022,6 +2074,8 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 400: Invalid arguments
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createColumn_Request] for the request send by this method.
@@ -2061,6 +2115,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [getColumn] for a method executing this request and parsing the response.
@@ -2108,6 +2163,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$getColumn_Request] for the request send by this method.
@@ -2143,6 +2199,8 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Updated column
   ///   * 500
+  ///   * 400: Invalid arguments
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateColumn] for a method executing this request and parsing the response.
@@ -2192,6 +2250,8 @@ class $Api1Client {
   /// Status codes:
   ///   * 200: Updated column
   ///   * 500
+  ///   * 400: Invalid arguments
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateColumn_Request] for the request send by this method.
@@ -2232,6 +2292,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteColumn] for a method executing this request and parsing the response.
@@ -2279,6 +2340,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteColumn_Request] for the request send by this method.
@@ -2318,6 +2380,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexTableRowsSimple] for a method executing this request and parsing the response.
@@ -2375,6 +2438,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexTableRowsSimple_Request] for the request send by this method.
@@ -2418,6 +2482,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexTableRows] for a method executing this request and parsing the response.
@@ -2475,6 +2540,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexTableRows_Request] for the request send by this method.
@@ -2516,6 +2582,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createRowInTable] for a method executing this request and parsing the response.
@@ -2570,6 +2637,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createRowInTable_Request] for the request send by this method.
@@ -2612,6 +2680,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [indexViewRows] for a method executing this request and parsing the response.
@@ -2669,6 +2738,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$indexViewRows_Request] for the request send by this method.
@@ -2709,6 +2779,7 @@ class $Api1Client {
   ///   * 200: Row returned
   ///   * 403: No permissions
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createRowInView] for a method executing this request and parsing the response.
@@ -2762,6 +2833,7 @@ class $Api1Client {
   ///   * 200: Row returned
   ///   * 403: No permissions
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createRowInView_Request] for the request send by this method.
@@ -2802,6 +2874,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [getRow] for a method executing this request and parsing the response.
@@ -2849,6 +2922,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$getRow_Request] for the request send by this method.
@@ -2886,6 +2960,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateRow] for a method executing this request and parsing the response.
@@ -2937,6 +3012,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateRow_Request] for the request send by this method.
@@ -2977,6 +3053,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteRow] for a method executing this request and parsing the response.
@@ -3024,6 +3101,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteRow_Request] for the request send by this method.
@@ -3062,6 +3140,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [deleteRowByView] for a method executing this request and parsing the response.
@@ -3113,6 +3192,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$deleteRowByView_Request] for the request send by this method.
@@ -3150,6 +3230,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [importInTable] for a method executing this request and parsing the response.
@@ -3201,6 +3282,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$importInTable_Request] for the request send by this method.
@@ -3241,6 +3323,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [importInView] for a method executing this request and parsing the response.
@@ -3292,6 +3375,7 @@ class $Api1Client {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$importInView_Request] for the request send by this method.
@@ -3341,6 +3425,7 @@ class $ApiColumnsClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [index] for a method executing this request and parsing the response.
@@ -3397,6 +3482,7 @@ class $ApiColumnsClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$index_Request] for the request send by this method.
@@ -3437,6 +3523,7 @@ class $ApiColumnsClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$show] for a method executing this request and parsing the response.
@@ -3487,6 +3574,7 @@ class $ApiColumnsClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$$show_Request] for the request send by this method.
@@ -3528,6 +3616,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createNumberColumn] for a method executing this request and parsing the response.
@@ -3585,6 +3674,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createNumberColumn_Request] for the request send by this method.
@@ -3628,6 +3718,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createTextColumn] for a method executing this request and parsing the response.
@@ -3685,6 +3776,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createTextColumn_Request] for the request send by this method.
@@ -3728,6 +3820,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createSelectionColumn] for a method executing this request and parsing the response.
@@ -3785,6 +3878,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createSelectionColumn_Request] for the request send by this method.
@@ -3828,6 +3922,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createDatetimeColumn] for a method executing this request and parsing the response.
@@ -3885,6 +3980,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createDatetimeColumn_Request] for the request send by this method.
@@ -3926,6 +4022,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createUsergroupColumn] for a method executing this request and parsing the response.
@@ -3981,6 +4078,7 @@ class $ApiColumnsClient {
   ///   * 403: No permission
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createUsergroupColumn_Request] for the request send by this method.
@@ -4030,6 +4128,7 @@ class $ApiFavoriteClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [create] for a method executing this request and parsing the response.
@@ -4084,6 +4183,7 @@ class $ApiFavoriteClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$create_Request] for the request send by this method.
@@ -4126,6 +4226,7 @@ class $ApiFavoriteClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [destroy] for a method executing this request and parsing the response.
@@ -4180,6 +4281,7 @@ class $ApiFavoriteClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$destroy_Request] for the request send by this method.
@@ -4226,6 +4328,7 @@ class $ApiGeneralClient {
   /// Status codes:
   ///   * 200: Index returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [index] for a method executing this request and parsing the response.
@@ -4271,6 +4374,7 @@ class $ApiGeneralClient {
   /// Status codes:
   ///   * 200: Index returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$index_Request] for the request send by this method.
@@ -4311,6 +4415,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [index] for a method executing this request and parsing the response.
@@ -4354,6 +4459,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$index_Request] for the request send by this method.
@@ -4387,6 +4493,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [create] for a method executing this request and parsing the response.
@@ -4434,6 +4541,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$create_Request] for the request send by this method.
@@ -4473,6 +4581,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$show] for a method executing this request and parsing the response.
@@ -4523,6 +4632,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$$show_Request] for the request send by this method.
@@ -4562,6 +4672,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$update] for a method executing this request and parsing the response.
@@ -4623,6 +4734,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$$update_Request] for the request send by this method.
@@ -4663,6 +4775,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [destroy] for a method executing this request and parsing the response.
@@ -4713,6 +4826,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$destroy_Request] for the request send by this method.
@@ -4753,6 +4867,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [showScheme] for a method executing this request and parsing the response.
@@ -4803,6 +4918,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$showScheme_Request] for the request send by this method.
@@ -4840,6 +4956,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createFromScheme] for a method executing this request and parsing the response.
@@ -4893,6 +5010,7 @@ class $ApiTablesClient {
   /// Status codes:
   ///   * 200: Tables returned
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createFromScheme_Request] for the request send by this method.
@@ -4937,6 +5055,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [transfer] for a method executing this request and parsing the response.
@@ -4997,6 +5116,7 @@ class $ApiTablesClient {
   ///   * 403: No permissions
   ///   * 500
   ///   * 404: Not found
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$transfer_Request] for the request send by this method.
@@ -5043,6 +5163,7 @@ class $ContextClient {
   /// Status codes:
   ///   * 200: reporting in available contexts
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [index] for a method executing this request and parsing the response.
@@ -5088,6 +5209,7 @@ class $ContextClient {
   /// Status codes:
   ///   * 200: reporting in available contexts
   ///   * 500
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$index_Request] for the request send by this method.
@@ -5123,6 +5245,7 @@ class $ContextClient {
   ///   * 500
   ///   * 400: invalid parameters were supplied
   ///   * 403: lacking permissions on a resource
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [create] for a method executing this request and parsing the response.
@@ -5172,6 +5295,7 @@ class $ContextClient {
   ///   * 500
   ///   * 400: invalid parameters were supplied
   ///   * 403: lacking permissions on a resource
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$create_Request] for the request send by this method.
@@ -5210,6 +5334,7 @@ class $ContextClient {
   ///   * 200: returning the full context information
   ///   * 500
   ///   * 404: context not found or not available anymore
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$show] for a method executing this request and parsing the response.
@@ -5259,6 +5384,7 @@ class $ContextClient {
   ///   * 200: returning the full context information
   ///   * 500
   ///   * 404: context not found or not available anymore
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$$show_Request] for the request send by this method.
@@ -5298,6 +5424,7 @@ class $ContextClient {
   ///   * 500
   ///   * 404: Not found
   ///   * 403: No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$update] for a method executing this request and parsing the response.
@@ -5363,6 +5490,7 @@ class $ContextClient {
   ///   * 500
   ///   * 404: Not found
   ///   * 403: No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$$update_Request] for the request send by this method.
@@ -5403,6 +5531,7 @@ class $ContextClient {
   ///   * 500
   ///   * 404: Not found
   ///   * 403: No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [destroy] for a method executing this request and parsing the response.
@@ -5453,6 +5582,7 @@ class $ContextClient {
   ///   * 500
   ///   * 404: Not found
   ///   * 403: No permissions
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$destroy_Request] for the request send by this method.
@@ -5493,6 +5623,7 @@ class $ContextClient {
   ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 400: Invalid request
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [transfer] for a method executing this request and parsing the response.
@@ -5553,6 +5684,7 @@ class $ContextClient {
   ///   * 403: No permissions
   ///   * 404: Not found
   ///   * 400: Invalid request
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$transfer_Request] for the request send by this method.
@@ -5596,6 +5728,7 @@ class $ContextClient {
   ///   * 404: Not found
   ///   * 403: No permissions
   ///   * 400: Invalid request
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [updateContentOrder] for a method executing this request and parsing the response.
@@ -5665,6 +5798,7 @@ class $ContextClient {
   ///   * 404: Not found
   ///   * 403: No permissions
   ///   * 400: Invalid request
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$updateContentOrder_Request] for the request send by this method.
@@ -5723,6 +5857,7 @@ class $RowocsClient {
   ///   * 400: Invalid request parameters
   ///   * 404: Not found
   ///   * 500: Internal error
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [createRow] for a method executing this request and parsing the response.
@@ -5791,6 +5926,7 @@ class $RowocsClient {
   ///   * 400: Invalid request parameters
   ///   * 404: Not found
   ///   * 500: Internal error
+  ///   * 401: Current user is not logged in
   ///
   /// See:
   ///  * [$createRow_Request] for the request send by this method.
