@@ -955,10 +955,10 @@ packages:
     dependency: transitive
     description:
       name: lint_maker
-      sha256: "98a141dfe38f0da28a90ff820552c74bfbb49ae57fe4ebd2dda1b4581b5d31d1"
+      sha256: fdcca24365fd2d44636b6978f5a9832e270c406e7c97ae51f2c086895e1c0ce2
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3"
+    version: "0.3.2"
   list_counter:
     dependency: transitive
     description:
