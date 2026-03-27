@@ -101,6 +101,7 @@ void main() {
         unifiedPushOnUnregistered = invocation.namedArguments[#onUnregistered] as void Function(String)?;
         unifiedPushOnMessage = invocation.namedArguments[#onMessage] as void Function(PushMessage, String)?;
       });
+      when(() => unifiedPushPlatform.initializeOnTempUnavailable(any())).thenAnswer((_) => Future.value());
       UnifiedPushPlatform.instance = unifiedPushPlatform;
     });
 

@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "de.provokateurin.neon"
-    compileSdkVersion = 35
+    compileSdkVersion = 36
 
     compileOptions {
         coreLibraryDesugaringEnabled = true

@@ -1029,6 +1029,7 @@ typedef _$93403da1a64cb6a7b1597c7a05e9b2be = ({bool? $bool, String? string});
 // ignore: library_private_types_in_public_api
 extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c7a05e9b2be {
   List<dynamic> get _values => [$bool, string];
+
   List<String> get _names => const [r'$bool', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -1036,8 +1037,10 @@ extension $93403da1a64cb6a7b1597c7a05e9b2beExtension on _$93403da1a64cb6a7b1597c
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$93403da1a64cb6a7b1597c7a05e9b2be> get _serializer =>
       const _$93403da1a64cb6a7b1597c7a05e9b2beSerializer();
+
   static _$93403da1a64cb6a7b1597c7a05e9b2be _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 

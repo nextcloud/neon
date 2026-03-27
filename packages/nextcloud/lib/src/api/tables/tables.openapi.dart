@@ -15492,6 +15492,7 @@ typedef _$b6d67dc2a96424d2f407f8e51557f3de = ({num? $num, String? string});
 // ignore: library_private_types_in_public_api
 extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8e51557f3de {
   List<dynamic> get _values => [$num, string];
+
   List<String> get _names => const [r'$num', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -15499,8 +15500,10 @@ extension $b6d67dc2a96424d2f407f8e51557f3deExtension on _$b6d67dc2a96424d2f407f8
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i6.validateAnyOf(_values, _names);
+
   static Serializer<_$b6d67dc2a96424d2f407f8e51557f3de> get _serializer =>
       const _$b6d67dc2a96424d2f407f8e51557f3deSerializer();
+
   static _$b6d67dc2a96424d2f407f8e51557f3de _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -15572,6 +15575,7 @@ extension $8518b50581163640f148d1e5a6a7db2cExtension on _$8518b50581163640f148d1
         api1UpdateViewRequestApplicationJsonData2,
         api1UpdateViewRequestApplicationJsonData3,
       ];
+
   List<String> get _names => const [
         'api1UpdateViewRequestApplicationJsonData0',
         'api1UpdateViewRequestApplicationJsonData1',
@@ -15584,8 +15588,10 @@ extension $8518b50581163640f148d1e5a6a7db2cExtension on _$8518b50581163640f148d1
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i6.validateAnyOf(_values, _names);
+
   static Serializer<_$8518b50581163640f148d1e5a6a7db2c> get _serializer =>
       const _$8518b50581163640f148d1e5a6a7db2cSerializer();
+
   static _$8518b50581163640f148d1e5a6a7db2c _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -15676,6 +15682,7 @@ typedef _$3f5057013fe375112018fdacdf7c966a = ({BuiltMap<String, JsonObject>? bui
 // ignore: library_private_types_in_public_api
 extension $3f5057013fe375112018fdacdf7c966aExtension on _$3f5057013fe375112018fdacdf7c966a {
   List<dynamic> get _values => [builtMapStringJsonObject, string];
+
   List<String> get _names => const ['builtMapStringJsonObject', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -15683,8 +15690,10 @@ extension $3f5057013fe375112018fdacdf7c966aExtension on _$3f5057013fe375112018fd
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i6.validateAnyOf(_values, _names);
+
   static Serializer<_$3f5057013fe375112018fdacdf7c966a> get _serializer =>
       const _$3f5057013fe375112018fdacdf7c966aSerializer();
+
   static _$3f5057013fe375112018fdacdf7c966a _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 

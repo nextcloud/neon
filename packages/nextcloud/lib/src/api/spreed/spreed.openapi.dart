@@ -58082,6 +58082,7 @@ typedef _$bed8482b7c93ae2974fa4be6ae42b9b1 = ({
 // ignore: library_private_types_in_public_api
 extension $bed8482b7c93ae2974fa4be6ae42b9b1Extension on _$bed8482b7c93ae2974fa4be6ae42b9b1 {
   List<dynamic> get _values => [baseMessage, builtListNever, chatMessage];
+
   List<String> get _names => const ['baseMessage', 'builtListNever', 'chatMessage'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58089,8 +58090,10 @@ extension $bed8482b7c93ae2974fa4be6ae42b9b1Extension on _$bed8482b7c93ae2974fa4b
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$bed8482b7c93ae2974fa4be6ae42b9b1> get _serializer =>
       const _$bed8482b7c93ae2974fa4be6ae42b9b1Serializer();
+
   static _$bed8482b7c93ae2974fa4be6ae42b9b1 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58161,6 +58164,7 @@ typedef _$eef5a337590648ee15c9b8f9dd9d6a36 = ({ChatMessage? chatMessage, Deleted
 // ignore: library_private_types_in_public_api
 extension $eef5a337590648ee15c9b8f9dd9d6a36Extension on _$eef5a337590648ee15c9b8f9dd9d6a36 {
   List<dynamic> get _values => [chatMessage, deletedChatMessage];
+
   List<String> get _names => const ['chatMessage', 'deletedChatMessage'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58168,8 +58172,10 @@ extension $eef5a337590648ee15c9b8f9dd9d6a36Extension on _$eef5a337590648ee15c9b8
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$eef5a337590648ee15c9b8f9dd9d6a36> get _serializer =>
       const _$eef5a337590648ee15c9b8f9dd9d6a36Serializer();
+
   static _$eef5a337590648ee15c9b8f9dd9d6a36 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58235,6 +58241,7 @@ typedef _$4f2be900e5f7182901d856e06271b0e6 = ({
 // ignore: library_private_types_in_public_api
 extension $4f2be900e5f7182901d856e06271b0e6Extension on _$4f2be900e5f7182901d856e06271b0e6 {
   List<dynamic> get _values => [builtListNever, signalingFederationSettings];
+
   List<String> get _names => const ['builtListNever', 'signalingFederationSettings'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58242,8 +58249,10 @@ extension $4f2be900e5f7182901d856e06271b0e6Extension on _$4f2be900e5f7182901d856
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$4f2be900e5f7182901d856e06271b0e6> get _serializer =>
       const _$4f2be900e5f7182901d856e06271b0e6Serializer();
+
   static _$4f2be900e5f7182901d856e06271b0e6 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58309,6 +58318,7 @@ typedef _$1df642f5035aea3b22543ab331c3fb01 = ({BuiltList<SignalingSession>? buil
 // ignore: library_private_types_in_public_api
 extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543ab331c3fb01 {
   List<dynamic> get _values => [builtListSignalingSession, string];
+
   List<String> get _names => const ['builtListSignalingSession', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58316,8 +58326,10 @@ extension $1df642f5035aea3b22543ab331c3fb01Extension on _$1df642f5035aea3b22543a
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$1df642f5035aea3b22543ab331c3fb01> get _serializer =>
       const _$1df642f5035aea3b22543ab331c3fb01Serializer();
+
   static _$1df642f5035aea3b22543ab331c3fb01 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58382,6 +58394,7 @@ typedef _$f281c16bc584cda0adb1f4b8d534ee07 = ({BuiltList<Never>? builtListNever,
 // ignore: library_private_types_in_public_api
 extension $f281c16bc584cda0adb1f4b8d534ee07Extension on _$f281c16bc584cda0adb1f4b8d534ee07 {
   List<dynamic> get _values => [builtListNever, room];
+
   List<String> get _names => const ['builtListNever', 'room'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58389,8 +58402,10 @@ extension $f281c16bc584cda0adb1f4b8d534ee07Extension on _$f281c16bc584cda0adb1f4
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$f281c16bc584cda0adb1f4b8d534ee07> get _serializer =>
       const _$f281c16bc584cda0adb1f4b8d534ee07Serializer();
+
   static _$f281c16bc584cda0adb1f4b8d534ee07 _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58456,6 +58471,7 @@ typedef _$eded9c5615e6be3b25806a949699f91f = ({
 // ignore: library_private_types_in_public_api
 extension $eded9c5615e6be3b25806a949699f91fExtension on _$eded9c5615e6be3b25806a949699f91f {
   List<dynamic> get _values => [builtMapStringJsonObject, capabilities];
+
   List<String> get _names => const ['builtMapStringJsonObject', 'capabilities'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58463,8 +58479,10 @@ extension $eded9c5615e6be3b25806a949699f91fExtension on _$eded9c5615e6be3b25806a
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$eded9c5615e6be3b25806a949699f91f> get _serializer =>
       const _$eded9c5615e6be3b25806a949699f91fSerializer();
+
   static _$eded9c5615e6be3b25806a949699f91f _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
@@ -58532,6 +58550,7 @@ typedef _$b2c4857c0136baea42828d89c87c757d = ({int? $int, String? string});
 // ignore: library_private_types_in_public_api
 extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d89c87c757d {
   List<dynamic> get _values => [$int, string];
+
   List<String> get _names => const [r'$int', 'string'];
 
   /// {@macro Dynamite.validateOneOf}
@@ -58539,8 +58558,10 @@ extension $b2c4857c0136baea42828d89c87c757dExtension on _$b2c4857c0136baea42828d
 
   /// {@macro Dynamite.validateAnyOf}
   void validateAnyOf() => _i4.validateAnyOf(_values, _names);
+
   static Serializer<_$b2c4857c0136baea42828d89c87c757d> get _serializer =>
       const _$b2c4857c0136baea42828d89c87c757dSerializer();
+
   static _$b2c4857c0136baea42828d89c87c757d _fromJson(Object? json) =>
       _$jsonSerializers.deserializeWith(_serializer, json)!;
 
