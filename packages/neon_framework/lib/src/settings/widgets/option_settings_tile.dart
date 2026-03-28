@@ -137,28 +137,30 @@ class _SelectSettingsTileDialogState<T> extends State<SelectSettingsTileDialog<T
   @override
   Widget build(BuildContext context) {
     final content = SingleChildScrollView(
-      child: Column(
-        children: [
-          ...widget.option.values.keys.map(
-            (k) => RadioListTile(
-              title: Text(
-                widget.option.values[k]!(context),
-                overflow: TextOverflow.ellipsis,
-              ),
-              value: k,
-              groupValue: value,
-              onChanged: (value) {
-                setState(() {
-                  this.value = value as T;
-                });
+      child: RadioGroup(
+        groupValue: value,
+        onChanged: (value) {
+          setState(() {
+            this.value = value as T;
+          });
 
-                if (widget.immediateSelection) {
-                  submit();
-                }
-              },
+          if (widget.immediateSelection) {
+            submit();
+          }
+        },
+        child: Column(
+          children: [
+            ...widget.option.values.keys.map(
+              (k) => RadioListTile(
+                title: Text(
+                  widget.option.values[k]!(context),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                value: k,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
 
@@ -204,25 +206,27 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
 
     final selector = ValueListenableBuilder(
       valueListenable: option,
-      builder: (context, value, child) => CupertinoListSection.insetGrouped(
-        hasLeading: false,
-        header: child,
-        children: [
-          ...option.values.keys.map(
-            (k) => RadioListTile.adaptive(
-              controlAffinity: ListTileControlAffinity.trailing,
-              title: Text(
-                option.values[k]!(context),
-                overflow: TextOverflow.ellipsis,
+      builder: (context, value, child) => RadioGroup(
+        groupValue: value,
+        onChanged: (value) {
+          option.value = value as T;
+        },
+        child: CupertinoListSection.insetGrouped(
+          hasLeading: false,
+          header: child,
+          children: [
+            ...option.values.keys.map(
+              (k) => RadioListTile.adaptive(
+                controlAffinity: ListTileControlAffinity.trailing,
+                title: Text(
+                  option.values[k]!(context),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                value: k,
               ),
-              value: k,
-              groupValue: value,
-              onChanged: (value) {
-                option.value = value as T;
-              },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       child: Text(
         option.label(context),
