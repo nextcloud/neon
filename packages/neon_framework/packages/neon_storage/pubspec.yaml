@@ -10,7 +10,10 @@ environment:
 dependencies:
   built_collection: ^5.0.0
   cookie_store:
-    path: ../../../cookie_store
+    git:
+      url: https://github.com/foldland/cookie_store
+      path: packages/cookie_store
+      ref: 4280ce0b73d1950a603f6ed78596666db1b59af6
   http: ^1.0.0
   logging: ^1.0.0
   meta: ^1.0.0
@@ -22,7 +25,10 @@ dependencies:
 
 dev_dependencies:
   cookie_store_conformance_tests:
-    path: ../../../cookie_store/packages/cookie_store_conformance_tests
+    git:
+      url: https://github.com/foldland/cookie_store
+      path: packages/cookie_store_conformance_tests
+      ref: 4280ce0b73d1950a603f6ed78596666db1b59af6
   mocktail: ^1.0.4
   neon_lints:
     path: ../../../neon_lints

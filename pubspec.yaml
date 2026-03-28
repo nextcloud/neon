@@ -6,13 +6,10 @@ environment:
   flutter: ^3.27.0
 
 workspace:
-  - packages/cookie_store
-  - packages/cookie_store/packages/cookie_store_conformance_tests
   - packages/dynamite
   - packages/dynamite/example
   - packages/dynamite/packages/dynamite_end_to_end_test
   - packages/dynamite/packages/dynamite_runtime
-  - packages/interceptor_http_client
   - packages/neon_framework
   - packages/neon_framework/example
   - packages/neon_framework/packages/account_repository
