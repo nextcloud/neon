@@ -4,6 +4,7 @@ analyzer:
     strict-inference: true
     strict-raw-types: true
   errors:
+    experimental_member_use: ignore
     flutter_style_todos: ignore
     todo: ignore
 linter:
