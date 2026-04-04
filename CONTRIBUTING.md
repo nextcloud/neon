@@ -11,20 +11,9 @@ To set up all these tools run the `./tool/setup.sh` script.
 Note that you need to have Dart installed and [`~/.pub-cache/bin/` needs to be in your PATH](https://dart.dev/tools/pub/cmd/pub-global#running-a-script-from-your-path) before running the script.
 
 You will need to have the following dependencies installed to get the app running:
-- [yq](https://github.com/kislyuk/yq)
 - [sqlite3](https://pub.dev/packages/sqflite_common_ffi#getting-started)
 
-For working with lower levels like generating the OpenAPI specifications a few more dependencies are required:
-- [jsonpatch](https://pypi.org/project/jsonpatch)
-- [PHP](https://www.php.net)
-- [composer](https://getcomposer.org)
-Make sure to initialize the git submodules by running `git submodule update --init --recursive`.
-This will add our external dependencies to `external/` so scripts can use them for generation.  
-
-For running a development Nextcloud instance: 
-- Install [docker](https://www.docker.com/get-started)
-- Run the `./tool/dev.sh` script to start the server 
-- Development instance running on http://localhost. To access it in an Android Emulator use http://10.0.2.2
+For running a development Nextcloud instance see https://github.com/provokateurin/nextcloud.dart/blob/main/DEVELOPMENT.md#run-a-test-instance.
 
 ## Picking an issue
 You may wish to start with our list of [good first issues](https://github.com/nextcloud/neon/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)

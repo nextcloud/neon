@@ -29,9 +29,6 @@ workspace:
   - packages/neon_framework/packages/talk_app
   - packages/neon_lints
   - packages/neon_lints/example
-  - packages/nextcloud
-  - packages/nextcloud/packages/nextcloud_test
-  - packages/nextcloud/packages/nextcloud_test_presets
 
 dependencies:
   flutter:
