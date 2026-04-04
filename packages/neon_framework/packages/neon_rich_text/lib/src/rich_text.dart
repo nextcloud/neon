@@ -26,6 +26,7 @@ TextSpan buildRichTextSpan({
   );
 
   if (isPreview) {
+    // ignore: parameter_assignments
     text = text.replaceAll('\n', ' ');
   }
 

@@ -510,6 +510,7 @@ class _TalkRoomBloc extends InteractiveBloc implements TalkRoomBloc {
         data: data.rebuild((b) {
           b.map((m) {
             if (m.id == messageId) {
+              // ignore: parameter_assignments
               m = m.rebuild(updates);
             }
 

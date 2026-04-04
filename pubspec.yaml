@@ -2,8 +2,8 @@ name: neon_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
-  flutter: ^3.27.0
+  sdk: ^3.10.0
+  flutter: ^3.38.0
 
 workspace:
   - packages/cookie_store
@@ -38,4 +38,40 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  melos: 6.0.0
+  melos: 7.0.0
+
+melos:
+  name: neon
+  repository: https://github.com/nextcloud/neon
+
+  sdkPath: .fvm/flutter_sdk
+
+  ide:
+    intellij:
+      enabled: false
+
+  command:
+    version:
+      hooks:
+        # Needed until https://github.com/invertase/melos/issues/591 is supported
+        post: |
+          git commit --amend --signoff --no-edit
+
+  scripts:
+    format: dart format --line-length 120 .
+    format:check: dart format --output=none --set-exit-if-changed --line-length 120 .
+    analyze: >
+      dart analyze --fatal-infos . &&
+      rm -rf packages/neon_framework/example/linux/flutter/ephemeral/ &&
+      dart run custom_lint --fatal-infos .
+    test: >
+      melos run test:dart &&
+      melos run test:flutter
+    test:dart: >
+      melos exec --no-flutter --concurrency=1 --fail-fast --dir-exists=test -- "
+        dart test --concurrency=$(nproc --all) --coverage=coverage &&
+        dart pub global run coverage:format_coverage --packages=MELOS_ROOT_PATH/.dart_tool/package_config.json --report-on=lib --lcov -o ./coverage/lcov.info -i ./coverage
+      "
+    test:flutter: melos exec --flutter --concurrency=1 --fail-fast --dir-exists=test -- flutter test --concurrency=$(nproc --all) --coverage
+    generate:neon:build_runner: melos exec --scope="neon*" --file-exists="build.yaml" -- dart run build_runner build --delete-conflicting-outputs && melos run format
+    generate:neon:l10n: melos exec --flutter --dir-exists="lib/l10n" flutter gen-l10n && melos run format

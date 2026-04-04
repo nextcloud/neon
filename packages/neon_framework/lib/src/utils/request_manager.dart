@@ -5,7 +5,6 @@ import 'package:dynamite_runtime/http_client.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/storage.dart';

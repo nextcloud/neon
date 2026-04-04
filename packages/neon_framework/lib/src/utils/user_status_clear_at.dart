@@ -27,6 +27,7 @@ extension ClearAt on user_status.ClearAt {
   }
 
   tz.TZDateTime? toDateTime([tz.TZDateTime? base]) {
+    // ignore: parameter_assignments
     base = base?.toUtc() ?? tz.TZDateTime.now(tz.UTC);
 
     switch (type) {
