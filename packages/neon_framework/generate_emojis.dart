@@ -6,9 +6,9 @@ import 'package:dart_style/dart_style.dart';
 import 'package:string_normalizer/string_normalizer.dart';
 import 'package:universal_io/io.dart';
 
-/// Android 14 only supports Unicode 15.0, so we use that for now, even though newer versions are available:
+/// Android 15 only supports Unicode 15.1, so we use that for now, even though newer versions are available:
 /// https://developer.android.com/guide/topics/resources/internationalization#versioning-nougat
-const unicodeVersion = '15_0';
+const unicodeVersion = '15_1';
 
 void main() {
   final formatter = DartFormatter(
