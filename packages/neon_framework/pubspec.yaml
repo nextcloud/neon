@@ -27,7 +27,7 @@ dependencies:
       ref: 94075d7ab7cdbe0b0749ed1cba049acb5f294f1f
   dynamite_runtime: ^0.6.0
   equatable: ^2.0.0
-  file_picker: ^10.0.0
+  file_picker: ^11.0.2
   filesize: ^2.0.0
   flutter:
     sdk: flutter
