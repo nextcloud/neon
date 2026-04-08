@@ -18,8 +18,6 @@ Make sure that you have a clean working tree before running `melos publish`.
 ```bash
 melos version --no-git-tag-version
 
-# If necessary adjust the required dynamite_runtime version in dynamite and stage the changes
-
 # Create PR and get it merged
 
 melos publish --git-tag-version

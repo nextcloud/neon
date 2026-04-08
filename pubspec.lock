@@ -442,6 +442,14 @@ packages:
       url: "https://github.com/provokateurin/flutter-packages"
     source: git
     version: "1.8.1"
+  dynamite_runtime:
+    dependency: transitive
+    description:
+      name: dynamite_runtime
+      sha256: "4a7209b172309a917d0b9a5a46044e7c5cae14a1f3b023dffa34bd8742929417"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.0"
   equatable:
     dependency: transitive
     description:
@@ -1399,14 +1407,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.2"
-  rfc_6901:
-    dependency: transitive
-    description:
-      name: rfc_6901
-      sha256: "6a43b1858dca2febaf93e15639aa6b0c49ccdfd7647775f15a499f872b018154"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.1"
   rxdart:
     dependency: transitive
     description:

@@ -18,10 +18,6 @@
 	path = external/nextcloud-notes
 	url = https://github.com/nextcloud/notes
 	branch = v4.13.1
-[submodule "external/openapi-specification"]
-	path = external/openapi-specification
-	url = https://github.com/OAI/OpenAPI-Specification.git
-	branch = 3.1.1
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
