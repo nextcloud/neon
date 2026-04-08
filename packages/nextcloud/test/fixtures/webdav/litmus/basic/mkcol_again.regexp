@@ -1,8 +1,0 @@
-MKCOL http://localhost/remote\.php/webdav/test/mkcol-again
-authorization: Bearer mock
-content-type: application/xml
-ocs-apirequest: true
-MKCOL http://localhost/remote\.php/webdav/test/mkcol-again
-authorization: Bearer mock
-content-type: application/xml
-ocs-apirequest: true
