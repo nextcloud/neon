@@ -9,8 +9,6 @@ rules:
     - always
     - - ci
       - account_repository
-      - cookie_store
-      - cookie_store_conformance_tests
       - dashboard_app
       - deps
       - docs
@@ -20,7 +18,6 @@ rules:
       - dynamite_runtime
       - example
       - files_app
-      - interceptor_http_client
       - neon_framework
       - neon_http_client
       - neon_lints

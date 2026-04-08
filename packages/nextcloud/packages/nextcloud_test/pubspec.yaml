@@ -10,11 +10,17 @@ dependencies:
   built_collection: ^5.1.1
   collection: ^1.0.0
   cookie_store:
-    path: ../../../cookie_store
+    git:
+      url: https://github.com/foldland/cookie_store
+      path: packages/cookie_store
+      ref: 4280ce0b73d1950a603f6ed78596666db1b59af6
   glob: ^2.1.2
   http: ^1.2.0
   interceptor_http_client:
-    path: ../../../interceptor_http_client
+    git:
+      url: https://github.com/foldland/cookie_store
+      path: packages/interceptor_http_client
+      ref: 4280ce0b73d1950a603f6ed78596666db1b59af6
   matcher: ^0.12.0
   meta: ^1.0.0
   nextcloud: ^9.0.0
