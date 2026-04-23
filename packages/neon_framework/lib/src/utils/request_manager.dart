@@ -11,6 +11,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/utils.dart';
+import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -67,8 +68,31 @@ class RequestManager {
   @visibleForTesting
   http.Client? httpClient;
 
-  /// Executes a generic [http.Request].
+  /// This allows us to limit the amount of parallel requests to the server.
+  /// This is especially important when opening a gallery with a lot of images which require previews.
+  final _requestQueue = Queue(parallel: 10);
+
+  /// Executes a generic [http.Request] in a quened manner.
   Future<void> wrap<T, R>({
+    required Account account,
+    required BehaviorSubject<Result<T>> subject,
+    required http.Request Function() getRequest,
+    required Converter<http.Response, R> converter,
+    required UnwrapCallback<T, R> unwrap,
+    AsyncValueGetter<Map<String, String>>? getCacheHeaders,
+  }) async {
+    await _requestQueue.add(() => _wrap(
+          account: account,
+          subject: subject,
+          getRequest: getRequest,
+          converter: converter,
+          unwrap: unwrap,
+          getCacheHeaders: getCacheHeaders,
+        ));
+  }
+
+  /// Executes a generic [http.Request].
+  Future<void> _wrap<T, R>({
     required Account account,
     required BehaviorSubject<Result<T>> subject,
     required http.Request Function() getRequest,
