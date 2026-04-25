@@ -86,7 +86,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   go_router_builder: ^3.0.0
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
   neon_lints:
     path: ../neon_lints
   package_info_plus_platform_interface: ^3.2.1
