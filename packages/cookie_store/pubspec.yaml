@@ -9,7 +9,7 @@ environment:
 
 dependencies:
   meta: ^1.0.0
-  timezone: ^0.10.1
+  timezone: ^0.11.0
 
 dev_dependencies:
   cookie_store_conformance_tests:
