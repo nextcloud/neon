@@ -119,3 +119,5 @@ class MockUrlLauncher extends Mock with MockPlatformInterfaceMixin implements Ur
 class MockReferencesBloc extends Mock implements ReferencesBloc {}
 
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
+
+class MockBlurBloc extends Mock implements BlurBloc {}

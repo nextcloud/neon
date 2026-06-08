@@ -185,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.12.5"
+  cacherine:
+    dependency: transitive
+    description:
+      name: cacherine
+      sha256: "375bc4baca0560e92bb6ed7543742d6ec65638c4d642c1ba407d4d4bba399658"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   camera:
     dependency: transitive
     description:

@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/testing.dart';
 import 'package:neon_framework/widgets.dart';
@@ -14,6 +15,7 @@ const validBlurHash = 'LEHLk~WB2yk8pyo0adR*.7kCMdnj';
 void main() {
   late MockUrlLauncher urlLauncher;
   late Account account;
+  late BlurBloc blurBloc;
 
   setUpAll(() {
     FakeNeonStorage.setup();
@@ -25,6 +27,14 @@ void main() {
     when(() => urlLauncher.launchUrl(any(), any())).thenAnswer((_) async => true);
 
     UrlLauncherPlatform.instance = urlLauncher;
+
+    const fallbackSize = Size(100, 100);
+    registerFallbackValue(fallbackSize);
+
+    blurBloc = MockBlurBloc();
+    when(() => blurBloc.getBlurHash(validBlurHash, any())).thenReturn(
+      BlurHashDecodeTask(blurHash: validBlurHash, size: fallbackSize),
+    );
   });
 
   setUp(() {
@@ -65,6 +75,7 @@ void main() {
         TestApp(
           providers: [
             Provider<Account>.value(value: account),
+            Provider<BlurBloc>.value(value: blurBloc),
           ],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(
@@ -216,6 +227,7 @@ void main() {
         TestApp(
           providers: [
             Provider<Account>.value(value: account),
+            Provider<BlurBloc>.value(value: blurBloc),
           ],
           child: NeonRichObjectFile(
             parameter: core.RichObjectParameter(

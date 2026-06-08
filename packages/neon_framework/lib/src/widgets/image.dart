@@ -3,14 +3,15 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_blurhash/flutter_blurhash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'package:neon_framework/models.dart';
 import 'package:neon_framework/src/bloc/result.dart';
+import 'package:neon_framework/src/blocs/blur.dart';
 import 'package:neon_framework/src/utils/account_client_extension.dart';
 import 'package:neon_framework/src/utils/image_utils.dart';
+import 'package:neon_framework/src/utils/provider.dart';
 import 'package:neon_framework/src/utils/request_manager.dart';
 import 'package:neon_framework/src/widgets/error.dart';
 import 'package:neon_framework/src/widgets/linear_progress_indicator.dart';
@@ -108,22 +109,17 @@ class NeonImage extends StatelessWidget {
             // If the data is not UTF-8
           }
 
-          return Image.memory(
-            data,
-            height: size?.height,
-            width: size?.width,
-            fit: fit ?? BoxFit.contain,
-            gaplessPlayback: true,
-            errorBuilder: (context, error, stacktrace) => _buildError(context, error),
-          );
-        }
-
-        if (blurHash != null) {
-          return BlurHash(
-            hash: blurHash!,
-            imageFit: fit ?? BoxFit.cover,
-            decodingHeight: size?.height.toInt() ?? 32,
-            decodingWidth: size?.width.toInt() ?? 32,
+          return _buildImageWithBlur(
+            context,
+            child: Image.memory(
+              data,
+              height: size?.height,
+              width: size?.width,
+              fit: fit ?? BoxFit.contain,
+              gaplessPlayback: true,
+              errorBuilder: (context, error, stacktrace) => _buildError(context, error),
+            ),
+            isLoading: imageResult.isLoading,
           );
         }
 
@@ -131,13 +127,56 @@ class NeonImage extends StatelessWidget {
           return _buildError(context, imageResult.error);
         }
 
-        return SizedBox(
-          width: size?.width,
-          child: const NeonLinearProgressIndicator(),
+        return _buildBlur(context, isLoading: imageResult.isLoading);
+      },
+    );
+  }
+
+  /// Replacing the blurhash with the actual image leads to UI flickering when scrolling very fast.
+  /// To mitigate this, we keep the blurhash underneath the actual image.
+  Widget _buildImageWithBlur(BuildContext context, {required Widget child, bool isLoading = true}) => Stack(
+        fit: StackFit.passthrough,
+        children: [
+          _buildBlur(context, isLoading: isLoading),
+          child,
+        ],
+      );
+
+  Widget _buildBlur(BuildContext context, {bool isLoading = true}) {
+    if (blurHash == null) {
+      return _buildNoBlur(context, isLoading: isLoading);
+    }
+
+    final blurTask = NeonProvider.of<BlurBloc>(context).getBlurHash(
+      blurHash!,
+      size ?? const Size.square(32),
+    );
+
+    // [ValueListenableBuilder] is better then [FutureBuilder] here,
+    // because it allows us to update a cached blur without flickering, which is important when scrolling fast.
+    // Background is that [FutureBuilder] returns for a short moment null even if the future is already completed.
+    return ValueListenableBuilder(
+      // Key is important to ensure that we can move it without cost in the widget tree.
+      key: ValueKey('$blurHash'),
+      valueListenable: blurTask.blur,
+      builder: (context, blur, _) {
+        if (blur == null) {
+          return _buildNoBlur(context, isLoading: isLoading);
+        }
+
+        return RawImage(
+          image: blur,
         );
       },
     );
   }
+
+  Widget _buildNoBlur(BuildContext context, {bool isLoading = true}) => SizedBox(
+        width: size?.width,
+        child: NeonLinearProgressIndicator(
+          visible: isLoading,
+        ),
+      );
 
   Widget _buildError(BuildContext context, Object? error) =>
       errorBuilder?.call(context, error) ??
