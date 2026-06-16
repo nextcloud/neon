@@ -1,6 +1,9 @@
 [Desktop Entry]
+Categories=Utility;
 Type=Application
 Name=Nextcloud Neon
+Comment=A beautiful convergent cross-platform client for Nextcloud
 Icon=de.provokateurin.neon
 Exec=nextcloud-neon %U
-Keywords=Nextcloud;Neon
+Keywords=Nextcloud;Neon;syncing;file;sharing;
+SingleMainWindow=true

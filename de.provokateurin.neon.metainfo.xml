@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright [2026] [Kate] -->
+<component type="desktop-application">
+  <id>de.provokateurin.neon</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>AGPL-3.0-only</project_license>
+  <name>Neon</name>
+  <summary>A beautiful convergent cross-platform client for Nextcloud</summary>
+  <developer id="de.provokateurin">
+      <name>Kate</name>
+  </developer>
+  <description>
+      <p>A beautiful convergent cross-platform client for Nextcloud</p>
+  </description>
+  <launchable type="desktop-id">de.provokateurin.neon.desktop</launchable>
+  <project_group>Nextcloud</project_group>
+  <branding>
+    <color type="primary" scheme_preference="light">#ffffff</color>
+    <color type="primary" scheme_preference="dark">#141618</color>
+  </branding>
+  <content_rating type="oars-1.1" />
+  <url type="bugtracker">https://github.com/nextcloud/neon/issues</url>
+  <url type="homepage">https://github.com/nextcloud/neon/tree/main/packages/neon_framework/example/</url>
+  <url type="vcs-browser">https://github.com/nextcloud/neon/tree/main/packages/neon_framework/example/</url>
+  <!-- TODO Add screenshots, https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines#screenshots -->
+  <releases>
+  <!-- TODO Add release information, https://docs.flathub.org/docs/for-app-authors/metainfo-guidelines#release -->
+  </releases>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+    <control>touch</control>
+  </supports>
+  <requires>
+    <!-- Mobile/tablet AND desktop supported -->
+    <display_length compare="ge">360</display_length>
+  </requires>
+</component>
