@@ -25,7 +25,7 @@ dev_dependencies:
   custom_lint: ^0.7.6
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
   neon_lints:
     path: ../../../neon_lints
   provider: ^6.1.5

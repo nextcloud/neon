@@ -23,7 +23,7 @@ dependencies:
 dev_dependencies:
   cookie_store_conformance_tests:
     path: ../../../cookie_store/packages/cookie_store_conformance_tests
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
   neon_lints:
     path: ../../../neon_lints
   test: ^1.25.15
