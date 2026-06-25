@@ -34,7 +34,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
   neon_lints:
     path: ../../../neon_lints
   plugin_platform_interface: ^2.1.8
