@@ -320,37 +320,66 @@ void main() {
 
   test('refresh', () async {
     expect(
-      roomBloc.room.transformResult((e) => e.token),
+      roomBloc.lastCommonRead,
+      emitsInOrder([0, 0]),
+    );
+
+    final initialRoom = expectLater(
+      roomBloc.room.transformResult((room) => room.token),
       emitsInOrder([
-        Result.success('abcd').asLoading(),
-        Result.success('abcd'),
-        Result.success('abcd'),
         Result.success('abcd').asLoading(),
         Result.success('abcd'),
         Result.success('abcd'),
       ]),
     );
 
-    expect(
-      roomBloc.messages.transformResult((e) => BuiltList<int>(e.map((m) => m.id))),
+    final initialMessages = expectLater(
+      roomBloc.messages.transformResult(
+        (messages) => BuiltList<int>(messages.map((message) => message.id)),
+      ),
       emitsInOrder([
         Result<BuiltList<int>>.loading(),
         Result.success(BuiltList<int>([2, 1, 0])),
+      ]),
+    );
+
+    await Future.wait([
+      initialRoom,
+      initialMessages,
+    ]);
+
+    final refreshedRoom = expectLater(
+      roomBloc.room
+          .skip(1) // we are skipping the initial refresh
+          .transformResult((room) => room.token),
+      emitsInOrder([
+        Result.success('abcd').asLoading(),
+        Result.success('abcd'),
+        Result.success('abcd'),
+      ]),
+    );
+
+    final refreshedMessages = expectLater(
+      roomBloc.messages
+          .skip(1) // we are skipping the initial refresh
+          .transformResult(
+            (messages) => BuiltList<int>(messages.map((message) => message.id)),
+          ),
+      emitsInOrder([
         Result.success(BuiltList<int>([2, 1, 0])).asLoading(),
         Result.success(BuiltList<int>([2, 1, 0])),
       ]),
     );
 
-    expect(
-      roomBloc.lastCommonRead,
-      emitsInOrder([0, 0]),
-    );
-
-    // The delay is necessary to avoid a race condition with loading twice at the same time
-    await Future<void>.delayed(const Duration(milliseconds: 1));
     await roomBloc.refresh();
 
-    verify(() => talkBloc.updateRoom(any())).called(4);
+    await Future.wait([
+      refreshedRoom,
+      refreshedMessages,
+    ]);
+
+    // expecting 5 events: initial seed + 2 from constructor refresh + 2 from test refresh
+    verify(() => talkBloc.updateRoom(any())).called(5);
   });
 
   test('sendMessage', () async {
