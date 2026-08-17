@@ -17,7 +17,7 @@
 [submodule "external/nextcloud-notes"]
 	path = external/nextcloud-notes
 	url = https://github.com/nextcloud/notes
-	branch = v5.0.0
+	branch = v6.0.2
 [submodule "external/emoji-metadata"]
 	path = external/emoji-metadata
 	url = https://github.com/googlefonts/emoji-metadata
