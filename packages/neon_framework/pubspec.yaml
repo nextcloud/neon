@@ -91,7 +91,7 @@ dev_dependencies:
   neon_lints:
     path: ../neon_lints
   package_info_plus_platform_interface: ^3.2.1
-  permission_handler_platform_interface: ^4.3.0
+  permission_handler_platform_interface: ^4.4.1
   plugin_platform_interface: ^2.1.8
   string_normalizer: ^0.4.0
   url_launcher_platform_interface: ^2.3.2
