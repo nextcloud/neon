@@ -12,7 +12,7 @@ dependencies:
   built_collection: ^5.1.1
   built_value: ^8.9.2
   crypto: ^3.0.3
-  equatable: ^2.0.5
+  equatable: ^3.0.0
   http: ^1.2.2
   meta: ^1.0.0
   neon_framework:
