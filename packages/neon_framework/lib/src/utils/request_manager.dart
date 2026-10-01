@@ -11,6 +11,7 @@ import 'package:neon_framework/src/bloc/result.dart';
 import 'package:neon_framework/storage.dart';
 import 'package:neon_http_client/neon_http_client.dart';
 import 'package:nextcloud/utils.dart';
+import 'package:queue/queue.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:timezone/timezone.dart' as tz;
 
@@ -67,7 +68,12 @@ class RequestManager {
   @visibleForTesting
   http.Client? httpClient;
 
-  /// Executes a generic [http.Request].
+  /// This allows us to limit the amount of parallel requests to the server.
+  /// This is especially important when opening a gallery with a lot of images which require previews.
+  final _requestQueue = Queue(parallel: 10);
+
+  /// Executes a generic [http.Request] in a queued manner.
+  /// Only actual requests that are not cached will be executed against the server and queued.
   Future<void> wrap<T, R>({
     required Account account,
     required BehaviorSubject<Result<T>> subject,
@@ -79,11 +85,12 @@ class RequestManager {
     if (subject.isClosed) {
       return;
     }
+
     if (!subject.hasValue) {
       subject.add(Result.loading());
     }
 
-    var request = getRequest();
+    final request = getRequest();
 
     final cachedResponse = await _cache?.get(account, request);
     if (subject.isClosed) {
@@ -160,6 +167,29 @@ class RequestManager {
       subject.add(subject.value.asLoading());
     }
 
+    await _requestQueue.add(
+      () => _requestFromServer(
+        request: request,
+        account: account,
+        subject: subject,
+        getRequest: getRequest,
+        converter: converter,
+        unwrap: unwrap,
+        getCacheHeaders: getCacheHeaders,
+      ),
+    );
+  }
+
+  /// Performs [http.Request] against the server.
+  Future<void> _requestFromServer<T, R>({
+    required http.Request request,
+    required Account account,
+    required BehaviorSubject<Result<T>> subject,
+    required http.Request Function() getRequest,
+    required Converter<http.Response, R> converter,
+    required UnwrapCallback<T, R> unwrap,
+    AsyncValueGetter<Map<String, String>>? getCacheHeaders,
+  }) async {
     final client = httpClient ?? account.client;
 
     for (var i = 0; i < kMaxTries; i++) {
