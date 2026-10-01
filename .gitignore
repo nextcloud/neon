@@ -16,3 +16,7 @@ packages/**/doc/api
 # **/pubspec_overrides.yaml
 
 .fvm/
+
+# Flatpak
+.flatpak-builder/
+repo

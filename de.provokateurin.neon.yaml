@@ -1,0 +1,52 @@
+id: de.provokateurin.neon
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.llvm20
+command: nextcloud-neon
+build-options:
+  build-args:
+    - --share=network
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --share=network
+  - --device=dri
+modules:
+  - name: neon
+    buildsystem: simple
+    build-options:
+      arch:
+        x86_64:
+          env:
+            BUNDLE_PATH: packages/neon_framework/example/build/linux/x64/release/bundle
+        aarch64:
+          env:
+            BUNDLE_PATH: packages/neon_framework/example/build/linux/arm64/release/bundle
+      append-path: /usr/lib/sdk/llvm20/bin:/var/lib/flutter/bin:/run/build/neon/flutter/bin
+      prepend-ld-library-path: /usr/lib/sdk/llvm20/lib
+      env:
+        PUB_CACHE: /run/build/neon/.pub-cache
+    build-commands:
+      - mkdir /app/lib/
+      - if [ "$(arch)" == "x86_64" ]; then ln -sf /usr/lib/x86_64-linux-gnu/libsqlite3.so.0
+        /app/lib/libsqlite3.so; fi
+      - if [ "$(arch)" == "aarch64" ]; then ln -sf /usr/lib/aarch64-linux-gnu/libsqlite3.so.0
+        /app/lib/libsqlite3.so; fi
+      - cd packages/neon_framework/example && flutter pub get
+      - cd packages/neon_framework/example && flutter build linux --release --no-pub
+      - install -D $BUNDLE_PATH/nextcloud-neon /app/bin/nextcloud-neon
+      - cp -r $BUNDLE_PATH/lib /app/bin/lib
+      - cp -r $BUNDLE_PATH/data /app/bin/data
+      - install -Dm644 packages/neon_framework/example/de.provokateurin.neon.desktop -t /app/share/applications/
+      - install -Dm644 packages/neon_framework/example/assets/logo_inverted.svg /app/share/icons/hicolor/scalable/apps/de.provokateurin.neon.svg
+    sources:
+      - type: git
+        url: https://github.com/flutter/flutter.git
+        tag: 3.38.9
+        dest: flutter
+      - type: dir
+        path: .
+
