@@ -24,7 +24,7 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@65eb853c7ba17dde3be364c3d2858773e7144260 # v1
         with:
-          sdk: 3.7
+          sdk: 3.13
       - name: Setup
         run: ./tool/setup.sh
 
@@ -102,7 +102,7 @@ jobs:
       - name: Install dart
         uses: dart-lang/setup-dart@65eb853c7ba17dde3be364c3d2858773e7144260 # v1
         with:
-          sdk: 3.7
+          sdk: 3.13
       - name: Setup
         run: ./tool/setup.sh
       - name: Build
