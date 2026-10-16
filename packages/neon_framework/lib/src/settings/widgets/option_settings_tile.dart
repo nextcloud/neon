@@ -20,6 +20,7 @@ class OptionSettingsTile extends InputSettingsTile {
     return switch (option) {
       ToggleOption() => ToggleSettingsTile(option: option as ToggleOption),
       SelectOption() => SelectSettingsTile(option: option as SelectOption),
+      TextOption() => TextEntrySettingsTile(option: option as TextOption),
     };
   }
 }
@@ -237,6 +238,103 @@ class SelectSettingsTileScreen<T> extends StatelessWidget {
           child: selector,
         ),
       ),
+    );
+  }
+}
+
+@internal
+class TextEntrySettingsTile extends InputSettingsTile<TextOption> {
+  const TextEntrySettingsTile({
+    required super.option,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder(
+      valueListenable: option,
+      builder: (context, value, child) {
+        return AdaptiveListTile.additionalInfo(
+          enabled: option.enabled,
+          title: child!,
+          additionalInfo: Text(value),
+          onTap: () async {
+            assert(option.enabled, 'Option must be enabled to handle taps');
+
+            final result = await showAdaptiveDialog<String>(
+              context: context,
+              builder: (context) => TextEntrySettingsTileDialog(
+                option: option,
+              ),
+            );
+
+            if (result != null) {
+              option.value = result;
+            }
+          },
+        );
+      },
+      child: Text(
+        option.label(context),
+      ),
+    );
+  }
+}
+
+@internal
+class TextEntrySettingsTileDialog extends StatefulWidget {
+  const TextEntrySettingsTileDialog({
+    required this.option,
+    super.key,
+  });
+
+  final TextOption option;
+
+  @override
+  State<TextEntrySettingsTileDialog> createState() => _TextEntrySettingsTileDialogState();
+}
+
+class _TextEntrySettingsTileDialogState extends State<TextEntrySettingsTileDialog> {
+  late final TextEditingController controller;
+
+  @override
+  void initState() {
+    controller = TextEditingController(text: widget.option.value);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  void submit() => Navigator.pop(context, controller.text);
+  void cancel() => Navigator.pop(context);
+
+  @override
+  Widget build(BuildContext context) {
+    final actions = [
+      TextButton(
+        onPressed: cancel,
+        child: Text(NeonLocalizations.of(context).actionClose),
+      ),
+      TextButton(
+        onPressed: submit,
+        child: Text(NeonLocalizations.of(context).actionContinue),
+      ),
+    ];
+
+    return AlertDialog(
+      title: Text(
+        widget.option.label(context),
+      ),
+      content: TextField(
+        controller: controller,
+        autofocus: true,
+        onSubmitted: (_) => submit(),
+      ),
+      actions: actions,
     );
   }
 }

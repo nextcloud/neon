@@ -321,4 +321,103 @@ void main() {
       expect(option.deserialize(false), false);
     });
   });
+
+  group('TextOption', () {
+    late TextOption option;
+
+    setUp(() {
+      // ignore: discarded_futures
+      when(() => storage.setString(key.value, any())).thenAnswer((_) async => true);
+      // ignore: discarded_futures
+      when(() => storage.remove(key.value)).thenAnswer((_) async => true);
+
+      option = TextOption(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: 'default',
+      );
+    });
+
+    tearDown(() {
+      reset(storage);
+      option.dispose();
+    });
+
+    test('Create', () {
+      expect(option.value, option.defaultValue, reason: 'Should default to defaultValue.');
+
+      when(() => storage.getString(key.value)).thenReturn('stored');
+
+      option = TextOption(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: 'default',
+      );
+
+      expect(option.value, 'stored', reason: 'Should load value from storage when available.');
+    });
+
+    test('Depend', () {
+      final enabled = ValueNotifier(false);
+      final callback = MockCallbackFunction();
+
+      option = TextOption.depend(
+        storage: storage,
+        key: key,
+        label: labelBuilder,
+        defaultValue: 'default',
+        enabled: enabled,
+      )..addListener(callback.call);
+
+      expect(option.enabled, enabled.value, reason: 'Should initialize with enabled value.');
+
+      enabled.value = true;
+      verify(callback.call).called(1);
+      expect(option.enabled, enabled.value, reason: 'Should update the enabled state.');
+    });
+
+    test('Update', () {
+      final callback = MockCallbackFunction();
+      option
+        ..addListener(callback.call)
+        ..value = 'new';
+
+      verify(callback.call).called(1);
+      // ignore: discarded_futures
+      verify(() => storage.setString(key.value, 'new')).called(1);
+      expect(option.value, 'new', reason: 'Should update the value.');
+
+      option.value = 'new';
+      verifyNever(callback.call); // Don't notify with the same value
+      expect(option.value, 'new', reason: 'Should keep the value.');
+    });
+
+    test('Reset', () {
+      final callback = MockCallbackFunction();
+      option
+        ..value = 'new'
+        ..addListener(callback.call);
+
+      expect(option.value, 'new');
+
+      option.reset();
+
+      verify(callback.call).called(1);
+      // ignore: discarded_futures
+      verify(() => storage.remove(key.value)).called(1);
+      expect(option.value, option.defaultValue, reason: 'Should reset the value.');
+    });
+
+    test('Serialize', () {
+      option.value = 'new';
+      expect(option.serialize(), 'new');
+    });
+
+    test('Deserialize', () {
+      expect(option.deserialize('value'), 'value');
+      expect(option.deserialize(null), null);
+    });
+  });
 }
