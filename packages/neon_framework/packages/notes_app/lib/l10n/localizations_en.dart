@@ -96,4 +96,10 @@ class NotesLocalizationsEn extends NotesLocalizations {
 
   @override
   String get optionsCategoriesSortPropertyNotesCount => 'Count of notes';
+
+  @override
+  String get optionsDefaultNoteCategory => 'Default note category';
+
+  @override
+  String get optionsDefaultNoteName => 'Default note name';
 }

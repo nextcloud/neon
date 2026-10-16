@@ -13,6 +13,8 @@ class NotesOptions extends AppImplementationOptions {
     super.options = [
       defaultCategoryOption,
       defaultNoteViewTypeOption,
+      defaultNoteCategoryOption,
+      defaultNoteNameOption,
       notesSortPropertyOption,
       notesSortBoxOrderOption,
       categoriesSortPropertyOption,
@@ -54,6 +56,22 @@ class NotesOptions extends AppImplementationOptions {
       DefaultNoteViewType.preview: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypePreview,
       DefaultNoteViewType.edit: (context) => NotesLocalizations.of(context).optionsDefaultNoteViewTypeEdit,
     },
+  );
+
+  late final defaultNoteCategoryOption = TextOption(
+    storage: super.storage,
+    category: generalCategory,
+    key: NotesOptionKeys.defaultNoteCategory,
+    label: (context) => NotesLocalizations.of(context).optionsDefaultNoteCategory,
+    defaultValue: '',
+  );
+
+  late final defaultNoteNameOption = TextOption(
+    storage: super.storage,
+    category: generalCategory,
+    key: NotesOptionKeys.defaultNoteName,
+    label: (context) => NotesLocalizations.of(context).optionsDefaultNoteName,
+    defaultValue: '',
   );
 
   late final notesSortPropertyOption = SelectOption<NotesSortProperty>(
@@ -104,6 +122,8 @@ class NotesOptions extends AppImplementationOptions {
 enum NotesOptionKeys implements Storable {
   defaultCategory._('default-category'),
   defaultNoteViewType._('default-note-view-type'),
+  defaultNoteCategory._('default-note-category'),
+  defaultNoteName._('default-note-name'),
   notesSortProperty._('notes-sort-property'),
   notesSortBoxOrder._('notes-sort-box-order'),
   categoriesSortProperty._('categories-sort-property'),

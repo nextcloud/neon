@@ -42,5 +42,7 @@
   "optionsCategoriesSortOrder": "Sort order of categories",
   "optionsCategoriesSortProperty": "How to sort categories",
   "optionsCategoriesSortPropertyAlphabetical": "Alphabetical",
-  "optionsCategoriesSortPropertyNotesCount": "Count of notes"
+  "optionsCategoriesSortPropertyNotesCount": "Count of notes",
+  "optionsDefaultNoteCategory": "Default note category",
+  "optionsDefaultNoteName": "Default note name"
 }
