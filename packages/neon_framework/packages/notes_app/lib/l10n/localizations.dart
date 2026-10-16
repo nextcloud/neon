@@ -264,6 +264,18 @@ abstract class NotesLocalizations {
   /// In en, this message translates to:
   /// **'Count of notes'**
   String get optionsCategoriesSortPropertyNotesCount;
+
+  /// No description provided for @optionsDefaultNoteCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Default note category'**
+  String get optionsDefaultNoteCategory;
+
+  /// No description provided for @optionsDefaultNoteName.
+  ///
+  /// In en, this message translates to:
+  /// **'Default note name'**
+  String get optionsDefaultNoteName;
 }
 
 class _NotesLocalizationsDelegate extends LocalizationsDelegate<NotesLocalizations> {

@@ -295,3 +295,48 @@ class ToggleOption extends Option<bool> {
   @override
   bool? deserialize(Object? data) => data as bool?;
 }
+
+/// [Option] with a String value.
+class TextOption extends Option<String> {
+  /// Creates a TextOption
+  TextOption({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required super.defaultValue,
+    super.category,
+    super.enabled,
+  }) : super(initialValue: storage.getString(key.value));
+
+  /// Creates a TextOption depending on the State of another [Option].
+  TextOption.depend({
+    required super.storage,
+    required super.key,
+    required super.label,
+    required super.defaultValue,
+    required super.enabled,
+    super.category,
+  }) : super.depend(
+          initialValue: storage.getString(key.value),
+        );
+
+  @override
+  void reset() {
+    unawaited(storage.remove(key.value));
+
+    super.reset();
+  }
+
+  @override
+  set value(String value) {
+    super.value = value;
+
+    unawaited(storage.setString(key.value, serialize()));
+  }
+
+  @override
+  String serialize() => value;
+
+  @override
+  String? deserialize(Object? data) => data as String?;
+}

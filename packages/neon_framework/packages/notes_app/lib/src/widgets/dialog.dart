@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:neon_framework/blocs.dart';
 import 'package:neon_framework/utils.dart';
 import 'package:neon_framework/widgets.dart';
 import 'package:notes_app/l10n/localizations.dart';
 import 'package:notes_app/src/blocs/notes.dart';
+import 'package:notes_app/src/options.dart';
 import 'package:notes_app/src/widgets/category_select.dart';
 
 /// A dialog for creating a note.
@@ -29,6 +31,41 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
   final formKey = GlobalKey<FormState>();
   final controller = TextEditingController();
   String? selectedCategory;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final options = NeonProvider.of<NotesOptions>(context);
+
+    controller.text = _formatNoteName(options.defaultNoteNameOption.value, DateTime.now());
+
+    final defaultCategory = options.defaultNoteCategoryOption.value;
+    if (widget.initialCategory == null && defaultCategory.isNotEmpty) {
+      selectedCategory = defaultCategory;
+    }
+  }
+
+  /// Formats [date] into the note name [template] using [DateFormat] patterns.
+  ///
+  /// If [template] contains `{pattern}` placeholders only those are formatted and the remaining text is kept as is,
+  /// e.g. `Meeting {yy.MM.dd}`. Otherwise the whole [template] is used as the pattern, e.g. `yy.MM.dd`.
+  static String _formatNoteName(String template, DateTime date) {
+    String format(String pattern, String fallback) {
+      try {
+        return DateFormat(pattern).format(date);
+      } on Object {
+        return fallback;
+      }
+    }
+
+    final placeholder = RegExp('{([^{}]+)}');
+    if (!placeholder.hasMatch(template)) {
+      return template.isEmpty ? template : format(template, template);
+    }
+
+    return template.replaceAllMapped(placeholder, (match) => format(match.group(1)!, match.group(0)!));
+  }
 
   @override
   void dispose() {
@@ -79,6 +116,7 @@ class _NotesCreateNoteDialogState extends State<NotesCreateNoteDialog> {
         }
 
         return NotesCategorySelect(
+          initialValue: selectedCategory,
           categories: notes.requireData.map((note) => note.category).toSet().toList(),
           onChanged: (category) {
             selectedCategory = category;
