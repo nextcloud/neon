@@ -38,7 +38,7 @@ dev_dependencies:
     sdk: flutter
   go_router_builder: ^3.0.0
   http: ^1.6.0
-  mocktail: ^1.0.4
+  mocktail: ^1.0.5
   neon_lints:
     path: ../../../neon_lints
   provider: ^6.1.5
