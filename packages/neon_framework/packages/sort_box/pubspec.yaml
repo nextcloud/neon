@@ -7,7 +7,7 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
-  built_collection: ^5.0.0
+  built_collection: ^6.0.0
   meta: ^1.0.0
 
 dev_dependencies:
