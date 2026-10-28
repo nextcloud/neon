@@ -4,11 +4,14 @@ import 'package:account_repository/account_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
+import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 part 'login_flow_v2_event.dart';
 part 'login_flow_v2_state.dart';
+
+final _log = Logger('LoginFlowV2Bloc');
 
 @internal
 class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
@@ -19,13 +22,12 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
         super(LoginFlowV2StateInitial(serverURL: serverURL)) {
     on<LoginFlowV2Init>(_onLoginFlowV2Init);
     on<LoginFlowV2OpenPage>(_onLoginFlowV2OpenPage);
-    on<_LoginFlowV2Poll>(
-      _onLoginFlowV2Poll,
-      transformer: droppable(),
-    );
+    on<_LoginFlowV2Poll>(_onLoginFlowV2Poll, transformer: droppable());
   }
 
   final AccountRepository _accountRepository;
+
+  String? _lastLoggedError;
 
   Timer? _pollTimer;
 
@@ -44,7 +46,7 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
       );
 
       add(const LoginFlowV2OpenPage());
-      _pollTimer = Timer.periodic(const Duration(seconds: 1), (_) {
+      _pollTimer = Timer.periodic(const Duration(milliseconds: 500), (_) {
         add(const _LoginFlowV2Poll());
       });
     } on InitLoginFailure catch (error, stackTrace) {
@@ -86,13 +88,20 @@ class LoginFlowV2Bloc extends Bloc<LoginFlowV2Event, LoginFlowV2State> {
         );
       }
     } on PollLoginFailure catch (error, stackTrace) {
-      emit(
-        LoginFlowV2StateInitial(
-          serverURL: state.serverURL,
-        ),
-      );
+      // Do not abort polling here, because app could be simply in background waiting for user to return.
       addError(error.error, stackTrace);
     }
+  }
+
+  @override
+  void onError(Object error, StackTrace stackTrace) {
+    final errorSignature = error.toString();
+    if (_lastLoggedError != errorSignature) {
+      // Avoid repeating identical error logs while polling continues to fail the same way.
+      _log.warning('Login flow error.', error, stackTrace);
+      _lastLoggedError = errorSignature;
+    }
+    super.onError(error, stackTrace);
   }
 
   @override

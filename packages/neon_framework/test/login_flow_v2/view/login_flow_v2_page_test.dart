@@ -139,7 +139,7 @@ void main() {
           await tester.pumpWidgetWithAccessibility(buildSubject());
           expect(find.byType(ElevatedButton), findsOneWidget);
           await tester.tap(find.byType(ElevatedButton));
-          verify(() => loginFlowV2Bloc.add(const LoginFlowV2OpenPage())).called(1);
+          verify(() => loginFlowV2Bloc.add(const LoginFlowV2Init())).called(1);
         },
       );
     });

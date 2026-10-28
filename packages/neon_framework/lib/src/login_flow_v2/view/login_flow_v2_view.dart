@@ -23,17 +23,23 @@ class LoginFLowV2View extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(NeonLocalizations.of(context).loginSwitchToBrowserWindow),
-            const SizedBox(
-              height: 10,
-            ),
-            if (state case LoginFlowV2StatePolling())
-              ElevatedButton(
-                onPressed: () => context.read<LoginFlowV2Bloc>().add(const LoginFlowV2OpenPage()),
-                child: Text(NeonLocalizations.of(context).loginOpenAgain),
-              ),
+            const SizedBox(height: 10),
+            if (state case LoginFlowV2StatePolling()) ..._buildPollingState(context),
           ],
         );
       },
     );
+  }
+
+  List<Widget> _buildPollingState(BuildContext context) {
+    return [
+      const CircularProgressIndicator(),
+      const SizedBox(height: 10),
+      ElevatedButton(
+        // Give the user full control over restarting the entire login workflow.
+        onPressed: () => context.read<LoginFlowV2Bloc>().add(const LoginFlowV2Init()),
+        child: Text(NeonLocalizations.of(context).loginOpenAgain),
+      ),
+    ];
   }
 }

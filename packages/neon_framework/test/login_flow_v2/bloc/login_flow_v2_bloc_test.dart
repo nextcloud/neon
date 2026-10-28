@@ -127,15 +127,12 @@ void main() {
           );
         },
         act: (bloc) => bloc.add(const LoginFlowV2Init()),
-        wait: const Duration(seconds: 2),
+        wait: const Duration(milliseconds: 750),
         expect: () => [
           LoginFlowV2StatePolling(
             serverURL: serverURL,
             loginEndpoint: Uri.https('login_uri'),
             token: 'token',
-          ),
-          LoginFlowV2StateInitial(
-            serverURL: serverURL,
           ),
         ],
         errors: () => <Matcher>[
