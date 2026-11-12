@@ -22,7 +22,7 @@ jobs:
           java-version: 17
 
       - name: Install dart
-        uses: dart-lang/setup-dart@65eb853c7ba17dde3be364c3d2858773e7144260 # v1
+        uses: dart-lang/setup-dart@2286a0c042b44434fe26d292bbce8d34f7ec662b # v1
         with:
           sdk: 3.7
       - name: Setup
@@ -100,7 +100,7 @@ jobs:
           platforms: linux/${{ matrix.architecture.docker }}
 
       - name: Install dart
-        uses: dart-lang/setup-dart@65eb853c7ba17dde3be364c3d2858773e7144260 # v1
+        uses: dart-lang/setup-dart@2286a0c042b44434fe26d292bbce8d34f7ec662b # v1
         with:
           sdk: 3.7
       - name: Setup
