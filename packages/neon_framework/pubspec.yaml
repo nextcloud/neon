@@ -76,7 +76,7 @@ dependencies:
   xml: ^6.0.0
 
 dev_dependencies:
-  bloc_test: ^10.0.0
+  bloc_test: ^10.0.1
   build_runner: ^2.5.4
   built_value_generator: ^8.10.1
   code_builder: ^4.11.1
